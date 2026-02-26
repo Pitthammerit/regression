@@ -3,6 +3,7 @@ import { podcast } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'
+import CustomVideoPlayer from '../ui/CustomVideoPlayer'
 
 export default function PodcastSection() {
   return (
@@ -17,15 +18,12 @@ export default function PodcastSection() {
         </p>
       </div>
 
-      {/* YouTube Embed */}
-      <div className="relative aspect-video rounded overflow-hidden bg-brand-sand mb-12 max-w-4xl" data-testid="podcast-video-embed">
-        <iframe
+      {/* YouTube — custom glass player (hides YouTube controls & branding) */}
+      <div className="max-w-4xl mb-12">
+        <CustomVideoPlayer
+          type="youtube"
           src={podcast.youtubeEmbedUrl}
-          className="absolute inset-0 w-full h-full"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title={podcast.youtubeTitle}
+          data-testid="podcast-video-embed"
         />
       </div>
 
