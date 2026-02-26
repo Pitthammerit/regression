@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { about } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import { r2 } from '../../utils/media'
 
 const ABOUT_PHOTO = 'RTR2/photos/benjamin-kurtz.jpg'
+
+function PhotoWithFallback({ label }) {
+  const [failed, setFailed] = useState(false)
+  return (
+    <div className="aspect-[3/4] rounded overflow-hidden bg-brand-sand flex items-center justify-center text-brand-muted font-sans text-sm max-w-sm">
+      {!failed ? (
+        <img
+          src={r2(ABOUT_PHOTO)}
+          alt="Benjamin Kurtz"
+          className="w-full h-full object-cover"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <span>{label}</span>
+      )}
+    </div>
+  )
+}
 
 export default function AboutSection() {
   return (
