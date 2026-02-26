@@ -34,10 +34,10 @@ export default function Header({ nav, cta }) {
           <img
             src={r2(logos.dark)}
             alt="Benjamin Kurtz Academy"
-            className="h-8 object-contain"
+            className="h-9 object-contain"
             onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block' }}
           />
-          <span style={{ display: 'none' }}>Benjamin Kurtz Academy</span>
+          <span className="font-serif text-brand-deep text-lg tracking-wide" style={{ display: 'none' }}>Benjamin Kurtz Academy</span>
         </a>
 
         {/* Desktop Nav */}
