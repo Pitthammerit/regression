@@ -45,7 +45,7 @@ export const podcast = {
   headline: "Hör rein — bevor du buchst.",
   subline:
     "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",
-  youtubeEmbedUrl: "https://www.youtube.com/embed/U5L07PmViis",
+  youtubeEmbedUrl: "https://www.youtube.com/watch?v=U5L07PmViis",
   youtubeTitle: "Regressions Sessions mit Benjamin Kurtz — berggesundheit Podcast mit Tobias Berg",
   ctaBelow: "Intro-Call buchen",
   podcastLinks: [
