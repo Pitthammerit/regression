@@ -30,7 +30,7 @@ export default function Header({ nav, cta }) {
       <div className="max-w-content mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
-        <a href="#" data-testid="site-logo" className="font-serif text-brand-deep text-lg tracking-wide hover:opacity-80 transition-opacity">
+        <a href="/" data-testid="site-logo" className="font-serif text-brand-deep text-lg tracking-wide hover:opacity-80 transition-opacity">
           <img
             src={r2(logos.dark)}
             alt="Benjamin Kurtz Academy"

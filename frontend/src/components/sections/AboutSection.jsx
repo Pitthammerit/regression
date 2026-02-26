@@ -13,20 +13,7 @@ export default function AboutSection() {
 
         {/* Left: Photo */}
         <div>
-          <div className="aspect-[3/4] rounded overflow-hidden bg-brand-sand flex items-center justify-center text-brand-muted font-sans text-sm max-w-sm">
-            <img
-              src={r2(ABOUT_PHOTO)}
-              alt="Benjamin Kurtz"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.style.display = 'none'
-                e.target.parentElement.querySelector('.placeholder-text').style.display = 'flex'
-              }}
-            />
-            <span className="placeholder-text absolute inset-0 items-center justify-center text-brand-muted font-sans text-sm hidden">
-              {about.photoPlaceholder}
-            </span>
-          </div>
+          <PhotoWithFallback label={about.photoPlaceholder} />
         </div>
 
         {/* Right: Bio */}
