@@ -47,11 +47,12 @@ export default function HeroSection() {
               <span>{hero.videoPlaceholder}</span>
             </div>
             <iframe
-              src={`${hero.vimeoEmbedUrl}?title=0&byline=0&portrait=0&autoplay=0`}
+              src={`${hero.vimeoEmbedUrl}?app_id=122963&title=0&byline=0&portrait=0`}
               className="absolute inset-0 w-full h-full z-10"
               frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
               allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
               title="Benjamin Kurtz — Intro Video"
               data-testid="hero-video-embed"
             />
