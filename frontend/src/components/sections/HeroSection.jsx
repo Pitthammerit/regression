@@ -42,9 +42,13 @@ export default function HeroSection() {
 
           {/* Right: Vimeo Video */}
           <div className="relative aspect-video rounded overflow-hidden bg-brand-sand shadow-lg">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-brand-muted font-sans text-sm gap-2 px-6 text-center">
+              <span className="text-xs tracking-widest uppercase text-brand-steel">Video</span>
+              <span>{hero.videoPlaceholder}</span>
+            </div>
             <iframe
-              src={`${hero.vimeoEmbedUrl}?title=0&byline=0&portrait=0`}
-              className="absolute inset-0 w-full h-full"
+              src={`${hero.vimeoEmbedUrl}?title=0&byline=0&portrait=0&autoplay=0`}
+              className="absolute inset-0 w-full h-full z-10"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
