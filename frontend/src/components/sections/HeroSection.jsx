@@ -41,19 +41,14 @@ export default function HeroSection() {
           </div>
 
           {/* Right: Vimeo Video */}
-          <div className="relative aspect-video rounded overflow-hidden bg-brand-sand shadow-lg">
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-brand-muted font-sans text-sm gap-2 px-6 text-center">
-              <span className="text-xs tracking-widest uppercase text-brand-steel">Video</span>
-              <span>{hero.videoPlaceholder}</span>
-            </div>
+          <div className="relative rounded overflow-hidden shadow-lg" style={{padding:'56.25% 0 0 0', position:'relative'}}>
             <iframe
-              src={`${hero.vimeoEmbedUrl}?app_id=122963&title=0&byline=0&portrait=0`}
-              className="absolute inset-0 w-full h-full z-10"
+              src="https://player.vimeo.com/video/1168643769?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=0"
               frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              allowFullScreen
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
-              title="Benjamin Kurtz — Intro Video"
+              style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}}
+              title="Intro Regression EN 0016 trim"
               data-testid="hero-video-embed"
             />
           </div>
