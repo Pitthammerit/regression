@@ -6,53 +6,52 @@ import LazyImage from '../ui/LazyImage'
 export default function WelcomeSection() {
   return (
     <SectionWrapper id="welcome" data-testid="welcome-section">
-      <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-10 md:gap-16 items-center">
+      <div className="grid md:grid-cols-[300px_1fr] lg:grid-cols-[340px_1fr] gap-10 md:gap-16 items-start">
 
-        {/* Left: Circular portrait */}
-        <div className="flex justify-center md:justify-start">
-          <div
-            className="w-52 h-52 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 ring-4 ring-brand-sand shadow-lg"
-          >
+        {/* Left: Circular portrait + greeting directly below */}
+        <div className="flex flex-col items-center md:items-start gap-6">
+          <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 ring-4 ring-brand-sand shadow-lg">
             <LazyImage
               src={welcome.imageUrl}
               alt={welcome.author}
               className="w-full h-full object-cover object-top"
             />
           </div>
+          {/* Greeting directly under photo */}
+          <p className="font-serif text-xl md:text-2xl text-brand-deep text-center md:text-left leading-snug">
+            {welcome.quoteLines[0]}
+          </p>
         </div>
 
-        {/* Right: Quote */}
-        <div>
-          {/* Opening quote mark */}
+        {/* Right: Body text + signature */}
+        <div className="flex flex-col justify-center pt-2">
           <span
-            className="font-serif text-brand-deep/15 leading-none block mb-1 select-none"
-            style={{ fontSize: '6rem', lineHeight: 1 }}
+            className="font-serif text-brand-deep/15 leading-none block mb-2 select-none"
+            style={{ fontSize: '5rem', lineHeight: 1 }}
             aria-hidden="true"
           >
             "
           </span>
 
-          <blockquote className="space-y-4">
-            {welcome.quoteLines.map((line, i) => (
+          <div className="space-y-5">
+            {welcome.quoteLines.slice(1).map((line, i) => (
               <p
                 key={i}
-                className={`font-serif leading-relaxed ${
-                  i === 0
-                    ? 'text-xl md:text-2xl text-brand-deep font-medium'
-                    : 'text-lg md:text-xl italic text-brand-body/80'
-                }`}
+                className="font-serif italic text-xl md:text-2xl lg:text-3xl text-brand-body/80 leading-relaxed"
               >
                 {line}
               </p>
             ))}
-          </blockquote>
+          </div>
 
-          <footer className="mt-8 flex items-center gap-3">
-            <div className="w-8 h-px bg-brand-steel/40" />
-            <span className="font-sans text-sm tracking-[0.2em] uppercase text-brand-steel">
-              {welcome.author}
-            </span>
-          </footer>
+          {/* Signature image */}
+          <div className="mt-8">
+            <img
+              src={welcome.signatureUrl}
+              alt={welcome.author}
+              className="h-14 md:h-16 object-contain object-left opacity-80"
+            />
+          </div>
         </div>
       </div>
     </SectionWrapper>
