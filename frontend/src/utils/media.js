@@ -1,5 +1,3 @@
-import React from 'react'
-
 const R2_BASE = process.env.REACT_APP_R2_BASE_URL || 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev'
 
 export const r2 = (path) => `${R2_BASE}/${path.replace(/ /g, '%20')}`
