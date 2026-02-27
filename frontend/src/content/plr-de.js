@@ -41,17 +41,17 @@ export const statement = {
 };
 
 export const podcast = {
-  label: "IM GESPRÄCH",
-  headline: "Hör rein — bevor du buchst.",
+  label: "IM PODCAST",
+  headline: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
   subline:
     "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",
   youtubeEmbedUrl: "https://www.youtube.com/watch?v=U5L07PmViis",
   youtubeTitle: "Regressions Sessions mit Benjamin Kurtz — berggesundheit Podcast mit Tobias Berg",
   ctaBelow: "Intro-Call buchen",
+  listenLabel: "Podcast-Gespräch anhören",
   podcastLinks: [
     { label: "Spotify", url: "https://open.spotify.com/episode/3D9V2pK9kdT6ED9FENxpnW?si=7rD9pMrcSV6uLq-tOoMICA" },
     { label: "Apple Podcasts", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
-    { label: "YouTube", url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
   ],
 };
 
