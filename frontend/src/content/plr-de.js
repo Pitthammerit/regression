@@ -185,6 +185,7 @@ export const cases = {
   items: [
     {
       name: "Marina", gender: "female",
+      image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/Marina-%202.jpeg",
       title: "Ein neuer Bauplan",
       teaser: "Knöcheltief ins Meer — unmöglich. Ein Erlebnis zwischen den Leben löste, was Jahre nicht lösen konnten.",
       tag: "Todesangst · Trauma · Zwischen den Leben",
