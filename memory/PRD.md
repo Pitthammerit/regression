@@ -60,7 +60,16 @@ Hero → Services → Welcome → Statement → WhatIs → Podcast → ForWhom �
 - WelcomeSection with quote, image, signature
 - Multiple layout iterations per user feedback
 
-### Session 5 (Feb 2026) — Further Refinements
+### Session 6 (Feb 2026) — Redesign-Paket (Nachricht #222)
+
+Alle 5 Anforderungen aus der Benutzernachricht #222 implementiert und getestet (10/10 Tests bestanden):
+
+1. **Header Redesign:** Full-Width-Layout (`w-full px-6`), Logo ganz links, Nav+CTA ganz rechts — bereits in vorheriger Session implementiert ✅
+2. **Header Mobile:** CTA-Button ("INTRO CALL") immer sichtbar neben Burger-Icon (im `md:hidden` Container) — bereits implementiert ✅
+3. **ProcessSection Mobile-Fix:** Große Hintergrundzahlen (1/2/3) skalieren jetzt responsiv: CSS-Klasse `.process-bg-number` in `index.css` — Desktop: 21-28rem, top:-240px; Mobile: 9rem, top:-20px; `overflow-hidden md:overflow-visible` verhindert Überlappung
+4. **CaseStudiesSection:** Marina (index 0) öffnet standardmäßig via `useState(0)`; Klick-Hinweis "Klicke auf die Namen" erscheint bei ersten 3 Seitenladern (localStorage-basiert); Tanja-Fußnote "* Namen wurde geändert" nur in Tanjas Akkordeon (via `item.name.includes('*')`)
+5. **Footer Redesign:** Drei-Spalten-Layout — Navigation (Header-Links), Rechtliches (Terms/Privacy/Imprint/Academy Home), Folgen (Social); unten: "Benjamin Kurtz Academy LLC" + "Grounded Spirituality Aligned with Your Purpose"
+6. **CtaButton fix:** Leitet nun custom `data-testid` props weiter via `...rest`
 
 7 further changes implemented and tested:
 
