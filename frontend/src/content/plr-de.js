@@ -193,7 +193,7 @@ export const cases = {
       result: "Als ich ihr danach die Frage noch einmal stellte — zwei Wochen zu leben — war sie vollkommen ruhig: \"Dann würde ich allen Menschen, die ich liebe, sagen, dass ich sie liebe.\" Am gleichen Abend ging sie bis zur Hüfte ins Meer. Keine Panik. Ein Jahr später: ein tiefes Urvertrauen, dass nichts wirklich endet — für sie, und für ihren Stiefvater.",
     },
     {
-      name: "Tanja", gender: "female",
+      name: "Tanja*", gender: "female",
       title: "Zurück nach Hause",
       teaser: "Sie fühlte sich in Konflikten wie eine andere Person. Die Antwort lag dreißig Jahre zurück.",
       tag: "Trauma · Channeling · Familiensystem",

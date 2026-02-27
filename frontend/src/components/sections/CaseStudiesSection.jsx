@@ -94,6 +94,11 @@ export default function CaseStudiesSection() {
           </div>
         ))}
       </div>
+
+      {/* Footnote for anonymised names */}
+      <p className="font-sans text-xs text-brand-muted/35 mt-8 pt-6 border-t border-black/6">
+        * Namen wurde geändert
+      </p>
     </SectionWrapper>
   )
 }
