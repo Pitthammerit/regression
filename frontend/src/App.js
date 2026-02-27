@@ -31,8 +31,8 @@ function MainPage() {
         <StatementSection />
         <ForWhomSection />
         <AboutSection />
-        <PodcastSection />
         <ProcessSection />
+        <PodcastSection />
         <CaseStudiesSection />
         <TestimonialsSection />
         <BookingSection />
