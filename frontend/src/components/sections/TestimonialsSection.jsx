@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
           <div className="grid md:grid-cols-3 gap-10 md:gap-14 mt-10">
             {testimonials.authorityQuotes.map((q, i) => (
               <div key={i} className="border-t border-white/20 pt-8">
-                <blockquote className="font-serif italic text-lg md:text-xl text-white/90 leading-relaxed mb-8">
+                <blockquote className="font-serif italic text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
                   "{q.quote}"
                 </blockquote>
                 <div className="font-sans text-sm font-medium text-white/70">{q.name}</div>
@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
                 className="bg-white/50 rounded p-8 md:p-10 border border-brand-sand"
                 data-testid={`testimonial-card-${i}`}
               >
-                <blockquote className="font-serif italic text-lg text-brand-body leading-relaxed mb-8">
+                <blockquote className="font-serif italic text-xl md:text-2xl text-brand-body leading-relaxed mb-8">
                   "{c.quote}"
                 </blockquote>
                 <div className="font-sans text-sm font-medium text-brand-deep">{c.name}</div>

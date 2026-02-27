@@ -13,7 +13,7 @@ export default function PodcastSection() {
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-deep mb-6 leading-tight">
           {podcast.headline}
         </h2>
-        <p className="font-sans text-brand-muted text-base leading-[1.8] mb-12">
+        <p className="font-sans text-brand-muted text-lg leading-relaxed mb-12">
           {podcast.subline}
         </p>
       </div>
