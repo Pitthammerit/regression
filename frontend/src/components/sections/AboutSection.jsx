@@ -12,7 +12,7 @@ export default function AboutSection() {
 
         {/* Left: Portrait photo — sticky */}
         <div className="md:sticky md:top-28">
-          <div className="aspect-[3/4] rounded overflow-hidden bg-brand-sand max-w-sm">
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-brand-sand max-w-sm">
             <LazyImage
               src={r2(portraits.p37)}
               alt="Benjamin Kurtz"

@@ -75,7 +75,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
   return (
     <div
-      className={`relative rounded overflow-hidden bg-brand-dark group cursor-pointer ${className}`}
+      className={`relative rounded-2xl overflow-hidden bg-brand-dark group cursor-pointer ${className}`}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >

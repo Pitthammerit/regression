@@ -21,7 +21,7 @@ export default function BookingSection() {
 
         {isEmbed ? (
           /* State B — Production: Iframe embed */
-          <div className="rounded border border-brand-sand overflow-hidden text-left">
+          <div className="rounded-2xl border border-brand-sand overflow-hidden text-left">
             <iframe
               src={fluentsUrl}
               className="w-full min-h-[600px] border-0"
