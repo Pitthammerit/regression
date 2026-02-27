@@ -1,7 +1,7 @@
 # PRD — Benjamin Kurtz Academy Landing Page
 
-**Erstellt:** Februar 2026  
-**Status:** Prototype live
+**Erstellt:** Februar 2026
+**Status:** Iteration 1 complete — production-ready
 
 ---
 
@@ -12,9 +12,9 @@ Single-page React landing page for Benjamin Kurtz Academy — a German-language 
 
 ## Architecture
 
-**Stack:** React (CRA) · Tailwind CSS v3 · Lucide React · Google Fonts (Cormorant Garamond + DM Sans)  
-**Hosting:** Emergent Platform (frontend only, no backend)  
-**Media:** Cloudflare R2 (`pub-d53492a253b841429ca6f2f9281daf17.r2.dev`)  
+**Stack:** React (CRA) · Tailwind CSS v3 · Lucide React · Google Fonts (Cormorant Garamond + DM Sans)
+**Hosting:** Emergent Platform (frontend only, no backend)
+**Media:** Cloudflare R2 (`pub-d53492a253b841429ca6f2f9281daf17.r2.dev`)
 **Booking:** `https://www.benjaminkurtz.de/bookings/wakeup` (direct link, future: Fluent Forms iframe)
 
 ---
@@ -32,8 +32,8 @@ Single-page React landing page for Benjamin Kurtz Academy — a German-language 
 | brand-cream | #F0EBE1 | Page background |
 | brand-sand | #EDE7DC | Cards, dividers |
 
-**Fonts:** `font-serif` = Cormorant Garamond · `font-sans` = DM Sans  
-**Section padding:** py-24 md:py-32 minimum  
+**Fonts:** `font-serif` = Cormorant Garamond · `font-sans` = DM Sans
+**Section padding:** py-16 md:py-20 (all sections via SectionWrapper)
 **Background:** Single unified parchment texture (#F0EBE1 + SVG noise)
 
 ---
@@ -55,20 +55,25 @@ src/
 ├── utils/media.js          — Cloudflare R2 helper + logos
 ├── components/
 │   ├── ui/CtaButton.jsx
-│   ├── ui/SectionWrapper.jsx
+│   ├── ui/SectionWrapper.jsx   — py-16 md:py-20 default padding
 │   ├── ui/SectionLabel.jsx
-│   ├── Header.jsx          — sticky, mobile hamburger menu
+│   ├── ui/CustomVideoPlayer.jsx
+│   ├── ui/LazyImage.jsx
+│   ├── Header.jsx          — sticky, CTA visible only after 300px scroll
 │   ├── Footer.jsx          — dark bg, 3-column
 │   └── sections/
-│       ├── HeroSection.jsx          — Vimeo embed + headline
+│       ├── HeroV3Section.jsx        — Editorial hero (final design)
+│       ├── HeroAlt1.jsx             — Archive: V1 two-column
+│       ├── HeroAlt2.jsx             — Archive: V2 centered
+│       ├── HeroAlt3.jsx             — Archive: V3 original (re-export)
 │       ├── StatementSection.jsx     — centered philosophical quote
 │       ├── PodcastSection.jsx       — YouTube embed + links
 │       ├── WhatIsSection.jsx        — 2-col + skeptic accordion
 │       ├── ForWhomSection.jsx       — 8 topic cards 4×2 grid
-│       ├── AboutSection.jsx         — photo + bio + credentials
+│       ├── AboutSection.jsx         — sticky photo + bio + credentials (text-lg)
 │       ├── ProcessSection.jsx       — 3-step flow
 │       ├── CaseStudiesSection.jsx   — 3-case accordion
-│       ├── TestimonialsSection.jsx  — dark authority quotes + client cards
+│       ├── TestimonialsSection.jsx  — dark authority quotes (text-xl/2xl) + client cards
 │       └── BookingSection.jsx       — direct link / iframe (env-controlled)
 └── App.js
 ```
@@ -86,8 +91,9 @@ REACT_APP_BOOKING_MODE=link   ← set to 'embed' to activate iframe
 
 ---
 
-## What's Been Implemented (Feb 2026)
+## What's Been Implemented
 
+### Phase 1 — Initial Build (Feb 2026)
 - [x] Full React app bootstrapped with CRA
 - [x] Tailwind CSS v3 configured with all brand tokens
 - [x] Google Fonts (Cormorant Garamond + DM Sans) in index.html
@@ -96,9 +102,23 @@ REACT_APP_BOOKING_MODE=link   ← set to 'embed' to activate iframe
 - [x] Skeptic accordion in WhatIs section
 - [x] CaseStudies 3-part accordion (Marina, Tanja, Javi)
 - [x] Booking section with env-controlled link/iframe mode
-- [x] Cloudflare R2 image helper (logos + photo paths ready)
-- [x] Logo image fallback to text until R2 image uploaded
-- [x] 95% test pass rate (all core features working)
+- [x] Cloudflare R2 image helper (logos + photo paths)
+- [x] Custom Vimeo glass player (click-to-play)
+- [x] Custom YouTube player (no branding)
+- [x] LazyImage component for optimized loading
+
+### Iteration 1 Fixes (Feb 2026)
+- [x] **Hero redesign (V3):** "DEINE SEELE." small/muted → "ERINNERT SICH." dominant large → "Bist du bereit zuzuhören?" left-aligned
+- [x] **Video layout:** off-center, right-shifted with portrait anchors
+- [x] **Hero CTA:** Only podcast link visible in hero (no primary CTA button)
+- [x] **Scroll indicator:** animated ChevronDown at bottom-right
+- [x] **Header scroll CTA:** "Intro-Call buchen" button appears only after 300px scroll (opacity transition)
+- [x] **Section spacing:** Reduced from py-24 md:py-32 → py-16 md:py-20
+- [x] **Body typography:** text-lg leading-relaxed (About, WhatIs, ForWhom, Podcast)
+- [x] **Quote typography:** Testimonials blockquotes → text-xl md:text-2xl
+- [x] **About sticky image:** md:sticky md:top-28 on portrait column
+- [x] **Alternative Hero archives:** HeroAlt1/2/3.jsx saved
+- [x] App.js cleaned up (no more comparison dividers)
 
 ---
 
@@ -106,17 +126,17 @@ REACT_APP_BOOKING_MODE=link   ← set to 'embed' to activate iframe
 
 ### P0 — Needs user action
 - [ ] Fix Vimeo video privacy: vimeo.com → video 1168643769 → Settings → Privacy → Allow embeds
-- [ ] Upload logo to R2: `RTR2/logos/BK Academy 300 px black.png`
-- [ ] Upload Benjamin Kurtz photo to R2: `RTR2/photos/benjamin-kurtz.jpg`
+- [ ] Upload logo to R2: `RTR2/logos/BK Academy 300 px black.png` (currently using logos/ path)
 
 ### P1 — Next dev tasks
-- [ ] Add real client testimonials (replace placeholder text)
-- [ ] Implement Fluent Forms iframe when URL is ready (just set REACT_APP_BOOKING_MODE=embed)
+- [ ] Add real client testimonials (replace placeholder text in plr-de.js)
+- [ ] Implement Fluent Forms iframe when URL is ready (set REACT_APP_BOOKING_MODE=embed)
 - [ ] SEO: og:image, og:title, structured data
 - [ ] Favicon with BK Academy favicon from R2
 
 ### P2 — Future
-- [ ] English language version (i18n setup prepared in reusable components)
+- [ ] English language version (i18n)
 - [ ] Analytics integration (GA4 or Plausible)
 - [ ] Accessibility audit (ARIA labels, keyboard nav)
 - [ ] Performance optimization (lazy-load embeds below fold)
+- [ ] Cloudflare R2 video streaming for Hero (when video uploaded)
