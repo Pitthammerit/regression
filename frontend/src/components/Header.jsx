@@ -30,25 +30,27 @@ export default function Header({ nav, cta }) {
         scrolled ? 'border-b border-black/8 py-4' : 'py-6'
       }`}
     >
-      {/* Full-width inner: logo far left, nav + CTA far right */}
-      <div className="w-full px-6 md:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
+      {/* Three-zone layout: Logo | Nav (centered) | CTA */}
+      <div className="w-full px-6 md:px-10 lg:px-16 xl:px-20 flex items-center">
 
-        {/* Logo */}
-        <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity">
-          <LazyImage
-            src={r2(logos.dark)}
-            alt="Benjamin Kurtz Academy"
-            className="h-8 object-contain"
-            fallback={
-              <span className="font-serif text-brand-deep text-sm tracking-widest uppercase">
-                Benjamin Kurtz Academy
-              </span>
-            }
-          />
-        </a>
+        {/* Zone 1 — Logo (left) */}
+        <div className="flex-1">
+          <a href="/" data-testid="site-logo" className="inline-block hover:opacity-70 transition-opacity">
+            <LazyImage
+              src={r2(logos.dark)}
+              alt="Benjamin Kurtz Academy"
+              className="h-8 object-contain"
+              fallback={
+                <span className="font-serif text-brand-deep text-sm tracking-widest uppercase">
+                  Benjamin Kurtz Academy
+                </span>
+              }
+            />
+          </a>
+        </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        {/* Zone 2 — Desktop Nav (center) */}
+        <nav className="hidden md:flex flex-none items-center gap-10">
           {nav.map((item) => (
             <a
               key={item.anchor}
@@ -60,29 +62,37 @@ export default function Header({ nav, cta }) {
               {item.label}
             </a>
           ))}
-          <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-            <CtaButton label={cta} variant="primary" />
-          </div>
         </nav>
 
-        {/* Mobile: CTA always visible left of burger */}
-        <div className="flex items-center gap-3 md:hidden">
-          <CtaButton
-            label={cta}
-            variant="primary"
-            className="!py-2 !px-4 !text-xs"
-            data-testid="mobile-cta-button"
-          />
-          <button
-            className="flex flex-col justify-center gap-1.5 p-1"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
-            data-testid="mobile-menu-toggle"
-          >
-            <span className={`block w-6 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-            <span className={`block w-6 h-px bg-brand-deep transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-4 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[7px] w-6' : ''}`} />
-          </button>
+        {/* Zone 3 — CTA + mobile controls (right) */}
+        <div className="flex-1 flex justify-end items-center gap-3">
+
+          {/* Desktop CTA — scroll-triggered */}
+          <div className={`hidden md:block transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <CtaButton label={cta} variant="primary" />
+          </div>
+
+          {/* Mobile: scroll-triggered CTA + burger */}
+          <div className="flex items-center gap-3 md:hidden">
+            <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <CtaButton
+                label={cta}
+                variant="primary"
+                className="!py-2 !px-4 !text-xs"
+                data-testid="mobile-cta-button"
+              />
+            </div>
+            <button
+              className="flex flex-col justify-center gap-1.5 p-1"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Menu"
+              data-testid="mobile-menu-toggle"
+            >
+              <span className={`block w-6 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+              <span className={`block w-6 h-px bg-brand-deep transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-4 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[7px] w-6' : ''}`} />
+            </button>
+          </div>
         </div>
       </div>
 
