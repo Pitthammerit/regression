@@ -103,11 +103,12 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
       {/* Content */}
       <div className="relative z-10 p-8 flex flex-col items-center text-center gap-5">
 
-        {/* Thumbnail */}
+        {/* Thumbnail — sharp, larger, center stage */}
         <img
           src={thumbnailUrl}
           alt={title}
-          className="w-28 h-28 object-cover rounded-xl shadow-2xl"
+          className="w-36 h-36 object-cover shadow-2xl"
+          style={{ borderRadius: '4px' }}
         />
 
         {/* Episode info */}
