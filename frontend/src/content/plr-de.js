@@ -290,6 +290,7 @@ export const booking = {
 };
 
 export const footer = {
+  brand: "Benjamin Kurtz Academy LLC",
   tagline: "Grounded Spirituality Aligned with Your Purpose",
   navLinks: [
     { label: "Was ist das?", anchor: "#was-ist" },
@@ -311,6 +312,7 @@ export const footer = {
     { label: "YouTube", url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
   ],
   disclaimer:
-    "Regression Sessions sind keine Psychotherapie und ersetzen keine medizinische oder psychiatrische Behandlung.",
-  copyright: "Benjamin Kurtz Academy LLC",
+    "Regression Sessions und Hypnose sind keine Psychotherapie und kein Ersatz für medizinische oder psychiatrische Behandlung. Bei psychischen Erkrankungen wende dich bitte an einen approbierten Arzt oder Psychotherapeuten.",
+  copyright: "© 2026 The Journey Within · All rights reserved.",
+  copyrightAddress: "Benjamin Kurtz Academy LLC, 33111 FL, USA | web: benjaminkurtz.de",
 };

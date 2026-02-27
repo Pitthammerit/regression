@@ -2,11 +2,17 @@ import React from 'react'
 
 export default function Footer({ data }) {
   return (
-    <footer className="bg-brand-dark text-white py-16 md:py-20" data-testid="site-footer">
+    <footer className="bg-brand-dark text-white pt-14 pb-10 md:pt-16 md:pb-12" data-testid="site-footer">
       <div className="max-w-content mx-auto px-6">
 
+        {/* Brand — above navigation */}
+        <div className="mb-12 pb-10 border-b border-white/10">
+          <p className="font-serif text-xl text-white/80 mb-1">{data.brand}</p>
+          <p className="font-sans text-xs text-white/40 italic">{data.tagline}</p>
+        </div>
+
         {/* Three-column grid */}
-        <div className="grid md:grid-cols-3 gap-12 mb-16">
+        <div className="grid md:grid-cols-3 gap-12 mb-14">
 
           {/* Column 1 — Navigation */}
           <div>
@@ -64,10 +70,13 @@ export default function Footer({ data }) {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8">
-          <p className="font-serif text-base text-white/70 mb-1">{data.copyright}</p>
-          <p className="font-sans text-xs text-white/40 italic">{data.tagline}</p>
+        {/* Disclaimer + Copyright — centered */}
+        <div className="border-t border-white/10 pt-8 text-center space-y-3">
+          <p className="font-sans text-xs text-white/35 max-w-xl mx-auto leading-relaxed">
+            {data.disclaimer}
+          </p>
+          <p className="font-sans text-xs text-white/30">{data.copyright}</p>
+          <p className="font-sans text-xs text-white/25">{data.copyrightAddress}</p>
         </div>
 
       </div>
