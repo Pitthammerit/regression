@@ -22,8 +22,7 @@ export default function PodcastSection() {
           <div className="max-w-3xl">
             <SectionLabel text={podcast.label} />
             <h2
-              className="font-serif text-brand-deep leading-tight mb-6"
-              style={{ fontSize: 'clamp(1.9rem, 4vw, 3.5rem)' }}
+              className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-deep leading-tight mb-6"
             >
               {podcast.headline}
             </h2>
