@@ -21,10 +21,9 @@ export const header = {
 
 export const hero = {
   label: "BENJAMIN KURTZ ACADEMY",
-      headlineLine1: "DEINE SEELE",
+  headlineLine1: "DEINE SEELE",
   headlineLine2: "erinnert sich.",
-  headlineLine3: "Bist du bereit",
-  headlineLine4: "zuzuhören?",
+  heroCta: "Bist du bereit zuzuhören?",
   subline: "Seelenrückführung · Hypnose · Energiearbeit — online und im Präsenz bei dir.",
   ctaPrimary: "Intro-Call buchen",
   ctaSecondary: "Podcast-Gespräch anhören →",
