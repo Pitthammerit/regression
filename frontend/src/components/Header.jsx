@@ -30,7 +30,8 @@ export default function Header({ nav, cta }) {
         scrolled ? 'border-b border-black/8 py-4' : 'py-6'
       }`}
     >
-      <div className="max-w-content mx-auto px-8 flex items-center justify-between">
+      {/* Full-width inner: logo far left, nav + CTA far right */}
+      <div className="w-full px-6 md:px-10 lg:px-16 xl:px-20 flex items-center justify-between">
 
         {/* Logo */}
         <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity">
@@ -64,17 +65,25 @@ export default function Header({ nav, cta }) {
           </div>
         </nav>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden flex flex-col justify-center gap-1.5 p-1"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
-          data-testid="mobile-menu-toggle"
-        >
-          <span className={`block w-6 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-          <span className={`block w-6 h-px bg-brand-deep transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-4 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[7px] w-6' : ''}`} />
-        </button>
+        {/* Mobile: CTA always visible left of burger */}
+        <div className="flex items-center gap-3 md:hidden">
+          <CtaButton
+            label={cta}
+            variant="primary"
+            className="!py-2 !px-4 !text-xs"
+            data-testid="mobile-cta-button"
+          />
+          <button
+            className="flex flex-col justify-center gap-1.5 p-1"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+            data-testid="mobile-menu-toggle"
+          >
+            <span className={`block w-6 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+            <span className={`block w-6 h-px bg-brand-deep transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-4 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[7px] w-6' : ''}`} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -93,9 +102,6 @@ export default function Header({ nav, cta }) {
               {item.label}
             </a>
           ))}
-          {ctaVisible && (
-            <CtaButton label={cta} variant="primary" className="w-full text-center mt-2" />
-          )}
         </div>
       </div>
     </header>

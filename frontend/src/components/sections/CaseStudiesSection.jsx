@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
@@ -7,18 +7,11 @@ import { ChevronDown } from 'lucide-react'
 function AvatarSilhouette({ gender }) {
   return (
     <div className="w-12 h-12 rounded-full bg-brand-sand/60 border border-black/10 flex items-center justify-center shrink-0 overflow-hidden">
-      <svg
-        width="32" height="32" viewBox="0 0 32 32" fill="none"
-        className="text-brand-deep/30"
-      >
-        {/* Head */}
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-brand-deep/30">
         <circle cx="16" cy="10" r="5" fill="currentColor" />
-        {/* Body */}
         {gender === 'female' ? (
-          /* Female: slightly wider shoulder curve */
           <path d="M7 28 C7 20 10 17 16 17 C22 17 25 20 25 28" fill="currentColor" />
         ) : (
-          /* Male: straight shoulders */
           <path d="M6 28 C6 19 10 17 16 17 C22 17 26 19 26 28" fill="currentColor" />
         )}
       </svg>
@@ -27,16 +20,37 @@ function AvatarSilhouette({ gender }) {
 }
 
 export default function CaseStudiesSection() {
-  const [openIndex, setOpenIndex] = useState(null)
+  // Marina (index 0) opens by default
+  const [openIndex, setOpenIndex] = useState(0)
+  const [showHint, setShowHint] = useState(false)
+
+  useEffect(() => {
+    const count = parseInt(localStorage.getItem('cases_hint_count') || '0')
+    if (count < 3) {
+      localStorage.setItem('cases_hint_count', String(count + 1))
+      setShowHint(true)
+      const t = setTimeout(() => setShowHint(false), 5000)
+      return () => clearTimeout(t)
+    }
+  }, [])
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
-      <div className="max-w-2xl mb-16">
+      <div className="max-w-2xl mb-6">
         <SectionLabel text={cases.label} />
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-deep leading-tight">
           {cases.headline}
         </h2>
         <p className="font-sans text-sm text-brand-muted mt-4 italic">{cases.subline}</p>
+      </div>
+
+      {/* Hint — appears on first 3 page loads */}
+      <div
+        className={`mb-8 flex items-center gap-2 font-sans text-sm text-brand-steel/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        data-testid="cases-hint"
+      >
+        <span className="text-base">↓</span>
+        <span>Klicke auf die Namen, um mehr zu lesen</span>
       </div>
 
       <div className="divide-y divide-black/10">
@@ -47,10 +61,7 @@ export default function CaseStudiesSection() {
               className="w-full flex items-start gap-5 py-8 text-left group"
               data-testid={`case-accordion-${i}`}
             >
-              {/* Avatar silhouette */}
               <AvatarSilhouette gender={item.gender} />
-
-              {/* Text content */}
               <div className="flex-1 pr-4">
                 <span className="font-sans text-sm tracking-[0.15em] uppercase text-brand-steel block mb-2">
                   {item.tag}
@@ -62,18 +73,13 @@ export default function CaseStudiesSection() {
                   {item.teaser}
                 </span>
               </div>
-
               <ChevronDown
                 size={18}
-                className={`text-brand-steel mt-1 shrink-0 transition-transform duration-300 ${
-                  openIndex === i ? 'rotate-180' : ''
-                }`}
+                className={`text-brand-steel mt-1 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
               />
             </button>
 
-            <div className={`overflow-hidden transition-all duration-500 ${
-              openIndex === i ? 'max-h-[1400px] pb-10' : 'max-h-0'
-            }`}>
+            <div className={`overflow-hidden transition-all duration-500 ${openIndex === i ? 'max-h-[1600px] pb-10' : 'max-h-0'}`}>
               <div className="grid md:grid-cols-3 gap-6 pt-2">
                 {[
                   { label: cases.sectionLabels.situation, text: item.situation },
@@ -90,15 +96,16 @@ export default function CaseStudiesSection() {
                   </div>
                 ))}
               </div>
+              {/* Tanja-specific anonymity note — inside her accordion */}
+              {item.name.includes('*') && (
+                <p className="font-sans text-xs text-brand-muted/35 mt-6 italic">
+                  * Namen wurde geändert
+                </p>
+              )}
             </div>
           </div>
         ))}
       </div>
-
-      {/* Footnote for anonymised names */}
-      <p className="font-sans text-xs text-brand-muted/35 mt-8 pt-6 border-t border-black/6">
-        * Namen wurde geändert
-      </p>
     </SectionWrapper>
   )
 }
