@@ -4,6 +4,28 @@ import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import { ChevronDown } from 'lucide-react'
 
+function AvatarSilhouette({ gender }) {
+  return (
+    <div className="w-12 h-12 rounded-full bg-brand-sand/60 border border-black/10 flex items-center justify-center shrink-0 overflow-hidden">
+      <svg
+        width="32" height="32" viewBox="0 0 32 32" fill="none"
+        className="text-brand-deep/30"
+      >
+        {/* Head */}
+        <circle cx="16" cy="10" r="5" fill="currentColor" />
+        {/* Body */}
+        {gender === 'female' ? (
+          /* Female: slightly wider shoulder curve */
+          <path d="M7 28 C7 20 10 17 16 17 C22 17 25 20 25 28" fill="currentColor" />
+        ) : (
+          /* Male: straight shoulders */
+          <path d="M6 28 C6 19 10 17 16 17 C22 17 26 19 26 28" fill="currentColor" />
+        )}
+      </svg>
+    </div>
+  )
+}
+
 export default function CaseStudiesSection() {
   const [openIndex, setOpenIndex] = useState(null)
 
@@ -22,20 +44,25 @@ export default function CaseStudiesSection() {
           <div key={i}>
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="w-full flex justify-between items-start py-8 text-left group"
+              className="w-full flex items-start gap-5 py-8 text-left group"
               data-testid={`case-accordion-${i}`}
             >
-              <div className="pr-6">
+              {/* Avatar silhouette */}
+              <AvatarSilhouette gender={item.gender} />
+
+              {/* Text content */}
+              <div className="flex-1 pr-4">
                 <span className="font-sans text-xs tracking-[0.15em] uppercase text-brand-steel block mb-2">
                   {item.tag}
                 </span>
                 <span className="font-serif text-xl md:text-2xl text-brand-deep group-hover:text-brand-steel transition-colors block leading-snug">
-                  {item.name} — {item.title}
+                  {item.name}{item.title ? ` — ${item.title}` : ''}
                 </span>
                 <span className="font-sans text-sm text-brand-muted italic block mt-2">
                   {item.teaser}
                 </span>
               </div>
+
               <ChevronDown
                 size={18}
                 className={`text-brand-steel mt-1 shrink-0 transition-transform duration-300 ${
