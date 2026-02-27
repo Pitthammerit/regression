@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CtaButton({ label, variant = 'primary', className = '', onClick }) {
+export default function CtaButton({ label, variant = 'primary', className = '', onClick, 'data-testid': testId, ...rest }) {
   const handleClick = onClick || (() => {
     // Scroll to booking section
     const bookingEl = document.getElementById('booking')
@@ -17,7 +17,7 @@ export default function CtaButton({ label, variant = 'primary', className = '', 
   }
 
   return (
-    <button onClick={handleClick} className={`${styles[variant]} ${className}`} data-testid={`cta-button-${variant}`}>
+    <button onClick={handleClick} className={`${styles[variant]} ${className}`} data-testid={testId || `cta-button-${variant}`} {...rest}>
       {label}
     </button>
   )
