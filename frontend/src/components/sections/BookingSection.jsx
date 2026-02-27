@@ -49,7 +49,7 @@ export default function BookingSection() {
               href={bookingUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-block uppercase tracking-widest text-sm font-sans py-4 px-12 rounded-sm bg-brand-deep text-white hover:bg-brand-steel transition-colors duration-200"
+              className="inline-block uppercase tracking-widest text-sm font-sans py-4 px-12 rounded-full bg-brand-deep text-white hover:bg-brand-steel transition-colors duration-200"
               data-testid="booking-cta-button"
             >
               {booking.directBookingCta}
