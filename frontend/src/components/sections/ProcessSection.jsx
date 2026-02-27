@@ -18,11 +18,17 @@ export default function ProcessSection() {
       <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-16" data-testid="process-steps">
         {processSection.steps.map((step, i) => (
           <div key={i} className="relative overflow-visible">
-            {/* Big transparent background number — 3x bigger, high position */}
+            {/* Big transparent background number — high position */}
             <span
               aria-hidden="true"
-              className="absolute -top-16 -left-4 font-serif text-brand-deep select-none pointer-events-none"
-              style={{ fontSize: 'clamp(21rem, 40vw, 28rem)', lineHeight: 1, opacity: 0.1 }}
+              className="absolute font-serif text-brand-deep select-none pointer-events-none"
+              style={{
+                fontSize: 'clamp(21rem, 40vw, 28rem)',
+                lineHeight: 1,
+                opacity: 0.10,
+                top: '-30%',
+                left: '-0.5rem',
+              }}
             >
               {i + 1}
             </span>
