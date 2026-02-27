@@ -1,17 +1,8 @@
 import React, { useState } from 'react'
-import { Play } from 'lucide-react'
+import { Play, ChevronDown } from 'lucide-react'
 import { hero } from '../../content/plr-de'
 import { r2, portraits } from '../../utils/media'
-import CtaButton from '../ui/CtaButton'
 import LazyImage from '../ui/LazyImage'
-
-/**
- * Hero V3 — Elementra-inspired editorial layout
- * - Huge left-aligned headline (fills top ~45% of viewport)
- * - Video slightly offset right (full aspect ratio, fully visible)
- * - Second portrait partially cropped at right edge ("im Anschnitt")
- * - First portrait on the left, partially cut at top
- */
 
 function VimeoGlassEmbed({ src, title }) {
   const [started, setStarted] = useState(false)
@@ -39,7 +30,7 @@ function VimeoGlassEmbed({ src, title }) {
             <button
               className="relative z-10 w-20 h-20 rounded-full bg-white/15 backdrop-blur-md border border-white/35 flex items-center justify-center hover:bg-white/25 hover:scale-105 transition-all duration-300 shadow-2xl"
               aria-label="Video abspielen"
-              data-testid="hero-v3-glass-play"
+              data-testid="hero-glass-play"
             >
               <Play size={28} className="text-white ml-1" fill="white" />
             </button>
@@ -52,40 +43,40 @@ function VimeoGlassEmbed({ src, title }) {
 
 export default function HeroV3Section() {
   return (
-    <section
-      id="hero-v3"
-      className="min-h-screen flex flex-col overflow-hidden"
-      data-testid="hero-v3-section"
-    >
-      {/* ── HEADLINE — huge, left-aligned, dominates top half ── */}
-      <div className="pt-28 pb-4 px-8 md:px-14 lg:px-20 flex-shrink-0">
+    <section id="hero" className="min-h-screen flex flex-col overflow-hidden relative" data-testid="hero-section">
+
+      {/* HEADLINE */}
+      <div className="pt-28 pb-0 px-8 md:px-14 lg:px-20 flex-shrink-0">
         <h1 className="font-serif tracking-tight leading-none">
+          {/* "DEINE SEELE." — smaller, muted */}
           <span
-            className="block uppercase text-brand-deep"
-            style={{ fontSize: 'clamp(3.5rem, 11vw, 9rem)', lineHeight: 0.88 }}
+            className="block uppercase text-brand-deep/60"
+            style={{ fontSize: 'clamp(1.4rem, 2.8vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '0.06em' }}
           >
-            {hero.headlineLine1}
+            {hero.headlineLine1}.
           </span>
+          {/* "ERINNERT SICH." — dominant, large */}
           <span
-            className="block italic text-brand-deep"
-            style={{ fontSize: 'clamp(2.8rem, 9vw, 7.5rem)', lineHeight: 0.92 }}
+            className="block uppercase italic text-brand-deep"
+            style={{ fontSize: 'clamp(3.8rem, 11vw, 9.5rem)', lineHeight: 0.88 }}
           >
             {hero.headlineLine2}
           </span>
+          {/* "Bist du bereit zuzuhören?" — left-aligned, light */}
           <span
-            className="block font-light text-brand-muted mt-2 pl-1"
-            style={{ fontSize: 'clamp(1.5rem, 3.5vw, 3rem)', lineHeight: 1.1 }}
+            className="block font-sans font-light text-brand-muted pl-0.5 mt-4"
+            style={{ fontSize: 'clamp(1rem, 2vw, 1.6rem)', lineHeight: 1.3 }}
           >
             {hero.headlineLine3} {hero.headlineLine4}
           </span>
         </h1>
       </div>
 
-      {/* ── VISUAL BLOCK — portrait left + video center-right + portrait cropped right ── */}
-      <div className="flex-1 flex items-end gap-3 md:gap-5 px-8 md:pl-14 lg:pl-20 pr-0 overflow-hidden min-h-[300px] md:min-h-[380px]">
+      {/* VISUAL BLOCK — video right-shifted */}
+      <div className="flex-1 flex items-end gap-3 md:gap-4 px-8 md:pl-14 lg:pl-20 pr-0 overflow-hidden min-h-[280px] md:min-h-[360px]">
 
-        {/* Portrait LEFT — visible on desktop, partially cut at top via negative margin */}
-        <div className="hidden lg:block w-[16%] flex-shrink-0 self-end pb-16">
+        {/* Portrait LEFT — small anchor, partially cut at top */}
+        <div className="hidden lg:block w-[9%] flex-shrink-0 self-end pb-14">
           <div className="aspect-[3/4] rounded overflow-hidden">
             <LazyImage
               src={r2(portraits.p20)}
@@ -95,16 +86,19 @@ export default function HeroV3Section() {
           </div>
         </div>
 
-        {/* VIDEO — main, full, slightly offset right via flex margin */}
-        <div className="flex-1 lg:max-w-[58%] lg:ml-[2%] self-end">
+        {/* Spacer — pushes video further right */}
+        <div className="hidden lg:block flex-shrink-0" style={{ width: '8%' }} />
+
+        {/* VIDEO — main, right of center */}
+        <div className="flex-1 lg:flex-none lg:w-[64%] self-end">
           <VimeoGlassEmbed
             src={hero.vimeoEmbedUrl}
             title="Intro Regression — Benjamin Kurtz"
           />
         </div>
 
-        {/* Portrait RIGHT — partially cropped ("im Anschnitt") by overflow-hidden */}
-        <div className="hidden lg:block w-[14%] flex-shrink-0 self-end -mr-4 pb-8">
+        {/* Portrait RIGHT — cropped at edge */}
+        <div className="hidden lg:block w-[10%] flex-shrink-0 self-end -mr-4 pb-6">
           <div className="aspect-[2/3] rounded-l overflow-hidden">
             <LazyImage
               src={r2(portraits.p24)}
@@ -115,17 +109,25 @@ export default function HeroV3Section() {
         </div>
       </div>
 
-      {/* ── CTA ROW — bottom ── */}
-      <div className="px-8 md:px-14 lg:px-20 py-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <CtaButton label={hero.ctaPrimary} variant="primary" />
-        <CtaButton
-          label={hero.ctaSecondary}
-          variant="ghost"
-          onClick={() => document.getElementById('podcast')?.scrollIntoView({ behavior: 'smooth' })}
-        />
-        <span className="sm:ml-auto font-sans text-xs text-brand-muted/70 tracking-wide">
-          {hero.subline}
-        </span>
+      {/* CTA ROW — podcast link only */}
+      <div className="px-8 md:px-14 lg:px-20 py-8 flex items-center">
+        <a
+          href="#podcast"
+          onClick={(e) => {
+            e.preventDefault()
+            document.getElementById('podcast')?.scrollIntoView({ behavior: 'smooth' })
+          }}
+          className="font-sans text-sm text-brand-muted hover:text-brand-deep transition-colors tracking-wide"
+          data-testid="hero-podcast-link"
+        >
+          {hero.ctaSecondary}
+        </a>
+      </div>
+
+      {/* SCROLL INDICATOR */}
+      <div className="absolute bottom-8 right-10 md:right-16 flex flex-col items-center gap-1.5" style={{ opacity: 0.35 }}>
+        <div className="w-px h-10 bg-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite' }} />
+        <ChevronDown size={13} className="text-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite 0.4s' }} />
       </div>
     </section>
   )
