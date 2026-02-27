@@ -11,7 +11,7 @@ export default function Header({ nav, cta }) {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40)
-      setCtaVisible(window.scrollY > 300)
+      setCtaVisible(window.scrollY > 600)
     }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)

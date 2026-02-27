@@ -84,20 +84,8 @@ export default function HeroV3Section() {
         />
       </div>
 
-      {/* CTA ROW — podcast link only + scroll indicator */}
-      <div className="px-8 md:px-14 lg:px-20 py-8 flex items-center justify-between">
-        <a
-          href="#podcast"
-          onClick={(e) => {
-            e.preventDefault()
-            document.getElementById('podcast')?.scrollIntoView({ behavior: 'smooth' })
-          }}
-          className="font-sans text-sm text-brand-muted hover:text-brand-deep transition-colors tracking-wide"
-          data-testid="hero-podcast-link"
-        >
-          {hero.ctaSecondary}
-        </a>
-
+      {/* CTA ROW — scroll indicator only */}
+      <div className="px-8 md:px-14 lg:px-20 py-8 flex items-center justify-end">
         {/* Scroll Indicator */}
         <div className="flex flex-col items-center gap-1" style={{ opacity: 0.35 }}>
           <div className="w-px h-8 bg-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite' }} />
