@@ -95,7 +95,9 @@ export default function Header({ nav, cta }) {
               {item.label}
             </a>
           ))}
-          <CtaButton label={cta} variant="primary" className="w-full text-center mt-2" />
+          {ctaVisible && (
+            <CtaButton label={cta} variant="primary" className="w-full text-center mt-2" />
+          )}
         </div>
       </div>
     </header>
