@@ -6,7 +6,7 @@ import { ChevronDown } from 'lucide-react'
 
 export default function HeroV3Section() {
   return (
-    <section id="hero" className="min-h-screen flex flex-col overflow-hidden relative" data-testid="hero-section">
+    <section id="hero" className="flex flex-col overflow-hidden relative" data-testid="hero-section">
 
       {/* HEADLINE + SUBLINE ROW */}
       <div className="pt-28 pb-6 px-8 md:px-14 lg:px-20 flex-shrink-0">
