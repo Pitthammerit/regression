@@ -21,7 +21,7 @@ export const header = {
 
 export const hero = {
   label: "BENJAMIN KURTZ ACADEMY",
-  headlineLine1: "DEINE SEELE",
+      headlineLine1: "DEINE SEELE",
   headlineLine2: "erinnert sich.",
   headlineLine3: "Bist du bereit",
   headlineLine4: "zuzuhören?",
