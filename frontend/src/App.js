@@ -20,8 +20,8 @@ export default function App() {
       <Header nav={header.nav} cta={header.cta} />
       <main>
         <HeroV3Section />
-        <StatementSection />
         <WelcomeSection />
+        <StatementSection />
         <PodcastSection />
         <WhatIsSection />
         <ForWhomSection />
