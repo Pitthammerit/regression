@@ -198,7 +198,7 @@ export const cases = {
       tag: "Trauma · Channeling · Familiensystem",
       situation: "Sie kam mit explosiven Reaktionen in Konflikten — und dem Gefühl, in diesen Momenten nicht sie selbst zu sein. Ein dunkler Schatten, der zu ihr gehörte und doch nicht ihr war. Im Hintergrund: eine Großmutter, die Suizid begangen hatte, als Tanja zwei Jahre alt war.",
       session: "Im Trancezustand fand sie sich in einem Raum aus Schatten — lost, nicht auf der Erde, nicht zu Hause. Sie wurde zur Großmutter: gefangen zwischen den Welten nach dem Suizid, verzweifelt, ohne Weg ins Licht. Wollte die kleine Tanja unten erreichen. Dann Perspektivwechsel: Tanja als Zweijährige — und sie wusste plötzlich, wie es geht. Sie zeigte der Großmutter den Weg. Zwei Minuten Stille. Augen flimmern. Dann, ganz ruhig: \"Ich habe gerade die Großmutter ins Licht zurückgeführt.\"",
-      result: "Der Schatten war die Großmutter — dreißig Jahre lang. Die Konfliktreaktionen waren Kontaktmomente. Nach der Session verstand Tanja, warum ihre Großmutter das getan hatte — und diese Antwort gab der ganzen Familie Frieden. Heute sagt sie, sie hört ihre Engel klar. Die Verbindung zur Lichtquelle ist permanent.",
+      result: "Der Schatten war die Großmutter — dreißig Jahre lang. Die Konfliktreaktionen waren Kontaktmomente. Nach der Session verstand Tanja, warum ihre Großmutter das getan hatte — und diese Antwort gab der ganzen Familie Frieden. Heute sagt sie, sie hört ihre Engel klar. Die Verbindung zur Lichtquelle ist permanent. (Transparentnahme wurde auf Bitte zur Anonymität geändert)",
     },
     {
       name: "Javi", gender: "male",
