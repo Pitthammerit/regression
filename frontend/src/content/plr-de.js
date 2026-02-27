@@ -204,6 +204,7 @@ export const cases = {
     },
     {
       name: "Javi", gender: "male",
+      image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/javi.jpg",
       title: "Die Angst, nicht zu genügen",
       teaser: "1730. Ein Dorf. Ein Haus am See. Und die Erklärung für eine Angst, die kein Verstand lösen konnte.",
       tag: "Beziehungsangst · Seelenleben · Musterauflösung",
@@ -252,6 +253,7 @@ export const testimonials = {
       quote: "Alles, was Benjamin mit uns gemacht hat, ging mit Leichtigkeit. Ich bin sehr schnell in den Kontakt mit mir selbst und den anderen gekommen. Benjamin hat ganz klar den Raum für Offenheit, Lernen und Freude geschaffen.",
       name: "Alexander W.",
       context: "Musikproduzent, USA",
+      image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/alex%20w%202.jpg",
     },
     {
       quote: "Ich habe gelacht, ich habe geweint, ich war wieder in meiner Kindheit, ich war überall. Durch Benjamins Coaching-Begleitung konnte ich tief in meine Emotionen eintauchen.",
