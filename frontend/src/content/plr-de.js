@@ -43,10 +43,10 @@ export const statement = {
 
 export const welcome = {
   quoteLines: [
-    "Hallo, ich bin Benjamin — schön, dass du hier bist.",
+    "Hi, schön, dass du hier bist.",
     "Hier erfährst du, was Past Life Regression Sessions sind, wie sie dir helfen können, und was wirklich in einer Session passiert.",
-    "Du findest hier Podcast-Episoden, wissenschaftliche Hintergründe und die Möglichkeit, in einem Intro-Call direkt mit mir in Kontakt zu treten.",
-    "Ich freue mich auf deinen Besuch.",
+    "Außerdem findest hier Podcast-Episoden, wissenschaftliche Hintergründe und die Möglichkeit, in einem Intro-Call direkt mit mir in Kontakt zu treten.",
+    "Viel Freude.",
   ],
   author: "Benjamin Kurtz",
   imageUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/2%20s%20350px.png",
