@@ -46,6 +46,7 @@ export default function HeroV3Section() {
             type="r2"
             src={hero.videoUrl}
             className="h-full"
+            onVideoEnded={handleScrollDown}
           />
         </div>
       </div>
