@@ -5,10 +5,14 @@ import { r2, logos } from '../utils/media'
 
 export default function Header({ nav, cta }) {
   const [scrolled, setScrolled] = useState(false)
+  const [ctaVisible, setCtaVisible] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60)
+      setCtaVisible(window.scrollY > 300)
+    }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])

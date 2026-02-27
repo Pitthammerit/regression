@@ -10,8 +10,8 @@ export default function AboutSection() {
     <SectionWrapper id="ueber" data-testid="about-section">
       <div className="grid md:grid-cols-2 gap-16 items-start">
 
-        {/* Left: Portrait photo */}
-        <div>
+        {/* Left: Portrait photo — sticky */}
+        <div className="md:sticky md:top-28">
           <div className="aspect-[3/4] rounded overflow-hidden bg-brand-sand max-w-sm">
             <LazyImage
               src={r2(portraits.p37)}
