@@ -185,8 +185,7 @@ export const cases = {
   subline: "Alle Geschichten wurden mit ausdrücklichem Einverständnis geteilt.",
   items: [
     {
-      name: "Marina",
-      title: "Panikangst vor dem Meer",
+      name: "Marina", gender: "female",
       teaser: "Knöcheltief ins Meer — unmöglich. Ein Erlebnis zwischen den Leben löste, was Jahre nicht lösen konnten.",
       tag: "Todesangst · Trauma · Zwischen den Leben",
       situation: "Marina kam mit etwas, das sie nicht benennen konnte: Panik, wenn das Wort Tod fiel. Schweißnasse Hände bei der Frage \"Was wäre, wenn du noch zwei Wochen zu leben hättest?\" Und knöcheltief ins Meer gehen — unmöglich, obwohl sie das Wasser liebte. Ihr Stiefvater war gestorben, als sie 13 war — im Meer, an einem Blutgerinnsel. Scheinbar der Ursprung. Aber etwas war tiefer.",
