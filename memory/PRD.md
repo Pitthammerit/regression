@@ -88,7 +88,10 @@ Hero → Services → Welcome → Statement → WhatIs → Podcast → ForWhom �
 ## Prioritized Backlog
 
 ### P0 — Immediate / Pending user action
-- **Calendar Embed Integration:** User needs to provide the embed code/URL. Once provided, set `REACT_APP_CALENDAR_EMBED` in frontend/.env to the URL. The BookingSection iframe is already wired up.
+- **Calendar Embed:** Set `REACT_APP_CALENDAR_EMBED=<URL>` in frontend/.env → BookingSection iframe activates
+- **Fluent Forms Transcript:** Create form in Fluent Forms (Name + Email fields), set `REACT_APP_FLUENT_FORMS_TRANSCRIPT_URL=<URL>` in frontend/.env → Placeholder form replaced
+- **Transcript Token in Email:** Send token URL `https://domain/transkript?token=plr-transkript-2026-bk` in Fluent Forms automation email for new subscribers
+- **Real Transcript Text:** Replace `TRANSCRIPT_PLACEHOLDER` array in `/app/frontend/src/pages/TranscriptPage.jsx` with actual transcript
 
 ### P1 — Upcoming
 - None currently identified by user
