@@ -193,7 +193,7 @@ export const cases = {
       result: "Als ich ihr danach die Frage noch einmal stellte — zwei Wochen zu leben — war sie vollkommen ruhig: \"Dann würde ich allen Menschen, die ich liebe, sagen, dass ich sie liebe.\" Am gleichen Abend ging sie bis zur Hüfte ins Meer. Keine Panik. Ein Jahr später: ein tiefes Urvertrauen, dass nichts wirklich endet — für sie, und für ihren Stiefvater.",
     },
     {
-      name: "Tanja",
+      name: "Tanja", gender: "female",
       title: "Der dunkle Schatten",
       teaser: "Sie fühlte sich in Konflikten wie eine andere Person. Die Antwort lag dreißig Jahre zurück.",
       tag: "Trauma · Channeling · Familiensystem",
@@ -202,7 +202,7 @@ export const cases = {
       result: "Der Schatten war die Großmutter — dreißig Jahre lang. Die Konfliktreaktionen waren Kontaktmomente. Nach der Session verstand Tanja, warum ihre Großmutter das getan hatte — und diese Antwort gab der ganzen Familie Frieden. Heute sagt sie, sie hört ihre Engel klar. Die Verbindung zur Lichtquelle ist permanent.",
     },
     {
-      name: "Javi",
+      name: "Javi", gender: "male",
       title: "Die Angst, nicht zu genügen",
       teaser: "1730. Ein Dorf. Ein Haus am See. Und die Erklärung für eine Angst, die kein Verstand lösen konnte.",
       tag: "Beziehungsangst · Seelenleben · Musterauflösung",
@@ -259,7 +259,7 @@ export const booking = {
     "Kostenlos und unverbindlich. 30 Minuten. Wir schauen gemeinsam, was dich bewegt — und ob eine Session der nächste sinnvolle Schritt ist.",
   formPlaceholder: "[ Fluent Forms Embed ]",
   directBookingText: "Du willst direkt einen Termin wählen?",
-  directBookingCta: "Kalender öffnen →",
+  directBookingCta: "Intro-Call buchen",
   directBookingUrl: "https://www.benjaminkurtz.de/bookings/wakeup",
   formTopics: [
     "Trauma / emotionale Blockaden",
