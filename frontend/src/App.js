@@ -23,9 +23,9 @@ export default function App() {
         <HeroV3Section />
         <ServicesSection />
         <WelcomeSection />
-        <StatementSection />
         <WhatIsSection />
         <PodcastSection />
+        <StatementSection />
         <ForWhomSection />
         <AboutSection />
         <ProcessSection />
