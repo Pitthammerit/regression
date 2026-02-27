@@ -33,14 +33,6 @@ export const hero = {
   vimeoEmbedUrl: "https://player.vimeo.com/video/1168643769",
 };
 
-export const statement = {
-  lines: [
-    "Es gibt Erfahrungen, die sich mit fünf Sinnen nicht erklären lassen.",
-    "Erinnerungen, die nicht aus diesem Leben stammen.",
-    "Muster, die älter sind als du.",
-  ],
-};
-
 export const welcome = {
   quoteLines: [
     "Hi, schön, dass du hier bist.",
@@ -51,6 +43,14 @@ export const welcome = {
   author: "Benjamin Kurtz",
   imageUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/2%20s%20350px.png",
   signatureUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/signature_benjamin_black.png",
+};
+
+export const statement = {
+  lines: [
+    "Es gibt Erfahrungen, die sich mit fünf Sinnen nicht erklären lassen.",
+    "Erinnerungen, die nicht aus diesem Leben stammen.",
+    "Muster, die älter sind als du.",
+  ],
 };
 
 export const podcast = {
