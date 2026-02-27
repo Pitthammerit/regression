@@ -7,7 +7,7 @@ import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
  * src:  YouTube URL (embed or watch) or direct MP4 URL
  * poster: optional thumbnail URL
  */
-export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '' }) {
+export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '', onVideoEnded }) {
   const iframeRef = useRef(null)
   const videoRef  = useRef(null)
   const [playing,      setPlaying]      = useState(false)
@@ -87,7 +87,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
             src={src}
             poster={poster}
             className="w-full h-full object-cover"
-            onEnded={() => { setPlaying(false); setStarted(false) }}
+            onEnded={() => { setPlaying(false); setStarted(false); onVideoEnded?.() }}
             onClick={handleToggle}
           />
         ) : (
