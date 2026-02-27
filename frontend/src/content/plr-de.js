@@ -180,7 +180,7 @@ export const processSection = {
 
 export const cases = {
   label: "FALLBEISPIELE",
-  headline: "Was in einer Session passieren kann",
+  headline: "Geschichten aus der Praxis — wenn Seelen sich erinnern",
   subline: "Alle Geschichten wurden mit ausdrücklichem Einverständnis geteilt.",
   items: [
     {
@@ -218,6 +218,8 @@ export const cases = {
 };
 
 export const testimonials = {
+  authorityBigLabel: "EVIDENZBASIERT",
+  authorityHeadline: "Was die Forschung sagt",
   authorityLabel: "WAS DIE FORSCHUNG SAGT",
   authorityQuotes: [
     {
