@@ -4,7 +4,8 @@ import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CustomVideoPlayer from '../ui/CustomVideoPlayer'
 import PodcastPlayer from '../ui/PodcastPlayer'
-import { X, Download, Send } from 'lucide-react'
+import CtaButton from '../ui/CtaButton'
+import { X, Send } from 'lucide-react'
 
 const THUMBNAIL = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/spotify-bergesund.jpeg.webp.png.webp"
 const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/podcast%20bg%20blur.jpg"
