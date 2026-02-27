@@ -13,7 +13,7 @@ export default function HeroV3Section() {
     <section id="hero" className="flex flex-col overflow-hidden relative" data-testid="hero-section">
 
       {/* HEADLINE — flush with video frame */}
-      <div className="pt-24 pb-3 px-8 md:px-14 lg:px-20 flex-shrink-0">
+      <div className="pt-24 pb-1 px-8 md:px-14 lg:px-20 flex-shrink-0">
         <div className="max-w-content mx-auto">
           <div className="font-serif tracking-tight leading-none">
             <span
@@ -29,9 +29,9 @@ export default function HeroV3Section() {
               {hero.headlineLine2}
             </span>
           </div>
-          {/* Second line — right-aligned flush with video right edge */}
+          {/* Second line — right-aligned, tight spacing */}
           <p
-            className="text-right font-serif italic text-brand-deep mt-2"
+            className="text-right font-serif italic text-brand-deep mt-0.5"
             style={{ fontSize: 'clamp(1.44rem, 3.84vw, 3.36rem)' }}
           >
             {hero.heroCta}
