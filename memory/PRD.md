@@ -60,7 +60,18 @@ Hero → Services → Welcome → Statement → WhatIs → Podcast → ForWhom �
 - WelcomeSection with quote, image, signature
 - Multiple layout iterations per user feedback
 
-### Session 4 (Feb 2026) — Redesign Package
+### Session 5 (Feb 2026) — Further Refinements
+
+7 further changes implemented and tested:
+
+1. **Hero further redesign:** "DEINE SEELE" + "erinnert sich." now on ONE line (large + small inline); "Bist du bereit zuzuhören?" as right-aligned second line; subline removed; scroll arrow bigger and centered directly below video
+2. **ServicesSection:** Minimal padding (pt-2 pb-8), sits immediately below video
+3. **Section reorder:** Statement moved after Podcast (YouTube video). New order: Hero → Services → Welcome → WhatIs → Podcast → Statement → ForWhom → About → Process → CaseStudies → Testimonials → Booking
+4. **ProcessSection:** Tree icons completely removed; only big transparent background numbers remain
+5. **CaseStudies headline:** "Geschichten aus der Praxis — wenn Seelen sich erinnern" (updated)
+6. **Tanja anonymity note:** Added "(Transparentnahme wurde auf Bitte zur Anonymität geändert)" to her result text
+7. **TestimonialsSection:** New header with "EVIDENZBASIERT" label + "Was die Forschung sagt" big serif title
+8. **Global CTA behavior:** All CtaButton instances now dispatch `booking:open` custom event + smooth scroll to #booking; BookingSection listens via useEffect and auto-opens calendar accordion
 **All 8 requested changes implemented and tested (100% pass rate):**
 
 1. **Hero Redesign:** Subline moved directly under "erinnert sich." headline; "Bist du bereit zuzuhören?" as centered italic serif text below video with clickable scroll arrow; `hero.heroCta` field added to plr-de.js
