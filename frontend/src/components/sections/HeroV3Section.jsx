@@ -12,25 +12,28 @@ export default function HeroV3Section() {
   return (
     <section id="hero" className="flex flex-col overflow-hidden relative" data-testid="hero-section">
 
-      {/* HEADLINE */}
-      <div className="pt-28 pb-6 px-8 md:px-14 lg:px-20 flex-shrink-0">
-        <h1 className="font-serif tracking-tight leading-none">
+      {/* HEADLINE — one line: big + small */}
+      <div className="pt-24 pb-3 px-8 md:px-14 lg:px-20 flex-shrink-0">
+        <div className="font-serif tracking-tight leading-none">
           <span
-            className="block uppercase text-brand-deep"
-            style={{ fontSize: 'clamp(3.5rem, 11vw, 9rem)', lineHeight: 0.88 }}
+            className="inline uppercase text-brand-deep"
+            style={{ fontSize: 'clamp(2rem, 5.5vw, 4.5rem)' }}
           >
-            {hero.headlineLine1}
+            {hero.headlineLine1}&nbsp;
           </span>
           <span
-            className="block italic text-brand-deep/70"
-            style={{ fontSize: 'clamp(2.8rem, 9vw, 7.5rem)', lineHeight: 0.92 }}
+            className="inline italic text-brand-deep/70"
+            style={{ fontSize: 'clamp(1.2rem, 3.2vw, 2.8rem)' }}
           >
             {hero.headlineLine2}
           </span>
-        </h1>
-        {/* Subline directly below headline */}
-        <p className="font-sans text-sm text-brand-muted/70 leading-relaxed mt-3 pl-0.5">
-          {hero.subline}
+        </div>
+        {/* Second line — right-aligned */}
+        <p
+          className="text-right font-serif italic text-brand-deep/50 mt-2"
+          style={{ fontSize: 'clamp(0.75rem, 1.6vw, 1.1rem)' }}
+        >
+          {hero.heroCta}
         </p>
       </div>
 
@@ -43,18 +46,15 @@ export default function HeroV3Section() {
         />
       </div>
 
-      {/* CTA below video — centered with scroll arrow */}
-      <div className="py-10 flex flex-col items-center gap-4" data-testid="hero-cta-scroll">
-        <p className="font-serif italic text-brand-deep/80" style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.5rem)' }}>
-          {hero.heroCta}
-        </p>
+      {/* Scroll arrow — bigger, centered, directly below video */}
+      <div className="py-6 flex justify-center" data-testid="hero-cta-scroll">
         <button
           onClick={handleScrollDown}
           aria-label="Nach unten scrollen"
-          className="flex flex-col items-center gap-1 opacity-40 hover:opacity-70 transition-opacity duration-300"
+          className="flex flex-col items-center gap-2 opacity-35 hover:opacity-65 transition-opacity duration-300"
         >
-          <div className="w-px h-8 bg-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite' }} />
-          <ChevronDown size={16} className="text-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite 0.4s' }} />
+          <div className="w-px h-10 bg-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite' }} />
+          <ChevronDown size={26} className="text-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite 0.4s' }} />
         </button>
       </div>
     </section>
