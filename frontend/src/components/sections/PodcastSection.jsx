@@ -45,7 +45,7 @@ export default function PodcastSection() {
           style={{ backgroundImage: `url(${SECTION_BG})` }}
         />
         <div className="absolute inset-0 bg-black/55" />
-        <div className="max-w-content mx-auto px-8 md:px-14 lg:px-20 py-16 md:py-20">
+        <div className="relative z-10 max-w-content mx-auto px-8 md:px-14 lg:px-20 py-16 md:py-20">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
             {/* Left: Copy */}
