@@ -35,6 +35,7 @@ export default function PodcastVideoSection() {
             label="Transkript herunterladen"
             variant="secondary"
             onClick={() => setPanelOpen(true)}
+            className="animate-pulse-soft"
             data-testid="transcript-download-btn"
           />
         </div>
