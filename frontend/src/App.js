@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HeroV3Section from './components/sections/HeroV3Section'
@@ -13,9 +14,10 @@ import ProcessSection from './components/sections/ProcessSection'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import TestimonialsSection from './components/sections/TestimonialsSection'
 import BookingSection from './components/sections/BookingSection'
+import TranscriptPage from './pages/TranscriptPage'
 import { header, footer } from './content/plr-de'
 
-export default function App() {
+function MainPage() {
   return (
     <div className="bg-[#F0EBE1] bg-paper min-h-screen font-sans text-brand-body">
       <Header nav={header.nav} cta={header.cta} />
@@ -35,5 +37,16 @@ export default function App() {
       </main>
       <Footer data={footer} />
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/transkript" element={<TranscriptPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
