@@ -2,7 +2,11 @@ import React from 'react'
 
 export default function CtaButton({ label, variant = 'primary', className = '', onClick }) {
   const handleClick = onClick || (() => {
-    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
+    // Scroll to booking section
+    const bookingEl = document.getElementById('booking')
+    if (bookingEl) bookingEl.scrollIntoView({ behavior: 'smooth' })
+    // Dispatch event to auto-open calendar accordion
+    window.dispatchEvent(new CustomEvent('booking:open'))
   })
 
   const base = 'inline-block uppercase tracking-widest text-sm font-sans py-3 px-8 rounded-full transition-colors duration-200 cursor-pointer'

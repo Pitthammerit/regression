@@ -1,6 +1,7 @@
 import React from 'react'
 import { testimonials } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
+import SectionWrapper from '../ui/SectionWrapper'
 
 export default function TestimonialsSection() {
   return (
@@ -9,8 +10,12 @@ export default function TestimonialsSection() {
       {/* Authority Quotes — dark navy bg */}
       <div className="bg-brand-deep py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">
-          <SectionLabel text={testimonials.authorityLabel} light />
-          <div className="grid md:grid-cols-3 gap-10 md:gap-14 mt-10">
+          {/* New header: EVIDENZBASIERT label + big title */}
+          <SectionLabel text={testimonials.authorityBigLabel} light />
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mt-3 mb-12">
+            {testimonials.authorityHeadline}
+          </h2>
+          <div className="grid md:grid-cols-3 gap-10 md:gap-14">
             {testimonials.authorityQuotes.map((q, i) => (
               <div key={i} className="border-t border-white/20 pt-8">
                 <blockquote className="font-serif italic text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
