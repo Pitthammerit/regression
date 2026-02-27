@@ -25,7 +25,7 @@ export const hero = {
   headlineLine2: "erinnert sich.",
   headlineLine3: "Bist du bereit",
   headlineLine4: "zuzuhören?",
-  subline: "Seelenrückführung · Hypnose · Energiearbeit — online und in Málaga",
+  subline: "Seelenrückführung · Hypnose · Energiearbeit — online und im Präsenz bei dir.",
   ctaPrimary: "Intro-Call buchen",
   ctaSecondary: "Podcast-Gespräch anhören →",
   videoPlaceholder: "[ Intro-Video Benjamin Kurtz ]",
