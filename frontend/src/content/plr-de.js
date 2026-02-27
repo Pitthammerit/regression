@@ -194,7 +194,7 @@ export const cases = {
     },
     {
       name: "Tanja", gender: "female",
-      title: "Der dunkle Schatten",
+      title: "Zurück nach Hause",
       teaser: "Sie fühlte sich in Konflikten wie eine andere Person. Die Antwort lag dreißig Jahre zurück.",
       tag: "Trauma · Channeling · Familiensystem",
       situation: "Sie kam mit explosiven Reaktionen in Konflikten — und dem Gefühl, in diesen Momenten nicht sie selbst zu sein. Ein dunkler Schatten, der zu ihr gehörte und doch nicht ihr war. Im Hintergrund: eine Großmutter, die Suizid begangen hatte, als Tanja zwei Jahre alt war.",
