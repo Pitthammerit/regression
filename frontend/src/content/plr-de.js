@@ -259,11 +259,13 @@ export const testimonials = {
       quote: "Ich habe gelacht, ich habe geweint, ich war wieder in meiner Kindheit, ich war überall. Durch Benjamins Coaching-Begleitung konnte ich tief in meine Emotionen eintauchen.",
       name: "Arthur K.",
       context: "Fotograf, Deutschland",
+      image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/arthur.jpg",
     },
     {
       quote: "Ich wollte dir sagen, dass ich mich sehr glücklich fühle – dank der Lehren und Werkzeuge, die ich während des Retreats bekommen habe. Sie helfen mir enorm, in meiner Mitte zu bleiben und alles harmonisch fließen zu lassen.",
       name: "Hernan D.",
       context: "Lifeguard, Argentinien",
+      image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/hernan.jpg",
     },
   ],
 };
