@@ -89,16 +89,16 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
       {/* Hidden audio element */}
       <audio ref={audioRef} src={audioUrl} preload="metadata" />
 
-      {/* Blurred Background */}
+      {/* Blurred Background — FULL card fill, same image as thumbnail */}
       <div
-        className="absolute inset-0 bg-cover bg-center scale-110"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url(${thumbnailUrl})`,
-          filter: 'blur(24px)',
-          opacity: 0.5,
+          filter: 'blur(28px)',
+          transform: 'scale(1.15)',
         }}
       />
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/30" />
 
       {/* Content */}
       <div className="relative z-10 p-8 flex flex-col items-center text-center gap-5">
