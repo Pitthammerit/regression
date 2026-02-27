@@ -29,6 +29,7 @@ export const hero = {
   ctaPrimary: "Intro-Call buchen",
   ctaSecondary: "Podcast-Gespräch anhören →",
   videoPlaceholder: "[ Intro-Video Benjamin Kurtz ]",
+  videoUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/video/riverside_benjamin_raw-video-cfr_benjamin_kurtz's%20st_0016%20trim.mp4",
   vimeoEmbedUrl: "https://player.vimeo.com/video/1168643769",
 };
 
@@ -54,6 +55,7 @@ export const podcast = {
   episodeLabel: "Episode 52",
   episodeHost: "berggesundheit · Tobias Berg",
   episodeDuration: "1:14:32",
+  episodeAudioUrl: "https://audio.podigee-cdn.net/2364431-m-438ee3d6d68b8de82a26986fecfd35e8.mp3",
   podcastLinks: [
     { label: "Spotify", url: "https://open.spotify.com/episode/3D9V2pK9kdT6ED9FENxpnW?si=7rD9pMrcSV6uLq-tOoMICA" },
     { label: "Apple Podcasts", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
