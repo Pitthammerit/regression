@@ -7,7 +7,7 @@ export default function TestimonialsSection() {
     <div id="testimonials" data-testid="testimonials-section">
 
       {/* Authority Quotes — dark navy bg */}
-      <div className="bg-brand-deep py-24 md:py-32">
+      <div className="bg-brand-deep py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">
           <SectionLabel text={testimonials.authorityLabel} light />
           <div className="grid md:grid-cols-3 gap-10 md:gap-14 mt-10">
@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Client Cards — parchment bg */}
-      <div className="py-24 md:py-32">
+      <div className="py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">
           <SectionLabel text={testimonials.clientLabel} />
           <div className="grid md:grid-cols-2 gap-6 mt-10">
