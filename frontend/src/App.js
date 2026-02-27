@@ -2,10 +2,11 @@ import React from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HeroV3Section from './components/sections/HeroV3Section'
-import StatementSection from './components/sections/StatementSection'
+import ServicesSection from './components/sections/ServicesSection'
 import WelcomeSection from './components/sections/WelcomeSection'
-import PodcastSection from './components/sections/PodcastSection'
+import StatementSection from './components/sections/StatementSection'
 import WhatIsSection from './components/sections/WhatIsSection'
+import PodcastSection from './components/sections/PodcastSection'
 import ForWhomSection from './components/sections/ForWhomSection'
 import AboutSection from './components/sections/AboutSection'
 import ProcessSection from './components/sections/ProcessSection'
@@ -20,10 +21,11 @@ export default function App() {
       <Header nav={header.nav} cta={header.cta} />
       <main>
         <HeroV3Section />
+        <ServicesSection />
         <WelcomeSection />
         <StatementSection />
-        <PodcastSection />
         <WhatIsSection />
+        <PodcastSection />
         <ForWhomSection />
         <AboutSection />
         <ProcessSection />
