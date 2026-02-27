@@ -44,7 +44,7 @@ export const podcast = {
   label: "IM PODCAST",
   headline: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
   sectionHeadline: ["Manche Muster", "sind älter", "als dieses Leben."],
-  sectionBody: "„Auf einmal haben sich Dinge zusammengesetzt, die vorher unerklärbar waren." Eine Regression Session zeigt dir nicht nur was war — sie zeigt dir, warum du so bist, wie du bist. Benjamin im ausführlichen Gespräch mit Tobias Berg über Reinkarnation, Seelenerinnerung und was wirklich in einer Session passiert.",
+  sectionBody: `„Auf einmal haben sich Dinge zusammengesetzt, die vorher unerklärbar waren." Eine Regression Session zeigt dir nicht nur was war — sie zeigt dir, warum du so bist, wie du bist. Benjamin im ausführlichen Gespräch mit Tobias Berg über Reinkarnation, Seelenerinnerung und was wirklich in einer Session passiert.`,
   subline:
     "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",
   youtubeEmbedUrl: "https://www.youtube.com/watch?v=U5L07PmViis",
