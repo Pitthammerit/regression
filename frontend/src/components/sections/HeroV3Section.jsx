@@ -16,22 +16,22 @@ export default function HeroV3Section() {
       <div className="pt-24 pb-3 px-8 md:px-14 lg:px-20 flex-shrink-0">
         <div className="font-serif tracking-tight leading-none">
           <span
-            className="inline uppercase text-brand-deep"
-            style={{ fontSize: 'clamp(2rem, 5.5vw, 4.5rem)' }}
+            className="inline text-brand-deep"
+            style={{ fontSize: 'clamp(2.4rem, 6.6vw, 5.4rem)' }}
           >
             {hero.headlineLine1}&nbsp;
           </span>
           <span
             className="inline italic text-brand-deep/70"
-            style={{ fontSize: 'clamp(1.2rem, 3.2vw, 2.8rem)' }}
+            style={{ fontSize: 'clamp(1.44rem, 3.84vw, 3.36rem)' }}
           >
             {hero.headlineLine2}
           </span>
         </div>
-        {/* Second line — right-aligned */}
+        {/* Second line — right-aligned, same size as headlineLine2, same color as headlineLine1 */}
         <p
-          className="text-right font-serif italic text-brand-deep/50 mt-2"
-          style={{ fontSize: 'clamp(0.75rem, 1.6vw, 1.1rem)' }}
+          className="text-right font-serif italic text-brand-deep mt-2"
+          style={{ fontSize: 'clamp(1.44rem, 3.84vw, 3.36rem)' }}
         >
           {hero.heroCta}
         </p>
