@@ -61,7 +61,15 @@ export default function CaseStudiesSection() {
               className="w-full flex items-start gap-5 py-8 text-left group"
               data-testid={`case-accordion-${i}`}
             >
-              <AvatarSilhouette gender={item.gender} />
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-12 h-12 rounded-full object-cover object-top border border-black/10 shrink-0"
+                />
+              ) : (
+                <AvatarSilhouette gender={item.gender} />
+              )}
               <div className="flex-1 pr-4">
                 <span className="font-sans text-sm tracking-[0.15em] uppercase text-brand-steel block mb-2">
                   {item.tag}
