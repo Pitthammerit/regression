@@ -52,13 +52,13 @@ export default function CaseStudiesSection() {
 
               {/* Text content */}
               <div className="flex-1 pr-4">
-                <span className="font-sans text-xs tracking-[0.15em] uppercase text-brand-steel block mb-2">
+                <span className="font-sans text-sm tracking-[0.15em] uppercase text-brand-steel block mb-2">
                   {item.tag}
                 </span>
-                <span className="font-serif text-xl md:text-2xl text-brand-deep group-hover:text-brand-steel transition-colors block leading-snug">
+                <span className="font-serif text-2xl md:text-3xl text-brand-deep group-hover:text-brand-steel transition-colors block leading-snug">
                   {item.name}{item.title ? ` — ${item.title}` : ''}
                 </span>
-                <span className="font-sans text-sm text-brand-muted italic block mt-2">
+                <span className="font-sans text-base text-brand-muted italic block mt-2">
                   {item.teaser}
                 </span>
               </div>
@@ -81,10 +81,10 @@ export default function CaseStudiesSection() {
                   { label: cases.sectionLabels.result,    text: item.result },
                 ].map((block) => (
                   <div key={block.label} className="border-l-2 border-brand-deep pl-4">
-                    <span className="font-sans text-xs tracking-[0.15em] uppercase text-brand-steel block mb-3">
+                    <span className="font-sans text-sm tracking-[0.15em] uppercase text-brand-steel block mb-3">
                       {block.label}
                     </span>
-                    <p className="font-sans text-sm text-brand-muted leading-relaxed">
+                    <p className="font-sans text-base md:text-lg text-brand-muted leading-relaxed">
                       {block.text}
                     </p>
                   </div>
