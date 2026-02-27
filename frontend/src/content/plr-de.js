@@ -16,7 +16,7 @@ export const header = {
     { label: "Ablauf", anchor: "#prozess" },
     { label: "Erfahrungen", anchor: "#cases" },
   ],
-  cta: "Intro-Call buchen",
+  cta: "Intro Call",
 };
 
 export const hero = {
@@ -43,6 +43,11 @@ export const welcome = {
   author: "Benjamin Kurtz",
   imageUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/2%20s%20350px.png",
   signatureUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/signature_benjamin_black.png",
+};
+
+export const services = {
+  items: ["Seelenrückführung", "Hypnose", "Energiearbeit"],
+  location: "online & bei dir",
 };
 
 export const statement = {
