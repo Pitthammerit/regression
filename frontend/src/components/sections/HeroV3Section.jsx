@@ -37,24 +37,26 @@ export default function HeroV3Section() {
         </p>
       </div>
 
-      {/* VIDEO — R2 Cloudflare */}
-      <div className="flex-1 px-8 md:px-14 lg:px-20 min-h-[300px] md:min-h-[380px]">
-        <CustomVideoPlayer
-          type="r2"
-          src={hero.videoUrl}
-          className="h-full"
-        />
+      {/* VIDEO — R2 Cloudflare, constrained to page content width */}
+      <div className="px-8 md:px-14 lg:px-20 w-full">
+        <div className="max-w-content mx-auto">
+          <CustomVideoPlayer
+            type="r2"
+            src={hero.videoUrl}
+            className="h-full"
+          />
+        </div>
       </div>
 
-      {/* Scroll arrow — bigger, centered, directly below video */}
-      <div className="py-6 flex justify-center" data-testid="hero-cta-scroll">
+      {/* Scroll arrow — 4x bigger, right at video bottom */}
+      <div className="pt-2 pb-6 flex justify-center" data-testid="hero-cta-scroll">
         <button
           onClick={handleScrollDown}
           aria-label="Nach unten scrollen"
-          className="flex flex-col items-center gap-2 opacity-35 hover:opacity-65 transition-opacity duration-300"
+          className="flex flex-col items-center gap-3 opacity-35 hover:opacity-65 transition-opacity duration-300"
         >
-          <div className="w-px h-10 bg-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite' }} />
-          <ChevronDown size={26} className="text-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite 0.4s' }} />
+          <div className="w-[2px] h-36 bg-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite' }} />
+          <ChevronDown size={80} className="text-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite 0.4s' }} />
         </button>
       </div>
     </section>

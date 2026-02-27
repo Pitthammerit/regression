@@ -39,21 +39,14 @@ export default function PodcastSection() {
             />
           </div>
 
-          {/* Transcript download button — below video */}
-          <div className="max-w-4xl mt-6 flex items-center gap-4">
-            <button
+          {/* Transcript download button — uses global CtaButton */}
+          <div className="max-w-content mt-6 flex items-center gap-4">
+            <CtaButton
+              label="Transkript herunterladen"
+              variant="secondary"
               onClick={() => setPanelOpen(true)}
-              className="inline-flex items-center gap-2.5 font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors duration-200 group"
               data-testid="transcript-download-btn"
-            >
-              <Download
-                size={15}
-                className="text-brand-deep/40 group-hover:text-brand-deep transition-colors"
-              />
-              <span className="border-b border-black/15 group-hover:border-brand-deep transition-colors pb-px">
-                Lade dir das Transkript herunter
-              </span>
-            </button>
+            />
           </div>
         </SectionWrapper>
 
