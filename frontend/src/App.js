@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import HeroV3Section from './components/sections/HeroV3Section'
 import StatementSection from './components/sections/StatementSection'
+import WelcomeSection from './components/sections/WelcomeSection'
 import PodcastSection from './components/sections/PodcastSection'
 import WhatIsSection from './components/sections/WhatIsSection'
 import ForWhomSection from './components/sections/ForWhomSection'
@@ -20,6 +21,7 @@ export default function App() {
       <main>
         <HeroV3Section />
         <StatementSection />
+        <WelcomeSection />
         <PodcastSection />
         <WhatIsSection />
         <ForWhomSection />
