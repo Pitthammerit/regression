@@ -60,7 +60,15 @@ Hero → Services → Welcome → Statement → WhatIs → Podcast → ForWhom �
 - WelcomeSection with quote, image, signature
 - Multiple layout iterations per user feedback
 
-### Session 6 (Feb 2026) — Redesign-Paket (Nachricht #222)
+### Session 7 (Feb 2026) — UI-Verbesserungspaket
+
+1. **Header Nav zentriert:** Drei-Zonen-Layout (flex-1 Logo | flex-none Nav zentriert | flex-1 CTA rechts)
+2. **Mobile CTA scroll-triggered:** CTA auf Mobile erst ab 600px sichtbar (gleich wie Desktop)
+3. **Hero Zeilenabstand:** `mt-0.5` statt `mt-2` — "Deine Seele erinnert sich." und "Bist du bereit zuzuhören?" fast berührend
+4. **Video Auto-Scroll:** `onVideoEnded` Prop in CustomVideoPlayer → scrollt nach Videoende zur nächsten Sektion
+5. **PodcastSection hell:** Hintergrundbild und dunkles Overlay entfernt, Text von weiß auf brand-deep geändert
+6. **Testimonials 3-Spalten-Layout:** Anna links (row-span-2), Alexander+Arthur oben rechts, Hernan unten rechts, leerer Platzhalter für 5. Testimonial
+7. **Echte Kunden-Testimonials:** Anna K. (mit Foto), Alexander W., Hernan D., Arthur K. integriert
 
 Alle 5 Anforderungen aus der Benutzernachricht #222 implementiert und getestet (10/10 Tests bestanden):
 
