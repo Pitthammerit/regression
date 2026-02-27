@@ -5,7 +5,7 @@ import SectionLabel from '../ui/SectionLabel'
 
 function TopicCard({ title, body }) {
   return (
-    <div className="bg-white/50 rounded p-5 md:p-6 flex flex-col gap-2 border border-brand-sand hover:border-brand-steel transition-colors">
+    <div className="bg-white/50 rounded-2xl p-5 md:p-6 flex flex-col gap-2 border border-brand-sand hover:border-brand-steel transition-colors">
       <h3 className="font-serif text-lg text-brand-deep leading-snug">{title}</h3>
       <p className="font-sans text-sm text-brand-muted leading-relaxed">{body}</p>
     </div>

@@ -5,7 +5,7 @@ export default function CtaButton({ label, variant = 'primary', className = '', 
     document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
   })
 
-  const base = 'inline-block uppercase tracking-widest text-sm font-sans py-3 px-8 rounded-sm transition-colors duration-200 cursor-pointer'
+  const base = 'inline-block uppercase tracking-widest text-sm font-sans py-3 px-8 rounded-full transition-colors duration-200 cursor-pointer'
   const styles = {
     primary:   `${base} bg-brand-deep text-white hover:bg-brand-steel`,
     secondary: `${base} border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white`,

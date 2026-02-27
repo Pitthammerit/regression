@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
             {testimonials.clientPlaceholder.map((c, i) => (
               <div
                 key={i}
-                className="bg-white/50 rounded p-8 md:p-10 border border-brand-sand"
+                className="bg-white/50 rounded-2xl p-8 md:p-10 border border-brand-sand"
                 data-testid={`testimonial-card-${i}`}
               >
                 <blockquote className="font-serif italic text-xl md:text-2xl text-brand-body leading-relaxed mb-8">
