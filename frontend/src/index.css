@@ -28,3 +28,17 @@ html {
 .animate-pulse-soft {
   animation: pulseSoft 2.8s ease-in-out infinite;
 }
+
+/* Process section background numbers — responsive scaling */
+.process-bg-number {
+  font-size: clamp(21rem, 40vw, 28rem);
+  top: -240px;
+  left: -8px;
+}
+
+@media (max-width: 767px) {
+  .process-bg-number {
+    font-size: 9rem;
+    top: -20px;
+  }
+}
