@@ -1,43 +1,8 @@
 import React, { useState } from 'react'
-import { Play, ChevronDown } from 'lucide-react'
+import { Play } from 'lucide-react'
 import { hero } from '../../content/plr-de'
-
-function VimeoGlassEmbed({ src, title }) {
-  const [started, setStarted] = useState(false)
-  const embedSrc = `${src}?badge=0&autopause=0&player_id=0&app_id=58479${started ? '&autoplay=1' : ''}`
-
-  return (
-    <div className="relative rounded-2xl overflow-hidden bg-brand-dark shadow-xl">
-      <div style={{ paddingTop: '56.25%', position: 'relative' }}>
-        {started && (
-          <iframe
-            src={embedSrc}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            title={title}
-          />
-        )}
-        {!started && (
-          <div
-            className="absolute inset-0 flex items-center justify-center cursor-pointer"
-            onClick={() => setStarted(true)}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-deep/50 to-brand-dark/70" />
-            <button
-              className="relative z-10 w-20 h-20 rounded-full bg-white/15 backdrop-blur-md border border-white/35 flex items-center justify-center hover:bg-white/25 hover:scale-105 transition-all duration-300 shadow-2xl"
-              aria-label="Video abspielen"
-              data-testid="hero-glass-play"
-            >
-              <Play size={28} className="text-white ml-1" fill="white" />
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+import CustomVideoPlayer from '../ui/CustomVideoPlayer'
+import { ChevronDown } from 'lucide-react'
 
 export default function HeroV3Section() {
   return (
@@ -69,24 +34,24 @@ export default function HeroV3Section() {
             </span>
           </h1>
 
-          {/* Right: Subline text — visible on desktop only */}
+          {/* Right: Subline text — desktop only */}
           <p className="hidden md:block font-sans text-sm text-brand-muted/70 leading-relaxed text-right max-w-[220px] pb-2 flex-shrink-0">
             {hero.subline}
           </p>
         </div>
       </div>
 
-      {/* VIDEO — full width, no portraits */}
+      {/* VIDEO — R2 Cloudflare */}
       <div className="flex-1 px-8 md:px-14 lg:px-20 min-h-[300px] md:min-h-[380px]">
-        <VimeoGlassEmbed
-          src={hero.vimeoEmbedUrl}
-          title="Intro Regression — Benjamin Kurtz"
+        <CustomVideoPlayer
+          type="r2"
+          src={hero.videoUrl}
+          className="h-full"
         />
       </div>
 
-      {/* CTA ROW — scroll indicator only */}
+      {/* Scroll Indicator */}
       <div className="px-8 md:px-14 lg:px-20 py-8 flex items-center justify-end">
-        {/* Scroll Indicator */}
         <div className="flex flex-col items-center gap-1" style={{ opacity: 0.35 }}>
           <div className="w-px h-8 bg-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite' }} />
           <ChevronDown size={13} className="text-brand-deep" style={{ animation: 'scrollFade 2s ease-in-out infinite 0.4s' }} />
