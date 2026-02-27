@@ -274,12 +274,19 @@ export const booking = {
 };
 
 export const footer = {
-  tagline: "Grounded Spirituality · Málaga, Spain",
-  links: [
-    { label: "Regression Sessions", anchor: "#was-ist" },
-    { label: "Journey Within Retreats", url: "https://journeywithinretreats.com" },
-    { label: "Impressum", url: "/impressum" },
-    { label: "Datenschutz", url: "/datenschutz" },
+  tagline: "Grounded Spirituality Aligned with Your Purpose",
+  navLinks: [
+    { label: "Was ist das?", anchor: "#was-ist" },
+    { label: "Für wen?", anchor: "#fuer-wen" },
+    { label: "Über Benjamin", anchor: "#ueber" },
+    { label: "Ablauf", anchor: "#prozess" },
+    { label: "Erfahrungen", anchor: "#cases" },
+  ],
+  legalLinks: [
+    { label: "Terms", url: "https://www.benjaminkurtz.de/terms/" },
+    { label: "Privacy", url: "https://www.benjaminkurtz.de/privacy/" },
+    { label: "Imprint", url: "https://www.benjaminkurtz.de/imprint/" },
+    { label: "Academy Home", url: "https://benjaminkurtz.de" },
   ],
   social: [
     { label: "Instagram", url: "https://instagram.com/benjaminkurtz_de" },
