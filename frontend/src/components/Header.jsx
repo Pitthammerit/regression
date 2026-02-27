@@ -61,7 +61,9 @@ export default function Header({ nav, cta }) {
               {item.label}
             </a>
           ))}
-          <CtaButton label={cta} variant="primary" />
+          <div className={`transition-all duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <CtaButton label={cta} variant="primary" />
+          </div>
         </nav>
 
         {/* Mobile Hamburger */}
