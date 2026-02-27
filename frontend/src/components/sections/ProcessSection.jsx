@@ -22,7 +22,7 @@ export default function ProcessSection() {
             <span
               aria-hidden="true"
               className="absolute -top-16 -left-4 font-serif text-brand-deep select-none pointer-events-none"
-              style={{ fontSize: 'clamp(21rem, 40vw, 28rem)', lineHeight: 1, opacity: 0.06 }}
+              style={{ fontSize: 'clamp(21rem, 40vw, 28rem)', lineHeight: 1, opacity: 0.1 }}
             >
               {i + 1}
             </span>
