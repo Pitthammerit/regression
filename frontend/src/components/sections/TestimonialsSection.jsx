@@ -9,7 +9,6 @@ export default function TestimonialsSection() {
       {/* Authority Quotes — dark navy bg */}
       <div className="bg-brand-deep py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">
-          {/* New header: EVIDENZBASIERT label + big title */}
           <SectionLabel text={testimonials.authorityBigLabel} light />
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mt-3 mb-12">
             {testimonials.authorityHeadline}
@@ -28,27 +27,39 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      {/* Client Cards — parchment bg */}
+      {/* Client Testimonials — parchment bg */}
       <div className="py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">
           <SectionLabel text={testimonials.clientLabel} />
           <div className="grid md:grid-cols-2 gap-6 mt-10">
-            {testimonials.clientPlaceholder.map((c, i) => (
+            {testimonials.clients.map((c, i) => (
               <div
                 key={i}
-                className="bg-white/50 rounded-2xl p-8 md:p-10 border border-brand-sand"
+                className="bg-white/50 rounded-2xl p-8 md:p-10 border border-brand-sand flex flex-col justify-between"
                 data-testid={`testimonial-card-${i}`}
               >
-                <blockquote className="font-serif italic text-xl md:text-2xl text-brand-body leading-relaxed mb-8">
-                  "{c.quote}"
+                <blockquote className="font-serif italic text-lg md:text-xl text-brand-body leading-relaxed mb-8">
+                  „{c.quote}"
                 </blockquote>
-                <div className="font-sans text-sm font-medium text-brand-deep">{c.name}</div>
-                <div className="font-sans text-xs text-brand-steel mt-0.5">{c.context}</div>
+                <div className="flex items-center gap-4 mt-auto">
+                  {c.image && (
+                    <img
+                      src={c.image}
+                      alt={c.name}
+                      className="w-12 h-12 rounded-full object-cover object-top border border-brand-sand shrink-0"
+                    />
+                  )}
+                  <div>
+                    <div className="font-sans text-sm font-medium text-brand-deep">{c.name}</div>
+                    <div className="font-sans text-xs text-brand-steel mt-0.5">{c.context}</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
     </div>
   )
 }
