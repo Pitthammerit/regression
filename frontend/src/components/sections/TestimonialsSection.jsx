@@ -1,7 +1,6 @@
 import React from 'react'
 import { testimonials } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
-import SectionWrapper from '../ui/SectionWrapper'
 
 export default function TestimonialsSection() {
   return (
