@@ -5,7 +5,8 @@ import SectionLabel from '../ui/SectionLabel'
 import CustomVideoPlayer from '../ui/CustomVideoPlayer'
 import PodcastPlayer from '../ui/PodcastPlayer'
 
-const THUMBNAIL = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/apple-bergesund.jpeg.webp.png.webp"
+const THUMBNAIL = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/spotify-bergesund.jpeg.webp.png.webp"
+const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/podcast%20bg%20blur.jpg"
 
 export default function PodcastSection() {
   return (
@@ -34,8 +35,16 @@ export default function PodcastSection() {
         </div>
       </SectionWrapper>
 
-      {/* ── PART 2: Dark section — Copy + PodcastPlayer ── */}
-      <div className="bg-brand-dark" data-testid="podcast-player-section">
+      {/* ── PART 2: Podcast Player section with bg image ── */}
+      <div
+        className="relative overflow-hidden"
+        data-testid="podcast-player-section"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${SECTION_BG})` }}
+        />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="max-w-content mx-auto px-8 md:px-14 lg:px-20 py-16 md:py-20">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
