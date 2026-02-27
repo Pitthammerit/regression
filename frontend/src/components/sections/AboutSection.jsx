@@ -34,7 +34,7 @@ export default function AboutSection() {
           </h2>
 
           {about.body.map((para, i) => (
-            <p key={i} className={`font-sans text-brand-body leading-[1.8] text-base ${i > 0 ? 'mt-6' : ''}`}>
+            <p key={i} className={`font-sans text-brand-body leading-relaxed text-lg ${i > 0 ? 'mt-6' : ''}`}>
               {para}
             </p>
           ))}

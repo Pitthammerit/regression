@@ -20,7 +20,7 @@ export default function ForWhomSection() {
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-deep mb-8 leading-tight">
           {forWhom.headline}
         </h2>
-        <p className="font-sans text-brand-muted leading-[1.8] text-base">
+        <p className="font-sans text-brand-muted leading-relaxed text-lg">
           {forWhom.intro}
         </p>
       </div>
