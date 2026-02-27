@@ -7,6 +7,7 @@ import ServicesSection from './components/sections/ServicesSection'
 import WelcomeSection from './components/sections/WelcomeSection'
 import StatementSection from './components/sections/StatementSection'
 import WhatIsSection from './components/sections/WhatIsSection'
+import PodcastVideoSection from './components/sections/PodcastVideoSection'
 import PodcastSection from './components/sections/PodcastSection'
 import ForWhomSection from './components/sections/ForWhomSection'
 import AboutSection from './components/sections/AboutSection'
@@ -26,10 +27,11 @@ function MainPage() {
         <ServicesSection />
         <WelcomeSection />
         <WhatIsSection />
-        <PodcastSection />
+        <PodcastVideoSection />
         <StatementSection />
         <ForWhomSection />
         <AboutSection />
+        <PodcastSection />
         <ProcessSection />
         <CaseStudiesSection />
         <TestimonialsSection />
