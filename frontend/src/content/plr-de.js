@@ -253,14 +253,14 @@ export const testimonials = {
       context: "Musikproduzent, USA",
     },
     {
-      quote: "Ich wollte dir sagen, dass ich mich sehr glücklich fühle – dank der Lehren und Werkzeuge, die ich während des Retreats bekommen habe. Sie helfen mir enorm, in meiner Mitte zu bleiben und alles harmonisch fließen zu lassen.",
-      name: "Hernan D.",
-      context: "Lifeguard, Argentinien",
-    },
-    {
       quote: "Ich habe gelacht, ich habe geweint, ich war wieder in meiner Kindheit, ich war überall. Durch Benjamins Coaching-Begleitung konnte ich tief in meine Emotionen eintauchen.",
       name: "Arthur K.",
       context: "Fotograf, Deutschland",
+    },
+    {
+      quote: "Ich wollte dir sagen, dass ich mich sehr glücklich fühle – dank der Lehren und Werkzeuge, die ich während des Retreats bekommen habe. Sie helfen mir enorm, in meiner Mitte zu bleiben und alles harmonisch fließen zu lassen.",
+      name: "Hernan D.",
+      context: "Lifeguard, Argentinien",
     },
   ],
 };
