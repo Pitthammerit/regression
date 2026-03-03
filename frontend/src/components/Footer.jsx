@@ -2,7 +2,6 @@ import React from 'react'
 import { Instagram, Youtube, Music2, Headphones, Mail } from 'lucide-react'
 import { header as siteHeader } from '../content/plr-de'
 
-/* ── Icon maps ── */
 const SOCIAL_ICONS = {
   Spotify:          <Music2     size={24} strokeWidth={1.5} />,
   'Apple Podcasts': <Headphones size={24} strokeWidth={1.5} />,
@@ -60,7 +59,9 @@ export default function Footer({ data }) {
 
           {/* 2 — Contact icons with label */}
           <div className="mb-10 flex justify-center items-center gap-4">
-            <span className="font-sans text-xs text-white/50 uppercase tracking-widest">Kontaktiere uns:</span>
+            <span className="font-sans text-xs text-white/50 uppercase tracking-widest">
+              Kontaktiere uns:
+            </span>
             <div className="flex gap-4">
               {data.contact.map((c) => (
                 <a
@@ -81,63 +82,71 @@ export default function Footer({ data }) {
           {/* — Divider — */}
           <div className="border-t border-white/10 pt-10 mb-10">
 
-            {/* 3 — Three columns: Branding | Rechtliches | Folgen — centered as a group */}
-            <div className="flex justify-center gap-16 flex-wrap">
+            {/*
+              3 — Three columns: Branding | Rechtliches | Folgen
+              Desktop: all three in one row
+              Mobile:  Branding centered (full row), then Rechtliches+Folgen side-by-side below
+            */}
+            <div className="flex flex-col items-center gap-10 md:flex-row md:justify-center md:items-start md:gap-16">
 
-              {/* Col 1 — Branding (left-aligned within col) */}
-              <div className="min-w-[220px] max-w-[260px]">
+              {/* Col 1 — Branding */}
+              <div className="text-center md:text-left min-w-[220px] max-w-[260px]">
                 <img
                   src={LOGO_WHITE}
                   alt="Benjamin Kurtz Academy"
-                  className="h-7 w-auto object-contain mb-3"
+                  className="h-[34px] w-auto object-contain mb-3 mx-auto md:mx-0"
                 />
                 <p className="font-sans text-xs text-white/45 italic leading-relaxed">
                   {data.tagline}
                 </p>
               </div>
 
-              {/* Col 2 — Rechtliches */}
-              <div className="min-w-[120px]">
-                <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
-                  Rechtliches
-                </p>
-                <div className="flex flex-col gap-3">
-                  {data.legalLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="font-sans text-sm text-white/60 hover:text-white transition-colors"
-                      data-testid={`footer-legal-${link.label.toLowerCase()}`}
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
+              {/* Cols 2+3 — side-by-side on mobile AND desktop */}
+              <div className="flex justify-center gap-16 md:contents">
 
-              {/* Col 3 — Folgen */}
-              <div className="min-w-[120px]">
-                <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
-                  Folgen
-                </p>
-                <div className="flex flex-col gap-3">
-                  {data.social.map((s) => (
-                    <a
-                      key={s.label}
-                      href={s.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="font-sans text-sm text-white/60 hover:text-white transition-colors"
-                      data-testid={`footer-social-${s.label.toLowerCase().replace(/ /g, '-')}`}
-                    >
-                      {s.label}
-                    </a>
-                  ))}
+                {/* Col 2 — Rechtliches */}
+                <div className="min-w-[120px]">
+                  <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
+                    Rechtliches
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    {data.legalLinks.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-sans text-sm text-white/60 hover:text-white transition-colors"
+                        data-testid={`footer-legal-${link.label.toLowerCase()}`}
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
+                {/* Col 3 — Folgen */}
+                <div className="min-w-[120px]">
+                  <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
+                    Folgen
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    {data.social.map((s) => (
+                      <a
+                        key={s.label}
+                        href={s.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-sans text-sm text-white/60 hover:text-white transition-colors"
+                        data-testid={`footer-social-${s.label.toLowerCase().replace(/ /g, '-')}`}
+                      >
+                        {s.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
 
@@ -163,7 +172,7 @@ export default function Footer({ data }) {
 
           {/* — Divider + Copyright — */}
           <div className="border-t border-white/10 pt-6 text-center text-xs text-white/50">
-            © {year} Benjamin Kurtz Academy LLC. Alle Rechte vorbehalten. Home:{' '}
+            {`© ${year} Benjamin Kurtz Academy LLC. Alle Rechte vorbehalten. Home: `}
             <a
               href="https://benjaminkurtz.de"
               target="_blank"
