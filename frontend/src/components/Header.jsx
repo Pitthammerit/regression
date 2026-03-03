@@ -1,0 +1,119 @@
+import React, { useState, useEffect } from 'react'
+import CtaButton from './ui/CtaButton'
+import LazyImage from './ui/LazyImage'
+import { r2, logos } from '../utils/media'
+
+export default function Header({ nav, cta }) {
+  const [scrolled, setScrolled] = useState(false)
+  const [ctaVisible, setCtaVisible] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40)
+      setCtaVisible(window.scrollY > 600)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const handleNavClick = (anchor) => {
+    setMenuOpen(false)
+    const el = document.querySelector(anchor)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return (
+    <header
+      data-testid="site-header"
+      className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-all duration-300 ${
+        scrolled ? 'border-b border-black/8 py-4' : 'py-6'
+      }`}
+    >
+      {/* Three-zone layout: Logo | Nav (centered) | CTA */}
+      <div className="w-full px-6 md:px-10 lg:px-16 xl:px-20 flex items-center">
+
+        {/* Zone 1 — Logo (left) */}
+        <div className="flex-1">
+          <a href="/" data-testid="site-logo" className="inline-block hover:opacity-70 transition-opacity">
+            <LazyImage
+              src={r2(logos.dark)}
+              alt="Benjamin Kurtz Academy"
+              className="h-8 object-contain"
+              fallback={
+                <span className="font-serif text-brand-deep text-sm tracking-widest uppercase">
+                  Benjamin Kurtz Academy
+                </span>
+              }
+            />
+          </a>
+        </div>
+
+        {/* Zone 2 — Desktop Nav (center) */}
+        <nav className="hidden md:flex flex-none items-center gap-10">
+          {nav.map((item) => (
+            <a
+              key={item.anchor}
+              href={item.anchor}
+              onClick={(e) => { e.preventDefault(); handleNavClick(item.anchor) }}
+              className="font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors tracking-wide"
+              data-testid={`nav-link-${item.anchor.replace('#', '')}`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Zone 3 — CTA + mobile controls (right) */}
+        <div className="flex-1 flex justify-end items-center gap-3">
+
+          {/* Desktop CTA — scroll-triggered */}
+          <div className={`hidden md:block transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <CtaButton label={cta} variant="primary" />
+          </div>
+
+          {/* Mobile: scroll-triggered CTA + burger */}
+          <div className="flex items-center gap-3 md:hidden">
+            <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <CtaButton
+                label={cta}
+                variant="primary"
+                className="!py-2 !px-4 !text-xs"
+                data-testid="mobile-cta-button"
+              />
+            </div>
+            <button
+              className="flex flex-col justify-center gap-1.5 p-1"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Menu"
+              data-testid="mobile-menu-toggle"
+            >
+              <span className={`block w-6 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+              <span className={`block w-6 h-px bg-brand-deep transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-4 h-px bg-brand-deep transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[7px] w-6' : ''}`} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        data-testid="mobile-menu"
+        className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-96 border-t border-black/6' : 'max-h-0'}`}
+      >
+        <div className="bg-brand-cream px-8 py-6 flex flex-col gap-6">
+          {nav.map((item) => (
+            <a
+              key={item.anchor}
+              href={item.anchor}
+              onClick={(e) => { e.preventDefault(); handleNavClick(item.anchor) }}
+              className="font-sans text-base text-brand-body/70 hover:text-brand-deep transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </header>
+  )
+}
