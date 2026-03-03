@@ -32,6 +32,7 @@ export default function Footer({ data }) {
   const scrollToBooking = (e) => {
     e.preventDefault()
     document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => window.dispatchEvent(new Event('booking:open')), 500)
   }
 
   return (
