@@ -292,15 +292,21 @@ export const booking = {
 export const footer = {
   brand: "Benjamin Kurtz Academy LLC",
   tagline: "Grounded Spirituality Aligned with Your Purpose",
-  social: [
-    { label: "Instagram", url: "https://instagram.com/benjaminkurtz_de" },
-    { label: "Spotify", url: "https://open.spotify.com/episode/3D9V2pK9kdT6ED9FENxpnW?si=7rD9pMrcSV6uLq-tOoMICA" },
-    { label: "Apple Podcasts", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
-    { label: "YouTube", url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
+  contact: [
+    { label: "WhatsApp",  url: "https://wa.me/4915121231244",         icon: "whatsapp" },
+    { label: "E-Mail",    url: "mailto:hello@benjaminkurtz.de",        icon: "mail"     },
+    { label: "Instagram", url: "https://instagram.com/benjaminkurtz_de", icon: "instagram" },
   ],
   legalLinks: [
-    { label: "Terms", url: "https://www.benjaminkurtz.de/terms/" },
-    { label: "Imprint", url: "https://www.benjaminkurtz.de/imprint/" },
-    { label: "Privacy", url: "https://www.benjaminkurtz.de/privacy/" },
+    { label: "Terms",        url: "https://www.benjaminkurtz.de/terms/"   },
+    { label: "Privacy",      url: "https://www.benjaminkurtz.de/privacy/" },
+    { label: "Imprint",      url: "https://www.benjaminkurtz.de/imprint/" },
+    { label: "Academy Home", url: "https://benjaminkurtz.de"              },
+  ],
+  social: [
+    { label: "Instagram",     url: "https://instagram.com/benjaminkurtz_de" },
+    { label: "Spotify",       url: "https://open.spotify.com/episode/3D9V2pK9kdT6ED9FENxpnW?si=7rD9pMrcSV6uLq-tOoMICA" },
+    { label: "Apple Podcasts",url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
+    { label: "YouTube",       url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
   ],
 };
