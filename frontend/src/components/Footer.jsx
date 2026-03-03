@@ -57,21 +57,24 @@ export default function Footer({ data }) {
             ))}
           </div>
 
-          {/* 2 — Contact icons: WhatsApp | Mail | Instagram */}
-          <div className="mb-10 flex justify-center gap-5">
-            {data.contact.map((c) => (
-              <a
-                key={c.label}
-                href={c.url}
-                target={c.url.startsWith('mailto') ? undefined : '_blank'}
-                rel="noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label={c.label}
-                data-testid={`footer-contact-${c.icon}`}
-              >
-                {CONTACT_ICONS[c.icon]}
-              </a>
-            ))}
+          {/* 2 — Contact icons with label */}
+          <div className="mb-10 flex justify-center items-center gap-4">
+            <span className="font-sans text-xs text-white/50 uppercase tracking-widest">Kontaktiere uns:</span>
+            <div className="flex gap-4">
+              {data.contact.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.url}
+                  target={c.url.startsWith('mailto') ? undefined : '_blank'}
+                  rel="noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                  aria-label={c.label}
+                  data-testid={`footer-contact-${c.icon}`}
+                >
+                  {CONTACT_ICONS[c.icon]}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* — Divider — */}
@@ -85,15 +88,9 @@ export default function Footer({ data }) {
                 <img
                   src={LOGO_WHITE}
                   alt="Benjamin Kurtz Academy"
-                  className="h-10 w-auto object-contain mb-4"
+                  className="h-7 w-auto object-contain mb-3"
                 />
-                <p
-                  className="font-serif uppercase tracking-widest text-white/90 leading-tight"
-                  style={{ fontSize: '22px' }}
-                >
-                  {data.brand}
-                </p>
-                <p className="font-sans text-xs text-white/45 italic mt-2 leading-relaxed">
+                <p className="font-sans text-xs text-white/45 italic leading-relaxed">
                   {data.tagline}
                 </p>
               </div>
