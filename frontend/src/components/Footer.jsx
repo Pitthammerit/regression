@@ -90,13 +90,13 @@ export default function Footer({ data }) {
             <div className="flex flex-col items-center gap-10 md:flex-row md:justify-center md:items-start md:gap-16">
 
               {/* Col 1 — Branding */}
-              <div className="text-center md:text-left min-w-[220px] max-w-[260px]">
+              <div className="text-center md:text-left w-full md:min-w-[220px] md:max-w-[260px]">
                 <img
                   src={LOGO_WHITE}
                   alt="Benjamin Kurtz Academy"
                   className="h-[34px] w-auto object-contain mb-3 mx-auto md:mx-0"
                 />
-                <p className="font-sans text-xs text-white/45 italic leading-relaxed">
+                <p className="font-sans text-xs text-white/45 italic leading-relaxed whitespace-nowrap">
                   {data.tagline}
                 </p>
               </div>
