@@ -1,13 +1,7 @@
 import React from 'react'
-import { Instagram, Youtube, Music2, Headphones, Mail } from 'lucide-react'
+import { Instagram, Mail } from 'lucide-react'
 import { header as siteHeader, footer as footerContent } from '../content/plr-de'
 import LazyImage from './ui/LazyImage'
-
-const SOCIAL_ICONS = {
-  Spotify:          <Music2     size={24} strokeWidth={1.5} />,
-  'Apple Podcasts': <Headphones size={24} strokeWidth={1.5} />,
-  YouTube:          <Youtube    size={24} strokeWidth={1.5} />,
-}
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
