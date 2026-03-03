@@ -2,7 +2,7 @@ import React from 'react'
 import { Instagram, Youtube, Music2, Headphones, Mail } from 'lucide-react'
 import { header as siteHeader } from '../content/plr-de'
 
-/* ── Icon maps — icon size 24 matches JW reference (width="24" height="24") ── */
+/* ── Icon maps ── */
 const SOCIAL_ICONS = {
   Spotify:          <Music2     size={24} strokeWidth={1.5} />,
   'Apple Podcasts': <Headphones size={24} strokeWidth={1.5} />,
@@ -23,8 +23,9 @@ const CONTACT_ICONS = {
   instagram: <Instagram size={24} strokeWidth={1.5} />,
 }
 
+const LOGO_WHITE = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/logos/BK%20Academy%20500%20px%20white%20.png"
+
 export default function Footer({ data }) {
-  /* Navigation is shared with Header — change header.nav in plr-de.js → updates both */
   const nav = siteHeader.nav
   const year = new Date().getFullYear()
 
@@ -38,7 +39,7 @@ export default function Footer({ data }) {
       <div className="py-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
-          {/* 1 — Navigation: horizontal, one row — text-sm matches JW reference */}
+          {/* 1 — Navigation horizontal */}
           <div className="mb-8 flex flex-wrap justify-center gap-6 text-sm text-white/70">
             {nav.map((item) => (
               <a
@@ -56,13 +57,7 @@ export default function Footer({ data }) {
             ))}
           </div>
 
-          {/* 2 — Branding (Benjamin Kurtz Academy LLC + tagline) */}
-          <div className="mb-8 text-center">
-            <p className="font-serif text-base text-white/80">{data.brand}</p>
-            <p className="font-sans text-xs text-white/45 italic mt-1">{data.tagline}</p>
-          </div>
-
-          {/* 3 — Contact icons: WhatsApp | Mail | Instagram — size 24 like JW reference */}
+          {/* 2 — Contact icons: WhatsApp | Mail | Instagram */}
           <div className="mb-10 flex justify-center gap-5">
             {data.contact.map((c) => (
               <a
@@ -79,12 +74,31 @@ export default function Footer({ data }) {
             ))}
           </div>
 
-          {/* — Divider before columns — */}
+          {/* — Divider — */}
           <div className="border-t border-white/10 pt-10 mb-10">
-            {/* 4 — Two columns centered: Rechtliches | Folgen */}
-            <div className="flex justify-center gap-24 flex-wrap">
 
-              {/* Rechtliches */}
+            {/* 3 — Three columns: Branding | Rechtliches | Folgen — centered as a group */}
+            <div className="flex justify-center gap-16 flex-wrap">
+
+              {/* Col 1 — Branding (left-aligned within col) */}
+              <div className="min-w-[220px] max-w-[260px]">
+                <img
+                  src={LOGO_WHITE}
+                  alt="Benjamin Kurtz Academy"
+                  className="h-10 w-auto object-contain mb-4"
+                />
+                <p
+                  className="font-serif uppercase tracking-widest text-white/90 leading-tight"
+                  style={{ fontSize: '22px' }}
+                >
+                  {data.brand}
+                </p>
+                <p className="font-sans text-xs text-white/45 italic mt-2 leading-relaxed">
+                  {data.tagline}
+                </p>
+              </div>
+
+              {/* Col 2 — Rechtliches */}
               <div className="min-w-[120px]">
                 <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
                   Rechtliches
@@ -105,7 +119,7 @@ export default function Footer({ data }) {
                 </div>
               </div>
 
-              {/* Folgen */}
+              {/* Col 3 — Folgen */}
               <div className="min-w-[120px]">
                 <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
                   Folgen
@@ -129,7 +143,7 @@ export default function Footer({ data }) {
             </div>
           </div>
 
-          {/* — Divider + Disclaimer — text-xs matches JW reference */}
+          {/* — Divider + Disclaimer — */}
           <div className="border-t border-white/10 pt-6 pb-6 text-center">
             <h3 className="text-sm font-semibold text-white/80 mb-3">Rechtlicher Hinweis</h3>
             <p className="text-xs text-white/50 leading-relaxed max-w-3xl mx-auto">
@@ -149,9 +163,9 @@ export default function Footer({ data }) {
             </p>
           </div>
 
-          {/* — Divider + Copyright — text-xs matches JW reference */}
+          {/* — Divider + Copyright — */}
           <div className="border-t border-white/10 pt-6 text-center text-xs text-white/50">
-            © {year} Benjamin Kurtz Academy LLC. Alle Rechte vorbehalten. Web:{' '}
+            © {year} Benjamin Kurtz Academy LLC. Alle Rechte vorbehalten. Home:{' '}
             <a
               href="https://benjaminkurtz.de"
               target="_blank"
