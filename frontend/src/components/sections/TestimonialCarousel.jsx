@@ -166,15 +166,16 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className="relative h-3 overflow-hidden rounded-full bg-brand-sand/40 transition-all duration-300"
+              className="relative h-3 overflow-hidden rounded-full transition-all duration-300"
               style={{
                 width: index === currentIndex ? "48px" : "12px",
+                backgroundColor: index === currentIndex ? "#9B7461" : "#E8D5C4",
               }}
               aria-label={`Go to testimonial ${index + 1}`}>
               {/* Progress bar inside active dot */}
               {index === currentIndex && (
                 <div
-                  className="absolute left-0 top-0 h-full bg-brand-deep transition-all duration-100 ease-linear"
+                  className="absolute left-0 top-0 h-full bg-white/40 transition-all duration-100 ease-linear"
                   style={{ width: `${progress}%` }}
                 />
               )}
