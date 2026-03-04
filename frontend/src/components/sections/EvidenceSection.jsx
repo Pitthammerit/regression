@@ -44,10 +44,13 @@ function AuthorityCard({ authority, index }) {
         {authority.shortQuote}
       </p>
 
-      {/* Name & Role */}
+      {/* Name & Role & Dates */}
       <div className="mb-4 px-2">
         <p className="font-sans text-sm font-semibold text-white mb-1">{authority.name}</p>
         <p className="font-sans text-xs text-brand-steel uppercase tracking-wider">{authority.role}</p>
+        {authority.dates && (
+          <p className="font-sans text-xs text-white/50 italic mt-1">{authority.dates}</p>
+        )}
       </div>
 
       {/* Expand Button */}

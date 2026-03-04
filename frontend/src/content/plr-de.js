@@ -281,6 +281,7 @@ export const evidence = {
 Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen über Familien, Orte und Todesumstände von Personen berichten, die Jahre vor ihrer Geburt verstorben waren. Viele dieser Details ließen sich später verifizieren. Stevensons Arbeit umfasst über 290 peer-reviewed Publikationen und wurde in führenden wissenschaftlichen Journalen veröffentlicht.
 
 Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Division of Perceptual Studies fort, wo die Forschung bis heute weitergeführt wird.`,
+      dates: "*1918–2007",
     },
     {
       id: "jim-tucker",
@@ -293,6 +294,7 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
 Einer seiner bekanntesten Fälle ist James Leininger: Ein Zweijähriger aus Louisiana, der detaillierte Erinnerungen an ein Leben als WWII-Pilot beschrieb. Das Kind konnte spezifische Details nennen: Namen des Piloten (James Huston), Staffelzugehörigkeit (VF-38), Typ des Flugzeugs (F4U Corsair), Todesumstände (abgeschossen vor Iwo Jima), und sogar Namen von Kameraden. Später verifizierten seine Eltern alle diese Details historisch akkurat.
 
 Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie finden weltweit, unabhängig von religiösem Hintergrund oder Elternhaus statt.`,
+      dates: "*geb. 1950",
     },
     {
       id: "brian-weiss",
@@ -305,6 +307,7 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
 Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen klinischen Arbeit mit tausenden Patienten. Weiss dokumentierte systematisch regressionstherapeutische Sitzungen und ihre langfristigen Heilungseffekte. Sein Buch "Many Lives, Many Masters" (1988) wurde zu einem internationalen Bestseller und machte Regressionstherapie einem breiten Publikum zugänglich.
 
 Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung hatte ihn gelehrt, dass alles im gegenwärtigen Leben zu erklären sei. Doch die konsistenten Ergebnisse mit verschiedenen Patienten ließen sich nicht ignorieren. Seine Arbeit hat tausenden Therapeuten weltweit den Weg zu regressionsbasierten Methoden eröffnet.`,
+      dates: "*1944–2024",
     },
   ],
   journal: {
