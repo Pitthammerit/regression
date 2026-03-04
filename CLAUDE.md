@@ -218,6 +218,39 @@ For complex multi-file changes, use this standardized loop:
 // 6. COMMIT: version-control-orchestrator
 ```
 
+## Related Projects
+
+### Journey Within Retreats (Reference & Orientation)
+**GitHub:** https://github.com/Pitthammerit/journey-within-retreats
+
+Dieses Projekt wurde ebenfalls mit emergent.sh gebaut und dient als **Referenz für Patterns und Orientierung**.
+
+**Zweck der Referenz:**
+- ✅ Component-Strukturen und Patterns analysieren
+- ✅ Best Practices für Tailwind + React 19 übernehmen
+- ✅ Cloudflare Image Resizing Patterns verwenden
+- ✅ Testimonials-Struktur und Datenmodelle verstehen
+
+**⚠️ WICHTIG — Code-Qualität beachten:**
+Der Code in journey-within-retreats ist **nicht immer sauber** oder besser als hier:
+- ❌ Enthält teilweise hardcoded Strings in Components
+- ❌ Manche Sections sind nicht durch Content Layer getrennt
+- ❌ Ggf. überflüssige Dependencies oder nicht optimierte Patterns
+
+**Unser Ziel:**
+Wenn wir Code von dort übernehmen, verbessern ihn gleichzeitig:
+- ✅ Hardcoded Strings → Content Layer
+- ✅ Component-Strukturen aufräumen
+- ✅ Dependencies prüfen und minimieren
+- ✅ Regression-spezifische Anpassungen machen
+
+**BEFORE Copy-Pasting from Journey Within:**
+1. Prüfen: Ist der Code sauber?
+2. Wenn ja: Übernehmen und anpassen
+3. Wenn nein: Refactorn BEFORE commit
+
+---
+
 ## Task Tracking
 
 ### TODO.md Maintenance
