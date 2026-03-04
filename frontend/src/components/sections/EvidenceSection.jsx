@@ -1,94 +1,8 @@
-import React, { useState } from 'react'
-import { evidence } from '../../content/plr-de'
+import React from 'react'
+import { evidence, rogerWoolger } from '../../content/plr-de'
 import LazyImage from '../ui/LazyImage'
 
-function AuthorityCard({ authority, index }) {
-  const [isExpanded, setIsExpanded] = useState(false)
-
-  return (
-    <div className="flex flex-col" data-testid={`authority-${authority.id}`}>
-      {/* Portrait or Quote Card */}
-      {authority.portrait ? (
-        <div
-          className="aspect-square w-full mb-6 overflow-hidden rounded-sm bg-brand-dark/50 cursor-pointer hover:opacity-90 transition-opacity"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          <LazyImage
-            src={authority.portrait}
-            alt={authority.name}
-            className="w-full h-full object-cover object-top"
-            fallback={
-              <div className="w-full h-full flex items-center justify-center text-white/50 font-serif text-sm">
-                {authority.name}
-              </div>
-            }
-          />
-        </div>
-      ) : (
-        <div
-          className="p-6 bg-brand-dark/30 rounded-sm mb-6 cursor-pointer hover:bg-brand-dark/40 transition-colors min-h-[200px] flex items-center justify-center border border-white/10"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          <blockquote className="font-serif text-lg md:text-xl text-white/90 leading-snug text-center italic">
-            {isExpanded ? (
-              <span className="text-brand-green">{authority.name}</span>
-            ) : (
-              '"The evidence simply made it impossible to ignore."'
-            )}
-          </blockquote>
-        </div>
-      )}
-
-      {/* Short Quote - Always Visible */}
-      <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-4 px-2">
-        {authority.shortQuote}
-      </p>
-
-      {/* Name & Role & Dates */}
-      <div className="mb-4 px-2">
-        <p className="font-sans text-sm font-semibold text-white mb-1">{authority.name}</p>
-        <p className="font-sans text-xs text-brand-steel uppercase tracking-wider">{authority.role}</p>
-        {authority.dates && (
-          <p className="font-sans text-xs text-white/50 italic mt-1">{authority.dates}</p>
-        )}
-      </div>
-
-      {/* Expand Button */}
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="group flex items-center gap-2 px-4 py-2 mx-2 text-sm font-sans text-white/70 hover:text-white transition-colors"
-        aria-expanded={isExpanded}
-      >
-        <span>{isExpanded ? 'Weniger lesen' : 'Mehr erfahren'}</span>
-        <svg
-          className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-
-      {/* Accordion Content - Expands Below */}
-      {isExpanded && (
-        <div className="mt-6 px-6 py-6 bg-brand-dark/30 rounded-sm border border-white/10 animate-fadeIn">
-          <div className="prose prose-invert prose-lg max-w-none">
-            {authority.longVersion.split('\n\n').map((paragraph, i) => (
-              <p key={i} className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-4 last:mb-0">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
-
 export default function EvidenceSection() {
-  const authorities = evidence.authorities
-
   return (
     <section
       id="evidence"
@@ -109,11 +23,91 @@ export default function EvidenceSection() {
           </h2>
         </div>
 
-        {/* Three Portraits with Quotes & Accordions */}
+        {/* Three Portraits with English Quotes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-16">
-          {authorities.map((authority, index) => (
-            <AuthorityCard key={authority.id} authority={authority} index={index} />
-          ))}
+          {evidence.authorities.map((authority, index) => {
+            const portraitUrl = {
+              0: 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg',
+              1: 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg',
+              2: null, // Jim Tucker has no portrait
+            }[index]
+
+            return (
+              <div key={authority.id} className="flex flex-col items-center text-center">
+                {/* Portrait - Square */}
+                {portraitUrl ? (
+                  <div className="aspect-square w-full max-w-[240px] mb-6 overflow-hidden rounded-sm bg-brand-dark/50">
+                    <LazyImage
+                      src={portraitUrl}
+                      alt={authority.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                ) : (
+                  <div className="aspect-square w-full max-w-[240px] mb-6 flex items-center justify-center bg-brand-dark/30 rounded-sm border border-white/10">
+                    <p className="font-serif text-2xl text-white/90 italic text-center px-4">
+                      {authority.name}
+                    </p>
+                  </div>
+                )}
+
+                {/* English Quote */}
+                <blockquote className="font-serif text-lg md:text-xl text-white/90 leading-snug mb-4 italic">
+                  "{authority.quote}"
+                </blockquote>
+
+                {/* Name & Role */}
+                <div className="font-sans text-sm text-brand-steel">
+                  <span className="font-semibold">— {authority.name}</span>
+                  {authority.dates && (
+                    <span className="block text-xs text-white/50 italic mt-1">{authority.dates}</span>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* German Flowing Text Section */}
+        <div className="space-y-8 md:space-y-10 mb-16">
+          {/* Ian Stevenson */}
+          <div>
+            <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-3">
+              Ian Stevenson, MD
+            </p>
+            <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
+              University of Virginia, DOPS
+            </p>
+            <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed max-w-4xl">
+              {evidence.authorities[0].longVersion}
+            </p>
+          </div>
+
+          {/* Jim Tucker */}
+          <div>
+            <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-3">
+              Jim Tucker, MD
+            </p>
+            <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
+              Nachfolger Stevensons, UVA
+            </p>
+            <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed max-w-4xl">
+              {evidence.authorities[1].longVersion}
+            </p>
+          </div>
+
+          {/* Brian Weiss */}
+          <div>
+            <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-3">
+              Brian Weiss, MD
+            </p>
+            <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
+              Ehem. Chefarzt Psychiatrie, Mount Sinai
+            </p>
+            <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed max-w-4xl">
+              {evidence.authorities[2].longVersion}
+            </p>
+          </div>
         </div>
 
         {/* Journal of Regression Therapy */}
@@ -124,11 +118,6 @@ export default function EvidenceSection() {
               src={evidence.journal.portrait}
               alt={evidence.journal.name}
               className="w-full h-full object-cover"
-              fallback={
-                <div className="w-full h-full flex items-center justify-center text-white/50 font-serif text-sm">
-                  {evidence.journal.name}
-                </div>
-              }
             />
           </div>
 
@@ -150,6 +139,43 @@ export default function EvidenceSection() {
             <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed">
               {evidence.journal.description}
             </p>
+          </div>
+        </div>
+
+        {/* Roger Woolger — 4th Author */}
+        <div className="mt-16 pt-16 border-t border-white/10">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+            {/* Roger Portrait */}
+            <div className="w-full md:w-1/3 aspect-square max-w-[200px] overflow-hidden rounded-sm bg-brand-dark/50 shrink-0">
+              <LazyImage
+                src={rogerWoolger.portrait}
+                alt={rogerWoolger.label}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Roger Text */}
+            <div className="flex-1">
+              <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-3">
+                {rogerWoolger.label} {rogerWoolger.labelSub}
+              </p>
+              <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
+                {rogerWoolger.headline}
+              </p>
+              <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed">
+                {rogerWoolger.shortVersion}
+              </p>
+              <div className="mt-6">
+                <a
+                  href={rogerWoolger.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-brand-steel hover:text-brand-green transition-colors font-sans text-sm"
+                >
+                  {rogerWoolger.sourceLabel} →
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
