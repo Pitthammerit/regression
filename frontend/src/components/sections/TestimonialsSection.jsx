@@ -1,12 +1,22 @@
 import React from 'react'
 import { testimonials } from '../../content/plr-de'
+import { TESTIMONIALS_LIST } from '../../content/testimonials.list'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 
+/**
+ * TestimonialsSection - Client testimonials grid layout
+ *
+ * Layout:
+ * - First testimonial (index 0): Left column, full height
+ * - Remaining testimonials: Distributed in 2-column grid
+ * - Uses TESTIMONIALS_LIST for dynamic testimonials
+ * - authorityQuotes from plr-de.js (research quotes)
+ */
 export default function TestimonialsSection() {
-  const [anna, ...rest] = testimonials.clients
-  // rest = [Alexander, Arthur, Hernan]
-  const [alexander, arthur, hernan] = rest
+  // Dynamic testimonials from list
+  const [featured, ...others] = TESTIMONIALS_LIST
+  // featured = Anna (first), others = [Alexander, Arthur, Hernan, ...]
 
   return (
     <div id="testimonials" data-testid="testimonials-section">
@@ -40,47 +50,46 @@ export default function TestimonialsSection() {
           {/*
             Layout:
             Desktop — 3 columns:
-              Col 1: Anna (row-span-2, tall)
-              Col 2 row 1: Alexander  |  Col 2 row 2: Hernan
-              Col 3 row 1: Arthur     |  Col 3 row 2: (empty — reserved for 5th)
-            Mobile — single column stack: Anna → Alexander → Arthur → Hernan
+              Col 1: Featured (row-span-2, tall)
+              Col 2+3: Remaining testimonials in 2-column grid
+            Mobile — single column stack
           */}
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6">
 
-            {/* Anna — left, full height */}
-            <div
-              className="md:row-span-2 bg-white/50 rounded-2xl p-8 border border-brand-sand flex flex-col justify-between"
-              data-testid="testimonial-card-0"
-            >
-              <blockquote className="font-serif italic text-lg text-brand-body leading-relaxed mb-8">
-                „{anna.quote}"
-              </blockquote>
-              <div className="flex items-center gap-4 mt-auto">
-                {anna.image && (
-                  <LazyImage
-                    src={anna.image}
-                    alt={anna.name}
-                    className="w-12 h-12 rounded-full object-cover object-top border border-brand-sand shrink-0"
-                  />
-                )}
-                <div>
-                  <div className="font-sans text-sm font-medium text-brand-deep">{anna.name}</div>
-                  <div className="font-sans text-xs text-brand-steel mt-0.5">{anna.context}</div>
+            {/* Featured testimonial — left, full height */}
+            {featured && (
+              <div
+                className="md:row-span-2 bg-white/50 rounded-2xl p-8 border border-brand-sand flex flex-col justify-between"
+                data-testid="testimonial-card-featured"
+              >
+                <blockquote className="font-serif italic text-lg text-brand-body leading-relaxed mb-8">
+                  "{featured.quote}"
+                </blockquote>
+                <div className="flex items-center gap-4 mt-auto">
+                  {featured.image && (
+                    <LazyImage
+                      src={featured.image}
+                      alt={featured.name}
+                      className="w-12 h-12 rounded-full object-cover object-top border border-brand-sand shrink-0"
+                    />
+                  )}
+                  <div>
+                    <div className="font-sans text-sm font-medium text-brand-deep">{featured.name}</div>
+                    <div className="font-sans text-xs text-brand-steel mt-0.5">{featured.context}</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
-            {/* Alexander — top center */}
-            <TestimonialCard c={alexander} index={1} />
+            {/* Remaining testimonials — 2-column grid */}
+            {others.map((testimonial, index) => (
+              <TestimonialCard key={index} c={testimonial} index={index} />
+            ))}
 
-            {/* Arthur — top right */}
-            <TestimonialCard c={arthur} index={3} />
-
-            {/* Hernan — bottom center */}
-            <TestimonialCard c={hernan} index={2} />
-
-            {/* Empty slot — bottom right, reserved for 5th testimonial */}
-            <div className="hidden md:block rounded-2xl border border-dashed border-brand-sand/50" />
+            {/* Empty slot(s) if needed to maintain grid layout */}
+            {others.length < 4 && (
+              <div className="hidden md:block rounded-2xl border border-dashed border-brand-sand/50" />
+            )}
 
           </div>
         </div>
@@ -97,7 +106,7 @@ function TestimonialCard({ c, index }) {
       data-testid={`testimonial-card-${index}`}
     >
       <blockquote className="font-serif italic text-lg text-brand-body leading-relaxed mb-8">
-        „{c.quote}"
+        "{c.quote}"
       </blockquote>
       <div className="flex items-center gap-4 mt-auto">
         {c.image && (

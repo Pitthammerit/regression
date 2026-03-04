@@ -2,28 +2,18 @@
 
 Updated: 2026-03-04
 
-## Sprint 0: Quick Fix (CURRENT)
+## High Priority
 
-### Phase 5: TestimonialCarousel CI-Farben
-- [x] Change active color from `#9B7461` to `#2D3F4E` (brand-deep)
-- [x] Change inactive color from `#E8D5C4` to `#D1C5B0` (brand-steel)
-- [ ] Build & verify
-- [ ] Commit & deploy
+### Sprint 2: Quality (Next)
 
-## Sprint 1: Self-Service Foundation
+### Phase 2: Remove Remaining Hardcoded Strings
+- Footer: Extract hardcoded German strings to content layer
+- Check other components for hardcoded strings
+- Ensure all user-facing text is in plr-de.js
 
-### Phase 1: Config-Based Section System
-- Create `frontend/src/config/sections.config.js` with SECTIONS_ORDER array
-- Update `App.js` to use dynamic section rendering from config
-- Enable section reordering by changing array order in config file
-
-### Phase 1.5: Dynamic Testimonials System
-- Create `frontend/src/content/testimonials.list.js`
-- Move testimonials to separate list with automatic numbering (0, 1, 2, 3...)
-- Update TestimonialsSection and TestimonialCarousel to import from list
-- Add/remove testimonials by editing the list array
-
-## Medium Priority
+### Phase 3: Type Safety (Optional)
+- Add PropTypes to key components
+- Consider TypeScript migration for larger refactors
 
 ### Implement Minimal i18n System
 - Create `frontend/src/content/plr-en.js`
@@ -32,14 +22,9 @@ Updated: 2026-03-04
 - Update components to use `useContent()` instead of direct imports
 
 ### Fix Missing Catch-All Route
-- Add `path="*"` route in `frontend/src/App.js` to show NotFound component
-- Currently, invalid URLs render blank
+- Note: Already implemented in App.js (`path="*"` with NotFound component)
 
-### Footer: Extract Hardcoded Strings
-- File: `frontend/src/components/Footer.jsx`
-- Move all German strings to content layer
-- Remove direct import of `plr-de.js`
-- Footer should receive data via props or context
+## Medium Priority
 
 ### Clean Up Unused Section Variants
 - Move unused hero variants to `frontend/src/experiments/`:
@@ -59,9 +44,20 @@ Updated: 2026-03-04
 
 ## Completed
 
-### Sprint 0: TestimonialCarousel CI-Farben (2026-03-04)
-- Changed active dot color from `#9B7461` to `#2D3F4E` (brand-deep)
-- Changed inactive dot color from `#E8D5C4` to `#D1C5B0` (brand-steel)
+### Sprint 1: Config-Based Section System + Dynamic Testimonials (2026-03-04)
+- Created `frontend/src/config/sections.config.js` with SECTIONS_ORDER array
+- Updated App.js to use dynamic section rendering from config
+- Created `frontend/src/content/testimonials.list.js` with automatic numbering
+- Updated TestimonialsSection to use TESTIMONIALS_LIST dynamically
+- Updated TestimonialCarousel to use TESTIMONIALS_LIST with fallback
+- Sections can now be reordered by editing sections.config.js
+- Testimonials can be added/removed by editing testimonials.list.js
+
+### Sprint 0: TestimonialCarousel CI-Farben + No Hardcoding (2026-03-04)
+- Changed carousel dots to use Tailwind classes (brand-deep, brand-steel)
+- Replaced hardcoded star color with text-amber-400
+- CLAUDE.md updated: Added "No Hardcoding" principle
+- All inline styles replaced with Tailwind classes (except dynamic values)
 
 ### TranscriptPage: Separated UI from Content (2026-03-04)
 - Created `frontend/src/content/transcripts/episode52.de.js` with transcript data

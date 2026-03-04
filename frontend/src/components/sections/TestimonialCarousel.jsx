@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { TESTIMONIALS_LIST } from "../../content/testimonials.list";
 
 /**
  * TestimonialCarousel - Carousel for client testimonials
@@ -17,6 +18,9 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
  * @param {string} props.subtitle - Section subtitle/h2
  */
 export const TestimonialCarousel = ({ clients, label, subtitle }) => {
+  // Use TESTIMONIALS_LIST by default, fallback to props.clients for backward compatibility
+  const carouselClients = clients || TESTIMONIALS_LIST
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -40,19 +44,19 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
 
   // When progress completes, move to next slide
   useEffect(() => {
-    if (progress >= 100 && clients.length > 0) {
-      setCurrentIndex((prev) => (prev + 1) % clients.length);
+    if (progress >= 100 && carouselClients.length > 0) {
+      setCurrentIndex((prev) => (prev + 1) % carouselClients.length);
       setProgress(0);
     }
-  }, [progress, clients.length]);
+  }, [progress, carouselClients.length]);
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % clients.length);
+    setCurrentIndex((prev) => (prev + 1) % carouselClients.length);
     setProgress(0);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + clients.length) % clients.length);
+    setCurrentIndex((prev) => (prev - 1 + carouselClients.length) % carouselClients.length);
     setProgress(0);
   };
 
@@ -62,7 +66,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
     setProgress(0);
   };
 
-  if (!clients || clients.length === 0) {
+  if (!carouselClients || carouselClients.length === 0) {
     return null;
   }
 
@@ -106,7 +110,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
               className="flex transition-transform duration-600 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {clients.map((t, idx) => (
+              {carouselClients.map((t, idx) => (
                 <div key={`${t.name}-${idx}`} className="min-w-full">
                   <div className="flex flex-col gap-3 rounded-2xl bg-white/50 p-6 border border-brand-sand shadow-sm backdrop-blur-sm">
                     {/* Top Row: Avatar + Name/Role + Stars */}
@@ -162,7 +166,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
 
         {/* Navigation Dots with Progress Bar inside active dot */}
         <div className="mt-8 flex justify-center gap-2">
-          {clients.map((_, index) => (
+          {carouselClients.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
