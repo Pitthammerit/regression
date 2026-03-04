@@ -301,6 +301,7 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
       name: "Brian Weiss MD",
       role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
+      quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
       shortQuote: "'Many Lives Many Masters' (1988) — klinische Falldokumentation über Jahrzehnte. Skeptische Haltung veränderte sich durch eine Patientin, die unter Hypnose frühere Leben beschrieb.",
       longVersion: `Brian Weiss war ein hochangesehener Psychiater und Chefarzt am Mount Sinai Medical Center in Miami, als ihn ein Fall im Jahr 1980 gründlich verändern sollte. Catherine, eine Patientin mit schweren Ängsten und Phobien, sprach unter Hypnose plötzlich von Details aus vergangenen Leben — Informationen, die sich historisch verifizieren ließen.
 
@@ -308,6 +309,22 @@ Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen kl
 
 Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung hatte ihn gelehrt, dass alles im gegenwärtigen Leben zu erklären sei. Doch die konsistenten Ergebnisse mit verschiedenen Patienten ließen sich nicht ignorieren. Seine Arbeit hat tausenden Therapeuten weltweit den Weg zu regressionsbasierten Methoden eröffnet.`,
       dates: "*1944–2024",
+    },
+    {
+      id: "roger-woolger",
+      name: "Roger Woolger PhD",
+      role: "Jungian Analytiker, Regressionstherapeut, Lehrer",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
+      quote: "The body never lies about what the soul has carried across lifetimes.",
+      shortQuote: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",
+      longVersion: `Roger Woolger war ein Jungian Analytiker und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
+
+Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian Western Mysticism und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.
+
+Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie, schamanischen Perspektiven und meditativen Prinzipien, inklusive Übergangs- und Zwischenzuständen aus tibetischen Lehren. Spätere, zugänglichere Vertiefungen seiner Arbeit erschienen u.a. als Healing Your Past Lives sowie weitere Lehrformate.
+
+Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP): ein Ansatz für Deep Memory Access, der Regression, Embodiment, Dreamwork, Meditation und Regression Shamanism verbindet. Er bildete Therapeuten international aus und prägte Spiritual Healing Conferences, in denen Themen wie Regression & Shamanism, Soul Loss, Exile/Longing to Return und die sakrale Verbindung von Körper und Geist im Zentrum standen.`,
+      dates: "*1944–2011",
     },
   ],
   journal: {

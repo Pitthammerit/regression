@@ -1,56 +1,199 @@
-# Regression App — Deployment Rules (Cloudflare Pages)
+# Regression Website — Self-Service Anleitung
 
-This repo deploys a React app via Cloudflare Pages.
+**Was hier steht:** Wie du deine Website selbst ändern kannst, ohne Programmierer zu sein.
 
-## What gets deployed
+---
 
-- Only the React app inside `frontend/` is deployed.
-- Anything outside `frontend/` is not part of the Cloudflare Pages build.
+## 📋 Kurzübersicht: Was ist neu?
 
-## Cloudflare Pages settings (keep these)
+Nach dem Update (März 2026) kannst du jetzt:
 
-- Root directory: `frontend`
-- Build command: `npm run build`
-- Build output directory: `build`
-- Environment variables (Cloudflare Pages):
-  - `CI=false` (prevents builds from failing due to warnings in CI)
+1. **Bereiche umordnen** — z.B. Kundenstimmen nach oben verschieben
+2. **Neue Kundenstimmen hinzufügen** — einfach in einer Liste eintragen
+3. **Alles ohne Code** — nur Text-Dateien bearbeiten
 
-## Local workflow (designed for Claude Code)
+---
 
-Rules:
-- Always use npm.
-- Never introduce yarn or pnpm in this repo.
-- If dependencies change, the lockfile must be updated and committed.
+## 🚀 Schnellstart: So änderst du etwas
 
-### Commands (no `cd frontend` needed)
+### 1. Reihenfolge der Website-Bereiche ändern
 
-- Install deps (only when dependencies changed):
-  - `npm --prefix frontend install`
+**Datei:** `frontend/src/config/sections.config.js`
 
-- Production build (run before every push):
-  - `npm --prefix frontend run build`
+Diese Datei sieht so aus:
 
-- Dev server:
-  - `npm --prefix frontend start`
+```javascript
+export const SECTIONS_ORDER = [
+  'HeroV3Section',
+  'ServicesSection',
+  'WelcomeSection',
+  'TestimonialCarousel',  // ← Wenn das nach oben soll:
+  'WhatIsSection',        //    Einfach diese Zeilen verschieben
+  ...
+]
+```
 
-## Dependency rule (critical)
+**Beispiel:** Kundenstimmen (TestimonialCarousel) nach oben:
 
-If you modify `frontend/package.json` (add/remove/update dependencies), you must also:
-- run `npm --prefix frontend install`
-- commit BOTH:
-  - `frontend/package.json`
-  - `frontend/package-lock.json`
+```javascript
+export const SECTIONS_ORDER = [
+  'HeroV3Section',
+  'TestimonialCarousel',  // ← Jetzt an zweiter Stelle
+  'ServicesSection',
+  'WelcomeSection',
+  ...
+]
+```
 
-Cloudflare may run `npm ci`.
-If `package-lock.json` is out of sync, deployment will fail.
+**WICHTIG:**
+- Die Namen in Anführungszeichen bleiben gleich
+- Jede Zeile mit Komma trennen (außer die letzte)
+- Groß-/Kleinschreibung beachten
 
-## GitHub Action (lockfile rescue)
+---
 
-This repo contains a GitHub Action that can sync `frontend/package-lock.json`.
-Use it if you forgot to update the lockfile and Cloudflare fails with an `npm ci` sync error.
+### 2. Neue Kundenstimme hinzufügen
 
-## Routing note
+**Datei:** `frontend/src/content/testimonials.list.js`
 
-If you mount this app under a sub-path (example: `/regression` on another website),
-ensure React Router + asset paths are configured accordingly (basename/public path),
-otherwise internal navigation may jump to the domain root.
+Diese Datei enthält alle Kundenstimmen. Um eine neue hinzuzufügen:
+
+```javascript
+export const TESTIMONIALS_LIST = [
+  {
+    name: "Anna K.",
+    context: "Health Coach, Deutschland",
+    quote: "Durch Benjamins Ruhe...",
+    image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/...",
+  },
+  {
+    name: "Alexander W.",
+    context: "Musikproduzent, USA",
+    quote: "Alles, was Benjamin...",
+    image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/...",
+  },
+  // HIER eine neue hinzufügen:
+  {
+    name: "Deine Neue Kundin",
+    context: "Beraterin, Schweiz",
+    quote: "Das war eine unglaubliche Erfahrung...",
+    image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/dein-bild.jpg",
+  },
+]
+```
+
+**WICHTIG:**
+- Kommas nach jedem Eintrag (außer dem letzten)
+- Text in Anführungszeichen
+- Bild muss hochgeladen sein (R2 Storage)
+
+**Reihenfolge ändern?** Einfach die Blöcke im Array verschieben.
+
+---
+
+### 3. Texte ändern (Überschriften, Beschreibungen, etc.)
+
+**Datei:** `frontend/src/content/plr-de.js`
+
+Hier stehen alle deutschen Texte der Website.
+
+**Beispiel — Hero-Überschrift ändern:**
+
+```javascript
+export const hero = {
+  headlineLine1: "Deine Seele",
+  headlineLine2: "erinnert sich.",
+  // Ändern zu:
+  headlineLine1: "Deine Reise",
+  headlineLine2: "beginnt jetzt.",
+  ...
+}
+```
+
+---
+
+## 🔨 Nach Änderungen: Deployen
+
+Wenn du etwas geändert hast, musst du es veröffentlichen:
+
+```bash
+# 1. Build testen (prüft ob alles funktioniert)
+npm --prefix frontend run build
+
+# 2. Wenn erfolgreich, commiten
+git add .
+git commit -m "Kurzbeschreibung der Änderung"
+
+# 3. Pushen
+git push
+
+# Cloudflare deployt automatisch!
+```
+
+**Falls Build fehlschlägt:**
+- Komma vergessen?
+- Anführungszeichen nicht geschlossen?
+- Datei im falschen Ordner?
+
+---
+
+## 📁 Die wichtigsten Dateien im Überblick
+
+| Datei | Wofür? | Änderst du oft? |
+|-------|--------|----------------|
+| `frontend/src/config/sections.config.js` | Reihenfolge der Bereiche | Ja — wenn du Layout änderst |
+| `frontend/src/content/testimonials.list.js` | Kundenstimmen | Ja — neue Reviews |
+| `frontend/src/content/plr-de.js` | Alle Texte | Ja — Textänderungen |
+| `frontend/tailwind.config.js` | Farben, Design | Nein — nur mit Claude |
+
+---
+
+## ⚠️ Was du NICHT ändern solltest
+
+Diese Dateien sind für Programmierer:
+- `frontend/src/App.js` — Nur mit Claude ändern
+- `frontend/src/components/` — Nur mit Claude ändern
+- `frontend/package.json` — Nur wenn du neue Funktionen brauchst
+
+---
+
+## 🎨 Farben ändern?
+
+Alle Farben sind in `frontend/tailwind.config.js` definiert. Aber: **Frage Claude** bevor du etwas änderst!
+
+Die CI-Farben (aktuell):
+- `brand-deep`: Dunkelblau (#224160)
+- `brand-steel`: Hellblau (#7696AD)
+- `brand-cream`: Beige (#F0EBE1)
+
+---
+
+## 🆘 Hilfe bekommen
+
+Wenn etwas nicht funktioniert oder du eine neue Funktion möchtest:
+
+1. Schreibe Claude was du möchtest
+2. Erkläre es in einfachen Worten
+3. Claude macht die technischen Änderungen
+
+**Beispiel:**
+```
+"Ich möchte die Kundenstimmen direkt nach dem Hero-Bereich anzeigen."
+```
+
+---
+
+## 📝 Checkliste für Änderungen
+
+- [ ] Datei geöffnet (`sections.config.js` oder `testimonials.list.js`)
+- [ ] Änderung gemacht
+- [ ] Kommas gesetzt? (alles außer letzte Zeile)
+- [ ] Anführungszeichen geschlossen?
+- [ ] Build getestet (`npm --prefix frontend run build`)
+- [ ] Commit erstellt
+- [ ] Ge-pusht
+- [ ] Cloudflare deploy erfolgreich
+
+---
+
+**Stand:** März 2026 — Sprint 1 abgeschlossen (Config-System + Dynamic Testimonials)
