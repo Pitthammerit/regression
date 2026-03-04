@@ -35,22 +35,22 @@ export default function Header({ nav, cta }) {
 
           {/* Logo — responsive version */}
           <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity">
-            {/* Mobile (<768px): Circular logo ONLY */}
-            <img
-              src={r2('logos/BKA logo 1000 px black.png')}
-              alt="Benjamin Kurtz Academy"
-              className="md:hidden h-10 w-10 object-contain"
-            />
-            {/* Tablet & Desktop (>=768px): Wordmark logo */}
+            {/* Mobile & Tablet (<1024px): Wordmark logo */}
             <img
               src={r2(logos.dark)}
               alt="Benjamin Kurtz Academy"
-              className="hidden md:block h-6 lg:h-7 w-auto object-contain"
+              className="lg:hidden h-7 w-auto object-contain"
+            />
+            {/* Desktop (>=1024px): Circular logo */}
+            <img
+              src={r2('logos/BKA logo 500 px black.png')}
+              alt="Benjamin Kurtz Academy"
+              className="hidden lg:block h-10 w-10 object-contain"
             />
           </a>
 
-          {/* Desktop Nav + CTA (>=768px) */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10">
+          {/* Desktop Nav + CTA (>=1024px) */}
+          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
             <nav className="flex items-center gap-6 lg:gap-8">
               {nav.map((item) => (
                 <a
@@ -70,10 +70,10 @@ export default function Header({ nav, cta }) {
             </div>
           </div>
 
-          {/* Mobile (<768px): Burger Menu ONLY - no double logo */}
+          {/* Mobile & Tablet (<1024px): Burger Menu ONLY */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 -mr-2 hover:bg-black/5 rounded-lg transition-colors"
+            className="lg:hidden p-2 -mr-2 hover:bg-black/5 rounded-lg transition-colors"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             data-testid="mobile-menu-toggle"
           >
@@ -82,9 +82,9 @@ export default function Header({ nav, cta }) {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay (<768px) */}
+      {/* Mobile Menu Overlay (<1024px) */}
       {menuOpen && (
-        <div className="md:hidden border-t border-black/8 bg-brand-cream">
+        <div className="lg:hidden border-t border-black/8 bg-brand-cream">
           <nav className="px-6 py-4 flex flex-col gap-4">
             {nav.map((item) => (
               <a

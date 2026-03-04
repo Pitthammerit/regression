@@ -7,6 +7,7 @@ import ServicesSection from './components/sections/ServicesSection'
 import WelcomeSection from './components/sections/WelcomeSection'
 import StatementSection from './components/sections/StatementSection'
 import WhatIsSection from './components/sections/WhatIsSection'
+import EvidenceSection from './components/sections/EvidenceSection'
 import PodcastVideoSection from './components/sections/PodcastVideoSection'
 import PodcastSection from './components/sections/PodcastSection'
 import ForWhomSection from './components/sections/ForWhomSection'
@@ -28,6 +29,7 @@ function MainPage() {
     'ServicesSection': <ServicesSection />,
     'WelcomeSection': <WelcomeSection />,
     'WhatIsSection': <WhatIsSection />,
+    'EvidenceSection': <EvidenceSection />,
     'PodcastVideoSection': <PodcastVideoSection />,
     'StatementSection': <StatementSection />,
     'ForWhomSection': <ForWhomSection />,

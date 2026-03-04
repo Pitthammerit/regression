@@ -18,6 +18,7 @@ export const SECTIONS_ORDER = [
   'ServicesSection',
   'WelcomeSection',
   'WhatIsSection',
+  'EvidenceSection',
   'PodcastVideoSection',
   'StatementSection',
   'ForWhomSection',
@@ -26,6 +27,5 @@ export const SECTIONS_ORDER = [
   'PodcastSection',
   'CaseStudiesSection',
   'TestimonialsSection',
-  'TestimonialCarousel',
   'BookingSection',
 ]
