@@ -5,7 +5,7 @@
 export const meta = {
   title: "Seelenrückführung & Regression Sessions — Benjamin Kurtz",
   description:
-    "Past Life Regression Sessions mit Benjamin Kurtz. Hypnose, Seelenarbeit und Energiearbeit — online und in Málaga.",
+    "Past Life Regression Sessions mit Benjamin Kurtz. Hypnose, Seelenarbeit und Energiearbeit — online und oder vor Ort.",
 };
 
 // ═══════════════════════════════════════════════════════════
