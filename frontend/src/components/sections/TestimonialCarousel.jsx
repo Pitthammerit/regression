@@ -131,8 +131,8 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
                           </p>
                         </div>
                       </div>
-                      {/* 5 Stars - yellow/gold */}
-                      <div className="flex items-center gap-0.5" style={{ color: '#D4AF37' }}>
+                      {/* 5 Stars - gold color from Tailwind */}
+                      <div className="flex items-center gap-0.5 text-amber-400">
                         {Array.from({ length: 5 }).map((_, starIdx) => (
                           <Star key={starIdx} className="h-4 w-4 fill-current" />
                         ))}
@@ -166,11 +166,9 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className="relative h-3 overflow-hidden rounded-full transition-all duration-300"
-              style={{
-                width: index === currentIndex ? "48px" : "12px",
-                backgroundColor: index === currentIndex ? "#2D3F4E" : "#D1C5B0",
-              }}
+              className={`relative h-3 overflow-hidden rounded-full transition-all duration-300 ${
+                index === currentIndex ? 'w-12 bg-brand-deep' : 'w-3 bg-brand-steel'
+              }`}
               aria-label={`Go to testimonial ${index + 1}`}>
               {/* Progress bar inside active dot */}
               {index === currentIndex && (

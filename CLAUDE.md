@@ -118,6 +118,13 @@ If deep links like `/transkript` break on refresh, add SPA fallback via `fronten
 
 ## Development Principles
 
+### No Hardcoding (CRITICAL)
+- **Never hardcode colors, spacing, or styling values** — always use Tailwind CSS classes
+- **All design tokens must be in `tailwind.config.js`** — brand colors, spacing, etc.
+- **Inline styles are only for dynamic values** (e.g., `width: ${percent}%`)
+- When adding colors: add to `tailwind.config.js` first, then use as Tailwind class
+- Example: `className="bg-brand-deep text-brand-steel"` NOT `style={{ color: '#2D3F4E' }}`
+
 ### Component-Based Development
 - **No hardcoded content** in components — always use the content layer or create content objects
 - Prefer importing existing components over duplicating code
