@@ -18,8 +18,15 @@ function getOptimizedUrl(url, width, quality = DEFAULT_QUALITY) {
 
     // Only apply to R2-hosted images
     if (urlObj.hostname === R2_HOSTNAME) {
-      const params = `width=${width},quality=${quality},format=auto`
-      urlObj.pathname = `/cdn-cgi/image/${params}${urlObj.pathname}`
+      const pathParts = urlObj.pathname.split('/').filter(Boolean)
+      // Insert cdn-cgi/image segment after hostname
+      pathParts.unshift(
+        `cdn-cgi/image`,
+        `width=${width}`,
+        `quality=${quality}`,
+        `format=auto`
+      )
+      urlObj.pathname = '/' + pathParts.join('/')
     }
 
     return urlObj.toString()

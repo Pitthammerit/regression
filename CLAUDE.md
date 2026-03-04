@@ -21,32 +21,6 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 - Only merge after Cloudflare preview deploy is green
 - This repo uses **npm only** — no yarn, no pnpm
 
-### Deploy Monitoring (MANDATORY after every commit)
-
-After EVERY push to remote, Claude MUST:
-
-1. **Local Build Check** (before push):
-   ```bash
-   npm --prefix frontend run build
-   ```
-   - If build fails → Fix errors before pushing
-
-2. **Watch Cloudflare Deploy** (after push):
-   - Check GitHub PR for Cloudflare deploy status
-   - Or check Cloudflare Dashboard → Deployments
-
-3. **On Failure**:
-   - **Immediately** fix the issue
-   - Commit and push fix to same branch
-   - Do NOT wait for user feedback
-   - Common failures: ESLint errors, CI warnings, lockfile sync
-
-4. **Deploy Success Checklist**:
-   - ✅ Build successful (no errors, warnings are OK if CI=false)
-   - ✅ Preview URL accessible
-   - ✅ Test critical functionality
-   - THEN ask user for feedback
-
 ### Dependency Changes
 If `frontend/package.json` changes:
 ```bash
@@ -217,39 +191,6 @@ For complex multi-file changes, use this standardized loop:
 // 5. LOOP: If issues → fix → re-review
 // 6. COMMIT: version-control-orchestrator
 ```
-
-## Related Projects
-
-### Journey Within Retreats (Reference & Orientation)
-**GitHub:** https://github.com/Pitthammerit/journey-within-retreats
-
-Dieses Projekt wurde ebenfalls mit emergent.sh gebaut und dient als **Referenz für Patterns und Orientierung**.
-
-**Zweck der Referenz:**
-- ✅ Component-Strukturen und Patterns analysieren
-- ✅ Best Practices für Tailwind + React 19 übernehmen
-- ✅ Cloudflare Image Resizing Patterns verwenden
-- ✅ Testimonials-Struktur und Datenmodelle verstehen
-
-**⚠️ WICHTIG — Code-Qualität beachten:**
-Der Code in journey-within-retreats ist **nicht immer sauber** oder besser als hier:
-- ❌ Enthält teilweise hardcoded Strings in Components
-- ❌ Manche Sections sind nicht durch Content Layer getrennt
-- ❌ Ggf. überflüssige Dependencies oder nicht optimierte Patterns
-
-**Unser Ziel:**
-Wenn wir Code von dort übernehmen, verbessern ihn gleichzeitig:
-- ✅ Hardcoded Strings → Content Layer
-- ✅ Component-Strukturen aufräumen
-- ✅ Dependencies prüfen und minimieren
-- ✅ Regression-spezifische Anpassungen machen
-
-**BEFORE Copy-Pasting from Journey Within:**
-1. Prüfen: Ist der Code sauber?
-2. Wenn ja: Übernehmen und anpassen
-3. Wenn nein: Refactorn BEFORE commit
-
----
 
 ## Task Tracking
 
