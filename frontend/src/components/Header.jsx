@@ -35,17 +35,17 @@ export default function Header({ nav, cta }) {
 
           {/* Logo — responsive version */}
           <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity">
-            {/* Mobile & Tablet (<1024px): Wordmark logo */}
-            <img
-              src={r2(logos.dark)}
-              alt="Benjamin Kurtz Academy"
-              className="lg:hidden h-7 w-auto object-contain"
-            />
-            {/* Desktop (>=1024px): Circular logo */}
+            {/* Mobile & Tablet (<1024px): Circular logo */}
             <img
               src={r2('logos/BKA logo 500 px black.png')}
               alt="Benjamin Kurtz Academy"
-              className="hidden lg:block h-10 w-10 object-contain"
+              className="lg:hidden h-10 w-10 object-contain"
+            />
+            {/* Desktop (>=1024px): Wordmark logo */}
+            <img
+              src={r2(logos.dark)}
+              alt="Benjamin Kurtz Academy"
+              className="hidden lg:block h-7 w-auto object-contain"
             />
           </a>
 
@@ -70,19 +70,27 @@ export default function Header({ nav, cta }) {
             </div>
           </div>
 
-          {/* Mobile & Tablet (<1024px): Burger Menu ONLY */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden p-2 -mr-2 hover:bg-black/5 rounded-lg transition-colors"
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            data-testid="mobile-menu-toggle"
-          >
-            {menuOpen ? <X size={20} className="text-brand-deep" /> : <Menu size={20} className="text-brand-deep" />}
-          </button>
+          {/* Mobile & Tablet (<1024px): CTA + Burger Menu */}
+          <div className="lg:hidden flex items-center gap-3">
+            {/* Mobile CTA — scroll-triggered, OUTSIDE menu */}
+            <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <CtaButton label={cta} variant="primary" className="!py-2 !px-4 !text-xs" />
+            </div>
+
+            {/* Burger Menu Toggle */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="p-2 -mr-2 hover:bg-black/5 rounded-lg transition-colors"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              data-testid="mobile-menu-toggle"
+            >
+              {menuOpen ? <X size={20} className="text-brand-deep" /> : <Menu size={20} className="text-brand-deep" />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay (<1024px) */}
+      {/* Mobile Menu Overlay (<1024px) — Nav links ONLY, no CTA */}
       {menuOpen && (
         <div className="lg:hidden border-t border-black/8 bg-brand-cream">
           <nav className="px-6 py-4 flex flex-col gap-4">
@@ -97,10 +105,6 @@ export default function Header({ nav, cta }) {
                 {item.label}
               </a>
             ))}
-            {/* Mobile CTA in menu */}
-            <div className="pt-2 border-t border-black/6">
-              <CtaButton label={cta} variant="primary" className="w-full" />
-            </div>
           </nav>
         </div>
       )}
