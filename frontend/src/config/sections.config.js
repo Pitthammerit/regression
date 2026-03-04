@@ -23,6 +23,7 @@ export const SECTIONS_ORDER = [
   'StatementSection',
   'ForWhomSection',
   'AboutSection',
+  'RogerWoolgerSection',
   'ProcessSection',
   'PodcastSection',
   'CaseStudiesSection',

@@ -25,8 +25,23 @@ html {
   50% { transform: scale(1.025); box-shadow: 0 0 0 8px rgba(34, 65, 96, 0.08); }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-pulse-soft {
   animation: pulseSoft 2.8s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
 }
 
 /* Process section background numbers — responsive scaling */

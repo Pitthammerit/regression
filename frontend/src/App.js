@@ -8,6 +8,7 @@ import WelcomeSection from './components/sections/WelcomeSection'
 import StatementSection from './components/sections/StatementSection'
 import WhatIsSection from './components/sections/WhatIsSection'
 import EvidenceSection from './components/sections/EvidenceSection'
+import RogerWoolgerSection from './components/sections/RogerWoolgerSection'
 import PodcastVideoSection from './components/sections/PodcastVideoSection'
 import PodcastSection from './components/sections/PodcastSection'
 import ForWhomSection from './components/sections/ForWhomSection'
@@ -30,6 +31,7 @@ function MainPage() {
     'WelcomeSection': <WelcomeSection />,
     'WhatIsSection': <WhatIsSection />,
     'EvidenceSection': <EvidenceSection />,
+    'RogerWoolgerSection': <RogerWoolgerSection />,
     'PodcastVideoSection': <PodcastVideoSection />,
     'StatementSection': <StatementSection />,
     'ForWhomSection': <ForWhomSection />,
