@@ -21,6 +21,32 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 - Only merge after Cloudflare preview deploy is green
 - This repo uses **npm only** — no yarn, no pnpm
 
+### Deploy Monitoring (MANDATORY after every commit)
+
+After EVERY push to remote, Claude MUST:
+
+1. **Local Build Check** (before push):
+   ```bash
+   npm --prefix frontend run build
+   ```
+   - If build fails → Fix errors before pushing
+
+2. **Watch Cloudflare Deploy** (after push):
+   - Check GitHub PR for Cloudflare deploy status
+   - Or check Cloudflare Dashboard → Deployments
+
+3. **On Failure**:
+   - **Immediately** fix the issue
+   - Commit and push fix to same branch
+   - Do NOT wait for user feedback
+   - Common failures: ESLint errors, CI warnings, lockfile sync
+
+4. **Deploy Success Checklist**:
+   - ✅ Build successful (no errors, warnings are OK if CI=false)
+   - ✅ Preview URL accessible
+   - ✅ Test critical functionality
+   - THEN ask user for feedback
+
 ### Dependency Changes
 If `frontend/package.json` changes:
 ```bash
