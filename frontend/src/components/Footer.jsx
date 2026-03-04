@@ -1,12 +1,7 @@
 import React from 'react'
-import { Instagram, Youtube, Music2, Headphones, Mail } from 'lucide-react'
-import { header as siteHeader } from '../content/plr-de'
-
-const SOCIAL_ICONS = {
-  Spotify:          <Music2     size={24} strokeWidth={1.5} />,
-  'Apple Podcasts': <Headphones size={24} strokeWidth={1.5} />,
-  YouTube:          <Youtube    size={24} strokeWidth={1.5} />,
-}
+import { Instagram, Mail } from 'lucide-react'
+import { header as siteHeader, footer as footerContent } from '../content/plr-de'
+import LazyImage from './ui/LazyImage'
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -60,7 +55,7 @@ export default function Footer({ data }) {
           {/* 2 — Contact icons with label */}
           <div className="mb-10 flex justify-center items-center gap-4">
             <span className="font-sans text-xs text-white/50 uppercase tracking-widest">
-              Kontaktiere uns:
+              {footerContent.contactLabel}
             </span>
             <div className="flex gap-4">
               {data.contact.map((c) => (
@@ -91,7 +86,7 @@ export default function Footer({ data }) {
 
               {/* Col 1 — Branding */}
               <div className="text-center md:text-left w-full md:min-w-[220px] md:max-w-[260px]">
-                <img
+                <LazyImage
                   src={LOGO_WHITE}
                   alt="Benjamin Kurtz Academy"
                   className="h-[34px] w-auto object-contain mb-3 mx-auto md:mx-0"
@@ -107,7 +102,7 @@ export default function Footer({ data }) {
                 {/* Col 2 — Rechtliches */}
                 <div className="min-w-[120px]">
                   <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
-                    Rechtliches
+                    {footerContent.legalLabel}
                   </p>
                   <div className="flex flex-col gap-3">
                     {data.legalLinks.map((link) => (
@@ -128,7 +123,7 @@ export default function Footer({ data }) {
                 {/* Col 3 — Folgen */}
                 <div className="min-w-[120px]">
                   <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
-                    Folgen
+                    {footerContent.followLabel}
                   </p>
                   <div className="flex flex-col gap-3">
                     {data.social.map((s) => (
@@ -152,34 +147,47 @@ export default function Footer({ data }) {
 
           {/* — Divider + Disclaimer — */}
           <div className="border-t border-white/10 pt-6 pb-6 text-center">
-            <h3 className="text-sm font-semibold text-white/80 mb-3">Rechtlicher Hinweis</h3>
+            <h3 className="text-sm font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
             <p className="text-xs text-white/50 leading-relaxed max-w-3xl mx-auto">
-              Regression Sessions und Hypnose sind kein Ersatz für medizinische oder
-              psychiatrische Behandlung. Bei psychischen Erkrankungen wende dich bitte an
-              einen approbierten Arzt oder Psychotherapeuten. Bei Unklarheiten wähle gern
-              dennoch ein{' '}
-              <a
-                href="#booking"
-                onClick={scrollToBooking}
-                className="underline text-white/70 hover:text-white transition-colors"
-                data-testid="footer-erstgespraech-link"
-              >
-                Erstgespräch
-              </a>
-              , in dem ich dich dazu kompetent beraten kann.
+              {footerContent.disclaimer.split('. ').map((sentence, index, array) => {
+                if (sentence.includes('Erstgespräch')) {
+                  const [before, after] = sentence.split('Erstgespräch')
+                  return (
+                    <React.Fragment key={index}>
+                      {before}
+                      <a
+                        href="#booking"
+                        onClick={scrollToBooking}
+                        className="underline text-white/70 hover:text-white transition-colors"
+                        data-testid="footer-erstgespraech-link"
+                      >
+                        {footerContent.introCallLabel}
+                      </a>
+                      {after}
+                      {index < array.length - 1 && '. '}
+                    </React.Fragment>
+                  )
+                }
+                return (
+                  <React.Fragment key={index}>
+                    {sentence}
+                    {index < array.length - 1 ? '. ' : '.'}
+                  </React.Fragment>
+                )
+              })}
             </p>
           </div>
 
           {/* — Divider + Copyright — */}
           <div className="border-t border-white/10 pt-6 text-center text-xs text-white/50">
-            {`© ${year} Benjamin Kurtz Academy LLC. Alle Rechte vorbehalten. Home: `}
+            {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
             <a
-              href="https://benjaminkurtz.de"
+              href={footerContent.copyright.homeUrl}
               target="_blank"
               rel="noreferrer"
               className="text-white/70 hover:text-white underline transition-colors"
             >
-              benjaminkurtz.de
+              {footerContent.copyright.homeLabel}
             </a>
           </div>
 

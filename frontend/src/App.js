@@ -14,28 +14,43 @@ import AboutSection from './components/sections/AboutSection'
 import ProcessSection from './components/sections/ProcessSection'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import TestimonialsSection from './components/sections/TestimonialsSection'
+import TestimonialCarousel from './components/sections/TestimonialCarousel'
 import BookingSection from './components/sections/BookingSection'
 import TranscriptPage from './pages/TranscriptPage'
-import { header, footer } from './content/plr-de'
+import NotFound from './components/NotFound'
+import { header, footer, testimonials } from './content/plr-de'
+import { SECTIONS_ORDER } from './config/sections.config'
 
 function MainPage() {
+  // Section mapping with props
+  const sectionMap = {
+    'HeroV3Section': <HeroV3Section />,
+    'ServicesSection': <ServicesSection />,
+    'WelcomeSection': <WelcomeSection />,
+    'WhatIsSection': <WhatIsSection />,
+    'PodcastVideoSection': <PodcastVideoSection />,
+    'StatementSection': <StatementSection />,
+    'ForWhomSection': <ForWhomSection />,
+    'AboutSection': <AboutSection />,
+    'ProcessSection': <ProcessSection />,
+    'PodcastSection': <PodcastSection />,
+    'CaseStudiesSection': <CaseStudiesSection />,
+    'TestimonialsSection': <TestimonialsSection />,
+    'TestimonialCarousel': (
+      <TestimonialCarousel
+        clients={testimonials.clients}
+        label={testimonials.clientLabel}
+        subtitle="Kundenstimmen"
+      />
+    ),
+    'BookingSection': <BookingSection />,
+  }
+
   return (
     <div className="bg-[#F0EBE1] bg-paper min-h-screen font-sans text-brand-body">
       <Header nav={header.nav} cta={header.cta} />
       <main>
-        <HeroV3Section />
-        <ServicesSection />
-        <WelcomeSection />
-        <WhatIsSection />
-        <PodcastVideoSection />
-        <StatementSection />
-        <ForWhomSection />
-        <AboutSection />
-        <ProcessSection />
-        <PodcastSection />
-        <CaseStudiesSection />
-        <TestimonialsSection />
-        <BookingSection />
+        {SECTIONS_ORDER.map((sectionName) => sectionMap[sectionName])}
       </main>
       <Footer data={footer} />
     </div>
@@ -48,6 +63,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/transkript" element={<TranscriptPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

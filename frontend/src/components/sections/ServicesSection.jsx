@@ -1,18 +1,12 @@
 import React from 'react'
-import SectionWrapper from '../ui/SectionWrapper'
-
-const SERVICES = [
-  { label: "Seelenrückführung", sub: "Past Life Regression" },
-  { label: "Hypnose", sub: "Tiefenentspannung & Trancezustand" },
-  { label: "Energiearbeit", sub: "Spirituelle Integration" },
-]
+import { services } from '../../content/plr-de'
 
 export default function ServicesSection() {
   return (
     <section id="services" className="pt-2 pb-8" data-testid="services-section">
       <div className="max-w-content mx-auto px-6">
         <div className="flex flex-col md:flex-row items-stretch divide-y md:divide-y-0 md:divide-x divide-black/10">
-          {SERVICES.map((service, i) => (
+          {services.items.map((service, i) => (
             <div
               key={i}
               className="flex-1 py-6 md:py-5 md:px-10 first:md:pl-0 last:md:pr-0 flex flex-col justify-center"

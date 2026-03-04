@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
+import LazyImage from '../ui/LazyImage'
 import { ChevronDown } from 'lucide-react'
 
 function AvatarSilhouette({ gender }) {
@@ -25,9 +26,19 @@ export default function CaseStudiesSection() {
   const [showHint, setShowHint] = useState(false)
 
   useEffect(() => {
-    const count = parseInt(localStorage.getItem('cases_hint_count') || '0')
-    if (count < 3) {
-      localStorage.setItem('cases_hint_count', String(count + 1))
+    try {
+      const count = parseInt(localStorage.getItem('cases_hint_count') || '0')
+      if (count < 3) {
+        localStorage.setItem('cases_hint_count', String(count + 1))
+        setShowHint(true)
+        const t = setTimeout(() => setShowHint(false), 5000)
+        return () => clearTimeout(t)
+      }
+    } catch (error) {
+      // localStorage unavailable (private browsing, quota exceeded, etc.)
+      // Silently fail - hint just won't show or persist
+      console.warn('localStorage access failed:', error)
+      // Still show hint on first visit even without localStorage
       setShowHint(true)
       const t = setTimeout(() => setShowHint(false), 5000)
       return () => clearTimeout(t)
@@ -62,7 +73,7 @@ export default function CaseStudiesSection() {
               data-testid={`case-accordion-${i}`}
             >
               {item.image ? (
-                <img
+                <LazyImage
                   src={item.image}
                   alt={item.name}
                   className="w-12 h-12 rounded-full object-cover object-top border border-black/10 shrink-0"

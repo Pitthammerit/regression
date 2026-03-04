@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { about } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'

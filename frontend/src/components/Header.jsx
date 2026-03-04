@@ -13,7 +13,7 @@ export default function Header({ nav, cta }) {
       setScrolled(window.scrollY > 40)
       setCtaVisible(window.scrollY > 600)
     }
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 

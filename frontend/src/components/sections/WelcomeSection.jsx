@@ -46,7 +46,7 @@ export default function WelcomeSection() {
 
           {/* Signature image */}
           <div className="mt-8">
-            <img
+            <LazyImage
               src={welcome.signatureUrl}
               alt={welcome.author}
               className="h-14 md:h-16 object-contain object-left opacity-80"

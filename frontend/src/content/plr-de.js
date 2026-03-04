@@ -1,5 +1,5 @@
-// src/content/plr-de.js
-// All German copy for the PLR website.
+// frontend/src/content/plr-de.js
+// All German copy for the Regression website.
 // Import this file into components — never hardcode strings.
 
 export const meta = {
@@ -8,6 +8,9 @@ export const meta = {
     "Past Life Regression Sessions mit Benjamin Kurtz. Hypnose, Seelenarbeit und Energiearbeit — online und in Málaga.",
 };
 
+// ═══════════════════════════════════════════════════════════
+// HEADER
+// ═══════════════════════════════════════════════════════════
 export const header = {
   nav: [
     { label: "Was ist das?", anchor: "#was-ist" },
@@ -19,6 +22,9 @@ export const header = {
   cta: "Intro Call",
 };
 
+// ═══════════════════════════════════════════════════════════
+// HeroV3Section — HERO
+// ═══════════════════════════════════════════════════════════
 export const hero = {
   label: "BENJAMIN KURTZ ACADEMY",
   headlineLine1: "Deine Seele",
@@ -32,6 +38,21 @@ export const hero = {
   vimeoEmbedUrl: "https://player.vimeo.com/video/1168643769",
 };
 
+// ═══════════════════════════════════════════════════════════
+// ServicesSection — SERVICES
+// ═══════════════════════════════════════════════════════════
+export const services = {
+  items: [
+    { label: "Seelenrückführung", sub: "Past Life Regression" },
+    { label: "Hypnose", sub: "Tiefenentspannung & Trancezustand" },
+    { label: "Energiearbeit", sub: "Spirituelle Integration" },
+  ],
+  location: "online & bei dir",
+};
+
+// ═══════════════════════════════════════════════════════════
+// WelcomeSection — WELCOME
+// ═══════════════════════════════════════════════════════════
 export const welcome = {
   quoteLines: [
     "Hi, schön, dass du hier bist.",
@@ -44,11 +65,9 @@ export const welcome = {
   signatureUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/signature_benjamin_black.png",
 };
 
-export const services = {
-  items: ["Seelenrückführung", "Hypnose", "Energiearbeit"],
-  location: "online & bei dir",
-};
-
+// ═══════════════════════════════════════════════════════════
+// StatementSection — STATEMENT
+// ═══════════════════════════════════════════════════════════
 export const statement = {
   lines: [
     "Es gibt Erfahrungen, die sich mit fünf Sinnen nicht erklären lassen.",
@@ -57,28 +76,9 @@ export const statement = {
   ],
 };
 
-export const podcast = {
-  label: "IM PODCAST",
-  headline: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
-  sectionHeadline: ["Manche Muster", "sind älter", "als dieses Leben."],
-  sectionBody: `„Auf einmal haben sich Dinge zusammengesetzt, die vorher unerklärbar waren." Eine Regression Session zeigt dir nicht nur was war — sie zeigt dir, warum du so bist, wie du bist. Benjamin im ausführlichen Gespräch mit Tobias Berg über Reinkarnation, Seelenerinnerung und was wirklich in einer Session passiert.`,
-  subline:
-    "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",
-  youtubeEmbedUrl: "https://www.youtube.com/watch?v=U5L07PmViis",
-  youtubeTitle: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
-  ctaBelow: "Intro-Call buchen",
-  listenLabel: "Podcast-Gespräch anhören",
-  episodeLabel: "Episode 52",
-  episodeHost: "berggesundheit · Tobias Berg",
-  episodeDuration: "1:14:32",
-  episodeAudioUrl: "https://audio.podigee-cdn.net/2364431-m-438ee3d6d68b8de82a26986fecfd35e8.mp3",
-  podcastLinks: [
-    { label: "Spotify", url: "https://open.spotify.com/episode/3D9V2pK9kdT6ED9FENxpnW?si=7rD9pMrcSV6uLq-tOoMICA" },
-    { label: "Apple Podcasts", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
-    { label: "YouTube", url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
-  ],
-};
-
+// ═══════════════════════════════════════════════════════════
+// WhatIsSection — WHAT IS REGRESSION
+// ═══════════════════════════════════════════════════════════
 export const whatIs = {
   label: "REGRESSION SESSIONS",
   headline: "Zurück zu dem, was sich nicht erklären lässt",
@@ -112,6 +112,34 @@ export const whatIs = {
   ],
 };
 
+// ═══════════════════════════════════════════════════════════
+// PodcastVideoSection — PODCAST VIDEO
+// ═══════════════════════════════════════════════════════════
+export const podcast = {
+  label: "IM PODCAST",
+  headline: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
+  sectionHeadline: ["Manche Muster", "sind älter", "als dieses Leben."],
+  sectionBody: `"Auf einmal haben sich Dinge zusammengesetzt, die vorher unerklärbar waren." Eine Regression Session zeigt dir nicht nur was war — sie zeigt dir, warum du so bist, wie du bist. Benjamin im ausführlichen Gespräch mit Tobias Berg über Reinkarnation, Seelenerinnerung und was wirklich in einer Session passiert.`,
+  subline:
+    "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",
+  youtubeEmbedUrl: "https://www.youtube.com/watch?v=U5L07PmViis",
+  youtubeTitle: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
+  ctaBelow: "Intro-Call buchen",
+  listenLabel: "Podcast-Gespräch anhören",
+  episodeLabel: "Episode 52",
+  episodeHost: "berggesundheit · Tobias Berg",
+  episodeDuration: "1:14:32",
+  episodeAudioUrl: "https://audio.podigee-cdn.net/2364431-m-438ee3d6d68b8de82a26986fecfd35e8.mp3",
+  podcastLinks: [
+    { label: "Spotify", url: "https://open.spotify.com/episode/3D9V2pK9kdT6ED9FENxpnW?si=7rD9pMrcSV6uLq-tOoMICA" },
+    { label: "Apple Podcasts", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
+    { label: "YouTube", url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
+  ],
+};
+
+// ═══════════════════════════════════════════════════════════
+// ForWhomSection — FOR WHOM
+// ═══════════════════════════════════════════════════════════
 export const forWhom = {
   label: "FÜR WEN",
   headline: "Wer kommt zu einer Regressions-Session?",
@@ -129,6 +157,9 @@ export const forWhom = {
   ],
 };
 
+// ═══════════════════════════════════════════════════════════
+// AboutSection — ABOUT BENJAMIN
+// ═══════════════════════════════════════════════════════════
 export const about = {
   label: "ÜBER BENJAMIN KURTZ",
   headline: "Was mich zu dieser Arbeit geführt hat",
@@ -150,6 +181,9 @@ export const about = {
   photoPlaceholder: "[ Foto Benjamin Kurtz ]",
 };
 
+// ═══════════════════════════════════════════════════════════
+// ProcessSection — PROCESS
+// ═══════════════════════════════════════════════════════════
 export const processSection = {
   label: "DER PROZESS",
   headline: "Von unserem ersten Gespräch bis zur Integration",
@@ -178,6 +212,14 @@ export const processSection = {
   cta: "Intro-Call buchen",
 };
 
+// ═══════════════════════════════════════════════════════════
+// PodcastSection — PODCAST LINKS
+// ═══════════════════════════════════════════════════════════
+// Note: Podcast content is in 'podcast' export above (PodcastVideoSection)
+
+// ═══════════════════════════════════════════════════════════
+// CaseStudiesSection — CASE STUDIES
+// ═══════════════════════════════════════════════════════════
 export const cases = {
   label: "FALLBEISPIELE",
   headline: "Geschichten aus der Praxis — wenn Seelen sich erinnern",
@@ -207,7 +249,7 @@ export const cases = {
       image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/javi.jpg",
       title: "Die Angst, nicht zu genügen",
       teaser: "1730. Ein Dorf. Ein Haus am See. Und die Erklärung für eine Angst, die kein Verstand lösen konnte.",
-      tag: "Beziehungsangst · Seelenleben · Musterauflösung",
+      tag: "Beziehungsangst · Seelenleben · Musterauf lösung",
       situation: "Javi wartete auf eine Frau, die er über Monate kennengelernt hatte — ihr erstes gemeinsames Wochenende stand bevor. Er hatte alles perfekt vorbereitet. Und trotzdem: ein innerer Stress, ein Übertunen, eine Angst darunter, die er kannte, ohne sie zu kennen. Die Angst, nicht zu genügen.",
       session: "Es ging sehr schnell. Javi war 1730. Zwischen 28 und 32 Jahre alt. In einem Dorf, ein Haus am See. Stück für Stück zeigte sich ein Leben — mit einer Frau, die er liebte, mit einem Geschäftspartner, der ihn verraten hatte, mit einer Vertreibung. Eine Geschichte von Verlust und dem tiefen Gefühl, trotz allem nicht genug getan zu haben.",
       result: "Die Angst des Jahres 2024 hatte einen Ursprung aus dem Jahr 1730. Als Javi das in der Session verstand — nicht intellektuell, sondern erlebend — veränderte sich die Qualität seiner Angst. Aus einem diffusen Druck wurde etwas Verständliches. Etwas Lösbares. Er konnte das Wochenende genießen.",
@@ -220,6 +262,11 @@ export const cases = {
   },
 };
 
+// ═══════════════════════════════════════════════════════════
+// TestimonialsSection — TESTIMONIALS
+// Note: Individual testimonials are now in testimonials.list.js
+// This export contains authority quotes and labels
+// ═══════════════════════════════════════════════════════════
 export const testimonials = {
   authorityBigLabel: "EVIDENZBASIERT",
   authorityHeadline: "Was die Forschung sagt",
@@ -242,6 +289,7 @@ export const testimonials = {
     },
   ],
   clientLabel: "WAS KLIENTEN SAGEN",
+  // Note: clients array is now managed in testimonials.list.js for dynamic editing
   clients: [
     {
       quote: "Durch Benjamins Ruhe und Klarheit konnte ich mich trotz anfänglicher starker Aufregung schnell auf die Session einlassen. Es ist, als würde er durch dich durchsehen und dich sofort an die Orte führen, die dir vorher nie bekannt waren – aber genau die sind, die du brauchst. Es war unbeschreiblich, an einem Ort purer Liebe jenseits von Materie zu sein, meine Engel zu treffen und an diesem Ort des absoluten Friedens zu verweilen, zu dem ich jetzt auch im Alltag immer wieder zurückkehren kann. Besonders wertvoll war für mich die Integration danach, die mir geholfen hat, die Erkenntnisse wirklich in mir zu verankern. Ich fühle mich geführt und getragen. Vielen Dank dafür.",
@@ -270,6 +318,9 @@ export const testimonials = {
   ],
 };
 
+// ═══════════════════════════════════════════════════════════
+// BookingSection — BOOKING
+// ═══════════════════════════════════════════════════════════
 export const booking = {
   label: "BEREIT FÜR EIN GESPRÄCH?",
   headline: "Intro-Call buchen.",
@@ -289,9 +340,23 @@ export const booking = {
   ],
 };
 
+// ═══════════════════════════════════════════════════════════
+// FOOTER
+// ═══════════════════════════════════════════════════════════
 export const footer = {
   brand: "Benjamin Kurtz Academy LLC",
   tagline: "Grounded Spirituality Aligned with Your Purpose",
+  contactLabel: "Kontaktiere uns:",
+  legalLabel: "Rechtliches",
+  followLabel: "Folgen",
+  disclaimerTitle: "Rechtlicher Hinweis",
+  disclaimer: `Regression Sessions und Hypnose sind kein Ersatz für medizinische oder psychiatrische Behandlung. Bei psychischen Erkrankungen wende dich bitte an einen approbierten Arzt oder Psychotherapeuten. Bei Unklarheiten wähle gern dennoch ein Erstgespräch, in dem ich dich dazu kompetent beraten kann.`,
+  introCallLabel: "Erstgespräch",
+  copyright: {
+    prefix: "Alle Rechte vorbehalten. Home:",
+    homeLabel: "benjaminkurtz.de",
+    homeUrl: "https://benjaminkurtz.de",
+  },
   contact: [
     { label: "WhatsApp",  url: "https://wa.me/4915121231244",           icon: "whatsapp"  },
     { label: "E-Mail",    url: "mailto:hello@benjaminkurtz.de",          icon: "mail"      },
@@ -307,4 +372,25 @@ export const footer = {
     { label: "Apple Podcasts", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
     { label: "YouTube",        url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
   ],
+};
+
+// ═══════════════════════════════════════════════════════════
+// TranscriptPage — TRANSCRIPT PAGE CONTENT
+// ═══════════════════════════════════════════════════════════
+export const transcriptPage = {
+  accessDenied: {
+    title: "Kein Zugang.",
+    message: "Dieser Link ist nicht gültig oder abgelaufen.",
+  },
+  toolbar: {
+    title: "Transkript",
+    themeToggleDark: "Dunkel",
+    themeToggleLight: "Hell",
+    fontSizeDecreaseLabel: "Schrift verkleinern",
+    fontSizeIncreaseLabel: "Schrift vergrößern",
+    themeToggleLabel: "Hintergrund wechseln",
+  },
+  footer: {
+    copyright: "© Benjamin Kurtz Academy · Nur für registrierte Empfänger",
+  },
 };

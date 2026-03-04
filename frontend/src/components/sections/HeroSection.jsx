@@ -1,41 +1,7 @@
-import React, { useState } from 'react'
-import { Play } from 'lucide-react'
+import React from 'react'
 import { hero } from '../../content/plr-de'
 import CtaButton from '../ui/CtaButton'
-
-function VimeoGlassEmbed({ src, title }) {
-  const [started, setStarted] = useState(false)
-  const embedSrc = `${src}?badge=0&autopause=0&player_id=0&app_id=58479${started ? '&autoplay=1' : ''}`
-
-  return (
-    <div className="relative rounded overflow-hidden shadow-lg bg-brand-dark">
-      <div style={{ paddingTop: '56.25%', position: 'relative' }}>
-        {started && (
-          <iframe
-            src={embedSrc}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            title={title}
-          />
-        )}
-        {!started && (
-          <div
-            className="absolute inset-0 flex items-center justify-center cursor-pointer"
-            onClick={() => setStarted(true)}
-            data-testid="hero-glass-play"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-deep/50 to-brand-dark/70" />
-            <button className="relative z-10 w-20 h-20 rounded-full bg-white/15 backdrop-blur-md border border-white/35 flex items-center justify-center hover:bg-white/25 hover:scale-105 transition-all duration-300 shadow-2xl" aria-label="Video abspielen">
-              <Play size={28} className="text-white ml-1" fill="white" />
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+import VimeoGlassEmbed from '../ui/VimeoGlassEmbed'
 
 export default function HeroSection() {
   return (
@@ -79,6 +45,8 @@ export default function HeroSection() {
           <VimeoGlassEmbed
             src={hero.vimeoEmbedUrl}
             title="Intro Regression — Benjamin Kurtz"
+            variant="compact"
+            testId="hero-glass-play"
           />
         </div>
       </div>
