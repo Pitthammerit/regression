@@ -14,6 +14,7 @@
 
 export const SECTIONS_ORDER = [
   'HeroV3Section',
+  'TestimonialCarousel',
   'ServicesSection',
   'WelcomeSection',
   'WhatIsSection',
