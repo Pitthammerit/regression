@@ -169,7 +169,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
               className="relative h-3 overflow-hidden rounded-full transition-all duration-300"
               style={{
                 width: index === currentIndex ? "48px" : "12px",
-                backgroundColor: index === currentIndex ? "#9B7461" : "#E8D5C4",
+                backgroundColor: index === currentIndex ? "#2D3F4E" : "#D1C5B0",
               }}
               aria-label={`Go to testimonial ${index + 1}`}>
               {/* Progress bar inside active dot */}
