@@ -132,7 +132,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
                         </div>
                       </div>
                       {/* 5 Stars - yellow/gold */}
-                      <div className="flex items-center gap-0.5 text-brand-gold">
+                      <div className="flex items-center gap-0.5" style={{ color: '#D4AF37' }}>
                         {Array.from({ length: 5 }).map((_, starIdx) => (
                           <Star key={starIdx} className="h-4 w-4 fill-current" />
                         ))}
@@ -169,7 +169,6 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
               className="relative h-3 overflow-hidden rounded-full bg-brand-sand/40 transition-all duration-300"
               style={{
                 width: index === currentIndex ? "48px" : "12px",
-                opacity: index === currentIndex ? 1 : 0.4,
               }}
               aria-label={`Go to testimonial ${index + 1}`}>
               {/* Progress bar inside active dot */}
