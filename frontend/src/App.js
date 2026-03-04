@@ -20,14 +20,23 @@ import TranscriptPage from './pages/TranscriptPage'
 import NotFound from './components/NotFound'
 import { header, footer, testimonials } from './content/plr-de'
 
-// Prepare carousel data from existing testimonials
-const carouselTestimonials = testimonials.clients.map((client) => ({
-  name: client.name,
-  context: client.context,
-  image: client.image,
-  quote: client.quote,
-  highlight: extractHighlight(client.quote)
-}))
+// Prepare carousel data from existing testimonials - mapped to JWR format
+const carouselTestimonials = testimonials.clients.map((client) => {
+  // Parse context to extract role and location
+  const contextParts = client.context ? client.context.split(', ') : []
+  const role = contextParts[0] || 'Klient'
+  const location = contextParts[1] || ''
+
+  return {
+    name: client.name,
+    role: role,
+    location: location,
+    avatar: client.image,
+    quote: client.quote,
+    quoteDe: client.quote,
+    highlight: extractHighlight(client.quote)
+  }
+})
 
 // Extract a meaningful short phrase from the quote for the highlight
 function extractHighlight(quote) {
