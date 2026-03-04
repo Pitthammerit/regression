@@ -10,6 +10,9 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 
 ## Deployment Rules (Critical)
 
+### Feedback Guidelines
+**WICHTIG:** Wenn der Benutzer Feedback gibt, bezieht es sich auf der **LIVE SITE** (Production), nicht auf localhost — es sei denn, der Benutzer sagt explizit "test locally" oder ähnlich.
+
 ### Cloudflare Pages Configuration
 - Root directory: `frontend`
 - Build command: `npm run build`
@@ -68,6 +71,24 @@ import { header, footer } from './content/plr-de'
 
 ### Section Components
 `frontend/src/components/sections/` contains active section components used in the main application. The primary hero section is `HeroV3Section` — this is the only hero variant currently in production.
+
+**Active Sections:**
+- `HeroV3Section` — Main hero with background image
+- `TestimonialsSection` — Client testimonials grid layout
+- `TestimonialCarousel` — Client testimonials carousel with auto-rotation
+- `PodcastSection`, `PodcastVideoSection` — Podcast integration
+- `CaseStudiesSection`, `ServicesSection`, `WelcomeSection`, etc.
+
+**Image Optimization:**
+- **Keine Build-time oder CDN-Optimierung** aktiviert
+- Bilder werden direkt von R2 ausgeliefert
+- `LazyImage` Component verwendet native lazy loading (`loading="lazy"`)
+- Vor dem Upload zu R2 sollten Bilder manuell optimiert werden (TinyPNG, Squoosh, etc.)
+- `HeroV3Section` — Main hero with background image
+- `TestimonialsSection` — Client testimonials grid layout
+- `TestimonialCarousel` — Client testimonials carousel with auto-rotation
+- `PodcastSection`, `PodcastVideoSection` — Podcast integration
+- `CaseStudiesSection`, `ServicesSection`, `WelcomeSection`, etc.
 
 **Experimental variants:** Previous hero section iterations (`HeroAlt1.jsx`, `HeroAlt2.jsx`, `HeroAlt3.jsx`, `HeroV2Section.jsx`) have been moved to `frontend/src/components/experiments/` for potential future A/B testing. These are not maintained and may become outdated.
 

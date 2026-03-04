@@ -14,10 +14,11 @@ import AboutSection from './components/sections/AboutSection'
 import ProcessSection from './components/sections/ProcessSection'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import TestimonialsSection from './components/sections/TestimonialsSection'
+import TestimonialCarousel from './components/sections/TestimonialCarousel'
 import BookingSection from './components/sections/BookingSection'
 import TranscriptPage from './pages/TranscriptPage'
 import NotFound from './components/NotFound'
-import { header, footer } from './content/plr-de'
+import { header, footer, testimonials } from './content/plr-de'
 
 function MainPage() {
   return (
@@ -36,6 +37,11 @@ function MainPage() {
         <PodcastSection />
         <CaseStudiesSection />
         <TestimonialsSection />
+        <TestimonialCarousel
+          clients={testimonials.clients}
+          label={testimonials.clientLabel}
+          subtitle="Kundenstimmen"
+        />
         <BookingSection />
       </main>
       <Footer data={footer} />
