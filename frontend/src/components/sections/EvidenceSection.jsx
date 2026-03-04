@@ -28,9 +28,9 @@ export default function EvidenceSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-16">
           {authorities.map((authority, index) => {
             const portraitUrl = {
-              0: 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_2.jpg',
-              1: 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Brian-weiss_md.jpeg',
-              2: 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Jim_Tucker.jpg',
+              0: 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg',
+              1: 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg',
+              2: 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg',
             }[index]
 
             return (
