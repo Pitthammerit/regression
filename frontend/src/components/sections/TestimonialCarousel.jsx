@@ -97,7 +97,7 @@ export const TestimonialCarousel = ({
 
   return (
     <section
-      className="bg-brand-cream py-16 md:py-20"
+      className="bg-white py-16 md:py-20 border-t border-b border-brand-sand"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -121,7 +121,7 @@ export const TestimonialCarousel = ({
           {/* Navigation Arrows - positioned outside on desktop */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 z-10 -translate-y-1/2 -translate-x-0 md:-translate-x-12 lg:-translate-x-16 text-brand-deep hover:text-brand-steel transition-colors p-2 rounded-full hover:bg-white/50"
+            className="absolute left-0 top-1/2 z-10 -translate-y-1/2 -translate-x-0 md:-translate-x-12 lg:-translate-x-16 text-brand-deep hover:text-brand-steel transition-colors p-2 rounded-full hover:bg-brand-cream/50"
             aria-label="Vorheriges Testimonial"
           >
             <ChevronLeft className="h-8 w-8 md:h-10 md:w-10" strokeWidth={1.5} />
@@ -129,7 +129,7 @@ export const TestimonialCarousel = ({
 
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-0 md:translate-x-12 lg:translate-x-16 text-brand-deep hover:text-brand-steel transition-colors p-2 rounded-full hover:bg-white/50"
+            className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-0 md:translate-x-12 lg:translate-x-16 text-brand-deep hover:text-brand-steel transition-colors p-2 rounded-full hover:bg-brand-cream/50"
             aria-label="Nächstes Testimonial"
           >
             <ChevronRight className="h-8 w-8 md:h-10 md:w-10" strokeWidth={1.5} />
@@ -146,7 +146,7 @@ export const TestimonialCarousel = ({
                   key={`${t.name}-${idx}`}
                   className="min-w-full px-2"
                 >
-                  <div className="flex flex-col gap-4 rounded-2xl bg-white/80 p-6 md:p-8 shadow-sm border border-brand-sand backdrop-blur-sm">
+                  <div className="flex flex-col gap-4 rounded-2xl bg-brand-cream/50 p-6 md:p-8 shadow-sm border border-brand-sand backdrop-blur-sm">
                     {/* Header: Avatar + Info */}
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-center gap-4">
