@@ -4,7 +4,11 @@ Updated: 2026-03-04
 
 ## High Priority
 
-### Sprint 2: Quality (Next)
+### Sprint 3: i18n Foundation (Next)
+- Create `frontend/src/content/plr-en.js`
+- Create `frontend/src/content/index.js` with `getContent(lang)` export
+- Add `useContent()` hook
+- Update components to use `useContent()` instead of direct imports
 
 ### Phase 2: Remove Remaining Hardcoded Strings
 - Footer: Extract hardcoded German strings to content layer
@@ -14,15 +18,6 @@ Updated: 2026-03-04
 ### Phase 3: Type Safety (Optional)
 - Add PropTypes to key components
 - Consider TypeScript migration for larger refactors
-
-### Implement Minimal i18n System
-- Create `frontend/src/content/plr-en.js`
-- Create `frontend/src/content/index.js` with `getContent(lang)` export
-- Add `useContent()` hook
-- Update components to use `useContent()` instead of direct imports
-
-### Fix Missing Catch-All Route
-- Note: Already implemented in App.js (`path="*"` with NotFound component)
 
 ## Medium Priority
 
@@ -43,6 +38,18 @@ Updated: 2026-03-04
 - Currently intentionally disabled (add if needed)
 
 ## Completed
+
+### Sprint 2: Code Quality — Hardcoded Values Eliminated (2026-03-04)
+- **TranscriptPage.jsx**: Replaced all inline styles with Tailwind classes
+  - Added transcript theme colors to tailwind.config.js
+  - Used conditional Tailwind classes for dark/light mode theming
+- **NotFound.jsx**: Replaced `bg-[#F0EBE1]` with `bg-brand-cream`
+  - Moved hardcoded strings to content layer (notFound export)
+- **App.js**: Replaced arbitrary `bg-[#F0EBE1]` with `bg-brand-cream`
+- **PodcastVideoSection.jsx**: Moved all hardcoded strings to content layer
+  - Created podcastVideo export in plr-de.js
+- **Footer.jsx**: Moved hardcoded logo URL to branding config
+  - Created `frontend/src/content/branding.js` with logo, favicon, ogImage
 
 ### Sprint 1: Config-Based Section System + Dynamic Testimonials (2026-03-04)
 - Created `frontend/src/config/sections.config.js` with SECTIONS_ORDER array

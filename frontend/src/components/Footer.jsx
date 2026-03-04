@@ -1,6 +1,7 @@
 import React from 'react'
 import { Instagram, Mail } from 'lucide-react'
 import { header as siteHeader, footer as footerContent } from '../content/plr-de'
+import { branding } from '../content/branding'
 import LazyImage from './ui/LazyImage'
 
 const WhatsAppIcon = () => (
@@ -16,8 +17,6 @@ const CONTACT_ICONS = {
   mail:      <Mail      size={24} strokeWidth={1.5} />,
   instagram: <Instagram size={24} strokeWidth={1.5} />,
 }
-
-const LOGO_WHITE = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/logos/BK%20Academy%20500%20px%20white%20.png"
 
 export default function Footer({ data }) {
   const nav = siteHeader.nav
@@ -87,8 +86,8 @@ export default function Footer({ data }) {
               {/* Col 1 — Branding */}
               <div className="text-center md:text-left w-full md:min-w-[220px] md:max-w-[260px]">
                 <LazyImage
-                  src={LOGO_WHITE}
-                  alt="Benjamin Kurtz Academy"
+                  src={branding.logo.white}
+                  alt={branding.logo.alt}
                   className="h-[34px] w-auto object-contain mb-3 mx-auto md:mx-0"
                 />
                 <p className="font-sans text-xs text-white/45 italic leading-relaxed whitespace-nowrap">

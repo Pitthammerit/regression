@@ -394,3 +394,35 @@ export const transcriptPage = {
     copyright: "© Benjamin Kurtz Academy · Nur für registrierte Empfänger",
   },
 };
+
+// ═══════════════════════════════════════════════════════════
+// NotFoundPage — 404 PAGE CONTENT
+// ═══════════════════════════════════════════════════════════
+export const notFound = {
+  brandName: "Benjamin Kurtz",
+  title: "Seite nicht gefunden",
+  message: "Die Seite, die du suchst, existiert nicht oder wurde verschoben. Lass uns zurück nach Hause gehen.",
+  homeButtonLabel: "Zur Startseite",
+  homeAriaLabel: "Zur Startseite",
+  homeButtonAriaLabel: "Zur Startseite",
+};
+
+// ═══════════════════════════════════════════════════════════
+// PodcastVideoSection — PODCAST VIDEO SECTION UI
+// ═══════════════════════════════════════════════════════════
+export const podcastVideo = {
+  panelLabel: "Transkript",
+  panelTitleLine1: "Jetzt kostenlos",
+  panelTitleLine2: "herunterladen",
+  closeButtonLabel: "Schließen",
+  emailPrompt: "Trag deine E-Mail-Adresse ein und erhalte das vollständige Transkript der Podcast-Episode direkt in dein Postfach.",
+  nameLabel: "Name",
+  namePlaceholder: "Dein Vorname",
+  emailLabel: "E-Mail-Adresse",
+  emailPlaceholder: "deine@email.de",
+  submitButtonLabel: "Transkript anfordern",
+  downloadButtonLabel: "Transkript herunterladen",
+  privacyNoteLine1: "Kein Spam. Du erhältst nur den Link zum Transkript.",
+  privacyNoteLine2: "Du kannst dich jederzeit abmelden.",
+  fluentFormsNote: "[ Fluent Forms Embed wird hier eingesetzt ]",
+};

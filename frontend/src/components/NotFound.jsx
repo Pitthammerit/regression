@@ -2,21 +2,22 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Home } from 'lucide-react'
 import SectionLabel from './ui/SectionLabel'
+import { notFound } from '../content/plr-de'
 
 export default function NotFound() {
   const navigate = useNavigate()
 
   return (
-    <div className="min-h-screen bg-[#F0EBE1] bg-paper font-sans text-brand-body">
+    <div className="min-h-screen bg-brand-cream bg-paper font-sans text-brand-body">
       {/* Header with navigation */}
       <header className="pt-8 px-6 md:px-14 lg:px-20">
         <div className="max-w-content mx-auto flex items-center justify-between">
           <button
             onClick={() => navigate('/')}
             className="font-serif text-2xl text-brand-deep hover:text-brand-steel transition-colors duration-200"
-            aria-label="Zur Startseite"
+            aria-label={notFound.homeAriaLabel}
           >
-            Benjamin Kurtz
+            {notFound.brandName}
           </button>
         </div>
       </header>
@@ -27,21 +28,20 @@ export default function NotFound() {
           <SectionLabel text="404" />
 
           <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl text-brand-deep mb-6 leading-tight">
-            Seite nicht gefunden
+            {notFound.title}
           </h1>
 
           <p className="font-sans text-brand-muted text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
-            Die Seite, die du suchst, existiert nicht oder wurde verschoben.
-            Lass uns zurück nach Hause gehen.
+            {notFound.message}
           </p>
 
           <button
             onClick={() => navigate('/')}
             className="inline-flex items-center gap-3 uppercase tracking-widest text-sm font-sans py-4 px-12 rounded-full bg-brand-deep text-white hover:bg-brand-steel transition-colors duration-200"
-            aria-label="Zur Startseite"
+            aria-label={notFound.homeButtonAriaLabel}
           >
             <Home size={18} />
-            Zur Startseite
+            {notFound.homeButtonLabel}
           </button>
         </div>
       </main>

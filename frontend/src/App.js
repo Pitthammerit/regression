@@ -47,7 +47,7 @@ function MainPage() {
   }
 
   return (
-    <div className="bg-[#F0EBE1] bg-paper min-h-screen font-sans text-brand-body">
+    <div className="bg-brand-cream bg-paper min-h-screen font-sans text-brand-body">
       <Header nav={header.nav} cta={header.cta} />
       <main>
         {SECTIONS_ORDER.map((sectionName) => sectionMap[sectionName])}

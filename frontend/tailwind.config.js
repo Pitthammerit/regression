@@ -13,6 +13,15 @@ module.exports = {
           cream: '#F0EBE1',
           sand:  '#EDE7DC',
         },
+        transcript: {
+          bg:       '#F0EBE1',
+          text:     '#2D2A26',
+          muted:    '#7D7469',
+          darkBg:   '#171614',
+          darkText: '#D9D2C8',
+          border:   'rgba(0,0,0,0.08)',
+          darkBorder: 'rgba(255,255,255,0.08)',
+        },
       },
       fontFamily: {
         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
