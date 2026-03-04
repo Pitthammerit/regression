@@ -5,7 +5,7 @@
 export const meta = {
   title: "Seelenrückführung & Regression Sessions — Benjamin Kurtz",
   description:
-    "Past Life Regression Sessions mit Benjamin Kurtz. Hypnose, Seelenarbeit und Energiearbeit — online und in Málaga.",
+    "Past Life Regression Sessions mit Benjamin Kurtz. Hypnose, Seelenarbeit und Energiearbeit — online und oder vor Ort.",
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -87,7 +87,7 @@ export const whatIs = {
     "Eine Seelenrückführung geht weiter. Stell dir einen Filmstreifen vor: Jedes einzelne Bild ist ein Leben — von Geburt bis Tod. Wenn du ihn nah heranziehst, bist du mittendrin. Wenn du ihn zurückziehst, siehst du unzählige Bilder nebeneinander. Jenseits von linearer Zeit. Jenseits von dem, was wir mit unserem Verstand greifen können.",
     "In der Hypnose — einem tiefen Entspannungszustand, in dem du jederzeit die vollständige Kontrolle behältst — können wir diesen Strom zugänglich machen. Was dir dann begegnet, ist immer genau das, was du in diesem Moment brauchst.",
   ],
-  skepticToggleLabel: "Für Skeptiker: Was sagt die Forschung?",
+  skepticToggleLabel: "Was sagt die Forschung?",
   skepticContent: [
     {
       name: "Ian Stevenson MD",
@@ -118,7 +118,7 @@ export const whatIs = {
 export const podcast = {
   label: "IM PODCAST",
   headline: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
-  sectionHeadline: ["Manche Muster", "sind älter", "als dieses Leben."],
+  sectionHeadline: ["Manche Muster", "entstehen jenseits", "dieses Lebens."],
   sectionBody: `"Auf einmal haben sich Dinge zusammengesetzt, die vorher unerklärbar waren." Eine Regression Session zeigt dir nicht nur was war — sie zeigt dir, warum du so bist, wie du bist. Benjamin im ausführlichen Gespräch mit Tobias Berg über Reinkarnation, Seelenerinnerung und was wirklich in einer Session passiert.`,
   subline:
     "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",
