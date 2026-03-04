@@ -67,6 +67,16 @@ Content lives in `frontend/src/content/plr-de.js` (German only). Components impo
 import { header, footer } from './content/plr-de'
 ```
 
+**Self-Service Content Files** (Sprint 1 — March 2026):
+- `frontend/src/config/sections.config.js` — Controls section order. User can reorder sections by changing array order.
+- `frontend/src/content/testimonials.list.js` — Dynamic testimonials list with automatic numbering. User can add/remove testimonials.
+
+**How it works:**
+- `sections.config.js` exports `SECTIONS_ORDER` array
+- `App.js` maps section names to components and renders dynamically
+- `TestimonialsSection` and `TestimonialCarousel` import from `testimonials.list.js`
+- No code changes needed — user edits config files
+
 **Limitations:** No i18n system exists. English content is not implemented. All user-facing text should move to the content layer, but many components still have hardcoded German strings (notably `Footer.jsx` and `TranscriptPage.jsx`).
 
 ### Section Components
@@ -94,6 +104,61 @@ import { header, footer } from './content/plr-de'
 
 ### Transcript Token Gate
 The `/transkript` route checks `?token=...` against `REACT_APP_TRANSCRIPT_TOKEN` env var. Without a valid token, it shows "Kein Zugang. Dieser Link ist nicht gültig oder abgelaufen."
+
+## Self-Service Features (User-Managed Content)
+
+**As of Sprint 1 (March 2026), users can now manage certain content without developer assistance:**
+
+### Section Reordering
+File: `frontend/src/config/sections.config.js`
+
+Users can change the order of website sections by editing the `SECTIONS_ORDER` array:
+```javascript
+export const SECTIONS_ORDER = [
+  'HeroV3Section',
+  'TestimonialCarousel',  // Move this to change order
+  'ServicesSection',
+  // ...
+]
+```
+
+**Rules for users:**
+- Keep section names in quotes
+- Comma-separate each line (except last)
+- Don't change section names — only reorder
+
+### Dynamic Testimonials
+File: `frontend/src/content/testimonials.list.js`
+
+Users can add, remove, or reorder testimonials:
+```javascript
+export const TESTIMONIALS_LIST = [
+  {
+    name: "Anna K.",
+    context: "Health Coach, Deutschland",
+    quote: "Durch Benjamins Ruhe...",
+    image: "https://...",
+  },
+  // Add more here...
+]
+```
+
+**Automatic behavior:**
+- Numbering handled by array position (0, 1, 2, 3...)
+- TestimonialsSection displays first testimonial as featured (full height)
+- TestimonialCarousel shows all testimonials in rotating slides
+- Grid layout adjusts automatically to count
+
+**When user makes changes:**
+1. They edit the config file
+2. Run build: `npm --prefix frontend run build`
+3. Commit and push
+4. Cloudflare deploys automatically
+
+**What NOT to tell users to edit:**
+- Component files (`frontend/src/components/`)
+- App.js structure
+- Tailwind config (colors should only be changed with developer assistance)
 
 ## Known Issues from Code Review
 
