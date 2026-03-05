@@ -13,6 +13,16 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 ### Feedback Guidelines
 **WICHTIG:** Wenn der Benutzer Feedback gibt, bezieht es sich auf der **LIVE SITE** (Production), nicht auf localhost — es sei denn, der Benutzer sagt explizit "test locally" oder ähnlich.
 
+### GitHub Direct Edit Workflow
+User sometimes edits `frontend/src/content/plr-de.js` directly on GitHub. When local changes conflict:
+```bash
+git stash push -m "WIP: description"
+git pull origin main
+# Fix any merge conflicts or syntax errors
+git stash pop
+```
+Common syntax error: missing commas in array literals (check line endings in `whatIs.body`)
+
 ### Cloudflare Pages Configuration
 - Root directory: `frontend`
 - Build command: `npm run build`
@@ -66,6 +76,12 @@ Content lives in `frontend/src/content/plr-de.js` (German only). Components impo
 ```js
 import { header, footer } from './content/plr-de'
 ```
+
+**Content management patterns:**
+- Multi-line text: use template strings with `whitespace-pre-line` CSS class for proper line breaks
+- Attribution links: add `sourceLabel` and `sourceUrl` fields to content objects
+- Section IDs must match menu anchors (e.g., `#science` → `id="science"` in section component)
+- **Radix UI preferred**: Use @radix-ui/react-* components for accessible primitives (AspectRatio, Accordion, etc.)
 
 **Self-Service Content Files** (Sprint 1 — March 2026):
 - `frontend/src/config/sections.config.js` — Controls section order. User can reorder sections by changing array order.
@@ -159,6 +175,40 @@ export const TESTIMONIALS_LIST = [
 - Component files (`frontend/src/components/`)
 - App.js structure
 - Tailwind config (colors should only be changed with developer assistance)
+
+## EvidenceSection Architecture (March 2026 — Work in Progress)
+
+**Current status:** Phase 1 implemented (Roger Woolger hardcoded example). Phase 2 pending (expand to all 4 authorities).
+
+**Implemented pattern:**
+- Upper tier: 4-column grid with portraits + English quotes (unchanged)
+- Lower tier: Accordion card for Roger Woolger (single hardcoded example)
+
+**Content structure in `plr-de.js` (authorities array):**
+```javascript
+{
+  id: "roger-woolger",
+  name: "Roger Woolger PhD",
+  dates: "*1944–2011",
+  role: "Jungian Analytiker, Regressionstherapeut, Lehrer",
+  portrait: "https://...",
+  quote: "The body never lies...", // English quote for upper tier
+  shortVersion: "Kurztext (2-3 Sätze)...",
+  longVersion: "Langtext (mehrere Absätze)...",
+  sourceLabel: "Quelle",
+  sourceUrl: "https://..."
+}
+```
+
+**Pending (Phase 2):**
+- Add `sourceUrl` and `sourceLabel` to Ian Stevenson, Brian Weiss, Jim Tucker
+- Replace hardcoded Roger card with dynamic `.map()` over `authorities` array
+- Ensure `shortVersion` exists for all authorities (may need to extract from `longVersion`)
+
+**Accordion state:** Uses `useState` with `expandedId` pattern — only one card expanded at a time
+**Responsive:** Mobile = photo above text, name above photo; Desktop = photo left, text right
+**Images:** Uses native `LazyImage` component with R2 CDN URLs
+**Section ID:** `id="science"` — matches menu anchor `#science`
 
 ## Known Issues from Code Review
 
