@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import { menu } from '../content/menu'
@@ -30,14 +30,45 @@ const ListItem = React.forwardRef(({ className, children, anchor, ...props }, re
 ListItem.displayName = 'ListItem'
 
 export default function DesktopNav({ onSidecarOpen }) {
+  const [viewportStyle, setViewportStyle] = useState({})
+  const rootRef = useRef(null)
+
   const handleNavClick = (anchor) => {
     if (!anchor) return
     const el = document.querySelector(anchor)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
+  // Positioniere Viewport unter dem aktiven Trigger
+  useEffect(() => {
+    const updateViewportPosition = () => {
+      const activeTrigger = rootRef.current?.querySelector('[data-state="open"]')
+      if (activeTrigger && rootRef.current) {
+        const rootRect = rootRef.current.getBoundingClientRect()
+        const triggerRect = activeTrigger.getBoundingClientRect()
+        const left = triggerRect.left - rootRect.left
+        setViewportStyle({
+          transform: `translateX(${left}px)`,
+        })
+      }
+    }
+
+    // Beobachte Änderungen an data-state Attributen
+    const observer = new MutationObserver(updateViewportPosition)
+    if (rootRef.current) {
+      observer.observe(rootRef.current, {
+        attributes: true,
+        attributeFilter: ['data-state'],
+        subtree: true,
+      })
+      updateViewportPosition()
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <NavigationMenu.Root className="relative z-10 flex items-center justify-center flex-1">
+    <NavigationMenu.Root ref={rootRef} className="relative z-10 flex items-center justify-center flex-1">
       <NavigationMenu.List className="center m-0 flex list-none">
         {menu.header.mainNav.map((item) => (
           <NavigationMenu.Item key={item.label}>
@@ -89,9 +120,17 @@ export default function DesktopNav({ onSidecarOpen }) {
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
-      {/* Viewport mit Advanced Animation */}
-      <div className="perspective-[2000px] absolute left-0 top-full flex w-full">
-        <NavigationMenu.Viewport className="NavigationMenuViewport" />
+      {/* Viewport mit Advanced Animation und dynamischer Positionierung */}
+      <div className="perspective-[2000px] absolute left-0 right-0 top-full flex justify-center">
+        <div
+          className="relative"
+          style={{
+            transition: 'transform 250ms ease',
+            ...viewportStyle
+          }}
+        >
+          <NavigationMenu.Viewport className="NavigationMenuViewport" />
+        </div>
       </div>
     </NavigationMenu.Root>
   )
