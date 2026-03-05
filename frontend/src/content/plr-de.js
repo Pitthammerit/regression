@@ -316,12 +316,15 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
       sourceLabel: "Quelle",
       sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
     },
+// —————————————————————————————————————————————————————————
+// Author: Brian Weiss //
+// —————————————————————————————————————————————————————————
     {
       id: "brian-weiss",
       name: "Brian Weiss MD",
       role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
       lifeDates: "*1944–2024",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17/r2.dev/authors/brian-weiss_350.jpg",
       quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
       shortVersion: "'Many Lives Many Masters' (1988) — klinische Falldokumentation über Jahrzehnte. Skeptische Haltung veränderte sich durch eine Patientin, die unter Hypnose frühere Leben beschrieb.",
       longVersion: `Brian Weiss war ein hochangesehener Psychiater und Chefarzt am Mount Sinai Medical Center in Miami, als ihn ein Fall im Jahr 1980 gründlich verändern sollte. Catherine, eine Patientin mit schweren Ängsten und Phobien, sprach unter Hypnose plötzlich von Details aus vergangenen Leben — Informationen, die sich historisch verifizieren ließen.
@@ -333,7 +336,9 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
       sourceLabel: "Quelle",
       sourceUrl: "https://brianweiss.com/",
     },
-    
+// —————————————————————————————————————————————————————————
+// Author: Roger Woolger //
+// —————————————————————————————————————————————————————————
     {
       id: "roger-woolger",
       name: "Roger Woolger PhD",
@@ -350,17 +355,21 @@ Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP):
       sourceUrl: "https://rogerwoolger.org/roger-woolger/",
     },
   ],
-  journal: {
-    name: "International Journal of Regression Therapy",
-    url: "https://regressionjournal.org",
-    role: "regressionjournal.org",
-    portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/paste-1772670904056.png",
-    description: `Das International Journal of Regression Therapy ist das jährlich erscheinende peer-reviewed Journal, veröffentlicht seit 1986. All diese Jahre hat das Journal Artikel über die empirischen Effekte und theoretischen Implikationen der Regressionstherapie veröffentlicht.
+  resources: [
+    {
+      type: "journal",
+      name: "International Journal of Regression Therapy",
+      dates: "1986–heute",
+      url: "https://regressionjournal.org",
+      role: "regressionjournal.org",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/paste-1772670904056.png",
+      description: `Das International Journal of Regression Therapy ist das jährlich erscheinende peer-reviewed Journal, veröffentlicht seit 1986. All diese Jahre hat das Journal Artikel über die empirischen Effekte und theoretischen Implikationen der Regressionstherapie veröffentlicht.
 
 Seit 2021 hat die Editorialbeschlossen, den Zugang zu allen Artikeln zu gewähren, die in den letzten 35 Jahren des Journals veröffentlicht wurden. So haben in dieser neuen Ära, in der das Journal unter die Fittiche der Earth Association for Regression Therapy – kurz EARTh – gekommen ist, interessierte Forscher und Therapeuten aus allen unterschiedlichen Ansätzen Zugang zu diesem Reichtum an Informationen, der von den erfahrenen Pionieren des Fachgebiets geteilt wird.`,
-    sourceLabel: "Quelle",
-    sourceUrl: "https://regressionjournal.org",
-  },
+      sourceLabel: "Quelle",
+      sourceUrl: "https://regressionjournal.org",
+    },
+  ],
 };
 
 // ═══════════════════════════════════════════════════════════

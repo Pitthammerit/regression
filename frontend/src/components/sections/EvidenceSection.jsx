@@ -160,46 +160,57 @@ export default function EvidenceSection() {
         ))}
 
         {/* ═══════════════════════════════════════════════════════════ */}
-        {/* Journal of Regression Therapy */}
+        {/* Resources (Journals, Books, Audiobooks, etc.) */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start max-w-4xl">
-          {/* Journal Image */}
-          <div className="w-full md:w-auto md:max-w-[240px] overflow-hidden rounded-sm bg-brand-dark/50 shrink-0">
-            <LazyImage
-              src={evidence.journal.portrait}
-              alt={evidence.journal.name}
-              className="w-full h-full object-cover"
-            />
-          </div>
+        {evidence.resources && (
+          <div className="max-w-4xl mx-auto">
+            {evidence.resources.map((resource) => (
+              <div key={resource.type} className="flex flex-col md:flex-row gap-6 md:gap-10 items-start max-w-4xl mb-12">
+                {/* Resource Image */}
+                <div className="w-full md:w-auto md:max-w-[240px] overflow-hidden rounded-sm bg-brand-dark/50 shrink-0">
+                  <LazyImage
+                    src={resource.portrait}
+                    alt={resource.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-          {/* Journal Text */}
-          <div className="flex-1">
-            <a
-              href={evidence.journal.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-block"
-            >
-              <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-3 group-hover:text-brand-green transition-colors">
-                {evidence.journal.name}
-              </p>
-            </a>
-            <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
-              {evidence.journal.role}
-            </p>
-            <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
-              {evidence.journal.description}
-            </p>
-            <a
-              href={evidence.journal.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
-            >
-              {evidence.journal.sourceLabel} →
-            </a>
+                {/* Resource Text */}
+                <div className="flex-1">
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-block"
+                  >
+                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-3 group-hover:text-brand-green transition-colors">
+                      {resource.name}
+                    </p>
+                  </a>
+                  {resource.dates && (
+                    <p className="font-sans text-white/50 text-sm mb-2">
+                      {resource.dates}
+                    </p>
+                  )}
+                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
+                    {resource.role}
+                  </p>
+                  <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
+                    {resource.description}
+                  </p>
+                  <a
+                    href={resource.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                  >
+                    {resource.sourceLabel} →
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+        )}
       </div>
     </section>
   )
