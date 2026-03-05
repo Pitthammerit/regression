@@ -38,7 +38,7 @@ export default function EvidenceSection() {
           <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 mb-16 items-start">
             {/* Photo - Left column */}
             <div className="max-w-[240px]">
-              <AspectRatio ratio={2 / 3}>
+              <AspectRatio ratio={1 / 1}>
                 <LazyImage
                   src={featuredAuthor.portrait}
                   alt={featuredAuthor.name}
@@ -79,7 +79,7 @@ export default function EvidenceSection() {
               {/* Portrait - Left column */}
               {author.portrait && (
                 <div className="md:max-w-[240px]">
-                  <AspectRatio ratio={2 / 3}>
+                  <AspectRatio ratio={5 / 4}>
                     <LazyImage
                       src={author.portrait}
                       alt={author.name}
@@ -135,21 +135,27 @@ export default function EvidenceSection() {
 
             {/* Row 2: Expanded content (full width) */}
             {expandedId === author.id && (
-              <div className="mt-8 pt-8 md:col-span-2">
-                <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
-                  {author.longVersion}
-                </p>
-                {author.sourceUrl && (
-                  <a
-                    href={author.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
-                  >
-                    {author.sourceLabel} →
-                  </a>
-                )}
-              </div>
+              <>
+                <div className="mt-8 pt-8 md:col-span-2">
+                  <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
+                    {author.longVersion}
+                  </p>
+                  {author.sourceUrl && (
+                    <a
+                      href={author.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                    >
+                      {author.sourceLabel} →
+                    </a>
+                  )}
+                </div>
+                {/* Divider - Full width, same spacing as featured section */}
+                <div className="md:col-span-2 pt-[36px]">
+                  <div className="h-px bg-white/20"></div>
+                </div>
+              </>
             )}
           </div>
         ))}
