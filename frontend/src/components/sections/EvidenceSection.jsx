@@ -4,7 +4,7 @@ import LazyImage from '../ui/LazyImage'
 import { ChevronDown } from 'lucide-react'
 
 export default function EvidenceSection() {
-  const authorities = evidence.authorities
+  const authors = evidence.authors
   const [expandedId, setExpandedId] = useState(null)
 
   const toggleExpand = (id) => {
@@ -24,46 +24,46 @@ export default function EvidenceSection() {
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <div className="font-sans text-xs uppercase tracking-[0.2em] text-brand-steel/80 mb-4">
-            {evidence.authorityBigLabel}
+            {evidence.authorBigLabel}
           </div>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">
-            {evidence.authorityHeadline}
+            {evidence.authorHeadline}
           </h2>
         </div>
 
         {/* Four Portraits with English Quotes */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
-          {authorities.map((authority) => {
-            const portraitUrl = authority.portrait
+          {authors.map((author) => {
+            const portraitUrl = author.portrait
             return (
-              <div key={authority.id} className="flex flex-col items-center text-center">
+              <div key={author.id} className="flex flex-col items-center text-center">
                 {/* Portrait - Square or Placeholder */}
                 {portraitUrl ? (
                   <div className="aspect-square w-full max-w-[240px] mb-6 overflow-hidden rounded-sm bg-brand-dark/50">
                     <LazyImage
                       src={portraitUrl}
-                      alt={authority.name}
+                      alt={author.name}
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
                 ) : (
                   <div className="aspect-square w-full max-w-[240px] mb-6 flex items-center justify-center bg-brand-dark/30 rounded-sm border border-white/10">
                     <p className="font-serif text-xl text-white/90 italic text-center px-4">
-                      {authority.name}
+                      {author.name}
                     </p>
                   </div>
                 )}
 
                 {/* English Quote */}
                 <blockquote className="font-serif text-base md:text-lg text-white/90 leading-snug mb-4 italic">
-                  "{authority.quote}"
+                  "{author.quote}"
                 </blockquote>
 
                 {/* Name & Role & Dates */}
                 <div className="font-sans text-sm text-brand-steel">
-                  <span className="font-semibold">— {authority.name}</span>
-                  {authority.dates && (
-                    <span className="block text-xs text-white/50 italic mt-1">{authority.dates}</span>
+                  <span className="font-semibold">— {author.name}</span>
+                  {author.lifeDates && (
+                    <span className="block text-xs text-white/50 italic mt-1">{author.lifeDates}</span>
                   )}
                 </div>
               </div>
@@ -72,38 +72,38 @@ export default function EvidenceSection() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════ */}
-        {/* ACCORDION CARDS SECTION — Phase 2: All Authorities Dynamic */}
+        {/* ACCORDION CARDS SECTION — Phase 2: All Authors Dynamic */}
         {/* ═══════════════════════════════════════════════════════════ */}
 
-        {authorities.map((authority) => (
-          <div key={authority.id} className="mb-12 md:flex md:items-start md:gap-10">
+        {authors.map((author) => (
+          <div key={author.id} className="mb-12 md:flex md:items-start md:gap-10">
             {/* Mobile: Name/Datum/Role ÜBER dem Foto */}
             <div className="md:hidden mb-6">
               <h3 className="font-serif text-2xl text-white font-bold mb-1">
-                {authority.name}
+                {author.name}
               </h3>
-              <p className="font-sans text-sm text-white/50 mb-3">{authority.dates}</p>
+              <p className="font-sans text-sm text-white/50 mb-3">{author.lifeDates}</p>
               <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
-                {authority.role}
+                {author.role}
               </p>
             </div>
 
             {/* Foto: Mobile 16:9 über Text, Desktop 2:3 links */}
-            {authority.portrait && (
+            {author.portrait && (
               <div className="md:w-1/3 md:max-w-[240px] md:shrink-0">
                 {/* Mobile: 16:9 */}
                 <div className="md:hidden aspect-video mb-6 overflow-hidden rounded-md bg-brand-dark/50">
                   <LazyImage
-                    src={authority.portrait}
-                    alt={authority.name}
+                    src={author.portrait}
+                    alt={author.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 {/* Desktop: 2:3 */}
                 <div className="hidden md:block aspect-[2/3] overflow-hidden rounded-md bg-brand-dark/50">
                   <LazyImage
-                    src={authority.portrait}
-                    alt={authority.name}
+                    src={author.portrait}
+                    alt={author.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -111,47 +111,47 @@ export default function EvidenceSection() {
             )}
 
             {/* Text-Bereich */}
-            <div className={authority.portrait ? "md:flex md:flex-1 md:flex-col md:mt-0" : "w-full"}>
+            <div className={author.portrait ? "md:flex md:flex-1 md:flex-col md:mt-0" : "w-full"}>
               {/* Desktop: Name/Datum/Role RECHTS neben Foto */}
               <div className="hidden md:block mb-6">
                 <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1">
-                  {authority.name}
+                  {author.name}
                 </h3>
-                <p className="font-sans text-sm text-white/50 mb-3">{authority.dates}</p>
+                <p className="font-sans text-sm text-white/50 mb-3">{author.lifeDates}</p>
                 <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
-                  {authority.role}
+                  {author.role}
                 </p>
               </div>
 
               {/* Kurztext (immer sichtbar) */}
               <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6">
-                {authority.shortVersion}
+                {author.shortVersion}
               </p>
 
               {/* Akkordeon-Button */}
               <button
-                onClick={() => toggleExpand(authority.id)}
+                onClick={() => toggleExpand(author.id)}
                 className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
               >
-                {expandedId === authority.id ? evidence.accordion.readLess : evidence.accordion.readMore}
-                <ChevronDown className={`transition-transform duration-200 ${expandedId === authority.id ? 'rotate-180' : ''}`} />
+                {expandedId === author.id ? evidence.accordion.readLess : evidence.accordion.readMore}
+                <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
               </button>
             </div>
 
             {/* Aufklapp-Bereich (volle Breite) */}
-            {expandedId === authority.id && (
+            {expandedId === author.id && (
               <div className="mt-6 pt-6 border-t border-white/10 w-full">
                 <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
-                  {authority.longVersion}
+                  {author.longVersion}
                 </p>
-                {authority.sourceUrl && (
+                {author.sourceUrl && (
                   <a
-                    href={authority.sourceUrl}
+                    href={author.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
                   >
-                    {authority.sourceLabel} →
+                    {author.sourceLabel} →
                   </a>
                 )}
               </div>

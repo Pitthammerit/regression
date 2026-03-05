@@ -1,32 +1,21 @@
-/**
- * Section Configuration - Controls section order
- *
- * To reorder sections: Simply change the order in this array
- *
- * Example: To move TestimonialCarousel to the top:
- * export const SECTIONS_ORDER = [
- *   'HeroV3Section',
- *   'TestimonialCarousel',
- *   'ServicesSection',
- *   ...
- * ]
- */
+// sections.config.js
+// Controls section order on the landing page
+// Users can reorder sections by changing the array order
 
 export const SECTIONS_ORDER = [
   'HeroV3Section',
-  'TestimonialCarousel',
   'ServicesSection',
   'WelcomeSection',
+  'StatementSection',
   'WhatIsSection',
   'EvidenceSection',
+  'EvidenceQuotesSection',
   'PodcastVideoSection',
-  'StatementSection',
   'ForWhomSection',
   'AboutSection',
-  'RogerWoolgerSection',
   'ProcessSection',
   'PodcastSection',
   'CaseStudiesSection',
-  'TestimonialsSection',
+  'TestimonialCarousel',
   'BookingSection',
 ]

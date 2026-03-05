@@ -11,7 +11,6 @@ import LazyImage from '../ui/LazyImage'
  * - First testimonial (index 0): Left column, full height
  * - Remaining testimonials: Distributed in 2-column grid
  * - Uses TESTIMONIALS_LIST for dynamic testimonials
- * - authorityQuotes from plr-de.js (research quotes)
  */
 export default function TestimonialsSection() {
   // Dynamic testimonials from list
@@ -20,35 +19,6 @@ export default function TestimonialsSection() {
 
   return (
     <div id="testimonials" data-testid="testimonials-section">
-
-      {/* Authority Quotes — dark navy bg */}
-      <div className="bg-brand-deep py-16 md:py-20">
-        <div className="max-w-content mx-auto px-6">
-          <SectionLabel text={testimonials.authorityBigLabel} light />
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white leading-tight mt-3 mb-12">
-            {testimonials.authorityHeadline}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-10 md:gap-14">
-            {testimonials.authorityQuotes.map((q, i) => (
-              <div key={i} className="border-t border-white/20 pt-8">
-                {q.portrait && (
-                  <LazyImage
-                    src={q.portrait}
-                    alt={q.name}
-                    className="w-32 h-32 rounded-lg object-cover mb-6"
-                  />
-                )}
-                <blockquote className="font-serif italic text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-                  "{q.quote}"
-                </blockquote>
-                <div className="font-sans text-sm font-medium text-white/70">{q.name}</div>
-                <div className="font-sans text-xs text-white/40 mt-0.5">{q.role}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Client Testimonials */}
       <div className="py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">

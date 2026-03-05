@@ -268,14 +268,14 @@ export const cases = {
 // EvidenceSection — EVIDENCE & AUTHORITY QUOTES
 // ═══════════════════════════════════════════════════════════
 export const evidence = {
-  authorityBigLabel: "EVIDENZBASIERT",
-  authorityHeadline: "Was die Forschung sagt",
-  authorityLabel: "WAS DIE FORSCHUNG SAGT",
+  authorBigLabel: "EVIDENZBASIERT",
+  authorHeadline: "Was die Forschung sagt",
+  authorLabel: "WAS DIE FORSCHUNG SAGT",
   accordion: {
     readMore: "Mehr lesen",
     readLess: "Weniger lesen",
   },
-  authorities: [
+  authors: [
     {
       id: "ian-stevenson",
       name: "Ian Stevenson MD",
@@ -288,7 +288,7 @@ export const evidence = {
 Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen über Familien, Orte und Todesumstände von Personen berichten, die Jahre vor ihrer Geburt verstorben waren. Viele dieser Details ließen sich später verifizieren. Stevensons Arbeit umfasst über 290 peer-reviewed Publikationen und wurde in führenden wissenschaftlichen Journalen veröffentlicht.
 
 Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Division of Perceptual Studies fort, wo die Forschung bis heute weitergeführt wird.`,
-      dates: "*1918–2007",
+      lifeDates: "*1918–2007",
       sourceLabel: "Quelle",
       sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
     },
@@ -304,7 +304,7 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
 Einer seiner bekanntesten Fälle ist James Leininger: Ein Zweijähriger aus Louisiana, der detaillierte Erinnerungen an ein Leben als WWII-Pilot beschrieb. Das Kind konnte spezifische Details nennen: Namen des Piloten (James Huston), Staffelzugehörigkeit (VF-38), Typ des Flugzeugs (F4U Corsair), Todesumstände (abgeschossen vor Iwo Jima), und sogar Namen von Kameraden. Später verifizierten seine Eltern alle diese Details historisch akkurat.
 
 Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie finden weltweit, unabhängig von religiösem Hintergrund oder Elternhaus statt.`,
-      dates: "*geb. 1950",
+      lifeDates: "*geb. 1950",
       sourceLabel: "Quelle",
       sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
     },
@@ -320,7 +320,7 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
 Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen klinischen Arbeit mit tausenden Patienten. Weiss dokumentierte systematisch regressionstherapeutische Sitzungen und ihre langfristigen Heilungseffekte. Sein Buch "Many Lives, Many Masters" (1988) wurde zu einem internationalen Bestseller und machte Regressionstherapie einem breiten Publikum zugänglich.
 
 Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung hatte ihn gelehrt, dass alles im gegenwärtigen Leben zu erklären sei. Doch die konsistenten Ergebnisse mit verschiedenen Patienten ließen sich nicht ignorieren. Seine Arbeit hat tausenden Therapeuten weltweit den Weg zu regressionsbasierten Methoden eröffnet.`,
-      dates: "*1944–2024",
+      lifeDates: "*1944–2024",
       sourceLabel: "Quelle",
       sourceUrl: "https://brianweiss.com/",
     },
@@ -335,7 +335,7 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
 Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian Western Mysticism und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.
 Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie, schamanischen Perspektiven und meditativen Prinzipien, inklusive Übergangs- und Zwischenzuständen aus tibetischen Lehren. Spätere, zugänglichere Vertiefungen seiner Arbeit erschienen u.a. als Healing Your Past Lives sowie weitere Lehrformate.
 Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP): ein Ansatz für Deep Memory Access, der Regression, Embodiment, Dreamwork, Meditation und Regression Shamanism verbindet. Er bildete Therapeuten international aus und prägte Spiritual Healing Conferences, in denen Themen wie Regression & Shamanism, Soul Loss, Exile/Longing to Return und die sakrale Verbindung von Körper und Geist im Zentrum standen.`,
-      dates: "*1944–2011",
+      lifeDates: "*1944–2011",
       sourceLabel: "Quelle",
       sourceUrl: "https://rogerwoolger.org/roger-woolger/",
     },
@@ -354,67 +354,10 @@ Seit 2021 hat die Editorialbeschlossen, den Zugang zu allen Artikeln zu gewähre
 };
 
 // ═══════════════════════════════════════════════════════════
-// RogerWoolgerSection — ROGER WOOLGER
-// ═══════════════════════════════════════════════════════════
-// NOTE: This export is deprecated. Use evidence.authorities[3] instead.
-// Kept for backwards compatibility — will be removed in Phase 3.
-export const rogerWoolger = {
-  label: "ROGER WOOLGER",
-  labelSub: "1944–2011",
-  headline: "Jungian Analytiker • Regressionstherapeut • Lehrer",
-
-  shortVersion: "Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine wegweisende Synthese aus Jung'scher Tiefenpsychologie, Körperarbeit, Psychodrama, Dreamwork und Meditation. Als hochbegabter Therapeut führte Woolger Menschen durch tief transformative Erfahrungen und konnte dabei das größere spirituelle Bild beleuchten, von Sophian Western Mysticism und westlicher Mystik bis Sufismus. Später entwickelte er daraus das Deep Memory Process (DMP) und prägte Trainings sowie Spiritual Healing Conferences an der Schnittstelle von Regression, Schamanismus und Bewusstseinsarbeit.",
-
-  longVersion: `Roger Woolger war ein Jungian Analytiker und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
-
-Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian Western Mysticism und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.
-
-Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie, schamanischen Perspektiven und meditativen Prinzipien, inklusive Übergangs- und Zwischenzuständen aus tibetischen Lehren. Spätere, zugänglichere Vertiefungen seiner Arbeit erschienen u.a. als Healing Your Past Lives sowie weitere Lehrformate.
-
-Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP): ein Ansatz für Deep Memory Access, der Regression, Embodiment, Dreamwork, Meditation und Regression Shamanism verbindet. Er bildete Therapeuten international aus und prägte Spiritual Healing Conferences, in denen Themen wie Regression & Shamanism, Soul Loss, Exile/Longing to Return und die sakrale Verbindung von Körper und Geist im Zentrum standen.`,
-
-  sourceLabel: "Quelle",
-  sourceUrl: "https://rogerwoolger.org/roger-woolger/",
-
-  portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
-
-  credentials: [
-    "C.G. Jung Institute Zürich",
-    "Oxford University",
-    "University of London",
-    "Deep Memory Process (DMP) Begründer",
-  ],
-};
-
-// ═══════════════════════════════════════════════════════════
 // TestimonialsSection — TESTIMONIALS
 // Note: Individual testimonials are now in testimonials.list.js
-// This export contains authority quotes and labels
 // ═══════════════════════════════════════════════════════════
 export const testimonials = {
-  authorityBigLabel: "EVIDENZBASIERT",
-  authorityHeadline: "Was die Forschung sagt",
-  authorityLabel: "WAS DIE FORSCHUNG SAGT",
-  authorityQuotes: [
-    {
-      quote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
-      name: "Ian Stevenson MD",
-      role: "University of Virginia, DOPS",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg",
-    },
-    {
-      quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
-      name: "Brian Weiss MD",
-      role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
-    },
-    {
-      quote: "The body never lies about what the soul has carried across lifetimes.",
-      name: "Roger Woolger PhD",
-      role: "Jungianischer Analytiker, Deep Memory Process",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
-    },
-  ],
   clientLabel: "WAS KLIENTEN SAGEN",
   // Note: clients array is now managed in testimonials.list.js for dynamic editing
   clients: [
