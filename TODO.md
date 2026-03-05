@@ -1,12 +1,21 @@
 # TODO
 
-Updated: 2026-03-05 01:49
+Updated: 2026-03-05 10:45
 
-**Wichtig:** TODO.md wird bei jedem git push aktualisiert. **Single Source of Truth** für alle offenen Tasks.
+**Wichtig:** TODO.md wird bei jedem git push automatisch durch GitHub Action aktualisiert. **Single Source of Truth** für alle offenen Tasks.
 
 ---
 
 ## ✅ Completed
+
+### Session 2026-03-05: Automatic TODO.md Sync System (abgeschlossen)
+- [x] Created `scripts/update-todo.js` - Parses commits and marks completed tasks
+- [x] Created `scripts/add-todo.js` - Adds new tasks with duplicate detection
+- [x] Created `.github/workflows/update-todo.yml` - GitHub Action for auto-sync
+- [x] Created comprehensive documentation: `docs/TODO-SYNC-WORKFLOW.md`
+- [x] Switched Git remote from HTTPS to SSH (bypasses workflow scope issue)
+- [x] Git Workflow training: Commit, Push, Branches in VS Code
+- [x] Updated CLAUDE.md with deployment rules and feedback guidelines
 
 ### EvidenceSection — Phase 2: Self-Service Authorities (2026-03-05)
 - [x] Rename `shortQuote` → `shortVersion` in `evidence.authorities` array
