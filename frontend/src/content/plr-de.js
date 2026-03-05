@@ -330,7 +330,7 @@ Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP):
     name: "Journal of Regression Therapy",
     url: "https://regressionjournal.org",
     role: "regressionjournal.org",
-    portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/journal-of-regression-therapy.jpg",
+    portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/paste-1772670904056.png",
     description: "Das führende peer-reviewed Journal für Reinkarnationsforschung und regressionstherapeutische Praxis. Vollständig Open Access seit 2021 — alle Ausgaben seit 1986 sind frei zugänglich. Die Artikel dokumentieren sowohl klinische Fallstudien als auch wissenschaftliche Untersuchungen von Reinkarnationsfällen weltweit.",
   },
 };
