@@ -265,7 +265,7 @@ export const cases = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// EvidenceSection — EVIDENCE & AUTHORITY QUOTES
+// EvidenceSection — EVIDENCE & AUTHOR QUOTES
 // ═══════════════════════════════════════════════════════════
 export const evidence = {
   authorBigLabel: "EVIDENZBASIERT",
@@ -296,7 +296,7 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
       id: "jim-tucker",
       name: "Jim Tucker MD",
       role: "Nachfolger Stevensons, UVA",
-      portrait: null, // Using quote card instead
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Jim_Tucker.jpg", // Using quote card instead
       quote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
       shortVersion: "Quantitative Auswertung von 799 Fällen. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen WWII-Piloten — gilt als einer der bestdokumentierten weltweit.",
       longVersion: `Jim Tucker ist Stevensons direkter Nachfolger am University of Virginia's Division of Perceptual Studies (DOPS). Seine Arbeit konzentriert sich auf amerikanische Fälle von Kindern mit reincarnation memories. In seinem Buch "Life Before Life" präsentiert er eine quantitative Analyse von 799 Fällen, die starke Muster aufzeigen: Die meisten Kinder beginnen im Alter von zwei bis drei Jahren über frühere Leben zu sprechen und hören meist zwischen fünf und sieben Jahren auf.
@@ -304,7 +304,7 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
 Einer seiner bekanntesten Fälle ist James Leininger: Ein Zweijähriger aus Louisiana, der detaillierte Erinnerungen an ein Leben als WWII-Pilot beschrieb. Das Kind konnte spezifische Details nennen: Namen des Piloten (James Huston), Staffelzugehörigkeit (VF-38), Typ des Flugzeugs (F4U Corsair), Todesumstände (abgeschossen vor Iwo Jima), und sogar Namen von Kameraden. Später verifizierten seine Eltern alle diese Details historisch akkurat.
 
 Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie finden weltweit, unabhängig von religiösem Hintergrund oder Elternhaus statt.`,
-      lifeDates: "*geb. 1950",
+      lifeDates: "*1950–heute",
       sourceLabel: "Quelle",
       sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
     },
