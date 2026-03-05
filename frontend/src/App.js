@@ -21,6 +21,7 @@ import TestimonialsSection from './components/sections/TestimonialsSection'
 import TestimonialCarousel from './components/sections/TestimonialCarousel'
 import BookingSection from './components/sections/BookingSection'
 import TranscriptPage from './pages/TranscriptPage'
+import MenuDemoPage from './pages/MenuDemoPage'
 import NotFound from './components/NotFound'
 import { header, footer, testimonials } from './content/plr-de'
 import { SECTIONS_ORDER } from './config/sections.config'
@@ -71,6 +72,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/transkript" element={<TranscriptPage />} />
+        <Route path="/menu-demo" element={<MenuDemoPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

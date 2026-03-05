@@ -33,7 +33,7 @@ export default function FAQSection() {
             <div key={index} className="border-t border-black/10">
               <button
                 onClick={() => toggleExpand(index)}
-                className="w-full flex justify-between items-center py-6 text-left font-sans text-brand-deep hover:text-brand-green transition-colors"
+                className="w-full flex justify-between items-center py-6 text-left font-sans text-brand-steel hover:text-brand-deep transition-colors"
               >
                 <span className="font-medium text-lg">{item.question}</span>
                 <ChevronDown
@@ -47,7 +47,7 @@ export default function FAQSection() {
                   expandedIndex === index ? 'max-h-[600px] pb-6' : 'max-h-0'
                 }`}
               >
-                <p className="font-sans text-brand-body leading-relaxed whitespace-pre-line">
+                <p className="font-sans text-brand-deep leading-relaxed whitespace-pre-line text-lg">
                   {item.answer}
                 </p>
               </div>
