@@ -9,6 +9,7 @@ Updated: 2026-03-05 01:49
 ## 🔵 In Arbeit
 
 ### EvidenceSection — Phase 2 (Current Focus)
+- [ ] **Important:** Rename `shortQuote` → `shortVersion` in `evidence.authorities` array (conflict with `quote` field for English quotes in upper tier)
 - [ ] Add `sourceUrl` and `sourceLabel` to Ian Stevenson, Brian Weiss, Jim Tucker
 - [ ] Replace hardcoded Roger card with dynamic `.map()` over `authorities` array
 - [ ] Ensure `shortVersion` exists for all authorities
@@ -45,6 +46,11 @@ Updated: 2026-03-05 01:49
 ---
 
 ## 🟢 Low Priority
+
+
+### Textbausteine & Inspiration (Sammeln für zukünftige Sections)
+- [ ] "How to remember and heal your past lives" — mögliche Subline für Section
+- [ ] Weitere Text-Ideen sammeln (dieser Bereich wird erweitert)
 
 ### Add SPA Fallback for Deep Links
 - [ ] Create `frontend/public/_redirects` with: `/*    /index.html   200`
