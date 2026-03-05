@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CtaButton from './ui/CtaButton'
+import BurgerButton from './ui/BurgerButton'
 import { r2, logos } from '../utils/media'
-import { Menu } from 'lucide-react'
 import DesktopNav from './DesktopNav'
 import SidecarMenu from './SidecarMenu'
 import { menu } from '../content/menu'
@@ -47,8 +47,8 @@ export default function Header({ nav, cta }) {
               />
             </a>
 
-            {/* Desktop Nav + CTA + Burger (>=1024px) */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-10">
+            {/* Desktop Nav + CTA (>=1024px) */}
+            <div className="hidden lg:flex items-center gap-8 xl:gap-12">
               {/* Radix UI Desktop Nav */}
               <DesktopNav onSidecarOpen={() => setSidecarOpen(true)} />
 
@@ -56,34 +56,14 @@ export default function Header({ nav, cta }) {
               <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
               </div>
-
-              {/* Desktop Burger für Sidecar Menu */}
-              <button
-                onClick={() => setSidecarOpen(!sidecarOpen)}
-                className="p-2 hover:bg-black/5 rounded-lg transition-colors"
-                aria-label={sidecarOpen ? 'Close menu' : 'Open menu'}
-              >
-                <Menu size={20} className="text-brand-deep" />
-              </button>
             </div>
 
-            {/* Mobile & Tablet: CTA + Burger Menu */}
-            <div className="lg:hidden flex items-center gap-3">
-              {/* Mobile CTA — scroll-triggered */}
-              <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-4 !text-xs" />
-              </div>
-
-              {/* Burger Menu Toggle */}
-              <button
-                onClick={() => setSidecarOpen(!sidecarOpen)}
-                className="p-2 -mr-2 hover:bg-black/5 rounded-lg transition-colors"
-                aria-label={sidecarOpen ? 'Close menu' : 'Open menu'}
-                data-testid="mobile-menu-toggle"
-              >
-                <Menu size={20} className="text-brand-deep" />
-              </button>
-            </div>
+            {/* Burger Menu — alle Breakpoints (ganz rechts) */}
+            <BurgerButton
+              isOpen={sidecarOpen}
+              onClick={() => setSidecarOpen(!sidecarOpen)}
+              className="lg:ml-4"
+            />
           </div>
         </div>
       </header>

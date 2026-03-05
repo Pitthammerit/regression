@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { X, ChevronRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { menu } from '../content/menu'
 import CtaButton from './ui/CtaButton'
+import BurgerButton from './ui/BurgerButton'
 
 export default function SidecarMenu({ isOpen, onClose }) {
   const [expandedCategory, setExpandedCategory] = useState(null)
@@ -27,26 +28,17 @@ export default function SidecarMenu({ isOpen, onClose }) {
         style={{ animation: 'fadeIn 0.3s ease-out' }}
       />
 
-      {/* Sidecar Panel - slide in from right (slower, smooth) */}
+      {/* Sidecar Panel - slide in from right with CSS animation */}
       <div
         className="fixed top-0 right-0 h-full w-full md:w-1/2 bg-brand-cream shadow-2xl z-50 flex flex-col"
-        style={{
-          transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-        }}
+        style={{ animation: 'slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards' }}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-8 pt-8 pb-6 border-b border-black/8">
           <h2 className="font-serif text-2xl text-brand-deep leading-tight">
             Menü
           </h2>
-          <button
-            onClick={onClose}
-            className="p-1.5 hover:opacity-50 transition-opacity"
-            aria-label="Menü schließen"
-          >
-            <X size={20} className="text-brand-deep" />
-          </button>
+          <BurgerButton isOpen={true} onClick={onClose} />
         </div>
 
         {/* Navigation - Accordion */}
@@ -119,6 +111,10 @@ export default function SidecarMenu({ isOpen, onClose }) {
         @keyframes slideDown {
           from { opacity: 0; transform: translateY(-10px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInFromRight {
+          from { transform: translateX(100%); }
+          to { transform: translateX(0); }
         }
       `}</style>
     </>
