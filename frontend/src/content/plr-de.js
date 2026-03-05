@@ -13,8 +13,9 @@ export const meta = {
 // ═══════════════════════════════════════════════════════════
 export const header = {
   nav: [
-    { label: "Was ist das?", anchor: "#was-ist" },
+    { label: "Regression", anchor: "#was-ist" },
     { label: "Für wen?", anchor: "#fuer-wen" },
+    { label: "Science", anchor: "#science" },
     { label: "Über Benjamin", anchor: "#ueber" },
     { label: "Ablauf", anchor: "#prozess" },
     { label: "Erfahrungen", anchor: "#cases" },

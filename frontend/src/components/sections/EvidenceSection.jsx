@@ -1,14 +1,20 @@
-import React from 'react'
-import { evidence } from '../../content/plr-de'
+import React, { useState } from 'react'
+import { evidence, rogerWoolger } from '../../content/plr-de'
 import LazyImage from '../ui/LazyImage'
+import { ChevronDown } from 'lucide-react'
 
 export default function EvidenceSection() {
   const authorities = evidence.authorities
+  const [expandedId, setExpandedId] = useState(null)
+
+  const toggleExpand = (id) => {
+    setExpandedId(expandedId === id ? null : id)
+  }
 
   return (
     <section
-      id="evidence"
-      data-testid="evidence-section"
+      id="science"
+      data-testid="science-section"
       className="py-20 md:py-28 bg-brand-deep text-white relative overflow-hidden"
     >
       {/* Subtle paper texture overlay */}
@@ -70,24 +76,92 @@ export default function EvidenceSection() {
           })}
         </div>
 
-        {/* German Flowing Text Section */}
-        <div className="space-y-8 md:space-y-10 mb-16">
-          {authorities.map((authority) => (
-            <div key={authority.id}>
-              <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-3">
-                {authority.name}
-              </p>
-              <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
-                {authority.role}
-              </p>
-              <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed max-w-4xl">
-                {authority.longVersion}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* ACCORDION CARDS SECTION — Phase 1: Roger Woolger Example */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+
+        {/* Roger Woolger Card */}
+        <div className="mb-12 md:flex md:items-start md:gap-10">
+          {/* Mobile: Name/Datum/Role ÜBER dem Foto */}
+          <div className="md:hidden mb-6">
+            <h3 className="font-serif text-2xl text-white font-bold mb-1">
+              {rogerWoolger.headline}
+            </h3>
+            <p className="font-sans text-sm text-white/50 mb-3">{rogerWoolger.labelSub}</p>
+            <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
+              {rogerWoolger.headline}
+            </p>
+          </div>
+
+          {/* Foto: Mobile 16:9 über Text, Desktop 2:3 links */}
+          <div className="md:w-1/3 md:max-w-[240px] md:shrink-0">
+            {/* Mobile: 16:9 */}
+            <div className="md:hidden aspect-video mb-6 overflow-hidden rounded-md bg-brand-dark/50">
+              <LazyImage
+                src={rogerWoolger.portrait}
+                alt={rogerWoolger.headline}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Desktop: 2:3 */}
+            <div className="hidden md:block aspect-[2/3] overflow-hidden rounded-md bg-brand-dark/50">
+              <LazyImage
+                src={rogerWoolger.portrait}
+                alt={rogerWoolger.headline}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Text-Bereich */}
+          <div className="md:flex md:flex-1 md:flex-col md:mt-0">
+            {/* Desktop: Name/Datum/Role RECHTS neben Foto */}
+            <div className="hidden md:block mb-6">
+              <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1">
+                {rogerWoolger.headline}
+              </h3>
+              <p className="font-sans text-sm text-white/50 mb-3">{rogerWoolger.labelSub}</p>
+              <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
+                {rogerWoolger.headline}
               </p>
             </div>
-          ))}
+
+            {/* Kurztext (immer sichtbar) */}
+            <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6">
+              {rogerWoolger.shortVersion}
+            </p>
+
+            {/* Akkordeon-Button */}
+            <button
+              onClick={() => toggleExpand('roger-woolger')}
+              className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
+            >
+              {expandedId === 'roger-woolger' ? 'Weniger lesen' : 'Mehr lesen'}
+              <ChevronDown className={`transition-transform duration-200 ${expandedId === 'roger-woolger' ? 'rotate-180' : ''}`} />
+            </button>
+          </div>
+
+          {/* Aufklapp-Bereich (volle Breite) */}
+          {expandedId === 'roger-woolger' && (
+            <div className="mt-6 pt-6 border-t border-white/10 w-full">
+              <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
+                {rogerWoolger.longVersion}
+              </p>
+              <a
+                href={rogerWoolger.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+              >
+                {rogerWoolger.sourceLabel} →
+              </a>
+            </div>
+          )}
         </div>
 
+        {/* ═══════════════════════════════════════════════════════════ */}
         {/* Journal of Regression Therapy */}
+        {/* ═══════════════════════════════════════════════════════════ */}
         <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start max-w-4xl">
           {/* Journal Image */}
           <div className="w-full md:w-1/3 aspect-[3/4] max-w-[200px] overflow-hidden rounded-sm bg-brand-dark/50 shrink-0">
