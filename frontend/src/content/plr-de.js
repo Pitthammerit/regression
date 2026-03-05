@@ -86,7 +86,7 @@ export const whatIs = {
     "Regression, lateinisch regressus = Rückschritt/e, bedeutet, zurückzugehen zu früheren Erfahrungen, zu älteren Erinnerungen. Um zu verstehen, warum du heute so reagierst, wie du re-agierst. Warum bestimmte Muster sich immer wiederholen. Warum manche Themen sich anfühlen, als wären kennst du sie schon länger als dieses Menschenleben.",
     "Eine Seelenrückführung geht weiter. Es kann Fragen beantworten, warum dir manche Menschen so bekannt vor kommen, obwohl du sie erst gerade kennengelernt hast. Warum dir bestimmte Gaben einfach liegen oder Themen brennend interessieren."
     "Stell dir einen Filmstreifen vor: Jedes einzelne Bild ist ein Leben — von Geburt bis Tod. Wenn du ihn nah heranziehst, bist du mittendrin. Wenn du ihn zurückziehst, siehst du unzählige Bilder hintereinander. Das ist etws so wie wir lineare Erlebnisse, erinnern. Manche Menschen erleben und erinnern Seelenleben aber parallel. Da heißt, jenseits von dem, was wir mit unserem Verstand greifen können.",
-    "In einem tiefen Entspannungszustand, in dem du jederzeit die vollständige Kontrolle behältst — können wir diesen Strom an Bilder und Leben zugänglich machen. Was dir dann begegnet, ist immer genau das, was du in diesem Moment brauchst."
+    "In einem tiefen Entspannungszustand, in dem du jederzeit die vollständige Kontrolle behältst — können wir diesen Strom an Bilder und Leben zugänglich machen. Was dir dann begegnet, ist immer genau das, was du in diesem Moment brauchst.",
   ],
   skepticToggleLabel: "Was sagt die Forschung?",
   skepticContent: [
@@ -117,9 +117,9 @@ export const whatIs = {
 // PodcastVideoSection — PODCAST VIDEO
 // ═══════════════════════════════════════════════════════════
 export const podcast = {
-  label: "IM PODCAST",
+  label: "IM PODCAST, FOLGE #52",
   headline: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
-  sectionHeadline: ["Manche Muster", "entstehen jenseits", "dieses Lebens."],
+  sectionHeadline: ["Manche erinnern", "wir jenseits", "dieses Lebens."],
   sectionBody: `"Auf einmal haben sich Dinge zusammengesetzt, die vorher unerklärbar waren." Eine Regression Session zeigt dir nicht nur was war — sie zeigt dir, warum du so bist, wie du bist. Benjamin im ausführlichen Gespräch mit Tobias Berg über Reinkarnation, Seelenerinnerung und was wirklich in einer Session passiert.`,
   subline:
     "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",
@@ -150,11 +150,11 @@ export const forWhom = {
     { title: "Ängste & Panikattacken", body: "Wenn die Reaktion größer ist als die Situation." },
     { title: "Beziehungsmuster", body: "Warum dieselben Dynamiken sich immer wiederholen." },
     { title: "Körperliche Symptome", body: "Wenn der Körper trägt, was der Geist nicht verarbeiten konnte." },
-    { title: "Todesangst & Vergänglichkeit", body: "Den Tod als Übergang verstehen, nicht als Ende." },
+    { title: "Todesangst & Endloses Leben", body: "Den Tod als Übergang verstehen, nicht als Ende." },
     { title: "Lebensaufgabe & Purpose", body: "Warum bin ich hier — und was soll ich damit tun?" },
     { title: "Kontakt zu Verstorbenen", body: "Wenn jemand gegangen ist und etwas ungesagt blieb." },
     { title: "Spirituelle Entwicklung", body: "Bewusstsein erweitern jenseits von Konzepten." },
-    { title: "Channeling lernen", body: "Die Verbindung zu anderen Informationsquellen öffnen." },
+    { title: "Channeling lernen", body: "Die Verbindung zu anderen Quellen öffnen." },
   ],
 };
 
@@ -165,17 +165,17 @@ export const about = {
   label: "ÜBER BENJAMIN KURTZ",
   headline: "Was mich zu dieser Arbeit geführt hat",
   body: [
-    "Mein erster Kontakt mit Seelenrückführung war kein sanftes Erwachen. Ich buchte ein Tagescoaching, weil ich Themen hatte, die zu groß waren, um sie weiter vor mir herzuschieben. In einer der letzten Stunden — nach fast zehn Stunden Arbeit — führte mich die Session in ein früheres Seelenleben. Was danach passierte, hat mir Dinge erklärt, die ich jahrelang nicht verstehen konnte. Nicht intellektuell. Durch direktes Erleben.",
-    "Ich begleite Menschen seit über 25 Jahren — als NLP-Master, Hypnotherapeut, EMDR- und Wingwave-Practitioner, Reiki-Master und Aufstellungsleiter. Mit einem Hintergrund in Unternehmertum und Kreativwirtschaft, einer spirituellen Praxis die mich von Asien bis nach Málaga geführt hat, und der tiefen Überzeugung: Regression Sessions sind keine weitere Methode. Sie sind der Raum, in dem sich am tiefsten etwas lösen kann.",
+    "Mein erster Kontakt mit Seelenrückführung war kein sanftes Erwachen. Ich buchte ein Tagescoaching, weil ich Themen hatte, die auch ich als Coach nicht alleine löawn konnte. In einer der letzten Stunden — nach fast zehn Stunden Arbeit — führten mich die Coaches in ein früheres Seelenleben. Was ich darin erfahren habe, hat mir Dinge erklärt, die ich jahrelang nicht verstehen konnte. Durch direktes Erleben wurde es lebendig und schenkte mir Klarheit.",
+    "Ich begleite Menschen seit mehr als einem JAhrzehnt — als NLP-Master, Hypnotherapeut, EMDR- und Wingwave-Practitioner, Reiki-und Quanten-Master Heiler. Mit einem Hintergrund in Unternehmertum als Filmemacher und Fotograf, Master in Design, einer spirituellen Praxis die mich von Köln von Indien bis hin zum Nomadentum geführt hat, und der tiefen Überzeugung: Regression Sessions sind keine weitere Methode. Sie sind der Raum, in dem sich am tiefsten etwas zeigen kann.",
   ],
   credentials: [
     "NLP Master & NR Practitioner",
-    "Hypnose-Coach & Hypnotherapeut",
+    "Hypnose-Coach",
     "EMDR · wingwave® Coach",
     "Reiki Master (Usui)",
     "Aufstellungsarbeit",
     "Breathwork & Meditation",
-    "Past Life Regression (zertifiziert)",
+    "Past Life Regression",
     "Psilocybin Retreat Facilitator",
   ],
   credentialsLabel: "AUSBILDUNGEN & ZERTIFIZIERUNGEN",
@@ -193,13 +193,13 @@ export const processSection = {
       number: "01",
       title: "Intro-Call",
       duration: "Kostenlos · 30 Minuten",
-      body: "Kein Verkaufsgespräch — ein echtes Erstgespräch. Wir schauen gemeinsam, was dich bewegt, wie eine Session abläuft, und ob es passt.",
+      body: "Ein echtes Erstgespräch. Wir schauen gemeinsam, wonach du suchst, ich helfe dir Lebens-Themen zu sortieren, wie eine Session abläuft, und ob es passt.",
     },
     {
       number: "02",
       title: "Die Session",
-      duration: "60–90 Minuten · online oder in Málaga",
-      body: "Du bleibst die ganze Zeit bei dir. Ich führe dich in einen tiefen Entspannungszustand und navigiere, was dort auftaucht. Keine Kontrolle wird abgegeben.",
+      duration: "60–90 Minuten · 1:1 online oder vor Ort",
+      body: "Du bleibst die ganze Zeit bei dir. Ich führe dich in einen tiefen Entspannungszustand und navigiere, was dort auftaucht. Du behältst die Kontrolle.",
     },
     {
       number: "03",
@@ -209,7 +209,7 @@ export const processSection = {
     },
   ],
   footnote:
-    "Viele Klienten buchen mehrere Sessions — nicht weil sie müssen, sondern weil sie wollen.",
+    "Viele Klienten buchen mehrere Sessions — nicht weil sie müssen, sondern weil sie wollen. Die erste Session lässt so viel mehr Neugierde entstehen, da sich oft Räume öffnen, die bisher verborgen lagen.",
   cta: "Intro-Call buchen",
 };
 
@@ -224,7 +224,7 @@ export const processSection = {
 export const cases = {
   label: "FALLBEISPIELE",
   headline: "Geschichten aus der Praxis — wenn Seelen sich erinnern",
-  subline: "Alle Geschichten wurden mit ausdrücklichem Einverständnis geteilt.",
+  subline: "Alle Geschichten wurden mit ausdrücklichem Einverständnis geteilt. Namen mit * wurden durch Wunsch des Klienten geändert",
   items: [
     {
       name: "Marina", gender: "female",
@@ -318,12 +318,9 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
       quote: "The body never lies about what the soul has carried across lifetimes.",
       shortQuote: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",
-      longVersion: `Roger Woolger war ein Jungian Analytiker und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
-
+      longVersion: `Roger Woolger war ein Jungian Analyst und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
 Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian Western Mysticism und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.
-
-Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie, schamanischen Perspektiven und meditativen Prinzipien, inklusive Übergangs- und Zwischenzuständen aus tibetischen Lehren. Spätere, zugänglichere Vertiefungen seiner Arbeit erschienen u.a. als Healing Your Past Lives sowie weitere Lehrformate.
-
+Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine Synthese aus Jung’scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie, schamanischen Perspektiven und meditativen Prinzipien, inklusive Übergangs- und Zwischenzuständen aus tibetischen Lehren. Spätere, zugänglichere Vertiefungen seiner Arbeit erschienen u.a. als Healing Your Past Lives sowie weitere Lehrformate.
 Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP): ein Ansatz für Deep Memory Access, der Regression, Embodiment, Dreamwork, Meditation und Regression Shamanism verbindet. Er bildete Therapeuten international aus und prägte Spiritual Healing Conferences, in denen Themen wie Regression & Shamanism, Soul Loss, Exile/Longing to Return und die sakrale Verbindung von Körper und Geist im Zentrum standen.`,
       dates: "*1944–2011",
     },
@@ -345,7 +342,7 @@ export const rogerWoolger = {
   labelSub: "1944–2011",
   headline: "Jungian Analytiker • Regressionstherapeut • Lehrer",
 
-  shortVersion: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",
+  shortVersion: "Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine wegweisende Synthese aus Jung’scher Tiefenpsychologie, Körperarbeit, Psychodrama, Dreamwork und Meditation. Als hochbegabter Therapeut führte Woolger Menschen durch tief transformative Erfahrungen und konnte dabei das größere spirituelle Bild beleuchten, von Sophian Western Mysticism und westlicher Mystik bis Sufismus. Später entwickelte er daraus das Deep Memory Process (DMP) und prägte Trainings sowie Spiritual Healing Conferences an der Schnittstelle von Regression, Schamanismus und Bewusstseinsarbeit.",
 
   longVersion: `Roger Woolger war ein Jungian Analytiker und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
 
