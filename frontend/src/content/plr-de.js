@@ -84,7 +84,7 @@ export const whatIs = {
   headline: "Jenseits von dem, was unser Verstand versteht.",
   body: [
     "Regression, lateinisch regressus = Rückschritt/e, bedeutet, zurückzugehen zu früheren Erfahrungen, zu älteren Erinnerungen. Um zu verstehen, warum du heute so reagierst, wie du re-agierst. Warum bestimmte Muster sich immer wiederholen. Warum manche Themen sich anfühlen, als wären kennst du sie schon länger als dieses Menschenleben.",
-    "Eine Seelenrückführung geht weiter. Es kann Fragen beantworten, warum dir manche Menschen so bekannt vor kommen, obwohl du sie erst gerade kennengelernt hast. Warum dir bestimmte Gaben einfach liegen oder Themen brennend interessieren."
+    "Eine Seelenrückführung geht weiter. Es kann Fragen beantworten, warum dir manche Menschen so bekannt vor kommen, obwohl du sie erst gerade kennengelernt hast. Warum dir bestimmte Gaben einfach liegen oder Themen brennend interessieren.",
     "Stell dir einen Filmstreifen vor: Jedes einzelne Bild ist ein Leben — von Geburt bis Tod. Wenn du ihn nah heranziehst, bist du mittendrin. Wenn du ihn zurückziehst, siehst du unzählige Bilder hintereinander. Das ist etws so wie wir lineare Erlebnisse, erinnern. Manche Menschen erleben und erinnern Seelenleben aber parallel. Da heißt, jenseits von dem, was wir mit unserem Verstand greifen können.",
     "In einem tiefen Entspannungszustand, in dem du jederzeit die vollständige Kontrolle behältst — können wir diesen Strom an Bilder und Leben zugänglich machen. Was dir dann begegnet, ist immer genau das, was du in diesem Moment brauchst.",
   ],
