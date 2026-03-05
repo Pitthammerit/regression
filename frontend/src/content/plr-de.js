@@ -324,7 +324,7 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
       name: "Brian Weiss MD",
       role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
       lifeDates: "*1944–2024",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17/r2.dev/authors/brian-weiss_350.jpg",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281faf17.dev/authors/brian-weiss_350.jpg",
       quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
       shortVersion: "'Many Lives Many Masters' (1988) — klinische Falldokumentation über Jahrzehnte. Skeptische Haltung veränderte sich durch eine Patientin, die unter Hypnose frühere Leben beschrieb.",
       longVersion: `Brian Weiss war ein hochangesehener Psychiater und Chefarzt am Mount Sinai Medical Center in Miami, als ihn ein Fall im Jahr 1980 gründlich verändern sollte. Catherine, eine Patientin mit schweren Ängsten und Phobien, sprach unter Hypnose plötzlich von Details aus vergangenen Leben — Informationen, die sich historisch verifizieren ließen.
@@ -344,7 +344,7 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
       name: "Roger Woolger PhD",
       role: "Jungian Analytiker, Regressionstherapeut, Lehrer",
       lifeDates: "*1944–2011",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17/r2.dev/authors/roger_woolger.jpg",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281faf17.dev/authors/roger_woolger.jpg",
       quote: "The body never lies about what the soul has carried across lifetimes.",
       shortVersion: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",
       longVersion: `Roger Woolger war ein Jungian Analyst und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
