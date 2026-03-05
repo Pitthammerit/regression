@@ -11,7 +11,11 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 ## Deployment Rules (Critical)
 
 ### Feedback Guidelines
-**WICHTIG:** Wenn der Benutzer Feedback gibt, bezieht es sich auf der **LIVE SITE** (Production), nicht auf localhost — es sei denn, der Benutzer sagt explizit "test locally" oder ähnlich.
+**WICHTIG:** 
+- Der Benutzer testet **immer im Browser (LIVE SITE)**, nicht auf localhost
+- **Claude soll IMMER nach Änderungen pushen** — nicht warten auf User-Input
+- Cloudflare deployed automatisch → Benutzer prüft live
+- Es sei denn, der Benutzer sagt explizit "test locally" oder "warte mit push"
 
 ### GitHub Direct Edit Workflow
 User sometimes edits `frontend/src/content/plr-de.js` directly on GitHub. When local changes conflict:
