@@ -79,7 +79,7 @@ export default function EvidenceSection() {
               {/* Portrait - Left column */}
               {author.portrait && (
                 <div className="md:max-w-[240px]">
-                  <AspectRatio ratio={5 / 4}>
+                  <AspectRatio ratio={3 / 4}>
                     <LazyImage
                       src={author.portrait}
                       alt={author.name}
