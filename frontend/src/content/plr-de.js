@@ -369,6 +369,48 @@ Seit 2021 hat die Editorialbeschlossen, den Zugang zu allen Artikeln zu gewähre
       sourceLabel: "Quelle",
       sourceUrl: "https://regressionjournal.org",
     },
+    {
+      type: "book",
+      name: "Many Lives, Many Masters",
+      dates: "1988",
+      authors: "Brian Weiss MD",
+      url: "https://brianweiss.com/books/many-lives-many-masters",
+      role: "brianweiss.com",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/books/many-lives-many-masters.jpg",
+      description: `Der internationale Bestseller, der Regressionstherapie der Welt öffnete. Brian Weiss dokumentiert seine transformative Arbeit mit Catherine, einer Patientin die unter Hypnose plötzlich von Details aus vergangenen Leben berichtete – Informationen, die sich historisch verifizieren ließen.
+
+Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen klinischen Arbeit mit tausenden Patienten. Viele Lives, Many Masters wurde zu einem der einflussreichsten Bücher der spirituellen Psychologie und machte Regressionstherapie einem breiten Publikum zugänglich.`,
+      sourceLabel: "Zum Buch",
+      sourceUrl: "https://brianweiss.com/books/many-lives-many-masters",
+    },
+    {
+      type: "book",
+      name: "Other Lives, Other Selves",
+      dates: "1987",
+      authors: "Roger Woolger PhD",
+      url: "https://www.amazon.com/Other-Lives-Selves-Roger-Woolger/dp/0140193346",
+      role: "Amazon · Barnes & Noble",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/books/other-lives-other-selves.jpg",
+      description: `Eines der einflussreichsten Werke der Regressionstherapie. Roger Woolger präsentiert eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie und schamanischen Perspektiven.
+
+Das Buch zeigt, wie Regressionstherapie als Werkzeug dienen kann, um aktuelle Lebensprobleme durch das Verständnis früherer Leben zu lösen. Woolger integriert westliche Psychologie mit östlichen spirituellen Traditionen und schafft so einen umfassenden Ansatz für Seelenarbeit.`,
+      sourceLabel: "Zum Buch",
+      sourceUrl: "https://www.amazon.com/Other-Lives-Selves-Roger-Woolger/dp/0140193346",
+    },
+    {
+      type: "book",
+      name: "Life Before Life",
+      dates: "2005",
+      authors: "Jim Tucker MD",
+      url: "https://www.amazon.com/Life-Before-Children-Remember-Previous/dp/0312321376",
+      role: "St. Martin's Press",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/books/life-before-life.jpg",
+      description: `Jim Tucker präsentiert eine quantitative Analyse von 799 Fällen von Kindern mit Erinnerungen an frühere Leben. Das Buch zeigt, dass diese Fälle nicht kulturell begrenzt sind – sie finden weltweit, unabhängig von religiösem Hintergrund oder Elternhaus statt.
+
+Life Before Life ist einer der wichtigsten Beiträge zur wissenschaftlichen Reinkarnationsforschung. Tucker zeigt, dass die Muster in diesen Fällen starke Hinweise auf die Existenz früherer Leben liefern – eine faszinierende Lektüre für Skeptiker und Gläubige gleichermaßen.`,
+      sourceLabel: "Zum Buch",
+      sourceUrl: "https://www.amazon.com/Life-Before-Life-Children-Remember-Previous/dp/0312321376",
+    },
   ],
 };
 
