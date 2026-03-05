@@ -118,20 +118,24 @@ export default function EvidenceSection() {
                   {author.shortVersion}
                 </p>
 
-                {/* Read more button */}
-                <button
-                  onClick={() => toggleExpand(author.id)}
-                  className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2 self-start"
-                >
-                  {expandedId === author.id ? evidence.accordion.readLess : evidence.accordion.readMore}
-                  <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
-                </button>
+                {/* Read more button - centered with divider lines */}
+                <div className="flex items-center gap-4 mt-4">
+                  <div className="flex-1 h-px bg-white/20"></div>
+                  <button
+                    onClick={() => toggleExpand(author.id)}
+                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
+                  >
+                    {expandedId === author.id ? evidence.accordion.readLess : evidence.accordion.readMore}
+                    <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
+                  </button>
+                  <div className="flex-1 h-px bg-white/20"></div>
+                </div>
               </div>
             </div>
 
             {/* Row 2: Expanded content (full width) */}
             {expandedId === author.id && (
-              <div className="mt-8 pt-8 border-t border-white/10 md:col-span-2">
+              <div className="mt-8 pt-8 md:col-span-2">
                 <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
                   {author.longVersion}
                 </p>
