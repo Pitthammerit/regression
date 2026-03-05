@@ -35,9 +35,9 @@ export default function EvidenceSection() {
 
         {/* Featured Researcher */}
         {featuredAuthor && (
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16 items-center">
-            {/* Photo - Left column, 1:1 */}
-            <div className="max-w-[240px] mx-auto md:mx-0">
+          <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 mb-16 items-start">
+            {/* Photo - Left column */}
+            <div className="max-w-[240px]">
               <AspectRatio ratio={1 / 1}>
                 <LazyImage
                   src={featuredAuthor.portrait}
@@ -47,18 +47,23 @@ export default function EvidenceSection() {
               </AspectRatio>
             </div>
 
-            {/* Text - Right column */}
-            <div className="flex flex-col justify-center">
-              {/* Quote - large, max 3 lines, left-aligned */}
-              <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl italic leading-tight mb-6 text-white/90 line-clamp-3">
+            {/* Right column: Quote + Name + Title */}
+            <div className="flex flex-col">
+              {/* Quote - Top of right column */}
+              <blockquote className="font-serif text-[38px] md:text-[44px] italic leading-tight text-white/90 mb-6">
                 "{featuredAuthor.quote}"
               </blockquote>
 
-              {/* Name + Title - left-aligned with quote */}
+              {/* Name + Title - Below quote */}
               <div className="font-sans text-white/80">
                 <div className="font-semibold text-lg">{featuredAuthor.name}</div>
                 <div className="text-sm text-white/60">{featuredAuthor.role}</div>
               </div>
+            </div>
+
+            {/* Divider - Full width, more spacing below */}
+            <div className="md:col-span-2 pt-[36px]">
+              <div className="h-px bg-white/20"></div>
             </div>
           </div>
         )}
@@ -68,71 +73,65 @@ export default function EvidenceSection() {
         {/* ═══════════════════════════════════════════════════════════ */}
 
         {authors.map((author) => (
-          <div key={author.id} className="mb-12 md:flex md:items-start md:gap-10">
-            {/* Mobile: Name/Datum/Role ÜBER dem Foto */}
-            <div className="md:hidden mb-6">
-              <h3 className="font-serif text-2xl text-white font-bold mb-1">
-                {author.name}
-              </h3>
-              <p className="font-sans text-sm text-white/50 mb-3">{author.lifeDates}</p>
-              <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
-                {author.role}
-              </p>
-            </div>
-
-            {/* Foto: Mobile 16:9 über Text, Desktop 2:3 links */}
-            {author.portrait && (
-              <div className="md:w-1/3 md:max-w-[240px] md:shrink-0">
-                {/* Mobile: 16:9 */}
-                <div className="md:hidden aspect-video mb-6 overflow-hidden rounded-md bg-brand-dark/50">
-                  <LazyImage
-                    src={author.portrait}
-                    alt={author.name}
-                    className="w-full h-full object-cover"
-                  />
+          <div key={author.id} className="mb-16">
+            {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
+            <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start">
+              {/* Portrait - Left column */}
+              {author.portrait && (
+                <div className="max-w-[240px]">
+                  <AspectRatio ratio={2 / 3}>
+                    <LazyImage
+                      src={author.portrait}
+                      alt={author.name}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </AspectRatio>
                 </div>
-                {/* Desktop: 2:3 */}
-                <div className="hidden md:block aspect-[2/3] overflow-hidden rounded-md bg-brand-dark/50">
-                  <LazyImage
-                    src={author.portrait}
-                    alt={author.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            )}
+              )}
 
-            {/* Text-Bereich */}
-            <div className={author.portrait ? "md:flex md:flex-1 md:flex-col md:mt-0" : "w-full"}>
-              {/* Desktop: Name/Datum/Role RECHTS neben Foto */}
-              <div className="hidden md:block mb-6">
-                <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1">
-                  {author.name}
-                </h3>
-                <p className="font-sans text-sm text-white/50 mb-3">{author.lifeDates}</p>
-                <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
-                  {author.role}
+              {/* Right column: Name/Title/Year/ShortText + Button */}
+              <div className="flex flex-col">
+                {/* Mobile: Name/Role/Date above portrait */}
+                <div className="md:hidden mb-4">
+                  <h3 className="font-serif text-2xl text-white font-bold mb-1">
+                    {author.name}
+                  </h3>
+                  <p className="font-sans text-sm text-white/50 mb-3">{author.lifeDates}</p>
+                  <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
+                    {author.role}
+                  </p>
+                </div>
+
+                {/* Desktop: Name/Title/Year */}
+                <div className="hidden md:block mb-4">
+                  <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1">
+                    {author.name}
+                  </h3>
+                  <p className="font-sans text-sm text-white/50 mb-3">{author.lifeDates}</p>
+                  <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
+                    {author.role}
+                  </p>
+                </div>
+
+                {/* Short text */}
+                <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6">
+                  {author.shortVersion}
                 </p>
+
+                {/* Read more button */}
+                <button
+                  onClick={() => toggleExpand(author.id)}
+                  className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2 self-start"
+                >
+                  {expandedId === author.id ? evidence.accordion.readLess : evidence.accordion.readMore}
+                  <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
+                </button>
               </div>
-
-              {/* Kurztext (immer sichtbar) */}
-              <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6">
-                {author.shortVersion}
-              </p>
-
-              {/* Akkordeon-Button */}
-              <button
-                onClick={() => toggleExpand(author.id)}
-                className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
-              >
-                {expandedId === author.id ? evidence.accordion.readLess : evidence.accordion.readMore}
-                <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
-              </button>
             </div>
 
-            {/* Aufklapp-Bereich (volle Breite) */}
+            {/* Row 2: Expanded content (full width) */}
             {expandedId === author.id && (
-              <div className="mt-6 pt-6 border-t border-white/10 w-full">
+              <div className="mt-8 pt-8 border-t border-white/10 md:col-span-2">
                 <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
                   {author.longVersion}
                 </p>
