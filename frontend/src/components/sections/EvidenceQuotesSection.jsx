@@ -26,7 +26,7 @@ export default function EvidenceQuotesSection() {
     >
       <div className="max-w-content mx-auto px-6">
         <SectionLabel text={evidence.authorBigLabel} light />
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mt-3 mb-12">
+        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mt-3 mb-5">
           {evidence.authorHeadline}
         </h2>
 
@@ -53,7 +53,7 @@ export default function EvidenceQuotesSection() {
         {/* Show More / Show Less divider */}
         {hasMore && (
           <>
-            <div className="flex items-center gap-4 my-12">
+            <div className="flex items-center gap-4 my-6">
               <div className="flex-1 h-px bg-white/20"></div>
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
