@@ -33,7 +33,7 @@ export default function EvidenceQuotesSection() {
         {/* First row - always visible (3 authors) */}
         <div className="grid md:grid-cols-3 gap-10 md:gap-14">
           {authorsWithPortraits.slice(0, 3).map((author) => (
-            <div key={author.id} className="border-t border-white/20 pt-8">
+            <div key={author.id} className="pt-8">
               <AspectRatio ratio={1 / 1} className="mb-6">
                 <LazyImage
                   src={author.portrait}
@@ -76,7 +76,7 @@ export default function EvidenceQuotesSection() {
             {isExpanded && (
               <div className="grid md:grid-cols-3 gap-10 md:gap-14">
                 {authorsWithPortraits.slice(3).map((author) => (
-                  <div key={author.id} className="border-t border-white/20 pt-8">
+                  <div key={author.id} className="pt-8">
                     <AspectRatio ratio={1 / 1} className="mb-6">
                       <LazyImage
                         src={author.portrait}
