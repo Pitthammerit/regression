@@ -187,9 +187,17 @@ export default function EvidenceSection() {
             <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
               {evidence.journal.role}
             </p>
-            <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed">
+            <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
               {evidence.journal.description}
             </p>
+            <a
+              href={evidence.journal.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+            >
+              {evidence.journal.sourceLabel} →
+            </a>
           </div>
         </div>
       </div>
