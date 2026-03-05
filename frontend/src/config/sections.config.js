@@ -16,7 +16,8 @@ export const SECTIONS_ORDER = [
   'ProcessSection',
   'PodcastSection',
   'CaseStudiesSection',
-  'ReferencesSection',
   'TestimonialCarousel',
   'BookingSection',
+  'FAQSection',
+  'ReferencesSection',
 ]

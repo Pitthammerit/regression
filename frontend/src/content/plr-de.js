@@ -494,6 +494,73 @@ export const booking = {
 };
 
 // ═══════════════════════════════════════════════════════════
+// FAQSection — FREQUENTLY ASKED QUESTIONS
+// ═══════════════════════════════════════════════════════════
+export const faq = {
+  bigLabel: "FRAGEN & ANTWORTEN",
+  headline: "Häufige Fragen zur Regression",
+  items: [
+    {
+      question: "Was ist der Unterschied zwischen Regression Session und Past Life Regression?",
+      answer: `Begriffe werden oft synonym verwendet. Regression ist der Oberbegriff: zurückgehen zu früheren Erfahrungen. Past Life Regression (oder Seelenrückführung) geht spezifisch in Erinnerungen an frühere Leben.
+
+In der Praxis: Eine Session kann sich auch auf frühe Kindheit oder das aktuelle Leben konzentrieren — aber bei den meisten Klienten führt der Weg natürlicher in Seelenleben, weil dort die Ursachen für aktuelle Muster oft liegen.
+
+Wichtig: Du musst an nichts glauben. Die Erfahrung spricht für sich.`,
+    },
+    {
+      question: "Muss ich an Reinkarnation glauben?",
+      answer: `Nein. Tatsächlich kommen viele Klienten ohne feste spirituelle Überzeugungen — oft aus Skepsis oder Neugier.
+
+Die Forschung (University of Virginia, Ian Stevenson, Jim Tucker) zeigt: Kinder weltweit berichten spontan von früheren Leben, unabhängig von kultureller Prägung oder elterlichem Glauben. Die Erlebnisse in Sessions sprechen für sich — Glaube ist nicht Voraussetzung.
+
+Was zählt: Deine Bereitschaft, zuzuhören — was auch immer sich zeigt.`,
+    },
+    {
+      question: "Ist das Channeling?",
+      answer: `Nein. Regression und Channeling sind unterschiedliche Praktiken.
+
+Regression: Du bleibst immer du selbst. Alle Erfahrungen sind deine eigenen — als Kind, als Erwachsener, oder in einem anderen Seelenleben. Du hast die Kontrolle, du entscheidest, was du teilst.
+
+Channeling: Eine andere Entität oder Energiequelle tritt in den Vordergrund. Das "Ich" tritt zurück, Informationen kommen von "außen".
+
+In Regression Sessions können Menschen manchmal Begegnungen erleben — aber der Fokus bleibt immer auf deiner Erfahrung, deinem Weg, deiner Heilung.`,
+    },
+    {
+      question: "Was passiert eigentlich in einer Session?",
+      answer: `Du bist immer wach, bei Bewusstsein, hast die volle Kontrolle. Ich führe dich in einen tiefen Entspannungszustand — ähnlich wie Meditation, nur geführt.
+
+Darin kannst du Zugriff auf Bilder, Emotionen, Körperwahrnehmungen bekommen — manchmal wie ein Film, manchmal wie Erinnern, manchmal wie Spüren. Was immer kommt, ist richtig.
+
+Die meisten Klienten beschreiben es als: "Ich weiß nicht, ob das echt ist — aber es fühlt sich wahr an." Und das reicht. Veränderungen zeigen sich im Alltag danach.`,
+    },
+    {
+      question: "Gibt es wissenschaftliche Belege?",
+      answer: `Die Forschung steht am Anfang — aber es gibt mehr als viele denken:
+
+• **University of Virginia (DOPS)**: Über 2.500 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. 290+ peer-reviewed Publikationen.
+• **Journal of Regression Therapy**: Seit 1986, alle Artikel frei zugänglich, dokumentiert therapeutische Ergebnisse.
+• **Neuroimaging-Studien**: Zeigen dass Zustände wie Meditation Regression keine "pathologischen" Zustände sind — sondern non-ordinäre, aber voll funktionale Bewusstseinszustände.
+
+Ehrlich: Keine randomized controlled trials nach Mainstream-Standards. Aber tausende dokumentierte Fälle, und die wichtigste Studie bist immer du — deine Erfahrung.`,
+    },
+    {
+      question: "Für wen ist das geeignet?",
+      answer: `Menschen kommen mit unterschiedlichsten Themen:
+
+• **Ängste & Panikattacken** — Wenn die Reaktion größer ist als die Situation
+• **Beziehungsmuster** — Warum sich dieselben Dynamiken wiederholen
+• **Körperliche Symptome** — Ohne klare medizinische Ursache
+• **Todesangst** — Den Tod als Übergang verstehen
+• **Lebensaufgabe** — Warum bin ich hier?
+• **Neugier** — Einfach erfahren, was da ist
+
+Ausschluss: Akute Psychosen, schwere Depressionen ohne therapeutische Begleitung. Bei Unsicherheit: Im Intro-Call klären.`,
+    },
+  ],
+};
+
+// ═══════════════════════════════════════════════════════════
 // FOOTER
 // ═══════════════════════════════════════════════════════════
 export const footer = {

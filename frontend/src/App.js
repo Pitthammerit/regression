@@ -9,6 +9,7 @@ import StatementSection from './components/sections/StatementSection'
 import WhatIsSection from './components/sections/WhatIsSection'
 import ResearchersSection from './components/sections/ResearchersSection'
 import ReferencesSection from './components/sections/ReferencesSection'
+import FAQSection from './components/sections/FAQSection'
 import ResearcherQuotesSection from './components/sections/ResearcherQuotesSection'
 import PodcastVideoSection from './components/sections/PodcastVideoSection'
 import PodcastSection from './components/sections/PodcastSection'
@@ -49,6 +50,7 @@ function MainPage() {
       />
     ),
     'BookingSection': <BookingSection />,
+    'FAQSection': <FAQSection />,
     'ReferencesSection': <ReferencesSection />,
   }
 

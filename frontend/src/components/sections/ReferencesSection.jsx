@@ -30,7 +30,68 @@ export default function ReferencesSection() {
         {/* ═══════════════════════════════════════════════════════════ */}
         {references.items && (
           <>
-            {references.items.map((resource) => (
+            {/* First reference - Journal */}
+            {references.items.slice(0, 1).map((resource) => (
+              <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
+                {/* Photo - Left column */}
+                <div className="md:max-w-[240px]">
+                  {resource.portrait && resource.portrait.trim() !== '' ? (
+                    <LazyImage
+                      src={resource.portrait}
+                      alt={resource.name}
+                      className="w-full h-auto rounded-lg"
+                    />
+                  ) : (
+                    <AspectRatio ratio={2 / 3}>
+                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
+                        <BookOpen className="w-12 h-12 text-white/30" />
+                      </div>
+                    </AspectRatio>
+                  )}
+                </div>
+
+                {/* Right column: Title → Subtitle → Dates → Description → Source */}
+                <div className="flex flex-col">
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-block"
+                  >
+                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
+                      {resource.name}
+                    </p>
+                  </a>
+                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
+                    {resource.role}
+                  </p>
+                  {resource.dates && (
+                    <p className="font-sans text-white/50 text-sm mb-4">
+                      {resource.dates}
+                    </p>
+                  )}
+                  <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
+                    {resource.description}
+                  </p>
+                  <a
+                    href={resource.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                  >
+                    {resource.sourceLabel} →
+                  </a>
+                </div>
+
+                {/* Divider - Full width below first item */}
+                <div className="md:col-span-2 pt-[36px]">
+                  <div className="h-px bg-white/20"></div>
+                </div>
+              </div>
+            ))}
+
+            {/* Remaining references - Books, Audiobooks, etc. */}
+            {references.items.slice(1).map((resource) => (
               <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
                 {/* Photo - Left column */}
                 <div className="md:max-w-[240px]">
