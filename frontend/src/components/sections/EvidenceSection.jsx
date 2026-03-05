@@ -114,10 +114,10 @@ export default function EvidenceSection() {
                   <h3 className="font-serif text-2xl text-white font-bold mb-1">
                     {author.name}
                   </h3>
-                  <p className="font-sans text-sm text-white/50 mb-3">{author.lifeDates}</p>
-                  <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
+                  <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-3">
                     {author.role}
                   </p>
+                  <p className="font-sans text-sm text-white/50 mb-4">{author.lifeDates}</p>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
@@ -125,10 +125,10 @@ export default function EvidenceSection() {
                   <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1">
                     {author.name}
                   </h3>
-                  <p className="font-sans text-sm text-white/50 mb-3">{author.lifeDates}</p>
-                  <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
+                  <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-3">
                     {author.role}
                   </p>
+                  <p className="font-sans text-sm text-white/50 mb-4">{author.lifeDates}</p>
                 </div>
 
                 {/* Short text */}
@@ -182,38 +182,46 @@ export default function EvidenceSection() {
         {/* Resources (Journals, Books, Audiobooks, etc.) */}
         {/* ═══════════════════════════════════════════════════════════ */}
         {evidence.resources && (
-          <div className="max-w-4xl mx-auto">
+          <>
             {evidence.resources.map((resource) => (
-              <div key={resource.type} className="flex flex-col md:flex-row gap-6 md:gap-10 items-start max-w-4xl mb-12">
-                {/* Resource Image */}
-                <div className="w-full md:w-auto md:max-w-[240px] overflow-hidden rounded-sm bg-brand-dark/50 shrink-0">
-                  <LazyImage
-                    src={resource.portrait}
-                    alt={resource.name}
-                    className="w-full h-full object-cover"
-                  />
+              <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
+                {/* Photo - Left column */}
+                <div className="md:max-w-[240px]">
+                  <AspectRatio ratio={3 / 4}>
+                    {resource.portrait ? (
+                      <LazyImage
+                        src={resource.portrait}
+                        alt={resource.name}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    ) : (
+                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
+                        <span className="text-white/30 text-sm">No Image</span>
+                      </div>
+                    )}
+                  </AspectRatio>
                 </div>
 
-                {/* Resource Text */}
-                <div className="flex-1">
+                {/* Right column: Title → Subtitle → Dates → Description → Source */}
+                <div className="flex flex-col">
                   <a
                     href={resource.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group inline-block"
                   >
-                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-3 group-hover:text-brand-green transition-colors">
+                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
                       {resource.name}
                     </p>
                   </a>
+                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
+                    {resource.role}
+                  </p>
                   {resource.dates && (
-                    <p className="font-sans text-white/50 text-sm mb-2">
+                    <p className="font-sans text-white/50 text-sm mb-4">
                       {resource.dates}
                     </p>
                   )}
-                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-4">
-                    {resource.role}
-                  </p>
                   <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
                     {resource.description}
                   </p>
@@ -228,7 +236,7 @@ export default function EvidenceSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </>
         )}
       </div>
     </section>
