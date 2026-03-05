@@ -187,19 +187,17 @@ export default function EvidenceSection() {
               <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
                 {/* Photo - Left column */}
                 <div className="md:max-w-[240px]">
-                  <AspectRatio ratio={3 / 4}>
-                    {resource.portrait ? (
-                      <LazyImage
-                        src={resource.portrait}
-                        alt={resource.name}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    ) : (
-                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
-                        <span className="text-white/30 text-sm">No Image</span>
-                      </div>
-                    )}
-                  </AspectRatio>
+                  {resource.portrait ? (
+                    <LazyImage
+                      src={resource.portrait}
+                      alt={resource.name}
+                      className="w-full h-auto rounded-lg"
+                    />
+                  ) : (
+                    <div className="w-full h-48 border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
+                      <span className="text-white/30 text-sm">No Image</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Right column: Title → Subtitle → Dates → Description → Source */}
