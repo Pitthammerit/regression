@@ -38,7 +38,7 @@ export default function EvidenceSection() {
           <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 mb-16 items-start">
             {/* Photo - Left column */}
             <div className="max-w-[240px]">
-              <AspectRatio ratio={1 / 1}>
+              <AspectRatio ratio={2 / 3}>
                 <LazyImage
                   src={featuredAuthor.portrait}
                   alt={featuredAuthor.name}
@@ -78,7 +78,7 @@ export default function EvidenceSection() {
             <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start">
               {/* Portrait - Left column */}
               {author.portrait && (
-                <div className="max-w-[240px]">
+                <div className="md:max-w-[240px]">
                   <AspectRatio ratio={2 / 3}>
                     <LazyImage
                       src={author.portrait}
@@ -114,7 +114,7 @@ export default function EvidenceSection() {
                 </div>
 
                 {/* Short text */}
-                <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6">
+                <p className="font-serif text-[26px] md:text-[28px] text-white/80 leading-relaxed mb-6">
                   {author.shortVersion}
                 </p>
 
