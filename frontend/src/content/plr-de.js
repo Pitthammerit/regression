@@ -327,7 +327,7 @@ Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP):
     },
   ],
   journal: {
-    name: "Journal of Regression Therapy",
+    name: "International Journal of Regression Therapy",
     url: "https://regressionjournal.org",
     role: "regressionjournal.org",
     portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/paste-1772670904056.png",
