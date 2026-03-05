@@ -90,7 +90,7 @@ export default function DesktopNav({ onSidecarOpen }) {
       </NavigationMenu.List>
 
       {/* Viewport mit Advanced Animation */}
-      <div className="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
+      <div className="perspective-[2000px] absolute left-0 top-full flex w-full">
         <NavigationMenu.Viewport className="NavigationMenuViewport" />
       </div>
     </NavigationMenu.Root>
