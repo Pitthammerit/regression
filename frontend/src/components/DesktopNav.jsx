@@ -3,7 +3,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import { menu } from '../content/menu'
 
-export default function DesktopNav() {
+export default function DesktopNav({ onSidecarOpen }) {
   const handleNavClick = (anchor) => {
     if (!anchor) return // Hauptkategorien ohne direkten anchor
     const el = document.querySelector(anchor)
@@ -18,7 +18,7 @@ export default function DesktopNav() {
             {item.hasSubmenu ? (
               <>
                 {/* Trigger mit Dropdown */}
-                <NavigationMenu.Trigger className="group flex items-center gap-1 font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors outline-none cursor-pointer">
+                <NavigationMenu.Trigger className="group flex items-center gap-1 font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors outline-none cursor-pointer select-none">
                   {item.label}
                   <CaretDownIcon
                     className="text-brand-steel transition-transform duration-[250] ease-in group-data-[state=open]:rotate-180"
@@ -26,8 +26,8 @@ export default function DesktopNav() {
                   />
                 </NavigationMenu.Trigger>
 
-                <NavigationMenu.Content className="absolute left-0 top-full mt-2 w-auto bg-white rounded-md shadow-[0_2px_10px] shadow-black/10 p-4 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft">
-                  <ul className="m-0 grid list-none gap-1 p-0 w-48">
+                <NavigationMenu.Content className="absolute left-0 top-full mt-2 w-auto bg-white rounded-md shadow-[0_2px_10px] shadow-black/10 p-4 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft z-50">
+                  <ul className="m-0 grid list-none gap-1 p-0 w-48 min-w-[200px]">
                     {menu.items
                       .find(cat => cat.label === item.label)
                       ?.children.map((child) => (
@@ -39,7 +39,7 @@ export default function DesktopNav() {
                                 e.preventDefault()
                                 handleNavClick(child.anchor)
                               }}
-                              className="block select-none rounded-md px-3 py-2 text-sm leading-none text-brand-body no-underline outline-none hover:bg-brand-cream hover:text-brand-deep transition-colors"
+                              className="block select-none rounded-md px-3 py-2 text-sm leading-none text-brand-body no-underline outline-none hover:bg-brand-cream hover:text-brand-deep transition-colors cursor-pointer"
                             >
                               {child.label}
                             </a>
@@ -58,7 +58,7 @@ export default function DesktopNav() {
                     e.preventDefault()
                     handleNavClick(item.anchor)
                   }}
-                  className="font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors no-underline outline-none"
+                  className="font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors no-underline outline-none cursor-pointer select-none"
                 >
                   {item.label}
                 </a>
@@ -67,11 +67,6 @@ export default function DesktopNav() {
           </NavigationMenu.Item>
         ))}
       </NavigationMenu.List>
-
-      {/* Viewport für Radix UI Animation */}
-      <div className="absolute left-0 top-full flex justify-center w-full">
-        <NavigationMenu.Viewport className="relative overflow-hidden rounded-md bg-white shadow-[0_2px_10px] shadow-black/10 data-[state=closed]:animate-scaleOut data-[state=open]:animate-scaleIn" />
-      </div>
     </NavigationMenu.Root>
   )
 }
