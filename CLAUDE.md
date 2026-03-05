@@ -30,9 +30,26 @@ Common syntax error: missing commas in array literals (check line endings in `wh
 - Environment variable: `CI=false` (required to prevent build failures from warnings)
 
 ### Git Workflow
-- **Never work directly on `main`** — always create a branch, push, and open a PR
-- Only merge after Cloudflare preview deploy is green
-- This repo uses **npm only** — no yarn, no pnpm
+
+**Small vs Large Changes:**
+
+| Change Type | Workflow | Rationale |
+|-------------|----------|-----------|
+| **Small changes** (typos, minor copy edits, content tweaks) | Push directly to `main` → test live on production | Low risk, easy to rollback if needed |
+| **Large refactorings** (component changes, new features, architectural updates) | Create branch → push → open PR → test on Cloudflare preview → merge | High risk, needs testing before production |
+
+**Examples:**
+- ✅ **Small:** Fixing a typo in `plr-de.js`, changing a color class, updating testimonial text
+- ❌ **Large:** Refactoring EvidenceSection, adding new component, changing routing logic
+
+**Standard workflow for all changes:**
+1. Build locally: `npm --prefix frontend run build`
+2. Commit changes with meaningful message
+3. Push to remote (branch or main depending on change size)
+4. Cloudflare deploys automatically
+5. Test on deployed URL
+
+**This repo uses npm only** — no yarn, no pnpm
 
 ### Dependency Changes
 If `frontend/package.json` changes:
@@ -171,14 +188,41 @@ export const TESTIMONIALS_LIST = [
 3. Commit and push
 4. Cloudflare deploys automatically
 
+### Dynamic Authorities (NEW — Phase 2)
+File: `frontend/src/content/plr-de.js` — `evidence.authorities` array
+
+Users can add, remove, or reorder scientific authorities:
+```javascript
+export const evidence = {
+  authorities: [
+    {
+      id: "ian-stevenson",
+      name: "Ian Stevenson MD",
+      quote: "English quote for upper tier",
+      shortVersion: "Kurztext (2-3 Sätze)...",
+      longVersion: "Langtext...",
+      sourceLabel: "Quelle",
+      sourceUrl: "https://...",
+      // ... more fields
+    },
+    // Add more here...
+  ]
+}
+```
+
+**Automatic behavior:**
+- Upper tier (4-column grid): Shows `portrait` + `quote` (English)
+- Lower tier (accordion cards): Shows `shortVersion` + expandable `longVersion`
+- New authorities appear automatically in both sections
+
 **What NOT to tell users to edit:**
 - Component files (`frontend/src/components/`)
 - App.js structure
 - Tailwind config (colors should only be changed with developer assistance)
 
-## EvidenceSection Architecture (March 2026 — Work in Progress)
+## EvidenceSection Architecture (March 2026 — Phase 2 Complete)
 
-**Current status:** Phase 1 implemented (Roger Woolger hardcoded example). Phase 2 pending (expand to all 4 authorities).
+**Current status:** Phase 2 implemented — all 4 authorities now render dynamically from `evidence.authorities` array.
 
 **Implemented pattern:**
 - Upper tier: 4-column grid with portraits + English quotes (unchanged)
@@ -200,10 +244,13 @@ export const TESTIMONIALS_LIST = [
 }
 ```
 
-**Pending (Phase 2):**
-- Add `sourceUrl` and `sourceLabel` to Ian Stevenson, Brian Weiss, Jim Tucker
-- Replace hardcoded Roger card with dynamic `.map()` over `authorities` array
-- Ensure `shortVersion` exists for all authorities (may need to extract from `longVersion`)
+**Implemented (Phase 2 — 2026-03-05):**
+- ✅ All 4 authorities render dynamically from `evidence.authorities` array
+- ✅ `shortQuote` → `shortVersion` renamed for clarity
+- ✅ `quote` field added to Ian Stevenson and Jim Tucker (English quotes for upper tier)
+- ✅ `sourceLabel` + `sourceUrl` added to all authorities
+- ✅ Accordion strings moved to content layer (`evidence.accordion.readMore/readLess`)
+- ✅ Self-Service: Users can now add authorities by editing `plr-de.js` → appears automatically
 
 **Accordion state:** Uses `useState` with `expandedId` pattern — only one card expanded at a time
 **Responsive:** Mobile = photo above text, name above photo; Desktop = photo left, text right

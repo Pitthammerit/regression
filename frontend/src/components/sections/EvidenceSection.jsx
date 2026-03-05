@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { evidence, rogerWoolger } from '../../content/plr-de'
+import { evidence } from '../../content/plr-de'
 import LazyImage from '../ui/LazyImage'
 import { ChevronDown } from 'lucide-react'
 
@@ -34,12 +34,7 @@ export default function EvidenceSection() {
         {/* Four Portraits with English Quotes */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
           {authorities.map((authority) => {
-            const portraitUrl = {
-              'ian-stevenson': 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg',
-              'brian-weiss': 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg',
-              'roger-woolger': 'https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg',
-            }[authority.id]
-
+            const portraitUrl = authority.portrait
             return (
               <div key={authority.id} className="flex flex-col items-center text-center">
                 {/* Portrait - Square or Placeholder */}
@@ -77,87 +72,92 @@ export default function EvidenceSection() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════ */}
-        {/* ACCORDION CARDS SECTION — Phase 1: Roger Woolger Example */}
+        {/* ACCORDION CARDS SECTION — Phase 2: All Authorities Dynamic */}
         {/* ═══════════════════════════════════════════════════════════ */}
 
-        {/* Roger Woolger Card */}
-        <div className="mb-12 md:flex md:items-start md:gap-10">
-          {/* Mobile: Name/Datum/Role ÜBER dem Foto */}
-          <div className="md:hidden mb-6">
-            <h3 className="font-serif text-2xl text-white font-bold mb-1">
-              {rogerWoolger.headline}
-            </h3>
-            <p className="font-sans text-sm text-white/50 mb-3">{rogerWoolger.labelSub}</p>
-            <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
-              {rogerWoolger.headline}
-            </p>
-          </div>
-
-          {/* Foto: Mobile 16:9 über Text, Desktop 2:3 links */}
-          <div className="md:w-1/3 md:max-w-[240px] md:shrink-0">
-            {/* Mobile: 16:9 */}
-            <div className="md:hidden aspect-video mb-6 overflow-hidden rounded-md bg-brand-dark/50">
-              <LazyImage
-                src={rogerWoolger.portrait}
-                alt={rogerWoolger.headline}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {/* Desktop: 2:3 */}
-            <div className="hidden md:block aspect-[2/3] overflow-hidden rounded-md bg-brand-dark/50">
-              <LazyImage
-                src={rogerWoolger.portrait}
-                alt={rogerWoolger.headline}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Text-Bereich */}
-          <div className="md:flex md:flex-1 md:flex-col md:mt-0">
-            {/* Desktop: Name/Datum/Role RECHTS neben Foto */}
-            <div className="hidden md:block mb-6">
-              <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1">
-                {rogerWoolger.headline}
+        {authorities.map((authority) => (
+          <div key={authority.id} className="mb-12 md:flex md:items-start md:gap-10">
+            {/* Mobile: Name/Datum/Role ÜBER dem Foto */}
+            <div className="md:hidden mb-6">
+              <h3 className="font-serif text-2xl text-white font-bold mb-1">
+                {authority.name}
               </h3>
-              <p className="font-sans text-sm text-white/50 mb-3">{rogerWoolger.labelSub}</p>
+              <p className="font-sans text-sm text-white/50 mb-3">{authority.dates}</p>
               <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
-                {rogerWoolger.headline}
+                {authority.role}
               </p>
             </div>
 
-            {/* Kurztext (immer sichtbar) */}
-            <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6">
-              {rogerWoolger.shortVersion}
-            </p>
+            {/* Foto: Mobile 16:9 über Text, Desktop 2:3 links */}
+            {authority.portrait && (
+              <div className="md:w-1/3 md:max-w-[240px] md:shrink-0">
+                {/* Mobile: 16:9 */}
+                <div className="md:hidden aspect-video mb-6 overflow-hidden rounded-md bg-brand-dark/50">
+                  <LazyImage
+                    src={authority.portrait}
+                    alt={authority.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Desktop: 2:3 */}
+                <div className="hidden md:block aspect-[2/3] overflow-hidden rounded-md bg-brand-dark/50">
+                  <LazyImage
+                    src={authority.portrait}
+                    alt={authority.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            )}
 
-            {/* Akkordeon-Button */}
-            <button
-              onClick={() => toggleExpand('roger-woolger')}
-              className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
-            >
-              {expandedId === 'roger-woolger' ? 'Weniger lesen' : 'Mehr lesen'}
-              <ChevronDown className={`transition-transform duration-200 ${expandedId === 'roger-woolger' ? 'rotate-180' : ''}`} />
-            </button>
-          </div>
+            {/* Text-Bereich */}
+            <div className={authority.portrait ? "md:flex md:flex-1 md:flex-col md:mt-0" : "w-full"}>
+              {/* Desktop: Name/Datum/Role RECHTS neben Foto */}
+              <div className="hidden md:block mb-6">
+                <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1">
+                  {authority.name}
+                </h3>
+                <p className="font-sans text-sm text-white/50 mb-3">{authority.dates}</p>
+                <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-4">
+                  {authority.role}
+                </p>
+              </div>
 
-          {/* Aufklapp-Bereich (volle Breite) */}
-          {expandedId === 'roger-woolger' && (
-            <div className="mt-6 pt-6 border-t border-white/10 w-full">
-              <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
-                {rogerWoolger.longVersion}
+              {/* Kurztext (immer sichtbar) */}
+              <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6">
+                {authority.shortVersion}
               </p>
-              <a
-                href={rogerWoolger.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+
+              {/* Akkordeon-Button */}
+              <button
+                onClick={() => toggleExpand(authority.id)}
+                className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
               >
-                {rogerWoolger.sourceLabel} →
-              </a>
+                {expandedId === authority.id ? evidence.accordion.readLess : evidence.accordion.readMore}
+                <ChevronDown className={`transition-transform duration-200 ${expandedId === authority.id ? 'rotate-180' : ''}`} />
+              </button>
             </div>
-          )}
-        </div>
+
+            {/* Aufklapp-Bereich (volle Breite) */}
+            {expandedId === authority.id && (
+              <div className="mt-6 pt-6 border-t border-white/10 w-full">
+                <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
+                  {authority.longVersion}
+                </p>
+                {authority.sourceUrl && (
+                  <a
+                    href={authority.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                  >
+                    {authority.sourceLabel} →
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        ))}
 
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* Journal of Regression Therapy */}

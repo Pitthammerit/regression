@@ -6,15 +6,16 @@ Updated: 2026-03-05 01:49
 
 ---
 
-## 🔵 In Arbeit
+## ✅ Completed
 
-### EvidenceSection — Phase 2 (Current Focus)
-- [ ] **Important:** Rename `shortQuote` → `shortVersion` in `evidence.authorities` array (conflict with `quote` field for English quotes in upper tier)
-- [ ] Add `sourceUrl` and `sourceLabel` to Ian Stevenson, Brian Weiss, Jim Tucker
-- [ ] Replace hardcoded Roger card with dynamic `.map()` over `authorities` array
-- [ ] Ensure `shortVersion` exists for all authorities
-- [ ] Test responsive layout for all 4 authority cards
-- [ ] User-Feedback zu Phase 1 Akkordeon-Layout einholen
+### EvidenceSection — Phase 2: Self-Service Authorities (2026-03-05)
+- [x] Rename `shortQuote` → `shortVersion` in `evidence.authorities` array
+- [x] Add `sourceUrl` and `sourceLabel` to Ian Stevenson, Brian Weiss, Jim Tucker
+- [x] Replace hardcoded Roger card with dynamic `.map()` over `authorities` array
+- [x] Ensure `shortVersion` exists for all authorities
+- [x] Move hardcoded "Mehr/Weniger lesen" strings to content layer (`evidence.accordion`)
+- [x] Remove hardcoded portrait URLs from component
+- [x] Build successful ✅
 
 ### CMS Admin (Ungeklärt)
 - [ ] Klären: Was soll das CMS Admin können?
