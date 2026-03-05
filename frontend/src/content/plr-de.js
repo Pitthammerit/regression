@@ -557,6 +557,34 @@ Ehrlich: Keine randomized controlled trials nach Mainstream-Standards. Aber taus
 
 Ausschluss: Akute Psychosen, schwere Depressionen ohne therapeutische Begleitung. Bei Unsicherheit: Im Intro-Call klären.`,
     },
+    {
+      question: "Kann ich eine Session auch auf Deutsch machen?",
+      answer: `Ja. Deutsch ist meine Muttersprache — die Session findet auf Deutsch statt, es sei denn, du wünschst ausdrücklich Englisch.
+
+Viele Klienten finden es leichter, in ihrer Muttersprache in tiefere Zustände zu gehen. Die Bilder, Worte und Gefühle kommen dann natürlicher.`,
+    },
+    {
+      question: "Wie lange hält die Wirkung?",
+      answer: `Das ist individuell verschieden. Einige Klienten berichten von sofortiger, spürbarer Veränderung — Muster lösen sich, Symptome werden leichter. Andere beschreiben es wie einen Samen, der über Wochen und Monate wächst.
+
+Die Integration nach der Session ist wichtig. Viele erleben auch Wochen später noch neue Einsichten oder verstehen Zusammenhänge, die sich vorher nicht erschlossen haben.
+
+Eine Session ist kein einmaliger "Fix" — aber oft ein entscheidender Schlüsselmoment.`,
+    },
+    {
+      question: "Was, wenn ich nichts sehe?",
+      answer: `Das ist eine häufige Sorge — aber selten passiert. Jeder Mensch hat Zugang zu inneren Bildern, Empfindungen, Wahrnehmungen. Manchmal kommt es visuell (wie ein Film), manchmal als Gefühl, manchmal als Wissen, manchmal als Körpersensation.
+
+Alles, was kommt, ist richtig. Es gibt kein "richtig" oder "falsch" in einer Session. Manchmal ist das, was NICHT kommt, auch eine Information — oder es kommt erst in einem zweiten Moment.
+
+Mein Job ist es, dich da hinzuführen, wo du Zugang hast — und das ist bei jedem anders.`,
+    },
+    {
+      question: "Kann ich auch nur ausprobieren, ob das was für mich ist?",
+      answer: `Ja. Der Intro-Call ist genau dafür da — kostenlos, unverbindlich, 30 Minuten. Wir schauen gemeinsam, was dich bewegt, ob eine Session passt, und du kannst fühlen, ob die Chemie stimmt.
+
+Viele buchen danach ihre erste Session. Manche entscheiden sich, noch zu warten. Beides ist völlig okay. Es ist deine Reise, dein Timing.`,
+    },
   ],
 };
 

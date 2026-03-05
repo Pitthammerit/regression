@@ -28,7 +28,7 @@ export default function FAQSection() {
           {faq.headline}
         </h2>
 
-        <div className="max-w-3xl">
+        <div>
           {faq.items.map((item, index) => (
             <div key={index} className="border-t border-black/10">
               <button
