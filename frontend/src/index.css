@@ -153,7 +153,8 @@ html {
 
 .NavigationMenuViewport {
   position: relative;
-  width: var(--radix-navigation-menu-viewport-width);
+  width: auto;
+  min-width: 200px;
   height: var(--radix-navigation-menu-viewport-height);
   margin-top: 10px;
   transform-origin: var(--radix-navigation-menu-viewport-transform-origin);
