@@ -212,17 +212,17 @@ export const TESTIMONIALS_LIST = [
 
 ## Known Issues from Code Review
 
-1. **Footer** (`frontend/src/components/Footer.jsx`): Contains hardcoded German strings and imports `plr-de.js` directly. Should receive footer data via props/context from a content provider.
-
-2. **TranscriptPage** (`frontend/src/pages/TranscriptPage.jsx`): Mixes UI, hardcoded German strings, and transcript data. Transcript content should be extracted to `frontend/src/content/transcripts/<episode>.de.js`.
-
-3. **No i18n system**: A minimal implementation would need:
+1. **No i18n system**: A minimal implementation would need:
    - `frontend/src/content/plr-en.js`
    - `frontend/src/content/index.js` exporting `getContent(lang)`
    - A `useContent()` hook
    - Components should call `useContent()` instead of importing `plr-de.js` directly
 
-4. **backend/ folder**: Misleading — no backend is currently deployed. Remove or add a clarifying note.
+2. **backend/ folder**: Misleading — no backend is currently deployed. Remove or add a clarifying note.
+
+**Resolved (2026-03-05):**
+- ~~Footer hardcoded strings~~ — All strings now from `footerContent` and `data` props
+- ~~TranscriptPage hardcoded strings~~ — All strings now from `transcriptPage` and `episode52` content files
 
 ## Deep Links
 

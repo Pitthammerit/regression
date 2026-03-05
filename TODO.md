@@ -2,7 +2,7 @@
 
 Updated: 2026-03-05 01:49
 
-**Wichtig:** TODO.md wird bei jedem git push aktualisiert.
+**Wichtig:** TODO.md wird bei jedem git push aktualisiert. **Single Source of Truth** für alle offenen Tasks.
 
 ---
 
@@ -13,6 +13,7 @@ Updated: 2026-03-05 01:49
 - [ ] Replace hardcoded Roger card with dynamic `.map()` over `authorities` array
 - [ ] Ensure `shortVersion` exists for all authorities
 - [ ] Test responsive layout for all 4 authority cards
+- [ ] User-Feedback zu Phase 1 Akkordeon-Layout einholen
 
 ### CMS Admin (Ungeklärt)
 - [ ] Klären: Was soll das CMS Admin können?
@@ -22,12 +23,6 @@ Updated: 2026-03-05 01:49
 ---
 
 ## 🔴 High Priority
-
-### EvidenceSection — User Feedback
-- [ ] User-Feedback zu Phase 1 Akkordeon-Layout einholen
-- [ ] Mobile-Layout testen (Foto über Text, Name ÜBER Foto)
-- [ ] Desktop-Layout testen (Foto links, Text rechts)
-- [ ] Akkordeon-Animation testen
 
 ### Menu & Navigation
 - [ ] Alle Sections IDs mit Menu Anchors abgleichen
@@ -39,26 +34,13 @@ Updated: 2026-03-05 01:49
 - [ ] Add `useContent()` hook
 - [ ] Update components to use `useContent()` instead of direct imports
 
-### Phase 2: Remove Remaining Hardcoded Strings
-- [ ] **Footer:** Extract hardcoded German strings to content layer (siehe CLAUDE.md Known Issues)
-- [ ] Check other components for hardcoded strings
-- [ ] Ensure all user-facing text is in plr-de.js
-
 ---
 
 ## 🟡 Medium Priority
 
-### Clean Up Unused Section Variants
-- [ ] Move unused hero variants to `frontend/src/experiments/`
-- [ ] Keep only production components in `sections/`
-
 ### Resolve backend/ Folder Confusion
 - [ ] Either remove `backend/` folder
 - [ ] Or add clarifying note: "Not deployed. Frontend-only project right now."
-
-### TranscriptPage Cleanup
-- [ ] Extract remaining transcript content to `frontend/src/content/transcripts/`
-- [ ] Simplify component to be renderer only
 
 ---
 
@@ -96,7 +78,7 @@ Updated: 2026-03-05 01:49
 - [x] CLAUDE.md: Updated mit EvidenceSection Architecture (WIP)
 - [x] Session Summary: SESSION-2026-03-05.md erstellt
 - [x] Memory: .claude-memory.md für 6.6. erstellt
-- [x] TODO.md: Updated mit aktuellem Stand
+- [x] TODO.md: Updated als single source of truth
 
 ### Sprint 2: Code Quality — Hardcoded Values Eliminated (2026-03-04)
 - [x] TranscriptPage.jsx: Replaced all inline styles with Tailwind classes
@@ -122,3 +104,12 @@ Updated: 2026-03-05 01:49
 - [x] Created `frontend/src/content/transcripts/episode52.de.js` with transcript data
 - [x] Moved UI strings to `frontend/src/content/plr-de.js` (transcriptPage export)
 - [x] Simplified TranscriptPage to be a renderer component only
+
+### Clean Up Unused Section Variants (2026-03-04)
+- [x] Moved unused hero variants to `frontend/src/components/experiments/`
+- [x] Only production components in `sections/`
+
+### Hardcoded Strings Cleanup (VERIFIED 2026-03-05)
+- [x] **Footer:** Alle Strings aus `footerContent` und `data` — SAUBER
+- [x] **TranscriptPage:** Alle Strings aus `transcriptPage` und `episode52` — SAUBER
+- [x] **NotFoundPage:** Alle Strings aus `notFound` — SAUBER
