@@ -15,7 +15,7 @@ export default function ResearcherQuotesSection() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   // Filter authors with portraits
-  const authorsWithPortraits = researchers.researchers.filter(author => author.portrait !== null)
+  const authorsWithPortraits = researchers.authors.filter(author => author.portrait !== null)
   const hasMore = authorsWithPortraits.length > 3
 
   return (

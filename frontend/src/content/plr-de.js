@@ -303,7 +303,7 @@ export const researchers = {
   // - longVersion:   full description when expanded
   // - sourceLabel:   link text for source (e.g., "Quelle")
   // - sourceUrl:     URL for source link
-  researchers: [
+  authors: [
 // —————————————————————————————————————————————————————————
 // Author: Ian Stevenson //
 // —————————————————————————————————————————————————————————

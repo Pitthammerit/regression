@@ -5,7 +5,7 @@ import LazyImage from '../ui/LazyImage'
 import { ChevronDown } from 'lucide-react'
 
 export default function ResearchersSection() {
-  const authors = researchers.researchers
+  const authors = researchers.authors
   const featuredAuthor = authors.find(author => author.featured)
   const [expandedId, setExpandedId] = useState(null)
 
