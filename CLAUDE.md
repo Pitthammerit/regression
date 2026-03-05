@@ -11,7 +11,7 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 ## Deployment Rules (Critical)
 
 ### Feedback Guidelines
-**WICHTIG:** 
+**WICHTIG:**
 - Der Benutzer testet **immer im Browser (LIVE SITE)**, nicht auf localhost
 - **Claude soll IMMER nach Änderungen pushen** — nicht warten auf User-Input
 - Cloudflare deployed automatisch → Benutzer prüft live
@@ -73,7 +73,10 @@ All commands use `--prefix frontend` — no `cd frontend` needed:
 # Install/update dependencies
 npm --prefix frontend install
 
-# Development server
+# Development server (with HMR - auto-refresh on file changes)
+npm --prefix frontend run dev
+
+# Legacy dev server (use `dev` instead)
 npm --prefix frontend start
 
 # Production build (run before every push)
@@ -82,6 +85,40 @@ npm --prefix frontend run build
 # Run tests
 npm --prefix frontend test
 ```
+
+## Development Workflow
+
+### Localhost Preview + Cloudflare Deploy
+
+**Recommended workflow for fast iteration:**
+
+1. **Start dev server once:** `npm --prefix frontend run dev`
+   - Runs on http://localhost:3000
+   - **HMR (Hot Module Replacement)**: Browser auto-refreshes on file changes
+   - No manual restart needed — edit files and see changes immediately
+
+2. **Make changes** → Browser updates automatically
+
+3. **When satisfied with changes:**
+   ```bash
+   npm --prefix frontend run build
+   git commit -m "..."
+   git push origin main
+   ```
+   - Cloudflare deploys automatically
+   - Test live on production URL
+
+### HMR (Hot Module Replacement)
+
+Create React App includes HMR — when you save a file:
+- Browser refreshes automatically (no F5 needed)
+- React state is preserved during most changes
+- CSS updates appear instantly
+
+**If HMR stops working:**
+- Check terminal — is dev server still running?
+- If not: `npm --prefix frontend run dev` to restart
+- Tell Claude: "sehe Änderungen nicht" → Claude will restart the server
 
 ## Architecture
 
@@ -329,7 +366,7 @@ export const evidence = {
    - Upper tier: 4-author portrait grid with English quotes
    - Lower tier: Accordion cards with `shortVersion`/`longVersion`
    - Bottom: Resources (journal + books)
-   
+
 2. **EvidenceQuotesSection** (`id="evidence-quotes"`) — Compact quotes section:
    - 3 researchers with portraits (filters for `portrait !== null`)
    - Dark background (`bg-brand-deep`)
