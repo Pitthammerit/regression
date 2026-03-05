@@ -13,25 +13,51 @@ export const menu = {
       label: "Intro Call",
       anchor: "#booking"
     },
-    variant: "fullscreen", // "fullscreen" | "hybrid" | "mega" | "anchor"
+    variant: "sidecar", // "fullscreen" | "hybrid" | "mega" | "sidecar"
 
-    // Hauptkategorien für Inline-Nav (Desktop) - können angepasst werden
+    // Hauptkategorien für Inline-Nav (Desktop)
+    // hasSubmenu: true = mit Dropdown (nur Science, Erfahrungen)
     mainNav: [
-      { label: "Regression", anchor: "#was-ist" },
-      { label: "Science", anchor: "#science" },
-      { label: "Erfahrungen", anchor: "#cases" },
-      { label: "Über", anchor: "#ueber" },
-      { label: "FAQ", anchor: "#faq" },
+      { label: "Regression", anchor: "#hero", hasSubmenu: false },
+      { label: "Science", anchor: null, hasSubmenu: true },
+      { label: "Erfahrungen", anchor: null, hasSubmenu: true },
+      { label: "Über", anchor: "#ueber", hasSubmenu: false },
+      { label: "FAQ", anchor: "#faq", hasSubmenu: false },
     ],
   },
 
-  // Menü-Struktur (nested)
+  // Menü-Struktur (nested) für Sidecar Menu
   items: [
     {
       id: "regression",
       label: "Regression",
-      anchor: "#was-ist",
       order: 10,
+      children: [
+        {
+          id: "regression-welcome",
+          label: "Willkommen",
+          anchor: "#hero",
+          order: 11,
+        },
+        {
+          id: "regression-what",
+          label: "Was ist Regression?",
+          anchor: "#was-ist",
+          order: 12,
+        },
+        {
+          id: "regression-for-whom",
+          label: "Wer kommt zu einer Regression?",
+          anchor: "#fuer-wen",
+          order: 13,
+        },
+        {
+          id: "regression-process",
+          label: "Ablauf einer Session",
+          anchor: "#prozess",
+          order: 14,
+        },
+      ],
     },
     {
       id: "science",
@@ -39,14 +65,14 @@ export const menu = {
       order: 20,
       children: [
         {
-          id: "science-quotes",
-          label: "Forscherzitate",
+          id: "science-evidence",
+          label: "Evidenz",
           anchor: "#evidence-quotes",
           order: 21,
         },
         {
           id: "science-authors",
-          label: "Autoren",
+          label: "Forscher & Autoren",
           anchor: "#science",
           order: 22,
         },
@@ -59,65 +85,46 @@ export const menu = {
       ],
     },
     {
-      id: "podcast",
-      label: "Podcast",
-      order: 30,
-      children: [
-        {
-          id: "podcast-video",
-          label: "Video-Gespräch",
-          anchor: "#podcast-video",
-          order: 31,
-        },
-        {
-          id: "podcast-audio",
-          label: "Audio",
-          anchor: "#podcast",
-          order: 32,
-        },
-      ],
-    },
-    {
       id: "experiences",
       label: "Erfahrungen",
-      order: 40,
+      order: 30,
       children: [
         {
           id: "experiences-cases",
           label: "Fallbeispiele",
           anchor: "#cases",
-          order: 41,
+          order: 31,
         },
         {
-          id: "experiences-testimonials",
-          label: "Klientenstimmen",
+          id: "experiences-love",
+          label: "Wall of Love",
           anchor: "#testimonials",
-          order: 42,
+          order: 32,
+        },
+        {
+          id: "experiences-youtube",
+          label: "Podcast (YouTube)",
+          anchor: "#podcast-video",
+          order: 33,
+        },
+        {
+          id: "experiences-audio",
+          label: "Audio-Podcast",
+          anchor: "#podcast",
+          order: 34,
         },
       ],
     },
     {
       id: "about",
       label: "Über",
-      order: 50,
+      order: 40,
       children: [
         {
           id: "about-benjamin",
           label: "Benjamin Kurtz",
           anchor: "#ueber",
-          order: 51,
-        },
-        {
-          id: "about-process",
-          label: "Prozess",
-          anchor: "#prozess",
-          order: 52,
-        },
-        {
-          id: "about-forwhom",
-          label: "Für wen?",
-          anchor: "#fuer-wen",
-          order: 53,
+          order: 41,
         },
       ],
     },
@@ -125,7 +132,7 @@ export const menu = {
       id: "faq",
       label: "FAQ",
       anchor: "#faq",
-      order: 60,
+      order: 50,
     },
   ],
 

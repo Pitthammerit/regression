@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-05 18:45
+Updated: 2026-03-05 23:15
 
 **Wichtig:** TODO.md wird bei jedem git push automatisch durch GitHub Action aktualisiert. **Single Source of Truth** für alle offenen Tasks.
 
@@ -11,10 +11,39 @@ Updated: 2026-03-05 18:45
 ### Menu & Navigation
 - [ ] Alle Sections IDs mit Menu Anchors abgleichen
 - [ ] Smooth Scroll für alle Menu-Links testen
+- [ ] Menu-Variante auswählen (V1, V2, oder V3 von MenuDemoPage)
+- [ ] Gewählte Menu-Variante in Header.jsx implementieren
+
+### FAQ Section Finalization
+- [ ] FAQ Fragen-Farbe anpassen auf Menü-Grauton (`text-brand-steel`)
+- [ ] FAQ Animation langsamer machen (done: `duration-500/600`)
+- [ ] Prüfen: Radix UI Accordion vs manuelle Implementierung
 
 ---
 
 ## 🟡 Medium Priority
+
+### 🎨 Global Design System Refactoring (NEU — 2026-03-05)
+**Status:** PLAN GEPRÜFT, WARTET AUF USER-APPROVAL
+**Dokumentation:** [Design-System Plan](/Users/benjaminkurtz/.claude/plans/virtual-puzzling-backus.md)
+
+**Problem:** Kein konsistentes Design-System. Farben, Schriftgrößen und Typografie sind über alle Components hinweg hartcodiert und inkonsistent.
+
+**Phasen:**
+- [ ] **Phase 0:** FAQ Sofort-Anpassung (Fragen-Farbe = Menü-Grauton)
+- [ ] **Phase 1:** Tailwind Design-Token definieren (typography, spacing)
+- [ ] **Phase 2:** Typography-Komponenten erstellen (SectionHeadline, BodyText, Quote, Subtitle)
+- [ ] **Phase 3:** Button-Komponenten konsolidieren
+- [ ] **Phase 4:** Pilot-Refactoring (4 Sections: About, FAQ, Researchers, Process)
+- [ ] **Phase 5:** User-Feedback einholen
+- [ ] **Phase 6:** Rollout auf alle verbleibenden 13 Sections
+
+**Open Questions für User:**
+1. Tailwind Presets vs CSS Custom Properties für Multi-Site-Support?
+2. Typography-Komponenten (`<SectionHeadline>`) vs Utility-Classes (`text-section-h2`)?
+3. Welche 4 Sections für Pilot-Phase? (Aktuell: About, FAQ, Researchers, Process)
+
+---
 
 ### i18n Foundation (SPÄTER — wenn alle Sections fertig)
 - [ ] Create `frontend/src/content/plr-en.js`
@@ -49,6 +78,21 @@ Updated: 2026-03-05 18:45
 ---
 
 ## ✅ Completed
+
+### Session 2026-03-05: Menu Demo Page + Styling Fixes (abgeschlossen)
+- [x] MenuDemoPage.jsx repariert (Syntaxfehler behoben)
+- [x] 3 Header-Varianten implementiert (V1=Original, V2=Burger+Inline, V3=Nested)
+- [x] FAQ Hover: Grau (`text-brand-steel/80`) statt grün
+- [x] FAQ Animation verlangsamt (`duration-500/600` mit `ease-out`)
+- [x] FAQ Antworten: Blau (`text-brand-deep`) mit `text-lg`
+- [x] Build erfolgreich ✅
+- [x] Deployt zu Cloudflare ✅
+
+### Session 2026-03-05: Menu Configuration System (abgeschlossen)
+- [x] `frontend/src/content/menu.js` erstellt - zentrale Menü-Konfiguration
+- [x] Nested Struktur für Hauptkategorien + Unterpunkte
+- [x] 3 Header-Varianten als Demo-Komponenten erstellt
+- [x] MenuDemoPage mit Variant-Switcher implementiert
 
 ### Session 2026-03-05: Evidence & Podcast Data Structure (abgeschlossen)
 - [x] **Portrait URLs Fix:** Brian Weiss + Roger Woolger URLs korrigiert (`.r2` fehlte)

@@ -22,6 +22,9 @@ export default function TestimonialsSection() {
       {/* Client Testimonials */}
       <div className="py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">
+          <h2 className="font-sans text-xs tracking-[0.2em] uppercase text-brand-steel mb-4">
+            WALL OF LOVE
+          </h2>
           <SectionLabel text={testimonials.clientLabel} />
 
           {/*

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import CtaButton from './ui/CtaButton'
 import { r2, logos } from '../utils/media'
-import { Menu, X } from 'lucide-react'
+import { Menu } from 'lucide-react'
+import DesktopNav from './DesktopNav'
+import SidecarMenu from './SidecarMenu'
+import { menu } from '../content/menu'
 
 export default function Header({ nav, cta }) {
   const [scrolled, setScrolled] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [sidecarOpen, setSidecarOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
@@ -17,97 +20,67 @@ export default function Header({ nav, cta }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleNavClick = (anchor) => {
-    setMenuOpen(false)
-    const el = document.querySelector(anchor)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <header
-      data-testid="site-header"
-      className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-all duration-300 ${
-        scrolled ? 'border-b border-black/8 py-3' : 'py-4'
-      }`}
-    >
-      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
-        <div className="flex items-center justify-between">
+    <>
+      <header
+        data-testid="site-header"
+        className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-all duration-300 ${
+          scrolled ? 'border-b border-black/8 py-3' : 'py-4'
+        }`}
+      >
+        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
+          <div className="flex items-center justify-between">
 
-          {/* Logo — responsive version */}
-          <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity">
-            {/* Mobile & Tablet (<1024px): Circular logo */}
-            <img
-              src={r2('logos/BKA logo 500 px black.png')}
-              alt="Benjamin Kurtz Academy"
-              className="lg:hidden h-10 w-10 object-contain"
-            />
-            {/* Desktop (>=1024px): Wordmark logo */}
-            <img
-              src={r2(logos.dark)}
-              alt="Benjamin Kurtz Academy"
-              className="hidden lg:block h-7 w-auto object-contain"
-            />
-          </a>
+            {/* Logo — responsive version */}
+            <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity">
+              {/* Mobile & Tablet (<1024px): Circular logo */}
+              <img
+                src={r2('logos/BKA logo 500 px black.png')}
+                alt="Benjamin Kurtz Academy"
+                className="lg:hidden h-10 w-10 object-contain"
+              />
+              {/* Desktop (>=1024px): Wordmark logo */}
+              <img
+                src={r2(logos.dark)}
+                alt="Benjamin Kurtz Academy"
+                className="hidden lg:block h-7 w-auto object-contain"
+              />
+            </a>
 
-          {/* Desktop Nav + CTA (>=1024px) */}
-          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
-            <nav className="flex items-center gap-6 lg:gap-8">
-              {nav.map((item) => (
-                <a
-                  key={item.anchor}
-                  href={item.anchor}
-                  onClick={(e) => { e.preventDefault(); handleNavClick(item.anchor) }}
-                  className="font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors tracking-wide whitespace-nowrap"
-                  data-testid={`nav-link-${item.anchor.replace('#', '')}`}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-            {/* Desktop CTA — scroll-triggered */}
-            <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-              <CtaButton label={cta} variant="primary" className="!py-2 !px-6 !text-xs" />
-            </div>
-          </div>
+            {/* Desktop Nav + CTA (>=1024px) */}
+            <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+              {/* Radix UI Desktop Nav */}
+              <DesktopNav />
 
-          {/* Mobile & Tablet (<1024px): CTA + Burger Menu */}
-          <div className="lg:hidden flex items-center gap-3">
-            {/* Mobile CTA — scroll-triggered, OUTSIDE menu */}
-            <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-              <CtaButton label={cta} variant="primary" className="!py-2 !px-4 !text-xs" />
+              {/* Desktop CTA — scroll-triggered */}
+              <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
+              </div>
             </div>
 
-            {/* Burger Menu Toggle */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 -mr-2 hover:bg-black/5 rounded-lg transition-colors"
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-              data-testid="mobile-menu-toggle"
-            >
-              {menuOpen ? <X size={20} className="text-brand-deep" /> : <Menu size={20} className="text-brand-deep" />}
-            </button>
-          </div>
-        </div>
-      </div>
+            {/* Mobile & Tablet: CTA + Burger Menu */}
+            <div className="lg:hidden flex items-center gap-3">
+              {/* Mobile CTA — scroll-triggered */}
+              <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-4 !text-xs" />
+              </div>
 
-      {/* Mobile Menu Overlay (<1024px) — Nav links ONLY, no CTA */}
-      {menuOpen && (
-        <div className="lg:hidden border-t border-black/8 bg-brand-cream">
-          <nav className="px-6 py-4 flex flex-col gap-4">
-            {nav.map((item) => (
-              <a
-                key={item.anchor}
-                href={item.anchor}
-                onClick={(e) => { e.preventDefault(); handleNavClick(item.anchor) }}
-                className="font-sans text-base text-brand-body/70 hover:text-brand-deep transition-colors py-2"
-                data-testid={`mobile-nav-link-${item.anchor.replace('#', '')}`}
+              {/* Burger Menu Toggle */}
+              <button
+                onClick={() => setSidecarOpen(!sidecarOpen)}
+                className="p-2 -mr-2 hover:bg-black/5 rounded-lg transition-colors"
+                aria-label={sidecarOpen ? 'Close menu' : 'Open menu'}
+                data-testid="mobile-menu-toggle"
               >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+                <Menu size={20} className="text-brand-deep" />
+              </button>
+            </div>
+          </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* Sidecar Menu - alle Breakpoints */}
+      <SidecarMenu isOpen={sidecarOpen} onClose={() => setSidecarOpen(false)} />
+    </>
   )
 }
