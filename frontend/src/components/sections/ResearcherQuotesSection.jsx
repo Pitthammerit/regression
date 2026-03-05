@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { evidence } from '../../content/plr-de'
+import { researchers } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 
 /**
- * EvidenceQuotesSection — Research authority quotes with portraits
+ * ResearcherQuotesSection — Research authority quotes with portraits
  *
- * Displays researchers with portraits and quotes from evidence.authors
+ * Displays researchers with portraits and quotes from researchers.researchers
  * First 3 are always visible, rest expandable with "Mehr/Weniger" toggle
  * Dark background (bg-brand-deep)
  */
-export default function EvidenceQuotesSection() {
+export default function ResearcherQuotesSection() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   // Filter authors with portraits
-  const authorsWithPortraits = evidence.authors.filter(author => author.portrait !== null)
+  const authorsWithPortraits = researchers.researchers.filter(author => author.portrait !== null)
   const hasMore = authorsWithPortraits.length > 3
 
   return (
@@ -25,9 +25,9 @@ export default function EvidenceQuotesSection() {
       className="py-16 md:py-20 bg-brand-deep text-white"
     >
       <div className="max-w-content mx-auto px-6">
-        <SectionLabel text={evidence.authorBigLabel} light />
+        <SectionLabel text={researchers.authorBigLabel} light />
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mt-3 mb-5">
-          {evidence.authorHeadline}
+          {researchers.authorHeadline}
         </h2>
 
         {/* First row - always visible (3 authors) */}

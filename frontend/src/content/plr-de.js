@@ -268,9 +268,9 @@ export const cases = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// EvidenceSection — EVIDENCE & AUTHOR QUOTES
+// ResearchersSection — RESEARCHERS & AUTHOR QUOTES
 // ═══════════════════════════════════════════════════════════
-export const evidence = {
+export const researchers = {
   authorBigLabel: "EVIDENZBASIERT",
   authorHeadline: "Was die Forschung sagt",
   authorLabel: "WAS DIE FORSCHUNG SAGT",
@@ -303,7 +303,7 @@ export const evidence = {
   // - longVersion:   full description when expanded
   // - sourceLabel:   link text for source (e.g., "Quelle")
   // - sourceUrl:     URL for source link
-  authors: [
+  researchers: [
 // —————————————————————————————————————————————————————————
 // Author: Ian Stevenson //
 // —————————————————————————————————————————————————————————
@@ -392,7 +392,15 @@ Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP):
       sourceUrl: "https://rogerwoolger.org/roger-woolger/",
     },
   ],
-  resources: [
+};
+
+// ═══════════════════════════════════════════════════════════
+// ReferencesSection — REFERENCES (Journals, Books, Audiobooks, etc.)
+// ═══════════════════════════════════════════════════════════
+export const references = {
+  bigLabel: "WEITERFÜHRENDE LITERATUR",
+  headline: "Vertiefung & Quellen",
+  items: [
     {
       type: "journal",
       name: "International Journal of Regression Therapy",

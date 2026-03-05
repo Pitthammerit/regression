@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { evidence } from '../../content/plr-de'
+import { researchers } from '../../content/plr-de'
 import LazyImage from '../ui/LazyImage'
-import { ChevronDown, BookOpen } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
-export default function EvidenceSection() {
-  const authors = evidence.authors
+export default function ResearchersSection() {
+  const authors = researchers.researchers
   const featuredAuthor = authors.find(author => author.featured)
   const [expandedId, setExpandedId] = useState(null)
 
@@ -42,10 +42,10 @@ export default function EvidenceSection() {
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <div className="font-sans text-xs uppercase tracking-[0.2em] text-brand-steel/80 mb-4">
-            {evidence.authorBigLabel}
+            {researchers.authorBigLabel}
           </div>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">
-            {evidence.authorHeadline}
+            {researchers.authorHeadline}
           </h2>
         </div>
 
@@ -143,7 +143,7 @@ export default function EvidenceSection() {
                     onClick={() => toggleExpand(author.id)}
                     className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
                   >
-                    {expandedId === author.id ? evidence.accordion.readLess : evidence.accordion.readMore}
+                    {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
                     <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
                   </button>
                   <div className="flex-1 h-px bg-white/20"></div>
@@ -177,67 +177,6 @@ export default function EvidenceSection() {
             )}
           </div>
         ))}
-
-        {/* ═══════════════════════════════════════════════════════════ */}
-        {/* Resources (Journals, Books, Audiobooks, etc.) */}
-        {/* ═══════════════════════════════════════════════════════════ */}
-        {evidence.resources && (
-          <>
-            {evidence.resources.map((resource) => (
-              <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
-                {/* Photo - Left column */}
-                <div className="md:max-w-[240px]">
-                  {resource.portrait && resource.portrait.trim() !== '' ? (
-                    <LazyImage
-                      src={resource.portrait}
-                      alt={resource.name}
-                      className="w-full h-auto rounded-lg"
-                    />
-                  ) : (
-                    <AspectRatio ratio={3 / 4}>
-                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
-                        <BookOpen className="w-12 h-12 text-white/30" />
-                      </div>
-                    </AspectRatio>
-                  )}
-                </div>
-
-                {/* Right column: Title → Subtitle → Dates → Description → Source */}
-                <div className="flex flex-col">
-                  <a
-                    href={resource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-block"
-                  >
-                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
-                      {resource.name}
-                    </p>
-                  </a>
-                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
-                    {resource.role}
-                  </p>
-                  {resource.dates && (
-                    <p className="font-sans text-white/50 text-sm mb-4">
-                      {resource.dates}
-                    </p>
-                  )}
-                  <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
-                    {resource.description}
-                  </p>
-                  <a
-                    href={resource.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
-                  >
-                    {resource.sourceLabel} →
-                  </a>
-                </div>
-              </div>
-            ))}
-          </>
-        )}
       </div>
     </section>
   )
