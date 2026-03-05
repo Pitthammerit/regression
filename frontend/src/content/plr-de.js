@@ -332,7 +332,7 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
       lifeDates: "*1944–2024",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
       quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
-      featuredQuote: "Through past-life regression, it's possible to heal — and grow — your mind, body and soul, as well as strengthen your present-day relationships. Many phobias and ailments are rooted in past-life experiences whose acknowledgement by the patient can have a curative effect.",
+      featuredQuote: "Through past-life regression, it's possible to heal — and grow — your mind, body and soul, as well as strengthen your present-day relationships.",
       shortVersion: "'Many Lives Many Masters' (1988) — klinische Falldokumentation über Jahrzehnte. Skeptische Haltung veränderte sich durch eine Patientin, die unter Hypnose frühere Leben beschrieb.",
       longVersion: `Brian Weiss war ein hochangesehener Psychiater und Chefarzt am Mount Sinai Medical Center in Miami, als ihn ein Fall im Jahr 1980 gründlich verändern sollte. Catherine, eine Patientin mit schweren Ängsten und Phobien, sprach unter Hypnose plötzlich von Details aus vergangenen Leben — Informationen, die sich historisch verifizieren ließen.
 
