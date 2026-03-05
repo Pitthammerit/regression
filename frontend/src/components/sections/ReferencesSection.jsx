@@ -5,11 +5,7 @@ import LazyImage from '../ui/LazyImage'
 import { BookOpen, ChevronDown } from 'lucide-react'
 
 export default function ReferencesSection() {
-  const [journalExpanded, setJournalExpanded] = useState(false)
-
-  // Separate journal from books
-  const journal = references.items?.find(item => item.type === 'journal')
-  const books = references.items?.filter(item => item.type !== 'journal')
+  const [expanded, setExpanded] = useState(false)
 
   return (
     <section
@@ -32,143 +28,136 @@ export default function ReferencesSection() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════ */}
-        {/* Journal - with expandable description */}
+        {/* References */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        {journal && (
+        {references.items && references.items.length > 0 && (
           <>
-            <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
-              {/* Photo - Left column */}
-              <div className="md:max-w-[240px]">
-                {journal.portrait && journal.portrait.trim() !== '' ? (
-                  <LazyImage
-                    src={journal.portrait}
-                    alt={journal.name}
-                    className="w-full h-auto rounded-lg"
-                  />
-                ) : (
-                  <AspectRatio ratio={2 / 3}>
-                    <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
-                      <BookOpen className="w-12 h-12 text-white/30" />
-                    </div>
-                  </AspectRatio>
-                )}
-              </div>
-
-              {/* Right column: Title → Subtitle → Dates → Description (expandable) → Source */}
-              <div className="flex flex-col">
-                <a
-                  href={journal.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-block"
-                >
-                  <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
-                    {journal.name}
-                  </p>
-                </a>
-                <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
-                  {journal.role}
-                </p>
-                {journal.dates && (
-                  <p className="font-sans text-white/50 text-sm mb-4">
-                    {journal.dates}
-                  </p>
-                )}
-
-                {/* Expandable description */}
-                <div
-                  className={`overflow-hidden transition-all duration-400 ${
-                    journalExpanded ? 'max-h-[600px] mb-4' : 'max-h-[200px] mb-4'
-                  }`}
-                >
-                  <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed whitespace-pre-line">
-                    {journal.description}
-                  </p>
+            {/* First reference - always visible */}
+            {references.items.slice(0, 1).map((resource) => (
+              <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
+                {/* Photo - Left column */}
+                <div className="md:max-w-[240px]">
+                  {resource.portrait && resource.portrait.trim() !== '' ? (
+                    <LazyImage
+                      src={resource.portrait}
+                      alt={resource.name}
+                      className="w-full h-auto rounded-lg"
+                    />
+                  ) : (
+                    <AspectRatio ratio={2 / 3}>
+                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
+                        <BookOpen className="w-12 h-12 text-white/30" />
+                      </div>
+                    </AspectRatio>
+                  )}
                 </div>
 
-                {/* Mehr anzeigen / Weniger anzeigen button */}
-                <button
-                  onClick={() => setJournalExpanded(!journalExpanded)}
-                  className="flex items-center gap-2 font-sans text-sm text-brand-steel hover:text-brand-green transition-colors mb-4 self-start"
-                >
-                  {journalExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-                  <ChevronDown className={`transition-transform duration-200 ${journalExpanded ? 'rotate-180' : ''}`} />
-                </button>
+                {/* Right column: Title → Subtitle → Dates → Description → Source */}
+                <div className="flex flex-col">
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-block"
+                  >
+                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
+                      {resource.name}
+                    </p>
+                  </a>
+                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
+                    {resource.role}
+                  </p>
+                  {resource.dates && (
+                    <p className="font-sans text-white/50 text-sm mb-4">
+                      {resource.dates}
+                    </p>
+                  )}
+                  <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
+                    {resource.description}
+                  </p>
+                  <a
+                    href={resource.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                  >
+                    {resource.sourceLabel} →
+                  </a>
+                </div>
 
-                <a
-                  href={journal.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
-                >
-                  {journal.sourceLabel} →
-                </a>
+                {/* Divider with Mehr anzeigen button */}
+                <div className="md:col-span-2 pt-[36px]">
+                  <div className="flex items-center gap-4">
+                    <div className="flex-1 h-px bg-white/20"></div>
+                    <button
+                      onClick={() => setExpanded(!expanded)}
+                      className="flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
+                    >
+                      {expanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+                      <ChevronDown className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+                    </button>
+                    <div className="flex-1 h-px bg-white/20"></div>
+                  </div>
+                </div>
               </div>
+            ))}
 
-              {/* Divider - Full width below journal */}
-              <div className="md:col-span-2 pt-[36px]">
-                <div className="h-px bg-white/20"></div>
+            {/* Remaining references - expandable */}
+            {expanded && references.items.slice(1).map((resource) => (
+              <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
+                {/* Photo - Left column */}
+                <div className="md:max-w-[240px]">
+                  {resource.portrait && resource.portrait.trim() !== '' ? (
+                    <LazyImage
+                      src={resource.portrait}
+                      alt={resource.name}
+                      className="w-full h-auto rounded-lg"
+                    />
+                  ) : (
+                    <AspectRatio ratio={2 / 3}>
+                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
+                        <BookOpen className="w-12 h-12 text-white/30" />
+                      </div>
+                    </AspectRatio>
+                  )}
+                </div>
+
+                {/* Right column: Title → Subtitle → Dates → Description → Source */}
+                <div className="flex flex-col">
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-block"
+                  >
+                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
+                      {resource.name}
+                    </p>
+                  </a>
+                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
+                    {resource.role}
+                  </p>
+                  {resource.dates && (
+                    <p className="font-sans text-white/50 text-sm mb-4">
+                      {resource.dates}
+                    </p>
+                  )}
+                  <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
+                    {resource.description}
+                  </p>
+                  <a
+                    href={resource.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                  >
+                    {resource.sourceLabel} →
+                  </a>
+                </div>
               </div>
-            </div>
+            ))}
           </>
         )}
-
-        {/* ═══════════════════════════════════════════════════════════ */}
-        {/* Books - always visible */}
-        {/* ═══════════════════════════════════════════════════════════ */}
-        {books && books.map((resource) => (
-          <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
-            {/* Photo - Left column */}
-            <div className="md:max-w-[240px]">
-              {resource.portrait && resource.portrait.trim() !== '' ? (
-                <LazyImage
-                  src={resource.portrait}
-                  alt={resource.name}
-                  className="w-full h-auto rounded-lg"
-                />
-              ) : (
-                <AspectRatio ratio={2 / 3}>
-                  <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
-                    <BookOpen className="w-12 h-12 text-white/30" />
-                  </div>
-                </AspectRatio>
-              )}
-            </div>
-
-            {/* Right column: Title → Subtitle → Dates → Description → Source */}
-            <div className="flex flex-col">
-              <a
-                href={resource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-block"
-              >
-                <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
-                  {resource.name}
-                </p>
-              </a>
-              <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
-                {resource.role}
-              </p>
-              {resource.dates && (
-                <p className="font-sans text-white/50 text-sm mb-4">
-                  {resource.dates}
-                </p>
-              )}
-              <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed mb-4 whitespace-pre-line">
-                {resource.description}
-              </p>
-              <a
-                href={resource.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
-              >
-                {resource.sourceLabel} →
-              </a>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   )
