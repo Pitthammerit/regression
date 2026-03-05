@@ -31,6 +31,13 @@ export default function TestimonialsSection() {
           <div className="grid md:grid-cols-3 gap-10 md:gap-14">
             {testimonials.authorityQuotes.map((q, i) => (
               <div key={i} className="border-t border-white/20 pt-8">
+                {q.portrait && (
+                  <LazyImage
+                    src={q.portrait}
+                    alt={q.name}
+                    className="w-32 h-32 rounded-lg object-cover mb-6"
+                  />
+                )}
                 <blockquote className="font-serif italic text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
                   "{q.quote}"
                 </blockquote>

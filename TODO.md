@@ -39,7 +39,7 @@ Updated: 2026-03-05 10:45
 - [ ] Alle Sections IDs mit Menu Anchors abgleichen
 - [ ] Smooth Scroll für alle Menu-Links testen
 
-### Sprint 3: i18n Foundation
+### Sprint 3: i18n Foundation (SPÄTER — wenn alle Sections fertig und deutsche Texte Release-reif)
 - [ ] Create `frontend/src/content/plr-en.js`
 - [ ] Create `frontend/src/content/index.js` with `getContent(lang)` export
 - [ ] Add `useContent()` hook
