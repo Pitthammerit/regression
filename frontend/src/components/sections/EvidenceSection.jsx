@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import { evidence } from '../../content/plr-de'
 import LazyImage from '../ui/LazyImage'
 import { ChevronDown } from 'lucide-react'
@@ -35,23 +36,25 @@ export default function EvidenceSection() {
         {/* Featured Researcher */}
         {featuredAuthor && (
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16 items-center">
-            {/* Photo - Left column, 16:9 */}
-            <div className="aspect-video max-w-[280px] mx-auto md:mx-0 overflow-hidden rounded-lg">
-              <LazyImage
-                src={featuredAuthor.portrait}
-                alt={featuredAuthor.name}
-                className="w-full h-full object-cover"
-              />
+            {/* Photo - Left column, 1:1 */}
+            <div className="max-w-[240px] mx-auto md:mx-0">
+              <AspectRatio ratio={1 / 1}>
+                <LazyImage
+                  src={featuredAuthor.portrait}
+                  alt={featuredAuthor.name}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </AspectRatio>
             </div>
 
             {/* Text - Right column */}
             <div className="flex flex-col justify-center">
-              {/* Quote - large, max 3 lines */}
-              <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl italic leading-tight mb-4 text-white/90 line-clamp-3">
+              {/* Quote - large, max 3 lines, left-aligned */}
+              <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl italic leading-tight mb-6 text-white/90 line-clamp-3">
                 "{featuredAuthor.quote}"
               </blockquote>
 
-              {/* Name + Title */}
+              {/* Name + Title - left-aligned with quote */}
               <div className="font-sans text-white/80">
                 <div className="font-semibold text-lg">{featuredAuthor.name}</div>
                 <div className="text-sm text-white/60">{featuredAuthor.role}</div>
