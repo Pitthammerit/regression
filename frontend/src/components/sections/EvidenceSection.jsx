@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react'
 
 export default function EvidenceSection() {
   const authors = evidence.authors
+  const featuredAuthor = authors.find(author => author.featured)
   const [expandedId, setExpandedId] = useState(null)
 
   const toggleExpand = (id) => {
@@ -31,45 +32,33 @@ export default function EvidenceSection() {
           </h2>
         </div>
 
-        {/* Four Portraits with English Quotes */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
-          {authors.map((author) => {
-            const portraitUrl = author.portrait
-            return (
-              <div key={author.id} className="flex flex-col items-center text-center">
-                {/* Portrait - Square or Placeholder */}
-                {portraitUrl ? (
-                  <div className="aspect-square w-full max-w-[240px] mb-6 overflow-hidden rounded-sm bg-brand-dark/50">
-                    <LazyImage
-                      src={portraitUrl}
-                      alt={author.name}
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                ) : (
-                  <div className="aspect-square w-full max-w-[240px] mb-6 flex items-center justify-center bg-brand-dark/30 rounded-sm border border-white/10">
-                    <p className="font-serif text-xl text-white/90 italic text-center px-4">
-                      {author.name}
-                    </p>
-                  </div>
-                )}
+        {/* Featured Researcher */}
+        {featuredAuthor && (
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 mb-16 items-center">
+            {/* Photo - Left column */}
+            <div className="aspect-square max-w-[320px] mx-auto md:mx-0 overflow-hidden rounded-lg">
+              <LazyImage
+                src={featuredAuthor.portrait}
+                alt={featuredAuthor.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-                {/* English Quote */}
-                <blockquote className="font-serif text-base md:text-lg text-white/90 leading-snug mb-4 italic">
-                  "{author.quote}"
-                </blockquote>
+            {/* Text - Right column */}
+            <div className="flex flex-col justify-center">
+              {/* Quote - large, full width */}
+              <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl italic leading-relaxed mb-6 text-white/90">
+                "{featuredAuthor.quote}"
+              </blockquote>
 
-                {/* Name & Role & Dates */}
-                <div className="font-sans text-sm text-brand-steel">
-                  <span className="font-semibold">— {author.name}</span>
-                  {author.lifeDates && (
-                    <span className="block text-xs text-white/50 italic mt-1">{author.lifeDates}</span>
-                  )}
-                </div>
+              {/* Name + Title */}
+              <div className="font-sans text-white/80">
+                <div className="font-semibold text-lg">{featuredAuthor.name}</div>
+                <div className="text-sm text-white/60">{featuredAuthor.role}</div>
               </div>
-            )
-          })}
-        </div>
+            </div>
+          </div>
+        )}
 
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* ACCORDION CARDS SECTION — Phase 2: All Authors Dynamic */}

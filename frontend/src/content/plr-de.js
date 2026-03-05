@@ -284,6 +284,7 @@ export const evidence = {
 // —————————————————————————————————————————————————————————
     {
       id: "ian-stevenson",
+      featured: true,
       name: "Ian Stevenson MD",
       role: "University of Virginia, DOPS",
       lifeDates: "*1918–2007",
