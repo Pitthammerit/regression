@@ -1,11 +1,13 @@
 import React from 'react'
-import { podcast } from '../../content/plr-de'
+import { podcasts } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
 import PodcastPlayer from '../ui/PodcastPlayer'
 
 const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/podcast%20bg%20blur.jpg"
 
 export default function PodcastSection() {
+  // Get first podcast (for backwards compatibility)
+  const podcast = podcasts[0]
   return (
     <div id="podcast" className="relative overflow-hidden" data-testid="podcast-player-section">
       {/* Background photo — visible, no dark overlay */}

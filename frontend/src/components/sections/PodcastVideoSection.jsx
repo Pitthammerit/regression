@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { podcast, podcastVideo } from '../../content/plr-de'
+import { podcasts, podcastVideo } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CustomVideoPlayer from '../ui/CustomVideoPlayer'
@@ -8,6 +8,8 @@ import { X, Send } from 'lucide-react'
 
 export default function PodcastVideoSection() {
   const [panelOpen, setPanelOpen] = useState(false)
+  // Get first podcast (for backwards compatibility)
+  const podcast = podcasts[0]
   const fluentTranscriptUrl = process.env.REACT_APP_FLUENT_FORMS_TRANSCRIPT_URL
 
   return (
