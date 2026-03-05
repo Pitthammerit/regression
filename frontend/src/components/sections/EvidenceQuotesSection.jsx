@@ -53,7 +53,7 @@ export default function EvidenceQuotesSection() {
         {/* Show More / Show Less divider */}
         {hasMore && (
           <>
-            <div className="flex items-center gap-4 my-6">
+            <div className="flex items-center gap-4 my-10">
               <div className="flex-1 h-px bg-white/20"></div>
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
