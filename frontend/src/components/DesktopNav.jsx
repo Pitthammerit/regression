@@ -3,7 +3,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import { menu } from '../content/menu'
 
-const ListItem = ({ anchor, className = '', children }) => {
+const ListItem = React.forwardRef(({ className, children, anchor, ...props }, ref) => {
   const handleNavClick = (e) => {
     e.preventDefault()
     const el = document.querySelector(anchor)
@@ -14,16 +14,20 @@ const ListItem = ({ anchor, className = '', children }) => {
     <li>
       <NavigationMenu.Link asChild>
         <a
+          ref={ref}
           href={anchor}
           onClick={handleNavClick}
           className={`block select-none rounded-md p-3 text-sm leading-none text-brand-body no-underline outline-none hover:bg-brand-cream hover:text-brand-deep transition-colors cursor-pointer ${className}`}
+          {...props}
         >
           {children}
         </a>
       </NavigationMenu.Link>
     </li>
   )
-}
+})
+
+ListItem.displayName = 'ListItem'
 
 export default function DesktopNav({ onSidecarOpen }) {
   const handleNavClick = (anchor) => {
@@ -43,7 +47,7 @@ export default function DesktopNav({ onSidecarOpen }) {
                 <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-0.5 rounded px-3 py-2 text-sm font-medium leading-none text-brand-body outline-none hover:bg-brand-cream focus:shadow-[0_0_0_2px] focus:shadow-brand-deep/20">
                   {item.label}
                   <CaretDownIcon
-                    className="relative top-px text-brand-steel transition-transform duration-[250] ease-in group-data-[state=open]:rotate-180"
+                    className="relative top-px text-brand-steel transition-transform duration-[250ms] ease-in group-data-[state=open]:rotate-180"
                     aria-hidden
                   />
                 </NavigationMenu.Trigger>
@@ -75,11 +79,16 @@ export default function DesktopNav({ onSidecarOpen }) {
             )}
           </NavigationMenu.Item>
         ))}
+
+        {/* Indicator - zeigt Position des Dropdowns an */}
+        <NavigationMenu.Indicator className="top-full z-[1] flex h-[10px] items-end justify-center overflow-hidden transition-[width,transform_250ms_ease] data-[state=hidden]:animate-fadeOut data-[state=visible]:animate-fadeIn">
+          <div className="relative top-[70%] h-[10px] w-[10px] rotate-45 rounded-tl-sm bg-white shadow-[0_2px_10px] shadow-black/10" />
+        </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
       {/* Viewport mit Perspective */}
       <div className="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
-        <NavigationMenu.Viewport className="relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-md bg-white shadow-[0_2px_10px] shadow-black/10 transition-[width,_height] duration-300 data-[state=cipped]:animate-scaleOut data-[state=open]:animate-scaleIn sm:w-[var(--radix-navigation-menu-viewport-width)]" />
+        <NavigationMenu.Viewport className="relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-md bg-white shadow-[0_2px_10px] shadow-black/10 transition-[width,_height] duration-300 data-[state=closed]:animate-scaleOut data-[state=open]:animate-scaleIn sm:w-[var(--radix-navigation-menu-viewport-width)]" />
       </div>
     </NavigationMenu.Root>
   )

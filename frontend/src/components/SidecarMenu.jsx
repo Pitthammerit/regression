@@ -20,22 +20,19 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop with blur */}
       <div
-        className="fixed inset-0 bg-black/25 z-40 backdrop-blur-[2px]"
+        className="fixed inset-0 bg-black/20 z-40 backdrop-blur-md"
         onClick={onClose}
       />
 
-      {/* Sidecar Panel - slide-in diagonal von oben rechts */}
+      {/* Sidecar Panel - slide in from right */}
       <div
         className="fixed top-0 right-0 h-full w-full md:w-1/2 bg-brand-cream shadow-2xl z-50 flex flex-col"
         style={{
-          // Diagonal animation von oben rechts nach unten links
-          transform: isOpen
-            ? 'translate(0, 0)'
-            : 'translate(100%, -100%)',
-          transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-          transformOrigin: 'top right'
+          // Slide-in-from-right animation (no diagonal)
+          transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
+          transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       >
         {/* Header */}

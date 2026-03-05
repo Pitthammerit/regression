@@ -36,6 +36,15 @@ html {
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /* Radix UI Navigation Menu Animations */
 @keyframes enterFromRight {
   from {
