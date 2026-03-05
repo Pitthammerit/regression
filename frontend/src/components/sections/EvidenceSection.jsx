@@ -187,7 +187,7 @@ export default function EvidenceSection() {
               <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
                 {/* Photo - Left column */}
                 <div className="md:max-w-[240px]">
-                  {resource.portrait ? (
+                  {resource.portrait && resource.portrait.trim() !== '' ? (
                     <LazyImage
                       src={resource.portrait}
                       alt={resource.name}

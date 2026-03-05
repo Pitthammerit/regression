@@ -413,7 +413,7 @@ Seit 2021 hat die Editorialbeschlossen, den Zugang zu allen Artikeln zu gewähre
       authors: "Brian Weiss MD",
       url: "https://brianweiss.com/books/many-lives-many-masters",
       role: "brianweiss.com",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/books/many-lives-many-masters.jpg",
+      portrait: "",
       description: `Der internationale Bestseller, der Regressionstherapie der Welt öffnete. Brian Weiss dokumentiert seine transformative Arbeit mit Catherine, einer Patientin die unter Hypnose plötzlich von Details aus vergangenen Leben berichtete – Informationen, die sich historisch verifizieren ließen.
 
 Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen klinischen Arbeit mit tausenden Patienten. Viele Lives, Many Masters wurde zu einem der einflussreichsten Bücher der spirituellen Psychologie und machte Regressionstherapie einem breiten Publikum zugänglich.`,
