@@ -34,9 +34,9 @@ export default function EvidenceSection() {
 
         {/* Featured Researcher */}
         {featuredAuthor && (
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16 mb-16 items-center">
-            {/* Photo - Left column */}
-            <div className="aspect-square max-w-[320px] mx-auto md:mx-0 overflow-hidden rounded-lg">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16 items-center">
+            {/* Photo - Left column, 16:9 */}
+            <div className="aspect-video max-w-[280px] mx-auto md:mx-0 overflow-hidden rounded-lg">
               <LazyImage
                 src={featuredAuthor.portrait}
                 alt={featuredAuthor.name}
@@ -46,8 +46,8 @@ export default function EvidenceSection() {
 
             {/* Text - Right column */}
             <div className="flex flex-col justify-center">
-              {/* Quote - large, full width */}
-              <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl italic leading-relaxed mb-6 text-white/90">
+              {/* Quote - large, max 3 lines */}
+              <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl italic leading-tight mb-4 text-white/90 line-clamp-3">
                 "{featuredAuthor.quote}"
               </blockquote>
 
