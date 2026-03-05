@@ -284,12 +284,12 @@ export const evidence = {
 // —————————————————————————————————————————————————————————
     {
       id: "ian-stevenson",
-      featured: true,
       name: "Ian Stevenson MD",
       role: "University of Virginia, DOPS",
       lifeDates: "*1918–2007",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg",
       quote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
+      featuredQuote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
       shortVersion: "Über 2.500 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. 290+ peer-reviewed Publikationen.",
       longVersion: `Ian Stevenson gilt als Begründer der wissenschaftlichen Reinkarnationsforschung. Über vier Jahrzehnte hinweg untersuchte er systematisch über 2.500 Fälle von Kindern, die spontane Erinnerungen an vergangene Leben berichteten. Seine Arbeit zeichnet sich durch strenge wissenschaftliche Methodik aus: Jeder Fall wurde vor Ort dokumentiert, Erinnerungen mit historischen Fakten verglichen und alternative Erklärungen ausgeschlossen.
 
@@ -310,6 +310,7 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
       lifeDates: "*1950–heute",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Jim_Tucker.jpg",
       quote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
+      featuredQuote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
       shortVersion: "Quantitative Auswertung von 799 Fällen. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen WWII-Piloten — gilt als einer der bestdokumentierten weltweit.",
       longVersion: `Jim Tucker ist Stevensons direkter Nachfolger am University of Virginia's Division of Perceptual Studies (DOPS). Seine Arbeit konzentriert sich auf amerikanische Fälle von Kindern mit reincarnation memories. In seinem Buch "Life Before Life" präsentiert er eine quantitative Analyse von 799 Fällen, die starke Muster aufzeigen: Die meisten Kinder beginnen im Alter von zwei bis drei Jahren über frühere Leben zu sprechen und hören meist zwischen fünf und sieben Jahren auf.
 
@@ -325,11 +326,13 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
 // —————————————————————————————————————————————————————————
     {
       id: "brian-weiss",
+      featured: true,
       name: "Brian Weiss MD",
       role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
       lifeDates: "*1944–2024",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
       quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
+      featuredQuote: "Through past-life regression, it's possible to heal — and grow — your mind, body and soul, as well as strengthen your present-day relationships. Many phobias and ailments are rooted in past-life experiences whose acknowledgement by the patient can have a curative effect.",
       shortVersion: "'Many Lives Many Masters' (1988) — klinische Falldokumentation über Jahrzehnte. Skeptische Haltung veränderte sich durch eine Patientin, die unter Hypnose frühere Leben beschrieb.",
       longVersion: `Brian Weiss war ein hochangesehener Psychiater und Chefarzt am Mount Sinai Medical Center in Miami, als ihn ein Fall im Jahr 1980 gründlich verändern sollte. Catherine, eine Patientin mit schweren Ängsten und Phobien, sprach unter Hypnose plötzlich von Details aus vergangenen Leben — Informationen, die sich historisch verifizieren ließen.
 
@@ -350,6 +353,7 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
       lifeDates: "*1944–2011",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
       quote: "The body never lies about what the soul has carried across lifetimes.",
+      featuredQuote: "The body never lies about what the soul has carried across lifetimes.",
       shortVersion: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",
       longVersion: `Roger Woolger war ein Jungian Analyst und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
 Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian Western Mysticism und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.

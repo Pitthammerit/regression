@@ -51,7 +51,7 @@ export default function EvidenceSection() {
             <div className="flex flex-col">
               {/* Quote - Top of right column */}
               <blockquote className="font-serif text-[38px] md:text-[44px] italic leading-tight text-white/90 mb-6">
-                "{featuredAuthor.quote}"
+                "{featuredAuthor.featuredQuote}"
               </blockquote>
 
               {/* Name + Title - Below quote */}
