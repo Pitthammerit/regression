@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import { evidence } from '../../content/plr-de'
 import LazyImage from '../ui/LazyImage'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, BookOpen } from 'lucide-react'
 
 export default function EvidenceSection() {
   const authors = evidence.authors
@@ -194,9 +194,11 @@ export default function EvidenceSection() {
                       className="w-full h-auto rounded-lg"
                     />
                   ) : (
-                    <div className="w-full h-48 border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
-                      <span className="text-white/30 text-sm">No Image</span>
-                    </div>
+                    <AspectRatio ratio={3 / 4}>
+                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
+                        <BookOpen className="w-12 h-12 text-white/30" />
+                      </div>
+                    </AspectRatio>
                   )}
                 </div>
 
