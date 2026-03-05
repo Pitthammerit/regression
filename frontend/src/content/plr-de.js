@@ -278,6 +278,31 @@ export const evidence = {
     readMore: "Mehr lesen",
     readLess: "Weniger lesen",
   },
+  // portraitFocus options for author images:
+  // - "center"      (default, centered horizontally and vertically)
+  // - "top"         (centered horizontally, aligned to top)
+  // - "bottom"      (centered horizontally, aligned to bottom)
+  // - "left"        (aligned to left, centered vertically)
+  // - "right"       (aligned to right, centered vertically)
+  // - "top-left"    (aligned to top-left corner)
+  // - "top-right"   (aligned to top-right corner)
+  // - "bottom-left" (aligned to bottom-left corner)
+  // - "bottom-right" (aligned to bottom-right corner)
+  //
+  // Author data structure:
+  // - id:            unique identifier (e.g., "brian-weiss")
+  // - featured:      boolean, shows author in Featured Researcher section
+  // - name:          display name
+  // - role:          job title / affiliation
+  // - lifeDates:     birth/death years (e.g., "*1944–2024")
+  // - portrait:      R2 image URL
+  // - portraitFocus: image focus position (see options above)
+  // - quote:         general quote (for potential future use)
+  // - featuredQuote: quote displayed in Featured Researcher section
+  // - shortVersion:  brief description for accordion preview
+  // - longVersion:   full description when expanded
+  // - sourceLabel:   link text for source (e.g., "Quelle")
+  // - sourceUrl:     URL for source link
   authors: [
 // —————————————————————————————————————————————————————————
 // Author: Ian Stevenson //
@@ -288,6 +313,7 @@ export const evidence = {
       role: "University of Virginia, DOPS",
       lifeDates: "*1918–2007",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg",
+      portraitFocus: "center",
       quote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
       featuredQuote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
       shortVersion: "Über 2.500 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. 290+ peer-reviewed Publikationen.",
@@ -309,6 +335,7 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
       role: "Nachfolger Stevensons, UVA",
       lifeDates: "*1950–heute",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Jim_Tucker.jpg",
+      portraitFocus: "center",
       quote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
       featuredQuote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
       shortVersion: "Quantitative Auswertung von 799 Fällen. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen WWII-Piloten — gilt als einer der bestdokumentierten weltweit.",
@@ -331,6 +358,7 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
       role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
       lifeDates: "*1944–2024",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
+      portraitFocus: "top",
       quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
       featuredQuote: "Through past-life regression, it's possible to heal — and grow — your mind, body and soul, as well as strengthen your present-day relationships.",
       shortVersion: "'Many Lives Many Masters' (1988) — klinische Falldokumentation über Jahrzehnte. Skeptische Haltung veränderte sich durch eine Patientin, die unter Hypnose frühere Leben beschrieb.",
@@ -352,6 +380,7 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
       role: "Jungian Analytiker, Regressionstherapeut, Lehrer",
       lifeDates: "*1944–2011",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
+      portraitFocus: "center",
       quote: "The body never lies about what the soul has carried across lifetimes.",
       featuredQuote: "The body never lies about what the soul has carried across lifetimes.",
       shortVersion: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",

@@ -26,6 +26,7 @@ export default function LazyImage({
   alt = '',
   className = '',
   style = {},
+  objectPosition = 'center',
   fallback = null,
   sizes = '(max-width: 768px) 100vw, 50vw',
   ...props
@@ -43,7 +44,7 @@ export default function LazyImage({
       loading="lazy"
       decoding="async"
       className={`transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'} ${className}`}
-      style={style}
+      style={{ ...style, objectPosition }}
       onLoad={() => setLoaded(true)}
       onError={() => setError(true)}
       {...props}

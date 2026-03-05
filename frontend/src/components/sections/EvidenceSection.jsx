@@ -13,6 +13,22 @@ export default function EvidenceSection() {
     setExpandedId(expandedId === id ? null : id)
   }
 
+  // Map portraitFocus presets to CSS object-position values
+  const getPortraitPosition = (focus) => {
+    const focusMap = {
+      center: 'center',
+      top: 'center top',
+      bottom: 'center bottom',
+      left: 'left center',
+      right: 'right center',
+      'top-left': 'left top',
+      'top-right': 'right top',
+      'bottom-left': 'left bottom',
+      'bottom-right': 'right bottom',
+    }
+    return focusMap[focus] || 'center'
+  }
+
   return (
     <section
       id="science"
@@ -43,6 +59,7 @@ export default function EvidenceSection() {
                   src={featuredAuthor.portrait}
                   alt={featuredAuthor.name}
                   className="w-full h-full object-cover rounded-lg"
+                  objectPosition={getPortraitPosition(featuredAuthor.portraitFocus)}
                 />
               </AspectRatio>
             </div>
@@ -84,6 +101,7 @@ export default function EvidenceSection() {
                       src={author.portrait}
                       alt={author.name}
                       className="w-full h-full object-cover rounded-lg"
+                      objectPosition={getPortraitPosition(author.portraitFocus)}
                     />
                   </AspectRatio>
                 </div>
