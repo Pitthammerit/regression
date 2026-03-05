@@ -136,7 +136,7 @@ export default function EvidenceSection() {
             {/* Row 2: Expanded content (full width) */}
             {expandedId === author.id && (
               <>
-                <div className="mt-8 pt-8 md:col-span-2">
+                <div className="mt-4 pt-8 md:col-span-2">
                   <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
                     {author.longVersion}
                   </p>
