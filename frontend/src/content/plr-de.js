@@ -5,7 +5,7 @@
 export const meta = {
   title: "Seelenrückführung & Regression Sessions — Benjamin Kurtz",
   description:
-    "Past Life Regression Sessions mit Benjamin Kurtz. Hypnose, Seelenarbeit und Energiearbeit — online und oder vor Ort.",
+    "Past Life Regression Sessions mit Benjamin Kurtz. Hypnose, Seelenarbeit und Energiearbeit — online oder vor Ort.",
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -47,7 +47,7 @@ export const services = {
     { label: "Hypnose", sub: "Tiefenentspannung & Trancezustand" },
     { label: "Energiearbeit", sub: "Spirituelle Integration" },
   ],
-  location: "online & bei dir",
+  location: "online & vor Ort",
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -58,7 +58,7 @@ export const welcome = {
     "Hi, schön, dass du hier bist.",
     "Hier erfährst du, was Past Life Regression Sessions sind, wie sie dir helfen können, und was wirklich in einer Session passiert.",
     "Außerdem findest hier Podcast-Episoden, wissenschaftliche Hintergründe und die Möglichkeit, in einem Intro-Call direkt mit mir in Kontakt zu treten.",
-    "Viel Freude.",
+    "Ich freu mich von dir zu hören. Viel Freude.",
   ],
   author: "Benjamin Kurtz",
   imageUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/2%20s%20350px.png",
@@ -70,9 +70,9 @@ export const welcome = {
 // ═══════════════════════════════════════════════════════════
 export const statement = {
   lines: [
-    "Es gibt Erfahrungen, die sich mit fünf Sinnen nicht erklären lassen.",
-    "Erinnerungen, die nicht aus diesem Leben stammen.",
-    "Muster, die älter sind als du.",
+    "Es gibt Erfahrungen, die sich alleine mit fünf Sinnen nicht erklären lassen.",
+    "Erinnerungen, die nicht nur aus diesem Leben stammen.",
+    "Muster, die älter sind dein heutiges Ich.",
   ],
 };
 
@@ -81,11 +81,12 @@ export const statement = {
 // ═══════════════════════════════════════════════════════════
 export const whatIs = {
   label: "REGRESSION SESSIONS",
-  headline: "Zurück zu dem, was sich nicht erklären lässt",
+  headline: "Jenseits von dem, was unser Verstand versteht.",
   body: [
-    "Regression bedeutet, zurückzugehen — zu früheren Erfahrungen, zu älteren Erinnerungen. Um zu verstehen, warum du heute so reagierst, wie du reagierst. Warum bestimmte Muster sich immer wiederholen. Warum manche Themen sich anfühlen, als wären sie größer als dieses Leben.",
-    "Eine Seelenrückführung geht weiter. Stell dir einen Filmstreifen vor: Jedes einzelne Bild ist ein Leben — von Geburt bis Tod. Wenn du ihn nah heranziehst, bist du mittendrin. Wenn du ihn zurückziehst, siehst du unzählige Bilder nebeneinander. Jenseits von linearer Zeit. Jenseits von dem, was wir mit unserem Verstand greifen können.",
-    "In der Hypnose — einem tiefen Entspannungszustand, in dem du jederzeit die vollständige Kontrolle behältst — können wir diesen Strom zugänglich machen. Was dir dann begegnet, ist immer genau das, was du in diesem Moment brauchst.",
+    "Regression, lateinisch regressus = Rückschritt/e, bedeutet, zurückzugehen zu früheren Erfahrungen, zu älteren Erinnerungen. Um zu verstehen, warum du heute so reagierst, wie du re-agierst. Warum bestimmte Muster sich immer wiederholen. Warum manche Themen sich anfühlen, als wären kennst du sie schon länger als dieses Menschenleben.",
+    "Eine Seelenrückführung geht weiter. Es kann Fragen beantworten, warum dir manche Menschen so bekannt vor kommen, obwohl du sie erst gerade kennengelernt hast. Warum dir bestimmte Gaben einfach liegen oder Themen brennend interessieren."
+    "Stell dir einen Filmstreifen vor: Jedes einzelne Bild ist ein Leben — von Geburt bis Tod. Wenn du ihn nah heranziehst, bist du mittendrin. Wenn du ihn zurückziehst, siehst du unzählige Bilder hintereinander. Das ist etws so wie wir lineare Erlebnisse, erinnern. Manche Menschen erleben und erinnern Seelenleben aber parallel. Da heißt, jenseits von dem, was wir mit unserem Verstand greifen können.",
+    "In einem tiefen Entspannungszustand, in dem du jederzeit die vollständige Kontrolle behältst — können wir diesen Strom an Bilder und Leben zugänglich machen. Was dir dann begegnet, ist immer genau das, was du in diesem Moment brauchst."
   ],
   skepticToggleLabel: "Was sagt die Forschung?",
   skepticContent: [
