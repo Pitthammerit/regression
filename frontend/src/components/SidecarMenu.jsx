@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { ChevronRight } from 'lucide-react'
 import { menu } from '../content/menu'
 import CtaButton from './ui/CtaButton'
@@ -6,39 +6,66 @@ import BurgerButton from './ui/BurgerButton'
 
 export default function SidecarMenu({ isOpen, onClose }) {
   const [expandedCategory, setExpandedCategory] = useState(null)
+  const [isClosing, setIsClosing] = useState(false)
+  const closeTimeoutRef = useRef(null)
+
+  // Handle close with animation
+  const handleClose = () => {
+    setIsClosing(true)
+    // Wait for animation to complete, then actually close
+    closeTimeoutRef.current = setTimeout(() => {
+      onClose()
+      setIsClosing(false)
+    }, 500) // Match animation duration
+  }
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current)
+      }
+    }
+  }, [])
 
   const toggleCategory = (id) => {
     setExpandedCategory(expandedCategory === id ? null : id)
   }
 
   const handleNavClick = (anchor) => {
-    onClose()
+    handleClose() // Animate close
     const el = document.querySelector(anchor)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
-  if (!isOpen) return null
+  if (!isOpen && !isClosing) return null
 
   return (
     <>
-      {/* Backdrop with blur - fade in */}
+      {/* Backdrop with blur */}
       <div
         className="fixed inset-0 bg-black/20 z-40 backdrop-blur-md"
-        onClick={onClose}
-        style={{ animation: 'fadeIn 0.3s ease-out' }}
+        onClick={handleClose}
+        style={{
+          animation: isClosing ? 'fadeOut 0.3s ease-out forwards' : 'fadeIn 0.3s ease-out forwards'
+        }}
       />
 
-      {/* Sidecar Panel - slide in from right with CSS animation */}
+      {/* Sidecar Panel - slide in/out animation */}
       <div
         className="fixed top-0 right-0 h-full w-full md:w-1/2 bg-brand-cream shadow-2xl z-50 flex flex-col"
-        style={{ animation: 'slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards' }}
+        style={{
+          animation: isClosing
+            ? 'slideOutToRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards'
+            : 'slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards'
+        }}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-8 pt-8 pb-6 border-b border-black/8">
           <h2 className="font-serif text-2xl text-brand-deep leading-tight">
             Menü
           </h2>
-          <BurgerButton isOpen={true} onClick={onClose} />
+          <BurgerButton isOpen={true} onClick={handleClose} />
         </div>
 
         {/* Navigation - Accordion */}
@@ -108,6 +135,10 @@ export default function SidecarMenu({ isOpen, onClose }) {
           from { opacity: 0; }
           to { opacity: 1; }
         }
+        @keyframes fadeOut {
+          from { opacity: 1; }
+          to { opacity: 0; }
+        }
         @keyframes slideDown {
           from { opacity: 0; transform: translateY(-10px); }
           to { opacity: 1; transform: translateY(0); }
@@ -115,6 +146,10 @@ export default function SidecarMenu({ isOpen, onClose }) {
         @keyframes slideInFromRight {
           from { transform: translateX(100%); }
           to { transform: translateX(0); }
+        }
+        @keyframes slideOutToRight {
+          from { transform: translateX(0); }
+          to { transform: translateX(100%); }
         }
       `}</style>
     </>
