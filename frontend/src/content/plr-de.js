@@ -276,6 +276,9 @@ export const evidence = {
     readLess: "Weniger lesen",
   },
   authors: [
+// —————————————————————————————————————————————————————————
+// Author: Ian Stevenson //
+// —————————————————————————————————————————————————————————
     {
       id: "ian-stevenson",
       name: "Ian Stevenson MD",
@@ -293,6 +296,9 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
       sourceLabel: "Quelle",
       sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
     },
+// —————————————————————————————————————————————————————————
+// Author: Jim Tucker //
+// —————————————————————————————————————————————————————————
     {
       id: "jim-tucker",
       name: "Jim Tucker MD",
