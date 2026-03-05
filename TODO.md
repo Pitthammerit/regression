@@ -1,12 +1,61 @@
 # TODO
 
-Updated: 2026-03-05 10:45
+Updated: 2026-03-05 18:45
 
 **Wichtig:** TODO.md wird bei jedem git push automatisch durch GitHub Action aktualisiert. **Single Source of Truth** für alle offenen Tasks.
 
 ---
 
+## 🔴 High Priority
+
+### Menu & Navigation
+- [ ] Alle Sections IDs mit Menu Anchors abgleichen
+- [ ] Smooth Scroll für alle Menu-Links testen
+
+---
+
+## 🟡 Medium Priority
+
+### i18n Foundation (SPÄTER — wenn alle Sections fertig)
+- [ ] Create `frontend/src/content/plr-en.js`
+- [ ] Create `frontend/src/content/index.js` with `getContent(lang)` export
+- [ ] Add `useContent()` hook
+- [ ] Update components to use `useContent()` instead of direct imports
+
+### Resolve backend/ Folder Confusion
+- [ ] Either remove `backend/` folder
+- [ ] Or add clarifying note: "Not deployed. Frontend-only project right now."
+
+---
+
+## 🟢 Low Priority
+
+### CMS Admin (Ungeklärt)
+- [ ] Klären: Was soll das CMS Admin können?
+- [ ] Klären: Welche Inhalte sollen editierbar sein?
+- [ ] Klären: Soll ein eigenes Admin-Panel gebaut werden?
+
+### Textbausteine & Inspiration
+- [ ] "How to remember and heal your past lives" — mögliche Subline für Section
+- [ ] Weitere Text-Ideen sammeln
+
+### Add SPA Fallback for Deep Links
+- [ ] Create `frontend/public/_redirects` with: `/*    /index.html   200`
+
+### Type Safety (Optional)
+- [ ] Add PropTypes to key components
+- [ ] Consider TypeScript migration
+
+---
+
 ## ✅ Completed
+
+### Session 2026-03-05: Evidence & Podcast Data Structure (abgeschlossen)
+- [x] **Portrait URLs Fix:** Brian Weiss + Roger Woolger URLs korrigiert (`.r2` fehlte)
+- [x] **Books Resources:** 3 Bücher zu `evidence.resources` hinzugefügt (Many Lives Many Masters, Other Lives Other Selves, Life Before Life)
+- [x] **Podcasts Array:** `podcast` Objekt → `podcasts` Array umgewandelt (für zukünftige Episoden)
+- [x] Updated PodcastSection + PodcastVideoSection mit `podcasts[0]`
+- [x] **EvidenceSection Code Review:** Keine hartgecodeten Strings gefunden ✅
 
 ### Session 2026-03-05: Automatic TODO.md Sync System (abgeschlossen)
 - [x] Created `scripts/update-todo.js` - Parses commits and marks completed tasks
@@ -26,54 +75,6 @@ Updated: 2026-03-05 10:45
 - [x] Remove hardcoded portrait URLs from component
 - [x] Build successful ✅
 
-### CMS Admin (Ungeklärt)
-- [ ] Klären: Was soll das CMS Admin können?
-- [ ] Klären: Welche Inhalte sollen editierbar sein?
-- [ ] Klären: Soll ein eigenes Admin-Panel gebaut werden?
-
----
-
-## 🔴 High Priority
-
-### Menu & Navigation
-- [ ] Alle Sections IDs mit Menu Anchors abgleichen
-- [ ] Smooth Scroll für alle Menu-Links testen
-
-### Sprint 3: i18n Foundation (SPÄTER — wenn alle Sections fertig und deutsche Texte Release-reif)
-- [ ] Create `frontend/src/content/plr-en.js`
-- [ ] Create `frontend/src/content/index.js` with `getContent(lang)` export
-- [ ] Add `useContent()` hook
-- [ ] Update components to use `useContent()` instead of direct imports
-
----
-
-## 🟡 Medium Priority
-
-### Resolve backend/ Folder Confusion
-- [ ] Either remove `backend/` folder
-- [ ] Or add clarifying note: "Not deployed. Frontend-only project right now."
-
----
-
-## 🟢 Low Priority
-
-
-### Textbausteine & Inspiration (Sammeln für zukünftige Sections)
-- [ ] "How to remember and heal your past lives" — mögliche Subline für Section
-- [ ] Weitere Text-Ideen sammeln (dieser Bereich wird erweitert)
-
-### Add SPA Fallback for Deep Links
-- [ ] Create `frontend/public/_redirects` with: `/*    /index.html   200`
-- [ ] Enables deep links like `/transkript` to work on refresh
-
-### Phase 3: Type Safety (Optional)
-- [ ] Add PropTypes to key components
-- [ ] Consider TypeScript migration for larger refactors
-
----
-
-## ✅ Completed
-
 ### Session 2026-03-05: EvidenceSection Phase 1 + Menu Updates
 - [x] EvidenceSection: Akkordeon-Card für Roger Woolger (hardcoded)
 - [x] EvidenceSection: Mobile-Layout (16:9 Foto über Text, Name ÜBER Foto)
@@ -89,12 +90,6 @@ Updated: 2026-03-05 10:45
 - [x] Journal: Quellen-Link `https://regressionjournal.org`
 - [x] Content Layer: `sourceLabel` + `sourceUrl` Pattern
 - [x] Content Layer: `whitespace-pre-line` für Multi-line Text
-- [x] Git Workflow: GitHub Direct Edit mit Stash/Merge
-- [x] Syntax Fix: Fehlendes Komma in `whatIs.body`
-- [x] CLAUDE.md: Updated mit EvidenceSection Architecture (WIP)
-- [x] Session Summary: SESSION-2026-03-05.md erstellt
-- [x] Memory: .claude-memory.md für 6.6. erstellt
-- [x] TODO.md: Updated als single source of truth
 
 ### Sprint 2: Code Quality — Hardcoded Values Eliminated (2026-03-04)
 - [x] TranscriptPage.jsx: Replaced all inline styles with Tailwind classes
@@ -115,15 +110,6 @@ Updated: 2026-03-05 10:45
 - [x] Changed carousel dots to use Tailwind classes (brand-deep, brand-steel)
 - [x] Replaced hardcoded star color with text-amber-400
 - [x] CLAUDE.md updated: Added "No Hardcoding" principle
-
-### TranscriptPage: Separated UI from Content (2026-03-04)
-- [x] Created `frontend/src/content/transcripts/episode52.de.js` with transcript data
-- [x] Moved UI strings to `frontend/src/content/plr-de.js` (transcriptPage export)
-- [x] Simplified TranscriptPage to be a renderer component only
-
-### Clean Up Unused Section Variants (2026-03-04)
-- [x] Moved unused hero variants to `frontend/src/components/experiments/`
-- [x] Only production components in `sections/`
 
 ### Hardcoded Strings Cleanup (VERIFIED 2026-03-05)
 - [x] **Footer:** Alle Strings aus `footerContent` und `data` — SAUBER

@@ -192,6 +192,102 @@ export const TESTIMONIALS_LIST = [
 3. Commit and push
 4. Cloudflare deploys automatically
 
+### Dynamic Authorities (Phase 2 Complete)
+File: `frontend/src/content/plr-de.js` — `evidence.authors` array
+
+Users can add, remove, or reorder scientific authorities:
+```javascript
+export const evidence = {
+  authors: [
+    {
+      id: "ian-stevenson",
+      name: "Ian Stevenson MD",
+      role: "University of Virginia, DOPS",
+      lifeDates: "*1918–2007",
+      portrait: "https://...",
+      quote: "The evidence suggesting reincarnation is real...",
+      shortVersion: "Kurztext (2-3 Sätze)...",
+      longVersion: "Langtext...",
+      sourceLabel: "Quelle",
+      sourceUrl: "https://...",
+    },
+    // Add more here...
+  ]
+}
+```
+
+**Automatic behavior:**
+- EvidenceSection (upper tier): 4-column grid with portraits + English quotes
+- EvidenceSection (lower tier): Accordion cards with `shortVersion` + expandable `longVersion`
+- EvidenceQuotesSection: 3 researchers with portraits + quotes (filters for `portrait !== null`)
+- New authorities appear automatically in all sections
+
+**Field naming (March 2026):**
+- `lifeDates` (not `dates`) — for author lifetimes
+- `shortVersion` (not `shortQuote`) — for accordion preview text
+- `longVersion` — for expandable accordion content
+- `sourceLabel` + `sourceUrl` — for attribution links
+
+### Dynamic Resources (NEW — Phase 3)
+File: `frontend/src/content/plr-de.js` — `evidence.resources` array
+
+Users can add journals, books, audiobooks:
+```javascript
+export const evidence = {
+  resources: [
+    {
+      type: "journal",
+      name: "International Journal of Regression Therapy",
+      dates: "1986–heute",
+      url: "https://regressionjournal.org",
+      role: "regressionjournal.org",
+      portrait: "https://...",
+      description: "Das Journal ist...",
+      sourceLabel: "Quelle",
+      sourceUrl: "https://regressionjournal.org",
+    },
+    {
+      type: "book",
+      name: "Many Lives, Many Masters",
+      dates: "1988",
+      authors: "Brian Weiss MD",
+      url: "https://brianweiss.com/books/...",
+      role: "brianweiss.com",
+      portrait: "https://...",
+      description: "Der internationale Bestseller...",
+      sourceLabel: "Zum Buch",
+      sourceUrl: "https://brianweiss.com/books/...",
+    },
+    // Add more resources (journals, books, audiobooks)...
+  ]
+}
+```
+
+**Automatic behavior:**
+- EvidenceSection renders all resources with `resources.map()`
+- Each resource shows: portrait, name, dates, role, description, source link
+- Supports: `type: "journal" | "book" | "audiobook"` (extensible)
+
+### Dynamic Podcasts (NEW — Phase 3)
+File: `frontend/src/content/plr-de.js` — `podcasts` array
+
+Users can add podcast episodes:
+```javascript
+export const podcasts = [
+  {
+    id: "berggesundheit-052",
+    label: "IM PODCAST, FOLGE #52",
+    headline: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
+    // ... more fields
+  },
+  // Add more episodes...
+]
+```
+
+**Automatic behavior:**
+- PodcastSection and PodcastVideoSection use `podcasts[0]` for backwards compatibility
+- Future: `.map()` over array to show multiple episodes
+
 ### Dynamic Authorities (NEW — Phase 2)
 File: `frontend/src/content/plr-de.js` — `evidence.authorities` array
 
@@ -224,9 +320,82 @@ export const evidence = {
 - App.js structure
 - Tailwind config (colors should only be changed with developer assistance)
 
-## EvidenceSection Architecture (March 2026 — Phase 2 Complete)
+## EvidenceSection Architecture (March 2026 — Phase 3 Complete)
 
-**Current status:** Phase 2 implemented — all 4 authorities now render dynamically from `evidence.authorities` array.
+**Current status:** Phase 3 implemented — all content now dynamic (authors + resources).
+
+**Two Evidence Sections:**
+1. **EvidenceSection** (`id="science"`) — Main section with:
+   - Upper tier: 4-author portrait grid with English quotes
+   - Lower tier: Accordion cards with `shortVersion`/`longVersion`
+   - Bottom: Resources (journal + books)
+   
+2. **EvidenceQuotesSection** (`id="evidence-quotes"`) — Compact quotes section:
+   - 3 researchers with portraits (filters for `portrait !== null`)
+   - Dark background (`bg-brand-deep`)
+   - English quotes only
+
+**Content structure in `plr-de.js`:**
+```javascript
+export const evidence = {
+  authorBigLabel: "EVIDENZBASIERT",
+  authorHeadline: "Was die Forschung sagt",
+  accordion: {
+    readMore: "Mehr lesen",
+    readLess: "Weniger lesen",
+  },
+  authors: [
+    {
+      id: "ian-stevenson",
+      name: "Ian Stevenson MD",
+      role: "University of Virginia, DOPS",
+      lifeDates: "*1918–2007",
+      portrait: "https://...",
+      quote: "The evidence suggesting reincarnation is real...",
+      shortVersion: "Über 2.500 dokumentierte Kinderfälle...",
+      longVersion: "Ian Stevenson gilt als Begründer...",
+      sourceLabel: "Quelle",
+      sourceUrl: "https://...",
+    },
+    // ... 3 more authors (Jim Tucker, Brian Weiss, Roger Woolger)
+  ],
+  resources: [
+    {
+      type: "journal",
+      name: "International Journal of Regression Therapy",
+      dates: "1986–heute",
+      // ... journal fields
+    },
+    {
+      type: "book",
+      name: "Many Lives, Many Masters",
+      dates: "1988",
+      // ... book fields
+    },
+    // ... more resources (books, audiobooks)
+  ],
+}
+```
+
+**Implemented (Phase 2 — 2026-03-05):**
+- ✅ All 4 authorities render dynamically from `evidence.authors` array
+- ✅ `shortQuote` → `shortVersion` renamed for clarity
+- ✅ `quote` field added to Ian Stevenson and Jim Tucker (English quotes for upper tier)
+- ✅ `sourceLabel` + `sourceUrl` added to all authorities
+- ✅ Accordion strings moved to content layer (`evidence.accordion.readMore/readLess`)
+- ✅ Self-Service: Users can now add authorities by editing `plr-de.js`
+
+**Implemented (Phase 3 — 2026-03-05):**
+- ✅ `evidence.resources` array created (journal + books)
+- ✅ EvidenceSection renders resources with `resources.map()`
+- ✅ `podcasts` array created (extensible for future episodes)
+- ✅ PodcastSection/PodcastVideoSection updated to use `podcasts[0]`
+- ✅ Portrait URLs fixed (Brian Weiss + Roger Woolger)
+
+**Accordion state:** Uses `useState` with `expandedId` pattern — only one card expanded at a time
+**Responsive:** Mobile = photo above text, name above photo; Desktop = photo left, text right
+**Images:** Uses native `LazyImage` component with R2 CDN URLs
+**Section IDs:** `id="science"` (EvidenceSection), `id="evidence-quotes"` (EvidenceQuotesSection)
 
 **Implemented pattern:**
 - Upper tier: 4-column grid with portraits + English quotes (unchanged)

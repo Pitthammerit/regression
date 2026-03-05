@@ -34,18 +34,18 @@ jobs:
         continue-on-error: true
         run: |
           node scripts/update-todo.js
-        env:
-          TODO_CHANGED: ${{ job.status }}
+          # Check if TODO.md was modified
+          if git diff --name-only | grep -q "TODO.md"; then
+            echo "todo_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "todo_changed=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Commit updated TODO.md
-        if: steps.update-todo.outcome == 'success' && steps.update-todo.outputs.exit_code == '1'
+        if: steps.update-todo.outputs.todo_changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add TODO.md
-          if git diff --cached --quiet; then
-            echo "No TODO.md changes to commit."
-            exit 0
-          fi
           git commit -m "chore: sync TODO.md after main push"
           git push
