@@ -17,7 +17,7 @@ const ListItem = React.forwardRef(({ className, children, anchor, ...props }, re
           ref={ref}
           href={anchor}
           onClick={handleNavClick}
-          className={`block select-none rounded-md p-3 text-sm leading-none text-brand-body no-underline outline-none hover:bg-brand-cream hover:text-brand-deep transition-colors cursor-pointer ${className}`}
+          className={`block select-none rounded-md p-3 text-sm leading-none text-brand-body no-underline outline-none transition-colors hover:bg-brand-cream hover:text-brand-deep focus:shadow-[0_0_0_2px] focus:shadow-brand-deep/20 ${className}`}
           {...props}
         >
           {children}
@@ -52,13 +52,15 @@ export default function DesktopNav({ onSidecarOpen }) {
                   />
                 </NavigationMenu.Trigger>
 
-                <NavigationMenu.Content className="absolute left-0 top-0 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft md:w-auto">
-                  <ul className="one m-0 grid list-none gap-x-2.5 p-[22px] sm:w-[400px]">
+                <NavigationMenu.Content className="absolute left-0 top-0 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft">
+                  <ul className="m-0 grid list-none gap-x-2.5 p-[22px] w-[400px]">
                     {menu.items
                       .find(cat => cat.label === item.label)
                       ?.children.map((child) => (
                         <ListItem key={child.id} anchor={child.anchor}>
-                          {child.label}
+                          <div className="mb-1 font-medium leading-[1.2] text-brand-deep">
+                            {child.label}
+                          </div>
                         </ListItem>
                       ))}
                   </ul>

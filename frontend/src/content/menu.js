@@ -16,12 +16,12 @@ export const menu = {
     variant: "sidecar", // "fullscreen" | "hybrid" | "mega" | "sidecar"
 
     // Hauptkategorien für Inline-Nav (Desktop)
-    // hasSubmenu: true = mit Dropdown (nur Science, Erfahrungen)
+    // hasSubmenu: true = mit Dropdown (Regression, Science, Erfahrungen)
     mainNav: [
-      { label: "Regression", anchor: "#hero", hasSubmenu: false },
+      { label: "Regression", anchor: null, hasSubmenu: true },
       { label: "Science", anchor: null, hasSubmenu: true },
       { label: "Erfahrungen", anchor: null, hasSubmenu: true },
-      { label: "Über", anchor: "#ueber", hasSubmenu: false },
+      { label: "Über", anchor: null, hasSubmenu: true },
       { label: "FAQ", anchor: "#faq", hasSubmenu: false },
     ],
   },

@@ -20,19 +20,19 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop with blur */}
+      {/* Backdrop with blur - fade in */}
       <div
         className="fixed inset-0 bg-black/20 z-40 backdrop-blur-md"
         onClick={onClose}
+        style={{ animation: 'fadeIn 0.3s ease-out' }}
       />
 
-      {/* Sidecar Panel - slide in from right */}
+      {/* Sidecar Panel - slide in from right (slower, smooth) */}
       <div
         className="fixed top-0 right-0 h-full w-full md:w-1/2 bg-brand-cream shadow-2xl z-50 flex flex-col"
         style={{
-          // Slide-in-from-right animation (no diagonal)
           transform: isOpen ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       >
         {/* Header */}
@@ -76,9 +76,12 @@ export default function SidecarMenu({ isOpen, onClose }) {
                   )}
                 </button>
 
-                {/* Unterpunkte (Accordion) */}
+                {/* Unterpunkte (Accordion) - mit slideDown Animation */}
                 {item.children && expandedCategory === item.id && (
-                  <div className="pl-4 pt-1 pb-3 space-y-1">
+                  <div
+                    className="pl-4 pt-1 pb-3 space-y-1"
+                    style={{ animation: 'slideDown 0.3s ease-out' }}
+                  >
                     {item.children.map((child) => (
                       <button
                         key={child.id}
@@ -107,6 +110,17 @@ export default function SidecarMenu({ isOpen, onClose }) {
           />
         </div>
       </div>
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </>
   )
 }
