@@ -427,7 +427,7 @@ Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen kl
       authors: "Roger Woolger PhD",
       url: "https://www.amazon.com/Other-Lives-Selves-Roger-Woolger/dp/0140193346",
       role: "Amazon · Barnes & Noble",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/books/other-lives-other-selves.jpg",
+      portrait: "",
       description: `Eines der einflussreichsten Werke der Regressionstherapie. Roger Woolger präsentiert eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie und schamanischen Perspektiven.
 
 Das Buch zeigt, wie Regressionstherapie als Werkzeug dienen kann, um aktuelle Lebensprobleme durch das Verständnis früherer Leben zu lösen. Woolger integriert westliche Psychologie mit östlichen spirituellen Traditionen und schafft so einen umfassenden Ansatz für Seelenarbeit.`,
@@ -441,7 +441,7 @@ Das Buch zeigt, wie Regressionstherapie als Werkzeug dienen kann, um aktuelle Le
       authors: "Jim Tucker MD",
       url: "https://www.amazon.com/Life-Before-Children-Remember-Previous/dp/0312321376",
       role: "St. Martin's Press",
-      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/books/life-before-life.jpg",
+      portrait: "",
       description: `Jim Tucker präsentiert eine quantitative Analyse von 799 Fällen von Kindern mit Erinnerungen an frühere Leben. Das Buch zeigt, dass diese Fälle nicht kulturell begrenzt sind – sie finden weltweit, unabhängig von religiösem Hintergrund oder Elternhaus statt.
 
 Life Before Life ist einer der wichtigsten Beiträge zur wissenschaftlichen Reinkarnationsforschung. Tucker zeigt, dass die Muster in diesen Fällen starke Hinweise auf die Existenz früherer Leben liefern – eine faszinierende Lektüre für Skeptiker und Gläubige gleichermaßen.`,
