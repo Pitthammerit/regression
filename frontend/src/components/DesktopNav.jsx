@@ -52,7 +52,8 @@ export default function DesktopNav({ onSidecarOpen }) {
                   />
                 </NavigationMenu.Trigger>
 
-                <NavigationMenu.Content className="absolute left-0 top-0 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft">
+                {/* Content mit Advanced Animation */}
+                <NavigationMenu.Content className="NavigationMenuContent">
                   <ul className="m-0 grid list-none gap-x-2.5 p-[22px] w-[400px]">
                     {menu.items
                       .find(cat => cat.label === item.label)
@@ -88,9 +89,9 @@ export default function DesktopNav({ onSidecarOpen }) {
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
-      {/* Viewport mit Perspective */}
+      {/* Viewport mit Advanced Animation */}
       <div className="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
-        <NavigationMenu.Viewport className="relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-md bg-white shadow-[0_2px_10px] shadow-black/10 transition-[width,_height] duration-300 data-[state=closed]:animate-scaleOut data-[state=open]:animate-scaleIn sm:w-[var(--radix-navigation-menu-viewport-width)]" />
+        <NavigationMenu.Viewport className="NavigationMenuViewport" />
       </div>
     </NavigationMenu.Root>
   )

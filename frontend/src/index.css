@@ -126,6 +126,44 @@ html {
   --radix-navigation-menu-viewport-width: var(--radix-navigation-menu-trigger-width, 400px);
 }
 
+/* Radix UI Navigation Menu - Advanced Animation */
+.NavigationMenuContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+}
+
+.NavigationMenuContent[data-motion="from-start"] {
+  animation-name: enterFromLeft;
+}
+
+.NavigationMenuContent[data-motion="from-end"] {
+  animation-name: enterFromRight;
+}
+
+.NavigationMenuContent[data-motion="to-start"] {
+  animation-name: exitToLeft;
+}
+
+.NavigationMenuContent[data-motion="to-end"] {
+  animation-name: exitToRight;
+}
+
+.NavigationMenuViewport {
+  position: relative;
+  width: var(--radix-navigation-menu-viewport-width);
+  height: var(--radix-navigation-menu-viewport-height);
+  margin-top: 10px;
+  transform-origin: var(--radix-navigation-menu-viewport-transform-origin);
+  transition: width 250ms ease, height 250ms ease;
+  overflow: hidden;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Process section background numbers — responsive scaling */
 .process-bg-number {
   font-size: clamp(21rem, 40vw, 28rem);
