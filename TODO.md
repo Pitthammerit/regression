@@ -1,75 +1,124 @@
 # TODO
 
-Updated: 2026-03-04
+Updated: 2026-03-05 01:49
 
-## High Priority
+**Wichtig:** TODO.md wird bei jedem git push aktualisiert.
 
-### Sprint 3: i18n Foundation (Next)
-- Create `frontend/src/content/plr-en.js`
-- Create `frontend/src/content/index.js` with `getContent(lang)` export
-- Add `useContent()` hook
-- Update components to use `useContent()` instead of direct imports
+---
+
+## 🔵 In Arbeit
+
+### EvidenceSection — Phase 2 (Current Focus)
+- [ ] Add `sourceUrl` and `sourceLabel` to Ian Stevenson, Brian Weiss, Jim Tucker
+- [ ] Replace hardcoded Roger card with dynamic `.map()` over `authorities` array
+- [ ] Ensure `shortVersion` exists for all authorities
+- [ ] Test responsive layout for all 4 authority cards
+
+### CMS Admin (Ungeklärt)
+- [ ] Klären: Was soll das CMS Admin können?
+- [ ] Klären: Welche Inhalte sollen editierbar sein?
+- [ ] Klären: Soll ein eigenes Admin-Panel gebaut werden?
+
+---
+
+## 🔴 High Priority
+
+### EvidenceSection — User Feedback
+- [ ] User-Feedback zu Phase 1 Akkordeon-Layout einholen
+- [ ] Mobile-Layout testen (Foto über Text, Name ÜBER Foto)
+- [ ] Desktop-Layout testen (Foto links, Text rechts)
+- [ ] Akkordeon-Animation testen
+
+### Menu & Navigation
+- [ ] Alle Sections IDs mit Menu Anchors abgleichen
+- [ ] Smooth Scroll für alle Menu-Links testen
+
+### Sprint 3: i18n Foundation
+- [ ] Create `frontend/src/content/plr-en.js`
+- [ ] Create `frontend/src/content/index.js` with `getContent(lang)` export
+- [ ] Add `useContent()` hook
+- [ ] Update components to use `useContent()` instead of direct imports
 
 ### Phase 2: Remove Remaining Hardcoded Strings
-- Footer: Extract hardcoded German strings to content layer
-- Check other components for hardcoded strings
-- Ensure all user-facing text is in plr-de.js
+- [ ] **Footer:** Extract hardcoded German strings to content layer (siehe CLAUDE.md Known Issues)
+- [ ] Check other components for hardcoded strings
+- [ ] Ensure all user-facing text is in plr-de.js
 
-### Phase 3: Type Safety (Optional)
-- Add PropTypes to key components
-- Consider TypeScript migration for larger refactors
+---
 
-## Medium Priority
+## 🟡 Medium Priority
 
 ### Clean Up Unused Section Variants
-- Move unused hero variants to `frontend/src/experiments/`:
-  - `HeroAlt1.jsx`, `HeroAlt2.jsx`, `HeroAlt3.jsx`, `HeroV2Section.jsx`
-- Keep only production components in `sections/`
+- [ ] Move unused hero variants to `frontend/src/experiments/`
+- [ ] Keep only production components in `sections/`
 
 ### Resolve backend/ Folder Confusion
-- Either remove `backend/` folder
-- Or add clarifying note: "Not deployed. Frontend-only project right now."
+- [ ] Either remove `backend/` folder
+- [ ] Or add clarifying note: "Not deployed. Frontend-only project right now."
 
-## Low Priority
+### TranscriptPage Cleanup
+- [ ] Extract remaining transcript content to `frontend/src/content/transcripts/`
+- [ ] Simplify component to be renderer only
+
+---
+
+## 🟢 Low Priority
 
 ### Add SPA Fallback for Deep Links
-- Create `frontend/public/_redirects` with: `/*    /index.html   200`
-- Enables deep links like `/transkript` to work on refresh
-- Currently intentionally disabled (add if needed)
+- [ ] Create `frontend/public/_redirects` with: `/*    /index.html   200`
+- [ ] Enables deep links like `/transkript` to work on refresh
 
-## Completed
+### Phase 3: Type Safety (Optional)
+- [ ] Add PropTypes to key components
+- [ ] Consider TypeScript migration for larger refactors
+
+---
+
+## ✅ Completed
+
+### Session 2026-03-05: EvidenceSection Phase 1 + Menu Updates
+- [x] EvidenceSection: Akkordeon-Card für Roger Woolger (hardcoded)
+- [x] EvidenceSection: Mobile-Layout (16:9 Foto über Text, Name ÜBER Foto)
+- [x] EvidenceSection: Desktop-Layout (2:3 Foto links, Text rechts)
+- [x] EvidenceSection: "Mehr lesen" / "Weniger lesen" Toggle mit Chevron-Icon
+- [x] EvidenceSection: Aufklapp-Bereich mit Langtext + Quellen-Link
+- [x] Menu: "Was ist das?" → "Regression"
+- [x] Menu: Neu — "Science" mit `#science` Anchor
+- [x] EvidenceSection: ID `evidence` → `science`
+- [x] Journal: Neues Bild `paste-1772670904056.png` mit orig. Aspect Ratio
+- [x] Journal: Titel → "International Journal of Regression Therapy"
+- [x] Journal: Erweiterte Beschreibung (seit 1986, EARTh, Open Access 2021)
+- [x] Journal: Quellen-Link `https://regressionjournal.org`
+- [x] Content Layer: `sourceLabel` + `sourceUrl` Pattern
+- [x] Content Layer: `whitespace-pre-line` für Multi-line Text
+- [x] Git Workflow: GitHub Direct Edit mit Stash/Merge
+- [x] Syntax Fix: Fehlendes Komma in `whatIs.body`
+- [x] CLAUDE.md: Updated mit EvidenceSection Architecture (WIP)
+- [x] Session Summary: SESSION-2026-03-05.md erstellt
+- [x] Memory: .claude-memory.md für 6.6. erstellt
+- [x] TODO.md: Updated mit aktuellem Stand
 
 ### Sprint 2: Code Quality — Hardcoded Values Eliminated (2026-03-04)
-- **TranscriptPage.jsx**: Replaced all inline styles with Tailwind classes
-  - Added transcript theme colors to tailwind.config.js
-  - Used conditional Tailwind classes for dark/light mode theming
-- **NotFound.jsx**: Replaced `bg-[#F0EBE1]` with `bg-brand-cream`
-  - Moved hardcoded strings to content layer (notFound export)
-- **App.js**: Replaced arbitrary `bg-[#F0EBE1]` with `bg-brand-cream`
-- **PodcastVideoSection.jsx**: Moved all hardcoded strings to content layer
-  - Created podcastVideo export in plr-de.js
-- **Footer.jsx**: Moved hardcoded logo URL to branding config
-  - Created `frontend/src/content/branding.js` with logo, favicon, ogImage
+- [x] TranscriptPage.jsx: Replaced all inline styles with Tailwind classes
+- [x] NotFound.jsx: Replaced `bg-[#F0EBE1]` with `bg-brand-cream`
+- [x] App.js: Replaced arbitrary `bg-[#F0EBE1]` with `bg-brand-cream`
+- [x] PodcastVideoSection.jsx: Moved all hardcoded strings to content layer
+- [x] Footer.jsx: Moved hardcoded logo URL to branding config
+- [x] Created `frontend/src/content/branding.js` with logo, favicon, ogImage
 
 ### Sprint 1: Config-Based Section System + Dynamic Testimonials (2026-03-04)
-- Created `frontend/src/config/sections.config.js` with SECTIONS_ORDER array
-- Updated App.js to use dynamic section rendering from config
-- Created `frontend/src/content/testimonials.list.js` with automatic numbering
-- Updated TestimonialsSection to use TESTIMONIALS_LIST dynamically
-- Updated TestimonialCarousel to use TESTIMONIALS_LIST with fallback
-- Sections can now be reordered by editing sections.config.js
-- Testimonials can be added/removed by editing testimonials.list.js
+- [x] Created `frontend/src/config/sections.config.js` with SECTIONS_ORDER array
+- [x] Updated App.js to use dynamic section rendering from config
+- [x] Created `frontend/src/content/testimonials.list.js` with automatic numbering
+- [x] Updated TestimonialsSection to use TESTIMONIALS_LIST dynamically
+- [x] Updated TestimonialCarousel to use TESTIMONIALS_LIST with fallback
 
 ### Sprint 0: TestimonialCarousel CI-Farben + No Hardcoding (2026-03-04)
-- Changed carousel dots to use Tailwind classes (brand-deep, brand-steel)
-- Replaced hardcoded star color with text-amber-400
-- CLAUDE.md updated: Added "No Hardcoding" principle
-- All inline styles replaced with Tailwind classes (except dynamic values)
+- [x] Changed carousel dots to use Tailwind classes (brand-deep, brand-steel)
+- [x] Replaced hardcoded star color with text-amber-400
+- [x] CLAUDE.md updated: Added "No Hardcoding" principle
 
 ### TranscriptPage: Separated UI from Content (2026-03-04)
-- Created `frontend/src/content/transcripts/episode52.de.js` with transcript data
-- Moved UI strings to `frontend/src/content/plr-de.js` (transcriptPage export)
-- Simplified TranscriptPage to be a renderer component only
-- Component now imports content from content layer instead of hardcoded data
-- Build test passed successfully
-- Token gate functionality preserved
+- [x] Created `frontend/src/content/transcripts/episode52.de.js` with transcript data
+- [x] Moved UI strings to `frontend/src/content/plr-de.js` (transcriptPage export)
+- [x] Simplified TranscriptPage to be a renderer component only
