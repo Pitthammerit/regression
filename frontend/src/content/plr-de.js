@@ -89,29 +89,6 @@ export const whatIs = {
     "Stell dir einen Filmstreifen vor: Jedes einzelne Bild ist ein Leben — von Geburt bis Tod. Wenn du ihn nah heranziehst, bist du mittendrin. Wenn du ihn zurückziehst, siehst du unzählige Bilder hintereinander. Das ist etws so wie wir lineare Erlebnisse, erinnern. Manche Menschen erleben und erinnern Seelenleben aber parallel. Da heißt, jenseits von dem, was wir mit unserem Verstand greifen können.",
     "In einem tiefen Entspannungszustand, in dem du jederzeit die vollständige Kontrolle behältst — können wir diesen Strom an Bilder und Leben zugänglich machen. Was dir dann begegnet, ist immer genau das, was du in diesem Moment brauchst.",
   ],
-  skepticToggleLabel: "Was sagt die Forschung?",
-  skepticContent: [
-    {
-      name: "Ian Stevenson MD",
-      role: "University of Virginia, DOPS",
-      text: "Über 2.500 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. 290+ peer-reviewed Publikationen.",
-    },
-    {
-      name: "Jim Tucker MD",
-      role: "Nachfolger Stevensons, UVA",
-      text: "Quantitative Auswertung von 799 Fällen. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen WWII-Piloten — gilt als einer der bestdokumentierten weltweit.",
-    },
-    {
-      name: "Brian Weiss MD",
-      role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
-      text: '"Many Lives Many Masters" (1988) — klinische Falldokumentation über Jahrzehnte, ausgelöst durch eine Patientin, die unter Hypnose frühere Leben beschrieb.',
-    },
-    {
-      name: "Journal of Regression Therapy",
-      role: "regressionjournal.org",
-      text: "Vollständig Open Access seit 2021. Alle Ausgaben seit 1986 frei zugänglich.",
-    },
-  ],
 };
 
 // ═══════════════════════════════════════════════════════════
