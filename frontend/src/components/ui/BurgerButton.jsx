@@ -9,9 +9,9 @@ export default function BurgerButton({ isOpen, onClick, className = '' }) {
   return (
     <button
       onClick={onClick}
-      className={`w-10 h-10 flex flex-col justify-center items-center gap-1.5 hover:bg-black/5 rounded-lg transition-colors relative z-[60] ${className}`}
+      className={`w-10 h-10 flex flex-col justify-center items-center gap-1.5 hover:bg-black/5 rounded-lg transition-colors ${className}`}
+      style={{ zIndex: 100, minWidth: '40px', minHeight: '40px' }}
       aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
-      style={{ minWidth: '40px', minHeight: '40px' }}
     >
       <span
         className="block w-6 h-0.5 bg-brand-deep transition-all duration-300 ease-in-out absolute"
