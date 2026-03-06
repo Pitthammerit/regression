@@ -48,12 +48,14 @@ export default function Header({ nav, cta }) {
             </a>
 
             {/* Desktop Nav + CTA (>=1024px) */}
-            <div className="hidden lg:flex items-center justify-center gap-8 xl:gap-12 flex-1">
+            <div className="hidden lg:flex items-center flex-1">
               {/* Radix UI Desktop Nav — zentriert */}
-              <DesktopNav shouldBlur={sidecarOpen} />
+              <div className="flex-1 flex justify-center">
+                <DesktopNav shouldBlur={sidecarOpen} />
+              </div>
 
-              {/* Desktop CTA — scroll-triggered */}
-              <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              {/* Desktop CTA — scroll-triggered, mit Abstand zum Burger */}
+              <div className={`transition-opacity duration-500 pr-32 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
               </div>
             </div>
