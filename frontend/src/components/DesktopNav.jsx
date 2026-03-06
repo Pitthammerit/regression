@@ -46,9 +46,10 @@ export default function DesktopNav({ onSidecarOpen }) {
       if (activeTrigger && rootRef.current) {
         const rootRect = rootRef.current.getBoundingClientRect()
         const triggerRect = activeTrigger.getBoundingClientRect()
+        // Berechne die linke Position des Triggers relativ zum Root
         const left = triggerRect.left - rootRect.left
         setViewportStyle({
-          transform: `translateX(${left}px)`,
+          left: `${left}px`,
         })
       }
     }
@@ -121,13 +122,10 @@ export default function DesktopNav({ onSidecarOpen }) {
       </NavigationMenu.List>
 
       {/* Viewport mit Advanced Animation und dynamischer Positionierung */}
-      <div className="perspective-[2000px] absolute left-0 right-0 top-full flex justify-center">
+      <div className="absolute left-0 right-0 top-full">
         <div
-          className="relative"
-          style={{
-            transition: 'transform 250ms ease',
-            ...viewportStyle
-          }}
+          className="perspective-[2000px] relative transition-left duration-[250ms] ease"
+          style={viewportStyle}
         >
           <NavigationMenu.Viewport className="NavigationMenuViewport" />
         </div>
