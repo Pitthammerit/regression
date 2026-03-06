@@ -2,6 +2,25 @@
 
 Updated: 2026-03-06
 
+---
+
+## 🔴 High Priority
+
+### FAQ Navigation Verification (NEU — bitte testen)
+- [ ] Desktop Nav: Klick auf "Regression vs. Past Life Regression?" → Öffnet erste Frage ✅
+- [ ] Desktop Nav: Klick auf "Muss ich an Reinkarnation glauben?" → Öffnet zweite Frage ✅
+- [ ] Sidecar: Klick auf FAQ-Fragen → Scrollt + öffnet Accordions ✅
+- [ ] "Mehr Antworten" von außerhalb FAQ → Scrollt zur Sektion, alle geschlossen ✅
+- [ ] "Mehr Antworten" innerhalb FAQ → Accordions schließen ✅
+- [ ] Wechsel zwischen Fragen (Frage 1 → Frage 2) → Beide funktionieren ✅
+- [ ] Keine Race Conditions mehr ✅
+
+### Menu & Navigation
+- [ ] Alle Sections IDs mit Menu Anchors abgleichen
+- [ ] Smooth Scroll für alle Menu-Links testen
+- [ ] Menu-Variante auswählen (V1, V2, oder V3 von MenuDemoPage)
+- [ ] Gewählte Menu-Variante in Header.jsx implementieren
+
 **Wichtig:** TODO.md wird bei jedem git push automatisch durch GitHub Action aktualisiert. **Single Source of Truth** für alle offenen Tasks.
 
 ---
@@ -78,6 +97,18 @@ Updated: 2026-03-06
 ---
 
 ## ✅ Completed
+
+### Session 2026-03-06: NavigationContext Refactoring (abgeschlossen)
+- [x] NavigationContext erstellt — Single Source of Truth für Navigation
+- [x] DesktopNav nutzt navigateTo() aus Context
+- [x] SidecarMenu nutzt navigateTo() aus Context
+- [x] FAQSection nutzt expandedFAQIndex aus Context
+- [x] useEffect mit hashchange Handler entfernt
+- [x] menuItems Array aus plr-de.js entfernt (nicht mehr benötigt)
+- [x] Keine Code-Duplizierung mehr (eine Funktion für beide Menüs)
+- [x] Keine Leftovers im Code (scan durchgeführt)
+- [x] Build erfolgreich ✅
+- [x] Deployt zu Cloudflare ✅
 
 ### Session 2026-03-06: FAQ Navigation Enhancement (abgeschlossen)
 - [x] FAQ menuItems array in plr-de.js erstellt (Top 4 Fragen)
