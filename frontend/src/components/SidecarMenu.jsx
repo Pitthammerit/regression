@@ -45,9 +45,9 @@ export default function SidecarMenu({ isOpen, onClose }) {
         }}
       />
 
-      {/* Sidecar Panel - slide in/out animation */}
+      {/* Sidecar Panel - slide in/out animation - schmaler wie Transcript */}
       <div
-        className="fixed top-0 right-0 h-full w-full md:w-1/2 bg-brand-cream shadow-2xl z-50 flex flex-col"
+        className="fixed top-0 right-0 h-full w-full md:w-[380px] bg-brand-cream shadow-2xl z-50 flex flex-col"
         style={{
           animation: isClosing
             ? 'slideOutToRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards'
@@ -62,7 +62,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
           <BurgerButton isOpen={true} onClick={handleClose} />
         </div>
 
-        {/* Navigation - Alle Kategorien immer aufgeklappt */}
+        {/* Navigation - Alle Kategorien immer aufgeklappt, kompaktere Abstände */}
         <nav className="flex-1 overflow-y-auto px-6 py-4">
           <div className="space-y-1">
             {menu.items.map((item) => (
@@ -71,16 +71,16 @@ export default function SidecarMenu({ isOpen, onClose }) {
                 {item.children ? (
                   // Kategorie mit Unterpunkten
                   <>
-                    <div className="font-serif text-xl text-brand-deep py-4">
+                    <div className="font-serif text-lg text-brand-deep py-2">
                       {item.label}
                     </div>
-                    {/* Unterpunkte - immer sichtbar */}
-                    <div className="pl-4 pb-4 space-y-1">
+                    {/* Unterpunkte - immer sichtbar, kompakter */}
+                    <div className="pl-4 pb-3 space-y-0.5">
                       {item.children.map((child) => (
                         <button
                           key={child.id}
                           onClick={() => handleNavClick(child.anchor)}
-                          className="block w-full text-left font-sans text-base text-brand-muted hover:text-brand-deep py-2 px-3 rounded-md hover:bg-black/5 transition-colors"
+                          className="block w-full text-left font-sans text-sm text-brand-muted hover:text-brand-deep py-1.5 px-3 rounded-md hover:bg-black/5 transition-colors"
                         >
                           {child.label}
                         </button>
@@ -91,7 +91,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
                   // Kategorie ohne Unterpunkte - direkt klickbar
                   <button
                     onClick={() => handleNavClick(item.anchor)}
-                    className="w-full text-left font-serif text-xl text-brand-deep hover:text-brand-steel py-4 transition-colors"
+                    className="w-full text-left font-serif text-lg text-brand-deep hover:text-brand-steel py-2 transition-colors"
                   >
                     {item.label}
                   </button>
