@@ -15,39 +15,39 @@ export function NavigationProvider({ children }) {
   const [expandedFAQIndex, setExpandedFAQIndex] = useState(null)
   const [sidecarOpen, setSidecarOpen] = useState(false)
   const [isBurgerClosing, setIsBurgerClosing] = useState(false)
-  // Backdrop visibility for synchronized blur animation (0.3s)
-  const [isBackdropVisible, setIsBackdropVisible] = useState(false)
 
   const navigateTo = useCallback((anchor) => {
     if (!anchor) return
 
     if (anchor.startsWith('#faq-')) {
-      // FAQ: Accordion öffnen + scrollen
+      // FAQ: Accordion öffnen + scrollen (verzögert für Sidecar Close Animation)
       const index = parseInt(anchor.replace('#faq-', ''), 10)
       if (!isNaN(index) && index >= 0) {
         setExpandedFAQIndex(index)
-        // Scroll nach kurzer Verzögerung (damit State update wirken kann)
+        // Scroll nach Sidecar Close (500ms)
         setTimeout(() => {
           const el = document.querySelector(anchor)
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        }, 50)
+        }, 500)
       }
     } else if (anchor === '#faq') {
-      // "Mehr Antworten": Accordions schließen + scrollen
+      // "Mehr Antworten": Accordions schließen + scrollen (verzögert für Sidecar Close)
       setExpandedFAQIndex(null)
       setTimeout(() => {
         const el = document.querySelector(anchor)
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 50)
+      }, 500)
     } else {
-      // Alle anderen: Nur scrollen
-      const el = document.querySelector(anchor)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+      // Alle anderen: Scroll nach Sidecar Close (500ms)
+      setTimeout(() => {
+        const el = document.querySelector(anchor)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }, 500)
     }
   }, [])
 
   return (
-    <NavigationContext.Provider value={{ navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen, isBurgerClosing, setIsBurgerClosing, isBackdropVisible, setIsBackdropVisible }}>
+    <NavigationContext.Provider value={{ navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen, isBurgerClosing, setIsBurgerClosing }}>
       {children}
     </NavigationContext.Provider>
   )
@@ -58,7 +58,7 @@ export function NavigationProvider({ children }) {
  *
  * Gibt Zugriff auf die Navigation-Funktionen, FAQ-Index und Sidecar State
  *
- * @returns {Object} { navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen, isBurgerClosing, setIsBurgerClosing, isBackdropVisible, setIsBackdropVisible }
+ * @returns {Object} { navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen, isBurgerClosing, setIsBurgerClosing }
  */
 export function useNavigation() {
   const context = useContext(NavigationContext)

@@ -7,7 +7,7 @@ import { menu } from '../content/menu'
 import { useNavigation } from '../contexts/NavigationContext'
 
 export default function Header({ nav, cta }) {
-  const { sidecarOpen, setSidecarOpen, isBackdropVisible } = useNavigation()
+  const { sidecarOpen, setSidecarOpen } = useNavigation()
   const [scrolled, setScrolled] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
 
@@ -26,7 +26,7 @@ export default function Header({ nav, cta }) {
         data-testid="site-header"
         className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-all duration-300 ${
           scrolled ? 'border-b border-black/8 py-3' : 'py-4'
-        } ${isBackdropVisible ? 'blur-md' : ''}`}
+        } ${sidecarOpen ? 'blur-md' : ''}`}
       >
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
           <div className="flex items-center justify-between">
@@ -51,7 +51,7 @@ export default function Header({ nav, cta }) {
             <div className="hidden lg:flex items-center flex-1">
               {/* Radix UI Desktop Nav — zentriert */}
               <div className="flex-1 flex justify-center">
-                <DesktopNav shouldBlur={isBackdropVisible} />
+                <DesktopNav shouldBlur={sidecarOpen} />
               </div>
 
               {/* Desktop CTA — scroll-triggered, mit Abstand zum Burger */}

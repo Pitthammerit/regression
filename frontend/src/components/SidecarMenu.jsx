@@ -6,20 +6,13 @@ import { useNavigation } from '../contexts/NavigationContext'
 export default function SidecarMenu({ isOpen, onClose }) {
   const [isClosing, setIsClosing] = React.useState(false)
   const closeTimeoutRef = useRef(null)
-  const { navigateTo, isBurgerClosing, setIsBackdropVisible } = useNavigation()
+  const { navigateTo, isBurgerClosing } = useNavigation()
 
   // Animation wird von beiden Close-Wegen gesteuert
   const shouldAnimateOut = isClosing || isBurgerClosing
 
-  // Backdrop visibility sync with blur animation (0.3s)
-  React.useEffect(() => {
-    if (isOpen) {
-      setIsBackdropVisible(true)
-    } else if (shouldAnimateOut) {
-      // Start backdrop fade-out immediately when closing starts
-      setIsBackdropVisible(false)
-    }
-  }, [isOpen, shouldAnimateOut, setIsBackdropVisible])
+  // Backdrop ist nur sichtbar, wenn Sidecar offen ist und NICHT am schließen
+  const isBackdropVisible = isOpen && !shouldAnimateOut
 
   // Handle close with animation
   const handleClose = () => {
@@ -49,14 +42,13 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop with blur */}
-      <div
-        className="fixed inset-0 bg-black/20 z-40 backdrop-blur-md"
-        onClick={handleClose}
-        style={{
-          animation: shouldAnimateOut ? 'fadeOut 0.3s ease-out forwards' : 'fadeIn 0.3s ease-out forwards'
-        }}
-      />
+      {/* Backdrop mit Blur - nur sichtbar wenn Sidecar offen */}
+      {isBackdropVisible && (
+        <div
+          className="fixed inset-0 bg-black/20 z-40 backdrop-blur-md animate-in fade-in duration-500"
+          onClick={handleClose}
+        />
+      )}
 
       {/* Sidecar Panel - slide in/out animation - schmaler wie Transcript */}
       <div
