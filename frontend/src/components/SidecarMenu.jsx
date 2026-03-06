@@ -56,7 +56,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
       >
         {/* Header - Floating Burger übernimmt Schließen */}
         <div className="flex items-center px-8 py-[22px] border-b border-black/8">
-          <h2 className="font-serif text-xl text-brand-deep leading-tight">
+          <h2 className="font-serif text-[25px] text-brand-deep leading-tight">
             Überblick
           </h2>
         </div>
