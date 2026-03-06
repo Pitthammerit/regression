@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import { menu } from '../content/menu'
@@ -36,45 +36,14 @@ ListItem.displayName = 'ListItem'
 
 export default function DesktopNav({ shouldBlur }) {
   const { navigateTo } = useNavigation()
-  const [viewportStyle, setViewportStyle] = useState({})
-  const rootRef = useRef(null)
 
   const handleNavClick = (anchor) => {
     if (!anchor) return
     navigateTo(anchor)
   }
 
-  // Positioniere Viewport unter dem aktiven Trigger
-  useEffect(() => {
-    const updateViewportPosition = () => {
-      const activeTrigger = rootRef.current?.querySelector('[data-state="open"]')
-      if (activeTrigger && rootRef.current) {
-        const rootRect = rootRef.current.getBoundingClientRect()
-        const triggerRect = activeTrigger.getBoundingClientRect()
-        // Berechne die linke Position des Triggers relativ zum Root
-        const left = triggerRect.left - rootRect.left
-        setViewportStyle({
-          left: `${left}px`,
-        })
-      }
-    }
-
-    // Beobachte Änderungen an data-state Attributen
-    const observer = new MutationObserver(updateViewportPosition)
-    if (rootRef.current) {
-      observer.observe(rootRef.current, {
-        attributes: true,
-        attributeFilter: ['data-state'],
-        subtree: true,
-      })
-      updateViewportPosition()
-    }
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <NavigationMenu.Root ref={rootRef} className={`relative z-10 flex items-center justify-center flex-1 ${shouldBlur ? 'backdrop-blur-md' : ''}`}>
+    <NavigationMenu.Root className={`relative z-10 flex items-center justify-center flex-1 ${shouldBlur ? 'backdrop-blur-md' : ''}`}>
       <NavigationMenu.List className="center m-0 flex list-none">
         {menu.header.mainNav.map((item) => (
           <NavigationMenu.Item key={item.label}>
@@ -126,15 +95,8 @@ export default function DesktopNav({ shouldBlur }) {
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
-      {/* Viewport mit Advanced Animation und dynamischer Positionierung */}
-      <div className="absolute top-full">
-        <div
-          className="perspective-[2000px] absolute transition-left duration-[250ms] ease"
-          style={viewportStyle}
-        >
-          <NavigationMenu.Viewport className="NavigationMenuViewport" />
-        </div>
-      </div>
+      {/* Viewport — native Radix UI positioning, dynamische Breite */}
+      <NavigationMenu.Viewport className="NavigationMenuViewport" />
     </NavigationMenu.Root>
   )
 }

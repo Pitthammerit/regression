@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext'
 import Header from './components/Header'
@@ -29,11 +28,25 @@ import { header, footer, testimonials } from './content/plr-de'
 import { SECTIONS_ORDER } from './config/sections.config'
 
 function FloatingBurger() {
-  const { sidecarOpen, setSidecarOpen } = useNavigation()
+  const { sidecarOpen, setSidecarOpen, setIsBurgerClosing } = useNavigation()
+
+  const handleBurgerClick = () => {
+    if (sidecarOpen) {
+      // Schließen mit Animation
+      setIsBurgerClosing(true)
+      setTimeout(() => {
+        setSidecarOpen(false)
+        setIsBurgerClosing(false)
+      }, 500) // Match Sidecar animation duration
+    } else {
+      // Öffnen
+      setSidecarOpen(true)
+    }
+  }
 
   return (
     <button
-      onClick={() => setSidecarOpen(!sidecarOpen)}
+      onClick={handleBurgerClick}
       className="fixed top-2 right-8 z-[100] w-10 h-10 flex items-center justify-center bg-transparent transition-colors"
       aria-label={sidecarOpen ? "Menü schließen" : "Menü öffnen"}
     >

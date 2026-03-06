@@ -6,7 +6,10 @@ import { useNavigation } from '../contexts/NavigationContext'
 export default function SidecarMenu({ isOpen, onClose }) {
   const [isClosing, setIsClosing] = React.useState(false)
   const closeTimeoutRef = useRef(null)
-  const { navigateTo } = useNavigation()
+  const { navigateTo, isBurgerClosing } = useNavigation()
+
+  // Animation wird von beiden Close-Wegen gesteuert
+  const shouldAnimateOut = isClosing || isBurgerClosing
 
   // Handle close with animation
   const handleClose = () => {
@@ -32,7 +35,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
     navigateTo(anchor) // Use centralized navigation
   }
 
-  if (!isOpen && !isClosing) return null
+  if (!isOpen && !isClosing && !isBurgerClosing) return null
 
   return (
     <>
@@ -41,7 +44,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
         className="fixed inset-0 bg-black/20 z-40 backdrop-blur-md"
         onClick={handleClose}
         style={{
-          animation: isClosing ? 'fadeOut 0.3s ease-out forwards' : 'fadeIn 0.3s ease-out forwards'
+          animation: shouldAnimateOut ? 'fadeOut 0.3s ease-out forwards' : 'fadeIn 0.3s ease-out forwards'
         }}
       />
 
@@ -49,7 +52,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
       <div
         className="fixed top-0 right-0 h-full w-full md:w-[380px] bg-brand-cream shadow-2xl z-50 flex flex-col"
         style={{
-          animation: isClosing
+          animation: shouldAnimateOut
             ? 'slideOutToRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards'
             : 'slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards'
         }}
