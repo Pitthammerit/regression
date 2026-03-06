@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# ============================================================================
+# EDGE CASE: Skip in CI/CD
+# ============================================================================
+if [ -n "$CI" ]; then
+  exit 0
+fi
+
+# ============================================================================
+# EDGE CASE: Skip during amend (prevent infinite loop)
+# ============================================================================
+if [ "$GIT_REFLOG_ACTION" = "amend" ]; then
+  exit 0
+fi
+
+# ============================================================================
+# EDGE CASE: Skip during rebase
+# ============================================================================
+if [ -n "$GIT_REBASE" ]; then
+  exit 0
+fi
+
+# ============================================================================
+# TODO AUTO-SYNC
+# ============================================================================
+cd "$(git rev-parse --show-toplevel)"
+
+echo "🔄 Checking TODO.md..."
+
+# Run update script (with error handling)
+if node scripts/update-todo.js; then
+  # Exit code 0 = no changes needed
+  exit 0
+else
+  # Exit code 1 = TODO.md was updated
+  echo "✅ TODO.md updated, staging..."
+
+  # Stage updated TODO.md
+  git add TODO.md
+
+  # Continue with commit (TODO.md is now part of it)
+  exit 0
+fi

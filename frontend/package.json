@@ -25,7 +25,10 @@
     "build": "react-scripts build",
     "dev": "concurrently \"npm:start\" \"npm:build -- --watch\"",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "update-todo": "node ../scripts/update-todo.js",
+    "add-todo": "node ../scripts/add-todo.js",
+    "todo:watch": "node ../scripts/watch-todo.js"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "chokidar": "^4.0.0"
   }
 }

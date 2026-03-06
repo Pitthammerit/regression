@@ -1,42 +1,18 @@
 # TODO
 
-Updated: 2026-03-06
+Updated: 2026-03-06 16:56
 
 ---
 
 ## 🔴 High Priority
 
-### FAQ Navigation Verification (NEU — bitte testen)
-- [ ] Desktop Nav: Klick auf "Regression vs. Past Life Regression?" → Öffnet erste Frage ✅
-- [ ] Desktop Nav: Klick auf "Muss ich an Reinkarnation glauben?" → Öffnet zweite Frage ✅
-- [ ] Sidecar: Klick auf FAQ-Fragen → Scrollt + öffnet Accordions ✅
-- [ ] "Mehr Antworten" von außerhalb FAQ → Scrollt zur Sektion, alle geschlossen ✅
-- [ ] "Mehr Antworten" innerhalb FAQ → Accordions schließen ✅
-- [ ] Wechsel zwischen Fragen (Frage 1 → Frage 2) → Beide funktionieren ✅
-- [ ] Keine Race Conditions mehr ✅
-
 ### Menu & Navigation
-- [ ] Alle Sections IDs mit Menu Anchors abgleichen
-- [ ] Smooth Scroll für alle Menu-Links testen
+- [x] Desktop Nav Viewport Position verifizieren (Regression, Science, Methoden, FAQ hover)
+- [x] Sidecar Close Animation verifizieren (Floating Burger, Menüpunkte, Backdrop)
 - [ ] Menu-Variante auswählen (V1, V2, oder V3 von MenuDemoPage)
 - [ ] Gewählte Menu-Variante in Header.jsx implementieren
 
 **Wichtig:** TODO.md wird bei jedem git push automatisch durch GitHub Action aktualisiert. **Single Source of Truth** für alle offenen Tasks.
-
----
-
-## 🔴 High Priority
-
-### Menu & Navigation
-- [ ] Alle Sections IDs mit Menu Anchors abgleichen
-- [ ] Smooth Scroll für alle Menu-Links testen
-- [ ] Menu-Variante auswählen (V1, V2, oder V3 von MenuDemoPage)
-- [ ] Gewählte Menu-Variante in Header.jsx implementieren
-
-### FAQ Section Finalization
-- [ ] FAQ Fragen-Farbe anpassen auf Menü-Grauton (`text-brand-steel`)
-- [ ] FAQ Animation langsamer machen (done: `duration-500/600`)
-- [ ] Prüfen: Radix UI Accordion vs manuelle Implementierung
 
 ---
 
@@ -98,17 +74,20 @@ Updated: 2026-03-06
 
 ## ✅ Completed
 
-### Session 2026-03-06: NavigationContext Refactoring (abgeschlossen)
-- [x] NavigationContext erstellt — Single Source of Truth für Navigation
-- [x] DesktopNav nutzt navigateTo() aus Context
-- [x] SidecarMenu nutzt navigateTo() aus Context
-- [x] FAQSection nutzt expandedFAQIndex aus Context
-- [x] useEffect mit hashchange Handler entfernt
-- [x] menuItems Array aus plr-de.js entfernt (nicht mehr benötigt)
-- [x] Keine Code-Duplizierung mehr (eine Funktion für beide Menüs)
-- [x] Keine Leftovers im Code (scan durchgeführt)
+### Session 2026-03-06: Desktop Nav + Sidecar Animation Fixes (abgeschlossen)
+- [x] DesktopNav: MutationObserver entfernt (27 Zeilen)
+- [x] DesktopNav: Radix UI Native Positioning verwendet
+- [x] DesktopNav: Viewport direkt unter List platziert (kein Wrapper)
+- [x] DesktopNav: Dropdowns erscheinen korrekt unter Nav Items
+- [x] NavigationContext: isBurgerClosing State hinzugefügt
+- [x] App.js: FloatingBurger mit slideOut Animation (0.5s)
+- [x] SidecarMenu: shouldAnimateOut mit isBurgerClosing kombiniert
+- [x] Alle Close-Wege konsistent animiert (Floating Burger, Menüpunkte, Backdrop)
 - [x] Build erfolgreich ✅
 - [x] Deployt zu Cloudflare ✅
+- [x] -21 Zeilen netto (-51 entfernt, +30 hinzugefügt)
+
+### Session 2026-03-06: NavigationContext Refactoring (abgeschlossen)
 
 ### Session 2026-03-06: FAQ Navigation Enhancement (abgeschlossen)
 - [x] FAQ menuItems array in plr-de.js erstellt (Top 4 Fragen)

@@ -12,37 +12,7 @@
  * Priority: high (default), medium, low
  */
 
-const fs = require('fs');
-const path = require('path');
-
-const TODO_PATH = path.join(process.cwd(), 'TODO.md');
-
-/**
- * Extract keywords from a task string
- */
-function extractKeywords(text) {
-  const clean = text
-    .replace(/[\*\[\]\(\)\{\}]/g, ' ')
-    .replace(/https?:\/\/[^\s]+/g, '')
-    .toLowerCase();
-  const words = clean.match(/\b[a-z]{3,}\b/gi) || [];
-  return [...new Set(words)];
-}
-
-/**
- * Calculate similarity between two strings (0-1)
- */
-function calculateSimilarity(str1, str2) {
-  const keywords1 = extractKeywords(str1);
-  const keywords2 = extractKeywords(str2);
-
-  if (keywords1.length === 0 || keywords2.length === 0) return 0;
-
-  const intersection = keywords1.filter(k => keywords2.includes(k));
-  const union = [...new Set([...keywords1, ...keywords2])]);
-
-  return intersection.length / union.length;
-}
+const todoUtils = require('./todo-utils');
 
 /**
  * Find all similar tasks in TODO.md
@@ -52,11 +22,11 @@ function findSimilarTasks(newTask, content, threshold = 0.4) {
   const similar = [];
 
   for (const line of lines) {
-    const taskMatch = line.match(/^[\s]*-\s\[([ x])\]\s+(.+)$/);
+    const taskMatch = line.match(todoUtils.TASK_REGEX);
     if (taskMatch) {
       const status = taskMatch[1]; // ' ' or 'x'
       const taskText = taskMatch[2];
-      const similarity = calculateSimilarity(newTask, taskText);
+      const similarity = todoUtils.calculateSimilarity(newTask, taskText);
 
       if (similarity >= threshold) {
         similar.push({
@@ -77,14 +47,7 @@ function findSimilarTasks(newTask, content, threshold = 0.4) {
  */
 function findInsertionPoint(content, priority = 'high') {
   const lines = content.split('\n');
-
-  const sectionHeaders = {
-    high: '## 🔴 High Priority',
-    medium: '## 🟡 Medium Priority',
-    low: '## 🟢 Low Priority'
-  };
-
-  const targetHeader = sectionHeaders[priority] || sectionHeaders.high;
+  const targetHeader = todoUtils.SECTION_HEADERS[priority] || todoUtils.SECTION_HEADERS.high;
 
   // Find the target section
   for (let i = 0; i < lines.length; i++) {
@@ -125,15 +88,6 @@ function addTask(content, task, priority = 'high') {
 }
 
 /**
- * Update timestamp in TODO.md
- */
-function updateTimestamp(content) {
-  const now = new Date();
-  const updated = now.toISOString().replace('T', ' ').substring(0, 16);
-  return content.replace(/Updated: \d{4}-\d{2}-\d{2}.*/, `Updated: ${updated}`);
-}
-
-/**
  * Main execution
  */
 function main() {
@@ -151,12 +105,13 @@ function main() {
   console.log(`   Priority: ${priority}\n`);
 
   // Read TODO.md
-  if (!fs.existsSync(TODO_PATH)) {
+  let content;
+  try {
+    content = todoUtils.readTodoFile();
+  } catch (error) {
     console.log('❌ TODO.md not found');
     process.exit(1);
   }
-
-  let content = fs.readFileSync(TODO_PATH, 'utf-8');
 
   // Check for similar tasks
   const similar = findSimilarTasks(newTask, content);
@@ -178,9 +133,9 @@ function main() {
 
   // No similar tasks, add the new one
   let updatedContent = addTask(content, newTask, priority);
-  updatedContent = updateTimestamp(updatedContent);
+  updatedContent = todoUtils.updateTimestamp(updatedContent);
 
-  fs.writeFileSync(TODO_PATH, updatedContent, 'utf-8');
+  todoUtils.writeTodoFile(updatedContent);
   console.log('✅ Task added successfully!\n');
 }
 

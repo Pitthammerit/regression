@@ -509,6 +509,19 @@ If deep links like `/transkript` break on refresh, add SPA fallback via `fronten
 - **Write all code in English** — variable names, comments, file names
 - **User-facing text goes in content layer** — currently German (`plr-de.js`), with goal of bilingual support
 
+### Animation Consistency (CRITICAL — March 2026 Learning)
+- **All close pathways must use the same animation** — inconsistent UX feels like a bug
+- **Solution:** Use shared state in Context for animation triggers (e.g., `isBurgerClosing`)
+- **Example:** Sidecar close animation should be identical whether triggered by Floating Burger, menu item click, or backdrop click
+- **Pattern:** `shouldAnimateOut = isClosing || externalClosing` — combine local and external animation states
+
+### Radix UI NavigationMenu (March 2026 Learning)
+- **Use native Radix UI positioning** — don't implement manual MutationObserver
+- **Problem:** `getBoundingClientRect()` on flex containers causes incorrect viewport offsets
+- **Solution:** Place `<NavigationMenu.Viewport />` directly under `<NavigationMenu.List />` without wrapper divs
+- **CSS:** `.NavigationMenuContent { position: absolute; top: 0; left: 0; }` and `.NavigationMenuViewport { position: relative; }`
+- **Benefit:** -45 lines of code, future-proof against Radix updates, dynamic viewport width based on content
+
 ### Bilingual Goal
 The website should become bilingual (German/English). When adding features or refactoring:
 1. Keep the content layer structure i18n-ready

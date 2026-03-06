@@ -13,9 +13,7 @@
 
 const { execSync } = require('child_process');
 const fs = require('fs');
-const path = require('path');
-
-const TODO_PATH = path.join(process.cwd(), 'TODO.md');
+const todoUtils = require('./todo-utils');
 
 /**
  * Get recent commit messages (last 10 commits)
@@ -31,46 +29,16 @@ function getRecentCommits() {
 }
 
 /**
- * Extract keywords from a task string
- */
-function extractKeywords(text) {
-  // Remove markdown, URLs, special chars
-  const clean = text
-    .replace(/[\*\[\]\(\)\{\}]/g, ' ')
-    .replace(/https?:\/\/[^\s]+/g, '')
-    .toLowerCase();
-
-  // Extract meaningful words (min 3 chars)
-  const words = clean.match(/\b[a-z]{3,}\b/gi) || [];
-  return [...new Set(words)]; // unique
-}
-
-/**
- * Calculate similarity between two strings (0-1)
- */
-function calculateSimilarity(str1, str2) {
-  const keywords1 = extractKeywords(str1);
-  const keywords2 = extractKeywords(str2);
-
-  if (keywords1.length === 0 || keywords2.length === 0) return 0;
-
-  const intersection = keywords1.filter(k => keywords2.includes(k));
-  const union = [...new Set([...keywords1, ...keywords2])];
-
-  return intersection.length / union.length;
-}
-
-/**
  * Check if a task might be completed based on commit message
  * More conservative: requires explicit completion words + keyword match
  */
 function isTaskCompleted(taskText, commitMessages) {
-  const taskKeywords = extractKeywords(taskText);
+  const taskKeywords = todoUtils.extractKeywords(taskText);
   const taskWords = taskText.toLowerCase().split(/\s+/);
 
   for (const commit of commitMessages) {
     const commitLower = commit.toLowerCase();
-    const commitKeywords = extractKeywords(commit);
+    const commitKeywords = todoUtils.extractKeywords(commit);
 
     // Check for explicit completion indicators
     const hasCompletionWord = /^(feat|fix|chore|perf|docs|style|refactor|test)|completed|fixed|implemented|added|removed|deleted|resolved|updated/i.test(commitLower);
@@ -94,15 +62,6 @@ function isTaskCompleted(taskText, commitMessages) {
   }
 
   return false;
-}
-
-/**
- * Update timestamp in TODO.md
- */
-function updateTimestamp(content) {
-  const now = new Date();
-  const updated = now.toISOString().replace('T', ' ').substring(0, 16); // "2026-03-05 14:30"
-  return content.replace(/Updated: \d{4}-\d{2}-\d{2}.*/, `Updated: ${updated}`);
 }
 
 /**
@@ -141,12 +100,12 @@ function main() {
   console.log('🔄 TODO.md Auto-Sync started...\n');
 
   // Read TODO.md
-  if (!fs.existsSync(TODO_PATH)) {
+  if (!fs.existsSync(todoUtils.TODO_PATH)) {
     console.log('❌ TODO.md not found');
     process.exit(0);
   }
 
-  let content = fs.readFileSync(TODO_PATH, 'utf-8');
+  let content = todoUtils.readTodoFile();
 
   // Get recent commits
   const commits = getRecentCommits();
@@ -156,11 +115,11 @@ function main() {
   const { content: updatedContent, anyCompleted } = markCompletedTasks(content, commits);
 
   // Update timestamp
-  const finalContent = updateTimestamp(updatedContent);
+  const finalContent = todoUtils.updateTimestamp(updatedContent);
 
   // Write back if changed
   if (finalContent !== content) {
-    fs.writeFileSync(TODO_PATH, finalContent, 'utf-8');
+    todoUtils.writeTodoFile(finalContent);
     console.log('\n✅ TODO.md updated');
     process.exit(1); // Exit code 1 = changes made
   } else {
