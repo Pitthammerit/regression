@@ -24,28 +24,14 @@ export default function FAQSection() {
       // Close all accordions when clicking "Mehr Antworten" (#faq)
       if (hash === '#faq') {
         setExpandedIndex(null)
-        // Scroll after sidecar close animation completes (500ms + buffer)
-        setTimeout(() => {
-          const element = document.getElementById('faq')
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }
-        }, 600)
         return
       }
 
-      // Expand specific accordion when clicking a specific FAQ question (#faq-0, #faq-1, etc.)
+      // Expand specific accordion when clicking a specific FAQ question
       if (hash.startsWith('#faq-')) {
         const index = parseInt(hash.replace('#faq-', ''), 10)
         if (!isNaN(index) && index >= 0 && index < faq.items.length) {
           setExpandedIndex(index)
-          // Scroll to the specific FAQ item after sidecar close animation
-          setTimeout(() => {
-            const element = document.getElementById(`faq-${index}`)
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'center' })
-            }
-          }, 600)
         }
       }
     }

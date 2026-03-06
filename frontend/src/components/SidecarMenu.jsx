@@ -30,10 +30,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
     handleClose() // Animate close
     // Update URL hash so FAQSection can detect and expand/close accordions
     if (anchor.startsWith('#faq')) {
-      // Wait for sidecar to start closing, then update hash and scroll
-      setTimeout(() => {
-        window.location.hash = anchor
-      }, 100)
+      window.location.hash = anchor
     } else {
       const el = document.querySelector(anchor)
       if (el) el.scrollIntoView({ behavior: 'smooth' })
