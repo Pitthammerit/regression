@@ -54,21 +54,11 @@ export default function SidecarMenu({ isOpen, onClose }) {
             : 'slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards'
         }}
       >
-        {/* Header - py-4 wie im Header für konsistente vertikale Position */}
-        <div className="flex items-center justify-between px-8 py-4 border-b border-black/8">
+        {/* Header - Floating Burger übernimmt Schließen */}
+        <div className="flex items-center px-8 py-4 border-b border-black/8">
           <h2 className="font-serif text-xl text-brand-deep leading-tight">
-            Menü
+            Überblick
           </h2>
-          <button
-            onClick={handleClose}
-            className="text-brand-steel hover:text-brand-deep transition-colors p-2 -mr-2"
-            aria-label="Menü schließen"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
         </div>
 
         {/* Navigation - Alle Kategorien immer aufgeklappt, minimale Abstände */}

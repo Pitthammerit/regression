@@ -26,7 +26,7 @@ export default function Header({ nav, cta }) {
         data-testid="site-header"
         className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-all duration-300 ${
           scrolled ? 'border-b border-black/8 py-3' : 'py-4'
-        }`}
+        } ${sidecarOpen ? 'backdrop-blur-md' : ''}`}
       >
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
           <div className="flex items-center justify-between">
