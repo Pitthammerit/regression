@@ -54,8 +54,8 @@ export default function SidecarMenu({ isOpen, onClose }) {
             : 'slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards'
         }}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between px-8 pt-6 pb-4 border-b border-black/8">
+        {/* Header - py-4 wie im Header für konsistente vertikale Position */}
+        <div className="flex items-center justify-between px-8 py-4 border-b border-black/8">
           <h2 className="font-serif text-xl text-brand-deep leading-tight">
             Menü
           </h2>
