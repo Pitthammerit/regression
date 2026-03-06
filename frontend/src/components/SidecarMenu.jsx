@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { ChevronRight } from 'lucide-react'
+import React, { useEffect, useRef } from 'react'
 import { menu } from '../content/menu'
 import CtaButton from './ui/CtaButton'
 import BurgerButton from './ui/BurgerButton'
 
 export default function SidecarMenu({ isOpen, onClose }) {
-  const [expandedCategory, setExpandedCategory] = useState(null)
-  const [isClosing, setIsClosing] = useState(false)
+  const [isClosing, setIsClosing] = React.useState(false)
   const closeTimeoutRef = useRef(null)
 
   // Handle close with animation
@@ -27,10 +25,6 @@ export default function SidecarMenu({ isOpen, onClose }) {
       }
     }
   }, [])
-
-  const toggleCategory = (id) => {
-    setExpandedCategory(expandedCategory === id ? null : id)
-  }
 
   const handleNavClick = (anchor) => {
     handleClose() // Animate close
@@ -68,49 +62,39 @@ export default function SidecarMenu({ isOpen, onClose }) {
           <BurgerButton isOpen={true} onClick={handleClose} />
         </div>
 
-        {/* Navigation - Accordion */}
+        {/* Navigation - Alle Kategorien immer aufgeklappt */}
         <nav className="flex-1 overflow-y-auto px-6 py-4">
           <div className="space-y-1">
             {menu.items.map((item) => (
               <div key={item.id}>
                 {/* Hauptkategorie */}
-                <button
-                  onClick={() => {
-                    if (item.children) {
-                      toggleCategory(item.id)
-                    } else {
-                      handleNavClick(item.anchor)
-                    }
-                  }}
-                  className="w-full flex items-center justify-between text-left font-serif text-xl text-brand-deep hover:text-brand-steel py-4 transition-colors"
-                >
-                  <span>{item.label}</span>
-                  {item.children && (
-                    <ChevronRight
-                      size={18}
-                      className={`transition-transform duration-300 ${
-                        expandedCategory === item.id ? 'rotate-90' : ''
-                      }`}
-                    />
-                  )}
-                </button>
-
-                {/* Unterpunkte (Accordion) - mit slideDown Animation */}
-                {item.children && expandedCategory === item.id && (
-                  <div
-                    className="pl-4 pt-1 pb-3 space-y-1"
-                    style={{ animation: 'slideDown 0.3s ease-out' }}
+                {item.children ? (
+                  // Kategorie mit Unterpunkten
+                  <>
+                    <div className="font-serif text-xl text-brand-deep py-4">
+                      {item.label}
+                    </div>
+                    {/* Unterpunkte - immer sichtbar */}
+                    <div className="pl-4 pb-4 space-y-1">
+                      {item.children.map((child) => (
+                        <button
+                          key={child.id}
+                          onClick={() => handleNavClick(child.anchor)}
+                          className="block w-full text-left font-sans text-base text-brand-muted hover:text-brand-deep py-2 px-3 rounded-md hover:bg-black/5 transition-colors"
+                        >
+                          {child.label}
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  // Kategorie ohne Unterpunkte - direkt klickbar
+                  <button
+                    onClick={() => handleNavClick(item.anchor)}
+                    className="w-full text-left font-serif text-xl text-brand-deep hover:text-brand-steel py-4 transition-colors"
                   >
-                    {item.children.map((child) => (
-                      <button
-                        key={child.id}
-                        onClick={() => handleNavClick(child.anchor)}
-                        className="block w-full text-left font-sans text-base text-brand-muted hover:text-brand-deep py-2 px-3 rounded-md hover:bg-black/5 transition-colors"
-                      >
-                        {child.label}
-                      </button>
-                    ))}
-                  </div>
+                    {item.label}
+                  </button>
                 )}
 
                 <div className="h-px bg-black/8 mt-1" />
@@ -138,10 +122,6 @@ export default function SidecarMenu({ isOpen, onClose }) {
         @keyframes fadeOut {
           from { opacity: 1; }
           to { opacity: 0; }
-        }
-        @keyframes slideDown {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
         }
         @keyframes slideInFromRight {
           from { transform: translateX(100%); }

@@ -122,9 +122,9 @@ export default function DesktopNav({ onSidecarOpen }) {
       </NavigationMenu.List>
 
       {/* Viewport mit Advanced Animation und dynamischer Positionierung */}
-      <div className="absolute left-0 right-0 top-full">
+      <div className="absolute top-full">
         <div
-          className="perspective-[2000px] relative transition-left duration-[250ms] ease"
+          className="perspective-[2000px] absolute transition-left duration-[250ms] ease"
           style={viewportStyle}
         >
           <NavigationMenu.Viewport className="NavigationMenuViewport" />
