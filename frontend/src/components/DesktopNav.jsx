@@ -2,12 +2,17 @@ import React, { useState, useEffect, useRef } from 'react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import { menu } from '../content/menu'
+import { useNavigation } from '../contexts/NavigationContext'
 
-const ListItem = React.forwardRef(({ className, children, anchor, ...props }, ref) => {
+const ListItem = React.forwardRef(({ className, children, anchor, navigateTo, ...props }, ref) => {
   const handleNavClick = (e) => {
     e.preventDefault()
-    const el = document.querySelector(anchor)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (navigateTo) {
+      navigateTo(anchor)
+    } else {
+      const el = document.querySelector(anchor)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
@@ -30,18 +35,13 @@ const ListItem = React.forwardRef(({ className, children, anchor, ...props }, re
 ListItem.displayName = 'ListItem'
 
 export default function DesktopNav({ onSidecarOpen }) {
+  const { navigateTo } = useNavigation()
   const [viewportStyle, setViewportStyle] = useState({})
   const rootRef = useRef(null)
 
   const handleNavClick = (anchor) => {
     if (!anchor) return
-    // Update URL hash for FAQ items so FAQSection can detect and expand/close accordions
-    if (anchor.startsWith('#faq')) {
-      window.location.hash = anchor
-    } else {
-      const el = document.querySelector(anchor)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-    }
+    navigateTo(anchor)
   }
 
   // Positioniere Viewport unter dem aktiven Trigger
@@ -95,7 +95,7 @@ export default function DesktopNav({ onSidecarOpen }) {
                     {menu.items
                       .find(cat => cat.label === item.label)
                       ?.children.map((child) => (
-                        <ListItem key={child.id} anchor={child.anchor}>
+                        <ListItem key={child.id} anchor={child.anchor} navigateTo={navigateTo}>
                           <div className="mb-1 font-medium leading-[1.2] text-brand-deep">
                             {child.label}
                           </div>

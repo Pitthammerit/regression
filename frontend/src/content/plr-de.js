@@ -499,36 +499,11 @@ export const booking = {
 export const faq = {
   bigLabel: "FRAGEN & ANTWORTEN",
   headline: "Häufige Fragen zur Regression",
-  // Neu: Kurzversion für Menu - Top 4 Fragen
-  menuItems: [
-    {
-      id: "faq-0",
-      shortFaqMenu: "Regression vs. Past Life Regression?",
-    },
-    {
-      id: "faq-1",
-      shortFaqMenu: "Muss ich an Reinkarnation glauben?",
-    },
-    {
-      id: "faq-2",
-      shortFaqMenu: "Ist das Channeling?",
-    },
-    {
-      id: "faq-3",
-      shortFaqMenu: "Was passiert in einer Session?",
-    },
-    {
-      id: "faq-more",
-      shortFaqMenu: "Mehr Antworten",
-    },
-  ],
   items: [
     {
       question: "Was ist der Unterschied zwischen Regression Session und Past Life Regression?",
-      answer: `Begriffe werden oft synonym verwendet. Regression ist der Oberbegriff: zurückgehen zu früheren Erfahrungen. Past Life Regression (oder Seelenrückführung) geht spezifisch in Erinnerungen an frühere Leben.
-
+      answer: `Begriffe werden oft synonym verwendet. Regression ist der Oberbegriff: zurückgehen zu früheren Erfahrungen. Past Life Regression, Seelenrückführung oder Reincarnations-Therapie geht spezifisch in Erinnerungen an frühere Leben.
 In der Praxis: Eine Session kann sich auch auf frühe Kindheit oder das aktuelle Leben konzentrieren — aber bei den meisten Klienten führt der Weg natürlicher in Seelenleben, weil dort die Ursachen für aktuelle Muster oft liegen.
-
 Wichtig: Du musst an nichts glauben. Die Erfahrung spricht für sich.`,
     },
     {

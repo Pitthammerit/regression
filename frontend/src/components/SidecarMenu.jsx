@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from 'react'
 import { menu } from '../content/menu'
 import CtaButton from './ui/CtaButton'
 import BurgerButton from './ui/BurgerButton'
+import { useNavigation } from '../contexts/NavigationContext'
 
 export default function SidecarMenu({ isOpen, onClose }) {
   const [isClosing, setIsClosing] = React.useState(false)
   const closeTimeoutRef = useRef(null)
+  const { navigateTo } = useNavigation()
 
   // Handle close with animation
   const handleClose = () => {
@@ -28,13 +30,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   const handleNavClick = (anchor) => {
     handleClose() // Animate close
-    // Update URL hash so FAQSection can detect and expand/close accordions
-    if (anchor.startsWith('#faq')) {
-      window.location.hash = anchor
-    } else {
-      const el = document.querySelector(anchor)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-    }
+    navigateTo(anchor) // Use centralized navigation
   }
 
   if (!isOpen && !isClosing) return null

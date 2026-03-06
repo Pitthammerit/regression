@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { NavigationProvider } from './contexts/NavigationContext'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HeroV3Section from './components/sections/HeroV3Section'
@@ -68,13 +69,15 @@ function MainPage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/transkript" element={<TranscriptPage />} />
-        <Route path="/menu-demo" element={<MenuDemoPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <NavigationProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/transkript" element={<TranscriptPage />} />
+          <Route path="/menu-demo" element={<MenuDemoPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </NavigationProvider>
   )
 }

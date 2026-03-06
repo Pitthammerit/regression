@@ -1,49 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { faq } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
 import { ChevronDown } from 'lucide-react'
+import { useNavigation } from '../../contexts/NavigationContext'
 
 /**
  * FAQSection — Frequently Asked Questions
  *
  * Minimalist accordion with beige background
  * Only one item expanded at a time
+ * FAQ-Index wird aus NavigationContext geholt (Single Source of Truth)
  */
 export default function FAQSection() {
-  const [expandedIndex, setExpandedIndex] = useState(null)
+  const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
 
   const toggleExpand = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index)
+    setExpandedFAQIndex(expandedFAQIndex === index ? null : index)
   }
-
-  // URL hash support for direct FAQ links
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash
-
-      // Close all accordions when clicking "Mehr Antworten" (#faq)
-      if (hash === '#faq') {
-        setExpandedIndex(null)
-        return
-      }
-
-      // Expand specific accordion when clicking a specific FAQ question
-      if (hash.startsWith('#faq-')) {
-        const index = parseInt(hash.replace('#faq-', ''), 10)
-        if (!isNaN(index) && index >= 0 && index < faq.items.length) {
-          setExpandedIndex(index)
-        }
-      }
-    }
-
-    // Check hash on mount and on change
-    handleHashChange()
-    window.addEventListener('hashchange', handleHashChange)
-
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange)
-    }
-  }, [])
 
   return (
     <section
@@ -59,7 +32,7 @@ export default function FAQSection() {
 
         <div>
           {faq.items.map((item, index) => (
-            <div id={`faq-${index}`} key={index} className="border-t border-black/10">
+            <div id={`faq-${index}`} key={index} className="border-t border-black/10" style={{ scrollMarginTop: 80 }}>
               <button
                 onClick={() => toggleExpand(index)}
                 className="w-full flex justify-between items-center py-6 text-left font-sans text-brand-steel hover:text-brand-steel/80 transition-colors"
@@ -67,13 +40,13 @@ export default function FAQSection() {
                 <span className="font-medium text-lg">{item.question}</span>
                 <ChevronDown
                   className={`transition-transform duration-500 ease-out ${
-                    expandedIndex === index ? 'rotate-180' : ''
+                    expandedFAQIndex === index ? 'rotate-180' : ''
                   }`}
                 />
               </button>
               <div
                 className={`overflow-hidden transition-all duration-600 ease-out ${
-                  expandedIndex === index ? 'max-h-[600px] pb-6' : 'max-h-0'
+                  expandedFAQIndex === index ? 'max-h-[600px] pb-6' : 'max-h-0'
                 }`}
               >
                 <p className="font-sans text-brand-deep leading-relaxed whitespace-pre-line text-lg">
