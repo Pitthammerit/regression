@@ -33,7 +33,8 @@ export default function FAQSection() {
           }, 100)
         }
       } else if (hash === '#faq') {
-        // Scroll to FAQ section but don't expand any item
+        // Close all accordions and scroll to FAQ section
+        setExpandedIndex(null)
         const element = document.getElementById('faq')
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
