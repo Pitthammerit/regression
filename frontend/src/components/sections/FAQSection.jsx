@@ -24,13 +24,13 @@ export default function FAQSection() {
       // Close all accordions when clicking "Mehr Antworten" (#faq)
       if (hash === '#faq') {
         setExpandedIndex(null)
-        // Always scroll to FAQ section, even if already on #faq hash
+        // Scroll after sidecar close animation completes (500ms + buffer)
         setTimeout(() => {
           const element = document.getElementById('faq')
           if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' })
           }
-        }, 100)
+        }, 600)
         return
       }
 
@@ -39,13 +39,13 @@ export default function FAQSection() {
         const index = parseInt(hash.replace('#faq-', ''), 10)
         if (!isNaN(index) && index >= 0 && index < faq.items.length) {
           setExpandedIndex(index)
-          // Scroll to the specific FAQ item after a short delay
+          // Scroll to the specific FAQ item after sidecar close animation
           setTimeout(() => {
             const element = document.getElementById(`faq-${index}`)
             if (element) {
               element.scrollIntoView({ behavior: 'smooth', block: 'center' })
             }
-          }, 100)
+          }, 600)
         }
       }
     }
