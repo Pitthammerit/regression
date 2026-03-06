@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-05 23:15
+Updated: 2026-03-06
 
 **Wichtig:** TODO.md wird bei jedem git push automatisch durch GitHub Action aktualisiert. **Single Source of Truth** für alle offenen Tasks.
 
@@ -78,6 +78,27 @@ Updated: 2026-03-05 23:15
 ---
 
 ## ✅ Completed
+
+### Session 2026-03-06: FAQ Navigation Enhancement (abgeschlossen)
+- [x] FAQ menuItems array in plr-de.js erstellt (Top 4 Fragen)
+- [x] menu.js: FAQ mit children submenu ausgestattet
+- [x] FAQSection.jsx: URL hash support (#faq-0, #faq-1, etc.)
+- [x] Auto-expand accordion bei Hash-Navigation
+- [x] Desktop: FAQ dropdown mit 4 Fragen
+- [x] Sidecar: FAQ kinder angezeigt statt direkter Link
+- [x] Build erfolgreich ✅
+- [x] Deployt zu Cloudflare ✅
+
+### Session 2026-03-06: Navigation System Redesign (abgeschlossen)
+- [x] Sidecar: slide-in-from-right Animation (Transcript-Stil)
+- [x] Sidecar: Close animation (slideOutToRight)
+- [x] Burger: X→Burger animation beim Schließen
+- [x] Burger: z-index Fix (inline style, zIndex: 100)
+- [x] Burger: Position ganz rechts (Header px-8, Sidecar py-4)
+- [x] DesktopNav: Radix UI Advanced Animation (data-motion)
+- [x] DesktopNav: Dropdown unter Trigger positioniert
+- [x] DesktopNav: Flexible Dropdown Breite (min-w-[200px] w-auto)
+- [x] Sidecar: Tighter spacing für alle Items ohne Scroll
 
 ### Session 2026-03-05: Menu Demo Page + Styling Fixes (abgeschlossen)
 - [x] MenuDemoPage.jsx repariert (Syntaxfehler behoben)
