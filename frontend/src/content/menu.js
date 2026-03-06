@@ -157,6 +157,12 @@ export const menu = {
           anchor: "#faq-3",
           order: 54,
         },
+        {
+          id: "faq-more",
+          label: "Mehr Antworten",
+          anchor: "#faq",
+          order: 55,
+        },
       ],
     },
   ],

@@ -517,6 +517,10 @@ export const faq = {
       id: "faq-3",
       shortFaqMenu: "Was passiert in einer Session?",
     },
+    {
+      id: "faq-more",
+      shortFaqMenu: "Mehr Antworten",
+    },
   ],
   items: [
     {
