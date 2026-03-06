@@ -55,7 +55,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-black/8">
+        <div className="flex items-center justify-between px-8 pt-6 pb-4 border-b border-black/8">
           <h2 className="font-serif text-xl text-brand-deep leading-tight">
             Menü
           </h2>
@@ -104,7 +104,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
         </nav>
 
         {/* Footer - CTA Button */}
-        <div className="px-6 py-4 border-t border-black/8">
+        <div className="px-8 py-4 border-t border-black/8">
           <CtaButton
             label={menu.header.cta.label}
             variant="primary"

@@ -28,7 +28,7 @@ export default function Header({ nav, cta }) {
           scrolled ? 'border-b border-black/8 py-3' : 'py-4'
         }`}
       >
-        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
+        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
           <div className="flex items-center justify-between">
 
             {/* Logo — responsive version */}
@@ -62,7 +62,6 @@ export default function Header({ nav, cta }) {
             <BurgerButton
               isOpen={sidecarOpen}
               onClick={() => setSidecarOpen(!sidecarOpen)}
-              className="lg:ml-4"
             />
           </div>
         </div>
