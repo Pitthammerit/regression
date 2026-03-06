@@ -15,6 +15,8 @@ export function NavigationProvider({ children }) {
   const [expandedFAQIndex, setExpandedFAQIndex] = useState(null)
   const [sidecarOpen, setSidecarOpen] = useState(false)
   const [isBurgerClosing, setIsBurgerClosing] = useState(false)
+  // Backdrop visibility for synchronized blur animation (0.3s)
+  const [isBackdropVisible, setIsBackdropVisible] = useState(false)
 
   const navigateTo = useCallback((anchor) => {
     if (!anchor) return
@@ -45,7 +47,7 @@ export function NavigationProvider({ children }) {
   }, [])
 
   return (
-    <NavigationContext.Provider value={{ navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen, isBurgerClosing, setIsBurgerClosing }}>
+    <NavigationContext.Provider value={{ navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen, isBurgerClosing, setIsBurgerClosing, isBackdropVisible, setIsBackdropVisible }}>
       {children}
     </NavigationContext.Provider>
   )
@@ -56,7 +58,7 @@ export function NavigationProvider({ children }) {
  *
  * Gibt Zugriff auf die Navigation-Funktionen, FAQ-Index und Sidecar State
  *
- * @returns {Object} { navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen, isBurgerClosing, setIsBurgerClosing }
+ * @returns {Object} { navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen, isBurgerClosing, setIsBurgerClosing, isBackdropVisible, setIsBackdropVisible }
  */
 export function useNavigation() {
   const context = useContext(NavigationContext)

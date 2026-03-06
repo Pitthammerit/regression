@@ -6,10 +6,20 @@ import { useNavigation } from '../contexts/NavigationContext'
 export default function SidecarMenu({ isOpen, onClose }) {
   const [isClosing, setIsClosing] = React.useState(false)
   const closeTimeoutRef = useRef(null)
-  const { navigateTo, isBurgerClosing } = useNavigation()
+  const { navigateTo, isBurgerClosing, setIsBackdropVisible } = useNavigation()
 
   // Animation wird von beiden Close-Wegen gesteuert
   const shouldAnimateOut = isClosing || isBurgerClosing
+
+  // Backdrop visibility sync with blur animation (0.3s)
+  React.useEffect(() => {
+    if (isOpen) {
+      setIsBackdropVisible(true)
+    } else if (shouldAnimateOut) {
+      // Start backdrop fade-out immediately when closing starts
+      setIsBackdropVisible(false)
+    }
+  }, [isOpen, shouldAnimateOut, setIsBackdropVisible])
 
   // Handle close with animation
   const handleClose = () => {
