@@ -35,8 +35,13 @@ export default function DesktopNav({ onSidecarOpen }) {
 
   const handleNavClick = (anchor) => {
     if (!anchor) return
-    const el = document.querySelector(anchor)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    // Update URL hash for FAQ items so FAQSection can detect and expand accordion
+    if (anchor.startsWith('#faq-')) {
+      window.location.hash = anchor
+    } else {
+      const el = document.querySelector(anchor)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   // Positioniere Viewport unter dem aktiven Trigger
