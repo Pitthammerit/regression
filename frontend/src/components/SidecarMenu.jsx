@@ -28,8 +28,8 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   const handleNavClick = (anchor) => {
     handleClose() // Animate close
-    // Update URL hash so FAQSection can detect and expand accordion
-    if (anchor.startsWith('#faq-')) {
+    // Update URL hash so FAQSection can detect and expand/close accordions
+    if (anchor.startsWith('#faq')) {
       window.location.hash = anchor
     } else {
       const el = document.querySelector(anchor)
