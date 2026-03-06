@@ -499,6 +499,25 @@ export const booking = {
 export const faq = {
   bigLabel: "FRAGEN & ANTWORTEN",
   headline: "Häufige Fragen zur Regression",
+  // Neu: Kurzversion für Menu - Top 4 Fragen
+  menuItems: [
+    {
+      id: "faq-0",
+      shortFaqMenu: "Regression vs. Past Life Regression?",
+    },
+    {
+      id: "faq-1",
+      shortFaqMenu: "Muss ich an Reinkarnation glauben?",
+    },
+    {
+      id: "faq-2",
+      shortFaqMenu: "Ist das Channeling?",
+    },
+    {
+      id: "faq-3",
+      shortFaqMenu: "Was passiert in einer Session?",
+    },
+  ],
   items: [
     {
       question: "Was ist der Unterschied zwischen Regression Session und Past Life Regression?",

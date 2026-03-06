@@ -22,7 +22,7 @@ export const menu = {
       { label: "Science", anchor: null, hasSubmenu: true },
       { label: "Erfahrungen", anchor: null, hasSubmenu: true },
       { label: "Über", anchor: null, hasSubmenu: true },
-      { label: "FAQ", anchor: "#faq", hasSubmenu: false },
+      { label: "FAQ", anchor: null, hasSubmenu: true },
     ],
   },
 
@@ -131,8 +131,33 @@ export const menu = {
     {
       id: "faq",
       label: "FAQ",
-      anchor: "#faq",
       order: 50,
+      children: [
+        {
+          id: "faq-0",
+          label: "Regression vs. Past Life Regression?",
+          anchor: "#faq-0",
+          order: 51,
+        },
+        {
+          id: "faq-1",
+          label: "Muss ich an Reinkarnation glauben?",
+          anchor: "#faq-1",
+          order: 52,
+        },
+        {
+          id: "faq-2",
+          label: "Ist das Channeling?",
+          anchor: "#faq-2",
+          order: 53,
+        },
+        {
+          id: "faq-3",
+          label: "Was passiert in einer Session?",
+          anchor: "#faq-3",
+          order: 54,
+        },
+      ],
     },
   ],
 
