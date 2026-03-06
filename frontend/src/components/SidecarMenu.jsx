@@ -59,7 +59,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
           <h2 className="font-serif text-xl text-brand-deep leading-tight">
             Menü
           </h2>
-          <BurgerButton isOpen={true} onClick={handleClose} />
+          <BurgerButton isOpen={!isClosing} onClick={handleClose} />
         </div>
 
         {/* Navigation - Alle Kategorien immer aufgeklappt, minimale Abstände */}
