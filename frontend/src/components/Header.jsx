@@ -50,7 +50,7 @@ export default function Header({ nav, cta }) {
             {/* Desktop Nav + CTA (>=1024px) */}
             <div className="hidden lg:flex items-center gap-8 xl:gap-12">
               {/* Radix UI Desktop Nav */}
-              <DesktopNav onSidecarOpen={() => setSidecarOpen(true)} />
+              <DesktopNav shouldBlur={sidecarOpen} />
 
               {/* Desktop CTA — scroll-triggered */}
               <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>

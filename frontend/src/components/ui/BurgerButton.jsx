@@ -14,22 +14,22 @@ export default function BurgerButton({ isOpen, onClick, className = '' }) {
       aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
     >
       <span
-        className="block w-6 h-0.5 bg-brand-deep transition-all duration-300 ease-in-out absolute group-hover:-rotate-12"
-        style={{
-          transform: isOpen ? 'rotate(45deg)' : 'translateY(-6px)',
-        }}
+        className={`block w-6 h-0.5 bg-brand-deep transition-all duration-300 ease-in-out absolute ${
+          isOpen
+            ? 'rotate-45'
+            : '-translate-y-1.5 group-hover:-rotate-12'
+        }`}
       />
       <span
         className="block w-6 h-0.5 bg-brand-deep transition-all duration-300 ease-in-out absolute"
-        style={{
-          opacity: isOpen ? 0 : 1,
-        }}
+        style={{ opacity: isOpen ? 0 : 1 }}
       />
       <span
-        className="block w-6 h-0.5 bg-brand-deep transition-all duration-300 ease-in-out absolute group-hover:rotate-12"
-        style={{
-          transform: isOpen ? 'rotate(-45deg)' : 'translateY(6px)',
-        }}
+        className={`block w-6 h-0.5 bg-brand-deep transition-all duration-300 ease-in-out absolute ${
+          isOpen
+            ? '-rotate-45'
+            : 'translate-y-1.5 group-hover:rotate-12'
+        }`}
       />
     </button>
   )

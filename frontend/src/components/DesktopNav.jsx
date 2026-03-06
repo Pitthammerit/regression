@@ -34,7 +34,7 @@ const ListItem = React.forwardRef(({ className, children, anchor, navigateTo, ..
 
 ListItem.displayName = 'ListItem'
 
-export default function DesktopNav({ onSidecarOpen }) {
+export default function DesktopNav({ shouldBlur }) {
   const { navigateTo } = useNavigation()
   const [viewportStyle, setViewportStyle] = useState({})
   const rootRef = useRef(null)
@@ -74,7 +74,7 @@ export default function DesktopNav({ onSidecarOpen }) {
   }, [])
 
   return (
-    <NavigationMenu.Root ref={rootRef} className="relative z-10 flex items-center justify-center flex-1">
+    <NavigationMenu.Root ref={rootRef} className={`relative z-10 flex items-center justify-center flex-1 ${shouldBlur ? 'backdrop-blur-md' : ''}`}>
       <NavigationMenu.List className="center m-0 flex list-none">
         {menu.header.mainNav.map((item) => (
           <NavigationMenu.Item key={item.label}>
