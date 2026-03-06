@@ -48,8 +48,8 @@ export default function Header({ nav, cta }) {
             </a>
 
             {/* Desktop Nav + CTA (>=1024px) */}
-            <div className="hidden lg:flex items-center gap-8 xl:gap-12">
-              {/* Radix UI Desktop Nav */}
+            <div className="hidden lg:flex items-center justify-center gap-8 xl:gap-12 flex-1">
+              {/* Radix UI Desktop Nav — zentriert */}
               <DesktopNav shouldBlur={sidecarOpen} />
 
               {/* Desktop CTA — scroll-triggered */}

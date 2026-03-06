@@ -34,7 +34,7 @@ function FloatingBurger() {
   return (
     <button
       onClick={() => setSidecarOpen(!sidecarOpen)}
-      className="fixed top-4 right-4 z-[100] w-10 h-10 flex items-center justify-center bg-transparent transition-colors"
+      className="fixed top-2 right-8 z-[100] w-10 h-10 flex items-center justify-center bg-transparent transition-colors"
       aria-label={sidecarOpen ? "Menü schließen" : "Menü öffnen"}
     >
       <BurgerButton isOpen={sidecarOpen} />
