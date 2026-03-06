@@ -24,10 +24,13 @@ export default function FAQSection() {
       // Close all accordions when clicking "Mehr Antworten" (#faq)
       if (hash === '#faq') {
         setExpandedIndex(null)
-        const element = document.getElementById('faq')
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
+        // Always scroll to FAQ section, even if already on #faq hash
+        setTimeout(() => {
+          const element = document.getElementById('faq')
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 100)
         return
       }
 
