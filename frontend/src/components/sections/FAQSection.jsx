@@ -20,6 +20,18 @@ export default function FAQSection() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash
+
+      // Close all accordions when clicking "Mehr Antworten" (#faq)
+      if (hash === '#faq') {
+        setExpandedIndex(null)
+        const element = document.getElementById('faq')
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+        return
+      }
+
+      // Expand specific accordion when clicking a specific FAQ question (#faq-0, #faq-1, etc.)
       if (hash.startsWith('#faq-')) {
         const index = parseInt(hash.replace('#faq-', ''), 10)
         if (!isNaN(index) && index >= 0 && index < faq.items.length) {
@@ -31,13 +43,6 @@ export default function FAQSection() {
               element.scrollIntoView({ behavior: 'smooth', block: 'center' })
             }
           }, 100)
-        }
-      } else if (hash === '#faq') {
-        // Close all accordions and scroll to FAQ section
-        setExpandedIndex(null)
-        const element = document.getElementById('faq')
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
       }
     }
