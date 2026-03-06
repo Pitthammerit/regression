@@ -1,8 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { NavigationProvider } from './contexts/NavigationContext'
+import { NavigationProvider, useNavigation } from './contexts/NavigationContext'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import BurgerButton from './components/ui/BurgerButton'
 import HeroV3Section from './components/sections/HeroV3Section'
 import ServicesSection from './components/sections/ServicesSection'
 import WelcomeSection from './components/sections/WelcomeSection'
@@ -26,6 +27,20 @@ import MenuDemoPage from './pages/MenuDemoPage'
 import NotFound from './components/NotFound'
 import { header, footer, testimonials } from './content/plr-de'
 import { SECTIONS_ORDER } from './config/sections.config'
+
+function FloatingBurger() {
+  const { sidecarOpen, setSidecarOpen } = useNavigation()
+
+  return (
+    <button
+      onClick={() => setSidecarOpen(!sidecarOpen)}
+      className="fixed top-4 right-4 z-[100] w-10 h-10 flex items-center justify-center bg-transparent hover:bg-black/5 rounded transition-colors"
+      aria-label={sidecarOpen ? "Menü schließen" : "Menü öffnen"}
+    >
+      <BurgerButton isOpen={sidecarOpen} />
+    </button>
+  )
+}
 
 function MainPage() {
   // Section mapping with props
@@ -58,6 +73,7 @@ function MainPage() {
 
   return (
     <div className="bg-brand-cream bg-paper min-h-screen font-sans text-brand-body">
+      <FloatingBurger />
       <Header nav={header.nav} cta={header.cta} />
       <main>
         {SECTIONS_ORDER.map((sectionName) => sectionMap[sectionName])}

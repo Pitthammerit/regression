@@ -13,6 +13,7 @@ const NavigationContext = createContext(null)
  */
 export function NavigationProvider({ children }) {
   const [expandedFAQIndex, setExpandedFAQIndex] = useState(null)
+  const [sidecarOpen, setSidecarOpen] = useState(false)
 
   const navigateTo = useCallback((anchor) => {
     if (!anchor) return
@@ -43,7 +44,7 @@ export function NavigationProvider({ children }) {
   }, [])
 
   return (
-    <NavigationContext.Provider value={{ navigateTo, expandedFAQIndex, setExpandedFAQIndex }}>
+    <NavigationContext.Provider value={{ navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen }}>
       {children}
     </NavigationContext.Provider>
   )
@@ -52,9 +53,9 @@ export function NavigationProvider({ children }) {
 /**
  * useNavigation Hook
  *
- * Gibt Zugriff auf die Navigation-Funktionen und den FAQ-Index
+ * Gibt Zugriff auf die Navigation-Funktionen, FAQ-Index und Sidecar State
  *
- * @returns {Object} { navigateTo, expandedFAQIndex, setExpandedFAQIndex }
+ * @returns {Object} { navigateTo, expandedFAQIndex, setExpandedFAQIndex, sidecarOpen, setSidecarOpen }
  */
 export function useNavigation() {
   const context = useContext(NavigationContext)

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import CtaButton from './ui/CtaButton'
-import BurgerButton from './ui/BurgerButton'
 import { r2, logos } from '../utils/media'
 import DesktopNav from './DesktopNav'
 import SidecarMenu from './SidecarMenu'
 import { menu } from '../content/menu'
+import { useNavigation } from '../contexts/NavigationContext'
 
 export default function Header({ nav, cta }) {
+  const { sidecarOpen, setSidecarOpen } = useNavigation()
   const [scrolled, setScrolled] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
-  const [sidecarOpen, setSidecarOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
@@ -57,12 +57,6 @@ export default function Header({ nav, cta }) {
                 <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
               </div>
             </div>
-
-            {/* Burger Menu — alle Breakpoints (ganz rechts) */}
-            <BurgerButton
-              isOpen={sidecarOpen}
-              onClick={() => setSidecarOpen(!sidecarOpen)}
-            />
           </div>
         </div>
       </header>

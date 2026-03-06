@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { menu } from '../content/menu'
 import CtaButton from './ui/CtaButton'
-import BurgerButton from './ui/BurgerButton'
 import { useNavigation } from '../contexts/NavigationContext'
 
 export default function SidecarMenu({ isOpen, onClose }) {
@@ -60,7 +59,16 @@ export default function SidecarMenu({ isOpen, onClose }) {
           <h2 className="font-serif text-xl text-brand-deep leading-tight">
             Menü
           </h2>
-          <BurgerButton isOpen={!isClosing} onClick={handleClose} />
+          <button
+            onClick={handleClose}
+            className="text-brand-steel hover:text-brand-deep transition-colors p-2 -mr-2"
+            aria-label="Menü schließen"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
 
         {/* Navigation - Alle Kategorien immer aufgeklappt, minimale Abstände */}
