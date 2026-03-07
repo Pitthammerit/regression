@@ -7,7 +7,7 @@ import { menu } from '../content/menu'
 import { useNavigation } from '../contexts/NavigationContext'
 
 export default function Header({ nav, cta }) {
-  const { sidecarOpen, setSidecarOpen } = useNavigation()
+  const { sidecarOpen, setSidecarOpen, isBurgerClosing } = useNavigation()
   const [scrolled, setScrolled] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
 
@@ -26,7 +26,12 @@ export default function Header({ nav, cta }) {
         data-testid="site-header"
         className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-[padding,border] duration-300 ${
           scrolled ? 'border-b border-black/8 py-3' : 'py-4'
-        } ${sidecarOpen ? 'blur-md' : ''} transition-[filter] duration-[500ms] ease-in-out`}
+        }`}
+        style={{
+          // Blur: ON beim Öffnen, fadet OUT während Close Animation
+          filter: (sidecarOpen || isBurgerClosing) ? 'blur(12px)' : 'blur(0px)',
+          transition: 'filter 500ms ease-in-out'
+        }}
       >
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
           <div className="flex items-center justify-between">
@@ -51,7 +56,7 @@ export default function Header({ nav, cta }) {
             <div className="hidden lg:flex items-center flex-1">
               {/* Radix UI Desktop Nav — zentriert */}
               <div className="flex-1 flex justify-center">
-                <DesktopNav shouldBlur={sidecarOpen} />
+                <DesktopNav shouldBlur={sidecarOpen || isBurgerClosing} />
               </div>
 
               {/* Desktop CTA — scroll-triggered, mit Abstand zum Burger */}
