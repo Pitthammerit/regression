@@ -506,6 +506,14 @@ If deep links like `/transkript` break on refresh, add SPA fallback via `fronten
 - When adding colors: add to `tailwind.config.js` first, then use as Tailwind class
 - Example: `className="bg-brand-deep text-brand-steel"` NOT `style={{ color: '#2D3F4E' }}`
 
+**Tailwind Custom Values (CRITICAL — March 2026 Learning):**
+- **Custom values MUST use square brackets** — Tailwind ignores values without brackets
+- ❌ WRONG: `delay-400` (ignored by Tailwind, falls back to nearest default: 500ms)
+- ✅ CORRECT: `delay-[400ms]` (exact 400ms delay)
+- ❌ WRONG: `duration-[800]` (missing unit, unpredictable behavior)
+- ✅ CORRECT: `duration-[800ms]` (exact 800ms duration)
+- **Rule:** Any non-standard Tailwind value needs brackets: `[value]` — e.g., `delay-[300ms]`, `w-[380px]`, `z-[100]`
+
 ### Component-Based Development
 - **No hardcoded content** in components — always use the content layer or create content objects
 - Prefer importing existing components over duplicating code
