@@ -20,29 +20,23 @@ export function NavigationProvider({ children }) {
     if (!anchor) return
 
     if (anchor.startsWith('#faq-')) {
-      // FAQ: Accordion öffnen + scrollen (verzögert für Sidecar Close Animation)
+      // FAQ: Accordion öffnen + scrollen (sofort)
       const index = parseInt(anchor.replace('#faq-', ''), 10)
       if (!isNaN(index) && index >= 0) {
         setExpandedFAQIndex(index)
-        // Scroll nach Sidecar Close (500ms)
-        setTimeout(() => {
-          const el = document.querySelector(anchor)
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        }, 500)
+        // Scroll sofort (keine Verzögerung)
+        const el = document.querySelector(anchor)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
       }
     } else if (anchor === '#faq') {
-      // "Mehr Antworten": Accordions schließen + scrollen (verzögert für Sidecar Close)
+      // "Mehr Antworten": Accordions schließen + scrollen (sofort)
       setExpandedFAQIndex(null)
-      setTimeout(() => {
-        const el = document.querySelector(anchor)
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 500)
+      const el = document.querySelector(anchor)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } else {
-      // Alle anderen: Scroll nach Sidecar Close (500ms)
-      setTimeout(() => {
-        const el = document.querySelector(anchor)
-        if (el) el.scrollIntoView({ behavior: 'smooth' })
-      }, 500)
+      // Alle anderen: Scroll sofort (keine Verzögerung)
+      const el = document.querySelector(anchor)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
     }
   }, [])
 

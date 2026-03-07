@@ -42,11 +42,13 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop ohne Blur - nur opacity transition */}
+      {/* Backdrop ohne Blur - opacity transition mit unterschiedlichen timings */}
       {isBackdropVisible && (
         <div
-          className={`fixed inset-0 bg-black/20 z-40 transition-opacity duration-[500ms] ease-in-out ${
-            shouldAnimateOut ? 'opacity-0' : 'opacity-100'
+          className={`fixed inset-0 bg-black/20 z-40 ${
+            shouldAnimateOut
+              ? 'opacity-0 transition-opacity duration-[600ms] ease-out'  // Fade-Out: 600ms ease-out
+              : 'opacity-100 transition-opacity duration-[500ms] ease-in'   // Fade-In: 500ms ease-in
           }`}
           onClick={handleClose}
         />
