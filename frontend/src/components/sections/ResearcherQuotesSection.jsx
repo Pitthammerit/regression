@@ -34,7 +34,14 @@ export default function ResearcherQuotesSection() {
         <div className="grid md:grid-cols-3 gap-10 md:gap-14">
           {authorsWithPortraits.slice(0, 3).map((author) => (
             <div key={author.id} className="pt-8">
-              <AspectRatio ratio={1 / 1} className="mb-6">
+              <AspectRatio ratio={16 / 9} className="md:hidden mb-6">
+                <LazyImage
+                  src={author.portrait}
+                  alt={author.name}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </AspectRatio>
+              <AspectRatio ratio={1 / 1} className="hidden md:block mb-6">
                 <LazyImage
                   src={author.portrait}
                   alt={author.name}
@@ -77,7 +84,14 @@ export default function ResearcherQuotesSection() {
               <div className="grid md:grid-cols-3 gap-10 md:gap-14">
                 {authorsWithPortraits.slice(3).map((author) => (
                   <div key={author.id} className="pt-8">
-                    <AspectRatio ratio={1 / 1} className="mb-6">
+                    <AspectRatio ratio={16 / 9} className="md:hidden mb-6">
+                      <LazyImage
+                        src={author.portrait}
+                        alt={author.name}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </AspectRatio>
+                    <AspectRatio ratio={1 / 1} className="hidden md:block mb-6">
                       <LazyImage
                         src={author.portrait}
                         alt={author.name}
