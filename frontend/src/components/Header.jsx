@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CtaButton from './ui/CtaButton'
+import BurgerButton from './ui/BurgerButton'
 import { r2, logos } from '../utils/media'
 import DesktopNav from './DesktopNav'
 import SidecarMenu from './SidecarMenu'
@@ -47,21 +48,22 @@ export default function Header({ nav, cta }) {
               />
             </a>
 
-            {/* Desktop Nav (>=1024px) - ohne CTA (CTA ist fixed) */}
-            <div className="hidden lg:flex items-center flex-1">
-              {/* Radix UI Desktop Nav — zentriert */}
-              <div className="flex-1 flex justify-center">
-                <DesktopNav />
+            {/* Desktop Nav + CTA (3-Zonen Layout) */}
+            <div className="hidden lg:flex items-center flex-1 justify-between">
+              <div className="flex-1" />
+              <DesktopNav />
+              <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
               </div>
             </div>
+
+            {/* Tablet/Mobile Burger */}
+            <button onClick={() => setSidecarOpen(!sidecarOpen)} className="lg:hidden ml-auto p-2" aria-label="Menü">
+              <BurgerButton isOpen={sidecarOpen} />
+            </button>
           </div>
         </div>
       </header>
-
-      {/* Fixed CTA Button - vertikal mittig im Header */}
-      <div className={`fixed top-8 right-20 z-[100] transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
-      </div>
 
       {/* Sidecar Menu - alle Breakpoints */}
       <SidecarMenu isOpen={sidecarOpen} onClose={() => setSidecarOpen(false)} />
