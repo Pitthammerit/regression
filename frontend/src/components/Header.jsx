@@ -7,15 +7,9 @@ import { menu } from '../content/menu'
 import { useNavigation } from '../contexts/NavigationContext'
 
 export default function Header({ nav, cta }) {
-  const { sidecarOpen, setSidecarOpen, isBurgerClosing } = useNavigation()
+  const { sidecarOpen, setSidecarOpen } = useNavigation()
   const [scrolled, setScrolled] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
-
-  // Header fade syncs with backdrop: 500ms ease-in, 600ms ease-out
-  const shouldFadeOut = isBurgerClosing
-  const headerFade = sidecarOpen
-    ? (shouldFadeOut ? 'opacity-0 transition-opacity duration-[600ms] ease-out' : 'animate-[fadeIn_500ms_ease-in]')
-    : ''
 
   useEffect(() => {
     const onScroll = () => {
@@ -32,7 +26,7 @@ export default function Header({ nav, cta }) {
         data-testid="site-header"
         className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-[padding,border] duration-300 ${
           scrolled ? 'border-b border-black/8 py-3' : 'py-4'
-        } ${headerFade}`}
+        }`}
       >
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
           <div className="flex items-center justify-between">
