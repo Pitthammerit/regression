@@ -18,6 +18,12 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 - Cloudflare deployed automatisch → Benutzer prüft live
 - Es sei denn, der Benutzer sagt explizit "test locally" oder "warte mit push"
 
+**WICHTIG - Deployment URLs:**
+- Die Deployment-URLs sind **dynamisch** und je nach Cloudflare-Publikation unterschiedlich
+- **KEINE festen URLs wie `https://regression.pages.dev`** in Code oder Dokumentation hartcoden
+- Nach dem Push: Cloudflare erstellt eine neue Preview/Production URL → Benutzer testet diese URL
+- Lokal: `http://localhost:3000` mit `npm --prefix frontend run dev`
+
 ### GitHub Direct Edit Workflow
 User sometimes edits `frontend/src/content/plr-de.js` directly on GitHub. When local changes conflict:
 ```bash
