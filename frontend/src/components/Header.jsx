@@ -61,7 +61,7 @@ export default function Header({ nav, cta }) {
             </div>
 
             {/* Medium screens CTA (md-lg, 768px-1024px) - ohne DesktopNav */}
-            <div className={`hidden md:block lg:hidden transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`fixed top-2 right-20 z-[100] hidden md:block lg:hidden transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
             </div>
           </div>
