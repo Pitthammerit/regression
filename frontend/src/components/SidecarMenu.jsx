@@ -11,7 +11,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
   // Animation wird von beiden Close-Wegen gesteuert
   const shouldAnimateOut = isClosing || isBurgerClosing
 
-  // Backdrop wird IMMER gerendert, Opacity wird per CSS gesteuert (für smooth transition)
+  // Backdrop wird während Animation gerendert
   const isBackdropVisible = isOpen || shouldAnimateOut
 
   // Handle close with animation
@@ -42,10 +42,10 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop mit Blur - immer gerendert, Opacity steuert Sichtbarkeit */}
+      {/* Backdrop ohne Blur - nur opacity transition */}
       {isBackdropVisible && (
         <div
-          className={`fixed inset-0 bg-black/20 z-40 backdrop-blur-md transition-[backdrop-filter,opacity] duration-[500ms] ease-in-out ${
+          className={`fixed inset-0 bg-black/20 z-40 transition-opacity duration-[500ms] ease-in-out ${
             shouldAnimateOut ? 'opacity-0' : 'opacity-100'
           }`}
           onClick={handleClose}
