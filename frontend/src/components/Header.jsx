@@ -47,7 +47,7 @@ export default function Header({ nav, cta }) {
               />
             </a>
 
-            {/* Desktop Nav + CTA (>=1024px) */}
+            {/* Desktop Nav (>=1024px) */}
             <div className="hidden lg:flex items-center flex-1">
               {/* Radix UI Desktop Nav — zentriert */}
               <div className="flex-1 flex justify-center">
@@ -58,6 +58,11 @@ export default function Header({ nav, cta }) {
               <div className={`transition-opacity duration-500 pr-32 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
               </div>
+            </div>
+
+            {/* Medium screens CTA (md-lg, 768px-1024px) - ohne DesktopNav */}
+            <div className={`hidden md:block lg:hidden transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
             </div>
           </div>
         </div>
