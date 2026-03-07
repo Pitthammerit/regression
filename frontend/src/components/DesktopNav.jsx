@@ -58,7 +58,7 @@ export default function DesktopNav() {
                   />
                 </NavigationMenu.Trigger>
 
-                {/* Content mit Advanced Animation */}
+                {/* Content - Basic positioning, no animation */}
                 <NavigationMenu.Content className="NavigationMenuContent">
                   <ul className="m-0 grid list-none gap-x-2.5 p-[22px] min-w-[200px] w-auto">
                     {menu.items
@@ -95,8 +95,8 @@ export default function DesktopNav() {
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
-      {/* Viewport — native Radix UI positioning, dynamische Breite */}
-      <NavigationMenu.Viewport className="NavigationMenuViewport" />
+      {/* Viewport — Basic styling */}
+      <NavigationMenu.Viewport />
     </NavigationMenu.Root>
   )
 }

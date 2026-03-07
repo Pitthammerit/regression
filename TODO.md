@@ -1,14 +1,15 @@
 # TODO
 
-Updated: 2026-03-07 02:29
+Updated: 2026-03-07 02:36
 
 ---
 
 ## 🔴 High Priority
 
 ### Menu & Navigation
-- [x] Desktop Nav Viewport Position verifizieren (Regression, Science, Methoden, FAQ hover)
-- [x] Sidecar Close Animation verifizieren (Floating Burger, Menüpunkte, Backdrop)
+- [x] Sidecar & Burger Complete (CTA timing, backdrop blur, responsive grid layout)
+- [ ] Sidecar inline styles → Tailwind classes (später)
+- [ ] DesktopNav: Radix Animation entfernt, bereit für Neuimplementierung
 - [ ] Menu-Variante auswählen (V1, V2, oder V3 von MenuDemoPage)
 - [ ] Gewählte Menu-Variante in Header.jsx implementieren
 
