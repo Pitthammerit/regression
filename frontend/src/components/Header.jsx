@@ -58,8 +58,8 @@ export default function Header({ nav, cta }) {
         </div>
       </header>
 
-      {/* Fixed CTA Button - aligned with burger, alle Breakpoints */}
-      <div className={`fixed top-2 right-20 z-[100] transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      {/* Fixed CTA Button - vertikal mittig im Header */}
+      <div className={`fixed top-8 right-20 z-[100] transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
       </div>
 
