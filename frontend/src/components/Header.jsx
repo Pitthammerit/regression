@@ -14,7 +14,7 @@ export default function Header({ nav, cta }) {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40)
-      setCtaVisible(window.scrollY > 600)
+      setCtaVisible(window.scrollY > 500)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -47,26 +47,21 @@ export default function Header({ nav, cta }) {
               />
             </a>
 
-            {/* Desktop Nav (>=1024px) */}
+            {/* Desktop Nav (>=1024px) - ohne CTA (CTA ist fixed) */}
             <div className="hidden lg:flex items-center flex-1">
               {/* Radix UI Desktop Nav — zentriert */}
               <div className="flex-1 flex justify-center">
                 <DesktopNav />
               </div>
-
-              {/* Desktop CTA — scroll-triggered, mit Abstand zum Burger */}
-              <div className={`transition-opacity duration-500 pr-32 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
-              </div>
-            </div>
-
-            {/* Medium screens CTA (md-lg, 768px-1024px) - ohne DesktopNav */}
-            <div className={`fixed top-2 right-20 z-[100] hidden md:block lg:hidden transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-              <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
             </div>
           </div>
         </div>
       </header>
+
+      {/* Fixed CTA Button - aligned with burger, alle Breakpoints */}
+      <div className={`fixed top-2 right-20 z-[100] transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
+      </div>
 
       {/* Sidecar Menu - alle Breakpoints */}
       <SidecarMenu isOpen={sidecarOpen} onClose={() => setSidecarOpen(false)} />
