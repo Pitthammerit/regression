@@ -25,13 +25,13 @@ export default function Header() {
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
           <div className="flex items-center justify-between">
 
-            {/* Logo — responsive version, gleiche Position */}
-            <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity relative h-7">
+            {/* Logo — responsive version */}
+            <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity h-7 min-w-[160px]">
               {/* Mobile & Tablet (<1024px): Circular logo */}
               <img
                 src={r2('logos/BKA logo 500 px black.png')}
                 alt="Benjamin Kurtz Academy"
-                className="lg:hidden absolute left-0 top-0 h-full w-auto object-contain"
+                className="lg:hidden h-full w-auto object-contain"
               />
               {/* Desktop (>=1024px): Wordmark logo */}
               <img
