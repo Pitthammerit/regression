@@ -1,5 +1,42 @@
 import { createContext, useContext, useState, useCallback } from 'react'
 
+/**
+ * Custom smooth scroll with configurable duration (700ms)
+ * Easing: ease-in-out for smooth acceleration/deceleration
+ */
+const smoothScrollTo = (element, options = {}) => {
+  const { duration = 700, block = 'start' } = options
+
+  if (!element) return
+
+  const targetPosition = block === 'center'
+    ? element.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2) + (element.offsetHeight / 2)
+    : element.getBoundingClientRect().top + window.pageYOffset - 20
+
+  const startPosition = window.pageYOffset
+  const distance = targetPosition - startPosition
+  let startTime = null
+
+  // Ease-in-out cubic function
+  const easeInOutCubic = (t) => {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+  }
+
+  const animation = (currentTime) => {
+    if (startTime === null) startTime = currentTime
+    const timeElapsed = currentTime - startTime
+    const progress = Math.min(timeElapsed / duration, 1)
+
+    window.scrollTo(0, startPosition + distance * easeInOutCubic(progress))
+
+    if (progress < 1) {
+      requestAnimationFrame(animation)
+    }
+  }
+
+  requestAnimationFrame(animation)
+}
+
 const NavigationContext = createContext(null)
 
 /**
@@ -24,19 +61,19 @@ export function NavigationProvider({ children }) {
       const index = parseInt(anchor.replace('#faq-', ''), 10)
       if (!isNaN(index) && index >= 0) {
         setExpandedFAQIndex(index)
-        // Scroll sofort (keine Verzögerung)
+        // Scroll sofort mit 700ms Dauer
         const el = document.querySelector(anchor)
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        if (el) smoothScrollTo(el, { duration: 700, block: 'center' })
       }
     } else if (anchor === '#faq') {
       // "Mehr Antworten": Accordions schließen + scrollen (sofort)
       setExpandedFAQIndex(null)
       const el = document.querySelector(anchor)
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (el) smoothScrollTo(el, { duration: 700, block: 'start' })
     } else {
-      // Alle anderen: Scroll sofort (keine Verzögerung)
+      // Alle anderen: Scroll sofort mit 700ms Dauer
       const el = document.querySelector(anchor)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+      if (el) smoothScrollTo(el, { duration: 700 })
     }
   }, [])
 
