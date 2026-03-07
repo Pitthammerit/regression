@@ -19,9 +19,11 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 - Es sei denn, der Benutzer sagt explizit "test locally" oder "warte mit push"
 
 **WICHTIG - Deployment URLs:**
-- Die Deployment-URLs sind **dynamisch** und je nach Cloudflare-Publikation unterschiedlich
-- **KEINE festen URLs wie `https://regression.pages.dev`** in Code oder Dokumentation hartcoden
-- Nach dem Push: Cloudflare erstellt eine neue Preview/Production URL → Benutzer testet diese URL
+- **URL-Format:** `[commit-hash-or-iteration].[project-name].pages.dev`
+- **Projekt-Name:** `regression-a2m`
+- **Beispiele:** `eb678659.regression-a2m.pages.dev` (Commit) oder `[iteration].regression-a2m.pages.dev` (Iteration)
+- URLs sind **dynamisch** und je nach Cloudflare-Publikation unterschiedlich
+- Nach dem Push: Cloudflare erstellt eine neue URL → Benutzer testet diese URL
 - Lokal: `http://localhost:3000` mit `npm --prefix frontend run dev`
 
 ### GitHub Direct Edit Workflow
