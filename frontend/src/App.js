@@ -35,7 +35,7 @@ function FloatingBurger() {
   const [ctaVisible, setCtaVisible] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setCtaVisible(window.scrollY > 120)
+    const onScroll = () => setCtaVisible(window.scrollY > 1200)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
