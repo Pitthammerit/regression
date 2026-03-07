@@ -42,10 +42,10 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop ohne Blur - animation (fade-in) + transition (fade-out) */}
+      {/* Backdrop mit Blur (16px) - animation (fade-in) + transition (fade-out) */}
       {isBackdropVisible && (
         <div
-          className={`fixed inset-0 bg-black/20 z-[60] ${
+          className={`fixed inset-0 bg-black/20 backdrop-blur-lg z-[60] ${
             shouldAnimateOut
               ? 'opacity-0 transition-opacity duration-[600ms] ease-out'  // Fade-Out: 600ms ease-out (transition)
               : 'opacity-100 animate-[fadeIn_500ms_ease-in]'              // Fade-In: 500ms ease-in (keyframe animation)
