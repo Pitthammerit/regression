@@ -31,13 +31,13 @@ export default function Header({ nav, cta }) {
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
           <div className="flex items-center justify-between">
 
-            {/* Logo — responsive version */}
+            {/* Logo — responsive version, gleiche Höhe */}
             <a href="/" data-testid="site-logo" className="hover:opacity-70 transition-opacity">
               {/* Mobile & Tablet (<1024px): Circular logo */}
               <img
                 src={r2('logos/BKA logo 500 px black.png')}
                 alt="Benjamin Kurtz Academy"
-                className="lg:hidden h-10 w-10 object-contain"
+                className="lg:hidden h-7 w-auto object-contain"
               />
               {/* Desktop (>=1024px): Wordmark logo */}
               <img
@@ -47,18 +47,18 @@ export default function Header({ nav, cta }) {
               />
             </a>
 
-            {/* Desktop Nav - horizontal zentriert */}
-            <div className="hidden lg:flex items-center flex-1 justify-center">
+            {/* Desktop Nav + CTA - horizontal zentriert */}
+            <div className="hidden lg:flex items-center flex-1 justify-between">
               <DesktopNav />
+              {!sidecarOpen && (
+                <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                  <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
+                </div>
+              )}
             </div>
           </div>
         </div>
       </header>
-
-      {/* Fixed CTA - links vom externen Burger (right-20, Burger ist right-8) */}
-      <div className={`fixed top-2 right-20 z-[100] transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
-      </div>
 
       {/* Sidecar Menu - alle Breakpoints */}
       <SidecarMenu isOpen={sidecarOpen} onClose={() => setSidecarOpen(false)} />
