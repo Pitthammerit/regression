@@ -31,7 +31,7 @@ import { menu } from './content/menu'
 import { SECTIONS_ORDER } from './config/sections.config'
 
 function FloatingBurger() {
-  const { sidecarOpen, setSidecarOpen, setIsBurgerClosing, navigateTo } = useNavigation()
+  const { sidecarOpen, setSidecarOpen, setIsBurgerClosing, isBurgerClosing, navigateTo } = useNavigation()
   const [ctaVisible, setCtaVisible] = useState(false)
 
   useEffect(() => {
@@ -52,14 +52,14 @@ function FloatingBurger() {
     }
   }
 
-  // Single source of truth: visible when scrolled + sidecar closed
-  const showCta = ctaVisible && !sidecarOpen
+  // CTA visible when: scrolled + (sidecar closed OR closing in progress)
+  const showCta = ctaVisible && (!sidecarOpen || isBurgerClosing)
 
   return (
     <div className="fixed top-2 right-8 z-[100] flex items-center gap-4">
       <div
         className={`transition-opacity ${
-          sidecarOpen ? 'duration-[100ms]' : 'duration-[700ms]'
+          sidecarOpen && !isBurgerClosing ? 'duration-[100ms]' : 'duration-[700ms]'
         } ${showCta ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
         <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" onClick={() => navigateTo('#booking')} />
