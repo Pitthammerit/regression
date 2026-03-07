@@ -45,10 +45,10 @@ export default function SidecarMenu({ isOpen, onClose }) {
       {/* Backdrop mit Blur (16px) - animation (fade-in) + transition (fade-out) */}
       {isBackdropVisible && (
         <div
-          className={`fixed inset-0 bg-black/20 backdrop-blur-lg z-[60] transition-opacity ${
+          className={`fixed inset-0 bg-black/20 backdrop-blur-lg z-[60] transition-opacity duration-[500ms] ease-out ${
             shouldAnimateOut
-              ? 'opacity-0 duration-[400ms] md:duration-[900ms] ease-out'  // Fade-Out: 400ms mobile, 900ms desktop
-              : 'opacity-100'  // Instant on click, no fade-in
+              ? 'opacity-0 duration-[400ms] md:duration-[900ms]'  // Fade-Out: 400ms mobile, 900ms desktop
+              : 'opacity-100'  // Fade-In: 500ms parallel to sidecar
           }`}
           onClick={handleClose}
         />
