@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import CtaButton from './ui/CtaButton'
 import { r2, logos } from '../utils/media'
 import DesktopNav from './DesktopNav'
 import SidecarMenu from './SidecarMenu'
-import { menu } from '../content/menu'
 import { useNavigation } from '../contexts/NavigationContext'
 
-export default function Header({ nav, cta }) {
+export default function Header() {
   const { sidecarOpen, setSidecarOpen } = useNavigation()
   const [scrolled, setScrolled] = useState(false)
-  const [ctaVisible, setCtaVisible] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40)
-      setCtaVisible(window.scrollY > 500)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -47,14 +41,9 @@ export default function Header({ nav, cta }) {
               />
             </a>
 
-            {/* Desktop Nav + CTA - horizontal zentriert */}
-            <div className="hidden lg:flex items-center flex-1 justify-between">
+            {/* Desktop Nav - horizontal zentriert */}
+            <div className="hidden lg:flex items-center flex-1 justify-center">
               <DesktopNav />
-              {!sidecarOpen && (
-                <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                  <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" />
-                </div>
-              )}
             </div>
           </div>
         </div>

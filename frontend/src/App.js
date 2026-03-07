@@ -1,8 +1,10 @@
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import BurgerButton from './components/ui/BurgerButton'
+import CtaButton from './components/ui/CtaButton'
 import HeroV3Section from './components/sections/HeroV3Section'
 import ServicesSection from './components/sections/ServicesSection'
 import WelcomeSection from './components/sections/WelcomeSection'
@@ -24,11 +26,19 @@ import BookingSection from './components/sections/BookingSection'
 import TranscriptPage from './pages/TranscriptPage'
 import MenuDemoPage from './pages/demos/MenuDemoPage'
 import NotFound from './components/NotFound'
-import { header, footer, testimonials } from './content/plr-de'
+import { footer, testimonials } from './content/plr-de'
+import { menu } from './content/menu'
 import { SECTIONS_ORDER } from './config/sections.config'
 
 function FloatingBurger() {
-  const { sidecarOpen, setSidecarOpen, setIsBurgerClosing } = useNavigation()
+  const { sidecarOpen, setSidecarOpen, setIsBurgerClosing, navigateTo } = useNavigation()
+  const [ctaVisible, setCtaVisible] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setCtaVisible(window.scrollY > 500)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const handleBurgerClick = () => {
     if (sidecarOpen) {
@@ -45,13 +55,20 @@ function FloatingBurger() {
   }
 
   return (
-    <button
-      onClick={handleBurgerClick}
-      className="fixed top-2 right-8 z-[100] w-10 h-10 flex items-center justify-center bg-transparent transition-colors"
-      aria-label={sidecarOpen ? "Menü schließen" : "Menü öffnen"}
-    >
-      <BurgerButton isOpen={sidecarOpen} />
-    </button>
+    <div className="fixed top-2 right-8 z-[100] flex items-center gap-4">
+      {!sidecarOpen && (
+        <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+          <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" onClick={() => navigateTo('#booking')} />
+        </div>
+      )}
+      <button
+        onClick={handleBurgerClick}
+        className="w-10 h-10 flex items-center justify-center bg-transparent transition-colors"
+        aria-label={sidecarOpen ? "Menü schließen" : "Menü öffnen"}
+      >
+        <BurgerButton isOpen={sidecarOpen} />
+      </button>
+    </div>
   )
 }
 
@@ -87,7 +104,7 @@ function MainPage() {
   return (
     <div className="bg-brand-cream bg-paper min-h-screen font-sans text-brand-body">
       <FloatingBurger />
-      <Header nav={header.nav} cta={header.cta} />
+      <Header />
       <main>
         {SECTIONS_ORDER.map((sectionName) => sectionMap[sectionName])}
       </main>
