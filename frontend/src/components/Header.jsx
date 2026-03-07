@@ -24,9 +24,9 @@ export default function Header({ nav, cta }) {
     <>
       <header
         data-testid="site-header"
-        className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-brand-cream transition-[padding,border] duration-300 ${
           scrolled ? 'border-b border-black/8 py-3' : 'py-4'
-        } ${sidecarOpen ? 'blur-md' : ''}`}
+        } ${sidecarOpen ? 'blur-md' : ''} transition-[filter] duration-[500ms] ease-in-out`}
       >
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
           <div className="flex items-center justify-between">

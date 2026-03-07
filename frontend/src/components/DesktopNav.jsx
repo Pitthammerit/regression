@@ -43,7 +43,7 @@ export default function DesktopNav({ shouldBlur }) {
   }
 
   return (
-    <NavigationMenu.Root className={`relative z-10 flex items-center justify-center flex-1 ${shouldBlur ? 'backdrop-blur-md' : ''}`}>
+    <NavigationMenu.Root className={`relative z-10 flex items-center justify-center flex-1 transition-[backdrop-filter] duration-[500ms] ease-in-out ${shouldBlur ? 'backdrop-blur-md' : ''}`}>
       <NavigationMenu.List className="center m-0 flex list-none">
         {menu.header.mainNav.map((item) => (
           <NavigationMenu.Item key={item.label}>

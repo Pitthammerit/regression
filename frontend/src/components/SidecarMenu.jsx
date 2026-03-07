@@ -42,10 +42,11 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
   return (
     <>
-      {/* Backdrop mit Blur - nur sichtbar wenn Sidecar offen */}
+      {/* Backdrop mit Blur - synchron mit Header (500ms) */}
       {isBackdropVisible && (
         <div
-          className="fixed inset-0 bg-black/20 z-40 backdrop-blur-md animate-in fade-in duration-500"
+          className="fixed inset-0 bg-black/20 z-40 backdrop-blur-md transition-[backdrop-filter,opacity] duration-[500ms] ease-in-out"
+          style={{ opacity: 1 }}
           onClick={handleClose}
         />
       )}
