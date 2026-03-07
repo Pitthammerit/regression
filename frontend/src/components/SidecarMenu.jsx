@@ -72,14 +72,14 @@ export default function SidecarMenu({ isOpen, onClose }) {
 
         {/* Navigation - Alle Kategorien immer aufgeklappt, minimale Abstände */}
         <nav className="flex-1 overflow-y-auto px-5 py-3">
-          <div className="space-y-0.5">
+          <div className="grid grid-cols-2 900:grid-cols-1 gap-x-6 gap-y-0 space-y-0">
             {menu.items.map((item) => (
               <div key={item.id}>
                 {/* Hauptkategorie */}
                 {item.children ? (
                   // Kategorie mit Unterpunkten
                   <>
-                    <div className="font-serif text-base text-brand-deep py-1">
+                    <div className="font-serif text-lg 900:text-base text-brand-deep py-1">
                       {item.label}
                     </div>
                     {/* Unterpunkte - immer sichtbar, minimaler Abstand */}
@@ -88,7 +88,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
                         <button
                           key={child.id}
                           onClick={() => handleNavClick(child.anchor)}
-                          className="block w-full text-left font-sans text-sm text-brand-muted hover:text-brand-deep py-1 px-2 rounded hover:bg-black/5 transition-colors"
+                          className="block w-full text-left font-sans text-base 900:text-sm text-brand-muted hover:text-brand-deep py-1 px-2 rounded hover:bg-black/5 transition-colors"
                         >
                           {child.label}
                         </button>
@@ -99,7 +99,7 @@ export default function SidecarMenu({ isOpen, onClose }) {
                   // Kategorie ohne Unterpunkte - direkt klickbar
                   <button
                     onClick={() => handleNavClick(item.anchor)}
-                    className="w-full text-left font-serif text-base text-brand-deep hover:text-brand-steel py-1 transition-colors"
+                    className="w-full text-left font-serif text-lg 900:text-base text-brand-deep hover:text-brand-steel py-1 transition-colors"
                   >
                     {item.label}
                   </button>
