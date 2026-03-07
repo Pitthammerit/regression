@@ -51,10 +51,10 @@ export default function ResearchersSection() {
 
         {/* Featured Researcher */}
         {featuredAuthor && (
-          <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 mb-16 items-start">
+          <div className="grid md:grid-cols-[240px_1fr] gap-3 md:gap-8 mb-16 items-start">
             {/* Photo - Left column */}
             <div className="w-full md:max-w-[240px]">
-              <AspectRatio ratio={16 / 9} className="md:hidden">
+              <AspectRatio ratio={4 / 3} className="md:hidden">
                 <LazyImage
                   src={featuredAuthor.portrait}
                   alt={featuredAuthor.name}
@@ -100,11 +100,11 @@ export default function ResearchersSection() {
         {authors.map((author) => (
           <div key={author.id} className="mb-16">
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
-            <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start">
+            <div className="grid md:grid-cols-[240px_1fr] gap-3 md:gap-8 items-start">
               {/* Portrait - Left column */}
               {author.portrait && (
                 <div className="w-full md:max-w-[240px]">
-                  <AspectRatio ratio={16 / 9} className="md:hidden">
+                  <AspectRatio ratio={4 / 3} className="md:hidden">
                     <LazyImage
                       src={author.portrait}
                       alt={author.name}
