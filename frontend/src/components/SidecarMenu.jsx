@@ -47,8 +47,8 @@ export default function SidecarMenu({ isOpen, onClose }) {
         <div
           className={`fixed inset-0 bg-black/20 backdrop-blur-lg z-[60] ${
             shouldAnimateOut
-              ? 'opacity-0 transition-opacity duration-[600ms] ease-out'  // Fade-Out: 600ms ease-out (transition)
-              : 'opacity-100 animate-[fadeIn_500ms_ease-in]'              // Fade-In: 500ms ease-in (keyframe animation)
+              ? 'opacity-0 transition-opacity duration-[300ms] ease-out'  // Fade-Out: 300ms ease-out (transition)
+              : 'opacity-100 animate-[fadeIn_300ms_ease-in]'              // Fade-In: 300ms ease-in (keyframe animation)
           }`}
           onClick={handleClose}
         />
