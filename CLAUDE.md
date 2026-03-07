@@ -499,50 +499,87 @@ If deep links like `/transkript` break on refresh, add SPA fallback via `fronten
 
 ## Development Principles
 
-### No Hardcoding (CRITICAL)
-- **Never hardcode colors, spacing, or styling values** — always use Tailwind CSS classes
-- **All design tokens must be in `tailwind.config.js`** — brand colors, spacing, etc.
-- **Inline styles are only for dynamic values** (e.g., `width: ${percent}%`)
-- When adding colors: add to `tailwind.config.js` first, then use as Tailwind class
-- Example: `className="bg-brand-deep text-brand-steel"` NOT `style={{ color: '#2D3F4E' }}`
+### Code Quality Principles (CRITICAL)
 
-**Tailwind Custom Values (CRITICAL — March 2026 Learning):**
-- **Custom values MUST use square brackets** — Tailwind ignores values without brackets
-- ❌ WRONG: `delay-400` (ignored by Tailwind, falls back to nearest default: 500ms)
-- ✅ CORRECT: `delay-[400ms]` (exact 400ms delay)
-- ❌ WRONG: `duration-[800]` (missing unit, unpredictable behavior)
-- ✅ CORRECT: `duration-[800ms]` (exact 800ms duration)
-- **Rule:** Any non-standard Tailwind value needs brackets: `[value]` — e.g., `delay-[300ms]`, `w-[380px]`, `z-[100]`
+#### 1. DRY (Don't Repeat Yourself)
+Avoid redundancy in code. Write reusable functions, components, or hooks instead of duplicating code.
+- Create reusable components for repeated UI patterns
+- Use custom hooks for shared logic
+- Extract common utilities to helper functions
 
-### Component-Based Development
-- **No hardcoded content** in components — always use the content layer or create content objects
-- Prefer importing existing components over duplicating code
-- If a user provides a component, use it. If you suggest creating one, create it.
-- Keep components pure — receive data via props, not direct imports of content files
+#### 2. KISS (Keep It Simple, Stupid)
+Keep the code as simple and clear as possible. Avoid unnecessary complexity.
+- **Example:** DesktopNav refactor (March 2026) - Removed Radix UI NavigationMenu (complex portal system) and replaced with simple hover dropdown using useState (-50 lines)
+- Prefer native solutions over complex libraries
+- Avoid over-engineering for future "what-ifs"
+
+#### 3. YAGNI (You Aren't Gonna Need It)
+Only implement what is currently required. Avoid adding features or functionality that may never be used.
+- Don't build abstractions for "someday"
+- Don't add configuration options for unrequested features
+- Implement the simplest solution that meets current requirements
+
+#### 4. SOC (Separation of Concerns)
+Separate responsibilities in the code. Each component or function should handle only one specific task.
+- Components handle rendering, Context handles state, utilities handle logic
+- Keep navigation logic in NavigationContext, not scattered across components
+- Content layer for data, components for presentation
+
+#### 5. SOLID Principles
+- **Single Responsibility:** Each function/component has one reason to change
+- **Open/Closed:** Open for extension (props), closed for modification
+- **Liskov Substitution:** Subtypes are substitutable for base types
+- **Interface Segregation:** Use small, focused props interfaces
+- **Dependency Inversion:** Depend on abstractions (Context, props), not concrete implementations
+
+#### 6. F.I.R.S.T (Testing Principles)
+- **Fast:** Tests should run quickly
+- **Isolated:** Tests should not depend on each other
+- **Repeatable:** Tests should produce consistent results
+- **Self-validating:** Tests should automatically indicate success/failure
+- **Timely:** Write tests before implementing code (when applicable)
+
+### Project-Specific Principles
+
+#### 7. Single Source of Truth (CRITICAL)
+All user-facing content (text, images, links) must be stored in the content layer (`plr-de.js`).
+- Avoid hardcoding content in components
+- Use imports from content layer
+- When in doubt: if it's user-facing text, it belongs in content layer
+
+#### 8. Tailwind CSS Best Practices (CRITICAL)
+- **Use Tailwind classes for all styling** - avoid inline styles unless for dynamic values
+- **Define custom design tokens in `tailwind.config.js`** - brand colors, spacing, etc.
+- **Square brackets for non-standard values** - Tailwind ignores values without brackets
+  - ❌ WRONG: `delay-400` (ignored, falls back to 500ms default)
+  - ✅ CORRECT: `delay-[400ms]` (exact 400ms delay)
+  - ❌ WRONG: `w-[380]` (missing unit)
+  - ✅ CORRECT: `w-[380px]` (exact 380px width)
+- **Rule:** Any non-standard Tailwind value needs brackets: `[value]`
+
+#### 9. Component-Based Development
+- **Reuse existing components** instead of duplicating code
+- **Keep components pure** - receive data via props, not direct imports
+- **If a user provides a component, use it** - don't reinvent
+- **Prefer composition** over complex inheritance
+
+#### 10. Animation Consistency (CRITICAL)
+Ensure all animations are consistent across the app.
+- **All close pathways must use the same animation** - inconsistent UX feels like a bug
+- **Use shared state in Context** for animation triggers (e.g., `isBurgerClosing`)
+- **Pattern:** `shouldAnimateOut = isClosing || externalClosing` - combine local and external states
+- **Example:** Sidecar close animation identical whether triggered by Floating Burger, menu item click, or backdrop click
+
+#### 11. Bilingual Support (i18n)
+Prepare the content layer for future bilingual support.
+- **Keep content layer structure i18n-ready** - all strings in content files
+- **Don't mix languages in components** - no hardcoded German or English text
+- **Future implementation:** Create `plr-en.js` and implement language switching mechanism
+- **Current pattern:** All user-facing text in `plr-de.js` (content layer)
 
 ### Language & Communication
 - **Ask the user in German** — default to German for questions and explanations
 - **Write all code in English** — variable names, comments, file names
-- **User-facing text goes in content layer** — currently German (`plr-de.js`), with goal of bilingual support
-
-### Animation Consistency (CRITICAL — March 2026 Learning)
-- **All close pathways must use the same animation** — inconsistent UX feels like a bug
-- **Solution:** Use shared state in Context for animation triggers (e.g., `isBurgerClosing`)
-- **Example:** Sidecar close animation should be identical whether triggered by Floating Burger, menu item click, or backdrop click
-- **Pattern:** `shouldAnimateOut = isClosing || externalClosing` — combine local and external animation states
-
-### Radix UI NavigationMenu (March 2026 Learning)
-- **Use native Radix UI positioning** — don't implement manual MutationObserver
-- **Problem:** `getBoundingClientRect()` on flex containers causes incorrect viewport offsets
-- **Solution:** Place `<NavigationMenu.Viewport />` directly under `<NavigationMenu.List />` without wrapper divs
-- **CSS:** `.NavigationMenuContent { position: absolute; top: 0; left: 0; }` and `.NavigationMenuViewport { position: relative; }`
-- **Benefit:** -45 lines of code, future-proof against Radix updates, dynamic viewport width based on content
-
-### Bilingual Goal
-The website should become bilingual (German/English). When adding features or refactoring:
-1. Keep the content layer structure i18n-ready
-2. Don't mix languages in components
-3. Future: Create `plr-en.js` and implement language switching mechanism
 
 ## Multiagent Orchestration
 

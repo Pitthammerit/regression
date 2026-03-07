@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-07 02:46
+Updated: 2026-03-07 02:54
 
 ---
 
@@ -9,10 +9,9 @@ Updated: 2026-03-07 02:46
 ### Menu & Navigation
 - [x] Sidecar & Burger Complete (CTA timing, backdrop blur, responsive grid layout)
 - [ ] Sidecar inline styles → Tailwind classes (später)
-- [x] DesktopNav: Radix Animation entfernt (-80 Zeilen)
-- [ ] DesktopNav: Neue Animation implementieren (sauber, neu)
-- [ ] Menu-Variante auswählen (V1, V2, oder V3 von MenuDemoPage)
-- [ ] Gewählte Menu-Variante in Header.jsx implementieren
+- [x] DesktopNav: Einfaches Hover-Dropdown mit Glassmorphism (-50 Zeilen)
+- [x] Sidebar Menu fertig (2-col mobile, 1-col desktop)
+- [ ] Tailwind CSS Best Practices überarbeiten & dokumentieren
 
 **Wichtig:** TODO.md wird bei jedem git push automatisch durch GitHub Action aktualisiert. **Single Source of Truth** für alle offenen Tasks.
 

@@ -29,14 +29,14 @@ export default function DesktopNav() {
             </button>
 
             {item.hasSubmenu && openIndex === index && (
-              <ul className="absolute top-full left-0 min-w-[200px] bg-white/90 backdrop-blur-md rounded-lg shadow-lg border border-black/5 py-1 z-50">
+              <ul className="absolute top-full left-0 min-w-[200px] bg-white/10 backdrop-blur-md rounded-lg shadow-xl border border-white/30 py-1 z-50">
                 {menu.items
                   .find(cat => cat.label === item.label)
                   ?.children.map((child) => (
                     <li key={child.id}>
                       <button
                         onClick={() => handleNavClick(child.anchor)}
-                        className="block w-full text-left px-4 py-2 text-sm text-brand-body hover:bg-brand-cream transition-colors"
+                        className="block w-full text-left px-4 py-2 text-sm text-brand-body hover:font-bold transition-all"
                       >
                         {child.label}
                       </button>
