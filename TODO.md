@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-07 02:37
+Updated: 2026-03-07 02:46
 
 ---
 
@@ -10,7 +10,7 @@ Updated: 2026-03-07 02:37
 - [x] Sidecar & Burger Complete (CTA timing, backdrop blur, responsive grid layout)
 - [ ] Sidecar inline styles → Tailwind classes (später)
 - [x] DesktopNav: Radix Animation entfernt (-80 Zeilen)
-- [x] DesktopNav: Neue Animation implementieren (Radix Advanced)
+- [ ] DesktopNav: Neue Animation implementieren (sauber, neu)
 - [ ] Menu-Variante auswählen (V1, V2, oder V3 von MenuDemoPage)
 - [ ] Gewählte Menu-Variante in Header.jsx implementieren
 

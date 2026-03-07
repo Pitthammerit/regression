@@ -1,102 +1,52 @@
-import React from 'react'
-import * as NavigationMenu from '@radix-ui/react-navigation-menu'
-import { CaretDownIcon } from '@radix-ui/react-icons'
+import { useState } from 'react'
 import { menu } from '../content/menu'
 import { useNavigation } from '../contexts/NavigationContext'
 
-const ListItem = React.forwardRef(({ className, children, anchor, navigateTo, ...props }, ref) => {
-  const handleNavClick = (e) => {
-    e.preventDefault()
-    if (navigateTo) {
-      navigateTo(anchor)
-    } else {
-      const el = document.querySelector(anchor)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  return (
-    <li>
-      <NavigationMenu.Link asChild>
-        <a
-          ref={ref}
-          href={anchor}
-          onClick={handleNavClick}
-          className={`block select-none rounded-md p-3 text-sm leading-none text-brand-body no-underline outline-none transition-colors hover:bg-brand-cream hover:text-brand-deep focus:shadow-[0_0_0_2px] focus:shadow-brand-deep/20 ${className}`}
-          {...props}
-        >
-          {children}
-        </a>
-      </NavigationMenu.Link>
-    </li>
-  )
-})
-
-ListItem.displayName = 'ListItem'
-
 export default function DesktopNav() {
   const { navigateTo } = useNavigation()
+  const [openIndex, setOpenIndex] = useState(null)
 
   const handleNavClick = (anchor) => {
-    if (!anchor) return
     navigateTo(anchor)
+    setOpenIndex(null)
   }
 
   return (
-    <NavigationMenu.Root className="relative z-10 flex items-center justify-center flex-1">
-      <NavigationMenu.List className="center m-0 flex list-none">
-        {menu.header.mainNav.map((item) => (
-          <NavigationMenu.Item key={item.label}>
-            {item.hasSubmenu ? (
-              <>
-                {/* Trigger mit Dropdown */}
-                <NavigationMenu.Trigger className="group flex select-none items-center justify-between gap-0.5 rounded px-3 py-2 text-sm font-medium leading-none text-brand-body outline-none hover:bg-brand-cream focus:shadow-[0_0_0_2px] focus:shadow-brand-deep/20">
-                  {item.label}
-                  <CaretDownIcon
-                    className="relative top-px text-brand-steel transition-transform duration-[250ms] ease-in group-data-[state=open]:rotate-180"
-                    aria-hidden
-                  />
-                </NavigationMenu.Trigger>
+    <nav className="flex items-center justify-center flex-1">
+      <ul className="flex items-center gap-1">
+        {menu.header.mainNav.map((item, index) => (
+          <li
+            key={item.label}
+            className="relative"
+            onMouseEnter={() => item.hasSubmenu && setOpenIndex(index)}
+            onMouseLeave={() => setOpenIndex(null)}
+          >
+            <button
+              className="px-3 py-2 text-sm font-medium text-brand-body rounded hover:bg-brand-cream transition-colors"
+              onClick={() => !item.hasSubmenu && handleNavClick(item.anchor)}
+            >
+              {item.label}
+            </button>
 
-                {/* Content - Basic positioning, no animation */}
-                <NavigationMenu.Content className="NavigationMenuContent">
-                  <ul className="m-0 grid list-none gap-x-2.5 p-[22px] min-w-[200px] w-auto">
-                    {menu.items
-                      .find(cat => cat.label === item.label)
-                      ?.children.map((child) => (
-                        <ListItem key={child.id} anchor={child.anchor} navigateTo={navigateTo}>
-                          <div className="mb-1 font-medium leading-[1.2] text-brand-deep">
-                            {child.label}
-                          </div>
-                        </ListItem>
-                      ))}
-                  </ul>
-                </NavigationMenu.Content>
-              </>
-            ) : (
-              /* Direkter Link ohne Dropdown */
-              <NavigationMenu.Link
-                className="block select-none rounded px-3 py-2 text-sm font-medium leading-none text-brand-body no-underline outline-none hover:bg-brand-cream focus:shadow-[0_0_0_2px] focus:shadow-brand-deep/20"
-                href={item.anchor}
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick(item.anchor)
-                }}
-              >
-                {item.label}
-              </NavigationMenu.Link>
+            {item.hasSubmenu && openIndex === index && (
+              <ul className="absolute top-full left-0 min-w-[200px] bg-white/90 backdrop-blur-md rounded-lg shadow-lg border border-black/5 py-1 z-50">
+                {menu.items
+                  .find(cat => cat.label === item.label)
+                  ?.children.map((child) => (
+                    <li key={child.id}>
+                      <button
+                        onClick={() => handleNavClick(child.anchor)}
+                        className="block w-full text-left px-4 py-2 text-sm text-brand-body hover:bg-brand-cream transition-colors"
+                      >
+                        {child.label}
+                      </button>
+                    </li>
+                  ))}
+              </ul>
             )}
-          </NavigationMenu.Item>
+          </li>
         ))}
-
-        {/* Indicator - zeigt Position des Dropdowns an */}
-        <NavigationMenu.Indicator className="top-full z-[1] flex h-[10px] items-end justify-center overflow-hidden transition-[width,transform_250ms_ease] data-[state=hidden]:animate-fadeOut data-[state=visible]:animate-fadeIn">
-          <div className="relative top-[70%] h-[10px] w-[10px] rotate-45 rounded-tl-sm bg-white shadow-[0_2px_10px] shadow-black/10" />
-        </NavigationMenu.Indicator>
-      </NavigationMenu.List>
-
-      {/* Viewport — Basic styling */}
-      <NavigationMenu.Viewport />
-    </NavigationMenu.Root>
+      </ul>
+    </nav>
   )
 }
