@@ -31,24 +31,24 @@ export default function ResearcherQuotesSection() {
         </h2>
 
         {/* First row - always visible (3 authors) */}
-        <div className="grid md:grid-cols-3 gap-10 md:gap-14">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-14 md:mt-6">
           {authorsWithPortraits.slice(0, 3).map((author) => (
-            <div key={author.id} className="pt-8">
-              <AspectRatio ratio={16 / 9} className="md:hidden mb-6">
+            <div key={author.id}>
+              <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
                 <LazyImage
                   src={author.portrait}
                   alt={author.name}
                   className="w-full h-full object-cover rounded-lg"
                 />
               </AspectRatio>
-              <AspectRatio ratio={1 / 1} className="hidden md:block mb-6">
+              <AspectRatio ratio={1 / 1} className="hidden md:block mb-4">
                 <LazyImage
                   src={author.portrait}
                   alt={author.name}
                   className="w-full h-full object-cover rounded-lg"
                 />
               </AspectRatio>
-              <blockquote className="font-serif italic text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
+              <blockquote className="font-serif italic text-[26px] md:text-2xl text-white/90 leading-relaxed mb-6">
                 "{author.quote}"
               </blockquote>
               <div className="font-sans text-sm font-medium text-white/70">{author.name}</div>
@@ -81,24 +81,24 @@ export default function ResearcherQuotesSection() {
 
             {/* Expanded content - additional authors */}
             {isExpanded && (
-              <div className="grid md:grid-cols-3 gap-10 md:gap-14">
+              <div className="grid md:grid-cols-3 gap-10 md:gap-14 md:mt-6">
                 {authorsWithPortraits.slice(3).map((author) => (
-                  <div key={author.id} className="pt-8">
-                    <AspectRatio ratio={16 / 9} className="md:hidden mb-6">
+                  <div key={author.id}>
+                    <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
                       <LazyImage
                         src={author.portrait}
                         alt={author.name}
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </AspectRatio>
-                    <AspectRatio ratio={1 / 1} className="hidden md:block mb-6">
+                    <AspectRatio ratio={1 / 1} className="hidden md:block mb-4">
                       <LazyImage
                         src={author.portrait}
                         alt={author.name}
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </AspectRatio>
-                    <blockquote className="font-serif italic text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
+                    <blockquote className="font-serif italic text-[26px] md:text-2xl text-white/90 leading-relaxed mb-6">
                       "{author.quote}"
                     </blockquote>
                     <div className="font-sans text-sm font-medium text-white/70">{author.name}</div>
