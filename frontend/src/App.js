@@ -59,7 +59,7 @@ function FloatingBurger() {
     <div className="fixed top-2 right-8 z-[100] flex items-center gap-4">
       <div
         className={`transition-opacity ${
-          sidecarOpen ? 'duration-[100ms]' : 'duration-[700ms]'
+          sidecarOpen ? 'duration-[100ms]' : 'delay-100 duration-[800ms]'
         } ${showCta ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
         <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" onClick={() => navigateTo('#booking')} />
