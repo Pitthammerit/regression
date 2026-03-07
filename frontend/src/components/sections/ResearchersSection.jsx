@@ -53,8 +53,16 @@ export default function ResearchersSection() {
         {featuredAuthor && (
           <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 mb-16 items-start">
             {/* Photo - Left column */}
-            <div className="max-w-[240px]">
-              <AspectRatio ratio={1 / 1}>
+            <div className="w-full md:max-w-[240px]">
+              <AspectRatio ratio={16 / 9} className="md:hidden">
+                <LazyImage
+                  src={featuredAuthor.portrait}
+                  alt={featuredAuthor.name}
+                  className="w-full h-full object-cover rounded-lg"
+                  objectPosition={getPortraitPosition(featuredAuthor.portraitFocus)}
+                />
+              </AspectRatio>
+              <AspectRatio ratio={1 / 1} className="hidden md:block">
                 <LazyImage
                   src={featuredAuthor.portrait}
                   alt={featuredAuthor.name}
@@ -95,8 +103,16 @@ export default function ResearchersSection() {
             <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start">
               {/* Portrait - Left column */}
               {author.portrait && (
-                <div className="md:max-w-[240px]">
-                  <AspectRatio ratio={3 / 4}>
+                <div className="w-full md:max-w-[240px]">
+                  <AspectRatio ratio={16 / 9} className="md:hidden">
+                    <LazyImage
+                      src={author.portrait}
+                      alt={author.name}
+                      className="w-full h-full object-cover rounded-lg"
+                      objectPosition={getPortraitPosition(author.portraitFocus)}
+                    />
+                  </AspectRatio>
+                  <AspectRatio ratio={3 / 4} className="hidden md:block">
                     <LazyImage
                       src={author.portrait}
                       alt={author.name}
