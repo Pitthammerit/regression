@@ -30,6 +30,24 @@ module.exports = {
         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
         sans:  ['DM Sans', 'system-ui', 'sans-serif'],
       },
+      fontSize: {
+        // Hero Headlines (Fluid Scaling)
+        'hero-xl': ['clamp(2.4rem, 6.6vw, 5.4rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        'hero-lg': ['clamp(1.44rem, 3.84vw, 3.36rem)', { lineHeight: '1.1' }],
+        // Section Headlines
+        'section-h2': ['1.875rem', { lineHeight: '1.2' }],     // 30px
+        'section-h2-md': ['2.25rem', { lineHeight: '1.2' }],  // 36px
+        'section-h2-lg': ['3rem', { lineHeight: '1.1' }],      // 48px
+        // Body Text
+        'body-base': ['1.125rem', { lineHeight: '1.75' }],    // 18px
+        'body-lg': ['1.25rem', { lineHeight: '1.625' }],      // 20px
+        // Metadata
+        'label-xs': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.2em', textTransform: 'uppercase' }],
+      },
+      letterSpacing: {
+        'heading-tight': '-0.02em',
+        'label-wide': '0.2em',
+      },
       maxWidth: {
         content: '72rem',
       },
