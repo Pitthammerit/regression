@@ -35,32 +35,35 @@ function FloatingBurger() {
   const [ctaVisible, setCtaVisible] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setCtaVisible(window.scrollY > 500)
+    const onScroll = () => setCtaVisible(window.scrollY > 700)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const handleBurgerClick = () => {
     if (sidecarOpen) {
-      // Schließen mit Animation
       setIsBurgerClosing(true)
       setTimeout(() => {
         setSidecarOpen(false)
         setIsBurgerClosing(false)
-      }, 500) // Match Sidecar animation duration
+      }, 500)
     } else {
-      // Öffnen
       setSidecarOpen(true)
     }
   }
 
+  // Single source of truth: visible when scrolled + sidecar closed
+  const showCta = ctaVisible && !sidecarOpen
+
   return (
     <div className="fixed top-2 right-8 z-[100] flex items-center gap-4">
-      {!sidecarOpen && (
-        <div className={`transition-opacity duration-500 ${ctaVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-          <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" onClick={() => navigateTo('#booking')} />
-        </div>
-      )}
+      <div
+        className={`transition-opacity ${
+          sidecarOpen ? 'duration-[400ms]' : 'duration-[1200ms]'
+        } ${showCta ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      >
+        <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" onClick={() => navigateTo('#booking')} />
+      </div>
       <button
         onClick={handleBurgerClick}
         className="w-10 h-10 flex items-center justify-center bg-transparent transition-colors"
