@@ -1,17 +1,35 @@
 # TODO
 
-Updated: 2026-03-07 02:54
+Updated: 2026-03-07 02:59
 
 ---
 
 ## 🔴 High Priority
+
+### 🎨 Global Design System Refactoring (NÄCHSTE SESSION)
+**Ziel:** Komplette Codebase auf Tailwind-Klassen umstellen - kein Inline-Code mehr.
+
+**Umfang:**
+- Alle Sections und Components prüfen
+- Globale Klassen definieren: Textbausteine, Überschriften, Buttons, Farben
+- In allen Components einsetzen (Fließtexte, Buttons, etc.)
+- Kein `style={{ ... }}` mehr - nur Tailwind classes
+
+**Phasen:**
+1. Design-Token in tailwind.config.js definieren (typography, colors, spacing)
+2. Typography-Komponenten erstellen (SectionHeadline, BodyText, Quote, Subtitle)
+3. Button-Komponenten konsolidieren
+4. Pilot-Refactoring (4 Sections)
+5. Rollout auf alle Sections
+
+**Verweis:** Siehe "🟡 Medium Priority → Global Design System Refactoring" für Details
 
 ### Menu & Navigation
 - [x] Sidecar & Burger Complete (CTA timing, backdrop blur, responsive grid layout)
 - [ ] Sidecar inline styles → Tailwind classes (später)
 - [x] DesktopNav: Einfaches Hover-Dropdown mit Glassmorphism (-50 Zeilen)
 - [x] Sidebar Menu fertig (2-col mobile, 1-col desktop)
-- [ ] Tailwind CSS Best Practices überarbeiten & dokumentieren
+- [x] Tailwind CSS Best Practices in CLAUDE.md dokumentiert
 
 **Wichtig:** TODO.md wird bei jedem git push automatisch durch GitHub Action aktualisiert. **Single Source of Truth** für alle offenen Tasks.
 
