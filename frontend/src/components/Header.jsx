@@ -42,7 +42,7 @@ export default function Header() {
             </a>
 
             {/* Desktop Nav - horizontal zentriert */}
-            <div className="hidden 900:flex items-center flex-1 justify-center -ml-[10%]">
+            <div className="hidden 900:flex items-center flex-1 justify-center -ml-[20%]">
               <DesktopNav />
             </div>
           </div>
