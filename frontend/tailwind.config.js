@@ -63,6 +63,8 @@ module.exports = {
         'read-more': ['0.875rem', { lineHeight: '1.5' }],      // 14px - Read More/Less buttons
         'button-text': ['0.875rem', { lineHeight: '1.5' }],    // 14px - Button text (general)
         'source-link': ['0.875rem', { lineHeight: '1.5' }],    // 14px - Source links
+        'hint': ['0.875rem', { lineHeight: '1.5' }],          // 14px - Hint/helper text
+        'icon': ['1rem', { lineHeight: '1' }],               // 16px - Icons/symbols
       },
       letterSpacing: {
         'heading-tight': '-0.02em',

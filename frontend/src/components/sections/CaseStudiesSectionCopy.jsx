@@ -64,10 +64,10 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 font-sans text-sm text-brand-steel/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`mb-8 flex items-center gap-2 font-sans text-hint text-brand-steel/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
-        <span className="text-base">↓</span>
+        <span className="text-icon">↓</span>
         <span>Klicke auf die Namen, um mehr zu lesen</span>
       </div>
 
