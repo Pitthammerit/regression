@@ -32,7 +32,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
           <DebugLabel type="label" debugMode={debugMode}>
             <SectionLabel text={about.label} />
           </DebugLabel>
-          <DebugLabel type="h3" debugMode={debugMode}>
+          <DebugLabel type="h2" debugMode={debugMode}>
             <h2 className="font-display text-h2 text-color-heading mb-10">
               {about.headline}
             </h2>
