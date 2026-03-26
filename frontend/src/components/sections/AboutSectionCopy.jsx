@@ -40,7 +40,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
 
           {about.body.map((para, i) => (
             <DebugLabel type="body" debugMode={debugMode} key={i}>
-              <p className={`font-primary text-body leading-relaxed text-body ${i > 0 ? 'mt-6' : ''}`}>
+              <p className={`font-primary text-color-body leading-relaxed text-body ${i > 0 ? 'mt-6' : ''}`}>
                 {para}
               </p>
             </DebugLabel>
@@ -49,13 +49,13 @@ export default function AboutSectionCopy({ debugMode = false }) {
           {/* Credentials */}
           <div className="mt-12 pt-10 border-t border-black/10">
             <DebugLabel type="label" debugMode={debugMode}>
-              <p className="font-primary text-label tracking-[0.2em] uppercase text-label mb-6">
+              <p className="font-primary text-color-label tracking-[0.2em] uppercase text-label mb-6">
                 {about.credentialsLabel}
               </p>
             </DebugLabel>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
-                <li key={i} className="font-primary text-list text-body flex items-start gap-2">
+                <li key={i} className="font-primary text-list text-color-body flex items-start gap-2">
                   <DebugLabel type="list" debugMode={debugMode}>
                     <span className="text-color-heading shrink-0 mt-0.5">—</span>
                     {cred}
