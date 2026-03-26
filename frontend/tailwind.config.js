@@ -7,42 +7,35 @@ module.exports = {
       },
       colors: {
         // ============================================
-        // SEMANTIC TEXT COLORS — Light Backgrounds
+        // COLOR TOKENS — Single Source of Truth
         // ============================================
-        semantic: {
-          heading: '#224160',          // Headlines H1-H4
-          body: '#5A5550',             // Body text
-          label: '#7696AD',            // Labels, Metadata
-          accent: '#2DAD71',           // CTAs, Links
+        // Für neue Landing Page: Nur diese Werte ändern!
+        // Alle Components verwenden diese Tokens automatisch.
+        //
+        // Light Backgrounds (weiß, creme, sand):
+        //   text-color-heading → Headlines H1-H4 (#224160)
+        //   text-color-body    → Body text (#5A5550)
+        //   text-color-label   → Labels, Metadata (#7696AD)
+        //   text-color-accent  → CTAs, Links (#2DAD71)
+        //
+        // Dark Backgrounds:
+        //   text-on-dark          → Headlines (100% weiß)
+        //   text-on-dark-muted    → Body (80% weiß)
+        //   text-on-dark-faded    → Labels (60% weiß)
+        // ============================================
+
+        color: {
+          heading: '#224160',  // Headlines H1-H4
+          body:    '#5A5550',  // Body text
+          label:   '#7696AD',  // Labels, Metadata
+          accent:  '#2DAD71',  // CTAs, Links
         },
 
-        // ============================================
-        // SEMANTIC TEXT COLORS — Dark Backgrounds
-        // ============================================
         'on-dark': {
-          DEFAULT: '#FFFFFF',                     // 100% - Headlines
-          muted: 'rgba(255, 255, 255, 0.8)',      // 80% - Body text
-          faded: 'rgba(255, 255, 255, 0.6)',      // 60% - Labels, metadata
-          dim: 'rgba(255, 255, 255, 0.4)',        // 40% - Very dim
-        },
-
-        // Legacy names (deprecated — use text-on-dark* instead)
-        'text-heading-dark': '#FFFFFF',
-        'text-body-dark': 'rgba(255, 255, 255, 0.8)',
-        'text-label-dark': 'rgba(255, 255, 255, 0.6)',
-
-        // ============================================
-        // BACKGROUND COLORS
-        // ============================================
-        brand: {
-          deep:  '#224160',
-          steel: '#7696AD',
-          green: '#2DAD71',
-          body:  '#5A5550',
-          muted: '#5A5550',
-          dark:  '#1A2433',
-          cream: '#F0EBE1',
-          sand:  '#EDE7DC',
+          DEFAULT: '#FFFFFF',              // Headlines (100%)
+          muted: 'rgba(255, 255, 255, 0.8)',  // Body (80%)
+          faded: 'rgba(255, 255, 255, 0.6)',  // Labels (60%)
+          dim: 'rgba(255, 255, 255, 0.4)',    // Very dim (40%)
         },
         transcript: {
           bg:       '#F0EBE1',

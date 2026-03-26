@@ -9,7 +9,7 @@ import { ChevronDown } from 'lucide-react'
 function AvatarSilhouette({ gender }) {
   return (
     <div className="w-12 h-12 rounded-full bg-brand-sand/60 border border-black/10 flex items-center justify-center shrink-0 overflow-hidden">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-semantic-heading/30">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-color-heading/30">
         <circle cx="16" cy="10" r="5" fill="currentColor" />
         {gender === 'female' ? (
           <path d="M7 28 C7 20 10 17 16 17 C22 17 25 20 25 28" fill="currentColor" />
@@ -53,7 +53,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
           <SectionLabel text={cases.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-semantic-heading leading-tight">
+          <h2 className="font-display text-h2 text-color-heading leading-tight">
             {cases.headline}
           </h2>
         </DebugLabel>
@@ -95,7 +95,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                   </span>
                 </DebugLabel>
                 <DebugLabel type="h4" debugMode={debugMode}>
-                  <span className="font-display text-h4 text-semantic-heading group-hover:text-label transition-colors block leading-snug">
+                  <span className="font-display text-h4 text-color-heading group-hover:text-label transition-colors block leading-snug">
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>

@@ -53,7 +53,7 @@ export default function FullScreenMenu({ isOpen, onClose }) {
                     handleNavClick(item.anchor)
                   }
                 }}
-                className="w-full flex items-center justify-between py-4 text-left font-serif text-3xl md:text-5xl text-white hover:text-brand-green transition-colors"
+                className="w-full flex items-center justify-between py-4 text-left font-serif text-3xl md:text-5xl text-white hover:text-color-accent transition-colors"
               >
                 <span>{item.label}</span>
                 {item.children && (

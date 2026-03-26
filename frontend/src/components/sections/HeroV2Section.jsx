@@ -73,10 +73,10 @@ export default function HeroV2Section() {
       {/* Headline — centered, no label above */}
       <div className="text-center mb-12 max-w-4xl mx-auto">
         <h1 className="font-serif leading-[1.0] mb-4">
-          <span className="block text-6xl md:text-7xl lg:text-8xl uppercase text-brand-deep tracking-tight">
+          <span className="block text-6xl md:text-7xl lg:text-8xl uppercase text-color-heading tracking-tight">
             {hero.headlineLine1}
           </span>
-          <span className="block text-5xl md:text-6xl lg:text-7xl italic text-brand-deep">
+          <span className="block text-5xl md:text-6xl lg:text-7xl italic text-color-heading">
             {hero.headlineLine2}
           </span>
         </h1>

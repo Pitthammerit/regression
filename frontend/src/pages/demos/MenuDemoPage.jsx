@@ -162,7 +162,7 @@ function HeaderV2({ cta }) {
   // Menu-Items in 3 Spalten aufteilen
   const renderMenuItem = (item) => (
     <div key={item.id} className="mb-8">
-      <button onClick={() => handleNavClick(item.anchor)} className="font-serif text-2xl md:text-3xl text-white hover:text-brand-green transition-colors text-left">
+      <button onClick={() => handleNavClick(item.anchor)} className="font-serif text-2xl md:text-3xl text-white hover:text-color-accent transition-colors text-left">
         {item.label}
       </button>
       {item.children && (
@@ -307,7 +307,7 @@ function HeaderV3({ cta }) {
                         handleNavClick(item.anchor)
                       }
                     }}
-                    className="w-full flex items-center justify-between text-left font-serif text-4xl text-white hover:text-brand-green py-4"
+                    className="w-full flex items-center justify-between text-left font-serif text-4xl text-white hover:text-color-accent py-4"
                   >
                     <span>{item.label}</span>
                     {item.children && <ChevronRight size={28} className={expandedCategory === item.id ? 'rotate-90' : ''} />}

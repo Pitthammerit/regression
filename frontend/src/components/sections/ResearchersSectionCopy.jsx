@@ -192,7 +192,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                   <DebugLabel type="read-more" debugMode={debugMode}>
                     <button
                       onClick={() => toggleExpand(author.id)}
-                      className="text-read-more text-label hover:text-semantic-accent transition-colors flex items-center gap-2"
+                      className="text-read-more text-label hover:text-color-accent transition-colors flex items-center gap-2"
                     >
                       {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
                       <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
@@ -218,7 +218,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                         href={author.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-source-link text-label hover:text-semantic-accent transition-colors"
+                        className="text-source-link text-label hover:text-color-accent transition-colors"
                       >
                         {author.sourceLabel} →
                       </a>
