@@ -17,10 +17,10 @@ module.exports = {
         // ============================================
         // SEMANTIC TEXT COLORS — Dark Backgrounds
         // ============================================
-        'text-heading-dark': '#FFFFFF',                     // 100% (text-white, text-white/90)
-        'text-body-dark': 'rgba(255, 255, 255, 0.8)',       // 80% (text-white/80, text-white/70)
-        'text-label-dark': 'rgba(255, 255, 255, 0.6)',      // 60% (text-white/60, text-white/50)
-        'text-dim-dark': 'rgba(255, 255, 255, 0.4)',        // 40% (text-white/40, text-white/30)
+        'color-heading-dark': '#FFFFFF',                  // 100% (text-white, text-white/90)
+        'color-body-dark': 'rgba(255, 255, 255, 0.8)',     // 80% (text-white/80, text-white/70)
+        'color-label-dark': 'rgba(255, 255, 255, 0.6)',    // 60% (text-white/60, text-white/50)
+        'color-dim-dark': 'rgba(255, 255, 255, 0.4)',      // 40% (text-white/40, text-white/30)
 
         // ============================================
         // BACKGROUND COLORS
