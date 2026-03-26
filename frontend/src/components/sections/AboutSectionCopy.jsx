@@ -33,7 +33,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
             <SectionLabel text={about.label} />
           </DebugLabel>
           <DebugLabel type="h3" debugMode={debugMode}>
-            <h2 className="font-display text-h3 text-color-heading mb-10">
+            <h2 className="font-display text-h2 text-color-heading mb-10">
               {about.headline}
             </h2>
           </DebugLabel>
