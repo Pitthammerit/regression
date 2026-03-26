@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import { researchers } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
@@ -42,12 +42,12 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
 
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl section-block-spacing">
           <DebugLabel type="label" debugMode={debugMode}>
             <SectionLabel text={researchers.authorBigLabel} light={true} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 leading-tight">
+            <h2 className="font-display text-h2 leading-tight text-on-dark-heading">
               {researchers.authorHeadline}
             </h2>
           </DebugLabel>
@@ -55,9 +55,9 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
 
         {/* Featured Researcher */}
         {featuredAuthor && (
-          <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 mb-16">
+          <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 section-block-spacing">
             {/* Mobile: Photo first (full width, 16:9) */}
-            <div className="md:hidden mb-6">
+            <div className="md:hidden content-spacing">
               <AspectRatio ratio={16 / 9}>
                 <LazyImage
                   src={featuredAuthor.portrait}
@@ -84,7 +84,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             <div className="flex flex-col text-on-dark-body">
               {/* Quote - Top of right column */}
               <DebugLabel type="quote-featured" debugMode={debugMode}>
-                <blockquote className="font-display text-quote-featured italic leading-tight text-on-dark mb-6">
+                <blockquote className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
               </DebugLabel>
@@ -92,10 +92,10 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
               {/* Name + Title - Below quote */}
               <div>
                 <DebugLabel type="author-name" debugMode={debugMode}>
-                  <div className="font-display text-author-name">{featuredAuthor.name}</div>
+                  <div className="font-display text-author-name text-on-dark-heading name-role-spacing">{featuredAuthor.name}</div>
                 </DebugLabel>
                 <DebugLabel type="role" debugMode={debugMode}>
-                  <div className="role text-on-dark-role">{featuredAuthor.role}</div>
+                  <div className="text-date role text-on-dark-role role-date-spacing">{featuredAuthor.role}</div>
                 </DebugLabel>
               </div>
             </div>
@@ -112,12 +112,12 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
         {/* ═══════════════════════════════════════════════════════════ */}
 
         {authors.map((author) => (
-          <div key={author.id} className="mb-16">
+          <div key={author.id} className="section-block-spacing">
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
             <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 md:items-start">
               {/* Mobile: Portrait first (full width, 16:9) */}
               {author.portrait && (
-                <div className="md:hidden mb-6">
+                <div className="md:hidden content-spacing">
                   <AspectRatio ratio={16 / 9}>
                     <LazyImage
                       src={author.portrait}
@@ -146,53 +146,53 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
               {/* Right column: Name/Title/Year/ShortText + Button */}
               <div className="flex flex-col">
                 {/* Mobile: Name/Role/Date above portrait */}
-                <div className="md:hidden mb-4">
+                <div className="md:hidden content-spacing-md">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-display text-author-name text-on-dark mb-1">
+                    <h3 className="font-display text-author-name text-on-dark-heading name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="role" debugMode={debugMode}>
-                    <p className="font-primary role text-on-dark-role mb-3">
+                    <p className="font-primary role text-on-dark-role role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-primary text-date text-on-dark-role mb-4">{author.lifeDates}</p>
+                    <p className="font-primary text-date text-on-dark-date block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
-                <div className="hidden md:block mb-4">
+                <div className="hidden md:block content-spacing-md">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-display text-author-name text-on-dark mb-1">
+                    <h3 className="font-display text-author-name text-on-dark-heading name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="role" debugMode={debugMode}>
-                    <p className="font-primary role text-on-dark-role mb-3">
+                    <p className="font-primary role text-on-dark-role role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-primary text-date text-on-dark-role mb-4">{author.lifeDates}</p>
+                    <p className="font-primary text-date text-on-dark-date block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Short text */}
                 <DebugLabel type="summary-large" debugMode={debugMode}>
-                  <p className="font-display text-summary-large text-on-dark-body leading-relaxed mb-6">
+                  <p className="font-display text-summary-large text-on-dark-body leading-relaxed content-spacing">
                     {author.shortVersion}
                   </p>
                 </DebugLabel>
 
                 {/* Read more button - centered with divider lines */}
-                <div className="flex items-center gap-4 mt-4">
+                <div className="flex items-center gap-4 element-spacing-md">
                   <div className="flex-1 h-px bg-on-dark-divider"></div>
                   <DebugLabel type="read-more" debugMode={debugMode}>
                     <button
                       onClick={() => toggleExpand(author.id)}
-                      className="font-primary text-read-more hover:text-color-accent transition-colors flex items-center gap-2"
+                      className="font-primary text-on-dark-label hover:text-on-dark-accent transition-colors flex items-center gap-2"
                     >
                       {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
                       <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
@@ -206,9 +206,9 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             {/* Row 2: Expanded content (full width) */}
             {expandedId === author.id && (
               <>
-                <div className="mt-4 pt-8 md:col-span-2">
+                <div className="expanded-content-spacing md:col-span-2">
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <p className="font-display text-body-narrative text-on-dark-body leading-relaxed mb-6 whitespace-pre-line">
+                    <p className="font-display text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {author.longVersion}
                     </p>
                   </DebugLabel>
@@ -218,7 +218,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                         href={author.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-primary text-source-link hover:text-color-accent transition-colors"
+                        className="font-primary text-on-dark-label hover:text-on-dark-accent transition-colors"
                       >
                         {author.sourceLabel} →
                       </a>

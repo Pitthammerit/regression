@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
@@ -48,7 +48,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
-      <div className="max-w-2xl mb-6">
+      <div className="max-w-2xl content-spacing">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={cases.label} />
         </DebugLabel>
@@ -58,13 +58,13 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
           </h2>
         </DebugLabel>
         <DebugLabel type="subline" debugMode={debugMode}>
-          <p className="subline-italic text-color-body mt-4">{cases.subline}</p>
+          <p className="text-subline subline-italic text-color-body element-spacing-md">{cases.subline}</p>
         </DebugLabel>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 hint-italic text-color-label/60 transition-opacity transition-slower ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`content-spacing flex items-center gap-2 text-hint hint-italic text-color-label/60 transition-opacity transition-slower ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-icon">↓</span>
@@ -90,7 +90,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               )}
               <div className="flex-1 pr-4">
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <span className="font-primary label text-color-label block mb-2">
+                  <span className="font-primary text-label label text-color-label block item-tag-spacing">
                     {item.tag}
                   </span>
                 </DebugLabel>
@@ -100,7 +100,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                   </span>
                 </DebugLabel>
                 <DebugLabel type="subline" debugMode={debugMode}>
-                  <span className="subline-italic text-color-body block mt-2">
+                  <span className="text-subline subline-italic text-color-body block element-spacing-xs">
                     {item.teaser}
                   </span>
                 </DebugLabel>
@@ -120,7 +120,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                 ].map((block) => (
                   <div key={block.label} className="border-l-2 border-color-heading pl-4">
                     <DebugLabel type="label" debugMode={debugMode}>
-                      <span className="font-primary label text-color-label block mb-3">
+                      <span className="font-primary text-label label text-color-label block block-label-spacing">
                         {block.label}
                       </span>
                     </DebugLabel>
@@ -135,7 +135,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
                 <DebugLabel type="disclaimer" debugMode={debugMode}>
-                  <p className="disclaimer-italic text-color-body/35 mt-6">
+                  <p className="text-disclaimer disclaimer-italic text-color-body/35 element-spacing-sm">
                     * Namen wurde geändert
                   </p>
                 </DebugLabel>

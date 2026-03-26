@@ -4,74 +4,59 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
-      utilities: {
-        label: {
-          fontSize: '0.8125rem',
-          lineHeight: '1.5',
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase',
-          fontWeight: '400',
-        },
-      },
       screens: {
         '900': '900px',
       },
       colors: {
         // ─────────────────────────────────────────────────────────────
-        // COLOR TOKENS (Single Source of Truth)
+        // 1. GENERAL PURPOSE
         // ─────────────────────────────────────────────────────────────
-
-        // Text auf hellem Hintergrund
-        'color-heading': '#224160',  // Dunkelblau
-        'color-body':    '#5A5550',  // Dunkles Grau
-        'color-label':   '#7696AD',  // Helles Graublau
-        'color-accent':  '#2DAD71',  // Grün
-
-        // Hintergrund
-        'color-bg-light':  '#EDE7DC',  // Sand
-        'color-bg-medium': '#E5DFD5',  // Sand Muted
-        'color-bg-dark':   '#224160',  // Dunkelblau
-
-        // Text auf dunklem Hintergrund
-        'on-dark':         '#FFFFFF',    // 100% (Default)
-        'on-dark-heading': '#FFFFFF',    // 100% (Headlines)
-        'on-dark-quote':   '#FFFFFF',    // 100% (Zitate)
-        'on-dark-body':    '#FFFFFFCC',  // 80% (Fließtext)
-        'on-dark-role':    '#FFFFFFCC',  // 80% (Rolle)
-        'on-dark-date':    '#FFFFFFCC',  // 80% (Datum)
-        'on-dark-label':   '#FFFFFFCC',  // 80% (Label)
-        'on-dark-accent':  '#2DAD71',    // Grün
-        'on-dark-divider': '#FFFFFF33',  // 20% (Trennlinien)
+        'color-bg-light':  '#EDE7DC',
+        'color-bg-medium': '#E5DFD5',
+        'color-bg-dark':   '#224160',
 
         // ─────────────────────────────────────────────────────────────
-        // LEGACY - Alle temporären Farben (werden nach Migration entfernt)
+        // 2. SEMANTIC NAMES (für Sections)
+        // ─────────────────────────────────────────────────────────────
+        'color-heading': '#224160',
+        'color-body':    '#5A5550',
+        'color-label':   '#7696AD',
+        'color-accent':  '#2DAD71',
+
+        // ─────────────────────────────────────────────────────────────
+        // 3. ON-DARK (semantische Namen)
+        // ─────────────────────────────────────────────────────────────
+        'on-dark':         '#FFFFFF',
+        'on-dark-heading': '#ffffff',
+        'on-dark-quote':   '#ffffff',
+        'on-dark-body':    '#FFFFFFCC',
+        'on-dark-role':    '#ffffff9c',
+        'on-dark-date':    '#ffffff9c',
+        'on-dark-label':   '#ffffff9c',
+        'on-dark-accent':  '#ffffff',
+        'on-dark-divider': '#ffffff33',
+
+        // ─────────────────────────────────────────────────────────────
+        // 4. LEGACY (temporär - werden nach Migration entfernt)
         // ─────────────────────────────────────────────────────────────
         brand: {
-          deep:  '#224160',  // → heading
-          body:  '#5A5550',  // → body
-          steel: '#7696AD',  // → label
-          green: '#2DAD71',  // → accent
-          muted: '#5A5550',  // → body
+          deep:  '#224160',
+          body:  '#5A5550',
+          steel: '#7696AD',
+          green: '#2DAD71',
+          muted: '#5A5550',
           dark:  '#1A2433',
           cream: '#F0EBE1',
-          sand:  '#EDE7DC',  // → bg-light
+          sand:  '#EDE7DC',
         },
-
-        'on-dark-legacy': {
-          DEFAULT: '#FFFFFF',
-          muted: 'rgba(255, 255, 255, 0.8)',
-          faded: 'rgba(255, 255, 255, 0.6)',
-          dim: 'rgba(255, 255, 255, 0.4)',
-        },
-
         transcript: {
-          bg:       '#F0EBE1',
-          text:     '#2D2A26',
-          muted:    '#7D7469',
-          darkBg:   '#171614',
-          darkText: '#D9D2C8',
-          border:   'rgba(0,0,0,0.08)',
-          darkBorder: 'rgba(255,255,255,0.08)',
+          bg:         '#F0EBE1',
+          text:       '#2D2A26',
+          muted:      '#7D7469',
+          darkBg:     '#171614',
+          darkText:   '#D9D2C8',
+          border:     '#14000000',
+          darkBorder: '#14FFFFFF',
         },
       },
       fontFamily: {
@@ -105,11 +90,11 @@ module.exports = {
         'body-lg': ['1.25rem', {
           lineHeight: '1.625',
         }],
-        'label': ['0.8125rem', {
+        'label': ['0.94rem', {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
         }],
-        'subline': ['1rem', {
+        'subline': ['1.0rem', {
           lineHeight: '1.5',
         }],
         'list': ['1rem', {
@@ -118,7 +103,7 @@ module.exports = {
         'quote-featured': ['2.25rem', {
           lineHeight: '1.1',
         }],
-        'quote': ['1.5rem', {
+        'quote': ['1.rem', {
           lineHeight: '1.2',
         }],
         'author-name': ['2rem', {
@@ -173,76 +158,55 @@ module.exports = {
     plugin(function({ addUtilities }) {
       addUtilities({
         '.label': {
-          'font-size': '0.8125rem',
           'line-height': '1.5',
           'letter-spacing': '0.2em',
           'text-transform': 'uppercase',
           'font-weight': '400',
         },
         '.role': {
-          'font-size': '0.875rem',
           'line-height': '1.5',
           'letter-spacing': '0.1em',
           'text-transform': 'uppercase',
-          'font-family': 'DM Sans, system-ui, sans-serif',
         },
         '.subline-italic': {
-          'font-size': '1rem',
           'line-height': '1.5',
           'font-style': 'italic',
-          'font-family': 'DM Sans, system-ui, sans-serif',
         },
         '.hint-italic': {
-          'font-size': '0.875rem',
           'line-height': '1.5',
           'font-style': 'italic',
-          'font-family': 'DM Sans, system-ui, sans-serif',
         },
         '.disclaimer-italic': {
-          'font-size': '0.75rem',
           'line-height': '1.5',
           'font-style': 'italic',
-          'font-family': 'DM Sans, system-ui, sans-serif',
         },
         '.divider-spacing': {
-          'padding-top': '2.25rem',  // 36px
+          'padding-top': '2.25rem',
         },
 
-        // ─────────────────────────────────────────────────────────────
-        // SPACING UTILITIES (semantic names)
-        // ─────────────────────────────────────────────────────────────
         '.section-padding': {
-          'padding-top': '5rem',     // py-20
-          'padding-bottom': '7rem',   // md:py-28
+          'padding-top': '5rem',
+          'padding-bottom': '7rem',
         },
-        '.heading-margin': {
-          'margin-bottom': '4rem',    // mb-16
-        },
-        '.heading-margin-sm': {
-          'margin-bottom': '2rem',    // mb-8
-        },
-        '.heading-margin-md': {
-          'margin-bottom': '2.5rem',  // mb-10
+        '.section-block-spacing': {
+          'margin-bottom': '4rem',
         },
         '.grid-gap-lg': {
-          'gap': '2rem',              // gap-8
+          'gap': '2rem',
         },
         '.grid-gap-xl': {
-          'gap': '4rem',              // gap-16
+          'gap': '4rem',
         },
         '.margin-top-sm': {
-          'margin-top': '1.5rem',     // mt-6
+          'margin-top': '1.5rem',
         },
         '.margin-top-md': {
-          'margin-top': '3rem',       // mt-12
+          'margin-top': '3rem',
         },
         '.section-padding-sm': {
-          'padding-top': '2.5rem',    // pt-10
+          'padding-top': '2.5rem',
         },
 
-        // ─────────────────────────────────────────────────────────────
-        // TRANSITION DURATIONS (descriptive names)
-        // ─────────────────────────────────────────────────────────────
         '.transition-fast': {
           'transition-duration': '200ms',
         },
@@ -256,11 +220,47 @@ module.exports = {
           'transition-duration': '700ms',
         },
 
-        // ─────────────────────────────────────────────────────────────
-        // LETTER-SPACING
-        // ─────────────────────────────────────────────────────────────
         '.tracking-label-alt': {
-          'letter-spacing': '0.15em',  // für CaseStudiesSectionCopy
+          'letter-spacing': '0.15em',
+        },
+
+        // Element spacing utilities
+        '.label-heading-spacing': {
+          'margin-bottom': '0.7rem',
+        },
+        '.name-role-spacing': {
+          'margin-bottom': '0.25rem',
+        },
+        '.role-date-spacing': {
+          'margin-bottom': '0.25rem',
+        },
+        '.block-label-spacing': {
+          'margin-bottom': '0.75rem',
+        },
+        '.content-spacing': {
+          'margin-bottom': '1.5rem',
+        },
+        '.content-spacing-md': {
+          'margin-bottom': '1rem',
+        },
+        '.content-spacing-lg': {
+          'margin-bottom': '2rem',
+        },
+        '.item-tag-spacing': {
+          'margin-bottom': '0.5rem',
+        },
+        '.element-spacing-xs': {
+          'margin-top': '0.5rem',
+        },
+        '.element-spacing-sm': {
+          'margin-top': '0.75rem',
+        },
+        '.element-spacing-md': {
+          'margin-top': '1rem',
+        },
+        '.expanded-content-spacing': {
+          'margin-top': '1rem',
+          'padding-top': '2rem',
         },
       })
     }),

@@ -1,4 +1,3 @@
-import React from 'react'
 import { about } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
@@ -33,7 +32,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
             <SectionLabel text={about.label} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-color-heading heading-margin-md">
+            <h2 className="font-display text-h2 text-color-heading leading-tight">
               {about.headline}
             </h2>
           </DebugLabel>
@@ -49,7 +48,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
           {/* Credentials */}
           <div className="margin-top-md section-padding-sm border-t border-black/10">
             <DebugLabel type="label" debugMode={debugMode}>
-              <p className="font-primary label text-color-label mb-6">
+              <p className="font-primary text-label label text-color-label content-spacing-lg">
                 {about.credentialsLabel}
               </p>
             </DebugLabel>
