@@ -14,7 +14,7 @@ export default function WhatIsSectionCopy({ debugMode = false }) {
             <SectionLabel text={whatIs.label} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-primary leading-tight">
+            <h2 className="font-display text-h2 text-brand-deep leading-tight">
               {whatIs.headline}
             </h2>
           </DebugLabel>
@@ -24,7 +24,7 @@ export default function WhatIsSectionCopy({ debugMode = false }) {
         <div>
           {whatIs.body.map((para, i) => (
             <DebugLabel type="body" debugMode={debugMode} key={i}>
-              <p className={`font-primary text-body text-secondary leading-relaxed ${i > 0 ? 'mt-6' : ''}`}>
+              <p className={`font-primary text-brand-body leading-relaxed text-body ${i > 0 ? 'mt-6' : ''}`}>
                 {para}
               </p>
             </DebugLabel>
