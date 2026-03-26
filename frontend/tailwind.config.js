@@ -48,6 +48,23 @@ module.exports = {
           accent:  '#2DAD71',  // CTAs, Links
         },
 
+        // ============================================
+        // LEGACY BRAND TOKENS — For LIVE Sections
+        // ============================================
+        // LIVE sections (AboutSection, TestimonialsSection, etc.) use these
+        // Copy sections use color.* tokens above
+        // ============================================
+        brand: {
+          deep:  '#224160',  // Headlines (same as color.heading)
+          body:  '#5A5550',  // Body text (same as color.body)
+          steel: '#7696AD',  // Labels (same as color.label)
+          green: '#2DAD71',  // Accent (same as color.accent)
+          muted: '#5A5550',  // Alias für body
+          dark:  '#1A2433',  // Dunkle Hintergründe
+          cream: '#F0EBE1',  // Creme Hintergründe
+          sand:  '#EDE7DC',  // Sand Hintergründe
+        },
+
         'on-dark': {
           DEFAULT: '#FFFFFF',              // Headlines (100%)
           muted: 'rgba(255, 255, 255, 0.8)',  // Body (80%)
