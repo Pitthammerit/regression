@@ -125,12 +125,6 @@ module.exports = {
           lineHeight: '1.75',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
-        'role': ['0.875rem', {
-          lineHeight: '1.5',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
-        }],
         'date': ['0.875rem', {
           lineHeight: '1.5',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
