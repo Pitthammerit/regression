@@ -26,7 +26,7 @@ export default function ResearcherQuotesSection() {
     >
       <div className="max-w-content mx-auto px-6">
         <SectionLabel text={researchers.authorBigLabel} light />
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mt-3 mb-5">
+        <h2 className="font-display text-h2 md:text-h1 leading-tight mt-3 mb-5">
           {researchers.authorHeadline}
         </h2>
 
@@ -48,11 +48,11 @@ export default function ResearcherQuotesSection() {
                   className="w-full h-full object-cover rounded-lg"
                 />
               </AspectRatio>
-              <blockquote className="font-serif italic text-[26px] md:text-2xl text-white/90 leading-relaxed mb-6">
+              <blockquote className="font-display italic text-quote md:text-quote-featured text-white/90 leading-relaxed mb-6">
                 "{author.quote}"
               </blockquote>
-              <div className="font-sans text-sm font-medium text-white/70">{author.name}</div>
-              <div className="font-sans text-xs text-white/40 mt-0.5">{author.role}</div>
+              <div className="font-primary text-role font-medium text-white/70">{author.name}</div>
+              <div className="font-primary text-date text-white/40 mt-0.5">{author.role}</div>
             </div>
           ))}
         </div>
@@ -98,11 +98,11 @@ export default function ResearcherQuotesSection() {
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </AspectRatio>
-                    <blockquote className="font-serif italic text-[26px] md:text-2xl text-white/90 leading-relaxed mb-6">
+                    <blockquote className="font-display italic text-quote md:text-quote-featured text-white/90 leading-relaxed mb-6">
                       "{author.quote}"
                     </blockquote>
-                    <div className="font-sans text-sm font-medium text-white/70">{author.name}</div>
-                    <div className="font-sans text-xs text-white/40 mt-0.5">{author.role}</div>
+                    <div className="font-primary text-role font-medium text-white/70">{author.name}</div>
+                    <div className="font-primary text-date text-white/40 mt-0.5">{author.role}</div>
                   </div>
                 ))}
               </div>

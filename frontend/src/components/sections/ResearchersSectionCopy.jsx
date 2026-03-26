@@ -47,7 +47,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             <SectionLabel text={researchers.authorBigLabel} light={true} />
           </DebugLabel>
           <DebugLabel type="h3" debugMode={debugMode}>
-            <h2 className="font-serif text-h3 leading-tight">
+            <h2 className="font-display text-h3 leading-tight">
               {researchers.authorHeadline}
             </h2>
           </DebugLabel>
@@ -90,7 +90,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
               </DebugLabel>
 
               {/* Name + Title - Below quote */}
-              <div className="font-sans text-white/80">
+              <div className="font-primary text-white/80">
                 <DebugLabel type="author-name" debugMode={debugMode}>
                   <div className="font-semibold text-author-name">{featuredAuthor.name}</div>
                 </DebugLabel>
@@ -148,40 +148,40 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden mb-4">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-serif text-author-name text-white font-bold mb-1">
+                    <h3 className="font-display text-author-name text-white font-bold mb-1">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="role" debugMode={debugMode}>
-                    <p className="font-sans text-role text-white/70 mb-3">
+                    <p className="font-primary text-role text-white/70 mb-3">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-sans text-date text-white/50 mb-4">{author.lifeDates}</p>
+                    <p className="font-primary text-date text-white/50 mb-4">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block mb-4">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="text-author-name font-serif text-white font-bold mb-1">
+                    <h3 className="text-author-name font-display text-white font-bold mb-1">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="role" debugMode={debugMode}>
-                    <p className="font-sans text-role text-white/70 mb-3">
+                    <p className="font-primary text-role text-white/70 mb-3">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-sans text-date text-white/50 mb-4">{author.lifeDates}</p>
+                    <p className="font-primary text-date text-white/50 mb-4">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Short text */}
                 <DebugLabel type="summary-large" debugMode={debugMode}>
-                  <p className="font-serif text-summary-large text-white/80 leading-relaxed mb-6">
+                  <p className="font-display text-summary-large text-white/80 leading-relaxed mb-6">
                     {author.shortVersion}
                   </p>
                 </DebugLabel>
@@ -208,7 +208,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
               <>
                 <div className="mt-4 pt-8 md:col-span-2">
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <p className="font-serif text-body-narrative text-white/80 leading-relaxed mb-6 whitespace-pre-line">
+                    <p className="font-display text-body-narrative text-white/80 leading-relaxed mb-6 whitespace-pre-line">
                       {author.longVersion}
                     </p>
                   </DebugLabel>

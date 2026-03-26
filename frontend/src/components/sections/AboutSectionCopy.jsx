@@ -19,7 +19,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
               alt="Benjamin Kurtz"
               className="w-full h-full object-cover object-top"
               fallback={
-                <div className="w-full h-full flex items-center justify-center text-brand-body font-sans text-body">
+                <div className="w-full h-full flex items-center justify-center text-brand-body font-primary text-body">
                   {about.photoPlaceholder}
                 </div>
               }
@@ -33,14 +33,14 @@ export default function AboutSectionCopy({ debugMode = false }) {
             <SectionLabel text={about.label} />
           </DebugLabel>
           <DebugLabel type="h3" debugMode={debugMode}>
-            <h2 className="font-serif text-h3 text-brand-deep mb-10 leading-tight">
+            <h2 className="font-display text-h3 text-brand-deep mb-10 leading-tight">
               {about.headline}
             </h2>
           </DebugLabel>
 
           {about.body.map((para, i) => (
             <DebugLabel type="body" debugMode={debugMode} key={i}>
-              <p className={`font-sans text-brand-body leading-relaxed text-body ${i > 0 ? 'mt-6' : ''}`}>
+              <p className={`font-primary text-brand-body leading-relaxed text-body ${i > 0 ? 'mt-6' : ''}`}>
                 {para}
               </p>
             </DebugLabel>
@@ -49,13 +49,13 @@ export default function AboutSectionCopy({ debugMode = false }) {
           {/* Credentials */}
           <div className="mt-12 pt-10 border-t border-black/10">
             <DebugLabel type="label" debugMode={debugMode}>
-              <p className="font-sans text-label tracking-[0.2em] uppercase text-brand-steel mb-6">
+              <p className="font-primary text-label tracking-[0.2em] uppercase text-brand-steel mb-6">
                 {about.credentialsLabel}
               </p>
             </DebugLabel>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
-                <li key={i} className="font-sans text-list text-brand-body flex items-start gap-2">
+                <li key={i} className="font-primary text-list text-brand-body flex items-start gap-2">
                   <DebugLabel type="list" debugMode={debugMode}>
                     <span className="text-brand-deep shrink-0 mt-0.5">—</span>
                     {cred}

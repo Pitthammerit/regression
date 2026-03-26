@@ -53,18 +53,18 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
           <SectionLabel text={cases.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-serif text-h2 text-brand-deep leading-tight">
+          <h2 className="font-display text-h2 text-brand-deep leading-tight">
             {cases.headline}
           </h2>
         </DebugLabel>
         <DebugLabel type="subline" debugMode={debugMode}>
-          <p className="font-sans text-subline text-brand-body mt-4 italic">{cases.subline}</p>
+          <p className="font-primary text-subline text-brand-body mt-4 italic">{cases.subline}</p>
         </DebugLabel>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 font-sans text-hint text-brand-steel/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`mb-8 flex items-center gap-2 font-primary text-hint text-brand-steel/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-icon">↓</span>
@@ -90,17 +90,17 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               )}
               <div className="flex-1 pr-4">
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <span className="font-sans text-label tracking-[0.2em] uppercase text-brand-steel block mb-2">
+                  <span className="font-primary text-label tracking-[0.2em] uppercase text-brand-steel block mb-2">
                     {item.tag}
                   </span>
                 </DebugLabel>
                 <DebugLabel type="h4" debugMode={debugMode}>
-                  <span className="font-serif text-h4 text-brand-deep group-hover:text-brand-steel transition-colors block leading-snug">
+                  <span className="font-display text-h4 text-brand-deep group-hover:text-brand-steel transition-colors block leading-snug">
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>
                 <DebugLabel type="subline" debugMode={debugMode}>
-                  <span className="font-sans text-subline text-brand-body italic block mt-2">
+                  <span className="font-primary text-subline text-brand-body italic block mt-2">
                     {item.teaser}
                   </span>
                 </DebugLabel>
@@ -120,12 +120,12 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                 ].map((block) => (
                   <div key={block.label} className="border-l-2 border-brand-deep pl-4">
                     <DebugLabel type="label" debugMode={debugMode}>
-                      <span className="font-sans text-label tracking-[0.2em] uppercase text-brand-steel block mb-3">
+                      <span className="font-primary text-label tracking-[0.2em] uppercase text-brand-steel block mb-3">
                         {block.label}
                       </span>
                     </DebugLabel>
                     <DebugLabel type="body" debugMode={debugMode}>
-                      <p className="font-sans text-body text-brand-body leading-relaxed">
+                      <p className="font-primary text-body text-brand-body leading-relaxed">
                         {block.text}
                       </p>
                     </DebugLabel>

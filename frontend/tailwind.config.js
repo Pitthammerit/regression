@@ -27,6 +27,12 @@ module.exports = {
         },
       },
       fontFamily: {
+        // Font Token System — Single Source of Truth for all typography
+        // Usage: font-primary (body, labels, role, date, name, buttons)
+        //        font-display (headlines, quotes, featured content)
+        primary: ['DM Sans', 'system-ui', 'sans-serif'],
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        // Legacy aliases (deprecated — use primary/display instead)
         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
         sans:  ['DM Sans', 'system-ui', 'sans-serif'],
       },

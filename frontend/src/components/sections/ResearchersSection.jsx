@@ -41,10 +41,10 @@ export default function ResearchersSection() {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <div className="font-sans text-xs uppercase tracking-[0.2em] text-brand-steel/80 mb-4">
+          <div className="font-primary text-label uppercase tracking-[0.2em] text-brand-steel/80 mb-4">
             {researchers.authorBigLabel}
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">
+          <h2 className="font-display text-h2 md:text-h1 leading-tight">
             {researchers.authorHeadline}
           </h2>
         </div>
@@ -79,14 +79,14 @@ export default function ResearchersSection() {
             {/* Right column: Quote + Name + Title */}
             <div className="flex flex-col">
               {/* Quote - Top of right column */}
-              <blockquote className="font-serif text-[36px] md:text-[42px] italic leading-tight text-white/90 mb-6">
+              <blockquote className="font-display text-quote-featured italic leading-tight text-white/90 mb-6">
                 "{featuredAuthor.featuredQuote}"
               </blockquote>
 
               {/* Name + Title - Below quote */}
-              <div className="font-sans text-white/80">
-                <div className="font-semibold text-lg">{featuredAuthor.name}</div>
-                <div className="text-sm text-white/60">{featuredAuthor.role}</div>
+              <div className="font-primary text-white/80">
+                <div className="font-semibold text-author-name">{featuredAuthor.name}</div>
+                <div className="text-role text-white/60">{featuredAuthor.role}</div>
               </div>
             </div>
 
@@ -137,28 +137,28 @@ export default function ResearchersSection() {
               <div className="flex flex-col">
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden mb-4">
-                  <h3 className="font-serif text-2xl text-white font-bold mb-1">
+                  <h3 className="font-display text-author-name text-white font-bold mb-1">
                     {author.name}
                   </h3>
-                  <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-3">
+                  <p className="font-primary text-role text-white/70 uppercase tracking-wider mb-3">
                     {author.role}
                   </p>
-                  <p className="font-sans text-sm text-white/50 mb-4">{author.lifeDates}</p>
+                  <p className="font-primary text-date text-white/50 mb-4">{author.lifeDates}</p>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block mb-4">
-                  <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-1">
+                  <h3 className="font-display text-author-name text-white font-bold mb-1">
                     {author.name}
                   </h3>
-                  <p className="font-sans text-sm text-white/70 uppercase tracking-wider mb-3">
+                  <p className="font-primary text-role text-white/70 uppercase tracking-wider mb-3">
                     {author.role}
                   </p>
-                  <p className="font-sans text-sm text-white/50 mb-4">{author.lifeDates}</p>
+                  <p className="font-primary text-date text-white/50 mb-4">{author.lifeDates}</p>
                 </div>
 
                 {/* Short text */}
-                <p className="font-serif text-[26px] md:text-[28px] text-white/80 leading-relaxed mb-6">
+                <p className="font-display text-description text-white/80 leading-relaxed mb-6">
                   {author.shortVersion}
                 </p>
 
@@ -167,7 +167,7 @@ export default function ResearchersSection() {
                   <div className="flex-1 h-px bg-white/20"></div>
                   <button
                     onClick={() => toggleExpand(author.id)}
-                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
+                    className="font-primary text-read-more text-brand-steel hover:text-brand-green transition-colors flex items-center gap-2"
                   >
                     {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
                     <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
@@ -181,7 +181,7 @@ export default function ResearchersSection() {
             {expandedId === author.id && (
               <>
                 <div className="mt-4 pt-8 md:col-span-2">
-                  <p className="font-serif text-base md:text-lg text-white/80 leading-relaxed mb-6 whitespace-pre-line">
+                  <p className="font-display text-body text-white/80 leading-relaxed mb-6 whitespace-pre-line">
                     {author.longVersion}
                   </p>
                   {author.sourceUrl && (
@@ -189,7 +189,7 @@ export default function ResearchersSection() {
                       href={author.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                      className="font-primary text-source-link text-brand-steel hover:text-brand-green transition-colors"
                     >
                       {author.sourceLabel} →
                     </a>

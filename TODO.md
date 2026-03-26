@@ -1,12 +1,63 @@
 # TODO
 
-Updated: 2026-03-26 08:45
+Updated: 2026-03-26 14:29
 
 ---
 
 ## 🔴 High Priority
 
-### 🎨 Global Design System Refactoring (NÄCHSTE SESSION)
+### 🎨 Typography Refactoring — Phase 3B (AKTUELL)
+**Status:** Fonts & Farben hardcoded — muss zu Tokens migriert werden
+**Branch:** `typography-refactoring`
+**Ziel:** Alle Fonts und Farben über Tailwind Tokens steuern
+
+**✅ Erledigt (Typography Größen):**
+- Alle Textgrößen zu Tokens migriert (label, body, h1-h4, role, date, etc.)
+- summary-large, body-narrative für Researchers
+- DebugLabel Layout-Fix (kein inline-block mehr)
+
+**❌ Offen (Fonts & Farben):**
+
+**Font-Definition in tailwind.config.js:**
+```javascript
+fontFamily: {
+  serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+  sans:  ['DM Sans', 'system-ui', 'sans-serif'],
+}
+```
+
+**Aktuelle Font-Nutzung (hardcoded `font-sans` / `font-serif`):**
+- `font-serif` wird für Headlines verwendet (H1-H4)
+- `font-sans` wird für Body, Labels, etc. verwendet
+- Problem: Font ist hardcoded in jedem Element!
+
+**Gewünschtes System:**
+1. **Primary Font (DM Sans)** — für: body, label, subline, list, hint, icon, role, date
+2. **Serif Font (Cormorant Garamond)** — für: h1-h4, summary-large, body-narrative, quotes
+3. **Quote Font** — ??? (Ist `quote-featured` und `quote` bereits definiert? JA — 36px und 24px)
+
+**Spezifische Probleme zu lösen:**
+
+1. **Brian Weiss Quote sollte Serif sein:**
+   - Text: "Through past-life regression, it's possible to heal..."
+   - Aktueller Font: ? (muss geprüft werden)
+   - Soll: Serif (Cormorant Garamond)
+
+2. **Brian Weiss Name/Role anders dargestellt:**
+   - Name: "Brian Weiss MD"
+   - Role: "Ehem. Chefarzt Psychiatrie, Mount Sinai"
+   - Problem: Andere Darstellung als `author-name` Token → Hinweis auf hardcoded
+   - Muss: Gleiches Token wie andere Autoren verwenden
+
+**Nächste Schritte:**
+1. [ ] Font-Classes in Tokens integrieren (font-sans, font-serif in token-Definition?)
+2. [ ] Alle `font-sans` und `font-serif` hardcoded Klassen entfernen
+3. [ ] Farben prüfen: `text-brand-deep`, `text-brand-body`, `text-white/80` etc.
+4. [ ] Brian Weiss Quote/Name prüfen und korrigieren
+
+---
+
+### 🎨 Global Design System Refactoring (SPÄTER)
 **Ziel:** Komplette Codebase auf Tailwind-Klassen umstellen - kein Inline-Code mehr.
 
 **Umfang:**
