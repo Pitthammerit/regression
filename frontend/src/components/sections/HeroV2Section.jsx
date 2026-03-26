@@ -39,7 +39,7 @@ function VimeoGlassEmbed({ src, title }) {
 
             {/* Subtle title placeholder */}
             <div className="absolute top-6 left-6 right-6">
-              <p className="font-sans text-xs tracking-[0.2em] uppercase text-white/40">
+              <p className="font-sans text-label text-white/40">
                 {title}
               </p>
             </div>

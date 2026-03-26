@@ -11,7 +11,7 @@ export default function HeroSection() {
 
           {/* Left: Headline + CTAs */}
           <div>
-            <p className="font-sans text-xs tracking-[0.2em] uppercase text-color-label mb-8">
+            <p className="font-sans text-label text-color-label mb-8">
               {hero.label}
             </p>
             <h1 className="font-serif leading-[1.0] mb-8">

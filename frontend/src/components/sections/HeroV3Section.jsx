@@ -17,13 +17,13 @@ export default function HeroV3Section() {
         <div className="max-w-content mx-auto">
           <div className="font-serif tracking-tight leading-none">
             <span
-              className="inline text-color-heading"
+              className="inline text-heading"
               style={{ fontSize: 'clamp(2.4rem, 6.6vw, 5.4rem)' }}
             >
               {hero.headlineLine1}&nbsp;
             </span>
             <span
-              className="inline italictext-color-heading/70"
+              className="inline italic text-heading/70"
               style={{ fontSize: 'clamp(1.44rem, 3.84vw, 3.36rem)' }}
             >
               {hero.headlineLine2}

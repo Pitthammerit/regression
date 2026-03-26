@@ -39,7 +39,7 @@ export default function PodcastSection() {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-sans text-xs uppercase tracking-widest text-color-heading border border-brand-deep/30 rounded-sm px-5 py-2.5 hover:bg-brand-deep hover:text-white transition-colors"
+                  className="font-sans text-label text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
                   data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                 >
                   {link.label}

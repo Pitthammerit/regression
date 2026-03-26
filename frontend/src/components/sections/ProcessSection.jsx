@@ -47,7 +47,7 @@ export default function ProcessSection() {
         <CtaButton label={processSection.cta} variant="primary" />
       </div>
 
-      <p className="text-center font-sans text-sm italic text-color-body">
+      <p className="text-center font-sans text-sm italic text-body">
         {processSection.footnote}
       </p>
     </SectionWrapper>

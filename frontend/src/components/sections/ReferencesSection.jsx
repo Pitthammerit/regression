@@ -19,7 +19,7 @@ export default function ReferencesSection() {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <div className="font-sans text-xs uppercase tracking-[0.2em]text-color-label/80 mb-4">
+          <div className="font-sans text-xs uppercase tracking-[0.2em] text-label/80 mb-4">
             {references.bigLabel}
           </div>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">

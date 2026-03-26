@@ -15,7 +15,7 @@ export default function ServicesSection() {
               <span className="font-sans text-xs tracking-[0.18em] uppercase text-label mb-1.5 block">
                 {service.sub}
               </span>
-              <span className="font-serif text-xl md:text-2xl text-color-heading">
+              <span className="font-serif text-xl md:text-2xl text-heading">
                 {service.label}
               </span>
             </div>

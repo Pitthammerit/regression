@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
                     />
                   )}
                   <div>
-                    <div className="font-sans text-sm font-medium text-color-heading">{featured.name}</div>
+                    <div className="font-sans text-sm font-medium text-heading">{featured.name}</div>
                     <div className="font-sans text-xs text-label mt-0.5">{featured.context}</div>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ function TestimonialCard({ c, index }) {
           />
         )}
         <div>
-          <div className="font-sans text-sm font-medium text-color-heading">{c.name}</div>
+          <div className="font-sans text-sm font-medium text-heading">{c.name}</div>
           <div className="font-sans text-xs text-label mt-0.5">{c.context}</div>
         </div>
       </div>

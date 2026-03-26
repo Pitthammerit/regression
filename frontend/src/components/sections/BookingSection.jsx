@@ -29,7 +29,7 @@ export default function BookingSection() {
         {/* Topics */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-10 text-left max-w-xl mx-auto">
           {booking.formTopics.map((topic, i) => (
-            <div key={i} className="flex items-start gap-2 font-sans text-sm text-color-body">
+            <div key={i} className="flex items-start gap-2 font-sans text-sm text-body">
               <span className="text-heading/50 mt-0.5 shrink-0">—</span>
               {topic}
             </div>
@@ -65,10 +65,10 @@ export default function BookingSection() {
             ) : (
               <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
                 <div className="w-12 h-px bg-brand-deep/20" />
-                <p className="font-sans text-sm text-color-body">
+                <p className="font-sans text-sm text-body">
                   Kalender-Embed wird hier eingebettet.
                 </p>
-                <p className="font-sans text-xstext-color-label/60 max-w-xs">
+                <p className="font-sans text-xs text-label/60 max-w-xs">
                   Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
                 </p>
                 <div className="w-12 h-px bg-brand-deep/20" />
