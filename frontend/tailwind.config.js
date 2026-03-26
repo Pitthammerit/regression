@@ -27,20 +27,20 @@ module.exports = {
           'bg-dark':   '#224160',  // Dunkelblau
 
           // 2. SEMANTIC NAMES (für Sections)
-          heading: '#224160',  // Dunkelblau
-          body:    '#5A5550',  // Dunkles Grau
-          label:   '#7696AD',  // Helles Graublau
-          accent:  '#2DAD71',  // Grün
+          'heading': '#224160',  // Dunkelblau
+          'body':    '#5A5550',  // Dunkles Grau
+          'label':   '#7696AD',  // Helles Graublau
+          'accent':  '#2DAD71',  // Grün
 
           // 3. ON-DARK (semantische Namen - Siehe auch legacy 'on-dark' Block)
-          heading: '#FFFFFF',    // 100% (Headlines)
-          quote:   '#FFFFFF',    // 100% (Zitate)
-          body:    '#FFFFFFCC',  // 80% (Fließtext, Labels)
-          role:    '#FFFFFFCC',  // 80% (= label)
-          date:    '#FFFFFFCC',  // 80% (= label)
-          label:   '#FFFFFFCC',  // 80% (= role)
-          accent:  '#2DAD71',    // Grün
-          divider: '#FFFFFF33',  // 20%
+          'heading': '#FFFFFF',    // 100% (Headlines)
+          'quote':   '#FFFFFF',    // 100% (Zitate)
+          'body':    '#FFFFFFCC',  // 80% (Fließtext, Labels)
+          'role':    '#FFFFFFCC',  // 80% (= label)
+          'date':    '#FFFFFFCC',  // 80% (= label)
+          'label':   '#FFFFFFCC',  // 80% (= role)
+          'accent':  '#2DAD71',    // Grün
+          'divider': '#FFFFFF33',  // 20%
         },
 
         // ─────────────────────────────────────────────────────────────
