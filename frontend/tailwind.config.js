@@ -9,25 +9,24 @@ module.exports = {
         // ============================================
         // SEMANTIC TEXT COLORS — Light Backgrounds
         // ============================================
-        'text-heading': 'red',            // TEST: Headlines (sollte ROT sein!)
-        'color-body': '#5A5550',          // Body text (brand.body/muted)
-        'color-label': '#7696AD',         // Labels, Metadata (brand.steel)
-        'color-accent': '#2DAD71',        // CTAs, Links (brand.green)
+        'text-heading': '#224160',          // Headlines H1-H4
+        'text-body': '#5A5550',             // Body text
+        'text-label': '#7696AD',            // Labels, Metadata
+        'text-accent': '#2DAD71',           // CTAs, Links
 
         // ============================================
         // SEMANTIC TEXT COLORS — Dark Backgrounds
         // ============================================
-        'color-heading-dark': '#FFFFFF',                  // 100% (text-white, text-white/90)
-        'color-body-dark': 'rgba(255, 255, 255, 0.8)',     // 80% (text-white/80, text-white/70)
-        'color-label-dark': 'rgba(255, 255, 255, 0.6)',    // 60% (text-white/60, text-white/50)
-        'color-dim-dark': 'rgba(255, 255, 255, 0.4)',      // 40% (text-white/40, text-white/30)
+        'text-heading-dark': '#FFFFFF',                     // 100%
+        'text-body-dark': 'rgba(255, 255, 255, 0.8)',       // 80%
+        'text-label-dark': 'rgba(255, 255, 255, 0.6)',      // 60%
+        'text-dim-dark': 'rgba(255, 255, 255, 0.4)',        // 40%
 
         // ============================================
         // BACKGROUND COLORS
         // ============================================
         brand: {
-          deep:  '#224160',  // zurück auf blau
-          steel: 'red',     // TEST: Hellblau sollte jetzt ROT sein
+          deep:  '#224160',
           steel: '#7696AD',
           green: '#2DAD71',
           body:  '#5A5550',
