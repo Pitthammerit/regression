@@ -167,7 +167,7 @@ export default function ResearchersSection() {
                   <div className="flex-1 h-px bg-dim-dark"></div>
                   <button
                     onClick={() => toggleExpand(author.id)}
-                    className="text-read-more text-tertiary hover:text-brand-green transition-colors flex items-center gap-2"
+                    className="text-read-more text-tertiary hover:text-semantic-accent transition-colors flex items-center gap-2"
                   >
                     {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
                     <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
@@ -189,7 +189,7 @@ export default function ResearchersSection() {
                       href={author.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-source-link text-tertiary hover:text-brand-green transition-colors"
+                      className="text-source-link text-tertiary hover:text-semantic-accent transition-colors"
                     >
                       {author.sourceLabel} →
                     </a>

@@ -9,18 +9,27 @@ module.exports = {
         // ============================================
         // SEMANTIC TEXT COLORS — Light Backgrounds
         // ============================================
-        'text-heading': '#224160',          // Headlines H1-H4
-        'text-body': '#5A5550',             // Body text
-        'text-label': '#7696AD',            // Labels, Metadata
-        'text-accent': '#2DAD71',           // CTAs, Links
+        semantic: {
+          heading: '#224160',          // Headlines H1-H4
+          body: '#5A5550',             // Body text
+          label: '#7696AD',            // Labels, Metadata
+          accent: '#2DAD71',           // CTAs, Links
+        },
 
         // ============================================
         // SEMANTIC TEXT COLORS — Dark Backgrounds
         // ============================================
-        'text-heading-dark': '#FFFFFF',                     // 100%
-        'text-body-dark': 'rgba(255, 255, 255, 0.8)',       // 80%
-        'text-label-dark': 'rgba(255, 255, 255, 0.6)',      // 60%
-        'text-dim-dark': 'rgba(255, 255, 255, 0.4)',        // 40%
+        'on-dark': {
+          DEFAULT: '#FFFFFF',                     // 100% - Headlines
+          muted: 'rgba(255, 255, 255, 0.8)',      // 80% - Body text
+          faded: 'rgba(255, 255, 255, 0.6)',      // 60% - Labels, metadata
+          dim: 'rgba(255, 255, 255, 0.4)',        // 40% - Very dim
+        },
+
+        // Legacy names (deprecated — use text-on-dark* instead)
+        'text-heading-dark': '#FFFFFF',
+        'text-body-dark': 'rgba(255, 255, 255, 0.8)',
+        'text-label-dark': 'rgba(255, 255, 255, 0.6)',
 
         // ============================================
         // BACKGROUND COLORS

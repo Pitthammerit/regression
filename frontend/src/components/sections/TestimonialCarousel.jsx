@@ -82,10 +82,10 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
       <div className="max-w-content mx-auto px-6">
         {/* Section Title - centered */}
         <div className="mb-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-steel">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-semantic-label">
             {label}
           </p>
-          <h2 className="mt-2 font-serif text-3xl text-brand-deep sm:text-4xl text-center">
+          <h2 className="mt-2 font-serif text-3xl text-semantic-heading sm:text-4xl text-center">
             {subtitle}
           </h2>
         </div>
@@ -99,7 +99,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
           {/* Left Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-brand-steel transition-opacity hover:opacity-70 xl:block"
+            className="absolute left-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-semantic-label transition-opacity hover:opacity-70 xl:block"
             aria-label="Previous testimonial">
             <ChevronLeft className="h-8 w-8" />
           </button>
@@ -129,8 +129,8 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
                           </div>
                         )}
                         <div>
-                          <p className="text-sm font-semibold text-brand-deep">{t.name}</p>
-                          <p className="text-xs text-brand-steel">
+                          <p className="text-sm font-semibold text-semantic-heading">{t.name}</p>
+                          <p className="text-xs text-semantic-label">
                             {t.context}
                           </p>
                         </div>
@@ -144,7 +144,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
                     </div>
 
                     {/* Quote - below stars */}
-                    <div className="text-sm text-brand-body">
+                    <div className="text-sm text-semantic-body">
                       <p className="italic text-center sm:text-left">
                         "{t.quote}"
                       </p>
@@ -158,7 +158,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
           {/* Right Arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-brand-steel transition-opacity hover:opacity-70 xl:block"
+            className="absolute right-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-semantic-label transition-opacity hover:opacity-70 xl:block"
             aria-label="Next testimonial">
             <ChevronRight className="h-8 w-8" />
           </button>
