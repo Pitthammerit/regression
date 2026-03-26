@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
+import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import { ChevronDown } from 'lucide-react'
 
@@ -20,7 +21,7 @@ function AvatarSilhouette({ gender }) {
   )
 }
 
-export default function CaseStudiesSectionCopy() {
+export default function CaseStudiesSectionCopy({ debugMode = false }) {
   // Marina (index 0) opens by default
   const [openIndex, setOpenIndex] = useState(0)
   const [showHint, setShowHint] = useState(false)
@@ -48,11 +49,17 @@ export default function CaseStudiesSectionCopy() {
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
       <div className="max-w-2xl mb-6">
-        <SectionLabel text={cases.label} />
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-deep leading-tight">
-          {cases.headline}
-        </h2>
-        <p className="font-sans text-sm text-brand-muted mt-4 italic">{cases.subline}</p>
+        <DebugLabel type="label" debugMode={debugMode}>
+          <SectionLabel text={cases.label} />
+        </DebugLabel>
+        <DebugLabel type="h2" debugMode={debugMode}>
+          <h2 className="font-serif text-h2 text-brand-deep leading-tight">
+            {cases.headline}
+          </h2>
+        </DebugLabel>
+        <DebugLabel type="subline" debugMode={debugMode}>
+          <p className="font-sans text-subline text-brand-body mt-4 italic">{cases.subline}</p>
+        </DebugLabel>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
@@ -82,15 +89,21 @@ export default function CaseStudiesSectionCopy() {
                 <AvatarSilhouette gender={item.gender} />
               )}
               <div className="flex-1 pr-4">
-                <span className="font-sans text-sm tracking-[0.15em] uppercase text-brand-steel block mb-2">
-                  {item.tag}
-                </span>
-                <span className="font-serif text-2xl md:text-3xl text-brand-deep group-hover:text-brand-steel transition-colors block leading-snug">
-                  {item.name}{item.title ? ` — ${item.title}` : ''}
-                </span>
-                <span className="font-sans text-base text-brand-muted italic block mt-2">
-                  {item.teaser}
-                </span>
+                <DebugLabel type="label" debugMode={debugMode}>
+                  <span className="font-sans text-label tracking-[0.2em] uppercase text-brand-steel block mb-2">
+                    {item.tag}
+                  </span>
+                </DebugLabel>
+                <DebugLabel type="h4" debugMode={debugMode}>
+                  <span className="font-serif text-h4 text-brand-deep group-hover:text-brand-steel transition-colors block leading-snug">
+                    {item.name}{item.title ? ` — ${item.title}` : ''}
+                  </span>
+                </DebugLabel>
+                <DebugLabel type="subline" debugMode={debugMode}>
+                  <span className="font-sans text-subline text-brand-body italic block mt-2">
+                    {item.teaser}
+                  </span>
+                </DebugLabel>
               </div>
               <ChevronDown
                 size={18}
@@ -106,20 +119,26 @@ export default function CaseStudiesSectionCopy() {
                   { label: cases.sectionLabels.result,    text: item.result },
                 ].map((block) => (
                   <div key={block.label} className="border-l-2 border-brand-deep pl-4">
-                    <span className="font-sans text-sm tracking-[0.15em] uppercase text-brand-steel block mb-3">
-                      {block.label}
-                    </span>
-                    <p className="font-sans text-base md:text-lg text-brand-muted leading-relaxed">
-                      {block.text}
-                    </p>
+                    <DebugLabel type="label" debugMode={debugMode}>
+                      <span className="font-sans text-label tracking-[0.2em] uppercase text-brand-steel block mb-3">
+                        {block.label}
+                      </span>
+                    </DebugLabel>
+                    <DebugLabel type="body" debugMode={debugMode}>
+                      <p className="font-sans text-body text-brand-body leading-relaxed">
+                        {block.text}
+                      </p>
+                    </DebugLabel>
                   </div>
                 ))}
               </div>
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
-                <p className="font-sans text-xs text-brand-muted/35 mt-6 italic">
-                  * Namen wurde geändert
-                </p>
+                <DebugLabel type="disclaimer" debugMode={debugMode}>
+                  <p className="text-disclaimer text-brand-body/35 mt-6 italic">
+                    * Namen wurde geändert
+                  </p>
+                </DebugLabel>
               )}
             </div>
           </div>
