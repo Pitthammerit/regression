@@ -3,6 +3,56 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+---
+
+## ⚡ CRITICAL: Session Start Workflow (READ FIRST — EVERY SESSION)
+
+**BEFORE you do ANYTHING in this repository, you MUST follow this order:**
+
+1. **SKILL CHECK FIRST** — Always invoke relevant skills BEFORE responding or taking action
+   - Use `Skill` tool to invoke "using-superpowers" skill
+   - Then invoke task-specific skills if applicable (brainstorming, subagent-driven-development, etc.)
+
+2. **Read CLAUDE.md** — This file contains project-specific rules
+
+3. **Check Memory** — Read relevant memories for context (use `list_memories` tool)
+
+4. **Check Active Plans** — Look in `docs/` directory for current project plans
+   - Active work-in-progress documents are stored in `docs/`
+   - Examples: `typography-refactoring-plan.md`, `TODO-AUTO-SYNC-PLAN.md`
+   - Before starting work, check if there's an existing plan for the task
+
+### Why This Section Exists
+
+Claude sometimes skips skill checks even when explicitly told to use them (system reminders with "EXTREMELY IMPORTANT" are still ignored). This section is a **hard reminder** at the top of CLAUDE.md to prevent that.
+
+### If You Notice Yourself Skipping Skills
+
+**STOP immediately** → Invoke the skill → Then continue.
+
+**Examples of when to use skills:**
+- User asks to build/modify anything → `superpowers:brainstorming`
+- User has a written plan to execute → `superpowers:executing-plans` or `superpowers:subagent-driven-development`
+- About to claim work is complete → `superpowers:verification-before-completion`
+- Encountering a bug/failure → `superpowers:systematic-debugging`
+- Completing a task/feature → `superpowers:requesting-code-review`
+
+### Subagent Loop Pattern
+
+For complex multi-file changes (refactoring, new features), use this loop:
+```
+1. EXPLORE (optional)     → Explore agents understand codebase
+2. PLAN (required)        → Plan agent designs approach
+3. IMPLEMENT (subagent)   → frontend-developer/senior-architect-innovator
+4. REVIEW (subagent)      → feature-dev:code-reviewer validates
+5. LOOP BACK if issues    → Fix → Re-review → Verify
+6. COMMIT                 → version-control-orchestrator
+```
+
+See "Multiagent Orchestration" section below for detailed workflow.
+
+---
+
 ## Project Overview
 
 This is a React app for "Regression" (Past Life Regression sessions by Benjamin Kurtz), deployed via Cloudflare Pages. Only the `frontend/` directory is deployed — the monorepo structure exists for future expansion but currently contains no active backend.
@@ -442,39 +492,6 @@ export const evidence = {
 **Responsive:** Mobile = photo above text, name above photo; Desktop = photo left, text right
 **Images:** Uses native `LazyImage` component with R2 CDN URLs
 **Section IDs:** `id="science"` (EvidenceSection), `id="evidence-quotes"` (EvidenceQuotesSection)
-
-**Implemented pattern:**
-- Upper tier: 4-column grid with portraits + English quotes (unchanged)
-- Lower tier: Accordion card for Roger Woolger (single hardcoded example)
-
-**Content structure in `plr-de.js` (authorities array):**
-```javascript
-{
-  id: "roger-woolger",
-  name: "Roger Woolger PhD",
-  dates: "*1944–2011",
-  role: "Jungian Analytiker, Regressionstherapeut, Lehrer",
-  portrait: "https://...",
-  quote: "The body never lies...", // English quote for upper tier
-  shortVersion: "Kurztext (2-3 Sätze)...",
-  longVersion: "Langtext (mehrere Absätze)...",
-  sourceLabel: "Quelle",
-  sourceUrl: "https://..."
-}
-```
-
-**Implemented (Phase 2 — 2026-03-05):**
-- ✅ All 4 authorities render dynamically from `evidence.authorities` array
-- ✅ `shortQuote` → `shortVersion` renamed for clarity
-- ✅ `quote` field added to Ian Stevenson and Jim Tucker (English quotes for upper tier)
-- ✅ `sourceLabel` + `sourceUrl` added to all authorities
-- ✅ Accordion strings moved to content layer (`evidence.accordion.readMore/readLess`)
-- ✅ Self-Service: Users can now add authorities by editing `plr-de.js` → appears automatically
-
-**Accordion state:** Uses `useState` with `expandedId` pattern — only one card expanded at a time
-**Responsive:** Mobile = photo above text, name above photo; Desktop = photo left, text right
-**Images:** Uses native `LazyImage` component with R2 CDN URLs
-**Section ID:** `id="science"` — matches menu anchor `#science`
 
 ## Known Issues from Code Review
 
