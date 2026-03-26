@@ -64,7 +64,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 font-primary text-hint text-label/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`mb-8 flex items-center gap-2 font-primary text-hinttext-color-label/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-icon">↓</span>
@@ -135,7 +135,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
                 <DebugLabel type="disclaimer" debugMode={debugMode}>
-                  <p className="text-disclaimer text-body/35 mt-6 italic">
+                  <p className="text-disclaimertext-color-body/35 mt-6 italic">
                     * Namen wurde geändert
                   </p>
                 </DebugLabel>

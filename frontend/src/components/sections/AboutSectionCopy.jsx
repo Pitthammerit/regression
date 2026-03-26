@@ -19,7 +19,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
               alt="Benjamin Kurtz"
               className="w-full h-full object-cover object-top"
               fallback={
-                <div className="w-full h-full flex items-center justify-center text-body font-primary text-body">
+                <div className="w-full h-full flex items-center justify-center text-body font-primary text-color-body">
                   {about.photoPlaceholder}
                 </div>
               }

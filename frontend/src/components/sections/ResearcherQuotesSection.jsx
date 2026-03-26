@@ -22,7 +22,7 @@ export default function ResearcherQuotesSection() {
     <section
       id="evidence-quotes"
       data-testid="evidence-quotes-section"
-      className="py-16 md:py-20 bg-brand-deep text-heading-dark"
+      className="py-16 md:py-20 bg-brand-deep text-on-dark"
     >
       <div className="max-w-content mx-auto px-6">
         <SectionLabel text={researchers.authorBigLabel} light />
@@ -98,10 +98,10 @@ export default function ResearcherQuotesSection() {
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </AspectRatio>
-                    <blockquote className="font-display italic text-quote md:text-quote-featured text-heading-dark leading-relaxed mb-6">
+                    <blockquote className="font-display italic text-quote md:text-quote-featured text-on-dark leading-relaxed mb-6">
                       "{author.quote}"
                     </blockquote>
-                    <div className="font-display text-role text-body-dark">{author.name}</div>
+                    <div className="font-display text-role text-on-dark-muted">{author.name}</div>
                     <div className="text-date text-dim-dark mt-0.5">{author.role}</div>
                   </div>
                 ))}

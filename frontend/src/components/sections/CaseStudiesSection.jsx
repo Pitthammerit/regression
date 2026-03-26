@@ -57,7 +57,7 @@ export default function CaseStudiesSection() {
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 font-sans text-sm text-label/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`mb-8 flex items-center gap-2 font-sans text-smtext-color-label/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-base">↓</span>
@@ -117,7 +117,7 @@ export default function CaseStudiesSection() {
               </div>
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
-                <p className="font-sans text-xs text-body/35 mt-6 italic">
+                <p className="font-sans text-xstext-color-body/35 mt-6 italic">
                   * Namen wurde geändert
                 </p>
               )}

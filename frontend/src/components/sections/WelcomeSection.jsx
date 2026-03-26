@@ -26,7 +26,7 @@ export default function WelcomeSection() {
         {/* Right: Body text + signature */}
         <div className="flex flex-col justify-center pt-2">
           <span
-            className="font-serif text-heading/15 leading-none block mb-0 select-none"
+            className="font-seriftext-color-heading/15 leading-none block mb-0 select-none"
             style={{ fontSize: '5rem', lineHeight: 1 }}
             aria-hidden="true"
           >
@@ -37,7 +37,7 @@ export default function WelcomeSection() {
             {welcome.quoteLines.slice(1).map((line, i) => (
               <p
                 key={i}
-                className="font-serif italic text-xl md:text-2xl lg:text-3xl text-body/80 leading-relaxed"
+                className="font-serif italic text-xl md:text-2xl lg:text-3xltext-color-body/80 leading-relaxed"
               >
                 {line}
               </p>
