@@ -206,6 +206,8 @@ export const cases = {
   label: "FALLBEISPIELE",
   headline: "Geschichten aus der Praxis — wenn Seelen sich erinnern",
   subline: "Alle Geschichten wurden mit ausdrücklichem Einverständnis geteilt. Namen mit * wurden durch Wunsch des Klienten geändert",
+  hintText: "Klicke auf die Namen, um mehr zu lesen",
+  anonymityNote: "* Namen wurde geändert",
   items: [
     {
       name: "Marina", gender: "female",
@@ -478,7 +480,7 @@ export const booking = {
   label: "BEREIT FÜR EIN GESPRÄCH?",
   headline: "Intro-Call buchen.",
   subline:
-    "Kostenlos und unverbindlich. 30 Minuten. Wir schauen gemeinsam, was dich bewegt — und ob eine Session der nächste sinnvolle Schritt ist.",
+    "Kostenlos und unverbindlich. 30 Minuten. Wir tauchen gemeinsam ein in die, was dich bewegt — und was für eine Session der nächste sinnvolle Schritt für dich ist.",
   formPlaceholder: "[ Fluent Forms Embed ]",
   directBookingText: "Du willst direkt einen Termin wählen?",
   directBookingCta: "Intro-Call buchen",
