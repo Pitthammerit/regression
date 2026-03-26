@@ -33,7 +33,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
             <SectionLabel text={about.label} />
           </DebugLabel>
           <DebugLabel type="h3" debugMode={debugMode}>
-            <h2 className="font-display text-h3 text-heading mb-10 leading-tight">
+            <h2 className="font-display text-h3 text-brand-deep mb-10 leading-tight">
               {about.headline}
             </h2>
           </DebugLabel>
@@ -57,7 +57,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
               {about.credentials.map((cred, i) => (
                 <li key={i} className="font-primary text-list text-body flex items-start gap-2">
                   <DebugLabel type="list" debugMode={debugMode}>
-                    <span className="text-heading shrink-0 mt-0.5">—</span>
+                    <span className="text-brand-deep shrink-0 mt-0.5">—</span>
                     {cred}
                   </DebugLabel>
                 </li>
