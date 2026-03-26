@@ -26,7 +26,7 @@ export default function WhatIsSectionCopy({ debugMode = false }) {
         <div>
           {whatIs.body.map((para, i) => (
             <DebugLabel type="body" debugMode={debugMode} key={i}>
-              <p className={`font-primary text-color-body leading-relaxed text-body ${i > 0 ? 'mt-6' : ''}`}>
+              <p className={`font-primary text-color-body text-body ${i > 0 ? 'mt-6' : ''}`}>
                 {para}
               </p>
             </DebugLabel>

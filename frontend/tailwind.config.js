@@ -98,7 +98,7 @@ module.exports = {
         // BODY TEXT — Font + Größe (keine Farbe!)
         // ============================================
         'body': ['1.125rem', {
-          lineHeight: '1.75',
+          lineHeight: '1.75',  // leading-relaxed = 1.625, aber wir prefer 1.75
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'body-lg': ['1.25rem', {

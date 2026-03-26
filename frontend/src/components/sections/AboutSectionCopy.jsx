@@ -33,14 +33,14 @@ export default function AboutSectionCopy({ debugMode = false }) {
             <SectionLabel text={about.label} />
           </DebugLabel>
           <DebugLabel type="h3" debugMode={debugMode}>
-            <h2 className="font-display text-h3 text-color-heading mb-10 leading-tight">
+            <h2 className="font-display text-h3 text-color-heading mb-10">
               {about.headline}
             </h2>
           </DebugLabel>
 
           {about.body.map((para, i) => (
             <DebugLabel type="body" debugMode={debugMode} key={i}>
-              <p className={`font-primary text-color-body leading-relaxed text-body ${i > 0 ? 'mt-6' : ''}`}>
+              <p className={`font-primary text-color-body text-body ${i > 0 ? 'mt-6' : ''}`}>
                 {para}
               </p>
             </DebugLabel>
@@ -49,7 +49,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
           {/* Credentials */}
           <div className="mt-12 pt-10 border-t border-black/10">
             <DebugLabel type="label" debugMode={debugMode}>
-              <p className="font-primary text-color-label tracking-[0.2em] uppercase text-label mb-6">
+              <p className="font-primary text-label text-color-label mb-6">
                 {about.credentialsLabel}
               </p>
             </DebugLabel>

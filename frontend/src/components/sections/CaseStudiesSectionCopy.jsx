@@ -125,7 +125,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                       </span>
                     </DebugLabel>
                     <DebugLabel type="body" debugMode={debugMode}>
-                      <p className="font-primary text-color-body text-body leading-relaxed">
+                      <p className="font-primary text-color-body text-body">
                         {block.text}
                       </p>
                     </DebugLabel>
