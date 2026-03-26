@@ -43,7 +43,7 @@ module.exports = {
         'body': ['1.125rem', { lineHeight: '1.75' }],    // 18px - Base body text
         'body-lg': ['1.25rem', { lineHeight: '1.625' }], // 20px - Large body text
         // Labels
-        'label': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.2em', textTransform: 'uppercase' }], // 14px - Labels
+        'label': ['0.8125rem', { lineHeight: '1.5', letterSpacing: '0.2em', textTransform: 'uppercase' }], // 13px - Labels
         // Sublines
         'subline': ['1rem', { lineHeight: '1.5' }],     // 16px - Sublines (italic)
         // List Items
