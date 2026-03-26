@@ -9,9 +9,9 @@ module.exports = {
         // ============================================
         // SEMANTIC TEXT COLORS (für Typography)
         // ============================================
-        'text-primary': '#224160',      // Main text (headlines) on light
-        'text-secondary': '#5A5550',    // Body text on light
-        'text-tertiary': '#7696AD',     // Labels, metadata on light
+        'text-heading': '#224160',      // Headlines on light (brand.deep)
+        'text-body-main': '#5A5550',    // Body text on light (brand.body)
+        'text-labels': '#7696AD',       // Labels/metadata on light (brand.steel)
         'text-on-dark': '#FFFFFF',      // Main text on dark backgrounds
         'text-on-dark-muted': 'rgba(255, 255, 255, 0.8)', // Reduced opacity on dark
         'text-on-dark-faded': 'rgba(255, 255, 255, 0.6)',  // More reduced on dark
