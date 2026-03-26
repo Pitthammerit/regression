@@ -35,7 +35,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
     <section
       id="science-copy"
       data-testid="science-section-copy"
-      className="section-padding bg-background-dark text-on-dark relative overflow-hidden"
+      className="section-padding bg-color-bg-dark text-on-dark relative overflow-hidden"
     >
       {/* Subtle paper texture overlay */}
       <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none" />
@@ -84,7 +84,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             <div className="flex flex-col text-on-dark-body">
               {/* Quote - Top of right column */}
               <DebugLabel type="quote-featured" debugMode={debugMode}>
-                <blockquote className="font-display text-quote-featured italic leading-tight text-on-dark-heading mb-6">
+                <blockquote className="font-display text-quote-featured italic leading-tight text-on-dark mb-6">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
               </DebugLabel>
@@ -158,7 +158,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                     </p>
                   </DebugLabel>
                   <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-primary text-date text-on-dark-date mb-4">{author.lifeDates}</p>
+                    <p className="font-primary text-date text-on-dark-role mb-4">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
@@ -175,7 +175,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                     </p>
                   </DebugLabel>
                   <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-primary text-date text-on-dark-date mb-4">{author.lifeDates}</p>
+                    <p className="font-primary text-date text-on-dark-role mb-4">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 

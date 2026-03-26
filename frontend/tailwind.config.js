@@ -18,93 +18,65 @@ module.exports = {
       },
       colors: {
         // ─────────────────────────────────────────────────────────────
-        // HAUPTFARBEN (primary, secondary, tertiary, accent)
+        // COLOR TOKENS (Single Source of Truth)
         // ─────────────────────────────────────────────────────────────
         color: {
-          // Semantic names (bestehend - für Copy Sections)
-          heading: '#224160',  // Primary - Dunkelblau
-          body:    '#5A5550',  // Tertiary - Dunkles Grau
-          label:   '#7696AD',  // Secondary - Helles Graublau
-          accent:  '#2DAD71',  // Accent - Grün
+          // 1. GENERAL PURPOSE
+          'bg-light':  '#EDE7DC',  // Sand
+          'bg-medium': '#E5DFD5',  // Sand Muted
+          'bg-dark':   '#224160',  // Dunkelblau
 
-          // General purpose colors (neu)
-          primary:  '#224160',  // Dunkelblau - Headlines auf hell
-          secondary: '#7696AD',  // Helles Graublau - Labels/Metadata
-          tertiary: '#5A5550',  // Dunkles Grau - Body-Text
-          accent:   '#2DAD71',  // Akzent - Grün (CTAs, Links)
+          // 2. SEMANTIC NAMES (für Sections)
+          heading: '#224160',  // Dunkelblau
+          body:    '#5A5550',  // Dunkles Grau
+          label:   '#7696AD',  // Helles Graublau
+          accent:  '#2DAD71',  // Grün
 
-          // Background colors (neu)
-          'bg-light': '#EDE7DC',  // Sand
-          'bg-medium': '#E5DFD5', // Sand Muted (für Section-Abgrenzung)
-          'bg-dark':  '#224160',  // Dunkelblau
-
-          // On-dark colors (neu - alle in HEX!)
-          white:        '#FFFFFF',  // 100% weiß
-          'white-muted': '#FFFFFFCC', // 80% weiß
-          'white-faded': '#FFFFFF99', // 60% weiß
-          'white-dim':   '#FFFFFF80', // 50% weiß
-          'white-subtle': '#FFFFFF33', // 20% weiß
+          // 3. ON-DARK (semantische Namen - Siehe auch legacy 'on-dark' Block)
+          heading: '#FFFFFF',    // 100% (Headlines)
+          quote:   '#FFFFFF',    // 100% (Zitate)
+          body:    '#FFFFFFCC',  // 80% (Fließtext, Labels)
+          role:    '#FFFFFFCC',  // 80% (= label)
+          date:    '#FFFFFFCC',  // 80% (= label)
+          label:   '#FFFFFFCC',  // 80% (= role)
+          accent:  '#2DAD71',    // Grün
+          divider: '#FFFFFF33',  // 20%
         },
 
         // ─────────────────────────────────────────────────────────────
-        // HINTERGRUND-FARBEN (beschreibende Namen - für Copy Sections)
-        // ─────────────────────────────────────────────────────────────
-        background: {
-          light:  '#EDE7DC',  // Sand
-          medium: '#E5DFD5', // Sand Muted (für Section-Abgrenzung)
-          dark:   '#224160',  // Dunkelblau
-        },
-
-        // ─────────────────────────────────────────────────────────────
-        // TEXT AUF DUNKELM HINTERGRUND (semantische Namen - HEX only!)
-        // ─────────────────────────────────────────────────────────────
-        'on-dark': {
-          DEFAULT: '#FFFFFF',      // Fallback - 100%
-          heading: '#FFFFFF',      // Headlines - 100%
-          quote:   '#FFFFFF',      // Zitate - 100%
-          body:    '#FFFFFFCC',    // Fließtext - 80%
-          role:    '#FFFFFF99',    // Rolle - 60%
-          date:    '#FFFFFF80',    // Lebensdaten - 50%
-          label:   '#FFFFFFCC',    // Labels - 80%
-          accent:  '#2DAD71',      // Akzent - Grün
-          divider: '#FFFFFF33',    // Trennlinien - 20%
-        },
-
-        // ─────────────────────────────────────────────────────────────
-        // LEGACY - BRAND COLORS (temporär - noch für Live-Site benötigt)
+        // LEGACY - Alle temporären Farben (werden nach Migration entfernt)
         // ─────────────────────────────────────────────────────────────
         brand: {
-          deep:  '#224160',  // → background.dark
-          body:  '#5A5550',  // → color.body
-          steel: '#7696AD',  // → color.label
-          green: '#2DAD71',  // → color.accent
-          muted: '#5A5550',  // → color.body
+          deep:  '#224160',  // → heading
+          body:  '#5A5550',  // → body
+          steel: '#7696AD',  // → label
+          green: '#2DAD71',  // → accent
+          muted: '#5A5550',  // → body
           dark:  '#1A2433',
-          cream: '#F0EBE1',  // → wird background.light ähneln
-          sand:  '#EDE7DC',  // → background.light
+          cream: '#F0EBE1',
+          sand:  '#EDE7DC',  // → bg-light
         },
 
-        // ─────────────────────────────────────────────────────────────
-        // LEGACY - OLD ON-DARK (temporär - HEX only!)
-        // ─────────────────────────────────────────────────────────────
-        'on-dark-legacy': {
+        'on-dark': {
           DEFAULT: '#FFFFFF',
-          muted: '#FFFFFFCC',  // 80%
-          faded: '#FFFFFF99',  // 60%
-          dim:   '#FFFFFF66',  // 40%
+          heading: '#FFFFFF',
+          quote:   '#FFFFFF',
+          body:    '#FFFFFFCC',
+          role:    '#FFFFFFCC',  // = label
+          date:    '#FFFFFFCC',  // = label
+          label:   '#FFFFFFCC',
+          accent:  '#2DAD71',
+          divider: '#FFFFFF33',
         },
 
-        // ─────────────────────────────────────────────────────────────
-        // LEGACY - TRANSCRIPT (temporär - noch für TranscriptPage)
-        // ─────────────────────────────────────────────────────────────
         transcript: {
           bg:       '#F0EBE1',
           text:     '#2D2A26',
           muted:    '#7D7469',
           darkBg:   '#171614',
           darkText: '#D9D2C8',
-          border:   '#00000014',   // 8% schwarz = #14
-          darkBorder: '#FFFFFF14', // 8% weiß = #14
+          border:   '#00000014',
+          darkBorder: '#FFFFFF14',
         },
       },
       fontFamily: {
@@ -116,102 +88,78 @@ module.exports = {
         'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', {
           lineHeight: '1',
           letterSpacing: '-0.02em',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'hero': ['clamp(1.44rem, 3.84vw, 3.36rem)', {
           lineHeight: '1.1',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'h1': ['3rem', {
           lineHeight: '1.1',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'h2': ['2.25rem', {
           lineHeight: '1.2',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'h3': ['1.875rem', {
           lineHeight: '1.2',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'h4': ['1.5rem', {
           lineHeight: '1.2',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'body': ['1.125rem', {
           lineHeight: '1.75',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'body-lg': ['1.25rem', {
           lineHeight: '1.625',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'label': ['0.8125rem', {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'subline': ['1rem', {
           lineHeight: '1.5',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'list': ['1rem', {
           lineHeight: '1.5',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'quote-featured': ['2.25rem', {
           lineHeight: '1.1',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'quote': ['1.5rem', {
           lineHeight: '1.2',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'author-name': ['2rem', {
           lineHeight: '1.2',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'description': ['1.625rem', {
           lineHeight: '1.6',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'summary-large': ['1.625rem', {
           lineHeight: '1.6',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'body-narrative': ['1.125rem', {
           lineHeight: '1.75',
-          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'date': ['0.875rem', {
           lineHeight: '1.5',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'disclaimer': ['0.75rem', {
           lineHeight: '1.5',
           fontStyle: 'italic',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'read-more': ['0.875rem', {
           lineHeight: '1.5',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'button-text': ['0.875rem', {
           lineHeight: '1.5',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'source-link': ['0.875rem', {
           lineHeight: '1.5',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'hint': ['0.875rem', {
           lineHeight: '1.5',
           fontStyle: 'italic',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'icon': ['1rem', {
           lineHeight: '1',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
       },
       letterSpacing: {
