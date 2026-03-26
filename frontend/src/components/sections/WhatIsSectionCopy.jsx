@@ -14,7 +14,7 @@ export default function WhatIsSectionCopy({ debugMode = false }) {
             <SectionLabel text={whatIs.label} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-h leading-tight">
+            <h2 className="font-display text-h2 color-heading leading-tight">
               {whatIs.headline}
             </h2>
           </DebugLabel>
