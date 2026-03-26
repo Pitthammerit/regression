@@ -6,6 +6,19 @@ module.exports = {
         '900': '900px',
       },
       colors: {
+        // ============================================
+        // SEMANTIC TEXT COLORS (für Typography)
+        // ============================================
+        'text-primary': '#224160',      // Main text (headlines) on light
+        'text-secondary': '#5A5550',    // Body text on light
+        'text-tertiary': '#7696AD',     // Labels, metadata on light
+        'text-on-dark': '#FFFFFF',      // Main text on dark backgrounds
+        'text-on-dark-muted': 'rgba(255, 255, 255, 0.8)', // Reduced opacity on dark
+        'text-on-dark-faded': 'rgba(255, 255, 255, 0.6)',  // More reduced on dark
+
+        // ============================================
+        // BACKGROUND COLORS
+        // ============================================
         brand: {
           deep:  '#224160',
           steel: '#7696AD',
@@ -27,9 +40,12 @@ module.exports = {
         },
       },
       fontFamily: {
-        // Font Token System — Single Source of Truth for all typography
-        // Usage: font-primary (body, labels, role, date, name, buttons)
-        //        font-display (headlines, quotes, featured content)
+        // ============================================
+        // DEPRECATED: Use fontSize tokens instead!
+        // ============================================
+        // Font-Familien sind jetzt in fontSize Tokens integriert
+        // Components nutzen nur noch Typography-Tokens (text-h2, text-body, etc.)
+        // Diese Aliases bleiben nur für Abwärtskompatibilität
         primary: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
         // Legacy aliases (deprecated — use primary/display instead)
@@ -37,40 +53,142 @@ module.exports = {
         sans:  ['DM Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        // Hero Headlines (Fluid Scaling)
-        'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
-        'hero': ['clamp(1.44rem, 3.84vw, 3.36rem)', { lineHeight: '1.1' }],
-        // Headlines (H1-H4 System)
-        'h1': ['3rem', { lineHeight: '1.1' }],           // 48px - Main headline
-        'h2': ['2.25rem', { lineHeight: '1.2' }],        // 36px - Section headline
-        'h3': ['1.875rem', { lineHeight: '1.2' }],       // 30px - Subsection headline
-        'h4': ['1.5rem', { lineHeight: '1.2' }],         // 24px - Small headline
-        // Body Text
-        'body': ['1.125rem', { lineHeight: '1.75' }],    // 18px - Base body text
-        'body-lg': ['1.25rem', { lineHeight: '1.625' }], // 20px - Large body text
-        // Labels
-        'label': ['0.8125rem', { lineHeight: '1.5', letterSpacing: '0.2em', textTransform: 'uppercase' }], // 13px - Labels
-        // Sublines
-        'subline': ['1rem', { lineHeight: '1.5' }],     // 16px - Sublines (italic)
-        // List Items
-        'list': ['1rem', { lineHeight: '1.5' }],        // 16px - List items (credentials, bullets)
-        // Quotes
-        'quote-featured': ['2.25rem', { lineHeight: '1.1' }], // 36px - Featured/large quotes
-        'quote': ['1.5rem', { lineHeight: '1.2' }],            // 24px - Standard quotes
-        // Author-specific (Researchers)
-        'author-name': ['2rem', { lineHeight: '1.2' }],        // 32px - Author names
-        'description': ['1.625rem', { lineHeight: '1.6' }],    // 26px - Descriptions
-        'summary-large': ['1.625rem', { lineHeight: '1.6' }],  // 26px - Summary (Sans-Serif)
-        'body-narrative': ['1.125rem', { lineHeight: '1.75' }], // 18px - Narrative (Serif)
-        'role': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.1em', textTransform: 'uppercase' }], // 14px - Role (UNIVERSITY OF VIRGINIA, DOPS)
-        'date': ['0.875rem', { lineHeight: '1.5' }],          // 14px - Date (*1918–2007)
-        // Metadata
-        'disclaimer': ['0.75rem', { lineHeight: '1.5' }],      // 12px - Disclaimer text
-        'read-more': ['0.875rem', { lineHeight: '1.5' }],      // 14px - Read More/Less buttons
-        'button-text': ['0.875rem', { lineHeight: '1.5' }],    // 14px - Button text (general)
-        'source-link': ['0.875rem', { lineHeight: '1.5' }],    // 14px - Source links
-        'hint': ['0.875rem', { lineHeight: '1.5' }],          // 14px - Hint/helper text
-        'icon': ['1rem', { lineHeight: '1' }],               // 16px - Icons/symbols
+        // ============================================
+        // HERO HEADLINES — Font + Größe (keine Farbe!)
+        // ============================================
+        'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', {
+          lineHeight: '1',
+          letterSpacing: '-0.02em',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+        'hero': ['clamp(1.44rem, 3.84vw, 3.36rem)', {
+          lineHeight: '1.1',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+
+        // ============================================
+        // HEADLINES (H1-H4) — Font + Größe (keine Farbe!)
+        // ============================================
+        'h1': ['3rem', {
+          lineHeight: '1.1',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+        'h2': ['2.25rem', {
+          lineHeight: '1.2',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+        'h3': ['1.875rem', {
+          lineHeight: '1.2',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+        'h4': ['1.5rem', {
+          lineHeight: '1.2',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+
+        // ============================================
+        // BODY TEXT — Font + Größe (keine Farbe!)
+        // ============================================
+        'body': ['1.125rem', {
+          lineHeight: '1.75',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'body-lg': ['1.25rem', {
+          lineHeight: '1.625',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+
+        // ============================================
+        // LABELS — Font + Größe (keine Farbe!)
+        // ============================================
+        'label': ['0.8125rem', {
+          lineHeight: '1.5',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+
+        // ============================================
+        // SUBLINES & LISTS — Font + Größe (keine Farbe!)
+        // ============================================
+        'subline': ['1rem', {
+          lineHeight: '1.5',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'list': ['1rem', {
+          lineHeight: '1.5',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+
+        // ============================================
+        // QUOTES — Font + Größe (keine Farbe!)
+        // ============================================
+        'quote-featured': ['2.25rem', {
+          lineHeight: '1.1',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+        'quote': ['1.5rem', {
+          lineHeight: '1.2',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+
+        // ============================================
+        // AUTHOR-SPECIFIC — Font + Größe (keine Farbe!)
+        // ============================================
+        'author-name': ['2rem', {
+          lineHeight: '1.2',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+        'description': ['1.625rem', {
+          lineHeight: '1.6',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+        'summary-large': ['1.625rem', {
+          lineHeight: '1.6',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'body-narrative': ['1.125rem', {
+          lineHeight: '1.75',
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
+        }],
+        'role': ['0.875rem', {
+          lineHeight: '1.5',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'date': ['0.875rem', {
+          lineHeight: '1.5',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+
+        // ============================================
+        // METADATA — Font + Größe (keine Farbe!)
+        // ============================================
+        'disclaimer': ['0.75rem', {
+          lineHeight: '1.5',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'read-more': ['0.875rem', {
+          lineHeight: '1.5',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'button-text': ['0.875rem', {
+          lineHeight: '1.5',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'source-link': ['0.875rem', {
+          lineHeight: '1.5',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'hint': ['0.875rem', {
+          lineHeight: '1.5',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
+        'icon': ['1rem', {
+          lineHeight: '1',
+          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+        }],
       },
       letterSpacing: {
         'heading-tight': '-0.02em',
