@@ -1,7 +1,24 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      utilities: {
+        // ============================================
+        // LABEL UTILITY — Multi-Site-Ready
+        // ============================================
+        // Use: className="label" (contains: size + spacing + case)
+        // For new site: Change values here - all components update automatically
+        // ============================================
+        label: {
+          fontSize: '0.8125rem',
+          lineHeight: '1.5',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          fontWeight: '400',
+        },
+      },
       screens: {
         '900': '900px',
       },
@@ -98,7 +115,7 @@ module.exports = {
         // BODY TEXT — Font + Größe (keine Farbe!)
         // ============================================
         'body': ['1.125rem', {
-          lineHeight: '1.75',  // leading-relaxed = 1.625, aber wir prefer 1.75
+          lineHeight: '1.75',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'body-lg': ['1.25rem', {
@@ -109,10 +126,12 @@ module.exports = {
         // ============================================
         // LABELS — Font + Größe (keine Farbe!)
         // ============================================
+        // NOTE: textTransform wird in fontSize nicht unterstützt!
+        // Verwende className="label" utility (enthält uppercase)
         'label': ['0.8125rem', {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
-          textTransform: 'uppercase',
+          // textTransform: 'uppercase', ← wird ignoriert!
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
 
@@ -210,5 +229,17 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.label': {
+          'font-size': '0.8125rem',
+          'line-height': '1.5',
+          'letter-spacing': '0.2em',
+          'text-transform': 'uppercase',
+          'font-weight': '400',
+        },
+      })
+    }),
+  ],
 }

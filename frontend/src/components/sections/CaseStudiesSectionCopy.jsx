@@ -90,7 +90,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               )}
               <div className="flex-1 pr-4">
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <span className="font-primary text-label uppercase text-color-label block mb-2">
+                  <span className="font-primary label text-color-label block mb-2">
                     {item.tag}
                   </span>
                 </DebugLabel>
@@ -120,7 +120,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                 ].map((block) => (
                   <div key={block.label} className="border-l-2 border-color-heading pl-4">
                     <DebugLabel type="label" debugMode={debugMode}>
-                      <span className="font-primary text-label uppercase text-color-label block mb-3">
+                      <span className="font-primary label text-color-label block mb-3">
                         {block.label}
                       </span>
                     </DebugLabel>

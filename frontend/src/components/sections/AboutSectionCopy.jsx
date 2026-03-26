@@ -49,7 +49,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
           {/* Credentials */}
           <div className="mt-12 pt-10 border-t border-black/10">
             <DebugLabel type="label" debugMode={debugMode}>
-              <p className="font-primary text-label uppercase text-color-label mb-6">
+              <p className="font-primary label text-color-label mb-6">
                 {about.credentialsLabel}
               </p>
             </DebugLabel>
