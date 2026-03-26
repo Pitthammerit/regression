@@ -180,8 +180,8 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                 </div>
 
                 {/* Short text */}
-                <DebugLabel type="description" debugMode={debugMode}>
-                  <p className="text-description text-white/80 leading-relaxed mb-6">
+                <DebugLabel type="summary-large" debugMode={debugMode}>
+                  <p className="font-sans text-summary-large text-white/80 leading-relaxed mb-6">
                     {author.shortVersion}
                   </p>
                 </DebugLabel>
@@ -207,8 +207,8 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             {expandedId === author.id && (
               <>
                 <div className="mt-4 pt-8 md:col-span-2">
-                  <DebugLabel type="body" debugMode={debugMode}>
-                    <p className="font-serif text-body text-white/80 leading-relaxed mb-6 whitespace-pre-line">
+                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                    <p className="font-serif text-body-narrative text-white/80 leading-relaxed mb-6 whitespace-pre-line">
                       {author.longVersion}
                     </p>
                   </DebugLabel>
