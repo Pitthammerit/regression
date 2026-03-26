@@ -10,7 +10,7 @@ module.exports = {
           deep:  '#224160',
           steel: '#7696AD',
           green: '#2DAD71',
-          body:  '#1A1814',
+          body:  '#5A5550',
           muted: '#5A5550',
           dark:  '#1A2433',
           cream: '#F0EBE1',
@@ -32,17 +32,33 @@ module.exports = {
       },
       fontSize: {
         // Hero Headlines (Fluid Scaling)
-        'hero-xl': ['clamp(2.4rem, 6.6vw, 5.4rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
-        'hero-lg': ['clamp(1.44rem, 3.84vw, 3.36rem)', { lineHeight: '1.1' }],
-        // Section Headlines
-        'section-h2': ['1.875rem', { lineHeight: '1.2' }],     // 30px
-        'section-h2-md': ['2.25rem', { lineHeight: '1.2' }],  // 36px
-        'section-h2-lg': ['3rem', { lineHeight: '1.1' }],      // 48px
+        'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        'hero': ['clamp(1.44rem, 3.84vw, 3.36rem)', { lineHeight: '1.1' }],
+        // Headlines (H1-H4 System)
+        'h1': ['3rem', { lineHeight: '1.1' }],           // 48px - Main headline
+        'h2': ['2.25rem', { lineHeight: '1.2' }],        // 36px - Section headline
+        'h3': ['1.875rem', { lineHeight: '1.2' }],       // 30px - Subsection headline
+        'h4': ['1.5rem', { lineHeight: '1.2' }],         // 24px - Small headline
         // Body Text
-        'body-base': ['1.125rem', { lineHeight: '1.75' }],    // 18px
-        'body-lg': ['1.25rem', { lineHeight: '1.625' }],      // 20px
+        'body': ['1.125rem', { lineHeight: '1.75' }],    // 18px - Base body text
+        'body-lg': ['1.25rem', { lineHeight: '1.625' }], // 20px - Large body text
+        // Labels
+        'label': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.2em', textTransform: 'uppercase' }], // 14px - Labels
+        // Sublines
+        'subline': ['1rem', { lineHeight: '1.5' }],     // 16px - Sublines (italic)
+        // List Items
+        'list': ['1rem', { lineHeight: '1.5' }],        // 16px - List items (credentials, bullets)
+        // Quotes
+        'quote-featured': ['2.25rem', { lineHeight: '1.1' }], // 36px - Featured/large quotes
+        'quote': ['1.5rem', { lineHeight: '1.2' }],            // 24px - Standard quotes
+        // Author-specific (Researchers)
+        'author-name': ['2rem', { lineHeight: '1.2' }],        // 32px - Author names
+        'description': ['1.625rem', { lineHeight: '1.6' }],    // 26px - Descriptions
         // Metadata
-        'label-xs': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.2em', textTransform: 'uppercase' }],
+        'disclaimer': ['0.75rem', { lineHeight: '1.5' }],      // 12px - Disclaimer text
+        'read-more': ['0.875rem', { lineHeight: '1.5' }],      // 14px - Read More/Less buttons
+        'button-text': ['0.875rem', { lineHeight: '1.5' }],    // 14px - Button text (general)
+        'source-link': ['0.875rem', { lineHeight: '1.5' }],    // 14px - Source links
       },
       letterSpacing: {
         'heading-tight': '-0.02em',
