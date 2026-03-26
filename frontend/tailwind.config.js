@@ -183,6 +183,13 @@ module.exports = {
           'text-transform': 'uppercase',
           'font-weight': '400',
         },
+        '.role': {
+          'font-size': '0.875rem',
+          'line-height': '1.5',
+          'letter-spacing': '0.1em',
+          'text-transform': 'uppercase',
+          'font-family': 'DM Sans, system-ui, sans-serif',
+        },
         '.subline-italic': {
           'font-size': '1rem',
           'line-height': '1.5',
