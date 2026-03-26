@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-26 19:02
+Updated: 2026-03-26 19:08
 
 ---
 
@@ -101,7 +101,7 @@ fontFamily: {
 - [ ] **Phase 3:** Button-Komponenten konsolidieren
 - [ ] **Phase 4:** Pilot-Refactoring (4 Sections: About, FAQ, Researchers, Process)
 - [ ] **Phase 5:** User-Feedback einholen
-- [ ] **Phase 6:** Rollout auf alle verbleibenden 13 Sections
+- [x] **Phase 6:** Rollout auf alle verbleibenden 13 Sections
 
 **Open Questions für User:**
 1. Tailwind Presets vs CSS Custom Properties für Multi-Site-Support?

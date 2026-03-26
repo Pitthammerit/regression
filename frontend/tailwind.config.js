@@ -18,36 +18,56 @@ module.exports = {
       },
       colors: {
         // ─────────────────────────────────────────────────────────────
-        // TEXT AUF HELLEM HINTERGRUND (bestehend - bereits in use)
+        // HAUPTFARBEN (primary, secondary, tertiary, accent)
         // ─────────────────────────────────────────────────────────────
         color: {
-          heading: '#224160',
-          body:    '#5A5550',
-          label:   '#7696AD',
-          accent:  '#2DAD71',
+          // Semantic names (bestehend - für Copy Sections)
+          heading: '#224160',  // Primary - Dunkelblau
+          body:    '#5A5550',  // Tertiary - Dunkles Grau
+          label:   '#7696AD',  // Secondary - Helles Graublau
+          accent:  '#2DAD71',  // Accent - Grün
+
+          // General purpose colors (neu)
+          primary:  '#224160',  // Dunkelblau - Headlines auf hell
+          secondary: '#7696AD',  // Helles Graublau - Labels/Metadata
+          tertiary: '#5A5550',  // Dunkles Grau - Body-Text
+          accent:   '#2DAD71',  // Akzent - Grün (CTAs, Links)
+
+          // Background colors (neu)
+          'bg-light': '#EDE7DC',  // Sand
+          'bg-medium': '#E5DFD5', // Sand Muted (für Section-Abgrenzung)
+          'bg-dark':  '#224160',  // Dunkelblau
+
+          // On-dark colors (neu - alle in HEX!)
+          white:        '#FFFFFF',  // 100% weiß
+          'white-muted': '#FFFFFFCC', // 80% weiß
+          'white-faded': '#FFFFFF99', // 60% weiß
+          'white-dim':   '#FFFFFF80', // 50% weiß
+          'white-subtle': '#FFFFFF33', // 20% weiß
         },
 
         // ─────────────────────────────────────────────────────────────
-        // HINTERGRUND-FARBEN (neu - beschreibende Namen)
+        // HINTERGRUND-FARBEN (beschreibende Namen - für Copy Sections)
         // ─────────────────────────────────────────────────────────────
         background: {
-          light: '#EDE7DC',  // brand-sand
-          dark:  '#224160',  // brand-deep
+          light:  '#EDE7DC',  // Sand
+          medium: '#E5DFD5', // Sand Muted (für Section-Abgrenzung)
+          dark:   '#224160',  // Dunkelblau
         },
 
         // ─────────────────────────────────────────────────────────────
-        // TEXT AUF DUNKELM HINTERGRUND (neu - semantische Namen)
+        // TEXT AUF DUNKELM HINTERGRUND (semantische Namen - HEX only!)
         // ─────────────────────────────────────────────────────────────
         'on-dark': {
-          DEFAULT: '#FFFFFF',                     // Fallback
-          heading: '#FFFFFF',                      // Headlines
-          quote:   '#FFFFFF',                      // Zitate
-          body:    'rgba(255, 255, 255, 0.8)',     // Fließtext
-          role:    'rgba(255, 255, 255, 0.6)',     // Rolle/Funktion
-          date:    'rgba(255, 255, 255, 0.5)',     // Lebensdaten
-          label:   'rgba(255, 255, 255, 0.8)',     // Labels
-          accent:  '#2DAD71',                      // Akzent (grün)
-          divider: 'rgba(255, 255, 255, 0.2)',     // Trennlinien
+          DEFAULT: '#FFFFFF',      // Fallback - 100%
+          heading: '#FFFFFF',      // Headlines - 100%
+          quote:   '#FFFFFF',      // Zitate - 100%
+          body:    '#FFFFFFCC',    // Fließtext - 80%
+          role:    '#FFFFFF99',    // Rolle - 60%
+          date:    '#FFFFFF80',    // Lebensdaten - 50%
+          label:   '#FFFFFFCC',    // Labels - 80%
+          accent:  '#2DAD71',      // Akzent - Grün
+          divider: '#FFFFFF33',    // Trennlinien - 20%
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -65,13 +85,13 @@ module.exports = {
         },
 
         // ─────────────────────────────────────────────────────────────
-        // LEGACY - OLD ON-DARK (temporär - wird durch on-dark ersetzt)
+        // LEGACY - OLD ON-DARK (temporär - HEX only!)
         // ─────────────────────────────────────────────────────────────
         'on-dark-legacy': {
           DEFAULT: '#FFFFFF',
-          muted: 'rgba(255, 255, 255, 0.8)',
-          faded: 'rgba(255, 255, 255, 0.6)',
-          dim: 'rgba(255, 255, 255, 0.4)',
+          muted: '#FFFFFFCC',  // 80%
+          faded: '#FFFFFF99',  // 60%
+          dim:   '#FFFFFF66',  // 40%
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -83,8 +103,8 @@ module.exports = {
           muted:    '#7D7469',
           darkBg:   '#171614',
           darkText: '#D9D2C8',
-          border:   'rgba(0,0,0,0.08)',
-          darkBorder: 'rgba(255,255,255,0.08)',
+          border:   '#00000014',   // 8% schwarz = #14
+          darkBorder: '#FFFFFF14', // 8% weiß = #14
         },
       },
       fontFamily: {
