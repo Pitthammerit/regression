@@ -84,7 +84,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             <div className="flex flex-col">
               {/* Quote - Top of right column */}
               <DebugLabel type="quote-featured" debugMode={debugMode}>
-                <blockquote className="text-quote-featured italic leading-tight text-white/90 mb-6">
+                <blockquote className="font-display text-quote-featured italic leading-tight text-white/90 mb-6">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
               </DebugLabel>
