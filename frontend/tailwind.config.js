@@ -203,6 +203,9 @@ module.exports = {
           'font-style': 'italic',
           'font-family': 'DM Sans, system-ui, sans-serif',
         },
+        '.divider-spacing': {
+          'padding-top': '2.25rem',  // 36px
+        },
       })
     }),
   ],

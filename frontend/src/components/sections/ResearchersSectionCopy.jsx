@@ -101,7 +101,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             </div>
 
             {/* Divider - Full width, more spacing below */}
-            <div className="md:col-span-2 pt-[36px]">
+            <div className="md:col-span-2 divider-spacing">
               <div className="h-px bg-white/20"></div>
             </div>
           </div>
@@ -226,7 +226,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                   )}
                 </div>
                 {/* Divider - Full width, same spacing as featured section */}
-                <div className="md:col-span-2 pt-[36px]">
+                <div className="md:col-span-2 divider-spacing">
                   <div className="h-px bg-white/20"></div>
                 </div>
               </>
