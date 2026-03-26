@@ -161,6 +161,7 @@ module.exports = {
         // ============================================
         'subline': ['1rem', {
           lineHeight: '1.5',
+          fontStyle: 'italic',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'list': ['1rem', {
@@ -215,6 +216,7 @@ module.exports = {
         // ============================================
         'disclaimer': ['0.75rem', {
           lineHeight: '1.5',
+          fontStyle: 'italic',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'read-more': ['0.875rem', {
@@ -231,6 +233,7 @@ module.exports = {
         }],
         'hint': ['0.875rem', {
           lineHeight: '1.5',
+          fontStyle: 'italic',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'icon': ['1rem', {

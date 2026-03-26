@@ -58,13 +58,13 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
           </h2>
         </DebugLabel>
         <DebugLabel type="subline" debugMode={debugMode}>
-          <p className="font-primary text-subline text-color-body mt-4 italic">{cases.subline}</p>
+          <p className="font-primary text-subline text-color-body mt-4">{cases.subline}</p>
         </DebugLabel>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 font-primary text-hint text-color-label/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`mb-8 flex items-center gap-2 font-primary text-hint text-color-label/60 transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-icon">↓</span>
@@ -100,7 +100,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                   </span>
                 </DebugLabel>
                 <DebugLabel type="subline" debugMode={debugMode}>
-                  <span className="font-primary text-subline text-color-body italic block mt-2">
+                  <span className="font-primary text-subline text-color-body block mt-2">
                     {item.teaser}
                   </span>
                 </DebugLabel>
@@ -135,7 +135,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
                 <DebugLabel type="disclaimer" debugMode={debugMode}>
-                  <p className="text-disclaimer text-color-body/35 mt-6 italic">
+                  <p className="text-disclaimer text-color-body/35 mt-6">
                     * Namen wurde geändert
                   </p>
                 </DebugLabel>
