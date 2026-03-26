@@ -49,10 +49,14 @@ module.exports = {
         },
 
         // ============================================
-        // LEGACY BRAND TOKENS — For LIVE Sections
+        // ⚠️ TEMPORARY - LEGACY BRAND TOKENS
         // ============================================
         // LIVE sections (AboutSection, TestimonialsSection, etc.) use these
         // Copy sections use color.* tokens above
+        //
+        // ⚠️ MUST BE DELETED after complete migration to color.* tokens!
+        // This is a temporary solution to keep LIVE sections working
+        // while Copy sections are being migrated to the new token system.
         // ============================================
         brand: {
           deep:  '#224160',  // Headlines (same as color.heading)
