@@ -79,13 +79,13 @@ export default function ResearchersSection() {
             {/* Right column: Quote + Name + Title */}
             <div className="flex flex-col">
               {/* Quote - Top of right column */}
-              <blockquote className="text-quote-featured italic leading-tight text-on-dark-muted mb-6">
+              <blockquote className="font-display text-quote-featured italic leading-tight text-on-dark-muted mb-6">
                 "{featuredAuthor.featuredQuote}"
               </blockquote>
 
               {/* Name + Title - Below quote */}
               <div className="text-on-dark-muted">
-                <div className="text-author-name">{featuredAuthor.name}</div>
+                <div className="font-display text-author-name">{featuredAuthor.name}</div>
                 <div className="text-role text-on-dark-faded">{featuredAuthor.role}</div>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function ResearchersSection() {
               <div className="flex flex-col">
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden mb-4">
-                  <h3 className="text-author-name text-on-dark font-bold mb-1">
+                  <h3 className="font-display text-author-name text-on-dark mb-1">
                     {author.name}
                   </h3>
                   <p className="text-role text-on-dark-muted uppercase tracking-wider mb-3">
@@ -148,7 +148,7 @@ export default function ResearchersSection() {
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block mb-4">
-                  <h3 className="text-author-name text-on-dark font-bold mb-1">
+                  <h3 className="font-display text-author-name text-on-dark mb-1">
                     {author.name}
                   </h3>
                   <p className="text-role text-on-dark-muted uppercase tracking-wider mb-3">
@@ -158,7 +158,7 @@ export default function ResearchersSection() {
                 </div>
 
                 {/* Short text */}
-                <p className="text-description text-on-dark-muted leading-relaxed mb-6">
+                <p className="font-display text-description text-on-dark-muted leading-relaxed mb-6">
                   {author.shortVersion}
                 </p>
 
@@ -181,7 +181,7 @@ export default function ResearchersSection() {
             {expandedId === author.id && (
               <>
                 <div className="mt-4 pt-8 md:col-span-2">
-                  <p className="text-body-narrative text-on-dark-muted leading-relaxed mb-6 whitespace-pre-line">
+                  <p className="font-display text-body-narrative text-on-dark-muted leading-relaxed mb-6 whitespace-pre-line">
                     {author.longVersion}
                   </p>
                   {author.sourceUrl && (

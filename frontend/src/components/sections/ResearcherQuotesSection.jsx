@@ -26,7 +26,7 @@ export default function ResearcherQuotesSection() {
     >
       <div className="max-w-content mx-auto px-6">
         <SectionLabel text={researchers.authorBigLabel} light />
-        <h2 className="text-h2 md:text-h1 text-on-dark leading-tight mt-3 mb-5">
+        <h2 className="font-display text-h2 md:text-h1 text-on-dark leading-tight mt-3 mb-5">
           {researchers.authorHeadline}
         </h2>
 
@@ -48,10 +48,10 @@ export default function ResearcherQuotesSection() {
                   className="w-full h-full object-cover rounded-lg"
                 />
               </AspectRatio>
-              <blockquote className="italic text-quote md:text-quote-featured text-on-dark-muted leading-relaxed mb-6">
+              <blockquote className="font-display italic text-quote md:text-quote-featured text-on-dark-muted leading-relaxed mb-6">
                 "{author.quote}"
               </blockquote>
-              <div className="text-role text-on-dark-muted">{author.name}</div>
+              <div className="font-display text-role text-on-dark-muted">{author.name}</div>
               <div className="text-date text-on-dark-faded mt-0.5">{author.role}</div>
             </div>
           ))}
@@ -101,8 +101,8 @@ export default function ResearcherQuotesSection() {
                     <blockquote className="font-display italic text-quote md:text-quote-featured text-white/90 leading-relaxed mb-6">
                       "{author.quote}"
                     </blockquote>
-                    <div className="font-primary text-role font-medium text-white/70">{author.name}</div>
-                    <div className="font-primary text-date text-white/40 mt-0.5">{author.role}</div>
+                    <div className="font-display text-role text-white/70">{author.name}</div>
+                    <div className="text-date text-white/40 mt-0.5">{author.role}</div>
                   </div>
                 ))}
               </div>

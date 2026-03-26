@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-26 14:49
+Updated: 2026-03-26 14:50
 
 ---
 
@@ -96,7 +96,7 @@ fontFamily: {
 
 **Phasen:**
 - [ ] **Phase 0:** FAQ Sofort-Anpassung (Fragen-Farbe = Menü-Grauton)
-- [ ] **Phase 1:** Tailwind Design-Token definieren (typography, spacing)
+- [x] **Phase 1:** Tailwind Design-Token definieren (typography, spacing)
 - [ ] **Phase 2:** Typography-Komponenten erstellen (SectionHeadline, BodyText, Quote, Subtitle)
 - [ ] **Phase 3:** Button-Komponenten konsolidieren
 - [ ] **Phase 4:** Pilot-Refactoring (4 Sections: About, FAQ, Researchers, Process)
