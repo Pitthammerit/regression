@@ -7,14 +7,20 @@ module.exports = {
       },
       colors: {
         // ============================================
-        // SEMANTIC TEXT COLORS (für Typography)
+        // SEMANTIC TEXT COLORS — Light Backgrounds
         // ============================================
-        'text-heading': '#224160',      // Headlines on light (brand.deep)
-        'text-body-main': '#5A5550',    // Body text on light (brand.body)
-        'text-labels': '#7696AD',       // Labels/metadata on light (brand.steel)
-        'text-on-dark': '#FFFFFF',      // Main text on dark backgrounds
-        'text-on-dark-muted': 'rgba(255, 255, 255, 0.8)', // Reduced opacity on dark
-        'text-on-dark-faded': 'rgba(255, 255, 255, 0.6)',  // More reduced on dark
+        'text-heading': '#224160',          // Headlines H1-H4 (brand.deep)
+        'text-body': '#5A5550',             // Body text (brand.body/muted)
+        'text-label': '#7696AD',            // Labels, Metadata (brand.steel)
+        'text-accent': '#2DAD71',           // CTAs, Links (brand.green)
+
+        // ============================================
+        // SEMANTIC TEXT COLORS — Dark Backgrounds
+        // ============================================
+        'text-heading-dark': '#FFFFFF',                     // 100% (text-white, text-white/90)
+        'text-body-dark': 'rgba(255, 255, 255, 0.8)',       // 80% (text-white/80, text-white/70)
+        'text-label-dark': 'rgba(255, 255, 255, 0.6)',      // 60% (text-white/60, text-white/50)
+        'text-dim-dark': 'rgba(255, 255, 255, 0.4)',        // 40% (text-white/40, text-white/30)
 
         // ============================================
         // BACKGROUND COLORS
