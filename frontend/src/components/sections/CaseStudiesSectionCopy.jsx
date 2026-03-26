@@ -95,7 +95,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                   </span>
                 </DebugLabel>
                 <DebugLabel type="h4" debugMode={debugMode}>
-                  <span className="font-display text-h4 text-color-heading group-hover:text-color-label transition-colors block leading-snug">
+                  <span className="font-display text-h3 text-color-heading group-hover:text-color-label transition-colors block leading-snug">
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>
