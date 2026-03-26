@@ -181,7 +181,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
 
                 {/* Short text */}
                 <DebugLabel type="summary-large" debugMode={debugMode}>
-                  <p className="font-primary text-summary-large text-white/80 leading-relaxed mb-6">
+                  <p className="font-display text-summary-large text-white/80 leading-relaxed mb-6">
                     {author.shortVersion}
                   </p>
                 </DebugLabel>

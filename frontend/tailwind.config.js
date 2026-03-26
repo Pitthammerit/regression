@@ -119,7 +119,7 @@ module.exports = {
         }],
         'summary-large': ['1.625rem', {
           lineHeight: '1.6',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'body-narrative': ['1.125rem', {
           lineHeight: '1.75',
