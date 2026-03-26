@@ -55,7 +55,7 @@ module.exports = {
         'author-name': ['2rem', { lineHeight: '1.2' }],        // 32px - Author names
         'description': ['1.625rem', { lineHeight: '1.6' }],    // 26px - Descriptions
         'summary-large': ['1.625rem', { lineHeight: '1.6' }],  // 26px - Summary (Sans-Serif)
-        'body-narrative': ['1.125rem', { lineHeight: '1.75' }], // 18px - Narrative (Serif)
+        'body-narrative': ['0.875rem', { lineHeight: '1.5' }], // 14px - Narrative (Serif)
         'role': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.1em', textTransform: 'uppercase' }], // 14px - Role (UNIVERSITY OF VIRGINIA, DOPS)
         'date': ['0.875rem', { lineHeight: '1.5' }],          // 14px - Date (*1918–2007)
         // Metadata
