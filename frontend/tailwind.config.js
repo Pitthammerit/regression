@@ -9,7 +9,7 @@ module.exports = {
         // ============================================
         // SEMANTIC TEXT COLORS — Light Backgrounds
         // ============================================
-        'color-heading': '#224160',       // Headlines H1-H4 (brand.deep)
+        'text-heading': 'red',            // TEST: Headlines (sollte ROT sein!)
         'color-body': '#5A5550',          // Body text (brand.body/muted)
         'color-label': '#7696AD',         // Labels, Metadata (brand.steel)
         'color-accent': '#2DAD71',        // CTAs, Links (brand.green)
