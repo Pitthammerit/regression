@@ -1,30 +1,25 @@
 # TODO
 
-Updated: 2026-03-26 19:23
+Updated: 2026-03-26 19:24
 
 ---
 
 ## 🔴 High Priority
 
 ### 🎨 Typography Refactoring — Phase 3B (AKTUELL)
-**Status:** Fonts & Farben hardcoded — muss zu Tokens migriert werden
+**Status:** Color Tokens konsolidiert ✅ — Font Usage noch hardcoded
 **Branch:** `typography-refactoring`
 **Ziel:** Alle Fonts und Farben über Tailwind Tokens steuern
 
-**✅ Erledigt (Typography Größen):**
-- Alle Textgrößen zu Tokens migriert (label, body, h1-h4, role, date, etc.)
-- summary-large, body-narrative für Researchers
-- DebugLabel Layout-Fix (kein inline-block mehr)
+**✅ Erledigt (Color Tokens):**
+- on-dark Struktur korrigiert (white entfernt, heading/label ergänzt)
+- Alle rgba → hex konvertiert (80%=#CC, 60%=#99, 50%=#80, 20%=#33)
+- ResearchersSectionCopy auf korrekte on-dark Tokens umgestellt
+- TypographyDemoPage auf korrekte Tokens aktualisiert
+- Redundante fontFamily aus fontSize entfernt (Tailwind v3 Limitation)
+- bg-medium für Section-Differenzierung ergänzt
 
-**❌ Offen (Fonts & Farben):**
-
-**Font-Definition in tailwind.config.js:**
-```javascript
-fontFamily: {
-  serif: ['Cormorant Garamond', 'Georgia', 'serif'],
-  sans:  ['DM Sans', 'system-ui', 'sans-serif'],
-}
-```
+**❌ Offen (Font Usage):**
 
 **Aktuelle Font-Nutzung (hardcoded `font-sans` / `font-serif`):**
 - `font-serif` wird für Headlines verwendet (H1-H4)
@@ -38,22 +33,26 @@ fontFamily: {
 
 **Spezifische Probleme zu lösen:**
 
-1. **Brian Weiss Quote sollte Serif sein:**
+1. **Font-Classes konsolidieren:**
+   - Alle `font-sans` / `font-serif` hardcoded Klassen auflisten
+   - System entwickeln: Utility-Klassen oder in Tokens integrieren?
+
+2. **Brian Weiss Quote prüfen:**
    - Text: "Through past-life regression, it's possible to heal..."
    - Aktueller Font: ? (muss geprüft werden)
    - Soll: Serif (Cormorant Garamond)
 
-2. **Brian Weiss Name/Role anders dargestellt:**
+3. **Brian Weiss Name/Role prüfen:**
    - Name: "Brian Weiss MD"
    - Role: "Ehem. Chefarzt Psychiatrie, Mount Sinai"
-   - Problem: Andere Darstellung als `author-name` Token → Hinweis auf hardcoded
+   - Problem: Andere Darstellung als `author-name` Token?
    - Muss: Gleiches Token wie andere Autoren verwenden
 
 **Nächste Schritte:**
-1. [ ] Font-Classes in Tokens integrieren (font-sans, font-serif in token-Definition?)
-2. [ ] Alle `font-sans` und `font-serif` hardcoded Klassen entfernen
-3. [ ] Farben prüfen: `text-brand-deep`, `text-brand-body`, `text-white/80` etc.
-4. [ ] Brian Weiss Quote/Name prüfen und korrigieren
+1. [ ] Font-Usage Audit: Alle `font-sans` und `font-serif` auflisten
+2. [ ] Entscheidung: Utility-Klassen (`font-primary`, `font-display`) oder Tokens?
+3. [ ] Implementierung in allen Copy Sections
+4. [ ] Farben prüfen: `text-brand-deep`, `text-brand-body` (sollten jetzt `text-color-*` sein)
 
 ---
 
@@ -143,6 +142,14 @@ fontFamily: {
 ---
 
 ## ✅ Completed
+
+### Session 2026-03-27: Color Token Konsolidierung
+- [x] on-dark Struktur korrigiert (white entfernt, heading/label ergänzt)
+- [x] Alle rgba → hex konvertiert
+- [x] bg-medium für Section-Differenzierung ergänzt
+- [x] ResearchersSectionCopy auf korrekte on-dark Tokens umgestellt
+- [x] TypographyDemoPage auf korrekte Tokens aktualisiert
+- [x] Redundante fontFamily aus fontSize entfernt
 
 ### Session 2026-03-06: Desktop Nav + Sidecar Animation Fixes (abgeschlossen)
 - [x] DesktopNav: MutationObserver entfernt (27 Zeilen)
