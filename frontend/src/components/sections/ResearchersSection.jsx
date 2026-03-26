@@ -92,7 +92,7 @@ export default function ResearchersSection() {
 
             {/* Divider - Full width, more spacing below */}
             <div className="md:col-span-2 pt-[36px]">
-              <div className="h-px bg-white/20"></div>
+              <div className="h-px bg-dim-dark"></div>
             </div>
           </div>
         )}
@@ -164,7 +164,7 @@ export default function ResearchersSection() {
 
                 {/* Read more button - centered with divider lines */}
                 <div className="flex items-center gap-4 mt-4">
-                  <div className="flex-1 h-px bg-white/20"></div>
+                  <div className="flex-1 h-px bg-dim-dark"></div>
                   <button
                     onClick={() => toggleExpand(author.id)}
                     className="text-read-more text-tertiary hover:text-brand-green transition-colors flex items-center gap-2"
@@ -172,7 +172,7 @@ export default function ResearchersSection() {
                     {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
                     <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
                   </button>
-                  <div className="flex-1 h-px bg-white/20"></div>
+                  <div className="flex-1 h-px bg-dim-dark"></div>
                 </div>
               </div>
             </div>
@@ -197,7 +197,7 @@ export default function ResearchersSection() {
                 </div>
                 {/* Divider - Full width, same spacing as featured section */}
                 <div className="md:col-span-2 pt-[36px]">
-                  <div className="h-px bg-white/20"></div>
+                  <div className="h-px bg-dim-dark"></div>
                 </div>
               </>
             )}

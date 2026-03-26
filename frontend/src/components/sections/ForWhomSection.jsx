@@ -6,8 +6,8 @@ import SectionLabel from '../ui/SectionLabel'
 function TopicCard({ title, body }) {
   return (
     <div className="bg-white/50 rounded-2xl p-5 md:p-6 flex flex-col gap-2 border border-brand-sand hover:border-brand-steel transition-colors">
-      <h3 className="font-serif text-lg text-brand-deep leading-snug">{title}</h3>
-      <p className="font-sans text-sm text-brand-muted leading-relaxed">{body}</p>
+      <h3 className="font-serif text-lg text-heading leading-snug">{title}</h3>
+      <p className="font-sans text-sm text-body leading-relaxed">{body}</p>
     </div>
   )
 }
@@ -17,10 +17,10 @@ export default function ForWhomSection() {
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <SectionLabel text={forWhom.label} />
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-deep mb-8 leading-tight">
+        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-heading mb-8 leading-tight">
           {forWhom.headline}
         </h2>
-        <p className="font-sans text-brand-muted leading-relaxed text-lg">
+        <p className="font-sans text-body leading-relaxed text-lg">
           {forWhom.intro}
         </p>
       </div>

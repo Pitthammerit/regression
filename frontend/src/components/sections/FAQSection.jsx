@@ -35,7 +35,7 @@ export default function FAQSection() {
             <div id={`faq-${index}`} key={index} className="border-t border-black/10" style={{ scrollMarginTop: 80 }}>
               <button
                 onClick={() => toggleExpand(index)}
-                className="w-full flex justify-between items-center py-6 text-left font-sans text-brand-steel hover:text-brand-steel/80 transition-colors"
+                className="w-full flex justify-between items-center py-6 text-left font-sans text-label hover:text-label/80 transition-colors"
               >
                 <span className="font-medium text-lg">{item.question}</span>
                 <ChevronDown
@@ -49,7 +49,7 @@ export default function FAQSection() {
                   expandedFAQIndex === index ? 'max-h-[600px] pb-6' : 'max-h-0'
                 }`}
               >
-                <p className="font-sans text-brand-deep leading-relaxed whitespace-pre-line text-lg">
+                <p className="font-sans text-heading leading-relaxed whitespace-pre-line text-lg">
                   {item.answer}
                 </p>
               </div>

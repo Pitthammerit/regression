@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
       {/* Client Testimonials */}
       <div className="py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">
-          <h2 className="font-sans text-xs tracking-[0.2em] uppercase text-brand-steel mb-4">
+          <h2 className="font-sans text-xs tracking-[0.2em] uppercase text-label mb-4">
             WALL OF LOVE
           </h2>
           <SectionLabel text={testimonials.clientLabel} />
@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
                 className="md:row-span-2 bg-white/50 rounded-2xl p-8 border border-brand-sand flex flex-col justify-between"
                 data-testid="testimonial-card-featured"
               >
-                <blockquote className="font-serif italic text-lg text-brand-body leading-relaxed mb-8">
+                <blockquote className="font-serif italic text-lg text-body leading-relaxed mb-8">
                   "{featured.quote}"
                 </blockquote>
                 <div className="flex items-center gap-4 mt-auto">
@@ -54,8 +54,8 @@ export default function TestimonialsSection() {
                     />
                   )}
                   <div>
-                    <div className="font-sans text-sm font-medium text-brand-deep">{featured.name}</div>
-                    <div className="font-sans text-xs text-brand-steel mt-0.5">{featured.context}</div>
+                    <div className="font-sans text-sm font-medium text-heading">{featured.name}</div>
+                    <div className="font-sans text-xs text-label mt-0.5">{featured.context}</div>
                   </div>
                 </div>
               </div>
@@ -85,7 +85,7 @@ function TestimonialCard({ c, index }) {
       className="bg-white/50 rounded-2xl p-8 border border-brand-sand flex flex-col justify-between"
       data-testid={`testimonial-card-${index}`}
     >
-      <blockquote className="font-serif italic text-lg text-brand-body leading-relaxed mb-8">
+      <blockquote className="font-serif italic text-lg text-body leading-relaxed mb-8">
         "{c.quote}"
       </blockquote>
       <div className="flex items-center gap-4 mt-auto">
@@ -97,8 +97,8 @@ function TestimonialCard({ c, index }) {
           />
         )}
         <div>
-          <div className="font-sans text-sm font-medium text-brand-deep">{c.name}</div>
-          <div className="font-sans text-xs text-brand-steel mt-0.5">{c.context}</div>
+          <div className="font-sans text-sm font-medium text-heading">{c.name}</div>
+          <div className="font-sans text-xs text-label mt-0.5">{c.context}</div>
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function ReferencesSection() {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <div className="font-sans text-xs uppercase tracking-[0.2em] text-brand-steel/80 mb-4">
+          <div className="font-sans text-xs uppercase tracking-[0.2em] text-label/80 mb-4">
             {references.bigLabel}
           </div>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">
@@ -60,7 +60,7 @@ export default function ReferencesSection() {
                     rel="noopener noreferrer"
                     className="group inline-block"
                   >
-                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
+                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-accent">
                       {resource.name}
                     </p>
                   </a>
@@ -79,7 +79,7 @@ export default function ReferencesSection() {
                     href={resource.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                    className="font-sans text-sm text-label hover:text-accent transition-colors"
                   >
                     {resource.sourceLabel} →
                   </a>
@@ -130,7 +130,7 @@ export default function ReferencesSection() {
                     rel="noopener noreferrer"
                     className="group inline-block"
                   >
-                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-brand-green">
+                    <p className="font-serif text-xl md:text-2xl text-white font-semibold mb-1 group-hover:text-accent">
                       {resource.name}
                     </p>
                   </a>
@@ -149,7 +149,7 @@ export default function ReferencesSection() {
                     href={resource.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-sm text-brand-steel hover:text-brand-green transition-colors"
+                    className="font-sans text-sm text-label hover:text-accent transition-colors"
                   >
                     {resource.sourceLabel} →
                   </a>

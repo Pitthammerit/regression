@@ -17,13 +17,13 @@ export default function HeroV3Section() {
         <div className="max-w-content mx-auto">
           <div className="font-serif tracking-tight leading-none">
             <span
-              className="inline text-brand-deep"
+              className="inline text-heading"
               style={{ fontSize: 'clamp(2.4rem, 6.6vw, 5.4rem)' }}
             >
               {hero.headlineLine1}&nbsp;
             </span>
             <span
-              className="inline italic text-brand-deep/70"
+              className="inline italic text-heading/70"
               style={{ fontSize: 'clamp(1.44rem, 3.84vw, 3.36rem)' }}
             >
               {hero.headlineLine2}
@@ -31,7 +31,7 @@ export default function HeroV3Section() {
           </div>
           {/* Second line — right-aligned, tight spacing */}
           <p
-            className="text-right font-serif italic text-brand-deep mt-0.5"
+            className="text-right font-serif italic text-heading mt-0.5"
             style={{ fontSize: 'clamp(1.44rem, 3.84vw, 3.36rem)' }}
           >
             {hero.heroCta}
@@ -61,7 +61,7 @@ export default function HeroV3Section() {
           >
             <ChevronDown
               size={80}
-              className="text-brand-deep"
+              className="text-heading"
               style={{ animation: 'scrollFade 2s ease-in-out infinite' }}
             />
           </button>

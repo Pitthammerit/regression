@@ -18,7 +18,7 @@ export default function AboutSection() {
               alt="Benjamin Kurtz"
               className="w-full h-full object-cover object-top"
               fallback={
-                <div className="w-full h-full flex items-center justify-center text-brand-muted font-sans text-sm">
+                <div className="w-full h-full flex items-center justify-center text-body font-sans text-sm">
                   {about.photoPlaceholder}
                 </div>
               }
@@ -29,25 +29,25 @@ export default function AboutSection() {
         {/* Right: Bio */}
         <div>
           <SectionLabel text={about.label} />
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-deep mb-10 leading-tight">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-heading mb-10 leading-tight">
             {about.headline}
           </h2>
 
           {about.body.map((para, i) => (
-            <p key={i} className={`font-sans text-brand-body leading-relaxed text-lg ${i > 0 ? 'mt-6' : ''}`}>
+            <p key={i} className={`font-sans text-body leading-relaxed text-lg ${i > 0 ? 'mt-6' : ''}`}>
               {para}
             </p>
           ))}
 
           {/* Credentials */}
           <div className="mt-12 pt-10 border-t border-black/10">
-            <p className="font-sans text-xs tracking-[0.2em] uppercase text-brand-steel mb-6">
+            <p className="font-sans text-xs tracking-[0.2em] uppercase text-label mb-6">
               {about.credentialsLabel}
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
-                <li key={i} className="font-sans text-sm text-brand-muted flex items-start gap-2">
-                  <span className="text-brand-deep shrink-0 mt-0.5">—</span>
+                <li key={i} className="font-sans text-sm text-body flex items-start gap-2">
+                  <span className="text-heading shrink-0 mt-0.5">—</span>
                   {cred}
                 </li>
               ))}

@@ -11,8 +11,8 @@ export default function StatementSection() {
             key={i}
             className={`font-serif leading-relaxed ${i > 0 ? 'mt-5' : ''}
               ${i === 1
-                ? 'text-2xl md:text-3xl lg:text-4xl italic text-brand-deep'
-                : 'text-xl md:text-2xl lg:text-3xl text-brand-body'
+                ? 'text-2xl md:text-3xl lg:text-4xl italic text-heading'
+                : 'text-xl md:text-2xl lg:text-3xl text-body'
               }`}
           >
             {line}

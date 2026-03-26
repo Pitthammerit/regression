@@ -10,7 +10,7 @@ export default function WhatIsSection() {
         {/* Left — sticky headline */}
         <div className="md:sticky md:top-32">
           <SectionLabel text={whatIs.label} />
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-deep leading-tight">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-heading leading-tight">
             {whatIs.headline}
           </h2>
         </div>
@@ -18,7 +18,7 @@ export default function WhatIsSection() {
         {/* Right — body + skeptic toggle */}
         <div>
           {whatIs.body.map((para, i) => (
-            <p key={i} className={`font-sans text-brand-body leading-relaxed text-lg ${i > 0 ? 'mt-6' : ''}`}>
+            <p key={i} className={`font-sans text-body leading-relaxed text-lg ${i > 0 ? 'mt-6' : ''}`}>
               {para}
             </p>
           ))}

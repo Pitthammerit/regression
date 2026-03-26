@@ -22,7 +22,7 @@ export default function ResearcherQuotesSection() {
     <section
       id="evidence-quotes"
       data-testid="evidence-quotes-section"
-      className="py-16 md:py-20 bg-brand-deep text-white"
+      className="py-16 md:py-20 bg-brand-deep text-heading-dark"
     >
       <div className="max-w-content mx-auto px-6">
         <SectionLabel text={researchers.authorBigLabel} light />
@@ -61,7 +61,7 @@ export default function ResearcherQuotesSection() {
         {hasMore && (
           <>
             <div className="flex items-center gap-4 my-10">
-              <div className="flex-1 h-px bg-white/20"></div>
+              <div className="flex-1 h-px bg-dim-dark"></div>
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 className="flex items-center gap-2 text-read-more text-on-dark-muted hover:text-on-dark transition-colors cursor-pointer"
@@ -76,7 +76,7 @@ export default function ResearcherQuotesSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="flex-1 h-px bg-white/20"></div>
+              <div className="flex-1 h-px bg-dim-dark"></div>
             </div>
 
             {/* Expanded content - additional authors */}
@@ -98,11 +98,11 @@ export default function ResearcherQuotesSection() {
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </AspectRatio>
-                    <blockquote className="font-display italic text-quote md:text-quote-featured text-white/90 leading-relaxed mb-6">
+                    <blockquote className="font-display italic text-quote md:text-quote-featured text-heading-dark leading-relaxed mb-6">
                       "{author.quote}"
                     </blockquote>
-                    <div className="font-display text-role text-white/70">{author.name}</div>
-                    <div className="text-date text-white/40 mt-0.5">{author.role}</div>
+                    <div className="font-display text-role text-body-dark">{author.name}</div>
+                    <div className="text-date text-dim-dark mt-0.5">{author.role}</div>
                   </div>
                 ))}
               </div>
