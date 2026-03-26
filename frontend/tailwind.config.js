@@ -5,12 +5,6 @@ module.exports = {
   theme: {
     extend: {
       utilities: {
-        // ============================================
-        // LABEL UTILITY — Multi-Site-Ready
-        // ============================================
-        // Use: className="label" (contains: size + spacing + case)
-        // For new site: Change values here - all components update automatically
-        // ============================================
         label: {
           fontSize: '0.8125rem',
           lineHeight: '1.5',
@@ -23,57 +17,27 @@ module.exports = {
         '900': '900px',
       },
       colors: {
-        // ============================================
-        // COLOR TOKENS — Single Source of Truth
-        // ============================================
-        // Für neue Landing Page: Nur diese Werte ändern!
-        // Alle Components verwenden diese Tokens automatisch.
-        //
-        // Light Backgrounds (weiß, creme, sand):
-        //   text-color-heading → Headlines H1-H4 (#224160)
-        //   text-color-body    → Body text (#5A5550)
-        //   text-color-label   → Labels, Metadata (#7696AD)
-        //   text-color-accent  → CTAs, Links (#2DAD71)
-        //
-        // Dark Backgrounds:
-        //   text-on-dark          → Headlines (100% weiß)
-        //   text-on-dark-muted    → Body (80% weiß)
-        //   text-on-dark-faded    → Labels (60% weiß)
-        // ============================================
-
         color: {
-          heading: '#224160',  // Headlines H1-H4
-          body:    '#5A5550',  // Body text
-          label:   '#7696AD',  // Labels, Metadata
-          accent:  '#2DAD71',  // CTAs, Links
+          heading: '#224160',
+          body:    '#5A5550',
+          label:   '#7696AD',
+          accent:  '#2DAD71',
         },
-
-        // ============================================
-        // ⚠️ TEMPORARY - LEGACY BRAND TOKENS
-        // ============================================
-        // LIVE sections (AboutSection, TestimonialsSection, etc.) use these
-        // Copy sections use color.* tokens above
-        //
-        // ⚠️ MUST BE DELETED after complete migration to color.* tokens!
-        // This is a temporary solution to keep LIVE sections working
-        // while Copy sections are being migrated to the new token system.
-        // ============================================
         brand: {
-          deep:  '#224160',  // Headlines (same as color.heading)
-          body:  '#5A5550',  // Body text (same as color.body)
-          steel: '#7696AD',  // Labels (same as color.label)
-          green: '#2DAD71',  // Accent (same as color.accent)
-          muted: '#5A5550',  // Alias für body
-          dark:  '#1A2433',  // Dunkle Hintergründe
-          cream: '#F0EBE1',  // Creme Hintergründe
-          sand:  '#EDE7DC',  // Sand Hintergründe
+          deep:  '#224160',
+          body:  '#5A5550',
+          steel: '#7696AD',
+          green: '#2DAD71',
+          muted: '#5A5550',
+          dark:  '#1A2433',
+          cream: '#F0EBE1',
+          sand:  '#EDE7DC',
         },
-
         'on-dark': {
-          DEFAULT: '#FFFFFF',              // Headlines (100%)
-          muted: 'rgba(255, 255, 255, 0.8)',  // Body (80%)
-          faded: 'rgba(255, 255, 255, 0.6)',  // Labels (60%)
-          dim: 'rgba(255, 255, 255, 0.4)',    // Very dim (40%)
+          DEFAULT: '#FFFFFF',
+          muted: 'rgba(255, 255, 255, 0.8)',
+          faded: 'rgba(255, 255, 255, 0.6)',
+          dim: 'rgba(255, 255, 255, 0.4)',
         },
         transcript: {
           bg:       '#F0EBE1',
@@ -86,22 +50,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        // ============================================
-        // DEPRECATED: Use fontSize tokens instead!
-        // ============================================
-        // Font-Familien sind jetzt in fontSize Tokens integriert
-        // Components nutzen nur noch Typography-Tokens (text-h2, text-body, etc.)
-        // Diese Aliases bleiben nur für Abwärtskompatibilität
         primary: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        // Legacy aliases (deprecated — use primary/display instead)
-        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
-        sans:  ['DM Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        // ============================================
-        // HERO HEADLINES — Font + Größe (keine Farbe!)
-        // ============================================
         'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', {
           lineHeight: '1',
           letterSpacing: '-0.02em',
@@ -111,10 +63,6 @@ module.exports = {
           lineHeight: '1.1',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
-
-        // ============================================
-        // HEADLINES (H1-H4) — Font + Größe (keine Farbe!)
-        // ============================================
         'h1': ['3rem', {
           lineHeight: '1.1',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
@@ -131,10 +79,6 @@ module.exports = {
           lineHeight: '1.2',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
-
-        // ============================================
-        // BODY TEXT — Font + Größe (keine Farbe!)
-        // ============================================
         'body': ['1.125rem', {
           lineHeight: '1.75',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
@@ -143,35 +87,19 @@ module.exports = {
           lineHeight: '1.625',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
-
-        // ============================================
-        // LABELS — Font + Größe (keine Farbe!)
-        // ============================================
-        // NOTE: textTransform wird in fontSize nicht unterstützt!
-        // Verwende className="label" utility (enthält uppercase)
         'label': ['0.8125rem', {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
-          // textTransform: 'uppercase', ← wird ignoriert!
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
-
-        // ============================================
-        // SUBLINES & LISTS — Font + Größe (keine Farbe!)
-        // ============================================
         'subline': ['1rem', {
           lineHeight: '1.5',
-          fontStyle: 'italic',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'list': ['1rem', {
           lineHeight: '1.5',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
-
-        // ============================================
-        // QUOTES — Font + Größe (keine Farbe!)
-        // ============================================
         'quote-featured': ['2.25rem', {
           lineHeight: '1.1',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
@@ -180,10 +108,6 @@ module.exports = {
           lineHeight: '1.2',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
-
-        // ============================================
-        // AUTHOR-SPECIFIC — Font + Größe (keine Farbe!)
-        // ============================================
         'author-name': ['2rem', {
           lineHeight: '1.2',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
@@ -210,10 +134,6 @@ module.exports = {
           lineHeight: '1.5',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
-
-        // ============================================
-        // METADATA — Font + Größe (keine Farbe!)
-        // ============================================
         'disclaimer': ['0.75rem', {
           lineHeight: '1.5',
           fontStyle: 'italic',
@@ -262,6 +182,24 @@ module.exports = {
           'letter-spacing': '0.2em',
           'text-transform': 'uppercase',
           'font-weight': '400',
+        },
+        '.subline-italic': {
+          'font-size': '1rem',
+          'line-height': '1.5',
+          'font-style': 'italic',
+          'font-family': 'DM Sans, system-ui, sans-serif',
+        },
+        '.hint-italic': {
+          'font-size': '0.875rem',
+          'line-height': '1.5',
+          'font-style': 'italic',
+          'font-family': 'DM Sans, system-ui, sans-serif',
+        },
+        '.disclaimer-italic': {
+          'font-size': '0.75rem',
+          'line-height': '1.5',
+          'font-style': 'italic',
+          'font-family': 'DM Sans, system-ui, sans-serif',
         },
       })
     }),
