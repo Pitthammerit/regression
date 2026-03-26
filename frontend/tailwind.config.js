@@ -26,7 +26,8 @@ module.exports = {
         // BACKGROUND COLORS
         // ============================================
         brand: {
-          deep:  'red',  // TEST: Headlines sollten ROT sein
+          deep:  '#224160',  // zurück auf blau
+          steel: 'red',     // TEST: Hellblau sollte jetzt ROT sein
           steel: '#7696AD',
           green: '#2DAD71',
           body:  '#5A5550',
