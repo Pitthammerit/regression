@@ -53,7 +53,7 @@ export default function TypographyDemoPage() {
         <div className="mb-8 border border-black/10 rounded-lg overflow-hidden bg-white">
           <button
             onClick={() => setAccordionOpen(accordionOpen === 'tokens' ? null : 'tokens')}
-            className="w-full px-6 py-4 flex items-center justify-between bg-color-bg-dark text-white hover:bg-brand-steel transition-colors"
+            className="w-full px-6 py-4 flex items-center justify-between bg-color-bg-dark text-on-dark hover:bg-color-label transition-colors"
           >
             <span className="font-serif text-xl">📐 Design Tokens (aus tailwind.config.js)</span>
             <ChevronDown className={`transition-transform duration-200 ${accordionOpen === 'tokens' ? 'rotate-180' : ''}`} />
@@ -213,7 +213,7 @@ export default function TypographyDemoPage() {
         <div className="mb-8 border border-black/10 rounded-lg overflow-hidden bg-white">
           <button
             onClick={() => setAccordionOpen(accordionOpen === 'preview' ? null : 'preview')}
-            className="w-full px-6 py-4 flex items-center justify-between bg-color-bg-dark text-white hover:bg-brand-steel transition-colors"
+            className="w-full px-6 py-4 flex items-center justify-between bg-color-bg-dark text-on-dark hover:bg-color-label transition-colors"
           >
             <span className="font-serif text-xl">🎨 Element-Vergleich & Live-Vorschau (Gruppiert)</span>
             <ChevronDown className={`transition-transform duration-200 ${accordionOpen === 'preview' ? 'rotate-180' : ''}`} />
@@ -300,7 +300,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Quote</td>
                       <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-quote-featured italic</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-serif text-quote-featured italic leading-tight text-color-white">"The evidence suggests..."</span>
+                        <span className="font-serif text-quote-featured italic leading-tight text-on-dark">"The evidence suggests..."</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers (Featured)</td>
                     </tr>
@@ -337,9 +337,9 @@ export default function TypographyDemoPage() {
                     {/* LEAD */}
                     <tr className="border-b border-black/10">
                       <td className="py-3 px-4 font-semibold text-color-heading">Lead (Short)</td>
-                      <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-description text-color-white-body</td>
+                      <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-description text-on-dark-body</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-serif text-description text-color-white-body leading-relaxed">Kurzbeschreibung des Autors</span>
+                        <span className="font-serif text-description text-on-dark-body leading-relaxed">Kurzbeschreibung des Autors</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -395,9 +395,9 @@ export default function TypographyDemoPage() {
                     {/* ROLE */}
                     <tr className="border-b border-black/10">
                       <td className="py-3 px-4 font-semibold text-color-heading">Role</td>
-                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-color-white-role uppercase tracking-wider</td>
+                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-on-dark-role uppercase tracking-wider</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-sans text-sm text-color-white-role uppercase tracking-wider">University of Virginia</span>
+                        <span className="font-sans text-sm text-on-dark-role uppercase tracking-wider">University of Virginia</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -405,9 +405,9 @@ export default function TypographyDemoPage() {
                     {/* DATE */}
                     <tr className="border-b border-black/10">
                       <td className="py-3 px-4 font-semibold text-color-heading">Date</td>
-                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-color-white-role</td>
+                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-on-dark-role</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-sans text-sm text-color-white-role">*1918–2007</span>
+                        <span className="font-sans text-sm text-on-dark-role">*1918–2007</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -417,7 +417,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Name</td>
                       <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-author-name</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-serif text-author-name text-white">Ian Stevenson MD</span>
+                        <span className="font-serif text-author-name text-on-dark">Ian Stevenson MD</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -474,9 +474,9 @@ export default function TypographyDemoPage() {
                     {/* SHORT VERSION */}
                     <tr className="border-b border-black/10">
                       <td className="py-3 px-4 font-semibold text-color-heading">Short Version</td>
-                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-description text-color-white-body</td>
+                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-description text-on-dark-body</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-serif text-description text-color-white-body leading-relaxed">Kurzbeschreibung des Autors</span>
+                        <span className="font-serif text-description text-on-dark-body leading-relaxed">Kurzbeschreibung des Autors</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -484,9 +484,9 @@ export default function TypographyDemoPage() {
                     {/* LONG VERSION */}
                     <tr>
                       <td className="py-3 px-4 font-semibold text-color-heading">Long Version</td>
-                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-base md:text-lg text-color-white-body leading-relaxed</td>
+                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-base md:text-lg text-on-dark-body leading-relaxed</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-serif text-base md:text-lg text-color-white-body leading-relaxed">Ausführliche Biografie des Autors</span>
+                        <span className="font-serif text-base md:text-lg text-on-dark-body leading-relaxed">Ausführliche Biografie des Autors</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>

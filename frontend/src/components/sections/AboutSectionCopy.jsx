@@ -13,7 +13,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
 
         {/* Left: Portrait photo — sticky */}
         <div className="md:sticky md:top-28">
-          <div className="aspect-[16/9] md:aspect-[3/4] rounded-2xl overflow-hidden bg-brand-sand w-full md:max-w-sm">
+          <div className="aspect-[16/9] md:aspect-[3/4] rounded-2xl overflow-hidden bg-color-bg-light w-full md:max-w-sm">
             <LazyImage
               src={r2(portraits.p37)}
               alt="Benjamin Kurtz"

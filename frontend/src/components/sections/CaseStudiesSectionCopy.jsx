@@ -8,7 +8,7 @@ import { ChevronDown } from 'lucide-react'
 
 function AvatarSilhouette({ gender }) {
   return (
-    <div className="w-12 h-12 rounded-full bg-brand-sand/60 border border-black/10 flex items-center justify-center shrink-0 overflow-hidden">
+    <div className="w-12 h-12 rounded-full bg-color-bg-light/60 border border-black/10 flex items-center justify-center shrink-0 overflow-hidden">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-color-heading/30">
         <circle cx="16" cy="10" r="5" fill="currentColor" />
         {gender === 'female' ? (
