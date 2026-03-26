@@ -50,6 +50,7 @@ module.exports = {
         },
       },
       fontFamily: {
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
         primary: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
       },
