@@ -20,28 +20,28 @@ module.exports = {
         // ─────────────────────────────────────────────────────────────
         // COLOR TOKENS (Single Source of Truth)
         // ─────────────────────────────────────────────────────────────
-        color: {
-          // 1. GENERAL PURPOSE
-          'bg-light':  '#EDE7DC',  // Sand
-          'bg-medium': '#E5DFD5',  // Sand Muted
-          'bg-dark':   '#224160',  // Dunkelblau
 
-          // 2. SEMANTIC NAMES (für Sections)
-          'heading': '#224160',  // Dunkelblau
-          'body':    '#5A5550',  // Dunkles Grau
-          'label':   '#7696AD',  // Helles Graublau
-          'accent':  '#2DAD71',  // Grün
+        // Text auf hellem Hintergrund
+        'color-heading': '#224160',  // Dunkelblau
+        'color-body':    '#5A5550',  // Dunkles Grau
+        'color-label':   '#7696AD',  // Helles Graublau
+        'color-accent':  '#2DAD71',  // Grün
 
-          // 3. ON-DARK (semantische Namen - Siehe auch legacy 'on-dark' Block)
-          'heading': '#FFFFFF',    // 100% (Headlines)
-          'quote':   '#FFFFFF',    // 100% (Zitate)
-          'body':    '#FFFFFFCC',  // 80% (Fließtext, Labels)
-          'role':    '#FFFFFFCC',  // 80% (= label)
-          'date':    '#FFFFFFCC',  // 80% (= label)
-          'label':   '#FFFFFFCC',  // 80% (= role)
-          'accent':  '#2DAD71',    // Grün
-          'divider': '#FFFFFF33',  // 20%
-        },
+        // Hintergrund
+        'color-bg-light':  '#EDE7DC',  // Sand
+        'color-bg-medium': '#E5DFD5',  // Sand Muted
+        'color-bg-dark':   '#224160',  // Dunkelblau
+
+        // Text auf dunklem Hintergrund
+        'on-dark':         '#FFFFFF',    // 100% (Default)
+        'on-dark-heading': '#FFFFFF',    // 100% (Headlines)
+        'on-dark-quote':   '#FFFFFF',    // 100% (Zitate)
+        'on-dark-body':    '#FFFFFFCC',  // 80% (Fließtext)
+        'on-dark-role':    '#FFFFFFCC',  // 80% (Rolle)
+        'on-dark-date':    '#FFFFFFCC',  // 80% (Datum)
+        'on-dark-label':   '#FFFFFFCC',  // 80% (Label)
+        'on-dark-accent':  '#2DAD71',    // Grün
+        'on-dark-divider': '#FFFFFF33',  // 20% (Trennlinien)
 
         // ─────────────────────────────────────────────────────────────
         // LEGACY - Alle temporären Farben (werden nach Migration entfernt)
@@ -57,16 +57,11 @@ module.exports = {
           sand:  '#EDE7DC',  // → bg-light
         },
 
-        'on-dark': {
+        'on-dark-legacy': {
           DEFAULT: '#FFFFFF',
-          heading: '#FFFFFF',
-          quote:   '#FFFFFF',
-          body:    '#FFFFFFCC',
-          role:    '#FFFFFFCC',  // = label
-          date:    '#FFFFFFCC',  // = label
-          label:   '#FFFFFFCC',
-          accent:  '#2DAD71',
-          divider: '#FFFFFF33',
+          muted: 'rgba(255, 255, 255, 0.8)',
+          faded: 'rgba(255, 255, 255, 0.6)',
+          dim: 'rgba(255, 255, 255, 0.4)',
         },
 
         transcript: {
@@ -75,8 +70,8 @@ module.exports = {
           muted:    '#7D7469',
           darkBg:   '#171614',
           darkText: '#D9D2C8',
-          border:   '#00000014',
-          darkBorder: '#FFFFFF14',
+          border:   'rgba(0,0,0,0.08)',
+          darkBorder: 'rgba(255,255,255,0.08)',
         },
       },
       fontFamily: {
