@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext'
 import Header from './components/Header'
@@ -65,13 +65,7 @@ function FloatingBurger() {
       >
         <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" onClick={() => navigateTo('#booking')} />
       </div>
-      <button
-        onClick={handleBurgerClick}
-        className="w-10 h-10 flex items-center justify-center bg-transparent transition-colors"
-        aria-label={sidecarOpen ? "Menü schließen" : "Menü öffnen"}
-      >
-        <BurgerButton isOpen={sidecarOpen} />
-      </button>
+      <BurgerButton isOpen={sidecarOpen} onClick={handleBurgerClick} />
     </div>
   )
 }
@@ -110,7 +104,9 @@ function MainPage() {
       <FloatingBurger />
       <Header />
       <main>
-        {SECTIONS_ORDER.map((sectionName) => sectionMap[sectionName])}
+        {SECTIONS_ORDER.map((sectionName) => (
+          <React.Fragment key={sectionName}>{sectionMap[sectionName]}</React.Fragment>
+        ))}
       </main>
       <Footer data={footer} />
     </div>

@@ -58,13 +58,13 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
           </h2>
         </DebugLabel>
         <DebugLabel type="subline" debugMode={debugMode}>
-          <p className="font-primary text-subline text-color-body mt-4">{cases.subline}</p>
+          <p className="subline-italic text-color-body mt-4">{cases.subline}</p>
         </DebugLabel>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 font-primary text-hint text-color-label/60 transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`mb-8 flex items-center gap-2 hint-italic text-color-label/60 transition-opacity transition-slower ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-icon">↓</span>
@@ -100,18 +100,18 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                   </span>
                 </DebugLabel>
                 <DebugLabel type="subline" debugMode={debugMode}>
-                  <span className="font-primary text-subline text-color-body block mt-2">
+                  <span className="subline-italic text-color-body block mt-2">
                     {item.teaser}
                   </span>
                 </DebugLabel>
               </div>
               <ChevronDown
                 size={18}
-                className={`text-color-label mt-1 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
+                className={`text-color-label mt-1 shrink-0 transition-transform transition-normal ${openIndex === i ? 'rotate-180' : ''}`}
               />
             </button>
 
-            <div className={`overflow-hidden transition-all duration-500 ${openIndex === i ? 'max-h-[1600px] pb-10' : 'max-h-0'}`}>
+            <div className={`overflow-hidden transition-all transition-slow ${openIndex === i ? 'max-h-[1600px] pb-10' : 'max-h-0'}`}>
               <div className="grid md:grid-cols-3 gap-6 pt-2">
                 {[
                   { label: cases.sectionLabels.situation, text: item.situation },
@@ -135,7 +135,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
                 <DebugLabel type="disclaimer" debugMode={debugMode}>
-                  <p className="text-disclaimer text-color-body/35 mt-6">
+                  <p className="disclaimer-italic text-color-body/35 mt-6">
                     * Namen wurde geändert
                   </p>
                 </DebugLabel>

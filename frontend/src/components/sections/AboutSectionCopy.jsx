@@ -9,7 +9,7 @@ import { r2, portraits } from '../../utils/media'
 export default function AboutSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="ueber-copy" data-testid="about-section-copy">
-      <div className="grid md:grid-cols-2 gap-16 items-start">
+      <div className="grid md:grid-cols-2 grid-gap-xl items-start">
 
         {/* Left: Portrait photo — sticky */}
         <div className="md:sticky md:top-28">
@@ -33,21 +33,21 @@ export default function AboutSectionCopy({ debugMode = false }) {
             <SectionLabel text={about.label} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-color-heading mb-10">
+            <h2 className="font-display text-h2 text-color-heading heading-margin-md">
               {about.headline}
             </h2>
           </DebugLabel>
 
           {about.body.map((para, i) => (
             <DebugLabel type="body" debugMode={debugMode} key={i}>
-              <p className={`font-primary text-color-body text-body ${i > 0 ? 'mt-6' : ''}`}>
+              <p className={`font-primary text-color-body text-body ${i > 0 ? 'margin-top-sm' : ''}`}>
                 {para}
               </p>
             </DebugLabel>
           ))}
 
           {/* Credentials */}
-          <div className="mt-12 pt-10 border-t border-black/10">
+          <div className="margin-top-md section-padding-sm border-t border-black/10">
             <DebugLabel type="label" debugMode={debugMode}>
               <p className="font-primary label text-color-label mb-6">
                 {about.credentialsLabel}

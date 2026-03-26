@@ -75,7 +75,6 @@ html {
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Process section background numbers — responsive scaling */
 .process-bg-number {
   font-size: clamp(21rem, 40vw, 28rem);
   top: -240px;

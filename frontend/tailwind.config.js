@@ -5,12 +5,6 @@ module.exports = {
   theme: {
     extend: {
       utilities: {
-        // ============================================
-        // LABEL UTILITY — Multi-Site-Ready
-        // ============================================
-        // Use: className="label" (contains: size + spacing + case)
-        // For new site: Change values here - all components update automatically
-        // ============================================
         label: {
           fontSize: '0.8125rem',
           lineHeight: '1.5',
@@ -23,58 +17,66 @@ module.exports = {
         '900': '900px',
       },
       colors: {
-        // ============================================
-        // COLOR TOKENS — Single Source of Truth
-        // ============================================
-        // Für neue Landing Page: Nur diese Werte ändern!
-        // Alle Components verwenden diese Tokens automatisch.
-        //
-        // Light Backgrounds (weiß, creme, sand):
-        //   text-color-heading → Headlines H1-H4 (#224160)
-        //   text-color-body    → Body text (#5A5550)
-        //   text-color-label   → Labels, Metadata (#7696AD)
-        //   text-color-accent  → CTAs, Links (#2DAD71)
-        //
-        // Dark Backgrounds:
-        //   text-on-dark          → Headlines (100% weiß)
-        //   text-on-dark-muted    → Body (80% weiß)
-        //   text-on-dark-faded    → Labels (60% weiß)
-        // ============================================
-
+        // ─────────────────────────────────────────────────────────────
+        // TEXT AUF HELLEM HINTERGRUND (bestehend - bereits in use)
+        // ─────────────────────────────────────────────────────────────
         color: {
-          heading: '#224160',  // Headlines H1-H4
-          body:    '#5A5550',  // Body text
-          label:   '#7696AD',  // Labels, Metadata
-          accent:  '#2DAD71',  // CTAs, Links
+          heading: '#224160',
+          body:    '#5A5550',
+          label:   '#7696AD',
+          accent:  '#2DAD71',
         },
 
-        // ============================================
-        // ⚠️ TEMPORARY - LEGACY BRAND TOKENS
-        // ============================================
-        // LIVE sections (AboutSection, TestimonialsSection, etc.) use these
-        // Copy sections use color.* tokens above
-        //
-        // ⚠️ MUST BE DELETED after complete migration to color.* tokens!
-        // This is a temporary solution to keep LIVE sections working
-        // while Copy sections are being migrated to the new token system.
-        // ============================================
-        brand: {
-          deep:  '#224160',  // Headlines (same as color.heading)
-          body:  '#5A5550',  // Body text (same as color.body)
-          steel: '#7696AD',  // Labels (same as color.label)
-          green: '#2DAD71',  // Accent (same as color.accent)
-          muted: '#5A5550',  // Alias für body
-          dark:  '#1A2433',  // Dunkle Hintergründe
-          cream: '#F0EBE1',  // Creme Hintergründe
-          sand:  '#EDE7DC',  // Sand Hintergründe
+        // ─────────────────────────────────────────────────────────────
+        // HINTERGRUND-FARBEN (neu - beschreibende Namen)
+        // ─────────────────────────────────────────────────────────────
+        background: {
+          light: '#EDE7DC',  // brand-sand
+          dark:  '#224160',  // brand-deep
         },
 
+        // ─────────────────────────────────────────────────────────────
+        // TEXT AUF DUNKELM HINTERGRUND (neu - semantische Namen)
+        // ─────────────────────────────────────────────────────────────
         'on-dark': {
-          DEFAULT: '#FFFFFF',              // Headlines (100%)
-          muted: 'rgba(255, 255, 255, 0.8)',  // Body (80%)
-          faded: 'rgba(255, 255, 255, 0.6)',  // Labels (60%)
-          dim: 'rgba(255, 255, 255, 0.4)',    // Very dim (40%)
+          DEFAULT: '#FFFFFF',                     // Fallback
+          heading: '#FFFFFF',                      // Headlines
+          quote:   '#FFFFFF',                      // Zitate
+          body:    'rgba(255, 255, 255, 0.8)',     // Fließtext
+          role:    'rgba(255, 255, 255, 0.6)',     // Rolle/Funktion
+          date:    'rgba(255, 255, 255, 0.5)',     // Lebensdaten
+          label:   'rgba(255, 255, 255, 0.8)',     // Labels
+          accent:  '#2DAD71',                      // Akzent (grün)
+          divider: 'rgba(255, 255, 255, 0.2)',     // Trennlinien
         },
+
+        // ─────────────────────────────────────────────────────────────
+        // LEGACY - BRAND COLORS (temporär - noch für Live-Site benötigt)
+        // ─────────────────────────────────────────────────────────────
+        brand: {
+          deep:  '#224160',  // → background.dark
+          body:  '#5A5550',  // → color.body
+          steel: '#7696AD',  // → color.label
+          green: '#2DAD71',  // → color.accent
+          muted: '#5A5550',  // → color.body
+          dark:  '#1A2433',
+          cream: '#F0EBE1',  // → wird background.light ähneln
+          sand:  '#EDE7DC',  // → background.light
+        },
+
+        // ─────────────────────────────────────────────────────────────
+        // LEGACY - OLD ON-DARK (temporär - wird durch on-dark ersetzt)
+        // ─────────────────────────────────────────────────────────────
+        'on-dark-legacy': {
+          DEFAULT: '#FFFFFF',
+          muted: 'rgba(255, 255, 255, 0.8)',
+          faded: 'rgba(255, 255, 255, 0.6)',
+          dim: 'rgba(255, 255, 255, 0.4)',
+        },
+
+        // ─────────────────────────────────────────────────────────────
+        // LEGACY - TRANSCRIPT (temporär - noch für TranscriptPage)
+        // ─────────────────────────────────────────────────────────────
         transcript: {
           bg:       '#F0EBE1',
           text:     '#2D2A26',
@@ -86,22 +88,11 @@ module.exports = {
         },
       },
       fontFamily: {
-        // ============================================
-        // DEPRECATED: Use fontSize tokens instead!
-        // ============================================
-        // Font-Familien sind jetzt in fontSize Tokens integriert
-        // Components nutzen nur noch Typography-Tokens (text-h2, text-body, etc.)
-        // Diese Aliases bleiben nur für Abwärtskompatibilität
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
         primary: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        // Legacy aliases (deprecated — use primary/display instead)
-        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
-        sans:  ['DM Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        // ============================================
-        // HERO HEADLINES — Font + Größe (keine Farbe!)
-        // ============================================
         'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', {
           lineHeight: '1',
           letterSpacing: '-0.02em',
@@ -111,10 +102,6 @@ module.exports = {
           lineHeight: '1.1',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
-
-        // ============================================
-        // HEADLINES (H1-H4) — Font + Größe (keine Farbe!)
-        // ============================================
         'h1': ['3rem', {
           lineHeight: '1.1',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
@@ -131,10 +118,6 @@ module.exports = {
           lineHeight: '1.2',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
-
-        // ============================================
-        // BODY TEXT — Font + Größe (keine Farbe!)
-        // ============================================
         'body': ['1.125rem', {
           lineHeight: '1.75',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
@@ -143,35 +126,19 @@ module.exports = {
           lineHeight: '1.625',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
-
-        // ============================================
-        // LABELS — Font + Größe (keine Farbe!)
-        // ============================================
-        // NOTE: textTransform wird in fontSize nicht unterstützt!
-        // Verwende className="label" utility (enthält uppercase)
         'label': ['0.8125rem', {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
-          // textTransform: 'uppercase', ← wird ignoriert!
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
-
-        // ============================================
-        // SUBLINES & LISTS — Font + Größe (keine Farbe!)
-        // ============================================
         'subline': ['1rem', {
           lineHeight: '1.5',
-          fontStyle: 'italic',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
         'list': ['1rem', {
           lineHeight: '1.5',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
-
-        // ============================================
-        // QUOTES — Font + Größe (keine Farbe!)
-        // ============================================
         'quote-featured': ['2.25rem', {
           lineHeight: '1.1',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
@@ -180,10 +147,6 @@ module.exports = {
           lineHeight: '1.2',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
-
-        // ============================================
-        // AUTHOR-SPECIFIC — Font + Größe (keine Farbe!)
-        // ============================================
         'author-name': ['2rem', {
           lineHeight: '1.2',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
@@ -194,26 +157,16 @@ module.exports = {
         }],
         'summary-large': ['1.625rem', {
           lineHeight: '1.6',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
+          fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
         'body-narrative': ['1.125rem', {
           lineHeight: '1.75',
           fontFamily: ['Cormorant Garamond', 'Georgia', 'serif'],
         }],
-        'role': ['0.875rem', {
-          lineHeight: '1.5',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
-        }],
         'date': ['0.875rem', {
           lineHeight: '1.5',
           fontFamily: ['DM Sans', 'system-ui', 'sans-serif'],
         }],
-
-        // ============================================
-        // METADATA — Font + Größe (keine Farbe!)
-        // ============================================
         'disclaimer': ['0.75rem', {
           lineHeight: '1.5',
           fontStyle: 'italic',
@@ -262,6 +215,89 @@ module.exports = {
           'letter-spacing': '0.2em',
           'text-transform': 'uppercase',
           'font-weight': '400',
+        },
+        '.role': {
+          'font-size': '0.875rem',
+          'line-height': '1.5',
+          'letter-spacing': '0.1em',
+          'text-transform': 'uppercase',
+          'font-family': 'DM Sans, system-ui, sans-serif',
+        },
+        '.subline-italic': {
+          'font-size': '1rem',
+          'line-height': '1.5',
+          'font-style': 'italic',
+          'font-family': 'DM Sans, system-ui, sans-serif',
+        },
+        '.hint-italic': {
+          'font-size': '0.875rem',
+          'line-height': '1.5',
+          'font-style': 'italic',
+          'font-family': 'DM Sans, system-ui, sans-serif',
+        },
+        '.disclaimer-italic': {
+          'font-size': '0.75rem',
+          'line-height': '1.5',
+          'font-style': 'italic',
+          'font-family': 'DM Sans, system-ui, sans-serif',
+        },
+        '.divider-spacing': {
+          'padding-top': '2.25rem',  // 36px
+        },
+
+        // ─────────────────────────────────────────────────────────────
+        // SPACING UTILITIES (semantic names)
+        // ─────────────────────────────────────────────────────────────
+        '.section-padding': {
+          'padding-top': '5rem',     // py-20
+          'padding-bottom': '7rem',   // md:py-28
+        },
+        '.heading-margin': {
+          'margin-bottom': '4rem',    // mb-16
+        },
+        '.heading-margin-sm': {
+          'margin-bottom': '2rem',    // mb-8
+        },
+        '.heading-margin-md': {
+          'margin-bottom': '2.5rem',  // mb-10
+        },
+        '.grid-gap-lg': {
+          'gap': '2rem',              // gap-8
+        },
+        '.grid-gap-xl': {
+          'gap': '4rem',              // gap-16
+        },
+        '.margin-top-sm': {
+          'margin-top': '1.5rem',     // mt-6
+        },
+        '.margin-top-md': {
+          'margin-top': '3rem',       // mt-12
+        },
+        '.section-padding-sm': {
+          'padding-top': '2.5rem',    // pt-10
+        },
+
+        // ─────────────────────────────────────────────────────────────
+        // TRANSITION DURATIONS (descriptive names)
+        // ─────────────────────────────────────────────────────────────
+        '.transition-fast': {
+          'transition-duration': '200ms',
+        },
+        '.transition-normal': {
+          'transition-duration': '300ms',
+        },
+        '.transition-slow': {
+          'transition-duration': '500ms',
+        },
+        '.transition-slower': {
+          'transition-duration': '700ms',
+        },
+
+        // ─────────────────────────────────────────────────────────────
+        // LETTER-SPACING
+        // ─────────────────────────────────────────────────────────────
+        '.tracking-label-alt': {
+          'letter-spacing': '0.15em',  // für CaseStudiesSectionCopy
         },
       })
     }),

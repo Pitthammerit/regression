@@ -39,15 +39,17 @@ Claude sometimes skips skill checks even when explicitly told to use them (syste
 
 ### Subagent Loop Pattern
 
-For complex multi-file changes (refactoring, new features), use this loop:
-```
-1. EXPLORE (optional)     → Explore agents understand codebase
-2. PLAN (required)        → Plan agent designs approach
-3. IMPLEMENT (subagent)   → frontend-developer/senior-architect-innovator
-4. REVIEW (subagent)      → feature-dev:code-reviewer validates
-5. LOOP BACK if issues    → Fix → Re-review → Verify
-6. COMMIT                 → version-control-orchestrator
-```
+For complex multi-file changes (refactoring, new features), use the `/multiloop` skill.
+
+**Skill location:** `~/.claude/skills/multiloop.md`
+
+**Auto-triggers:** 3+ file changes, architectural decisions, complex feature implementations
+
+**Workflow:** LOAD → DECOMPOSE → ASSIGN → COLLECT → VERIFY & LOOP BACK → SYNTHESIZE → PERSIST → PRESENT
+
+The skill provides the orchestrated multi-agent workflow with mandatory code review and testing.
+
+**Key feature:** VERIFY & LOOP BACK phase ensures all code is tested and reviewed against project principles (DRY, KISS, YAGNI, SOC, Single Source of Truth) before proceeding.
 
 See "Multiagent Orchestration" section below for detailed workflow.
 
@@ -630,6 +632,14 @@ For complex tasks, use specialized agents in this workflow:
 - Refactoring: senior-architect-innovator → frontend-developer → code-reviewer
 - Design changes: silicon-valley-creative-director → frontend-developer → whimsy-injector
 
+**Or use the `/multiloop` skill** — Provides the complete orchestrated workflow with:
+- Master Orchestrator pattern (LOAD → DECOMPOSE → ASSIGN → COLLECT → VERIFY & LOOP BACK → SYNTHESIZE → PERSIST → PRESENT)
+- Mandatory code review against project principles from memory
+- Loop back mechanism until all tests pass and code review approves
+- Serena + Knowledge Graph integration for persistence
+
+**Auto-invocation:** The `/multiloop` skill triggers automatically for 3+ file changes or architectural decisions.
+
 ### Subagent Loop Pattern
 
 For complex multi-file changes, use this standardized loop:
@@ -694,3 +704,54 @@ After each significant change, run:
 cat TODO.md
 # If changed, commit it with the work
 ```
+
+---
+
+## Auto Memory (CRITICAL — Persistent Knowledge)
+
+### When to Save to Auto Memory
+
+**ALWAYS save to Auto Memory when:**
+- Major architectural decisions are made
+- User preferences are discovered (e.g., "immer npm, nie pnpm")
+- Debugging insights that could help future sessions
+- Build commands or deployment workflows
+- Code style decisions specific to this project
+- Solutions to tricky bugs or edge cases
+
+**ASK USER before saving when:**
+- The decision affects multiple files or large refactors
+- Uncertain if the information will be useful long-term
+- The information is specific to one session's context
+
+**DO NOT save:**
+- Minor typos or trivial fixes
+- Temporary debugging statements
+- Session-specific file paths that won't be reused
+
+### How to Save to Auto Memory
+
+Use the Write tool to save to the memory directory:
+```
+~/.claude/projects/<project>/memory/
+```
+
+**Pattern for memory files:**
+- `MEMORY.md` — Main index (keep under 200 lines, loaded every session)
+- `patterns.md` — Code patterns and conventions
+- `debugging.md` — Debugging insights and solutions
+- `architecture.md` — Architectural decisions
+- `deployment.md` — Build and deployment workflows
+
+**When making a significant decision, follow this loop:**
+1. **Recognize:** Is this a decision worth remembering?
+2. **Ask (if large):** "Soll ich das im Auto Memory speichern?"
+3. **Save:** Write to appropriate memory file
+4. **Update index:** Add link to MEMORY.md if needed
+
+### Memory Check Workflow
+
+At session start, after reading CLAUDE.md:
+1. Run `list_memories` to see available topics
+2. Read relevant memory files for context
+3. Use this context to avoid re-learning the same things
