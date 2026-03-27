@@ -13,8 +13,8 @@ export default function HeroV3Section({ debugMode = false }) {
   return (
     <section id="hero" className="flex flex-col overflow-hidden relative" data-testid="hero-section">
 
-      {/* HEADLINE — flush with video frame */}
-      <div className="pt-24 pb-1 px-8 md:px-14 lg:px-20 flex-shrink-0">
+      {/* HEADLINE — spacing to video */}
+      <div className="pt-24 pb-6 px-8 md:px-14 lg:px-20 flex-shrink-0">
         <div className="max-w-content mx-auto">
           <div className="font-display tracking-tight leading-none">
             <DebugLabel type="hero-large" debugMode={debugMode}>
