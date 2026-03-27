@@ -520,8 +520,6 @@ export default function TypographyDemoPage() {
       <ServicesSectionCopy debugMode={debugMode} />
       <WelcomeSectionCopy debugMode={debugMode} />
       <ResearcherQuotesSectionCopy debugMode={debugMode} />
-
-      <div className="py-8 border-t border-black/10 my-8" />
       <WhatIsSectionCopy debugMode={debugMode} />
       <AboutSectionCopy debugMode={debugMode} />
       <CaseStudiesSectionCopy debugMode={debugMode} />
