@@ -147,7 +147,7 @@ module.exports = {
         'icon': ['1rem', {
           lineHeight: '1',
         }],
-        'star': ['1.25rem', {
+        'star': ['0.875rem', {
           lineHeight: '1',
         }],
       },

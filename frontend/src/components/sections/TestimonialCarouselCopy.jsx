@@ -125,7 +125,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                 <div key={`${t.name}-${idx}`} className="min-w-full">
                   <div className="flex flex-col gap-3 rounded-2xl bg-white/50 p-6 border border-color-bg-light shadow-sm backdrop-blur-sm">
                     {/* Top Row: Avatar + Name/Role + Stars */}
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row items-start gap-4">
                       <div className="flex items-center gap-4">
                         {t.image && (
                           <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-white shadow-md">
@@ -151,7 +151,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                         </div>
                       </div>
                       {/* 5 Stars - semantic star color (yellow) */}
-                      <div className="flex items-center gap-0.5 text-color-star">
+                      <div className="flex items-center gap-0.5 text-color-star sm:ml-auto sm:mt-1">
                         {Array.from({ length: 5 }).map((_, starIdx) => (
                           <Star key={starIdx} className="w-star h-star fill-current" />
                         ))}
