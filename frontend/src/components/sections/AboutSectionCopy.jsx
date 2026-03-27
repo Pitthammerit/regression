@@ -46,7 +46,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
           ))}
 
           {/* Credentials */}
-          <div className="margin-top-md section-padding-sm border-t border-black/10">
+          <div className="margin-top-md section-padding-sm border-t border-color-border">
             <DebugLabel type="label" debugMode={debugMode}>
               <p className="font-primary text-label label text-color-label content-spacing-lg">
                 {about.credentialsLabel}

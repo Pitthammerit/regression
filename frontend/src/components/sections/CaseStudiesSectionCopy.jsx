@@ -33,12 +33,12 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
-      <div className="max-w-2xl content-spacing">
+      <div className="max-w-centered-header content-spacing text-center mx-auto">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={cases.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-color-heading leading-tight">
+          <h2 className="font-display text-h2 text-color-heading leading-tight text-center">
             {cases.headline}
           </h2>
         </DebugLabel>
@@ -49,14 +49,14 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`content-spacing flex items-center gap-2 text-hint hint-italic text-color-label/60 transition-opacity transition-slower ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-label/60 transition-opacity transition-slower max-w-fit ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-icon">↓</span>
         <span>Klicke auf die Namen, um mehr zu lesen</span>
       </div>
 
-      <div className="divide-y divide-black/10">
+      <div className="divide-y divide-color-divider max-w-4xl mx-auto">
         {cases.items.map((item, i) => (
           <div key={i}>
             <button
@@ -68,10 +68,10 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                 <LazyImage
                   src={item.image}
                   alt={item.name}
-                  className="w-24 h-24 rounded-full object-cover object-top border border-black/10 shrink-0"
+                  className="w-24 h-24 rounded-full object-cover object-top border-2 border-color-border shrink-0"
                 />
               ) : (
-                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border border-black/10 flex items-center justify-center shrink-0">
+                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border-2 border-color-border flex items-center justify-center shrink-0">
                   <User className="w-12 h-12 text-color-heading/30" />
                 </div>
               )}

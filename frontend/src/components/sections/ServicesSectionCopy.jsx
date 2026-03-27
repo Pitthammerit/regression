@@ -14,7 +14,7 @@ export default function ServicesSectionCopy({ debugMode = false }) {
               data-testid={`service-item-${i}`}
             >
               <DebugLabel type="label" debugMode={debugMode}>
-                <span className="font-primary text-label tracking-label-alt uppercase text-color-label block-label-spacing">
+                <span className="font-primary text-label tracking-label-alt label text-color-label block-label-spacing">
                   {service.sub}
                 </span>
               </DebugLabel>

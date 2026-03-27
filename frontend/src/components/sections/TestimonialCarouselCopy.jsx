@@ -88,9 +88,9 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
     <section className="py-16 md:py-20">
       <div className="max-w-content mx-auto px-6">
         {/* Section Title - centered */}
-        <div className="mb-8 text-center">
+        <div className="content-spacing-lg text-center">
           <DebugLabel type="label" debugMode={debugMode}>
-            <p className="font-primary text-label uppercase text-color-label">
+            <p className="font-primary text-label label text-color-label">
               {label}
             </p>
           </DebugLabel>
@@ -118,17 +118,17 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
           {/* Sliding Cards Container */}
           <div className="overflow-hidden rounded-2xl">
             <div
-              className="flex transition-transform duration-600 ease-in-out"
+              className="flex transition-transform duration-[600ms] ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {carouselClients.map((t, idx) => (
                 <div key={`${t.name}-${idx}`} className="min-w-full">
-                  <div className="flex flex-col gap-3 rounded-2xl bg-white/50 p-6 border border-color-bg-light shadow-sm backdrop-blur-sm">
+                  <div className="flex flex-col gap-3 rounded-2xl bg-color-card-overlay p-[34px] border border-color-bg-light shadow-sm backdrop-blur-sm">
                     {/* Top Row: Avatar + Name/Role + Stars */}
-                    <div className="flex flex-col sm:flex-row items-start gap-4">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
                       <div className="flex items-center gap-4">
                         {t.image && (
-                          <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-white shadow-md">
+                          <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-border shadow-md">
                             <img
                               src={getOptimizedImageUrl(t.image)}
                               width="60"
@@ -144,16 +144,16 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                             <p className="font-primary text-h5 font-semibold text-color-heading">{t.name}</p>
                           </DebugLabel>
                           <DebugLabel type="role" debugMode={debugMode}>
-                            <p className="font-primary text-label text-color-label uppercase tracking-wider">
+                            <p className="font-primary text-label text-color-label label tracking-wider">
                               {t.context}
                             </p>
                           </DebugLabel>
                         </div>
                       </div>
                       {/* 5 Stars - semantic star color (yellow) */}
-                      <div className="flex items-center gap-0.5 text-color-star sm:ml-auto sm:mt-1">
+                      <div className="flex items-center gap-0.5 text-color-star">
                         {Array.from({ length: 5 }).map((_, starIdx) => (
-                          <Star key={starIdx} className="w-star h-star fill-current" />
+                          <Star key={starIdx} className="w-[19px] h-[19px] fill-current" />
                         ))}
                       </div>
                     </div>
@@ -161,7 +161,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                     {/* Quote - below stars */}
                     <DebugLabel type="body-narrative" debugMode={debugMode}>
                       <div className="text-color-body">
-                        <p className="font-display text-body-narrative italic text-center sm:text-left">
+                        <p className="font-display text-body-narrative body-narrative-italic text-center sm:text-left">
                           "{t.quote}"
                         </p>
                       </div>
@@ -182,7 +182,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
         </div>
 
         {/* Navigation Dots with Progress Bar inside active dot */}
-        <div className="mt-8 flex justify-center gap-2">
+        <div className="content-spacing-lg flex justify-center gap-2">
           {carouselClients.map((_, index) => (
             <button
               key={index}
@@ -194,7 +194,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
               {/* Progress bar inside active dot */}
               {index === currentIndex && (
                 <div
-                  className="absolute left-0 top-0 h-full bg-on-dark-divider transition-all duration-100 ease-linear"
+                  className="absolute left-0 top-0 h-full bg-on-dark-divider transition-all duration-[100ms] ease-linear"
                   style={{ width: `${progress}%` }}
                 />
               )}

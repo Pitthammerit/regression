@@ -38,9 +38,9 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
 
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-centered-header mb-16">
           <DebugLabel type="label" debugMode={debugMode}>
-            <div className="font-primary text-label uppercase tracking-widest text-on-dark-label label-heading-spacing">
+            <div className="font-primary text-label label tracking-widest text-on-dark-label label-heading-spacing">
               {references.bigLabel}
             </div>
           </DebugLabel>
@@ -87,7 +87,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
 
                   {resource.role && (
                     <DebugLabel type="role" debugMode={debugMode}>
-                      <p className="font-primary text-label text-on-dark-role uppercase tracking-wider role-date-spacing">
+                      <p className="font-primary text-label text-on-dark-role label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -166,7 +166,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
 
                   {resource.role && (
                     <DebugLabel type="role" debugMode={debugMode}>
-                      <p className="font-primary text-label text-on-dark-role uppercase tracking-wider role-date-spacing">
+                      <p className="font-primary text-label text-on-dark-role label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
                     </DebugLabel>

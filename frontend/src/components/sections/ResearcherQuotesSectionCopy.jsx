@@ -68,7 +68,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
 
             {/* Quote */}
             <DebugLabel type="quote-featured" debugMode={debugMode}>
-              <p className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
+              <p className="font-display text-quote-featured quote-featured-italic leading-tight text-on-dark-quote content-spacing">
                 "{author.quote}"
               </p>
             </DebugLabel>
@@ -138,7 +138,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
                   </div>
 
                   <DebugLabel type="quote-featured" debugMode={debugMode}>
-                    <p className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
+                    <p className="font-display text-quote-featured quote-featured-italic leading-tight text-on-dark-quote content-spacing">
                       "{author.quote}"
                     </p>
                   </DebugLabel>

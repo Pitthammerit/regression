@@ -60,17 +60,19 @@ The skill will orchestrate the entire migration workflow automatically.
 2. ✅ ServicesSection
 3. ✅ WelcomeSection
 4. ✅ ResearcherQuotesSection
-5. ✅ StatementSection ← **DONE (no DebugLabels yet — pending approval)**
-6. ⬜ **WhatIsSection** ← **NEXT**
-7. ⬜ ForWhomSection
-8. ⬜ AboutSection
-9. ⬜ ProcessSection
-10. ⬜ PodcastSection
-11. ⬜ CaseStudiesSection
-12. ⬜ TestimonialCarousel
-13. ⬜ BookingSection
-14. ⬜ FAQSection
-15. ⬜ ReferencesSection
+5. ✅ StatementSection
+6. ✅ WhatIsSection
+7. ✅ ForWhomSection
+8. ✅ AboutSection
+9. ✅ ProcessSection
+10. ✅ PodcastSection
+11. ✅ CaseStudiesSection
+12. ✅ TestimonialCarousel
+13. ✅ BookingSection
+14. ✅ FAQSection
+15. ✅ ReferencesSection
+16. ✅ ResearchersSection
+17. ⬜ **PodcastVideoSection** ← **LAST ONE! — ONLY SECTION REMAINING**
 
 ---
 
@@ -1174,23 +1176,23 @@ Copy erstellen → typo-demo import → User sieht original
 
 | # | Section | Complexity | Est. Time | Status |
 |---|---------|------------|-----------|--------|
-| 1 | **HeroV3Section** | Complex | 90-120 min | ⬜ Pending |
-| 2 | ServicesSection | Medium | 45-60 min | ⬜ Pending |
-| 3 | WelcomeSection | Medium | 45-60 min | ⬜ Pending |
-| 4 | ResearcherQuotesSection | Complex | 75-90 min | ⬜ Pending |
-| 5 | StatementSection | Simple | 30-45 min | ⬜ Pending |
-| 6 | WhatIsSection | Simple | 30-45 min | ⬜ Pending |
-| 7 | ResearchersSection | Complex | 90-120 min | ⬜ Pending |
-| 8 | PodcastVideoSection | Medium | 60-90 min | ⬜ Pending |
-| 9 | ForWhomSection | Medium | 45-60 min | ⬜ Pending |
-| 10 | AboutSection | Medium | 45-60 min | ⬜ Pending |
-| 11 | ProcessSection | Medium | 60-90 min | ⬜ Pending |
-| 12 | PodcastSection | Medium | 60-90 min | ⬜ Pending |
-| 13 | CaseStudiesSection | Complex | 90-120 min | ⬜ Pending |
-| 14 | TestimonialCarousel | Complex | 90-120 min | ⬜ Pending |
-| 15 | BookingSection | Simple | 30-45 min | ⬜ Pending |
-| 16 | FAQSection | Medium | 45-60 min | ⬜ Pending |
-| 17 | ReferencesSection | Simple | 30-45 min | ⬜ Pending |
+| 1 | **HeroV3Section** | Complex | 90-120 min | ✅ Complete |
+| 2 | ServicesSection | Medium | 45-60 min | ✅ Complete |
+| 3 | WelcomeSection | Medium | 45-60 min | ✅ Complete |
+| 4 | ResearcherQuotesSection | Complex | 75-90 min | ✅ Complete |
+| 5 | StatementSection | Simple | 30-45 min | ✅ Complete |
+| 6 | WhatIsSection | Simple | 30-45 min | ✅ Complete |
+| 7 | ResearchersSection | Complex | 90-120 min | ✅ Complete |
+| 8 | PodcastVideoSection | Medium | 60-90 min | ⬜ **PENDING — LAST!** |
+| 9 | ForWhomSection | Medium | 45-60 min | ✅ Complete |
+| 10 | AboutSection | Medium | 45-60 min | ✅ Complete |
+| 11 | ProcessSection | Medium | 60-90 min | ✅ Complete |
+| 12 | PodcastSection | Medium | 60-90 min | ✅ Complete |
+| 13 | CaseStudiesSection | Complex | 90-120 min | ✅ Complete |
+| 14 | TestimonialCarousel | Complex | 90-120 min | ✅ Complete |
+| 15 | BookingSection | Simple | 30-45 min | ✅ Complete |
+| 16 | FAQSection | Medium | 45-60 min | ✅ Complete |
+| 17 | ReferencesSection | Simple | 30-45 min | ✅ Complete |
 
 **Nicht in sections.config.js (Experimente/Archiv):**
 - HeroSection, HeroV2Section, HeroAlt1, HeroAlt2, HeroAlt3 (werden zuletzt migriert, wenn überhaupt)
@@ -1217,41 +1219,40 @@ Copy erstellen → typo-demo import → User sieht original
 | CaseStudiesSectionCopy | ✅ Complete | 2026-03-27 | [link] |
 | ResearchersSectionCopy | ✅ Complete | 2026-03-27 | [link] |
 
-## Phase 3B: Legacy Sections (🚧 IN PROGRESS)
+## Phase 3B: Legacy Sections (🚧 94% COMPLETE — 16/17 Sections)
 
 **Reihenfolge: sections.config.js (Main Page Order)**
 
-| # | Section | Status | Date | Migration Log |
+| # | Section | Status | Date | In typo-demo? |
 |---|---------|--------|------|---------------|
-| 1 | HeroV3Section | ✅ Complete | 2026-03-27 | [view](#hero-v3-migration) |
-| 2 | ServicesSection | ✅ Complete | 2026-03-27 | [view](#services-migration) |
-| 3 | WelcomeSection | ✅ Complete | 2026-03-27 | [view](#welcome-migration) |
-| 4 | ResearcherQuotesSection | ⬜ Pending | - | - |
-| 4 | ResearcherQuotesSection | ✅ Complete | 2026-03-27 | — |
-| 5 | StatementSection | ✅ Complete | 2026-03-27 | [view](#statement-migration) |
-| 6 | WhatIsSection | ⬜ Pending | - | - |
-| 7 | ResearchersSection | ⬜ Pending | - | - |
-| 8 | PodcastVideoSection | ⬜ Pending | - | - |
-| 9 | ForWhomSection | ⬜ Pending | - | - |
-| 10 | AboutSection | ⬜ Pending | - | - |
-| 11 | ProcessSection | ⬜ Pending | - | - |
-| 12 | PodcastSection | ⬜ Pending | - | - |
-| 13 | CaseStudiesSection | ⬜ Pending | - | - |
-| 14 | TestimonialCarousel | ⬜ Pending | - | - |
-| 15 | BookingSection | ⬜ Pending | - | - |
-| 16 | FAQSection | ⬜ Pending | - | - |
-| 17 | ReferencesSection | ⬜ Pending | - | - |
+| 1 | HeroV3Section | ✅ Complete | 2026-03-27 | ✅ Yes (migrated in place) |
+| 2 | ServicesSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 3 | WelcomeSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 4 | ResearcherQuotesSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 5 | StatementSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 6 | WhatIsSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 7 | ResearchersSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 8 | PodcastVideoSection | ⬜ Pending | - | ❌ NO — **LAST ONE!** |
+| 9 | ForWhomSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 10 | AboutSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 11 | ProcessSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 12 | PodcastSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 13 | CaseStudiesSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 14 | TestimonialCarousel | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 15 | BookingSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 16 | FAQSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
+| 17 | ReferencesSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
 
 ## Progress Summary
 - Total Sections (Main Page): 17
-- Completed: 5 (29.4%)
+- Completed: 16 (94.1%)
 - In Progress: 0 (0%)
-- Pending: 12 (70.6%)
+- Pending: 1 (5.9%) — **PodcastVideoSection ONLY!**
 
 ## Next Section
-**WhatIsSection** (#6 in sections.config.js)
-Estimated time: 30-45 min
-Complexity: Simple
+**PodcastVideoSection** (#8 in sections.config.js) — DIE LETZTE!
+Estimated time: 60-90 min
+Complexity: Medium (Video component)
 ```
 
 ---
@@ -1773,6 +1774,6 @@ START NOW: Which section is next in Priority List?
 
 ---
 
-**Last updated:** 2026-03-27
-**Status:** HeroV3Section complete, ready for ServicesSection
-**Next action:** Continue with ServicesSection (#2)
+**Last updated:** 2026-03-27 16:30
+**Status:** Phase 3B: 94% COMPLETE (16/17 Sections)
+**Next action:** Migrate PodcastVideoSection — THE LAST ONE!

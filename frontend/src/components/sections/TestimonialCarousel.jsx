@@ -135,8 +135,8 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
                           </p>
                         </div>
                       </div>
-                      {/* 5 Stars - semantic star color (yellow) */}
-                      <div className="flex items-center gap-0.5 text-color-star sm:ml-auto sm:mt-1">
+                      {/* 5 Stars - semantic accent color (green) */}
+                      <div className="flex items-center gap-0.5 text-color-accent sm:ml-auto sm:mt-1">
                         {Array.from({ length: 5 }).map((_, starIdx) => (
                           <Star key={starIdx} className="w-star h-star fill-current" />
                         ))}

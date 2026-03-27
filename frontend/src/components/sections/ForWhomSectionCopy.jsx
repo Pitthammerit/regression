@@ -2,6 +2,7 @@ import React from 'react'
 import { forWhom } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
+import TopicCard from '../ui/TopicCard'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
@@ -16,26 +17,14 @@ import DebugLabel from '../ui/DebugLabel'
  *
  * CRITICAL PRESERVED:
  * - SectionWrapper with id="fuer-wen" (scroll target)
- * - TopicCard component structure
+ * - TopicCard component (imported from ui/)
  * - Map over forWhom.topics from content layer
  */
-function TopicCard({ title, body, debugMode = false }) {
-  return (
-    <div className="bg-white/50 rounded-2xl p-5 md:p-6 flex flex-col gap-2 border border-color-bg-light hover:border-color-label transition-colors">
-      <DebugLabel type="h4" debugMode={debugMode}>
-        <h3 className="font-display text-h4 text-color-heading leading-snug">{title}</h3>
-      </DebugLabel>
-      <DebugLabel type="body" debugMode={debugMode}>
-        <p className="font-primary text-body text-color-body leading-relaxed">{body}</p>
-      </DebugLabel>
-    </div>
-  )
-}
 
 export default function ForWhomSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="max-w-centered-header mx-auto text-center mb-16">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={forWhom.label} />
         </DebugLabel>
@@ -44,8 +33,8 @@ export default function ForWhomSectionCopy({ debugMode = false }) {
             {forWhom.headline}
           </h2>
         </DebugLabel>
-        <DebugLabel type="body" debugMode={debugMode}>
-          <p className="font-primary text-body text-color-body leading-relaxed">
+        <DebugLabel type="body-lg" debugMode={debugMode}>
+          <p className="font-primary text-body-lg text-color-body leading-relaxed">
             {forWhom.intro}
           </p>
         </DebugLabel>

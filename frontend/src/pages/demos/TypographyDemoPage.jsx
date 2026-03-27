@@ -16,6 +16,7 @@ import FAQSectionCopy from '../../components/sections/FAQSectionCopy'
 import ResearchersSectionCopy from '../../components/sections/ResearchersSectionCopy'
 import ReferencesSectionCopy from '../../components/sections/ReferencesSectionCopy'
 import TestimonialCarouselCopy from '../../components/sections/TestimonialCarouselCopy'
+import PodcastVideoSectionCopy from '../../components/sections/PodcastVideoSectionCopy'
 import { testimonials } from '../../content/plr-de'
 
 /**
@@ -540,15 +541,16 @@ export default function TypographyDemoPage() {
       <TestimonialCarouselCopy
         clients={testimonials.clients}
         label={testimonials.clientLabel}
-        subtitle="Kundenstimmen"
+        subtitle="Wall of Love"
         debugMode={debugMode}
       />
+      <PodcastVideoSectionCopy debugMode={debugMode} />
       <BookingSectionCopy debugMode={debugMode} />
       <FAQSectionCopy debugMode={debugMode} />
       <ReferencesSectionCopy debugMode={debugMode} />
 
       {/* Footer */}
-      <div className="mt-20 pt-8 border-t border-black/10 text-center">
+      <div className="mt-20 pt-8 border-t border-color-border text-center">
         <p className="font-sans text-sm text-color-label">
           /typo-demo — Design Exploration Mode
         </p>

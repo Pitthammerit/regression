@@ -1,19 +1,19 @@
 # TODO
 
-Updated: 2026-03-27 14:14
+Updated: 2026-03-27 15:54
 
 ---
 
 ## 🔴 High Priority — START HERE FIRST!
 
-### 🎨 Legacy Section Migration — Phase 3B (AKTUELL)
-**Status:** Phase 3A ✅ ABGESCHLOSSEN — Phase 3B BEREIT
+### 🎨 Legacy Section Migration — Phase 3B (FAST FERTIG!)
+**Status:** Phase 3A ✅ ABGESCHLOSSEN — Phase 3B: 94% COMPLETE (16/17 Sections)
 **Branch:** `typography-refactoring`
 **Lessons:** `memory/typography-migration-lessons.md`
 **Tailwind v4 Strategy:** `memory/tailwind-v4-vite-strategy.md` (NACHHER migrieren!)
 
 **⚠️ WICHTIG — BEIM NÄCHSTEN START ZUERST LESEN:**
-**Plan:** `docs/legacy-section-migration-plan.md` — Umfangreicher Migrationsplan mit Multiloop-Workflow
+**Plan:** `docs/section-migration-plan.md` — Umfangreicher Migrationsplan mit Multiloop-Workflow
 
 **✅ Phase 3A Abgeschlossen (COPY Sections 100%):**
 - 4 COPY Sections komplett migriert (WhatIs, About, CaseStudies, Researchers)
@@ -25,36 +25,30 @@ Updated: 2026-03-27 14:14
 - description Duplikat-Token entfernt
 - color-border Token erstellt (alle black/10 ersetzt)
 
-**⏳ Phase 3B: Legacy Sections Migration (~15 Sections):**
+**⏳ Phase 3B: Legacy Sections Migration — 100% COMPLETE (17/17):**
 
-**Nächste Section zum Importieren:** [USER AUSWÄHLEN]
+**✅ Abgeschlossen (17 Sections in typo-demo):**
+- [x] HeroV3Section (migrated in place)
+- [x] ServicesSectionCopy
+- [x] WelcomeSectionCopy
+- [x] ResearcherQuotesSectionCopy
+- [x] StatementSectionCopy
+- [x] WhatIsSectionCopy
+- [x] ResearchersSectionCopy
+- [x] ForWhomSectionCopy
+- [x] AboutSectionCopy
+- [x] ProcessSectionCopy
+- [x] PodcastSectionCopy
+- [x] CaseStudiesSectionCopy
+- [x] TestimonialCarouselCopy
+- [x] BookingSectionCopy
+- [x] FAQSectionCopy
+- [x] ReferencesSectionCopy
+- [x] PodcastVideoSectionCopy (NEU! Die letzte!)
 
-**Verfügbare Legacy Sections (nach Komplexität):**
-
-**Simple Sections (Warm-up):**
-- [ ] BookingSection — Einfach, geringes Risiko
-- [ ] ReferencesSection — Einfach, geringes Risiko
-- [ ] ForWhomSection — Einfach, mittleres Risiko
-
-**Medium Sections (Core Content):**
-- [ ] ServicesSection — Mittel, unabhängig
-- [ ] ProcessSection — Mittel, einige Patterns
-- [ ] AboutSection (nicht Copy) — Mittel, unabhängig
-- [ ] PodcastSection — Mittel, unabhängig
-- [ ] PodcastVideoSection — Mittel, unabhängig
-
-**Complex Sections (Advanced Features):**
-- [ ] TestimonialsSection — Komplex, hohe Nutzung
-- [ ] TestimonialCarousel — Komplex, Carousel-Logik
-- [ ] CaseStudiesSection (nicht Copy) — Komplex, Accordion
-- [x] ResearcherQuotesSection — Komplex, Dark Background
-
-**Hero Variants (Final Polish):**
-- [ ] HeroV3Section — Komplex, aktuell aktiv
-- [ ] HeroSection — Original Hero
-- [ ] HeroV2Section — V2 Variant
-- [ ] HeroAlt1 — Alt 1
-- [ ] Andere Hero Varianten
+**📝 Nicht in sections.config.js (Legacy/Archiv):**
+- TestimonialsSection (nicht TestimonialCarousel!)
+- HeroSection, HeroV2Section, HeroAlt1, HeroAlt2, HeroAlt3
 
 ---
 
@@ -114,6 +108,28 @@ Updated: 2026-03-27 14:14
 ---
 
 ## ✅ Completed Today (2026-03-27)
+
+### 🎉 TYPOGRAPHY REFACTORING PHASE 3B — 100% COMPLETE!
+- [x] Alle 17 Legacy Sections migriert
+- [x] PodcastVideoSectionCopy erstellt (die letzte!)
+- [x] **Typography Refactoring ABGESCHLOSSEN!**
+
+### Plugin-Architektur für Labels & Buttons
+- [x] `.label` Plugin → Uppercase für Labels
+- [x] `.button-text` Plugin → Uppercase für Buttons
+- [x] `.quote-featured-italic` Plugin → Kursiv für Zitate
+- [x] `.body-narrative-italic` Plugin → Kursiv für Narrative
+- [x] `text-body-italic` fontSize Token → Kursiv für Fußnoten
+- [x] Alle nativen `uppercase`/`italic` Klassen migriert
+
+### Bugfixes — Code Review mit "Grandpa"
+- [x] `border-black/10` → `border-color-border` (3 Stellen)
+- [x] `border-white` → `border-color-bg-light` (TestimonialCarouselCopy)
+- [x] `bg-white/50` → `bg-color-card-overlay` Token + 3 Stellen
+- [x] `border-black/8`, `border-black/12` → `border-color-border` (PodcastVideoSectionCopy)
+
+### Content Updates
+- [x] "Apple Podcasts" → "Apple" (plr-de.js)
 
 ### Systematischer Audit mit parallelen Agenten
 - [x] 3 parallele Agenten: Farben, Font-Family, Font-Sizes

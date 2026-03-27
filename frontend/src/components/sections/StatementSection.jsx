@@ -5,7 +5,7 @@ import SectionWrapper from '../ui/SectionWrapper'
 export default function StatementSection() {
   return (
     <SectionWrapper id="statement" data-testid="statement-section">
-      <div className="max-w-3xl mx-auto text-center border-t border-b border-black/10 py-10">
+      <div className="max-w-3xl mx-auto text-center border-t border-b border-color-divider py-10">
         {statement.lines.map((line, i) => (
           <p
             key={i}

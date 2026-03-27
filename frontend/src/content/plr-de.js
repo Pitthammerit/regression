@@ -114,7 +114,7 @@ export const podcasts = [
     episodeAudioUrl: "https://audio.podigee-cdn.net/2364431-m-438ee3d6d68b8de82a26986fecfd35e8.mp3",
     podcastLinks: [
       { label: "Spotify", url: "https://open.spotify.com/episode/3D9V2pK9kdT6ED9FENxpnW?si=7rD9pMrcSV6uLq-tOoMICA" },
-      { label: "Apple Podcasts", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
+      { label: "Apple", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
       { label: "YouTube", url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
     ],
   },
@@ -618,7 +618,7 @@ export const footer = {
   ],
   social: [
     { label: "Spotify",        url: "https://open.spotify.com/episode/3D9V2pK9kdT6ED9FENxpnW?si=7rD9pMrcSV6uLq-tOoMICA" },
-    { label: "Apple Podcasts", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
+    { label: "Apple", url: "https://podcasts.apple.com/pt/podcast/episode-52-reinkarnation-was-wenn-der-tod-nicht-das-ende-ist/id1680846180?i=1000751332298" },
     { label: "YouTube",        url: "https://youtu.be/U5L07PmViis?si=r1aB93QVAkpFgd97" },
   ],
 };

@@ -45,7 +45,7 @@ export default function ReferencesSection() {
                     />
                   ) : (
                     <AspectRatio ratio={2 / 3}>
-                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
+                      <div className="w-full h-full border border-on-dark-divider rounded-lg flex items-center justify-center bg-brand-dark/50">
                         <BookOpen className="w-12 h-12 text-white/30" />
                       </div>
                     </AspectRatio>
@@ -115,7 +115,7 @@ export default function ReferencesSection() {
                     />
                   ) : (
                     <AspectRatio ratio={2 / 3}>
-                      <div className="w-full h-full border border-white/20 rounded-lg flex items-center justify-center bg-brand-dark/50">
+                      <div className="w-full h-full border border-on-dark-divider rounded-lg flex items-center justify-center bg-brand-dark/50">
                         <BookOpen className="w-12 h-12 text-white/30" />
                       </div>
                     </AspectRatio>

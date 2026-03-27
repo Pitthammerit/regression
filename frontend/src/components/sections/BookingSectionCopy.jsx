@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { booking } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
+import TopicCard from '../ui/TopicCard'
 import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 
@@ -12,15 +13,15 @@ import { ChevronDown } from 'lucide-react'
  * - Font-family: font-display (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label
  * - Headline: hero-large (clamp 2.4-5.4rem) + color-heading
- * - Subline: text-body (18px) + color-body
- * - Topics: text-body (18px) + color-body
+ * - Subline: text-body-lg (20px) + color-body
+ * - Topics: text-list (20px) + color-body
  * - Button: text-label (15px) uppercase + tracking-widest
  *
  * CRITICAL PRESERVED:
  * - SectionWrapper with id="booking" (scroll target)
  * - Global 'booking:open' event listener for CtaButton integration
  * - Accordion with calendar embed
- * - Map over booking.formTopics
+ * - TopicCard component for form topics (imported from ui/)
  */
 export default function BookingSectionCopy({ debugMode = false }) {
   const [calendarOpen, setCalendarOpen] = useState(false)
@@ -35,7 +36,7 @@ export default function BookingSectionCopy({ debugMode = false }) {
 
   return (
     <SectionWrapper id="booking" data-testid="booking-section">
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-centered-header mx-auto text-center">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={booking.label} />
         </DebugLabel>
@@ -46,25 +47,16 @@ export default function BookingSectionCopy({ debugMode = false }) {
           </h2>
         </DebugLabel>
 
-        <DebugLabel type="body" debugMode={debugMode}>
-          <p className="font-primary text-body text-color-body leading-relaxed content-spacing-lg max-w-lg mx-auto">
+        <DebugLabel type="body-lg" debugMode={debugMode}>
+          <p className="font-primary text-body-lg text-color-body leading-relaxed content-spacing-lg max-w-lg mx-auto">
             {booking.subline}
           </p>
         </DebugLabel>
 
         {/* Topics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-10 text-left max-w-xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mb-10" data-testid="booking-topics-grid">
           {booking.formTopics.map((topic, i) => (
-            <div key={i} className="flex items-start gap-2">
-              <DebugLabel type="list-bullet" debugMode={debugMode}>
-                <span className="text-color-label mt-0.5 shrink-0">—</span>
-              </DebugLabel>
-              <DebugLabel type="list" debugMode={debugMode}>
-                <span className="font-primary text-list text-color-body">
-                  {topic}
-                </span>
-              </DebugLabel>
-            </div>
+            <TopicCard key={i} title={topic} debugMode={debugMode} />
           ))}
         </div>
 
@@ -86,7 +78,7 @@ export default function BookingSectionCopy({ debugMode = false }) {
           className={`overflow-hidden transition-all duration-500 ${calendarOpen ? 'max-h-[900px] mt-8' : 'max-h-0'}`}
           data-testid="booking-calendar-accordion"
         >
-          <div className="rounded-2xl border border-color-bg-light bg-white/50 p-8 text-left">
+          <div className="rounded-2xl border border-color-bg-light bg-color-card-overlay p-8 text-left">
             {embedCode ? (
               <iframe
                 src={embedCode}

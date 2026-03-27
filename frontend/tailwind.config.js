@@ -11,9 +11,13 @@ module.exports = {
         // ─────────────────────────────────────────────────────────────
         // 1. GENERAL PURPOSE
         // ─────────────────────────────────────────────────────────────
-        'color-bg-light':  '#EDE7DC',
-        'color-bg-medium': '#E5DFD5',
-        'color-bg-dark':   '#224160',
+        'color-bg-light':     '#EDE7DC',
+        'color-bg-medium':    '#E5DFD5',
+        'color-bg-dark':      '#224160',
+        'color-card-overlay': '#ffffff80', // white/50 for card backgrounds
+        'color-divider':      '#0000001A', // black/10 - universal for light backgrounds
+        'color-border':       '#0000001A', // black/10 - for element borders (avatars, cards)
+        'color-overlay-dark': '#00000040', // black/25 - for modal/panel backdrops
 
         // ─────────────────────────────────────────────────────────────
         // 2. SEMANTIC NAMES (für Sections)
@@ -94,6 +98,10 @@ module.exports = {
         'body-lg': ['1.25rem', {
           lineHeight: '1.625',
         }],
+        'body-italic': ['1.125rem', {
+          lineHeight: '1.75',
+          fontStyle: 'italic',
+        }],
         'label': ['0.94rem', {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
@@ -135,7 +143,6 @@ module.exports = {
         'button-text': ['0.875rem', {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
-          textTransform: 'uppercase',
         }],
         'source-link': ['0.875rem', {
           lineHeight: '1.5',
@@ -147,7 +154,13 @@ module.exports = {
         'icon': ['1rem', {
           lineHeight: '1',
         }],
-        'star': ['2px', {
+        'icon-sm': ['0.875rem', {
+          lineHeight: '1',
+        }],
+        'icon-md': ['1.125rem', {
+          lineHeight: '1',
+        }],
+        'star': ['10px', {
           lineHeight: '1',
         }],
       },
@@ -157,6 +170,7 @@ module.exports = {
       },
       maxWidth: {
         content: '72rem',
+        'centered-header': '48rem',
       },
       backgroundImage: {
         paper: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E")`,
@@ -171,6 +185,11 @@ module.exports = {
           'letter-spacing': '0.2em',
           'text-transform': 'uppercase',
           'font-weight': '400',
+        },
+        '.button-text': {
+          'line-height': '1.5',
+          'letter-spacing': '0.2em',
+          'text-transform': 'uppercase',
         },
         '.role': {
           'line-height': '1.5',
@@ -187,6 +206,12 @@ module.exports = {
         },
         '.disclaimer-italic': {
           'line-height': '1.5',
+          'font-style': 'italic',
+        },
+        '.quote-featured-italic': {
+          'font-style': 'italic',
+        },
+        '.body-narrative-italic': {
           'font-style': 'italic',
         },
         '.divider-spacing': {
