@@ -487,12 +487,12 @@ export const booking = {
   directBookingCta: "Intro-Call buchen",
   directBookingUrl: "https://www.benjaminkurtz.de/bookings/wakeup",
   formTopics: [
+    "Seelenrückführung",
     "Trauma / emotionale Blockaden",
-    "Wiederkehrende Beziehungsmuster",
-    "Spirituelle Erkundung / Seelenrückführung",
+    "Wiederkehrende Beziehungsmuster verstehen",
     "Channeling lernen",
     "Lebensaufgabe / Purpose",
-    "Sonstiges",
+    "Spirituelles Erwachen",
   ],
 };
 
