@@ -29,7 +29,7 @@ export default function PodcastSectionCopy({ debugMode = false }) {
       {/* Background photo — visible, no dark overlay */}
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${SECTION_BG})` }} />
       {/* Very light cream tint for text readability */}
-      <div className="absolute inset-0 bg-brand-cream/30" />
+      <div className="absolute inset-0 bg-color-bg-light/30" />
 
       <div className="relative z-10 max-w-content mx-auto px-8 md:px-14 lg:px-20 py-16 md:py-20">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">

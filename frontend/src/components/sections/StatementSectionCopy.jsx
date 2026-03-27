@@ -19,7 +19,7 @@ import DebugLabel from '../ui/DebugLabel'
 export default function StatementSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="statement" data-testid="statement-section">
-      <div className="max-w-3xl mx-auto text-center border-t border-b border-black/10 py-10">
+      <div className="max-w-3xl mx-auto text-center border-t border-b border-color-border py-10">
         {statement.lines.map((line, i) => (
           <DebugLabel type={i === 1 ? 'h2' : 'h3'} debugMode={debugMode} key={i}>
             <p
