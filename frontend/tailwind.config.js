@@ -292,6 +292,9 @@ module.exports = {
         '.element-spacing-md': {
           'margin-top': '1rem',
         },
+        '.paragraph-spacing': {
+          'margin-bottom': '1rem',
+        },
         '.expanded-content-spacing': {
           'margin-top': '1rem',
           'padding-top': '2rem',

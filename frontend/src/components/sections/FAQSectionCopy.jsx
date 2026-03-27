@@ -66,9 +66,16 @@ export default function FAQSectionCopy({ debugMode = false }) {
                 }`}
               >
                 <DebugLabel type="body" debugMode={debugMode}>
-                  <p className="font-display text-body text-color-heading leading-relaxed whitespace-pre-line">
-                    {item.answer}
-                  </p>
+                  {item.answer.split('\n\n').map((paragraph, i, arr) => (
+                    <p
+                      key={i}
+                      className={`font-display text-body text-color-heading leading-relaxed ${
+                        i < arr.length - 1 ? 'paragraph-spacing' : ''
+                      }`}
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                 </DebugLabel>
               </div>
             </div>
