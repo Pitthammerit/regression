@@ -10,9 +10,9 @@ import DebugLabel from "../ui/DebugLabel"
  * - Font-family: font-display (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label
  * - H2: text-h2 (36px) + color-heading
- * - Name: text-body (18px) + color-heading (semibold)
+ * - Name: text-h5 (20px) + color-heading (semibold)
  * - Context: text-label (15px) + color-label
- * - Quote: text-body (18px) + color-body
+ * - Quote: text-body-narrative (18px) + color-body
  *
  * FEATURES:
  * - Auto-advancing every 5 seconds + 2s (7s total)
@@ -90,7 +90,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
         {/* Section Title - centered */}
         <div className="mb-8 text-center">
           <DebugLabel type="label" debugMode={debugMode}>
-            <p className="font-primary text-label uppercase tracking-widest text-color-label">
+            <p className="font-primary text-label uppercase text-color-label">
               {label}
             </p>
           </DebugLabel>
@@ -153,7 +153,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                       {/* 5 Stars - semantic star color (yellow) */}
                       <div className="flex items-center gap-0.5 text-color-star">
                         {Array.from({ length: 5 }).map((_, starIdx) => (
-                          <Star key={starIdx} className="h-4 w-4 fill-current" />
+                          <Star key={starIdx} className="w-star h-star fill-current" />
                         ))}
                       </div>
                     </div>
@@ -177,7 +177,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
             onClick={handleNext}
             className="absolute right-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-label transition-opacity hover:opacity-70 xl:block"
             aria-label="Next testimonial">
-            <ChevronRight className="h-8 w-8" />
+            <ChevronRight className="w-icon h-icon" />
           </button>
         </div>
 
