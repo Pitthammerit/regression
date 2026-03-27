@@ -36,6 +36,7 @@ export const hero = {
   ctaSecondary: "Podcast-Gespräch anhören →",
   videoPlaceholder: "[ Intro-Video Benjamin Kurtz ]",
   videoUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/video/riverside_benjamin_raw-video-cfr_benjamin_kurtz's%20st_0016%20trim.mp4",
+  posterUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/video-thumbnails/welcome_regresson_video_thumbnail.jpg",
   vimeoEmbedUrl: "https://player.vimeo.com/video/1168643769",
 };
 

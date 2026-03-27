@@ -43,6 +43,7 @@ export default function HeroV3Section({ debugMode = false }) {
           <CustomVideoPlayer
             type="r2"
             src={hero.videoUrl}
+            poster={hero.posterUrl}
             className="h-full"
             onVideoEnded={handleScrollDown}
           />

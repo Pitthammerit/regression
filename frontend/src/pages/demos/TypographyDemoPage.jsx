@@ -4,6 +4,7 @@ import HeroV3Section from '../../components/sections/HeroV3Section'
 import ServicesSectionCopy from '../../components/sections/ServicesSectionCopy'
 import WelcomeSectionCopy from '../../components/sections/WelcomeSectionCopy'
 import ResearcherQuotesSectionCopy from '../../components/sections/ResearcherQuotesSectionCopy'
+import StatementSectionCopy from '../../components/sections/StatementSectionCopy'
 import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
 import CaseStudiesSectionCopy from '../../components/sections/CaseStudiesSectionCopy'
@@ -41,7 +42,7 @@ export default function TypographyDemoPage() {
       {/* ═══════════════════════════════════════════════════════════ */}
       <div className="max-w-content mx-auto px-6 py-20">
         {/* Header */}
-        <div className="mb-16 pb-8 border-b border-black/10">
+        <div className="section-block-spacing pb-8 border-b border-black/10">
           <p className="font-sans text-xs tracking-[0.2em] uppercase text-color-label mb-4">
             DESIGN EXPLORATION
           </p>
