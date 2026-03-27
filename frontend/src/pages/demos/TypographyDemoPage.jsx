@@ -4,6 +4,9 @@ import HeroV3Section from '../../components/sections/HeroV3Section'
 import ServicesSectionCopy from '../../components/sections/ServicesSectionCopy'
 import WelcomeSectionCopy from '../../components/sections/WelcomeSectionCopy'
 import ResearcherQuotesSectionCopy from '../../components/sections/ResearcherQuotesSectionCopy'
+import ResearcherQuotesSectionClean from '../../components/sections/ResearcherQuotesSectionClean'
+import ResearcherQuotesSectionTest from '../../components/sections/ResearcherQuotesSectionTest'
+import SimpleTestSection from '../../components/sections/SimpleTestSection'
 import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
 import CaseStudiesSectionCopy from '../../components/sections/CaseStudiesSectionCopy'
@@ -520,6 +523,25 @@ export default function TypographyDemoPage() {
       <ServicesSectionCopy debugMode={debugMode} />
       <WelcomeSectionCopy debugMode={debugMode} />
       <ResearcherQuotesSectionCopy debugMode={debugMode} />
+
+      {/* CLEAN VERSION - for spacing comparison */}
+      <div className="bg-yellow-100 py-4 text-center text-sm font-sans">
+        ⬇️ CLEAN VERSION (below) - same spacing label→H2 and H2→images
+      </div>
+      <ResearcherQuotesSectionClean />
+
+      {/* TEST VERSION - raw Tailwind, no custom utilities */}
+      <div className="bg-red-100 py-4 text-center text-sm font-sans">
+        ⬇️ TEST VERSION (below) - RAW Tailwind classes only
+      </div>
+      <ResearcherQuotesSectionTest />
+
+      {/* SIMPLE TEST - minimal structure */}
+      <div className="bg-green-100 py-4 text-center text-sm font-sans text-black">
+        ⬇️ SIMPLE TEST (below) - minimal: Label → H2 → 3 boxes
+      </div>
+      <SimpleTestSection />
+
       <div className="py-8 border-t border-black/10 my-8" />
       <WhatIsSectionCopy debugMode={debugMode} />
       <AboutSectionCopy debugMode={debugMode} />
