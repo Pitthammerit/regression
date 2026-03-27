@@ -101,7 +101,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
             onClick={handlePrev}
             className="absolute left-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-label transition-opacity hover:opacity-70 xl:block"
             aria-label="Previous testimonial">
-            <ChevronLeft className="h-8 w-8" />
+            <ChevronLeft className="w-icon h-icon" />
           </button>
 
           {/* Sliding Cards Container */}
@@ -114,7 +114,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
                 <div key={`${t.name}-${idx}`} className="min-w-full">
                   <div className="flex flex-col gap-3 rounded-2xl bg-white/50 p-6 border border-brand-sand shadow-sm backdrop-blur-sm">
                     {/* Top Row: Avatar + Name/Role + Stars */}
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row items-start gap-4">
                       <div className="flex items-center gap-4">
                         {t.image && (
                           <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-white shadow-md">
@@ -135,10 +135,10 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
                           </p>
                         </div>
                       </div>
-                      {/* 5 Stars - gold color from Tailwind */}
-                      <div className="flex items-center gap-0.5 text-amber-400">
+                      {/* 5 Stars - semantic star color (yellow) */}
+                      <div className="flex items-center gap-0.5 text-color-star sm:ml-auto sm:mt-1">
                         {Array.from({ length: 5 }).map((_, starIdx) => (
-                          <Star key={starIdx} className="h-4 w-4 fill-current" />
+                          <Star key={starIdx} className="w-star h-star fill-current" />
                         ))}
                       </div>
                     </div>
@@ -160,7 +160,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
             onClick={handleNext}
             className="absolute right-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-label transition-opacity hover:opacity-70 xl:block"
             aria-label="Next testimonial">
-            <ChevronRight className="h-8 w-8" />
+            <ChevronRight className="w-icon h-icon" />
           </button>
         </div>
 
