@@ -6,62 +6,79 @@ import LazyImage from '../ui/LazyImage'
 import Container from '../ui/Container'
 
 /**
- * ResearcherQuotesSectionClean — Clean spacing pattern
+ * ResearcherQuotesSectionClean — Based on SIMPLE TEST pattern
  *
- * PATTERN: Label → H2 → Images with EQUAL gaps
- * - Label → H2: label-heading-spacing (0.7rem)
- * - H2 → Grid: label-heading-spacing (0.7rem)
+ * PATTERN from SIMPLE TEST (working correctly):
+ * - SectionLabel → H2 (with section-block-spacing) → Grid
+ * - Uses only design tokens, no hardcoded values
  *
- * Both gaps use the same utility for consistent spacing.
+ * ADDITIONAL FEATURES:
+ * - Filter for authors with portraits
+ * - Expandable "Mehr/Weniger" for additional authors
  */
 export default function ResearcherQuotesSectionClean() {
   const [isExpanded, setIsExpanded] = useState(false)
+
+  // Filter authors with portraits (from plr-de.js)
   const authorsWithPortraits = researchers.authors.filter(author => author.portrait !== null)
   const hasMore = authorsWithPortraits.length > 3
 
   return (
     <section className="py-16 md:py-20 bg-color-bg-dark text-on-dark-heading">
       <Container>
-        {/* Label with spacing below */}
+        {/* Label - imported from plr-de.js */}
         <SectionLabel text={researchers.authorBigLabel} light />
 
-        {/* H2 with SAME spacing below as label → H2 */}
-        <h2 className="font-display text-h2 leading-tight text-on-dark-heading label-heading-spacing">
+        {/* H2 - uses section-block-spacing token (not hardcoded mb-*) */}
+        <h2 className="font-display text-h2 leading-tight text-on-dark-heading section-block-spacing">
           {researchers.authorHeadline}
         </h2>
 
-        {/* Grid - no extra margin, spacing controlled by H2 */}
+        {/* Grid - first 3 authors, no margin-top */}
         <div className="grid md:grid-cols-3 gap-10 md:gap-14">
           {authorsWithPortraits.slice(0, 3).map((author) => (
             <div key={author.id}>
-              <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
-                <LazyImage
-                  src={author.portrait}
-                  alt={author.name}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </AspectRatio>
-              <AspectRatio ratio={1 / 1} className="hidden md:block mb-4">
-                <LazyImage
-                  src={author.portrait}
-                  alt={author.name}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </AspectRatio>
-              <blockquote className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
+              {/* Mobile: 16:9 aspect ratio */}
+              <div className="md:hidden mb-4">
+                <AspectRatio ratio={16 / 9}>
+                  <LazyImage
+                    src={author.portrait}
+                    alt={author.name}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </AspectRatio>
+              </div>
+
+              {/* Desktop: 1:1 aspect ratio */}
+              <div className="hidden md:block mb-4">
+                <AspectRatio ratio={1 / 1}>
+                  <LazyImage
+                    src={author.portrait}
+                    alt={author.name}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </AspectRatio>
+              </div>
+
+              {/* Quote - uses content-spacing token */}
+              <p className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
                 "{author.quote}"
-              </blockquote>
-              <div className="font-display text-author-name text-on-dark-heading name-role-spacing">
+              </p>
+
+              {/* Name - uses name-role-spacing token */}
+              <p className="font-display text-author-name text-on-dark-heading name-role-spacing">
                 {author.name}
-              </div>
-              <div className="text-date text-on-dark-role role-date-spacing">
+              </p>
+
+              {/* Role - uses role-date-spacing token */}
+              <p className="text-date text-on-dark-role role-date-spacing">
                 {author.role}
-              </div>
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Show More / Show Less */}
+        {/* Expandable "Mehr/Weniger" - only show if more than 3 authors */}
         {hasMore && (
           <>
             <div className="flex items-center gap-4 my-10">
@@ -83,33 +100,42 @@ export default function ResearcherQuotesSectionClean() {
               <div className="flex-1 h-px bg-on-dark-divider"></div>
             </div>
 
+            {/* Expanded content - authors 4+ */}
             {isExpanded && (
               <div className="grid md:grid-cols-3 gap-10 md:gap-14">
                 {authorsWithPortraits.slice(3).map((author) => (
                   <div key={author.id}>
-                    <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
-                      <LazyImage
-                        src={author.portrait}
-                        alt={author.name}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    </AspectRatio>
-                    <AspectRatio ratio={1 / 1} className="hidden md:block mb-4">
-                      <LazyImage
-                        src={author.portrait}
-                        alt={author.name}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    </AspectRatio>
-                    <blockquote className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
+                    <div className="md:hidden mb-4">
+                      <AspectRatio ratio={16 / 9}>
+                        <LazyImage
+                          src={author.portrait}
+                          alt={author.name}
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                    </div>
+
+                    <div className="hidden md:block mb-4">
+                      <AspectRatio ratio={1 / 1}>
+                        <LazyImage
+                          src={author.portrait}
+                          alt={author.name}
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </AspectRatio>
+                    </div>
+
+                    <p className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
                       "{author.quote}"
-                    </blockquote>
-                    <div className="font-display text-author-name text-on-dark-heading name-role-spacing">
+                    </p>
+
+                    <p className="font-display text-author-name text-on-dark-heading name-role-spacing">
                       {author.name}
-                    </div>
-                    <div className="text-date text-on-dark-role role-date-spacing">
+                    </p>
+
+                    <p className="text-date text-on-dark-role role-date-spacing">
                       {author.role}
-                    </div>
+                    </p>
                   </div>
                 ))}
               </div>
