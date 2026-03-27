@@ -1,6 +1,5 @@
 // MenuDemoPage - Klon der Hauptseite mit verschiedenen Header-Varianten
 import React, { useState } from 'react'
-import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import HeroV3Section from '../../components/sections/HeroV3Section'
 import ServicesSection from '../../components/sections/ServicesSection'
