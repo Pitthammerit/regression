@@ -10,6 +10,7 @@ import PodcastSectionCopy from '../../components/sections/PodcastSectionCopy'
 import ProcessSectionCopy from '../../components/sections/ProcessSectionCopy'
 import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
+import BookingSectionCopy from '../../components/sections/BookingSectionCopy'
 import CaseStudiesSectionCopy from '../../components/sections/CaseStudiesSectionCopy'
 import ResearchersSectionCopy from '../../components/sections/ResearchersSectionCopy'
 import TestimonialCarouselCopy from '../../components/sections/TestimonialCarouselCopy'
@@ -532,6 +533,7 @@ export default function TypographyDemoPage() {
       <ProcessSectionCopy debugMode={debugMode} />
       <WhatIsSectionCopy debugMode={debugMode} />
       <AboutSectionCopy debugMode={debugMode} />
+      <BookingSectionCopy debugMode={debugMode} />
       <CaseStudiesSectionCopy debugMode={debugMode} />
       <ResearchersSectionCopy debugMode={debugMode} />
       <TestimonialCarouselCopy
