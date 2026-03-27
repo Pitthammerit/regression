@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-27 05:02
+Updated: 2026-03-27 05:41
 
 ---
 
@@ -105,7 +105,7 @@ Updated: 2026-03-27 05:02
 - [ ] Update components to use `useContent()`
 
 ### Resolve backend/ Folder Confusion
-- [ ] Either remove `backend/` folder
+- [x] Either remove `backend/` folder
 - [ ] Or add clarifying note: "Not deployed. Frontend-only project"
 
 ### Add SPA Fallback for Deep Links

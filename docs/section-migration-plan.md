@@ -988,7 +988,40 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 
 **Use this checklist for EACH section migrated:**
 
+### ⚠️ CRITICAL: COPY-WORKFLOW (First Step!)
+**ABSOULTE PRIORITY: Original-Section NICHT verändern!**
+
+**NEUER WORKFLOW (Live-Feedback-Schleife):**
+1. **Copy erstellen** → `SectionNameCopy.jsx`
+2. **Copy in typo-demo importieren** (VOR Migration!)
+3. **Im typo-demo sehen** — Original bleibt intakt
+4. **DANN migrieren** — Typography tokens anwenden
+5. **Live im Browser testen** — DebugLabels aktivieren
+6. **User gibt Feedback** — Visuelle Prüfung
+7. **Korrekturen vornehmen** — Falls nötig
+8. **Erst dann fertig**
+
+**Warum:**
+- User sieht live die Arbeit im Browser
+- Kann sofort Feedback geben (visuell)
+- Original bleibt intakt für Vergleich
+- typo-demo ist sichere Umgebung
+
+**Workflow:**
+```
+Copy erstellen → typo-demo import → User sieht original
+       ↓
+   User sagt "go ahead"
+       ↓
+   Migrieren mit Tokens
+       ↓
+   User gibt Feedback im Browser
+       ↓
+   Korrekturen → fertig
+```
+
 ### Pre-Migration
+- [ ] Copy erstellt (SectionNameCopy.jsx)
 - [ ] Memory files read (typography-editor-attempt, section-migration-systematic-approach)
 - [ ] Token system verified (tailwind.config.js)
 - [ ] Reference sections reviewed (WhatIs, About, Researchers Copy)
@@ -996,12 +1029,35 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 - [ ] Target section identified (from Priority List)
 
 ### Analysis (Phase 2)
-- [ ] Legacy section fully read
+- [ ] Legacy section fully read (COPY version!)
 - [ ] All hardcoded values found (grep search complete)
 - [ ] Token mapping created (table format)
 - [ ] Complexity estimated (simple/medium/complex)
 - [ ] Missing tokens identified (and created if needed)
 - [ ] Subtasks defined (ready for ASSIGN phase)
+
+### ⚠️ CRITICAL: PRESERVE ALL FUNCTIONALITY!
+**Bevor du etwas entfernst: FRAGEN!**
+
+- [ ] **Alle Animationen erhalten?**
+  - Scroll animations (scrollFade, etc.)
+  - Hover effects (opacity, transition, etc.)
+  - Custom animations (animate-[...], keyframes)
+  - VideoPlayer events (onVideoEnded, etc.)
+- [ ] **Alle Interaktionen erhalten?**
+  - Scroll handlers (scrollIntoView, etc.)
+  - Click handlers (button clicks, etc.)
+  - Form inputs (wenn vorhanden)
+  - Accordions, Toggles, etc.
+- [ ] **Alle IDs und Anchors erhalten?**
+  - Section IDs (id="hero", id="services", etc.)
+  - Anchor links (#hero, #services, etc.)
+  - data-testid attributes (für Tests)
+- [ ] **Alle Custom Components erhalten?**
+  - CustomVideoPlayer, LazyImage, etc.
+  - Third-party components (Radix UI, etc.)
+
+**Rule: IM ZWEIFEL → FRAGEN! Design-Preservation > Token-Cleanliness!**
 
 ### Migration (Phase 3)
 - [ ] Typography Analyzer agent launched
@@ -1050,68 +1106,39 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 
 ## SECTIONS PRIORITY LIST
 
-### Batch 1: Simple Sections (Warm-up)
-**Ziel:** Workflow etablieren, Confidence aufbauen
+**⚠️ WICHTIG: Reihenfolge folgt sections.config.js — Sections werden in der Reihenfolge migriert, wie sie auf der Mainpage erscheinen.**
 
-| Section | Complexity | Risk | Est. Time | Priority |
-|---------|------------|------|-----------|----------|
-| BookingSection | Simple | Low | 30-45 min | HIGH |
-| ReferencesSection | Simple | Low | 30-45 min | HIGH |
-| ForWhomSection | Simple | Medium | 45-60 min | MEDIUM |
+### Priority Order (nach sections.config.js)
 
-**Warum zuerst:**
-- Niedrige Komplexität (1-2 Typography Patterns)
-- Unabhängig (keine Shared Components)
-- Geringes Risiko bei Fehlern
-- Gute zum Üben des Workflows
+| # | Section | Complexity | Est. Time | Status |
+|---|---------|------------|-----------|--------|
+| 1 | **HeroV3Section** | Complex | 90-120 min | ⬜ Pending |
+| 2 | ServicesSection | Medium | 45-60 min | ⬜ Pending |
+| 3 | WelcomeSection | Medium | 45-60 min | ⬜ Pending |
+| 4 | ResearcherQuotesSection | Complex | 75-90 min | ⬜ Pending |
+| 5 | StatementSection | Simple | 30-45 min | ⬜ Pending |
+| 6 | WhatIsSection | Simple | 30-45 min | ⬜ Pending |
+| 7 | ResearchersSection | Complex | 90-120 min | ⬜ Pending |
+| 8 | PodcastVideoSection | Medium | 60-90 min | ⬜ Pending |
+| 9 | ForWhomSection | Medium | 45-60 min | ⬜ Pending |
+| 10 | AboutSection | Medium | 45-60 min | ⬜ Pending |
+| 11 | ProcessSection | Medium | 60-90 min | ⬜ Pending |
+| 12 | PodcastSection | Medium | 60-90 min | ⬜ Pending |
+| 13 | CaseStudiesSection | Complex | 90-120 min | ⬜ Pending |
+| 14 | TestimonialCarousel | Complex | 90-120 min | ⬜ Pending |
+| 15 | BookingSection | Simple | 30-45 min | ⬜ Pending |
+| 16 | FAQSection | Medium | 45-60 min | ⬜ Pending |
+| 17 | ReferencesSection | Simple | 30-45 min | ⬜ Pending |
 
-**Batch Time:** 1.5-2 Stunden
+**Nicht in sections.config.js (Experimente/Archiv):**
+- HeroSection, HeroV2Section, HeroAlt1, HeroAlt2, HeroAlt3 (werden zuletzt migriert, wenn überhaupt)
 
----
+**Warum diese Reihenfolge:**
+- Folgt der User-Experience auf der Landing Page
+- Sections oben haben mehr Sichtbarkeit → höheres Risiko bei Fehlern
+- Realistische Test-Reihenfolge (User scrollt von oben nach unten)
 
-### Batch 2: Medium Sections (Core Content)
-**Ziel:** Hauptinhalte migrieren
-
-| Section | Complexity | Risk | Est. Time | Priority |
-|---------|------------|------|-----------|----------|
-| ServicesSection | Medium | Low | 45-60 min | HIGH |
-| ProcessSection | Medium | Low | 60-90 min | MEDIUM |
-| AboutSection (non-Copy) | Medium | Low | 45-60 min | HIGH |
-| PodcastSection | Medium | Low | 60-90 min | MEDIUM |
-| PodcastVideoSection | Medium | Medium | 60-90 min | MEDIUM |
-
-**Batch Time:** 3-4 Stunden
-
----
-
-### Batch 3: Complex Sections (Advanced)
-**Ziel:** Komplexe Features migrieren
-
-| Section | Complexity | Risk | Est. Time | Priority |
-|---------|------------|------|-----------|----------|
-| TestimonialsSection | Complex | High | 90-120 min | HIGH |
-| TestimonialCarousel | Complex | High | 90-120 min | HIGH |
-| CaseStudiesSection (non-Copy) | Complex | High | 90-120 min | HIGH |
-| ResearcherQuotesSection | Complex | Medium | 75-90 min | MEDIUM |
-| ResearchersSection (non-Copy) | Complex | High | 90-120 min | HIGH |
-
-**Batch Time:** 4-6 Stunden
-
----
-
-### Batch 4: Hero Variants (Final Polish)
-**Ziel:** Alle Hero-Varianten migrieren
-
-| Section | Complexity | Risk | Est. Time | Priority |
-|---------|------------|------|-----------|----------|
-| HeroSection | Complex | High | 90-120 min | HIGH |
-| HeroV2Section | Complex | Medium | 75-90 min | MEDIUM |
-| HeroV3Section | Complex | High | 90-120 min | HIGH |
-| HeroAlt1 | Complex | Medium | 60-90 min | LOW |
-| HeroAlt2 | Complex | Medium | 60-90 min | LOW |
-| HeroAlt3 | Complex | Medium | 60-90 min | LOW |
-
-**Batch Time:** 3-4 Stunden
+**Geschätzte Gesamtzeit:** 15-20 Stunden über 4-5 Sessions
 
 ---
 
@@ -1130,51 +1157,39 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 
 ## Phase 3B: Legacy Sections (🚧 IN PROGRESS)
 
-### Batch 1: Simple Sections
-| Section | Status | Date | Migration Log |
-|---------|--------|------|---------------|
-| BookingSection | ⬜ Pending | - | - |
-| ReferencesSection | ⬜ Pending | - | - |
-| ForWhomSection | ⬜ Pending | - | - |
+**Reihenfolge: sections.config.js (Main Page Order)**
 
-### Batch 2: Medium Sections
-| Section | Status | Date | Migration Log |
-|---------|--------|------|---------------|
-| ServicesSection | ⬜ Pending | - | - |
-| ProcessSection | ⬜ Pending | - | - |
-| AboutSection | ⬜ Pending | - | - |
-| PodcastSection | ⬜ Pending | - | - |
-| PodcastVideoSection | ⬜ Pending | - | - |
-
-### Batch 3: Complex Sections
-| Section | Status | Date | Migration Log |
-|---------|--------|------|---------------|
-| TestimonialsSection | ⬜ Pending | - | - |
-| TestimonialCarousel | ⬜ Pending | - | - |
-| CaseStudiesSection | ⬜ Pending | - | - |
-| ResearcherQuotesSection | ⬜ Pending | - | - |
-| ResearchersSection | ⬜ Pending | - | - |
-
-### Batch 4: Hero Variants
-| Section | Status | Date | Migration Log |
-|---------|--------|------|---------------|
-| HeroSection | ⬜ Pending | - | - |
-| HeroV2Section | ⬜ Pending | - | - |
-| HeroV3Section | ⬜ Pending | - | - |
-| HeroAlt1 | ⬜ Pending | - | - |
-| HeroAlt2 | ⬜ Pending | - | - |
-| HeroAlt3 | ⬜ Pending | - | - |
+| # | Section | Status | Date | Migration Log |
+|---|---------|--------|------|---------------|
+| 1 | HeroV3Section | ✅ Complete | 2026-03-27 | [view](#hero-v3-migration) |
+| 2 | ServicesSection | ✅ Complete | 2026-03-27 | [view](#services-migration) |
+| 3 | WelcomeSection | ✅ Complete | 2026-03-27 | [view](#welcome-migration) |
+| 4 | ResearcherQuotesSection | ⬜ Pending | - | - |
+| 4 | ResearcherQuotesSection | ⬜ Pending | - | - |
+| 5 | StatementSection | ⬜ Pending | - | - |
+| 6 | WhatIsSection | ⬜ Pending | - | - |
+| 7 | ResearchersSection | ⬜ Pending | - | - |
+| 8 | PodcastVideoSection | ⬜ Pending | - | - |
+| 9 | ForWhomSection | ⬜ Pending | - | - |
+| 10 | AboutSection | ⬜ Pending | - | - |
+| 11 | ProcessSection | ⬜ Pending | - | - |
+| 12 | PodcastSection | ⬜ Pending | - | - |
+| 13 | CaseStudiesSection | ⬜ Pending | - | - |
+| 14 | TestimonialCarousel | ⬜ Pending | - | - |
+| 15 | BookingSection | ⬜ Pending | - | - |
+| 16 | FAQSection | ⬜ Pending | - | - |
+| 17 | ReferencesSection | ⬜ Pending | - | - |
 
 ## Progress Summary
-- Total Sections: 27
-- Completed: 4 (14.8%)
+- Total Sections (Main Page): 17
+- Completed: 2 (11.8%)
 - In Progress: 0 (0%)
-- Pending: 23 (85.2%)
+- Pending: 15 (88.2%)
 
-## Next Batch
-Start with **Batch 1: Simple Sections**
-Estimated time: 1.5-2 hours
-Risk level: LOW
+## Next Section
+**WelcomeSection** (#3 in sections.config.js)
+Estimated time: 45-60 min
+Complexity: Medium
 ```
 
 ---
@@ -1575,6 +1590,94 @@ START NOW: Which section is next in Priority List?
 
 ---
 
+## Migration Logs
+
+### WelcomeSection ✅ Complete (2026-03-27)
+
+**Complexity:** Medium
+**Time:** ~15 min
+**Status:** SUCCESS
+
+**Changes Made:**
+- Created WelcomeSectionCopy.jsx (Copy-Workflow)
+- Replaced `ring-brand-sand` → `ring-color-bg-light` (semantic)
+- Greeting → `text-h1` (48px)
+- Opening quote `"` → `text-quote-featured` (36px)
+- Body quotes → `text-quote-featured` (36px)
+- All colors → semantic tokens
+
+**Critical Preserved:**
+- ✅ SectionWrapper, LazyImage, Signature
+- ✅ `id="welcome"` anchor
+
+**QA:** ✅ Build succeeds, typo-demo updated (7 Sections)
+
+---
+
+### ServicesSection ✅ Complete (2026-03-27)
+
+**Complexity:** Simple
+**Time:** ~15 min
+**Status:** SUCCESS
+
+**Changes Made:**
+- Created ServicesSectionCopy.jsx (Copy-Workflow)
+- Replaced `text-xs` → `text-label`
+- Replaced `tracking-[0.18em]` → `tracking-label-alt`
+- Replaced `text-label` → `text-color-label`
+- Replaced `mb-1.5` → `block-label-spacing`
+- Replaced `text-xl md:text-2xl` → `text-h4`
+- Replaced `text-heading` → `text-color-heading`
+- Replaced `font-sans` → `font-primary`
+- Replaced `font-serif` → `font-display`
+- Added DebugLabel wrappers (2 elements)
+
+**Critical Preserved:**
+- ✅ `id="services"` — Hero scroll target (scrolling now works!)
+
+**QA:**
+- ✅ Build succeeds
+- ✅ Code review: APPROVED
+- ✅ typo-demo updated (6 Sections)
+
+---
+
+### HeroV3Section ✅ Complete (2026-03-27)
+
+**Complexity:** Medium
+**Time:** ~30 min
+**Status:** SUCCESS
+
+**Changes Made:**
+- Replaced `font-serif` → `font-display` (lines 19, 33)
+- Replaced inline `style={{ fontSize: 'clamp(2.4rem, 6.6vw, 5.4rem)' }}` → `text-hero-large` (line 21)
+- Replaced inline `style={{ fontSize: 'clamp(1.44rem, 3.84vw, 3.36rem)' }}` → `text-hero` (lines 26, 33)
+- Replaced `text-heading` → `text-color-heading` (lines 21, 26, 33, 61)
+- Replaced hardcoded `size={80}` → `w-20 h-20` Tailwind classes (line 61)
+- Replaced inline `style={{ animation: ... }}` → `animate-[scrollFade_2s_ease-in-out_infinite]` (line 61)
+- Added DebugLabel wrappers (3 elements)
+- Added debugMode prop to component
+
+**Tokens Used:**
+- `text-hero-large` — Main headline (first line)
+- `text-hero` — Secondary headline (second line + CTA)
+- `text-color-heading` — Dark blue color
+- `font-display` — Cormorant Garamond serif
+
+**QA:**
+- ✅ Build succeeds
+- ✅ No inline styles remaining
+- ✅ No hardcoded values
+- ✅ All DebugLabels present and correct
+- ✅ typo-demo updated
+
+**Lessons Learned:**
+- Hero sections have more than just typography (animations, icon sizes)
+- Use `w-20 h-20` instead of `size={80}` for lucide-react icons
+- Use `animate-[...]` for custom animations instead of inline styles
+
+---
+
 **Last updated:** 2026-03-27
-**Status:** Ready for Execution
-**Next action:** Select first section from Batch 1 (Simple Sections)
+**Status:** HeroV3Section complete, ready for ServicesSection
+**Next action:** Continue with ServicesSection (#2)

@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import HeroV3Section from '../../components/sections/HeroV3Section'
+import ServicesSectionCopy from '../../components/sections/ServicesSectionCopy'
+import WelcomeSectionCopy from '../../components/sections/WelcomeSectionCopy'
+import ResearcherQuotesSectionCopy from '../../components/sections/ResearcherQuotesSectionCopy'
 import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
 import CaseStudiesSectionCopy from '../../components/sections/CaseStudiesSectionCopy'
@@ -32,6 +36,9 @@ export default function TypographyDemoPage() {
         </label>
       </div>
 
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* HEADER & ACCORDIONS (constrained width) */}
+      {/* ═══════════════════════════════════════════════════════════ */}
       <div className="max-w-content mx-auto px-6 py-20">
         {/* Header */}
         <div className="mb-16 pb-8 border-b border-black/10">
@@ -42,7 +49,7 @@ export default function TypographyDemoPage() {
             Typography Demo
           </h1>
           <p className="font-sans text-color-body text-lg max-w-2xl">
-            Experimentiere mit Typography-Klassen in diesen 4 Sections.
+            Experimentiere mit Typography-Klassen in diesen 8 Sections.
             Änderungen hier beeinflussen nicht die Live-Site.
           </p>
         </div>
@@ -501,22 +508,29 @@ export default function TypographyDemoPage() {
         <div className="mb-16 pb-8 border-t border-black/10">
           <h2 className="font-serif text-2xl text-color-heading mb-4">📝 Live Sections</h2>
           <p className="font-sans text-sm text-color-body">
-            Unten siehst du die 4 Sections mit Debug-Labels (aktiviere oben rechts den Toggle).
+            Unten siehst du die 8 Sections mit Debug-Labels (aktiviere oben rechts den Toggle).
           </p>
         </div>
+      </div>
 
-        {/* Sections */}
-        <WhatIsSectionCopy debugMode={debugMode} />
-        <AboutSectionCopy debugMode={debugMode} />
-        <CaseStudiesSectionCopy debugMode={debugMode} />
-        <ResearchersSectionCopy debugMode={debugMode} />
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* SECTIONS (full-width - no wrapper!) */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <HeroV3Section debugMode={debugMode} />
+      <ServicesSectionCopy debugMode={debugMode} />
+      <WelcomeSectionCopy debugMode={debugMode} />
+      <ResearcherQuotesSectionCopy debugMode={debugMode} />
+      <div className="py-8 border-t border-black/10 my-8" />
+      <WhatIsSectionCopy debugMode={debugMode} />
+      <AboutSectionCopy debugMode={debugMode} />
+      <CaseStudiesSectionCopy debugMode={debugMode} />
+      <ResearchersSectionCopy debugMode={debugMode} />
 
-        {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-black/10 text-center">
-          <p className="font-sans text-sm text-color-label">
-            /typo-demo — Design Exploration Mode
-          </p>
-        </div>
+      {/* Footer */}
+      <div className="mt-20 pt-8 border-t border-black/10 text-center">
+        <p className="font-sans text-sm text-color-label">
+          /typo-demo — Design Exploration Mode
+        </p>
       </div>
     </div>
   )
