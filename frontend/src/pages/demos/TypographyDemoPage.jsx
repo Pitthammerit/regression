@@ -6,6 +6,7 @@ import WelcomeSectionCopy from '../../components/sections/WelcomeSectionCopy'
 import ResearcherQuotesSectionCopy from '../../components/sections/ResearcherQuotesSectionCopy'
 import StatementSectionCopy from '../../components/sections/StatementSectionCopy'
 import ForWhomSectionCopy from '../../components/sections/ForWhomSectionCopy'
+import PodcastSectionCopy from '../../components/sections/PodcastSectionCopy'
 import ProcessSectionCopy from '../../components/sections/ProcessSectionCopy'
 import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
@@ -525,6 +526,7 @@ export default function TypographyDemoPage() {
       <ResearcherQuotesSectionCopy debugMode={debugMode} />
       <StatementSectionCopy debugMode={debugMode} />
       <ForWhomSectionCopy debugMode={debugMode} />
+      <PodcastSectionCopy debugMode={debugMode} />
       <ProcessSectionCopy debugMode={debugMode} />
       <WhatIsSectionCopy debugMode={debugMode} />
       <AboutSectionCopy debugMode={debugMode} />
