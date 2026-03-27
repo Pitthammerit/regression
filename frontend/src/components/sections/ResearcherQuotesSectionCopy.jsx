@@ -27,15 +27,17 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
       className="py-16 md:py-20 bg-color-bg-dark text-on-dark-heading"
     >
       <Container>
-        <SectionLabel text={researchers.authorBigLabel} light />
-        <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 leading-tight text-on-dark-heading">
-            {researchers.authorHeadline}
-          </h2>
-        </DebugLabel>
+        <div className="content-spacing">
+          <SectionLabel text={researchers.authorBigLabel} light />
+          <DebugLabel type="h2" debugMode={debugMode}>
+            <h2 className="font-display text-h2 leading-tight text-on-dark-heading">
+              {researchers.authorHeadline}
+            </h2>
+          </DebugLabel>
+        </div>
 
         {/* First row - always visible (3 authors) */}
-        <div className="grid md:grid-cols-3 gap-10 md:gap-14 heading-content-spacing">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-14">
           {authorsWithPortraits.slice(0, 3).map((author) => (
             <div key={author.id}>
               <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
@@ -91,7 +93,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
 
             {/* Expanded content - additional authors */}
             {isExpanded && (
-              <div className="grid md:grid-cols-3 gap-10 md:gap-14 heading-content-spacing">
+              <div className="grid md:grid-cols-3 gap-10 md:gap-14">
                 {authorsWithPortraits.slice(3).map((author) => (
                   <div key={author.id}>
                     <AspectRatio ratio={16 / 9} className="md:hidden mb-4">

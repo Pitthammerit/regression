@@ -228,9 +228,6 @@ module.exports = {
         '.label-heading-spacing': {
           'margin-bottom': '0.7rem',
         },
-        '.heading-content-spacing': {
-          'margin-top': '1.5rem',
-        },
         '.name-role-spacing': {
           'margin-bottom': '0.25rem',
         },
