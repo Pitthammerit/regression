@@ -12,6 +12,7 @@ import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
 import BookingSectionCopy from '../../components/sections/BookingSectionCopy'
 import CaseStudiesSectionCopy from '../../components/sections/CaseStudiesSectionCopy'
+import FAQSectionCopy from '../../components/sections/FAQSectionCopy'
 import ResearchersSectionCopy from '../../components/sections/ResearchersSectionCopy'
 import TestimonialCarouselCopy from '../../components/sections/TestimonialCarouselCopy'
 import { testimonials } from '../../content/plr-de'
@@ -535,6 +536,7 @@ export default function TypographyDemoPage() {
       <AboutSectionCopy debugMode={debugMode} />
       <BookingSectionCopy debugMode={debugMode} />
       <CaseStudiesSectionCopy debugMode={debugMode} />
+      <FAQSectionCopy debugMode={debugMode} />
       <ResearchersSectionCopy debugMode={debugMode} />
       <TestimonialCarouselCopy
         clients={testimonials.clients}
