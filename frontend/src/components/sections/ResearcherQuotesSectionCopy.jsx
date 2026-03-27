@@ -35,7 +35,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
         </DebugLabel>
 
         {/* First row - always visible (3 authors) */}
-        <div className="grid md:grid-cols-3 gap-10 md:gap-14 mt-6">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-14 mt-4">
           {authorsWithPortraits.slice(0, 3).map((author) => (
             <div key={author.id}>
               <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
@@ -91,7 +91,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
 
             {/* Expanded content - additional authors */}
             {isExpanded && (
-              <div className="grid md:grid-cols-3 gap-10 md:gap-14 mt-6">
+              <div className="grid md:grid-cols-3 gap-10 md:gap-14 mt-4">
                 {authorsWithPortraits.slice(3).map((author) => (
                   <div key={author.id}>
                     <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
