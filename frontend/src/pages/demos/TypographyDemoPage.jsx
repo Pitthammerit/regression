@@ -4,7 +4,6 @@ import HeroV3Section from '../../components/sections/HeroV3Section'
 import ServicesSectionCopy from '../../components/sections/ServicesSectionCopy'
 import WelcomeSectionCopy from '../../components/sections/WelcomeSectionCopy'
 import ResearcherQuotesSectionCopy from '../../components/sections/ResearcherQuotesSectionCopy'
-import ResearcherQuotesSectionClean from '../../components/sections/ResearcherQuotesSectionClean'
 import SimpleTestSection from '../../components/sections/SimpleTestSection'
 import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
@@ -522,12 +521,6 @@ export default function TypographyDemoPage() {
       <ServicesSectionCopy debugMode={debugMode} />
       <WelcomeSectionCopy debugMode={debugMode} />
       <ResearcherQuotesSectionCopy debugMode={debugMode} />
-
-      {/* CLEAN VERSION - based on SIMPLE TEST pattern */}
-      <div className="bg-blue-100 py-4 text-center text-sm font-sans text-black">
-        ⬇️ CLEAN VERSION (below) - based on SIMPLE TEST, with filter + expandable
-      </div>
-      <ResearcherQuotesSectionClean />
 
       {/* SIMPLE TEST - reference for correct spacing */}
       <div className="bg-green-100 py-4 text-center text-sm font-sans text-black">
