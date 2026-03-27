@@ -25,12 +25,12 @@ import DebugLabel from '../ui/DebugLabel'
 export default function ProcessSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="prozess" data-testid="process-section">
-      <div className="max-w-centered-header mb-16 text-center mx-auto">
+      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={processSection.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-color-heading leading-tight text-center">
+          <h2 className="font-display text-h2 text-color-heading leading-tight text-center content-spacing-md">
             {processSection.headline}
           </h2>
         </DebugLabel>

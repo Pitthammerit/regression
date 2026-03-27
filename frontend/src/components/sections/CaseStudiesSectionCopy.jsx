@@ -33,17 +33,17 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
-      <div className="max-w-centered-header content-spacing text-center mx-auto">
+      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={cases.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-color-heading leading-tight text-center">
+          <h2 className="font-display text-h2 text-color-heading leading-tight text-center content-spacing-md">
             {cases.headline}
           </h2>
         </DebugLabel>
-        <DebugLabel type="subline" debugMode={debugMode}>
-          <p className="text-subline subline-italic text-color-body element-spacing-md">{cases.subline}</p>
+        <DebugLabel type="body-lg" debugMode={debugMode}>
+          <p className="font-primary text-body-lg text-color-body leading-relaxed">{cases.subline}</p>
         </DebugLabel>
       </div>
 

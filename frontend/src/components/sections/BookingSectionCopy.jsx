@@ -36,19 +36,19 @@ export default function BookingSectionCopy({ debugMode = false }) {
 
   return (
     <SectionWrapper id="booking" data-testid="booking-section">
-      <div className="max-w-centered-header mx-auto text-center">
+      <div className="max-w-centered-header content-spacing-lg mx-auto text-center">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={booking.label} />
         </DebugLabel>
 
         <DebugLabel type="hero" debugMode={debugMode}>
-          <h2 className="font-display text-hero-large text-color-heading leading-tight content-spacing-lg">
+          <h2 className="font-display text-hero-large text-color-heading leading-tight content-spacing-md">
             {booking.headline}
           </h2>
         </DebugLabel>
 
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-body leading-relaxed content-spacing-lg max-w-lg mx-auto">
+          <p className="font-primary text-body-lg text-color-body leading-relaxed max-w-lg mx-auto">
             {booking.subline}
           </p>
         </DebugLabel>

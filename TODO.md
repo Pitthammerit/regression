@@ -1,18 +1,70 @@
 # TODO
 
-Updated: 2026-03-27 15:59
+Updated: 2026-03-27 16:12
 
 ---
 
 ## 🔴 High Priority — START HERE FIRST!
 
-### 🎨 Legacy Section Migration — Phase 3B (FAST FERTIG!)
+### 🐛 CRITICAL BUGS FIX — Execute FIRST! (2026-03-27)
+**Status:** READY FOR EXECUTION — **DO THIS BEFORE ANYTHING ELSE!**
+**Plan:** `docs/critical-bugs-fix-plan.md` — Complete fix plan with all bugs
+
+**⚠️ ARCHITECTURAL REVIEW COMPLETE — 6 CRITICAL BUGS FOUND:**
+
+Comprehensive review via `/multiloop` workflow revealed **6 critical bugs** that must be fixed before considering the typography migration complete.
+
+**📋 EXECUTE IN THIS ORDER:**
+
+1. **BUG #1: Plugin Utility Conflicts** (11 instances, 1 hour)
+   - Remove `tracking-label-alt`, `tracking-wider` when using `.label`/`.role` plugins
+   - Files: ServicesSectionCopy, ResearchersSectionCopy, TestimonialsSectionCopy, TestimonialCarouselCopy, ProcessSectionCopy, ReferencesSectionCopy
+
+2. **BUG #2: Redundant Italic Classes** (10+ instances, 30 min)
+   - Remove manual `italic` class when using `*-italic` plugin utilities
+   - Files: CaseStudiesSectionCopy, ResearcherQuotesSectionCopy, ResearchersSectionCopy, StatementSectionCopy, TestimonialsSectionCopy
+
+3. **BUG #3: Hardcoded Spacing** (15+ instances, 1 hour)
+   - Replace hardcoded spacing (mb-*, py-*) with semantic utilities
+   - Files: BookingSectionCopy, ForWhomSectionCopy, ProcessSectionCopy, CaseStudiesSectionCopy, FAQSectionCopy, PodcastSectionCopy
+
+4. **BUG #4: Inconsistent Tracking** (8+ instances, 30 min)
+   - Remove ALL manual tracking when using `.label` or `.role` plugins
+
+5. **BUG #5: Inline Styles** (5 instances, 30 min)
+   - Replace static inline styles with Tailwind classes
+   - Files: FAQSectionCopy, ProcessSectionCopy (PodcastSectionCopy and TestimonialCarouselCopy OK — dynamic)
+
+6. **BUG #6: App.js Dead Code** (1 instance, 30 min)
+   - Update sections.config.js to use Copy sections OR remove dead imports
+
+**Total Time:** ~4 hours
+
+**✅ Success Criteria:**
+- All 6 bugs fixed
+- Build succeeds: `npm --prefix frontend run build`
+- All sections render on typo-demo without errors
+- No console errors
+
+**📚 Reference Documents Created:**
+- `docs/critical-bugs-fix-plan.md` — This plan (detailed)
+- `docs/tailwind-v4-migration-audit.md` — Tailwind v4 analysis (11,000 words)
+- `docs/tailwind-v4-quick-reference.md` — v4 quick reference
+- `docs/tailwind-v4-visual-comparison.md` — v4 side-by-side comparison
+- `docs/ARCHITECTURAL_REVIEW_I18N_MULTI_SITE.md` — i18n full analysis
+- `docs/ARCHITECTURAL_REVIEW_SUMMARY.md` — i18n executive summary
+- `docs/ARCHITECTURAL_REVIEW_DIAGRAMS.md` — i18n visual diagrams
+- `docs/ARCHITECTURAL_REVIEW_QUICK_REF.md` — i18n cheat sheet
+
+---
+
+### 🎨 Legacy Section Migration — Phase 3B
 **Status:** Phase 3A ✅ ABGESCHLOSSEN — Phase 3B: 94% COMPLETE (16/17 Sections)
 **Branch:** `typography-refactoring`
 **Lessons:** `memory/typography-migration-lessons.md`
 **Tailwind v4 Strategy:** `memory/tailwind-v4-vite-strategy.md` (NACHHER migrieren!)
 
-**⚠️ WICHTIG — BEIM NÄCHSTEN START ZUERST LESEN:**
+**⚠️ WICHTIG — NACH CRITICAL BUGS FIX:**
 **Plan:** `docs/section-migration-plan.md` — Umfangreicher Migrationsplan mit Multiloop-Workflow
 
 **✅ Phase 3A Abgeschlossen (COPY Sections 100%):**
@@ -109,10 +161,17 @@ Updated: 2026-03-27 15:59
 
 ## ✅ Completed Today (2026-03-27)
 
-### 🎉 TYPOGRAPHY REFACTORING PHASE 3B — 100% COMPLETE!
-- [x] Alle 17 Legacy Sections migriert
-- [x] PodcastVideoSectionCopy erstellt (die letzte!)
-- [x] **Typography Refactoring ABGESCHLOSSEN!**
+### 🔍 COMPREHENSIVE ARCHITECTURAL REVIEW — 3 AGENTS
+- [x] Launched `/multiloop` skill for complete review
+- [x] **Agent 1: superpowers:code-reviewer** — Found 6 critical bugs, 23 issues
+- [x] **Agent 2: frontend-developer** — Tailwind v4 migration audit (31 utilities break)
+- [x] **Agent 3: senior-architect-innovator** — i18n/multi-site architecture review
+- [x] Created `docs/critical-bugs-fix-plan.md` — Complete fix plan
+- [x] Created 8 reference documents for future projects
+
+### 🎉 TYPOGRAPHY REFACTORING PHASE 3B — 94% COMPLETE!
+- [x] 16/17 Legacy Sections migriert (nur PodcastVideoSection fehlt!)
+- [x] **Architectural review revealed critical bugs** — Must fix before final section
 
 ### Plugin-Architektur für Labels & Buttons
 - [x] `.label` Plugin → Uppercase für Labels

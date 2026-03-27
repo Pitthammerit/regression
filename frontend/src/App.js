@@ -21,6 +21,7 @@ import AboutSection from './components/sections/AboutSection'
 import ProcessSection from './components/sections/ProcessSection'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import TestimonialsSection from './components/sections/TestimonialsSection'
+import TestimonialsSectionCopy from './components/sections/TestimonialsSectionCopy'
 import TestimonialCarousel from './components/sections/TestimonialCarousel'
 import BookingSection from './components/sections/BookingSection'
 import TranscriptPage from './pages/TranscriptPage'
@@ -87,6 +88,7 @@ function MainPage() {
     'PodcastSection': <PodcastSection />,
     'CaseStudiesSection': <CaseStudiesSection />,
     'TestimonialsSection': <TestimonialsSection />,
+    'TestimonialsSectionCopy': <TestimonialsSectionCopy />,
     'TestimonialCarousel': (
       <TestimonialCarousel
         clients={testimonials.clients}

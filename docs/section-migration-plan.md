@@ -1183,7 +1183,7 @@ Copy erstellen → typo-demo import → User sieht original
 | 5 | StatementSection | Simple | 30-45 min | ✅ Complete |
 | 6 | WhatIsSection | Simple | 30-45 min | ✅ Complete |
 | 7 | ResearchersSection | Complex | 90-120 min | ✅ Complete |
-| 8 | PodcastVideoSection | Medium | 60-90 min | ⬜ **PENDING — LAST!** |
+| 8 | PodcastVideoSection | Medium | 60-90 min | ⬜ **BLOCKED — Fix bugs first!** |
 | 9 | ForWhomSection | Medium | 45-60 min | ✅ Complete |
 | 10 | AboutSection | Medium | 45-60 min | ✅ Complete |
 | 11 | ProcessSection | Medium | 60-90 min | ✅ Complete |
@@ -1232,7 +1232,7 @@ Copy erstellen → typo-demo import → User sieht original
 | 5 | StatementSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
 | 6 | WhatIsSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
 | 7 | ResearchersSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
-| 8 | PodcastVideoSection | ⬜ Pending | - | ❌ NO — **LAST ONE!** |
+| 8 | PodcastVideoSection | ⬜ **BLOCKED** | - | ❌ Fix critical bugs first! |
 | 9 | ForWhomSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
 | 10 | AboutSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
 | 11 | ProcessSection | ✅ Complete | 2026-03-27 | ✅ Yes (Copy) |
@@ -1774,6 +1774,7 @@ START NOW: Which section is next in Priority List?
 
 ---
 
-**Last updated:** 2026-03-27 16:30
+**Last updated:** 2026-03-27 18:00
 **Status:** Phase 3B: 94% COMPLETE (16/17 Sections)
-**Next action:** Migrate PodcastVideoSection — THE LAST ONE!
+**⚠️ NEXT ACTION:** Fix 6 critical bugs BEFORE migrating PodcastVideoSection
+**See:** `docs/critical-bugs-fix-plan.md` — Complete bug fix plan (priority!)

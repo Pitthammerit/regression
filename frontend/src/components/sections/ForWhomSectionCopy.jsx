@@ -24,12 +24,12 @@ import DebugLabel from '../ui/DebugLabel'
 export default function ForWhomSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
-      <div className="max-w-centered-header mx-auto text-center mb-16">
+      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={forWhom.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-color-heading mb-8 leading-tight">
+          <h2 className="font-display text-h2 text-color-heading leading-tight content-spacing-md">
             {forWhom.headline}
           </h2>
         </DebugLabel>
