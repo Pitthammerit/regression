@@ -83,7 +83,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                 <LazyImage
                   src={item.image}
                   alt={item.name}
-                  className="w-12 h-12 rounded-full object-cover object-top border border-black/10 shrink-0"
+                  className="w-20 h-20 rounded-full object-cover object-top border border-black/10 shrink-0"
                 />
               ) : (
                 <AvatarSilhouette gender={item.gender} />
