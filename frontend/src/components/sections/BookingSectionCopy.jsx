@@ -56,9 +56,11 @@ export default function BookingSectionCopy({ debugMode = false }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-10 text-left max-w-xl mx-auto">
           {booking.formTopics.map((topic, i) => (
             <div key={i} className="flex items-start gap-2">
-              <span className="text-color-heading/50 mt-0.5 shrink-0">—</span>
-              <DebugLabel type="body" debugMode={debugMode}>
-                <span className="font-primary text-body text-color-body">
+              <DebugLabel type="list-bullet" debugMode={debugMode}>
+                <span className="text-color-label mt-0.5 shrink-0">—</span>
+              </DebugLabel>
+              <DebugLabel type="list" debugMode={debugMode}>
+                <span className="font-primary text-list text-color-body">
                   {topic}
                 </span>
               </DebugLabel>
