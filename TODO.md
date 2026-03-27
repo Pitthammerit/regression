@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-27 05:41
+Updated: 2026-03-27 06:10
 
 ---
 
@@ -47,7 +47,7 @@ Updated: 2026-03-27 05:41
 - [ ] TestimonialsSection — Komplex, hohe Nutzung
 - [ ] TestimonialCarousel — Komplex, Carousel-Logik
 - [ ] CaseStudiesSection (nicht Copy) — Komplex, Accordion
-- [ ] ResearcherQuotesSection — Komplex, Dark Background
+- [x] ResearcherQuotesSection — Komplex, Dark Background
 
 **Hero Variants (Final Polish):**
 - [ ] HeroV3Section — Komplex, aktuell aktiv

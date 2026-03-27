@@ -4,6 +4,7 @@ import { researchers } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
+import Container from '../ui/Container'
 
 /**
  * ResearcherQuotesSection — Research authority quotes with portraits
@@ -25,16 +26,16 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
       data-testid="evidence-quotes-section"
       className="py-16 md:py-20 bg-color-bg-dark text-on-dark-heading"
     >
-      <div className="max-w-content mx-auto px-6">
+      <Container>
         <SectionLabel text={researchers.authorBigLabel} light />
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 leading-tight text-on-dark-heading mt-3 mb-5">
+          <h2 className="font-display text-h2 leading-tight text-on-dark-heading">
             {researchers.authorHeadline}
           </h2>
         </DebugLabel>
 
         {/* First row - always visible (3 authors) */}
-        <div className="grid md:grid-cols-3 gap-10 md:gap-14 md:mt-6">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-14 heading-content-spacing">
           {authorsWithPortraits.slice(0, 3).map((author) => (
             <div key={author.id}>
               <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
@@ -59,7 +60,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
               <DebugLabel type="author-name" debugMode={debugMode}>
                 <div className="font-display text-author-name text-on-dark-heading name-role-spacing">{author.name}</div>
               </DebugLabel>
-              <DebugLabel type="date" debugMode={debugMode}>
+              <DebugLabel type="role" debugMode={debugMode}>
                 <div className="text-date text-on-dark-role role-date-spacing">{author.role}</div>
               </DebugLabel>
             </div>
@@ -90,7 +91,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
 
             {/* Expanded content - additional authors */}
             {isExpanded && (
-              <div className="grid md:grid-cols-3 gap-10 md:gap-14 md:mt-6">
+              <div className="grid md:grid-cols-3 gap-10 md:gap-14 heading-content-spacing">
                 {authorsWithPortraits.slice(3).map((author) => (
                   <div key={author.id}>
                     <AspectRatio ratio={16 / 9} className="md:hidden mb-4">
@@ -115,7 +116,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
                       <DebugLabel type="author-name" debugMode={debugMode}>
                         <div className="font-display text-author-name text-on-dark-heading name-role-spacing">{author.name}</div>
                       </DebugLabel>
-                      <DebugLabel type="date" debugMode={debugMode}>
+                      <DebugLabel type="role" debugMode={debugMode}>
                         <div className="text-date text-on-dark-role role-date-spacing">{author.role}</div>
                       </DebugLabel>
                   </div>
@@ -124,7 +125,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
             )}
           </>
         )}
-      </div>
+      </Container>
     </section>
   )
 }
