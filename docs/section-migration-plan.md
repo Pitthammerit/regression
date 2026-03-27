@@ -22,6 +22,58 @@ The skill will orchestrate the entire migration workflow automatically.
 
 ---
 
+## 🚀 REFINED WORKFLOW (2026-03-27 — Based on User Feedback)
+
+### ✅ PROVEN PATTERN (Copy → Test → Migrate → DebugLabels LAST)
+
+```
+1. Copy erstellen        → SectionNameCopy.jsx
+2. typo-demo import      → Add to TypographyDemoPage
+3. User sieht original   → Compare with original
+4. Migrieren             → Typography tokens (NO DebugLabels yet!)
+5. Visual test           → User checks /typo-demo
+6. Korrekturen           → If needed, iterate
+7. ✅ User approves      → Visual appearance perfect
+8. DebugLabels hinzufügen → Add AFTER approval (final step)
+9. Fertig                → Next section
+```
+
+### ⚠️ KEY CHANGES FROM PREVIOUS PLAN:
+
+| Before | Now (Refined) |
+|--------|---------------|
+| DebugLabels during migration | **DebugLabels AFTER visual approval** |
+| Focus on perfection first | **Visual correct → THEN add labels** |
+| Add debugMode prop early | **Add debugMode prop only when needed** |
+
+### 📋 SUCCESS CRITERIA (per section):
+
+- [ ] 0 hardcoded **typography** values (font-size, font-family, text-color)
+- [ ] All tokens from `tailwind.config.js` (Single Source of Truth)
+- [ ] Visual appearance matches original (or better)
+- [ ] Build succeeds
+- [ ] **THEN**: DebugLabels added (only after user approves)
+
+### 🎯 NEXT SECTIONS (Priority Order):
+
+1. ✅ HeroV3Section
+2. ✅ ServicesSection
+3. ✅ WelcomeSection
+4. ✅ ResearcherQuotesSection
+5. ✅ StatementSection ← **DONE (no DebugLabels yet — pending approval)**
+6. ⬜ **WhatIsSection** ← **NEXT**
+7. ⬜ ForWhomSection
+8. ⬜ AboutSection
+9. ⬜ ProcessSection
+10. ⬜ PodcastSection
+11. ⬜ CaseStudiesSection
+12. ⬜ TestimonialCarousel
+13. ⬜ BookingSection
+14. ⬜ FAQSection
+15. ⬜ ReferencesSection
+
+---
+
 ## QUICK LINKS (Wähle was du brauchst):
 
 | Brauchst du... | Gehe zu... |
@@ -996,16 +1048,17 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 2. **Copy in typo-demo importieren** (VOR Migration!)
 3. **Im typo-demo sehen** — Original bleibt intakt
 4. **DANN migrieren** — Typography tokens anwenden
-5. **Live im Browser testen** — DebugLabels aktivieren
-6. **User gibt Feedback** — Visuelle Prüfung
-7. **Korrekturen vornehmen** — Falls nötig
-8. **Erst dann fertig**
+5. **Live im Browser testen** — Visuelle Prüfung
+6. **User gibt Feedback** — Korrekturen wenn nötig
+7. **Wenn perfekt → DebugLabels hinzufügen** (AM ENDE!)
+8. **Fertig**
 
 **Warum:**
 - User sieht live die Arbeit im Browser
 - Kann sofort Feedback geben (visuell)
 - Original bleibt intakt für Vergleich
 - typo-demo ist sichere Umgebung
+- **DebugLabels kommen ZULETZT** — erst wenn Design perfekt!
 
 **Workflow:**
 ```
@@ -1017,7 +1070,9 @@ Copy erstellen → typo-demo import → User sieht original
        ↓
    User gibt Feedback im Browser
        ↓
-   Korrekturen → fertig
+   Korrekturen bis perfekt
+       ↓
+   DebugLabels hinzufügen → fertig
 ```
 
 ### Pre-Migration
@@ -1064,10 +1119,7 @@ Copy erstellen → typo-demo import → User sieht original
 - [ ] Analyzer report received (all values found)
 - [ ] Migration Implementer agent launched
 - [ ] All hardcoded values replaced
-- [ ] DebugLabel component imported
-- [ ] Component signature updated (debugMode prop)
-- [ ] All typography elements wrapped in DebugLabel
-- [ ] DebugLabel type matches token name exactly
+- [ ] **NO DebugLabels YET** — come after visual approval
 - [ ] Code Review Expert agent launched
 - [ ] Code review received (approved or issues listed)
 - [ ] Migration Validator agent launched
@@ -1077,14 +1129,24 @@ Copy erstellen → typo-demo import → User sieht original
 - [ ] Build succeeds (npm run build)
 - [ ] typo-demo loads without errors
 - [ ] Section renders in typo-demo
-- [ ] DebugLabels appear with correct names (debugMode=true)
-- [ ] DebugLabels disappear (debugMode=false)
+- [ ] **Visual appearance correct** — User approves
 - [ ] Responsive behavior preserved
 - [ ] Grep finds 0 hardcoded font sizes
 - [ ] Grep finds all expected tokens
 - [ ] Grep finds 0 legacy font-family (font-sans)
 - [ ] Code review approves (no blocking issues)
-- [ ] Visual appearance matches original (or better)
+
+### ⭐ NEW: DebugLabels (Phase 5.5 — AFTER visual approval!)
+**ONLY add DebugLabels when user confirms visual appearance is perfect!**
+
+- [ ] User approved visual appearance
+- [ ] DebugLabel component imported
+- [ ] Component signature updated (debugMode prop)
+- [ ] All typography elements wrapped in DebugLabel
+- [ ] DebugLabel type matches token name exactly
+- [ ] typo-demo tested with debugMode=true (labels visible)
+- [ ] typo-demo tested with debugMode=false (labels hidden)
+- [ ] Build succeeds after DebugLabels added
 
 ### Post-Migration (Phases 6-8)
 - [ ] Migration report created
@@ -1165,8 +1227,8 @@ Copy erstellen → typo-demo import → User sieht original
 | 2 | ServicesSection | ✅ Complete | 2026-03-27 | [view](#services-migration) |
 | 3 | WelcomeSection | ✅ Complete | 2026-03-27 | [view](#welcome-migration) |
 | 4 | ResearcherQuotesSection | ⬜ Pending | - | - |
-| 4 | ResearcherQuotesSection | ⬜ Pending | - | - |
-| 5 | StatementSection | ⬜ Pending | - | - |
+| 4 | ResearcherQuotesSection | ✅ Complete | 2026-03-27 | — |
+| 5 | StatementSection | ✅ Complete | 2026-03-27 | [view](#statement-migration) |
 | 6 | WhatIsSection | ⬜ Pending | - | - |
 | 7 | ResearchersSection | ⬜ Pending | - | - |
 | 8 | PodcastVideoSection | ⬜ Pending | - | - |
@@ -1182,14 +1244,14 @@ Copy erstellen → typo-demo import → User sieht original
 
 ## Progress Summary
 - Total Sections (Main Page): 17
-- Completed: 2 (11.8%)
+- Completed: 5 (29.4%)
 - In Progress: 0 (0%)
-- Pending: 15 (88.2%)
+- Pending: 12 (70.6%)
 
 ## Next Section
-**WelcomeSection** (#3 in sections.config.js)
-Estimated time: 45-60 min
-Complexity: Medium
+**WhatIsSection** (#6 in sections.config.js)
+Estimated time: 30-45 min
+Complexity: Simple
 ```
 
 ---
@@ -1675,6 +1737,39 @@ START NOW: Which section is next in Priority List?
 - Hero sections have more than just typography (animations, icon sizes)
 - Use `w-20 h-20` instead of `size={80}` for lucide-react icons
 - Use `animate-[...]` for custom animations instead of inline styles
+
+---
+
+### StatementSection ✅ Complete (2026-03-27)
+
+**Complexity:** Simple
+**Time:** ~10 min
+**Status:** SUCCESS
+
+**Changes Made:**
+- Created StatementSectionCopy.jsx (Copy-Workflow)
+- Replaced `font-serif` → `font-display`
+- Replaced `text-2xl md:text-3xl lg:text-4xl` (featured line) → `text-h3`
+- Replaced `text-xl md:text-2xl lg:text-3xl` (normal lines) → `text-h4`
+- Replaced `text-heading` → `text-color-heading` (semantic)
+- Replaced `text-body` → `text-color-body` (semantic)
+
+**Tokens Used:**
+- `text-h3` — Featured line (30px) + italic
+- `text-h4` — Normal lines (24px)
+- `text-color-heading` — Dark blue semantic color
+- `text-color-body` — Warm gray semantic color
+- `font-display` — Cormorant Garamond serif
+
+**Critical Preserved:**
+- ✅ SectionWrapper with `id="statement"` (scroll target)
+- ✅ Map over `statement.lines` from content layer
+- ✅ Border styling (border-black/10)
+
+**QA:**
+- ✅ Build succeeds
+- ✅ No hardcoded values remaining
+- ✅ typo-demo updated (9 Sections)
 
 ---
 

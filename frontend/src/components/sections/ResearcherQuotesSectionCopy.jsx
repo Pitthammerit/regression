@@ -4,6 +4,7 @@ import { researchers } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 import Container from '../ui/Container'
+import DebugLabel from '../ui/DebugLabel'
 
 /**
  * ResearcherQuotesSectionCopy — Research authority quotes with portraits
@@ -17,7 +18,7 @@ import Container from '../ui/Container'
  * - Expandable "Mehr/Weniger" for additional authors
  * - Responsive: 16:9 on mobile, 1:1 on desktop
  */
-export default function ResearcherQuotesSectionCopy() {
+export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   // Filter authors with portraits (from plr-de.js)
@@ -28,12 +29,16 @@ export default function ResearcherQuotesSectionCopy() {
     <section className="py-16 md:py-20 bg-color-bg-dark text-on-dark-heading">
       <Container>
         {/* Label - imported from plr-de.js */}
-        <SectionLabel text={researchers.authorBigLabel} light />
+        <DebugLabel type="label" debugMode={debugMode}>
+          <SectionLabel text={researchers.authorBigLabel} light />
+        </DebugLabel>
 
         {/* H2 - uses section-block-spacing token (not hardcoded mb-*) */}
-        <h2 className="font-display text-h2 leading-tight text-on-dark-heading section-block-spacing">
-          {researchers.authorHeadline}
-        </h2>
+        <DebugLabel type="h2" debugMode={debugMode}>
+          <h2 className="font-display text-h2 leading-tight text-on-dark-heading section-block-spacing">
+            {researchers.authorHeadline}
+          </h2>
+        </DebugLabel>
 
         {/* Grid - first 3 authors, no margin-top */}
         <div className="grid md:grid-cols-3 gap-10 md:gap-14">
@@ -62,19 +67,25 @@ export default function ResearcherQuotesSectionCopy() {
               </div>
 
               {/* Quote - uses content-spacing token */}
-              <p className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
-                "{author.quote}"
-              </p>
+              <DebugLabel type="quote-featured" debugMode={debugMode}>
+                <p className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
+                  "{author.quote}"
+                </p>
+              </DebugLabel>
 
               {/* Name - uses name-role-spacing token */}
-              <p className="font-display text-author-name text-on-dark-heading name-role-spacing">
-                {author.name}
-              </p>
+              <DebugLabel type="author-name" debugMode={debugMode}>
+                <p className="font-display text-author-name text-on-dark-heading name-role-spacing">
+                  {author.name}
+                </p>
+              </DebugLabel>
 
               {/* Role - uses role-date-spacing token */}
-              <p className="text-date text-on-dark-role role-date-spacing">
-                {author.role}
-              </p>
+              <DebugLabel type="date" debugMode={debugMode}>
+                <p className="text-date text-on-dark-role role-date-spacing">
+                  {author.role}
+                </p>
+              </DebugLabel>
             </div>
           ))}
         </div>
@@ -126,17 +137,23 @@ export default function ResearcherQuotesSectionCopy() {
                       </AspectRatio>
                     </div>
 
-                    <p className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
-                      "{author.quote}"
-                    </p>
+                    <DebugLabel type="quote-featured" debugMode={debugMode}>
+                      <p className="font-display text-quote-featured italic leading-tight text-on-dark-quote content-spacing">
+                        "{author.quote}"
+                      </p>
+                    </DebugLabel>
 
-                    <p className="font-display text-author-name text-on-dark-heading name-role-spacing">
-                      {author.name}
-                    </p>
+                    <DebugLabel type="author-name" debugMode={debugMode}>
+                      <p className="font-display text-author-name text-on-dark-heading name-role-spacing">
+                        {author.name}
+                      </p>
+                    </DebugLabel>
 
-                    <p className="text-date text-on-dark-role role-date-spacing">
-                      {author.role}
-                    </p>
+                    <DebugLabel type="date" debugMode={debugMode}>
+                      <p className="text-date text-on-dark-role role-date-spacing">
+                        {author.role}
+                      </p>
+                    </DebugLabel>
                   </div>
                 ))}
               </div>

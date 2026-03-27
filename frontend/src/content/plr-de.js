@@ -72,9 +72,9 @@ export const welcome = {
 // ═══════════════════════════════════════════════════════════
 export const statement = {
   lines: [
-    "Es gibt Erfahrungen, die unser Verstand nicht greifen kann.",
+    "Es gibt Erfahrungen, die unser Verstand alleine nicht greifen kann.",
     "Erinnerungen, die nicht nur aus diesem Leben stammen.",
-    "Muster, die älter sind dein heutiges Ich.",
+    "Muster, die jenseits diese Lebens entspringen.",
   ],
 };
 

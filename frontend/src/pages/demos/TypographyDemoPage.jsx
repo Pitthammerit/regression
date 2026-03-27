@@ -5,6 +5,8 @@ import ServicesSectionCopy from '../../components/sections/ServicesSectionCopy'
 import WelcomeSectionCopy from '../../components/sections/WelcomeSectionCopy'
 import ResearcherQuotesSectionCopy from '../../components/sections/ResearcherQuotesSectionCopy'
 import StatementSectionCopy from '../../components/sections/StatementSectionCopy'
+import ForWhomSectionCopy from '../../components/sections/ForWhomSectionCopy'
+import ProcessSectionCopy from '../../components/sections/ProcessSectionCopy'
 import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
 import CaseStudiesSectionCopy from '../../components/sections/CaseStudiesSectionCopy'
@@ -509,7 +511,7 @@ export default function TypographyDemoPage() {
         <div className="mb-16 pb-8 border-t border-black/10">
           <h2 className="font-serif text-2xl text-color-heading mb-4">📝 Live Sections</h2>
           <p className="font-sans text-sm text-color-body">
-            Unten siehst du die 8 Sections mit Debug-Labels (aktiviere oben rechts den Toggle).
+            Unten siehst du die 11 Sections mit Debug-Labels (aktiviere oben rechts den Toggle).
           </p>
         </div>
       </div>
@@ -521,6 +523,9 @@ export default function TypographyDemoPage() {
       <ServicesSectionCopy debugMode={debugMode} />
       <WelcomeSectionCopy debugMode={debugMode} />
       <ResearcherQuotesSectionCopy debugMode={debugMode} />
+      <StatementSectionCopy debugMode={debugMode} />
+      <ForWhomSectionCopy debugMode={debugMode} />
+      <ProcessSectionCopy debugMode={debugMode} />
       <WhatIsSectionCopy debugMode={debugMode} />
       <AboutSectionCopy debugMode={debugMode} />
       <CaseStudiesSectionCopy debugMode={debugMode} />
