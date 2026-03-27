@@ -4,7 +4,6 @@ import HeroV3Section from '../../components/sections/HeroV3Section'
 import ServicesSectionCopy from '../../components/sections/ServicesSectionCopy'
 import WelcomeSectionCopy from '../../components/sections/WelcomeSectionCopy'
 import ResearcherQuotesSectionCopy from '../../components/sections/ResearcherQuotesSectionCopy'
-import SimpleTestSection from '../../components/sections/SimpleTestSection'
 import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
 import CaseStudiesSectionCopy from '../../components/sections/CaseStudiesSectionCopy'
@@ -521,12 +520,6 @@ export default function TypographyDemoPage() {
       <ServicesSectionCopy debugMode={debugMode} />
       <WelcomeSectionCopy debugMode={debugMode} />
       <ResearcherQuotesSectionCopy debugMode={debugMode} />
-
-      {/* SIMPLE TEST - reference for correct spacing */}
-      <div className="bg-green-100 py-4 text-center text-sm font-sans text-black">
-        ⬇️ SIMPLE TEST (below) - reference: correct H2→images spacing
-      </div>
-      <SimpleTestSection />
 
       <div className="py-8 border-t border-black/10 my-8" />
       <WhatIsSectionCopy debugMode={debugMode} />
