@@ -12,6 +12,8 @@ import WhatIsSectionCopy from '../../components/sections/WhatIsSectionCopy'
 import AboutSectionCopy from '../../components/sections/AboutSectionCopy'
 import CaseStudiesSectionCopy from '../../components/sections/CaseStudiesSectionCopy'
 import ResearchersSectionCopy from '../../components/sections/ResearchersSectionCopy'
+import TestimonialCarouselCopy from '../../components/sections/TestimonialCarouselCopy'
+import { testimonials } from '../../content/plr-de'
 
 /**
  * TypographyDemoPage — Design Exploration Page
@@ -532,6 +534,12 @@ export default function TypographyDemoPage() {
       <AboutSectionCopy debugMode={debugMode} />
       <CaseStudiesSectionCopy debugMode={debugMode} />
       <ResearchersSectionCopy debugMode={debugMode} />
+      <TestimonialCarouselCopy
+        clients={testimonials.clients}
+        label={testimonials.clientLabel}
+        subtitle="Kundenstimmen"
+        debugMode={debugMode}
+      />
 
       {/* Footer */}
       <div className="mt-20 pt-8 border-t border-black/10 text-center">
