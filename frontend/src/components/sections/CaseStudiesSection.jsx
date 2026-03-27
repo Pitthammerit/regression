@@ -3,19 +3,12 @@ import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, User } from 'lucide-react'
 
 function AvatarSilhouette({ gender }) {
   return (
-    <div className="w-12 h-12 rounded-full bg-brand-sand/60 border border-black/10 flex items-center justify-center shrink-0 overflow-hidden">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-heading/30">
-        <circle cx="16" cy="10" r="5" fill="currentColor" />
-        {gender === 'female' ? (
-          <path d="M7 28 C7 20 10 17 16 17 C22 17 25 20 25 28" fill="currentColor" />
-        ) : (
-          <path d="M6 28 C6 19 10 17 16 17 C22 17 26 19 26 28" fill="currentColor" />
-        )}
-      </svg>
+    <div className="w-24 h-24 rounded-full bg-brand-sand/60 border border-black/10 flex items-center justify-center shrink-0">
+      <User className="w-12 h-12 text-heading/30" />
     </div>
   )
 }
@@ -76,7 +69,7 @@ export default function CaseStudiesSection() {
                 <LazyImage
                   src={item.image}
                   alt={item.name}
-                  className="w-12 h-12 rounded-full object-cover object-top border border-black/10 shrink-0"
+                  className="w-24 h-24 rounded-full object-cover object-top border border-black/10 shrink-0"
                 />
               ) : (
                 <AvatarSilhouette gender={item.gender} />

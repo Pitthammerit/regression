@@ -530,22 +530,22 @@ export default function TypographyDemoPage() {
       <WelcomeSectionCopy debugMode={debugMode} />
       <ResearcherQuotesSectionCopy debugMode={debugMode} />
       <StatementSectionCopy debugMode={debugMode} />
-      <ForWhomSectionCopy debugMode={debugMode} />
-      <PodcastSectionCopy debugMode={debugMode} />
-      <ProcessSectionCopy debugMode={debugMode} />
       <WhatIsSectionCopy debugMode={debugMode} />
-      <AboutSectionCopy debugMode={debugMode} />
-      <BookingSectionCopy debugMode={debugMode} />
-      <CaseStudiesSectionCopy debugMode={debugMode} />
-      <FAQSectionCopy debugMode={debugMode} />
       <ResearchersSectionCopy debugMode={debugMode} />
-      <ReferencesSectionCopy debugMode={debugMode} />
+      <ForWhomSectionCopy debugMode={debugMode} />
+      <AboutSectionCopy debugMode={debugMode} />
+      <ProcessSectionCopy debugMode={debugMode} />
+      <PodcastSectionCopy debugMode={debugMode} />
+      <CaseStudiesSectionCopy debugMode={debugMode} />
       <TestimonialCarouselCopy
         clients={testimonials.clients}
         label={testimonials.clientLabel}
         subtitle="Kundenstimmen"
         debugMode={debugMode}
       />
+      <BookingSectionCopy debugMode={debugMode} />
+      <FAQSectionCopy debugMode={debugMode} />
+      <ReferencesSectionCopy debugMode={debugMode} />
 
       {/* Footer */}
       <div className="mt-20 pt-8 border-t border-black/10 text-center">

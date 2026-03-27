@@ -4,22 +4,7 @@ import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
-import { ChevronDown } from 'lucide-react'
-
-function AvatarSilhouette({ gender }) {
-  return (
-    <div className="w-12 h-12 rounded-full bg-color-bg-light/60 border border-black/10 flex items-center justify-center shrink-0 overflow-hidden">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-color-heading/30">
-        <circle cx="16" cy="10" r="5" fill="currentColor" />
-        {gender === 'female' ? (
-          <path d="M7 28 C7 20 10 17 16 17 C22 17 25 20 25 28" fill="currentColor" />
-        ) : (
-          <path d="M6 28 C6 19 10 17 16 17 C22 17 26 19 26 28" fill="currentColor" />
-        )}
-      </svg>
-    </div>
-  )
-}
+import { ChevronDown, User } from 'lucide-react'
 
 export default function CaseStudiesSectionCopy({ debugMode = false }) {
   // Marina (index 0) opens by default
@@ -86,7 +71,9 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                   className="w-24 h-24 rounded-full object-cover object-top border border-black/10 shrink-0"
                 />
               ) : (
-                <AvatarSilhouette gender={item.gender} />
+                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border border-black/10 flex items-center justify-center shrink-0">
+                  <User className="w-12 h-12 text-color-heading/30" />
+                </div>
               )}
               <div className="flex-1 pr-4">
                 <DebugLabel type="label" debugMode={debugMode}>

@@ -66,7 +66,7 @@ export default function FAQSectionCopy({ debugMode = false }) {
                 }`}
               >
                 <DebugLabel type="body" debugMode={debugMode}>
-                  <p className="font-primary text-body text-color-heading leading-relaxed whitespace-pre-line">
+                  <p className="font-display text-body text-color-heading leading-relaxed whitespace-pre-line">
                     {item.answer}
                   </p>
                 </DebugLabel>

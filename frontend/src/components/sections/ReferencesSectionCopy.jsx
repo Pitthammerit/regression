@@ -77,26 +77,21 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                   )}
                 </div>
 
-                {/* Right column: Title → Subtitle → Dates → Description → Source */}
+                {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
-                  <a
-                    href={resource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-block"
-                  >
-                    <DebugLabel type="h3" debugMode={debugMode}>
-                      <p className="font-display text-h3 text-on-dark-heading font-semibold name-role-spacing group-hover:text-on-dark-accent">
-                        {resource.name}
-                      </p>
-                    </DebugLabel>
-                  </a>
-
-                  <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label text-on-dark-role uppercase tracking-wider role-date-spacing">
-                      {resource.role}
+                  <DebugLabel type="h3" debugMode={debugMode}>
+                    <p className="font-display text-h3 text-on-dark-heading font-semibold name-role-spacing">
+                      {resource.name}
                     </p>
                   </DebugLabel>
+
+                  {resource.role && (
+                    <DebugLabel type="role" debugMode={debugMode}>
+                      <p className="font-primary text-label text-on-dark-role uppercase tracking-wider role-date-spacing">
+                        {resource.role}
+                      </p>
+                    </DebugLabel>
+                  )}
 
                   {resource.dates && (
                     <DebugLabel type="date" debugMode={debugMode}>
@@ -106,8 +101,8 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                     </DebugLabel>
                   )}
 
-                  <DebugLabel type="body-lg" debugMode={debugMode}>
-                    <p className="font-display text-body-lg text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
+                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                    <p className="font-display text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
@@ -117,7 +112,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                       href={resource.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-primary text-label text-on-dark-accent hover:text-on-dark-accent transition-colors"
+                      className="font-primary text-label text-on-dark-label hover:text-on-dark-accent transition-colors"
                     >
                       {resource.sourceLabel} →
                     </a>
@@ -161,26 +156,21 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                   )}
                 </div>
 
-                {/* Right column: Title → Subtitle → Dates → Description → Source */}
+                {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
-                  <a
-                    href={resource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-block"
-                  >
-                    <DebugLabel type="h3" debugMode={debugMode}>
-                      <p className="font-display text-h3 text-on-dark-heading font-semibold name-role-spacing group-hover:text-on-dark-accent">
-                        {resource.name}
-                      </p>
-                    </DebugLabel>
-                  </a>
-
-                  <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label text-on-dark-role uppercase tracking-wider role-date-spacing">
-                      {resource.role}
+                  <DebugLabel type="h3" debugMode={debugMode}>
+                    <p className="font-display text-h3 text-on-dark-heading font-semibold name-role-spacing">
+                      {resource.name}
                     </p>
                   </DebugLabel>
+
+                  {resource.role && (
+                    <DebugLabel type="role" debugMode={debugMode}>
+                      <p className="font-primary text-label text-on-dark-role uppercase tracking-wider role-date-spacing">
+                        {resource.role}
+                      </p>
+                    </DebugLabel>
+                  )}
 
                   {resource.dates && (
                     <DebugLabel type="date" debugMode={debugMode}>
@@ -190,8 +180,8 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                     </DebugLabel>
                   )}
 
-                  <DebugLabel type="body-lg" debugMode={debugMode}>
-                    <p className="font-display text-body-lg text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
+                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                    <p className="font-display text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
@@ -201,7 +191,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                       href={resource.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-primary text-label text-on-dark-accent hover:text-on-dark-accent transition-colors"
+                      className="font-primary text-label text-on-dark-label hover:text-on-dark-accent transition-colors"
                     >
                       {resource.sourceLabel} →
                     </a>

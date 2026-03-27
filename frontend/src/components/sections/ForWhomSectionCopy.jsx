@@ -19,11 +19,15 @@ import DebugLabel from '../ui/DebugLabel'
  * - TopicCard component structure
  * - Map over forWhom.topics from content layer
  */
-function TopicCard({ title, body }) {
+function TopicCard({ title, body, debugMode = false }) {
   return (
     <div className="bg-white/50 rounded-2xl p-5 md:p-6 flex flex-col gap-2 border border-color-bg-light hover:border-color-label transition-colors">
-      <h3 className="font-display text-h4 text-color-heading leading-snug">{title}</h3>
-      <p className="font-primary text-body text-color-body leading-relaxed">{body}</p>
+      <DebugLabel type="h4" debugMode={debugMode}>
+        <h3 className="font-display text-h4 text-color-heading leading-snug">{title}</h3>
+      </DebugLabel>
+      <DebugLabel type="body" debugMode={debugMode}>
+        <p className="font-primary text-body text-color-body leading-relaxed">{body}</p>
+      </DebugLabel>
     </div>
   )
 }
@@ -49,7 +53,7 @@ export default function ForWhomSectionCopy({ debugMode = false }) {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5" data-testid="topic-cards-grid">
         {forWhom.topics.map((topic, i) => (
-          <TopicCard key={i} title={topic.title} body={topic.body} />
+          <TopicCard key={i} title={topic.title} body={topic.body} debugMode={debugMode} />
         ))}
       </div>
     </SectionWrapper>

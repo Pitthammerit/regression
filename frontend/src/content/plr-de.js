@@ -396,10 +396,10 @@ Seit 2021 hat die Editorialbeschlossen, den Zugang zu allen Artikeln zu gewähre
       type: "book",
       name: "Many Lives, Many Masters",
       dates: "1988",
-      authors: "Brian Weiss MD",
+      authors: "Brian L. Weiss",
       url: "https://brianweiss.com/books/many-lives-many-masters",
-      role: "brianweiss.com",
-      portrait: "",
+      role: "BRIAN L. WEISS M.D.",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors//manylivesmanymasters.jpeg",
       description: `Der internationale Bestseller, der Regressionstherapie der Welt öffnete. Brian Weiss dokumentiert seine transformative Arbeit mit Catherine, einer Patientin die unter Hypnose plötzlich von Details aus vergangenen Leben berichtete – Informationen, die sich historisch verifizieren ließen.
 
 Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen klinischen Arbeit mit tausenden Patienten. Viele Lives, Many Masters wurde zu einem der einflussreichsten Bücher der spirituellen Psychologie und machte Regressionstherapie einem breiten Publikum zugänglich.`,
@@ -409,30 +409,32 @@ Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen kl
     {
       type: "book",
       name: "Other Lives, Other Selves",
-      dates: "1987",
-      authors: "Roger Woolger PhD",
-      url: "https://www.amazon.com/Other-Lives-Selves-Roger-Woolger/dp/0140193346",
-      role: "Amazon · Barnes & Noble",
-      portrait: "",
+      dates: "1988",
+      authors: "Roger J. Woolger Ph.D.",
+      url: "https://www.amazon.com/Other-Lives-Selves-Psychotherapist-Discovers/dp/0553345958",
+      role: "Roger J. Woolger Ph.D.",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors//otherlivesotherselfes.jpg",
       description: `Eines der einflussreichsten Werke der Regressionstherapie. Roger Woolger präsentiert eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie und schamanischen Perspektiven.
 
 Das Buch zeigt, wie Regressionstherapie als Werkzeug dienen kann, um aktuelle Lebensprobleme durch das Verständnis früherer Leben zu lösen. Woolger integriert westliche Psychologie mit östlichen spirituellen Traditionen und schafft so einen umfassenden Ansatz für Seelenarbeit.`,
       sourceLabel: "Zum Buch",
-      sourceUrl: "https://www.amazon.com/Other-Lives-Selves-Roger-Woolger/dp/0140193346",
+      sourceUrl: "https://www.amazon.com/Other-Lives-Selves-Psychotherapist-Discovers/dp/0553345958",
     },
     {
       type: "book",
       name: "Life Before Life",
-      dates: "2005",
-      authors: "Jim Tucker MD",
-      url: "https://www.amazon.com/Life-Before-Children-Remember-Previous/dp/0312321376",
-      role: "St. Martin's Press",
-      portrait: "",
-      description: `Jim Tucker präsentiert eine quantitative Analyse von 799 Fällen von Kindern mit Erinnerungen an frühere Leben. Das Buch zeigt, dass diese Fälle nicht kulturell begrenzt sind – sie finden weltweit, unabhängig von religiösem Hintergrund oder Elternhaus statt.
+      dates: "2008",
+      authors: "Jim B. Tucker M.D.",
+      url: "https://www.amazon.com/Life-Before-Childrens-Memories-Previous/dp/031237674X",
+      role: "Jim B. Tucker M.D.",
+      portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors//lifebeforelife.jpg",
+      description: `Jim Tucker präsentiert eine gründliche Untersuchung der Forschung zu Berichten von Kindern über Erinnerungen an frühere Leben. Diese Studie beschreibt eine Sammlung von 2.500 Fällen an der University of Virginia, die vom Beginn der Arbeit von Dr. Ian Stevenson vor mehr als vierzig Jahren an sorgfältig untersucht wurden.
 
-Life Before Life ist einer der wichtigsten Beiträge zur wissenschaftlichen Reinkarnationsforschung. Tucker zeigt, dass die Muster in diesen Fällen starke Hinweise auf die Existenz früherer Leben liefern – eine faszinierende Lektüre für Skeptiker und Gläubige gleichermaßen.`,
+Die Kinder beginnen meist im Alter von zwei oder drei Jahren, über ein früheres Leben zu sprechen, und können von einer früheren Familie oder dem Tod in einem früheren Leben berichten. Ihre Aussagen haben sich oft als für eine bestimmte verstorbenen Person genau erwiesen, und einige Kinder haben Mitglieder der früheren Familie erkannt. Eine Anzahl von ihnen hatte auch Geburtsmale oder Defekte, die mit Wunden auf dem Körper der verstorbenen Person übereinstimmten.
+
+Life Before Life stellt die Fälle auf unkomplizierte Weise vor und erforscht die Möglichkeit, dass das Bewusstsein nach dem Tod des Gehirns fortfahren könnte. Es ist ein provokatives und faszinierendes Buch, das das Verständnis der Leser über Leben und Tod herausfordern und letztlich verändern kann.`,
       sourceLabel: "Zum Buch",
-      sourceUrl: "https://www.amazon.com/Life-Before-Life-Children-Remember-Previous/dp/0312321376",
+      sourceUrl: "https://www.amazon.com/Life-Before-Childrens-Memories-Previous/dp/031237674X/ref=sr_1_2?crid=1ZD24S35MAXG5&dib=eyJ2IjoiMSJ9.JT7FiJTVfWmTqVGUD0Np5YYLmkWWFmtNWPGjFvATCQpgUzPKgt18cDIrQf6yDLLjY7jUz64XfzKwyCIRgCxQ0JCzCy7gVxVQKPEoZL3zjno0m_ARh4VFRxJjN2SuvACb5iP1mHCpVCoIB4w6ibQvENsofsEbcevb1ZJ50LZEVnBIKQGehy4gEONsJJZfmHCufdgVTRBKjnOsCq5xIaRJnWiL90tKe3XthfNgeqJfzUE.9tzXkfmbVtx-y2GAnUw2Ru1irBtcDgTO2uMvptt7C2U&dib_tag=se&keywords=life%27s+before+life+tucker&qid=1774617870&s=books&sprefix=life%27s+before+life+tuc%2Cstripbooks-intl-ship%2C389&sr=1-2",
     },
   ],
 };

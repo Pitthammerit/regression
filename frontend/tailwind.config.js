@@ -101,7 +101,7 @@ module.exports = {
         'subline': ['1.0rem', {
           lineHeight: '1.5',
         }],
-        'list': ['1rem', {
+        'list': ['1.25rem', {
           lineHeight: '1.5',
         }],
         'quote-featured': ['2.25rem', {
@@ -147,7 +147,7 @@ module.exports = {
         'icon': ['1rem', {
           lineHeight: '1',
         }],
-        'star': ['0.875rem', {
+        'star': ['2px', {
           lineHeight: '1',
         }],
       },
