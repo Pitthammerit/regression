@@ -49,7 +49,7 @@ export default function PodcastSectionCopy({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="body-lg" debugMode={debugMode}>
-              <p className="font-primary text-body-lg text-color-body leading-relaxed content-spacing-lg">
+              <p className="font-primary text-body-lg text-color-body leading-relaxed italic content-spacing-lg">
                 {podcast.sectionBody}
               </p>
             </DebugLabel>
@@ -61,7 +61,7 @@ export default function PodcastSectionCopy({ debugMode = false }) {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-primary text-label text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
+                  className="font-primary text-button-text text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
                   data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                 >
                   {link.label}
