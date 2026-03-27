@@ -10,10 +10,10 @@ name = "thumbnail-generator"
 main = "src/index.ts"
 compatibility_date = "2024-01-01"
 
-# R2 Bucket Binding (set via secret: R2_BUCKET)
+# R2 Bucket Binding
 [[r2_buckets]]
 binding = "VIDEO_BUCKET"
-bucket_name = "regression-videos"  # ← Update this to your actual bucket name
+bucket_name = "awakecommunity"  # Your R2 bucket name
 
 # Environment variables
 [vars]
@@ -24,10 +24,10 @@ THUMBNAIL_FORMAT = "jpeg"
 THUMBNAIL_QUALITY = 60
 FRAME_TIME = 1.0  # Extract frame at 1 second
 
-# API Routes
-[routes]
-pattern = "api/regression-a2m.pages.dev/generate-thumbnail"
-zone_name = "regression-a2m.pages.dev"
+# API Routes (optional - for custom domain)
+# [[routes]]
+# pattern = "api.your-domain.com/generate-thumbnail"
+# zone_name = "your-domain.com"
 
 # Worker schedule (optional: for cleanup tasks)
 # [triggers]
