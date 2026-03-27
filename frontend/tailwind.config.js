@@ -22,6 +22,7 @@ module.exports = {
         'color-body':    '#5A5550',
         'color-label':   '#7696AD',
         'color-accent':  '#2DAD71',
+        'color-star':    '#F59E0B',
 
         // ─────────────────────────────────────────────────────────────
         // 3. ON-DARK (semantische Namen)
@@ -84,6 +85,9 @@ module.exports = {
         'h4': ['1.5rem', {
           lineHeight: '1.2',
         }],
+        'h5': ['1.25rem', {
+          lineHeight: '1.3',
+        }],
         'body': ['1.125rem', {
           lineHeight: '1.75',
         }],
@@ -130,6 +134,8 @@ module.exports = {
         }],
         'button-text': ['0.875rem', {
           lineHeight: '1.5',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
         }],
         'source-link': ['0.875rem', {
           lineHeight: '1.5',

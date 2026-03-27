@@ -112,7 +112,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
             onClick={handlePrev}
             className="absolute left-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-label transition-opacity hover:opacity-70 xl:block"
             aria-label="Previous testimonial">
-            <ChevronLeft className="h-8 w-8" />
+            <ChevronLeft className="w-icon h-icon" />
           </button>
 
           {/* Sliding Cards Container */}
@@ -140,18 +140,18 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                           </div>
                         )}
                         <div>
-                          <DebugLabel type="body" debugMode={debugMode}>
-                            <p className="font-primary text-body font-semibold text-color-heading">{t.name}</p>
+                          <DebugLabel type="h5" debugMode={debugMode}>
+                            <p className="font-primary text-h5 font-semibold text-color-heading">{t.name}</p>
                           </DebugLabel>
-                          <DebugLabel type="label" debugMode={debugMode}>
-                            <p className="font-primary text-label text-color-label">
+                          <DebugLabel type="role" debugMode={debugMode}>
+                            <p className="font-primary text-label text-color-label uppercase tracking-wider">
                               {t.context}
                             </p>
                           </DebugLabel>
                         </div>
                       </div>
-                      {/* 5 Stars - gold color from Tailwind */}
-                      <div className="flex items-center gap-0.5 text-amber-400">
+                      {/* 5 Stars - semantic star color (yellow) */}
+                      <div className="flex items-center gap-0.5 text-color-star">
                         {Array.from({ length: 5 }).map((_, starIdx) => (
                           <Star key={starIdx} className="h-4 w-4 fill-current" />
                         ))}
@@ -159,9 +159,9 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                     </div>
 
                     {/* Quote - below stars */}
-                    <DebugLabel type="body" debugMode={debugMode}>
+                    <DebugLabel type="body-narrative" debugMode={debugMode}>
                       <div className="text-color-body">
-                        <p className="font-primary text-body italic text-center sm:text-left">
+                        <p className="font-display text-body-narrative italic text-center sm:text-left">
                           "{t.quote}"
                         </p>
                       </div>
@@ -194,7 +194,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
               {/* Progress bar inside active dot */}
               {index === currentIndex && (
                 <div
-                  className="absolute left-0 top-0 h-full bg-white/40 transition-all duration-100 ease-linear"
+                  className="absolute left-0 top-0 h-full bg-on-dark-divider transition-all duration-100 ease-linear"
                   style={{ width: `${progress}%` }}
                 />
               )}
