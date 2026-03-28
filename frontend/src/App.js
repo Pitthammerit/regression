@@ -23,7 +23,7 @@ import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import TestimonialsSection from './components/sections/TestimonialsSection'
 import TestimonialsSectionCopy from './components/sections/TestimonialsSectionCopy'
 import BookingSection from './components/sections/BookingSection'
-import SimpleCtaSection from './components/sections/SimpleCtaSection'
+import SimpleCtaWithImageSection from './components/sections/SimpleCtaWithImageSection'
 import TranscriptPage from './pages/TranscriptPage'
 import MenuDemoPage from './pages/demos/MenuDemoPage'
 import TypographyDemoPage from './pages/demos/TypographyDemoPage'
@@ -101,7 +101,7 @@ function MainPage() {
     'BookingSection': <BookingSection debugMode={debugMode} />,
     'FAQSection': <FAQSection debugMode={debugMode} />,
     'ReferencesSection': <ReferencesSection debugMode={debugMode} />,
-    'SimpleCtaSection': <SimpleCtaSection debugMode={debugMode} />,
+    'SimpleCtaWithImageSection': <SimpleCtaWithImageSection debugMode={debugMode} />,
   }
 
   return (

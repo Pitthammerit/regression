@@ -450,6 +450,18 @@ export const simpleCta = {
 };
 
 // ═══════════════════════════════════════════════════════════
+// SimpleCtaWithImageSection — SIMPLE CTA WITH IMAGE
+// ═══════════════════════════════════════════════════════════
+export const simpleCtaWithImage = {
+  label: "DEIN NEXT STEP",
+  headline: "Bereit, deiner Seele zuzuhören?",
+  subline: "Ein unverbindliches Erstgespräch. Wir schauen gemeinsam, ob eine Session der richtige Schritt für dich ist.",
+  cta: "Intro-Call buchen",
+  imageUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/2%20s%20350px.png",
+  imageAlt: "Benjamin Kurtz",
+};
+
+// ═══════════════════════════════════════════════════════════
 // TestimonialsSection — TESTIMONIALS
 // Note: Individual testimonials are now in testimonials.list.js
 // ═══════════════════════════════════════════════════════════
