@@ -56,7 +56,7 @@ export const services = {
 // WelcomeSection — WELCOME
 // ═══════════════════════════════════════════════════════════
 export const welcome = {
-  headline: "Hi, ich bin Benjamin. Schön, dass du hier bist.",
+  headline: "Hi, ich bin Benjamin.\nSchön, dass du hier bist.",
   quoteLines: [
     "Hier erfährst du, was Regressions und Past Life Regression Sessions sind, wie sie dir helfen können, und was wirklich in einer Session passiert.",
     "Außerdem findest hier Podcast-Episoden, wissenschaftliche Hintergründe und die Möglichkeit, in einem Intro-Call direkt mit mir in Kontakt zu treten.",

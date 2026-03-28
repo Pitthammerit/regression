@@ -20,7 +20,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
           </div>
           {/* Greeting directly under photo */}
           <DebugLabel type="h3-hand" debugMode={debugMode}>
-            <p className="font-handwriting text-h3-hand text-color-heading text-center md:text-left leading-snug">
+            <p className="font-handwriting text-h3-hand text-color-heading text-center md:text-left leading-snug whitespace-pre-line">
               {welcome.headline}
             </p>
           </DebugLabel>
