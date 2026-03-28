@@ -96,7 +96,7 @@ function MainPage() {
       <TestimonialCarousel
         clients={testimonials.clients}
         label={testimonials.clientLabel}
-        subtitle="Kundenstimmen"
+        subtitle={testimonials.clientSubtitle}
         debugMode={debugMode}
       />
     ),

@@ -466,7 +466,8 @@ export const ctaImage = {
 // Note: Individual testimonials are now in testimonials.list.js
 // ═══════════════════════════════════════════════════════════
 export const testimonials = {
-  clientLabel: "WAS KLIENTEN SAGEN",
+  clientLabel: "WALL OF LOVE",
+  clientSubtitle: "Einzigartige, individeulle Erfahrungen",
   // Note: clients array is now managed in testimonials.list.js for dynamic editing
   clients: [
     {
