@@ -36,11 +36,8 @@ export default function Footer({ data, debugMode = false }) {
       <div className="py-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
-          {/* — Fine line above navigation — */}
-          <div className="border-t border-white/10 mb-8"></div>
-
           {/* 1 — Navigation horizontal */}
-          <div className="mb-8 flex flex-wrap justify-center gap-6 font-primary text-menu-text text-white/70">
+          <div className="mb-6 flex flex-wrap justify-center gap-6 font-primary text-menu-text text-white/70">
             {nav.map((item, index) => (
               <DebugLabel key={item.anchor} type="menu-text" debugMode={debugMode}>
                 <a
@@ -59,7 +56,7 @@ export default function Footer({ data, debugMode = false }) {
           </div>
 
           {/* 2 — Contact icons with label */}
-          <div className="mb-10 flex justify-center items-center gap-4">
+          <div className="mb-6 flex justify-center items-center gap-4">
             <DebugLabel type="label" debugMode={debugMode}>
               <span className="font-primary text-label label text-white/50">
                 {footerContent.contactLabel}
