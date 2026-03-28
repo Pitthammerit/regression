@@ -30,7 +30,7 @@ import { X, Send } from "lucide-react"
  * @param {Object} props
  * @param {boolean} props.debugMode - Show debug labels
  */
-export default function PodcastVideoSectionCopy({ debugMode = false }) {
+export default function PodcastVideoSection({ debugMode = false }) {
   const [panelOpen, setPanelOpen] = useState(false)
   // Get first podcast (for backwards compatibility)
   const podcast = podcasts[0]

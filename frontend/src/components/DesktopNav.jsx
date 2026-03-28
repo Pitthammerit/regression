@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { menu } from '../content/menu'
 import { useNavigation } from '../contexts/NavigationContext'
+import DebugLabel from './ui/DebugLabel'
 
-export default function DesktopNav() {
+export default function DesktopNav({ debugMode = false }) {
   const { navigateTo } = useNavigation()
   const [openIndex, setOpenIndex] = useState(null)
 
@@ -21,25 +22,29 @@ export default function DesktopNav() {
             onMouseEnter={() => item.hasSubmenu && setOpenIndex(index)}
             onMouseLeave={() => setOpenIndex(null)}
           >
-            <button
-              className="px-3 py-2 text-sm font-medium text-brand-body rounded hover:bg-brand-cream transition-colors"
-              onClick={() => !item.hasSubmenu && handleNavClick(item.anchor)}
-            >
-              {item.label}
-            </button>
+            <DebugLabel type="menu-text" debugMode={debugMode}>
+              <button
+                className="px-3 py-2 font-primary text-menu-text text-color-body rounded hover:bg-color-bg-light transition-colors"
+                onClick={() => !item.hasSubmenu && handleNavClick(item.anchor)}
+              >
+                {item.label}
+              </button>
+            </DebugLabel>
 
             {item.hasSubmenu && openIndex === index && (
-              <ul className="absolute top-full left-0 min-w-[200px] bg-white/20 backdrop-blur-[16px] rounded-lg shadow-xl border border-white/30 py-1 z-50">
+              <ul className="absolute top-full left-0 min-w-[200px] bg-color-card-overlay backdrop-blur-[16px] rounded-lg shadow-xl border border-color-border py-1 z-50">
                 {menu.items
                   .find(cat => cat.label === item.label)
                   ?.children.map((child) => (
                     <li key={child.id}>
-                      <button
-                        onClick={() => handleNavClick(child.anchor)}
-                        className="block w-full text-left px-4 py-2 text-sm text-brand-body hover:font-bold transition-all"
-                      >
-                        {child.label}
-                      </button>
+                      <DebugLabel type="menu-text" debugMode={debugMode}>
+                        <button
+                          onClick={() => handleNavClick(child.anchor)}
+                          className="block w-full text-left px-4 py-2 font-primary text-menu-text text-color-body hover:font-bold transition-all"
+                        >
+                          {child.label}
+                        </button>
+                      </DebugLabel>
                     </li>
                   ))}
               </ul>

@@ -20,7 +20,7 @@ import { useNavigation } from '../../contexts/NavigationContext'
  * - Only one item expanded at a time
  * - Map over faq.items
  */
-export default function FAQSectionCopy({ debugMode = false }) {
+export default function FAQSection({ debugMode = false }) {
   const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
 
   const toggleExpand = (index) => {

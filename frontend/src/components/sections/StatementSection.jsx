@@ -4,7 +4,7 @@ import SectionWrapper from '../ui/SectionWrapper'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * StatementSectionCopy — Statement section with typography tokens
+ * StatementSection — Statement section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-display (Cormorant Garamond, serif)
@@ -16,7 +16,7 @@ import DebugLabel from '../ui/DebugLabel'
  * - Map over statement.lines from content layer
  * - Border styling (border-black/10)
  */
-export default function StatementSectionCopy({ debugMode = false }) {
+export default function StatementSection({ debugMode = false }) {
   return (
     <SectionWrapper id="statement" data-testid="statement-section">
       <div className="max-w-centered-header mx-auto text-center border-t border-b border-color-border py-10">

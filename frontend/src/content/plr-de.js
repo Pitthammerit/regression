@@ -471,7 +471,7 @@ export const testimonials = {
   // Note: clients array is now managed in testimonials.list.js for dynamic editing
   clients: [
     {
-      quote: "Durch Benjamins Ruhe und Klarheit konnte ich mich trotz anfänglicher starker Aufregung schnell auf die Session einlassen. Es ist, als würde er durch dich durchsehen und dich sofort an die Orte führen, die dir vorher nie bekannt waren – aber genau die sind, die du brauchst. Es war unbeschreiblich, an einem Ort purer Liebe jenseits von Materie zu sein, meine Engel zu treffen und an diesem Ort des absoluten Friedens zu verweilen, zu dem ich jetzt auch im Alltag immer wieder zurückkehren kann. Besonders wertvoll war für mich die Integration danach, die mir geholfen hat, die Erkenntnisse wirklich in mir zu verankern. Ich fühle mich geführt und getragen. Vielen Dank dafür.",
+      quote: "Durch Benjamins Ruhe und Klarheit konnte ich mich trotz anfänglicher Aufregung schnell auf die Session einlassen. Es ist, als würde er durch dich durchsehen und dich sofort an die Orte führen, die dir vorher nie bekannt waren – aber genau die sind, die du brauchst. Es war unbeschreiblich, an einem Ort purer Liebe jenseits von Materie zu sein, meine Engel zu treffen und an diesem Ort des absoluten Friedens zu verweilen. zu dem ich jetzt auch im Alltag immer wieder zurückkehren kann. Die Integration danach war sehr wertvoll, um die Erkenntnisse wirklich in mir zu verankern.",
       name: "Anna K.",
       context: "Health Coach, Deutschland",
       image: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/Anna-krickel.jpg",

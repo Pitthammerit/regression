@@ -2,7 +2,7 @@ import React from 'react'
 import { services } from '../../content/plr-de'
 import DebugLabel from '../ui/DebugLabel'
 
-export default function ServicesSectionCopy({ debugMode = false }) {
+export default function ServicesSection({ debugMode = false }) {
   return (
     <section id="services" className="pt-2 pb-8" data-testid="services-section">
       <div className="max-w-content mx-auto px-6">

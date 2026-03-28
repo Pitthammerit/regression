@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react'
 import { menu } from '../content/menu'
 import CtaButton from './ui/CtaButton'
+import DebugLabel from './ui/DebugLabel'
 import { useNavigation } from '../contexts/NavigationContext'
 
-export default function SidecarMenu({ isOpen, onClose }) {
+export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
   const [isClosing, setIsClosing] = React.useState(false)
   const closeTimeoutRef = useRef(null)
   const { navigateTo, isBurgerClosing } = useNavigation()
@@ -64,45 +65,48 @@ export default function SidecarMenu({ isOpen, onClose }) {
         }}
       >
         {/* Header - Floating Burger übernimmt Schließen */}
-        <div className="flex items-center px-8 py-[22px] border-b border-black/8">
-          <h2 className="font-serif text-[25px] text-brand-deep leading-tight">
-            Überblick
-          </h2>
+        <div className="flex items-center px-8 py-2 border-b border-black/8">
+          <DebugLabel type="h2" debugMode={debugMode}>
+            <h2 className="font-display text-h2 text-color-heading leading-tight">
+              Überblick
+            </h2>
+          </DebugLabel>
         </div>
 
         {/* Navigation - Alle Kategorien immer aufgeklappt, minimale Abstände */}
-        <nav className="flex-1 overflow-y-auto px-5 py-3">
-          <div className="grid grid-cols-2 900:grid-cols-1 gap-x-6 gap-y-0 space-y-0">
-            {menu.items.map((item) => (
-              <div key={item.id}>
-                {/* Hauptkategorie */}
+        <nav className="flex-1 overflow-y-auto px-5 py-2">
+          <div className="grid grid-cols-2 900:grid-cols-1 gap-x-6 gap-y-0">
+            {menu.items.map((item, index) => (
+              <div key={item.id} className={index > 0 ? 'mt-4' : ''}>
                 {item.children ? (
-                  // Kategorie mit Unterpunkten
                   <>
-                    <div className="font-serif text-lg 900:text-base text-brand-deep py-1">
-                      {item.label}
-                    </div>
-                    {/* Unterpunkte - immer sichtbar, minimaler Abstand */}
+                    <DebugLabel type="menu-text" debugMode={debugMode}>
+                      <div className="font-primary text-menu-text text-color-heading leading-[1.6] py-0.5">
+                        {item.label}
+                      </div>
+                    </DebugLabel>
                     <div className="pl-3 pb-1 space-y-0">
                       {item.children.map((child) => (
-                        <button
-                          key={child.id}
-                          onClick={() => handleNavClick(child.anchor)}
-                          className="block w-full text-left font-sans text-base 900:text-sm text-brand-muted hover:text-brand-deep py-1 px-2 rounded hover:bg-black/5 transition-colors"
-                        >
-                          {child.label}
-                        </button>
+                        <DebugLabel key={child.id} type="menu-text" debugMode={debugMode}>
+                          <button
+                            onClick={() => handleNavClick(child.anchor)}
+                            className="block w-full text-left font-primary text-menu-text text-color-body hover:text-color-heading leading-[1.6] py-0.5 px-2 rounded hover:bg-black/5 transition-colors"
+                          >
+                            {child.label}
+                          </button>
+                        </DebugLabel>
                       ))}
                     </div>
                   </>
                 ) : (
-                  // Kategorie ohne Unterpunkte - direkt klickbar
-                  <button
-                    onClick={() => handleNavClick(item.anchor)}
-                    className="w-full text-left font-serif text-lg 900:text-base text-brand-deep hover:text-brand-steel py-1 transition-colors"
-                  >
-                    {item.label}
-                  </button>
+                  <DebugLabel type="menu-text" debugMode={debugMode}>
+                    <button
+                      onClick={() => handleNavClick(item.anchor)}
+                      className="w-full text-left font-primary text-menu-text text-color-heading hover:text-color-label leading-[1.6] py-0.5 transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  </DebugLabel>
                 )}
 
                 <div className="h-px bg-black/8" />

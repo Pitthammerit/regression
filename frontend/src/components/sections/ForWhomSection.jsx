@@ -21,7 +21,7 @@ import DebugLabel from '../ui/DebugLabel'
  * - Map over forWhom.topics from content layer
  */
 
-export default function ForWhomSectionCopy({ debugMode = false }) {
+export default function ForWhomSection({ debugMode = false }) {
   return (
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">

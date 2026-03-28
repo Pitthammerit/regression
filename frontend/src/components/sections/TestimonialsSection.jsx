@@ -27,7 +27,7 @@ import DebugLabel from '../ui/DebugLabel'
  * @param {Object} props
  * @param {boolean} props.debugMode - Show debug labels for typography tokens
  */
-export default function TestimonialsSectionCopy({ debugMode = false }) {
+export default function TestimonialsSection({ debugMode = false }) {
   // Dynamic testimonials from list
   const [featured, ...others] = TESTIMONIALS_LIST
   // featured = Anna (first), others = [Alexander, Arthur, Hernan, ...]

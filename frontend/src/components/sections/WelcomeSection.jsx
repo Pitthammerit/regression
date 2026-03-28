@@ -4,7 +4,7 @@ import SectionWrapper from '../ui/SectionWrapper'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 
-export default function WelcomeSectionCopy({ debugMode = false }) {
+export default function WelcomeSection({ debugMode = false }) {
   return (
     <SectionWrapper id="welcome" data-testid="welcome-section">
       <div className="grid md:grid-cols-[300px_1fr] lg:grid-cols-[340px_1fr] gap-10 md:gap-16 items-start">

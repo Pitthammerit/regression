@@ -23,7 +23,7 @@ import { ChevronDown } from 'lucide-react'
  * - Accordion with calendar embed
  * - TopicCard component for form topics (imported from ui/)
  */
-export default function BookingSectionCopy({ debugMode = false }) {
+export default function BookingSection({ debugMode = false }) {
   const [calendarOpen, setCalendarOpen] = useState(false)
   const embedCode = process.env.REACT_APP_CALENDAR_EMBED
 

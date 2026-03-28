@@ -4,7 +4,7 @@ import DesktopNav from './DesktopNav'
 import SidecarMenu from './SidecarMenu'
 import { useNavigation } from '../contexts/NavigationContext'
 
-export default function Header() {
+export default function Header({ debugMode = false }) {
   const { sidecarOpen, setSidecarOpen } = useNavigation()
   const [scrolled, setScrolled] = useState(false)
 
@@ -43,14 +43,14 @@ export default function Header() {
 
             {/* Desktop Nav - horizontal zentriert */}
             <div className="hidden 900:flex items-center flex-1 justify-center -ml-[20%]">
-              <DesktopNav />
+              <DesktopNav debugMode={debugMode} />
             </div>
           </div>
         </div>
       </header>
 
       {/* Sidecar Menu - alle Breakpoints */}
-      <SidecarMenu isOpen={sidecarOpen} onClose={() => setSidecarOpen(false)} />
+      <SidecarMenu isOpen={sidecarOpen} onClose={() => setSidecarOpen(false)} debugMode={debugMode} />
     </>
   )
 }

@@ -6,7 +6,7 @@ import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import { ChevronDown, User } from 'lucide-react'
 
-export default function CaseStudiesSectionCopy({ debugMode = false }) {
+export default function CaseStudiesSection({ debugMode = false }) {
   // Marina (index 0) opens by default
   const [openIndex, setOpenIndex] = useState(0)
   const [showHint, setShowHint] = useState(false)

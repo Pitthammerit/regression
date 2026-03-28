@@ -21,7 +21,7 @@ const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/p
  * - PodcastPlayer component
  * - Map over podcast.podcastLinks
  */
-export default function PodcastSectionCopy({ debugMode = false }) {
+export default function PodcastSection({ debugMode = false }) {
   // Get first podcast (for backwards compatibility)
   const podcast = podcasts[0]
   return (

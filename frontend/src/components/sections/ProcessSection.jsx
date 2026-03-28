@@ -22,7 +22,7 @@ import DebugLabel from '../ui/DebugLabel'
  * - CtaButton component
  * - Map over processSection.steps
  */
-export default function ProcessSectionCopy({ debugMode = false }) {
+export default function ProcessSection({ debugMode = false }) {
   return (
     <SectionWrapper id="prozess" data-testid="process-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">

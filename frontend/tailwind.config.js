@@ -105,6 +105,9 @@ module.exports = {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
         }],
+        'menu-text': ['0.9375rem', {
+          lineHeight: '1.5',
+        }],
         'subline': ['1.0rem', {
           lineHeight: '1.5',
         }],
