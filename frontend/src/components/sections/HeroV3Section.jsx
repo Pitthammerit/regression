@@ -59,7 +59,7 @@ export default function HeroV3Section({ debugMode = false }) {
             className="opacity-35 hover:opacity-65 transition-opacity duration-300"
           >
             <ChevronDown
-              className="w-20 h-20 text-color-heading animate-[scrollFade_2s_ease-in-out_infinite]"
+              className="w-20 h-20 text-color-heading animate-pulse-soft"
             />
           </button>
         </div>

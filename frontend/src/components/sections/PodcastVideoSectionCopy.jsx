@@ -64,7 +64,7 @@ export default function PodcastVideoSectionCopy({ debugMode = false }) {
         </div>
 
         {/* Transcript download button — centered */}
-        <div className="element-spacing-md flex justify-center">
+        <div className="margin-top-md flex justify-center">
           <CtaButton
             label={podcastVideo.downloadButtonLabel}
             variant="secondary"
