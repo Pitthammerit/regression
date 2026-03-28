@@ -56,7 +56,7 @@ export default function HeroV3Section({ debugMode = false }) {
           <button
             onClick={handleScrollDown}
             aria-label="Nach unten scrollen"
-            className="opacity-35 hover:opacity-65 transition-opacity duration-300"
+            className="opacity-50 hover:opacity-80 transition-opacity duration-300"
           >
             <ChevronDown
               className="w-20 h-20 text-color-heading animate-pulse-soft"
