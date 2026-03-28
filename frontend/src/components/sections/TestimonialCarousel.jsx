@@ -103,7 +103,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
 
         {/* Main Carousel Container */}
         <div
-          className="relative overflow-hidden"
+          className="relative"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -115,58 +115,57 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
             <ChevronLeft className="w-icon h-icon" />
           </button>
 
-          {/* Sliding Cards Container */}
-          <div className="overflow-hidden rounded-2xl">
+          {/* Card Wrapper with border/background */}
+          <div className="overflow-x-hidden rounded-2xl bg-color-card-overlay border border-color-bg-light shadow-sm backdrop-blur-sm">
+            {/* Sliding Cards Container */}
             <div
               className="flex transition-transform duration-[600ms] ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {carouselClients.map((t, idx) => (
-                <div key={`${t.name}-${idx}`} className="min-w-full">
-                  <div className="flex flex-col gap-3 rounded-2xl bg-color-card-overlay p-[34px] border border-color-bg-light shadow-sm backdrop-blur-sm">
-                    {/* Top Row: Avatar + Name/Role + Stars */}
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
-                      <div className="flex items-center gap-4">
-                        {t.image && (
-                          <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-border shadow-md">
-                            <img
-                              src={getOptimizedImageUrl(t.image)}
-                              width="60"
-                              height="60"
-                              alt={`${t.name}`}
-                              loading="lazy"
-                              className="h-full w-full scale-110 object-cover object-center"
-                            />
-                          </div>
-                        )}
-                        <div>
-                          <DebugLabel type="h5" debugMode={debugMode}>
-                            <p className="font-primary text-h5 font-semibold text-color-heading">{t.name}</p>
-                          </DebugLabel>
-                          <DebugLabel type="role" debugMode={debugMode}>
-                            <p className="font-primary text-label text-color-label label tracking-wider">
-                              {t.context}
-                            </p>
-                          </DebugLabel>
+                <div key={`${t.name}-${idx}`} className="min-w-full p-[34px]">
+                  {/* Top Row: Avatar + Name/Role + Stars */}
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      {t.image && (
+                        <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-border shadow-md">
+                          <img
+                            src={getOptimizedImageUrl(t.image)}
+                            width="60"
+                            height="60"
+                            alt={`${t.name}`}
+                            loading="lazy"
+                            className="h-full w-full scale-110 object-cover object-center"
+                          />
                         </div>
-                      </div>
-                      {/* 5 Stars - semantic star color (yellow) */}
-                      <div className="flex items-center gap-0.5 text-color-star">
-                        {Array.from({ length: 5 }).map((_, starIdx) => (
-                          <Star key={starIdx} className="w-[19px] h-[19px] fill-current" />
-                        ))}
+                      )}
+                      <div>
+                        <DebugLabel type="h5" debugMode={debugMode}>
+                          <p className="font-primary text-h5 font-semibold text-color-heading">{t.name}</p>
+                        </DebugLabel>
+                        <DebugLabel type="role" debugMode={debugMode}>
+                          <p className="font-primary text-label text-color-label label tracking-wider">
+                            {t.context}
+                          </p>
+                        </DebugLabel>
                       </div>
                     </div>
-
-                    {/* Quote - below stars */}
-                    <DebugLabel type="body-narrative" debugMode={debugMode}>
-                      <div className="text-color-body">
-                        <p className="font-display text-body-narrative body-narrative-italic text-center sm:text-left">
-                          "{t.quote}"
-                        </p>
-                      </div>
-                    </DebugLabel>
+                    {/* 5 Stars - semantic star color (yellow) */}
+                    <div className="flex items-center gap-0.5 text-color-star">
+                      {Array.from({ length: 5 }).map((_, starIdx) => (
+                        <Star key={starIdx} className="w-[19px] h-[19px] fill-current" />
+                      ))}
+                    </div>
                   </div>
+
+                  {/* Quote - below stars */}
+                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                    <div className="text-color-body mt-3">
+                      <p className="font-display text-body-narrative body-narrative-italic text-center sm:text-left">
+                        "{t.quote}"
+                      </p>
+                    </div>
+                  </DebugLabel>
                 </div>
               ))}
             </div>
