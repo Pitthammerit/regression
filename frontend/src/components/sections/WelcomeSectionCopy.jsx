@@ -38,7 +38,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
           </DebugLabel>
 
           <div className="space-y-5 -mt-4">
-            {welcome.quoteLines.slice(1).map((line, i) => (
+            {welcome.quoteLines.map((line, i) => (
               <DebugLabel key={i} type="quote-featured" debugMode={debugMode}>
                 <p
                   className="font-display text-quote-featured text-color-heading leading-tight"
