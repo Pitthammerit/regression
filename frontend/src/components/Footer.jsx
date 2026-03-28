@@ -4,6 +4,7 @@ import { header as siteHeader, footer as footerContent } from '../content/plr-de
 import { branding } from '../content/branding'
 import LazyImage from './ui/LazyImage'
 import DebugLabel from './ui/DebugLabel'
+import { useNavigation } from '../contexts/NavigationContext'
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -22,10 +23,11 @@ const CONTACT_ICONS = {
 export default function Footer({ data, debugMode = false }) {
   const nav = siteHeader.nav
   const year = new Date().getFullYear()
+  const { navigateTo } = useNavigation()
 
   const scrollToBooking = (e) => {
     e.preventDefault()
-    document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' })
+    navigateTo('#booking')
     setTimeout(() => window.dispatchEvent(new Event('booking:open')), 500)
   }
 
@@ -42,7 +44,7 @@ export default function Footer({ data, debugMode = false }) {
                   href={item.anchor}
                   onClick={(e) => {
                     e.preventDefault()
-                    document.querySelector(item.anchor)?.scrollIntoView({ behavior: 'smooth' })
+                    navigateTo(item.anchor)
                   }}
                   className="hover:text-white transition-colors"
                   data-testid={`footer-nav-${item.anchor.replace('#', '')}`}
