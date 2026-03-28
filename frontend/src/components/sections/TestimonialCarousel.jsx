@@ -182,7 +182,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
         </div>
 
         {/* Navigation Dots with Progress Bar inside active dot */}
-        <div className="content-spacing-lg flex justify-center gap-2">
+        <div className="mt-8 flex justify-center gap-2">
           {carouselClients.map((_, index) => (
             <button
               key={index}
