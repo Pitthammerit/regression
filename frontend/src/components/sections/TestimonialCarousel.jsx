@@ -84,11 +84,12 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
     return `https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev${url}`
   }
 
-  // Adaptive font size based on text length (18px min, 24px max)
+  // Adaptive font size based on text length (16px min, 24px max)
   const getQuoteFontSize = (text) => {
     const len = text.length
-    if (len < 100) return 'text-xl' // 20px
-    if (len < 150) return 'text-lg' // 18px (current default)
+    if (len < 250) return 'text-[24px]' // 24px for short to medium quotes
+    if (len < 350) return 'text-xl' // 20px for medium quotes
+    if (len < 450) return 'text-lg' // 18px for longer quotes
     return 'text-base' // 16px for very long quotes
   }
 
