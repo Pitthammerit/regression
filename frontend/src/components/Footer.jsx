@@ -3,6 +3,7 @@ import { Instagram, Mail } from 'lucide-react'
 import { header as siteHeader, footer as footerContent } from '../content/plr-de'
 import { branding } from '../content/branding'
 import LazyImage from './ui/LazyImage'
+import DebugLabel from './ui/DebugLabel'
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -18,7 +19,7 @@ const CONTACT_ICONS = {
   instagram: <Instagram size={24} strokeWidth={1.5} />,
 }
 
-export default function Footer({ data }) {
+export default function Footer({ data, debugMode = false }) {
   const nav = siteHeader.nav
   const year = new Date().getFullYear()
 
@@ -34,28 +35,31 @@ export default function Footer({ data }) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
           {/* 1 — Navigation horizontal */}
-          <div className="mb-8 flex flex-wrap justify-center gap-6 text-sm text-white/70">
-            {nav.map((item) => (
-              <a
-                key={item.anchor}
-                href={item.anchor}
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.querySelector(item.anchor)?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="hover:text-white transition-colors"
-                data-testid={`footer-nav-${item.anchor.replace('#', '')}`}
-              >
-                {item.label}
-              </a>
+          <div className="mb-8 flex flex-wrap justify-center gap-6 font-primary text-menu-text text-white/70">
+            {nav.map((item, index) => (
+              <DebugLabel key={item.anchor} type="menu-text" debugMode={debugMode}>
+                <a
+                  href={item.anchor}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    document.querySelector(item.anchor)?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="hover:text-white transition-colors"
+                  data-testid={`footer-nav-${item.anchor.replace('#', '')}`}
+                >
+                  {item.label}
+                </a>
+              </DebugLabel>
             ))}
           </div>
 
           {/* 2 — Contact icons with label */}
           <div className="mb-10 flex justify-center items-center gap-4">
-            <span className="font-sans text-xs text-white/50 uppercase tracking-widest">
-              {footerContent.contactLabel}
-            </span>
+            <DebugLabel type="label" debugMode={debugMode}>
+              <span className="font-primary text-label label text-white/50">
+                {footerContent.contactLabel}
+              </span>
+            </DebugLabel>
             <div className="flex gap-4">
               {data.contact.map((c) => (
                 <a
@@ -90,9 +94,11 @@ export default function Footer({ data }) {
                   alt={branding.logo.alt}
                   className="h-[34px] w-auto object-contain mb-3 mx-auto md:mx-0"
                 />
-                <p className="font-sans text-xs text-white/45 italic leading-relaxed whitespace-nowrap">
-                  {data.tagline}
-                </p>
+                <DebugLabel type="subline" debugMode={debugMode}>
+                  <p className="font-primary text-subline subline-italic text-white/45 leading-relaxed whitespace-pre-line">
+                    {data.tagline}
+                  </p>
+                </DebugLabel>
               </div>
 
               {/* Cols 2+3 — side-by-side on mobile AND desktop */}
@@ -100,42 +106,50 @@ export default function Footer({ data }) {
 
                 {/* Col 2 — Rechtliches */}
                 <div className="min-w-[120px]">
-                  <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
-                    {footerContent.legalLabel}
-                  </p>
+                  <DebugLabel type="label" debugMode={debugMode}>
+                    <p className="font-primary text-label label text-white/30 mb-5">
+                      {footerContent.legalLabel}
+                    </p>
+                  </DebugLabel>
                   <div className="flex flex-col gap-3">
                     {data.legalLinks.map((link) => (
+                      <DebugLabel key={link.label} type="menu-text" debugMode={debugMode}>
                       <a
                         key={link.label}
                         href={link.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-sans text-sm text-white/60 hover:text-white transition-colors"
+                        className="font-primary text-menu-text text-white/60 hover:text-white transition-colors"
                         data-testid={`footer-legal-${link.label.toLowerCase()}`}
                       >
-                        {link.label}
-                      </a>
+                          {link.label}
+                        </a>
+                      </DebugLabel>
                     ))}
                   </div>
                 </div>
 
                 {/* Col 3 — Folgen */}
                 <div className="min-w-[120px]">
-                  <p className="font-sans text-xs tracking-[0.18em] uppercase text-white/30 mb-5">
-                    {footerContent.followLabel}
-                  </p>
+                  <DebugLabel type="label" debugMode={debugMode}>
+                    <p className="font-primary text-label label text-white/30 mb-5">
+                      {footerContent.followLabel}
+                    </p>
+                  </DebugLabel>
                   <div className="flex flex-col gap-3">
                     {data.social.map((s) => (
+                      <DebugLabel key={s.label} type="menu-text" debugMode={debugMode}>
                       <a
                         key={s.label}
                         href={s.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-sans text-sm text-white/60 hover:text-white transition-colors"
+                        className="font-primary text-menu-text text-white/60 hover:text-white transition-colors"
                         data-testid={`footer-social-${s.label.toLowerCase().replace(/ /g, '-')}`}
                       >
-                        {s.label}
-                      </a>
+                          {s.label}
+                        </a>
+                      </DebugLabel>
                     ))}
                   </div>
                 </div>
@@ -146,8 +160,11 @@ export default function Footer({ data }) {
 
           {/* — Divider + Disclaimer — */}
           <div className="border-t border-white/10 pt-6 pb-6 text-center">
-            <h3 className="text-sm font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
-            <p className="text-xs text-white/50 leading-relaxed max-w-3xl mx-auto">
+            <DebugLabel type="label" debugMode={debugMode}>
+              <h3 className="font-primary text-label label font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
+            </DebugLabel>
+            <DebugLabel type="disclaimer" debugMode={debugMode}>
+              <p className="font-primary text-disclaimer disclaimer text-white/50 leading-relaxed max-w-3xl mx-auto">
               {footerContent.disclaimer.split('. ').map((sentence, index, array) => {
                 if (sentence.includes('Erstgespräch')) {
                   const [before, after] = sentence.split('Erstgespräch')
@@ -173,12 +190,14 @@ export default function Footer({ data }) {
                     {index < array.length - 1 ? '. ' : '.'}
                   </React.Fragment>
                 )
-              })}
-            </p>
+                })}
+              </p>
+            </DebugLabel>
           </div>
 
           {/* — Divider + Copyright — */}
-          <div className="border-t border-white/10 pt-6 text-center text-xs text-white/50">
+          <DebugLabel type="hint" debugMode={debugMode}>
+            <div className="border-t border-white/10 pt-6 text-center font-primary text-hint hint text-white/50">
             {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
             <a
               href={footerContent.copyright.homeUrl}
@@ -188,7 +207,8 @@ export default function Footer({ data }) {
             >
               {footerContent.copyright.homeLabel}
             </a>
-          </div>
+            </div>
+          </DebugLabel>
 
         </div>
       </div>

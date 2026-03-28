@@ -2,32 +2,47 @@ import React from 'react'
 import { forWhom } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
+import TopicCard from '../ui/TopicCard'
+import DebugLabel from '../ui/DebugLabel'
 
-function TopicCard({ title, body }) {
-  return (
-    <div className="bg-white/50 rounded-2xl p-5 md:p-6 flex flex-col gap-2 border border-brand-sand hover:border-brand-steel transition-colors">
-      <h3 className="font-serif text-lg text-heading leading-snug">{title}</h3>
-      <p className="font-sans text-sm text-body leading-relaxed">{body}</p>
-    </div>
-  )
-}
+/**
+ * ForWhomSectionCopy — For Whom section with typography tokens
+ *
+ * MIGRATED to design tokens (Single Source of Truth):
+ * - Font-family: font-display (headlines), font-primary (body)
+ * - Headline: text-h2 (36px) + color-heading
+ * - Card titles: text-h4 (24px) + color-heading
+ * - Body text: text-body (18px) + color-body
+ * - Borders: semantic tokens (color-bg-light, color-label)
+ *
+ * CRITICAL PRESERVED:
+ * - SectionWrapper with id="fuer-wen" (scroll target)
+ * - TopicCard component (imported from ui/)
+ * - Map over forWhom.topics from content layer
+ */
 
-export default function ForWhomSection() {
+export default function ForWhomSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
-      <div className="max-w-3xl mx-auto text-center mb-16">
-        <SectionLabel text={forWhom.label} />
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-heading mb-8 leading-tight">
-          {forWhom.headline}
-        </h2>
-        <p className="font-sans text-body leading-relaxed text-lg">
-          {forWhom.intro}
-        </p>
+      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
+        <DebugLabel type="label" debugMode={debugMode}>
+          <SectionLabel text={forWhom.label} />
+        </DebugLabel>
+        <DebugLabel type="h2" debugMode={debugMode}>
+          <h2 className="font-display text-h2 text-color-heading leading-tight content-spacing-md">
+            {forWhom.headline}
+          </h2>
+        </DebugLabel>
+        <DebugLabel type="body-lg" debugMode={debugMode}>
+          <p className="font-primary text-body-lg text-color-body leading-relaxed">
+            {forWhom.intro}
+          </p>
+        </DebugLabel>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5" data-testid="topic-cards-grid">
         {forWhom.topics.map((topic, i) => (
-          <TopicCard key={i} title={topic.title} body={topic.body} />
+          <TopicCard key={i} title={topic.title} body={topic.body} debugMode={debugMode} />
         ))}
       </div>
     </SectionWrapper>

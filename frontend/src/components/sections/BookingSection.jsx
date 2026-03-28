@@ -1,10 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { booking } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
+import TopicCard from '../ui/TopicCard'
+import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 
-export default function BookingSection() {
+/**
+ * BookingSectionCopy — Booking section with typography tokens
+ *
+ * MIGRATED to design tokens (Single Source of Truth):
+ * - Font-family: font-display (headlines), font-primary (body)
+ * - Label: text-label (15px) + color-label
+ * - Headline: hero-large (clamp 2.4-5.4rem) + color-heading
+ * - Subline: text-body-lg (20px) + color-body
+ * - Topics: text-list (20px) + color-body
+ * - Button: text-label (15px) uppercase + tracking-widest
+ *
+ * CRITICAL PRESERVED:
+ * - SectionWrapper with id="booking" (scroll target)
+ * - Global 'booking:open' event listener for CtaButton integration
+ * - Accordion with calendar embed
+ * - TopicCard component for form topics (imported from ui/)
+ */
+export default function BookingSectionCopy({ debugMode = false }) {
   const [calendarOpen, setCalendarOpen] = useState(false)
   const embedCode = process.env.REACT_APP_CALENDAR_EMBED
 
@@ -17,29 +36,34 @@ export default function BookingSection() {
 
   return (
     <SectionWrapper id="booking" data-testid="booking-section">
-      <div className="max-w-2xl mx-auto text-center">
-        <SectionLabel text={booking.label} />
-        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-heading mb-6 leading-tight">
-          {booking.headline}
-        </h2>
-        <p className="font-sans text-body text-base leading-[1.8] mb-10 max-w-lg mx-auto">
-          {booking.subline}
-        </p>
+      <div className="max-w-centered-header content-spacing-lg mx-auto text-center">
+        <DebugLabel type="label" debugMode={debugMode}>
+          <SectionLabel text={booking.label} />
+        </DebugLabel>
+
+        <DebugLabel type="hero" debugMode={debugMode}>
+          <h2 className="font-display text-hero-large text-color-heading leading-tight content-spacing-md">
+            {booking.headline}
+          </h2>
+        </DebugLabel>
+
+        <DebugLabel type="body-lg" debugMode={debugMode}>
+          <p className="font-primary text-body-lg text-color-body leading-relaxed max-w-lg mx-auto">
+            {booking.subline}
+          </p>
+        </DebugLabel>
 
         {/* Topics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-10 text-left max-w-xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mb-10" data-testid="booking-topics-grid">
           {booking.formTopics.map((topic, i) => (
-            <div key={i} className="flex items-start gap-2 font-sans text-sm text-body">
-              <span className="text-heading/50 mt-0.5 shrink-0">—</span>
-              {topic}
-            </div>
+            <TopicCard key={i} title={topic} debugMode={debugMode} />
           ))}
         </div>
 
         {/* Accordion CTA button */}
         <button
           onClick={() => setCalendarOpen(!calendarOpen)}
-          className="inline-flex items-center gap-3 uppercase tracking-widest text-sm font-sans py-4 px-12 rounded-full bg-brand-deep text-white hover:bg-brand-steel transition-colors duration-200"
+          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-color-heading text-on-dark-heading hover:bg-color-label transition-colors duration-200"
           data-testid="booking-cta-button"
         >
           {booking.directBookingCta}
@@ -54,7 +78,7 @@ export default function BookingSection() {
           className={`overflow-hidden transition-all duration-500 ${calendarOpen ? 'max-h-[900px] mt-8' : 'max-h-0'}`}
           data-testid="booking-calendar-accordion"
         >
-          <div className="rounded-2xl border border-brand-sand bg-white/50 p-8 text-left">
+          <div className="rounded-2xl border border-color-bg-light bg-color-card-overlay p-8 text-left">
             {embedCode ? (
               <iframe
                 src={embedCode}
@@ -64,14 +88,18 @@ export default function BookingSection() {
               />
             ) : (
               <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
-                <div className="w-12 h-px bg-brand-deep/20" />
-                <p className="font-sans text-sm text-body">
-                  Kalender-Embed wird hier eingebettet.
-                </p>
-                <p className="font-sans text-xs text-label/60 max-w-xs">
-                  Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
-                </p>
-                <div className="w-12 h-px bg-brand-deep/20" />
+                <div className="w-12 h-px bg-color-heading/20" />
+                <DebugLabel type="body" debugMode={debugMode}>
+                  <p className="font-primary text-body text-color-body">
+                    Kalender-Embed wird hier eingebettet.
+                  </p>
+                </DebugLabel>
+                <DebugLabel type="label" debugMode={debugMode}>
+                  <p className="font-primary text-label text-color-label/60 max-w-xs">
+                    Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
+                  </p>
+                </DebugLabel>
+                <div className="w-12 h-px bg-color-heading/20" />
               </div>
             )}
           </div>

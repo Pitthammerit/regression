@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import { researchers } from '../../content/plr-de'
+import SectionLabel from '../ui/SectionLabel'
+import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import { ChevronDown } from 'lucide-react'
 
-export default function ResearchersSection() {
+export default function ResearchersSectionCopy({ debugMode = false }) {
   const authors = researchers.authors
   const featuredAuthor = authors.find(author => author.featured)
   const [expandedId, setExpandedId] = useState(null)
@@ -31,29 +33,31 @@ export default function ResearchersSection() {
 
   return (
     <section
-      id="science"
-      data-testid="science-section"
-      className="py-20 md:py-28 bg-brand-deep text-white relative overflow-hidden"
+      id="science-copy"
+      data-testid="science-section-copy"
+      className="section-padding bg-color-bg-dark text-on-dark relative overflow-hidden"
     >
       {/* Subtle paper texture overlay */}
       <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none" />
 
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="text-label text-tertiary mb-4">
-            {researchers.authorBigLabel}
-          </div>
-          <h2 className="text-h2 md:text-h1 text-on-dark leading-tight">
-            {researchers.authorHeadline}
-          </h2>
+        <div className="max-w-3xl section-block-spacing">
+          <DebugLabel type="label" debugMode={debugMode}>
+            <SectionLabel text={researchers.authorBigLabel} light={true} />
+          </DebugLabel>
+          <DebugLabel type="h2" debugMode={debugMode}>
+            <h2 className="font-display text-h2 leading-tight text-on-dark-heading">
+              {researchers.authorHeadline}
+            </h2>
+          </DebugLabel>
         </div>
 
         {/* Featured Researcher */}
         {featuredAuthor && (
-          <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 mb-16">
+          <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 section-block-spacing">
             {/* Mobile: Photo first (full width, 16:9) */}
-            <div className="md:hidden mb-6">
+            <div className="md:hidden content-spacing">
               <AspectRatio ratio={16 / 9}>
                 <LazyImage
                   src={featuredAuthor.portrait}
@@ -77,22 +81,28 @@ export default function ResearchersSection() {
             </div>
 
             {/* Right column: Quote + Name + Title */}
-            <div className="flex flex-col">
+            <div className="flex flex-col text-on-dark-body">
               {/* Quote - Top of right column */}
-              <blockquote className="font-display text-quote-featured italic leading-tight text-on-dark-muted mb-6">
-                "{featuredAuthor.featuredQuote}"
-              </blockquote>
+              <DebugLabel type="quote-featured" debugMode={debugMode}>
+                <blockquote className="font-display text-quote-featured quote-featured-italic leading-tight text-on-dark-quote content-spacing">
+                  "{featuredAuthor.featuredQuote}"
+                </blockquote>
+              </DebugLabel>
 
               {/* Name + Title - Below quote */}
-              <div className="text-on-dark-muted">
-                <div className="font-display text-author-name">{featuredAuthor.name}</div>
-                <div className="text-role text-on-dark-faded">{featuredAuthor.role}</div>
+              <div>
+                <DebugLabel type="author-name" debugMode={debugMode}>
+                  <div className="font-display text-author-name text-on-dark-heading name-role-spacing">{featuredAuthor.name}</div>
+                </DebugLabel>
+                <DebugLabel type="label" debugMode={debugMode}>
+                  <div className="font-primary text-label label text-on-dark-label name-role-spacing">{featuredAuthor.role}</div>
+                </DebugLabel>
               </div>
             </div>
 
             {/* Divider - Full width, more spacing below */}
-            <div className="md:col-span-2 pt-[36px]">
-              <div className="h-px bg-dim-dark"></div>
+            <div className="md:col-span-2 divider-spacing">
+              <div className="h-px bg-on-dark-divider"></div>
             </div>
           </div>
         )}
@@ -102,12 +112,12 @@ export default function ResearchersSection() {
         {/* ═══════════════════════════════════════════════════════════ */}
 
         {authors.map((author) => (
-          <div key={author.id} className="mb-16">
+          <div key={author.id} className="section-block-spacing">
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
             <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 md:items-start">
               {/* Mobile: Portrait first (full width, 16:9) */}
               {author.portrait && (
-                <div className="md:hidden mb-6">
+                <div className="md:hidden content-spacing">
                   <AspectRatio ratio={16 / 9}>
                     <LazyImage
                       src={author.portrait}
@@ -136,43 +146,59 @@ export default function ResearchersSection() {
               {/* Right column: Name/Title/Year/ShortText + Button */}
               <div className="flex flex-col">
                 {/* Mobile: Name/Role/Date above portrait */}
-                <div className="md:hidden mb-4">
-                  <h3 className="font-display text-author-name text-on-dark mb-1">
-                    {author.name}
-                  </h3>
-                  <p className="text-role text-on-dark-muted uppercase tracking-wider mb-3">
-                    {author.role}
-                  </p>
-                  <p className="text-meta text-on-dark-faded mb-4">{author.lifeDates}</p>
+                <div className="md:hidden content-spacing-md">
+                  <DebugLabel type="author-name" debugMode={debugMode}>
+                    <h3 className="font-display text-author-name text-on-dark-heading name-role-spacing">
+                      {author.name}
+                    </h3>
+                  </DebugLabel>
+                  <DebugLabel type="label" debugMode={debugMode}>
+                    <p className="font-primary text-label label text-on-dark-label role-date-spacing">
+                      {author.role}
+                    </p>
+                  </DebugLabel>
+                  <DebugLabel type="meta" debugMode={debugMode}>
+                    <p className="font-primary text-meta text-on-dark-date block-label-spacing">{author.lifeDates}</p>
+                  </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
-                <div className="hidden md:block mb-4">
-                  <h3 className="font-display text-author-name text-on-dark mb-1">
-                    {author.name}
-                  </h3>
-                  <p className="text-role text-on-dark-muted uppercase tracking-wider mb-3">
-                    {author.role}
-                  </p>
-                  <p className="text-meta text-on-dark-faded mb-4">{author.lifeDates}</p>
+                <div className="hidden md:block content-spacing-md">
+                  <DebugLabel type="author-name" debugMode={debugMode}>
+                    <h3 className="font-display text-author-name text-on-dark-heading name-role-spacing">
+                      {author.name}
+                    </h3>
+                  </DebugLabel>
+                  <DebugLabel type="label" debugMode={debugMode}>
+                    <p className="font-primary text-label label text-on-dark-label role-date-spacing">
+                      {author.role}
+                    </p>
+                  </DebugLabel>
+                  <DebugLabel type="meta" debugMode={debugMode}>
+                    <p className="font-primary text-meta text-on-dark-date block-label-spacing">{author.lifeDates}</p>
+                  </DebugLabel>
                 </div>
 
                 {/* Short text */}
-                <p className="font-display text-description text-on-dark-muted leading-relaxed mb-6">
-                  {author.shortVersion}
-                </p>
+                <DebugLabel type="summary-large" debugMode={debugMode}>
+                  <p className="font-display text-summary-large text-on-dark-body leading-relaxed content-spacing">
+                    {author.shortVersion}
+                  </p>
+                </DebugLabel>
 
                 {/* Read more button - centered with divider lines */}
-                <div className="flex items-center gap-4 mt-4">
-                  <div className="flex-1 h-px bg-dim-dark"></div>
-                  <button
-                    onClick={() => toggleExpand(author.id)}
-                    className="text-meta uppercase tracking-label-alt text-tertiary hover:text-color-accent transition-colors flex items-center gap-2"
-                  >
-                    {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
-                    <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
-                  </button>
-                  <div className="flex-1 h-px bg-dim-dark"></div>
+                <div className="flex items-center gap-4 element-spacing-md">
+                  <div className="flex-1 h-px bg-on-dark-divider"></div>
+                  <DebugLabel type="button-text" debugMode={debugMode}>
+                    <button
+                      onClick={() => toggleExpand(author.id)}
+                      className="font-primary text-meta uppercase tracking-label-alt text-on-dark-label hover:text-on-dark-accent transition-colors flex items-center gap-2"
+                    >
+                      {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
+                      <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
+                    </button>
+                  </DebugLabel>
+                  <div className="flex-1 h-px bg-on-dark-divider"></div>
                 </div>
               </div>
             </div>
@@ -180,24 +206,28 @@ export default function ResearchersSection() {
             {/* Row 2: Expanded content (full width) */}
             {expandedId === author.id && (
               <>
-                <div className="mt-4 pt-8 md:col-span-2">
-                  <p className="font-display text-body-narrative text-on-dark-muted leading-relaxed mb-6 whitespace-pre-line">
-                    {author.longVersion}
-                  </p>
+                <div className="expanded-content-spacing md:col-span-2">
+                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                    <p className="font-display text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
+                      {author.longVersion}
+                    </p>
+                  </DebugLabel>
                   {author.sourceUrl && (
-                    <a
-                      href={author.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-meta text-tertiary hover:text-color-accent transition-colors"
-                    >
-                      {author.sourceLabel} →
-                    </a>
+                    <DebugLabel type="meta" debugMode={debugMode}>
+                      <a
+                        href={author.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-primary text-meta text-on-dark-label hover:text-on-dark-accent transition-colors"
+                      >
+                        {author.sourceLabel} →
+                      </a>
+                    </DebugLabel>
                   )}
                 </div>
                 {/* Divider - Full width, same spacing as featured section */}
-                <div className="md:col-span-2 pt-[36px]">
-                  <div className="h-px bg-dim-dark"></div>
+                <div className="md:col-span-2 divider-spacing">
+                  <div className="h-px bg-on-dark-divider"></div>
                 </div>
               </>
             )}

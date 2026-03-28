@@ -2,15 +2,16 @@ import React from 'react'
 import { welcome } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import LazyImage from '../ui/LazyImage'
+import DebugLabel from '../ui/DebugLabel'
 
-export default function WelcomeSection() {
+export default function WelcomeSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="welcome" data-testid="welcome-section">
       <div className="grid md:grid-cols-[300px_1fr] lg:grid-cols-[340px_1fr] gap-10 md:gap-16 items-start">
 
         {/* Left: Circular portrait + greeting directly below */}
         <div className="flex flex-col items-center md:items-start gap-6">
-          <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 ring-4 ring-brand-sand shadow-lg">
+          <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 ring-4 ring-color-bg-light shadow-lg">
             <LazyImage
               src={welcome.imageUrl}
               alt={welcome.author}
@@ -18,39 +19,43 @@ export default function WelcomeSection() {
             />
           </div>
           {/* Greeting directly under photo */}
-          <p className="font-serif text-2xl md:text-3xl text-heading text-center md:text-left leading-snug">
-            {welcome.quoteLines[0]}
-          </p>
+          <DebugLabel type="h3-hand" debugMode={debugMode}>
+            <p className="font-handwriting text-h3-hand text-color-heading text-center md:text-left leading-snug whitespace-pre-line">
+              {welcome.headline}
+            </p>
+          </DebugLabel>
         </div>
 
         {/* Right: Body text + signature */}
         <div className="flex flex-col justify-center pt-2">
-          <span
-            className="font-serif text-heading/15 leading-none block mb-0 select-none"
-            style={{ fontSize: '5rem', lineHeight: 1 }}
-            aria-hidden="true"
-          >
-            "
-          </span>
+          <DebugLabel type="hero-large" debugMode={debugMode}>
+            <span
+              className="font-display text-hero-large text-color-heading leading-none block mb-0 select-none"
+              aria-hidden="true"
+            >
+              "
+            </span>
+          </DebugLabel>
 
           <div className="space-y-5 -mt-4">
-            {welcome.quoteLines.slice(1).map((line, i) => (
-              <p
-                key={i}
-                className="font-serif italic text-xl md:text-2xl lg:text-3xl text-body/80 leading-relaxed"
-              >
-                {line}
-              </p>
+            {welcome.quoteLines.map((line, i) => (
+              <DebugLabel key={i} type="quote-featured" debugMode={debugMode}>
+                <p
+                  className="font-display text-quote-featured text-color-heading leading-tight"
+                >
+                  {line}
+                </p>
+              </DebugLabel>
             ))}
           </div>
 
-          {/* Signature image */}
+          {/* Signature — handwriting text */}
           <div className="mt-8">
-            <LazyImage
-              src={welcome.signatureUrl}
-              alt={welcome.author}
-              className="h-14 md:h-16 object-contain object-left opacity-80"
-            />
+            <DebugLabel type="h2-hand" debugMode={debugMode}>
+              <p className="font-handwriting text-h2-hand text-color-heading">
+                {welcome.author}
+              </p>
+            </DebugLabel>
           </div>
         </div>
       </div>

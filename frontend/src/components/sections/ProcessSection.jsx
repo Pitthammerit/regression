@@ -3,41 +3,74 @@ import { processSection } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'
+import DebugLabel from '../ui/DebugLabel'
 
-export default function ProcessSection() {
+/**
+ * ProcessSectionCopy — Process section with typography tokens
+ *
+ * MIGRATED to design tokens (Single Source of Truth):
+ * - Font-family: font-display (headlines), font-primary (body)
+ * - Headline: text-h2 (36px) + color-heading
+ * - Step titles: text-h3 (30px) + color-heading
+ * - Labels: text-label (15px) + color-label
+ * - Body: text-body (18px) + color-body
+ * - Backgrounds: semantic tokens (color-bg-light)
+ *
+ * CRITICAL PRESERVED:
+ * - SectionWrapper with id="prozess" (scroll target)
+ * - Process steps with background numbers
+ * - CtaButton component
+ * - Map over processSection.steps
+ */
+export default function ProcessSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="prozess" data-testid="process-section">
-      <div className="max-w-2xl mb-16">
-        <SectionLabel text={processSection.label} />
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-heading leading-tight">
-          {processSection.headline}
-        </h2>
+      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
+        <DebugLabel type="label" debugMode={debugMode}>
+          <SectionLabel text={processSection.label} />
+        </DebugLabel>
+        <DebugLabel type="h2" debugMode={debugMode}>
+          <h2 className="font-display text-h2 text-color-heading leading-tight text-center content-spacing-md">
+            {processSection.headline}
+          </h2>
+        </DebugLabel>
+        <DebugLabel type="body-lg" debugMode={debugMode}>
+          <p className="font-primary text-body-lg text-color-body leading-relaxed">
+            {processSection.footnote}
+          </p>
+        </DebugLabel>
       </div>
 
       {/* Steps */}
-      <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-16" data-testid="process-steps">
+      <div className="grid md:grid-cols-3 gap-10 md:gap-12 content-spacing-lg max-w-5xl mx-auto" data-testid="process-steps">
         {processSection.steps.map((step, i) => (
           <div key={i} className="relative overflow-hidden md:overflow-visible">
             {/* Big transparent background number — scales down on mobile */}
             <span
               aria-hidden="true"
-              className="process-bg-number absolute font-serif text-heading select-none pointer-events-none"
+              className="process-bg-number absolute font-display text-color-heading select-none pointer-events-none"
               style={{ lineHeight: 1, opacity: 0.10 }}
             >
               {i + 1}
             </span>
             {/* Divider line between steps (desktop) */}
             {i < processSection.steps.length - 1 && (
-              <div className="hidden md:block absolute top-4 left-full w-full h-px bg-brand-sand -translate-x-6 z-0 pointer-events-none" />
+              <div className="hidden md:block absolute top-4 left-full w-full h-px bg-color-bg-light -translate-x-6 z-0 pointer-events-none" />
             )}
             <div className="relative z-10 pt-2">
-              <h3 className="font-serif text-xl md:text-2xl lg:text-3xl text-heading mt-5 mb-2">
-                {step.title}
-              </h3>
-              <p className="font-sans text-xs text-label uppercase tracking-widest mb-5">
-                {step.duration}
-              </p>
-              <p className="font-sans text-base text-body leading-relaxed">{step.body}</p>
+              <DebugLabel type="h3" debugMode={debugMode}>
+                <h3 className="font-display text-h3 text-color-heading mt-5 mb-2">
+                  {step.title}
+                </h3>
+              </DebugLabel>
+              <DebugLabel type="label" debugMode={debugMode}>
+                <p className="font-primary text-label text-color-label label tracking-widest mb-5">
+                  {step.duration}
+                </p>
+              </DebugLabel>
+              <DebugLabel type="body" debugMode={debugMode}>
+                <p className="font-primary text-body text-color-body leading-relaxed">{step.body}</p>
+              </DebugLabel>
             </div>
           </div>
         ))}
@@ -46,10 +79,6 @@ export default function ProcessSection() {
       <div className="text-center mb-8">
         <CtaButton label={processSection.cta} variant="primary" />
       </div>
-
-      <p className="text-center font-sans text-sm italic text-body">
-        {processSection.footnote}
-      </p>
     </SectionWrapper>
   )
 }

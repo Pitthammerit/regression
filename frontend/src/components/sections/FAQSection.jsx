@@ -1,17 +1,26 @@
-import React from 'react'
 import { faq } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
+import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 import { useNavigation } from '../../contexts/NavigationContext'
 
 /**
- * FAQSection — Frequently Asked Questions
+ * FAQSectionCopy — FAQ section with typography tokens
  *
- * Minimalist accordion with beige background
- * Only one item expanded at a time
- * FAQ-Index wird aus NavigationContext geholt (Single Source of Truth)
+ * MIGRATED to design tokens (Single Source of Truth):
+ * - Font-family: font-display (headlines), font-primary (body)
+ * - Label: text-label (15px) + color-label
+ * - Headline: text-h2 (36px) + color-heading
+ * - Question: text-h4 (24px) + color-heading
+ * - Answer: text-body (18px) + color-heading
+ *
+ * CRITICAL PRESERVED:
+ * - Section with id="faq" (scroll target)
+ * - NavigationContext for expandedFAQIndex (Single Source of Truth)
+ * - Only one item expanded at a time
+ * - Map over faq.items
  */
-export default function FAQSection() {
+export default function FAQSectionCopy({ debugMode = false }) {
   const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
 
   const toggleExpand = (index) => {
@@ -22,22 +31,29 @@ export default function FAQSection() {
     <section
       id="faq"
       data-testid="faq-section"
-      className="py-20 md:py-28 bg-brand-cream"
+      className="py-20 md:py-28 bg-color-bg-light"
     >
       <div className="max-w-content mx-auto px-6">
-        <SectionLabel text={faq.bigLabel} />
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mt-3 mb-16">
-          {faq.headline}
-        </h2>
+        <DebugLabel type="label" debugMode={debugMode}>
+          <SectionLabel text={faq.bigLabel} />
+        </DebugLabel>
+
+        <DebugLabel type="h2" debugMode={debugMode}>
+          <h2 className="font-display text-h2 text-color-heading leading-tight section-block-spacing">
+            {faq.headline}
+          </h2>
+        </DebugLabel>
 
         <div>
           {faq.items.map((item, index) => (
             <div id={`faq-${index}`} key={index} className="border-t border-color-border" style={{ scrollMarginTop: 80 }}>
               <button
                 onClick={() => toggleExpand(index)}
-                className="w-full flex justify-between items-center py-6 text-left font-sans text-label hover:text-label/80 transition-colors"
+                className="w-full flex justify-between items-center py-6 text-left font-primary text-color-label hover:text-color-label/80 transition-colors"
               >
-                <span className="font-medium text-lg">{item.question}</span>
+                <DebugLabel type="h4" debugMode={debugMode}>
+                  <span className="font-medium text-h4 text-color-heading">{item.question}</span>
+                </DebugLabel>
                 <ChevronDown
                   className={`transition-transform duration-500 ease-out ${
                     expandedFAQIndex === index ? 'rotate-180' : ''
@@ -49,9 +65,18 @@ export default function FAQSection() {
                   expandedFAQIndex === index ? 'max-h-[600px] pb-6' : 'max-h-0'
                 }`}
               >
-                <p className="font-sans text-heading leading-relaxed whitespace-pre-line text-lg">
-                  {item.answer}
-                </p>
+                <DebugLabel type="body" debugMode={debugMode}>
+                  {item.answer.split('\n\n').map((paragraph, i, arr) => (
+                    <p
+                      key={i}
+                      className={`font-primary text-body text-color-heading leading-relaxed ${
+                        i < arr.length - 1 ? 'paragraph-spacing' : ''
+                      }`}
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </DebugLabel>
               </div>
             </div>
           ))}

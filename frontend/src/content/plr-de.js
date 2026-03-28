@@ -594,7 +594,7 @@ Viele buchen danach ihre erste Session. Manche entscheiden sich, noch zu warten.
 // ═══════════════════════════════════════════════════════════
 export const footer = {
   brand: "Benjamin Kurtz Academy LLC",
-  tagline: "Grounded Spirituality Aligned with Your Purpose",
+  tagline: "Grounded Spirituality\nAligned with Your Purpose",
   contactLabel: "Kontaktiere uns:",
   legalLabel: "Rechtliches",
   followLabel: "Folgen",

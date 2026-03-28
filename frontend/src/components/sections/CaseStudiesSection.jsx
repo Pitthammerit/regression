@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
+import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import { ChevronDown, User } from 'lucide-react'
 
-function AvatarSilhouette({ gender }) {
-  return (
-    <div className="w-24 h-24 rounded-full bg-brand-sand/60 border border-color-border flex items-center justify-center shrink-0">
-      <User className="w-12 h-12 text-heading/30" />
-    </div>
-  )
-}
-
-export default function CaseStudiesSection() {
+export default function CaseStudiesSectionCopy({ debugMode = false }) {
   // Marina (index 0) opens by default
   const [openIndex, setOpenIndex] = useState(0)
   const [showHint, setShowHint] = useState(false)
@@ -40,24 +33,30 @@ export default function CaseStudiesSection() {
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
-      <div className="max-w-2xl mb-6">
-        <SectionLabel text={cases.label} />
-        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-heading leading-tight">
-          {cases.headline}
-        </h2>
-        <p className="font-sans text-sm text-body mt-4 italic">{cases.subline}</p>
+      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
+        <DebugLabel type="label" debugMode={debugMode}>
+          <SectionLabel text={cases.label} />
+        </DebugLabel>
+        <DebugLabel type="h2" debugMode={debugMode}>
+          <h2 className="font-display text-h2 text-color-heading leading-tight text-center content-spacing-md">
+            {cases.headline}
+          </h2>
+        </DebugLabel>
+        <DebugLabel type="body-lg" debugMode={debugMode}>
+          <p className="font-primary text-body-lg text-color-body leading-relaxed">{cases.subline}</p>
+        </DebugLabel>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 font-sans text-sm text-label/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-label/60 transition-opacity transition-slower max-w-fit ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
-        <span className="text-base">↓</span>
+        <span className="text-icon">↓</span>
         <span>Klicke auf die Namen, um mehr zu lesen</span>
       </div>
 
-      <div className="divide-y divide-color-border">
+      <div className="divide-y divide-color-border max-w-4xl mx-auto">
         {cases.items.map((item, i) => (
           <div key={i}>
             <button
@@ -69,50 +68,64 @@ export default function CaseStudiesSection() {
                 <LazyImage
                   src={item.image}
                   alt={item.name}
-                  className="w-24 h-24 rounded-full object-cover object-top border border-color-border shrink-0"
+                  className="w-24 h-24 rounded-full object-cover object-top border-2 border-color-border shrink-0"
                 />
               ) : (
-                <AvatarSilhouette gender={item.gender} />
+                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border-2 border-color-border flex items-center justify-center shrink-0">
+                  <User className="w-12 h-12 text-color-heading/30" />
+                </div>
               )}
               <div className="flex-1 pr-4">
-                <span className="font-sans text-sm tracking-[0.15em] uppercase text-label block mb-2">
-                  {item.tag}
-                </span>
-                <span className="font-serif text-2xl md:text-3xl text-heading group-hover:text-label transition-colors block leading-snug">
-                  {item.name}{item.title ? ` — ${item.title}` : ''}
-                </span>
-                <span className="font-sans text-base text-body italic block mt-2">
-                  {item.teaser}
-                </span>
+                <DebugLabel type="label" debugMode={debugMode}>
+                  <span className="font-primary text-label label text-color-label block item-tag-spacing">
+                    {item.tag}
+                  </span>
+                </DebugLabel>
+                <DebugLabel type="h3" debugMode={debugMode}>
+                  <span className="font-display text-h3 text-color-heading group-hover:text-color-label transition-colors block leading-snug">
+                    {item.name}{item.title ? ` — ${item.title}` : ''}
+                  </span>
+                </DebugLabel>
+                <DebugLabel type="subline" debugMode={debugMode}>
+                  <span className="text-subline subline-italic text-color-body block element-spacing-xs">
+                    {item.teaser}
+                  </span>
+                </DebugLabel>
               </div>
               <ChevronDown
                 size={18}
-                className={`text-label mt-1 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
+                className={`text-color-label mt-1 shrink-0 transition-transform transition-normal ${openIndex === i ? 'rotate-180' : ''}`}
               />
             </button>
 
-            <div className={`overflow-hidden transition-all duration-500 ${openIndex === i ? 'max-h-[1600px] pb-10' : 'max-h-0'}`}>
+            <div className={`overflow-hidden transition-all transition-slow ${openIndex === i ? 'max-h-[1600px] pb-10' : 'max-h-0'}`}>
               <div className="grid md:grid-cols-3 gap-6 pt-2">
                 {[
                   { label: cases.sectionLabels.situation, text: item.situation },
                   { label: cases.sectionLabels.session,   text: item.session },
                   { label: cases.sectionLabels.result,    text: item.result },
                 ].map((block) => (
-                  <div key={block.label} className="border-l-2 border-brand-deep pl-4">
-                    <span className="font-sans text-sm tracking-[0.15em] uppercase text-label block mb-3">
-                      {block.label}
-                    </span>
-                    <p className="font-sans text-base md:text-lg text-body leading-relaxed">
-                      {block.text}
-                    </p>
+                  <div key={block.label} className="border-l-2 border-color-heading pl-4">
+                    <DebugLabel type="label" debugMode={debugMode}>
+                      <span className="font-primary text-label label text-color-label block block-label-spacing">
+                        {block.label}
+                      </span>
+                    </DebugLabel>
+                    <DebugLabel type="body" debugMode={debugMode}>
+                      <p className="font-primary text-color-body text-body">
+                        {block.text}
+                      </p>
+                    </DebugLabel>
                   </div>
                 ))}
               </div>
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
-                <p className="font-sans text-xs text-body/35 mt-6 italic">
-                  * Namen wurde geändert
-                </p>
+                <DebugLabel type="disclaimer" debugMode={debugMode}>
+                  <p className="text-disclaimer disclaimer-italic text-color-body/35 element-spacing-sm">
+                    * Namen wurde geändert
+                  </p>
+                </DebugLabel>
               )}
             </div>
           </div>
