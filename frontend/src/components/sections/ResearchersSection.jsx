@@ -132,7 +132,7 @@ export default function ResearchersSection({ debugMode = false }) {
 
               {/* Desktop: Portrait - Left column */}
               {author.portrait && (
-                <div className="hidden md:block md:max-w-[240px]">
+                <div className="hidden md:block md:max-w-[240px] transition-all duration-[500ms] ease-in-out">
                   <AspectRatio ratio={expandedId === author.id ? 3 / 4 : 1 / 1}>
                     <LazyImage
                       src={author.portrait}
