@@ -25,6 +25,11 @@ html {
   50% { transform: scale(1.025); box-shadow: 0 0 0 8px rgba(34, 65, 96, 0.08); }
 }
 
+@keyframes pulseDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -69,6 +74,10 @@ html {
 
 .animate-pulse-soft {
   animation: pulseSoft 2.8s ease-in-out infinite;
+}
+
+.animate-pulse-down {
+  animation: pulseDown 1.5s ease-in-out infinite;
 }
 
 .animate-fadeIn {
