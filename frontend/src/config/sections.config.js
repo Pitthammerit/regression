@@ -16,10 +16,9 @@ export const SECTIONS_ORDER = [
   'ProcessSection',
   'PodcastSection',
   'CaseStudiesSection',
-  'TestimonialCarouselCopy',
-  'TestimonialsSectionCopy',
+  'TestimonialCarousel',
   'BookingSection',
   'FAQSection',
   'ReferencesSection',
-  'SimpleCtaWithImageSection',
+  'CtaImageSection',
 ]

@@ -1,5 +1,5 @@
 import React from 'react'
-import { simpleCtaWithImage } from '../../content/plr-de'
+import { ctaImage } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'
@@ -7,7 +7,7 @@ import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * SimpleCtaWithImageSection — Simple CTA section with image and typography tokens
+ * CtaImageSection — CTA section with image and typography tokens
  *
  * Design Tokens (Single Source of Truth):
  * - Font-family: font-display (headlines), font-primary (body)
@@ -26,7 +26,7 @@ import DebugLabel from '../ui/DebugLabel'
  * - Content from plr-de.js (no hardcoding)
  * - Reuses existing components (CtaButton, SectionLabel, DebugLabel, LazyImage)
  */
-export default function SimpleCtaWithImageSection({ debugMode = false }) {
+export default function CtaImageSection({ debugMode = false }) {
   return (
     <SectionWrapper id="simple-cta" data-testid="simple-cta-section">
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
@@ -35,8 +35,8 @@ export default function SimpleCtaWithImageSection({ debugMode = false }) {
           <div className="flex justify-center md:justify-start">
             <div className="max-w-[280px] md:max-w-[320px]">
               <LazyImage
-                src={simpleCtaWithImage.imageUrl}
-                alt={simpleCtaWithImage.imageAlt}
+                src={ctaImage.imageUrl}
+                alt={ctaImage.imageAlt}
                 className="w-full h-auto rounded-2xl"
               />
             </div>
@@ -45,24 +45,24 @@ export default function SimpleCtaWithImageSection({ debugMode = false }) {
           {/* Text - Right column, left-aligned */}
           <div className="text-left">
             <DebugLabel type="label" debugMode={debugMode}>
-              <SectionLabel text={simpleCtaWithImage.label} />
+              <SectionLabel text={ctaImage.label} />
             </DebugLabel>
 
             <DebugLabel type="h2" debugMode={debugMode}>
               <h2 className="font-display text-h2 text-color-heading leading-tight content-spacing-md">
-                {simpleCtaWithImage.headline}
+                {ctaImage.headline}
               </h2>
             </DebugLabel>
 
             <DebugLabel type="body-lg" debugMode={debugMode}>
               <p className="font-primary text-body-lg text-color-body leading-relaxed content-spacing-md">
-                {simpleCtaWithImage.subline}
+                {ctaImage.subline}
               </p>
             </DebugLabel>
 
             <div className="content-spacing-md">
               <DebugLabel type="button-text" debugMode={debugMode}>
-                <CtaButton label={simpleCtaWithImage.cta} variant="primary" />
+                <CtaButton label={ctaImage.cta} variant="primary" />
               </DebugLabel>
             </div>
           </div>

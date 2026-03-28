@@ -450,9 +450,9 @@ export const simpleCta = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// SimpleCtaWithImageSection — SIMPLE CTA WITH IMAGE
+// CtaImageSection — CTA WITH IMAGE
 // ═══════════════════════════════════════════════════════════
-export const simpleCtaWithImage = {
+export const ctaImage = {
   label: "DEIN NÄCHSTER SCHRITT",
   headline: "Bereit, deiner Seele zuzuhören?",
   subline: "Ein unverbindliches Erstgespräch. Wir schauen gemeinsam, ob eine Session der richtige Schritt für dich ist. Kein Druck, keine Erwartung — nur ein klärendes Gespräch.",
