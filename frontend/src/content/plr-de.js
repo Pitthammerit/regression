@@ -378,6 +378,7 @@ Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP):
 export const references = {
   bigLabel: "WEITERFÜHRENDE LITERATUR",
   headline: "Vertiefung & Quellen",
+  cta: "Intro-Call buchen",
   items: [
     {
       type: "journal",
