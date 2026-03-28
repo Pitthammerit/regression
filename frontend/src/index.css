@@ -77,7 +77,7 @@ html {
 
 .process-bg-number {
   font-size: clamp(21rem, 40vw, 28rem);
-  top: -240px;
+  top: -120px;
   left: -8px;
 }
 
