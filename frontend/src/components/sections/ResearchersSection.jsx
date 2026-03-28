@@ -111,8 +111,8 @@ export default function ResearchersSection({ debugMode = false }) {
         {/* ACCORDION CARDS SECTION — Phase 2: All Authors Dynamic */}
         {/* ═══════════════════════════════════════════════════════════ */}
 
-        {authors.map((author) => (
-          <div key={author.id} className="mb-3">
+        {authors.map((author, index) => (
+          <div key={author.id} className={index === authors.length - 1 ? 'mb-10' : 'mb-3'}>
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
             <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 md:items-start">
               {/* Mobile: Portrait first (full width, 16:9) */}
