@@ -60,7 +60,7 @@ export default function ReferencesSection({ debugMode = false }) {
           <>
             {/* First reference - always visible */}
             {references.items.slice(0, 1).map((resource) => (
-              <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-16">
+              <div key={resource.type} className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-6">
                 {/* Photo - Left column */}
                 <div className="md:max-w-[240px]">
                   {resource.portrait && resource.portrait.trim() !== '' ? (
