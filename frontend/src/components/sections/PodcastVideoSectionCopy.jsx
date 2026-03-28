@@ -69,6 +69,7 @@ export default function PodcastVideoSectionCopy({ debugMode = false }) {
             label={podcastVideo.downloadButtonLabel}
             variant="secondary"
             onClick={() => setPanelOpen(true)}
+            className="animate-pulse-soft"
             data-testid="transcript-download-btn"
           />
         </div>
