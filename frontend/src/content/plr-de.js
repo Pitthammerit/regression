@@ -467,7 +467,7 @@ export const ctaImage = {
 // ═══════════════════════════════════════════════════════════
 export const testimonials = {
   clientLabel: "WALL OF LOVE",
-  clientSubtitle: "Einzigartige, individeulle Erfahrungen",
+  clientSubtitle: "Erfahrungen, die bleiben",
   // Note: clients array is now managed in testimonials.list.js for dynamic editing
   clients: [
     {
