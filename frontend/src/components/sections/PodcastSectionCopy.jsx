@@ -11,7 +11,7 @@ const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/p
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-display (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label
- * - Headline: hero-large (clamp 2.4-5.4rem) + color-heading
+ * - Headline: podcast-headline (clamp 2.8-5rem, line-height 0.95) + color-heading
  * - Body: text-body-lg (20px) + color-body
  * - Links: text-label (15px) + color-heading
  *
@@ -40,8 +40,8 @@ export default function PodcastSectionCopy({ debugMode = false }) {
               <SectionLabel text={podcast.label} />
             </DebugLabel>
 
-            <DebugLabel type="hero" debugMode={debugMode}>
-              <h2 className="font-display text-hero-large text-color-heading leading-none content-spacing-md">
+            <DebugLabel type="podcast-headline" debugMode={debugMode}>
+              <h2 className="font-display text-podcast-headline text-color-heading content-spacing-md">
                 {podcast.sectionHeadline.map((line, i) => (
                   <span key={i} className="block">{line}</span>
                 ))}
@@ -61,7 +61,7 @@ export default function PodcastSectionCopy({ debugMode = false }) {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-primary text-button-text button-text text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
+                  className="button-text text-color-heading border border-color-heading/30 rounded-sm px-7 py-3 hover:bg-color-heading hover:text-white transition-colors min-w-[180px] text-center"
                   data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                 >
                   {link.label}
