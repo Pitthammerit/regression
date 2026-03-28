@@ -67,12 +67,26 @@ module.exports = {
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
         primary: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        handwriting: ['Caveat', 'cursive'],
       },
       fontSize: {
+        'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', {
+          lineHeight: '1',
+          letterSpacing: '-0.02em',
+        }],
+        'hero': ['clamp(1.44rem, 3.84vw, 3.36rem)', {
+          lineHeight: '1.1',
+        }],
+        'podcast-headline': ['clamp(2.8rem, 6vw, 5rem)', {
+          lineHeight: '0.95',
+        }],
         'h2': ['2.25rem', {
           lineHeight: '1.2',
         }],
         'h3': ['1.875rem', {
+          lineHeight: '1.2',
+        }],
+        'h3-hand': ['1.875rem', {
           lineHeight: '1.2',
         }],
         'h4': ['1.5rem', {
