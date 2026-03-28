@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-28 19:40
+Updated: 2026-03-28 19:45
 
 ---
 
@@ -122,7 +122,7 @@ Comprehensive review via `/multiloop` workflow revealed **6 critical bugs** that
 - **Woche 4:** Final Polish & Deploy
 
 **Vorbereitung für v4 Migration:**
-- [ ] Typography Migration 100% abgeschlossen
+- [x] Typography Migration 100% abgeschlossen
 - [x] Alle Legacy Sections migriert
 - [ ] Keine hardcoded Werte mehr
 - [ ] DebugLabels überall konsistent

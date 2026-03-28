@@ -5,6 +5,7 @@ import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
+import AccordionWrap from '../ui/AccordionWrap'
 
 export default function ResearchersSection({ debugMode = false }) {
   const authors = researchers.authors
@@ -198,10 +199,10 @@ export default function ResearchersSection({ debugMode = false }) {
               </div>
             </div>
 
-            {/* Row 2: Expanded content (full width) */}
-            {expandedId === author.id && (
-              <>
-                <div className="expanded-content-spacing md:col-span-2">
+            {/* Row 2: Expanded content (full width) with smooth animation */}
+            <AccordionWrap isOpen={expandedId === author.id}>
+              <div className="md:col-span-2">
+                <div className="expanded-content-spacing">
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
                     <p className="font-display text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {author.longVersion}
@@ -224,8 +225,8 @@ export default function ResearchersSection({ debugMode = false }) {
                 <div className="md:col-span-2 divider-spacing">
                   <div className="h-px bg-on-dark-divider"></div>
                 </div>
-              </>
-            )}
+              </div>
+            </AccordionWrap>
           </div>
         ))}
       </div>

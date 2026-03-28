@@ -1,6 +1,7 @@
 import { faq } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
+import AccordionWrap from '../ui/AccordionWrap'
 import { ChevronDown } from 'lucide-react'
 import { useNavigation } from '../../contexts/NavigationContext'
 
@@ -19,6 +20,8 @@ import { useNavigation } from '../../contexts/NavigationContext'
  * - NavigationContext for expandedFAQIndex (Single Source of Truth)
  * - Only one item expanded at a time
  * - Map over faq.items
+ *
+ * UPDATED: Using AccordionWrap for smooth 500ms ease-in-out animations
  */
 export default function FAQSection({ debugMode = false }) {
   const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
@@ -60,24 +63,22 @@ export default function FAQSection({ debugMode = false }) {
                   }`}
                 />
               </button>
-              <div
-                className={`overflow-hidden transition-all duration-600 ease-out ${
-                  expandedFAQIndex === index ? 'max-h-[600px] pb-6' : 'max-h-0'
-                }`}
-              >
-                <DebugLabel type="body" debugMode={debugMode}>
-                  {item.answer.split('\n\n').map((paragraph, i, arr) => (
-                    <p
-                      key={i}
-                      className={`font-primary text-body text-color-heading leading-relaxed ${
-                        i < arr.length - 1 ? 'paragraph-spacing' : ''
-                      }`}
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </DebugLabel>
-              </div>
+              <AccordionWrap isOpen={expandedFAQIndex === index}>
+                <div className="pb-6">
+                  <DebugLabel type="body" debugMode={debugMode}>
+                    {item.answer.split('\n\n').map((paragraph, i, arr) => (
+                      <p
+                        key={i}
+                        className={`font-primary text-body text-color-heading leading-relaxed ${
+                          i < arr.length - 1 ? 'paragraph-spacing' : ''
+                        }`}
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </DebugLabel>
+                </div>
+              </AccordionWrap>
             </div>
           ))}
         </div>
