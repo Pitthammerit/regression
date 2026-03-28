@@ -453,7 +453,7 @@ export const simpleCta = {
 // SimpleCtaWithImageSection — SIMPLE CTA WITH IMAGE
 // ═══════════════════════════════════════════════════════════
 export const simpleCtaWithImage = {
-  label: "DEIN NEXT STEP",
+  label: "DEIN NÄCHSTER SCHRITT",
   headline: "Bereit, deiner Seele zuzuhören?",
   subline: "Ein unverbindliches Erstgespräch. Wir schauen gemeinsam, ob eine Session der richtige Schritt für dich ist. Kein Druck, keine Erwartung — nur ein klärendes Gespräch.",
   cta: "Intro-Call buchen",
