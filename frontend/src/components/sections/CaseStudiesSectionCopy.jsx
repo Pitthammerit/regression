@@ -56,7 +56,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
         <span>Klicke auf die Namen, um mehr zu lesen</span>
       </div>
 
-      <div className="divide-y divide-color-divider max-w-4xl mx-auto">
+      <div className="divide-y divide-color-border max-w-4xl mx-auto">
         {cases.items.map((item, i) => (
           <div key={i}>
             <button

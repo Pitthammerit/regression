@@ -81,8 +81,8 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
             </DebugLabel>
 
             {/* Role */}
-            <DebugLabel type="date" debugMode={debugMode}>
-              <p className="font-primary text-date text-on-dark-role role-date-spacing">
+            <DebugLabel type="meta" debugMode={debugMode}>
+              <p className="font-primary text-meta text-on-dark-role role-date-spacing">
                 {author.role}
               </p>
             </DebugLabel>
@@ -97,7 +97,7 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
             <div className="flex-1 h-px bg-on-dark-divider"></div>
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-2 font-primary text-read-more text-on-dark-label hover:text-on-dark-accent transition-colors cursor-pointer"
+              className="flex items-center gap-2 font-primary text-meta text-on-dark-label hover:text-on-dark-accent transition-colors cursor-pointer"
             >
               {isExpanded ? 'Weniger' : 'Mehr'}
               <svg
@@ -149,8 +149,8 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-primary text-date text-on-dark-role role-date-spacing">
+                  <DebugLabel type="meta" debugMode={debugMode}>
+                    <p className="font-primary text-meta text-on-dark-role role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>

@@ -143,7 +143,7 @@ export default function ResearchersSection() {
                   <p className="text-role text-on-dark-muted uppercase tracking-wider mb-3">
                     {author.role}
                   </p>
-                  <p className="text-date text-on-dark-faded mb-4">{author.lifeDates}</p>
+                  <p className="text-meta text-on-dark-faded mb-4">{author.lifeDates}</p>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
@@ -154,7 +154,7 @@ export default function ResearchersSection() {
                   <p className="text-role text-on-dark-muted uppercase tracking-wider mb-3">
                     {author.role}
                   </p>
-                  <p className="text-date text-on-dark-faded mb-4">{author.lifeDates}</p>
+                  <p className="text-meta text-on-dark-faded mb-4">{author.lifeDates}</p>
                 </div>
 
                 {/* Short text */}
@@ -167,7 +167,7 @@ export default function ResearchersSection() {
                   <div className="flex-1 h-px bg-dim-dark"></div>
                   <button
                     onClick={() => toggleExpand(author.id)}
-                    className="text-read-more text-tertiary hover:text-color-accent transition-colors flex items-center gap-2"
+                    className="text-meta uppercase tracking-label-alt text-tertiary hover:text-color-accent transition-colors flex items-center gap-2"
                   >
                     {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
                     <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
@@ -189,7 +189,7 @@ export default function ResearchersSection() {
                       href={author.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-source-link text-tertiary hover:text-color-accent transition-colors"
+                      className="text-meta text-tertiary hover:text-color-accent transition-colors"
                     >
                       {author.sourceLabel} →
                     </a>

@@ -94,8 +94,8 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                 <DebugLabel type="author-name" debugMode={debugMode}>
                   <div className="font-display text-author-name text-on-dark-heading name-role-spacing">{featuredAuthor.name}</div>
                 </DebugLabel>
-                <DebugLabel type="role" debugMode={debugMode}>
-                  <div className="text-date role text-on-dark-role role-date-spacing">{featuredAuthor.role}</div>
+                <DebugLabel type="label" debugMode={debugMode}>
+                  <div className="font-primary text-label label text-on-dark-label name-role-spacing">{featuredAuthor.role}</div>
                 </DebugLabel>
               </div>
             </div>
@@ -152,13 +152,13 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                       {author.name}
                     </h3>
                   </DebugLabel>
-                  <DebugLabel type="role" debugMode={debugMode}>
-                    <p className="font-primary role text-on-dark-role role-date-spacing">
+                  <DebugLabel type="label" debugMode={debugMode}>
+                    <p className="font-primary text-label label text-on-dark-label role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
-                  <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-primary text-date text-on-dark-date block-label-spacing">{author.lifeDates}</p>
+                  <DebugLabel type="meta" debugMode={debugMode}>
+                    <p className="font-primary text-meta text-on-dark-date block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
@@ -169,13 +169,13 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                       {author.name}
                     </h3>
                   </DebugLabel>
-                  <DebugLabel type="role" debugMode={debugMode}>
-                    <p className="font-primary role text-on-dark-role role-date-spacing">
+                  <DebugLabel type="label" debugMode={debugMode}>
+                    <p className="font-primary text-label label text-on-dark-label role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
-                  <DebugLabel type="date" debugMode={debugMode}>
-                    <p className="font-primary text-date text-on-dark-date block-label-spacing">{author.lifeDates}</p>
+                  <DebugLabel type="meta" debugMode={debugMode}>
+                    <p className="font-primary text-meta text-on-dark-date block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
@@ -189,10 +189,10 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                 {/* Read more button - centered with divider lines */}
                 <div className="flex items-center gap-4 element-spacing-md">
                   <div className="flex-1 h-px bg-on-dark-divider"></div>
-                  <DebugLabel type="read-more" debugMode={debugMode}>
+                  <DebugLabel type="button-text" debugMode={debugMode}>
                     <button
                       onClick={() => toggleExpand(author.id)}
-                      className="font-primary text-on-dark-label hover:text-on-dark-accent transition-colors flex items-center gap-2"
+                      className="font-primary text-meta uppercase tracking-label-alt text-on-dark-label hover:text-on-dark-accent transition-colors flex items-center gap-2"
                     >
                       {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
                       <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
@@ -213,12 +213,12 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                     </p>
                   </DebugLabel>
                   {author.sourceUrl && (
-                    <DebugLabel type="source-link" debugMode={debugMode}>
+                    <DebugLabel type="meta" debugMode={debugMode}>
                       <a
                         href={author.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-primary text-on-dark-label hover:text-on-dark-accent transition-colors"
+                        className="font-primary text-meta text-on-dark-label hover:text-on-dark-accent transition-colors"
                       >
                         {author.sourceLabel} →
                       </a>

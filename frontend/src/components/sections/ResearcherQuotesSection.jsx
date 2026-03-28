@@ -52,7 +52,7 @@ export default function ResearcherQuotesSection() {
                 "{author.quote}"
               </blockquote>
               <div className="font-display text-role text-on-dark-muted">{author.name}</div>
-              <div className="text-date text-on-dark-faded mt-0.5">{author.role}</div>
+              <div className="text-meta text-on-dark-faded mt-0.5">{author.role}</div>
             </div>
           ))}
         </div>
@@ -64,7 +64,7 @@ export default function ResearcherQuotesSection() {
               <div className="flex-1 h-px bg-dim-dark"></div>
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center gap-2 text-read-more text-on-dark-muted hover:text-on-dark transition-colors cursor-pointer"
+                className="flex items-center gap-2 text-meta text-on-dark-muted hover:text-on-dark transition-colors cursor-pointer"
               >
                 {isExpanded ? 'Weniger' : 'Mehr'}
                 <svg
@@ -102,7 +102,7 @@ export default function ResearcherQuotesSection() {
                       "{author.quote}"
                     </blockquote>
                     <div className="font-display text-role text-body-dark">{author.name}</div>
-                    <div className="text-date text-dim-dark mt-0.5">{author.role}</div>
+                    <div className="text-meta text-dim-dark mt-0.5">{author.role}</div>
                   </div>
                 ))}
               </div>

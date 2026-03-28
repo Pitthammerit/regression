@@ -69,7 +69,7 @@ export default function FAQSectionCopy({ debugMode = false }) {
                   {item.answer.split('\n\n').map((paragraph, i, arr) => (
                     <p
                       key={i}
-                      className={`font-display text-body text-color-heading leading-relaxed ${
+                      className={`font-primary text-body text-color-heading leading-relaxed ${
                         i < arr.length - 1 ? 'paragraph-spacing' : ''
                       }`}
                     >

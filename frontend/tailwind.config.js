@@ -15,8 +15,7 @@ module.exports = {
         'color-bg-medium':    '#E5DFD5',
         'color-bg-dark':      '#224160',
         'color-card-overlay': '#ffffff80', // white/50 for card backgrounds
-        'color-divider':      '#0000001A', // black/10 - universal for light backgrounds
-        'color-border':       '#0000001A', // black/10 - for element borders (avatars, cards)
+        'color-border':       '#0000001A', // black/10 - for dividers AND element borders
         'color-overlay-dark': '#00000040', // black/25 - for modal/panel backdrops
 
         // ─────────────────────────────────────────────────────────────
@@ -70,16 +69,6 @@ module.exports = {
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
       },
       fontSize: {
-        'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', {
-          lineHeight: '1',
-          letterSpacing: '-0.02em',
-        }],
-        'hero': ['clamp(1.44rem, 3.84vw, 3.36rem)', {
-          lineHeight: '1.1',
-        }],
-        'h1': ['3rem', {
-          lineHeight: '1.1',
-        }],
         'h2': ['2.25rem', {
           lineHeight: '1.2',
         }],
@@ -89,18 +78,11 @@ module.exports = {
         'h4': ['1.5rem', {
           lineHeight: '1.2',
         }],
-        'h5': ['1.25rem', {
-          lineHeight: '1.3',
-        }],
         'body': ['1.125rem', {
           lineHeight: '1.75',
         }],
         'body-lg': ['1.25rem', {
           lineHeight: '1.625',
-        }],
-        'body-italic': ['1.125rem', {
-          lineHeight: '1.75',
-          fontStyle: 'italic',
         }],
         'label': ['0.94rem', {
           lineHeight: '1.5',
@@ -109,20 +91,11 @@ module.exports = {
         'subline': ['1.0rem', {
           lineHeight: '1.5',
         }],
-        'list': ['1.25rem', {
-          lineHeight: '1.5',
-        }],
         'quote-featured': ['2.25rem', {
           lineHeight: '1.1',
         }],
-        'quote': ['1.rem', {
-          lineHeight: '1.2',
-        }],
         'author-name': ['2rem', {
           lineHeight: '1.2',
-        }],
-        'description': ['1.625rem', {
-          lineHeight: '1.6',
         }],
         'summary-large': ['1.625rem', {
           lineHeight: '1.6',
@@ -130,38 +103,20 @@ module.exports = {
         'body-narrative': ['1.125rem', {
           lineHeight: '1.75',
         }],
-        'date': ['0.875rem', {
+        'meta': ['0.875rem', {
           lineHeight: '1.5',
         }],
         'disclaimer': ['0.75rem', {
           lineHeight: '1.5',
           fontStyle: 'italic',
         }],
-        'read-more': ['0.875rem', {
-          lineHeight: '1.5',
-        }],
         'button-text': ['0.875rem', {
           lineHeight: '1.5',
           letterSpacing: '0.2em',
         }],
-        'source-link': ['0.875rem', {
-          lineHeight: '1.5',
-        }],
         'hint': ['0.875rem', {
           lineHeight: '1.5',
           fontStyle: 'italic',
-        }],
-        'icon': ['1rem', {
-          lineHeight: '1',
-        }],
-        'icon-sm': ['0.875rem', {
-          lineHeight: '1',
-        }],
-        'icon-md': ['1.125rem', {
-          lineHeight: '1',
-        }],
-        'star': ['10px', {
-          lineHeight: '1',
         }],
       },
       letterSpacing: {
@@ -191,11 +146,6 @@ module.exports = {
           'letter-spacing': '0.2em',
           'text-transform': 'uppercase',
         },
-        '.role': {
-          'line-height': '1.5',
-          'letter-spacing': '0.1em',
-          'text-transform': 'uppercase',
-        },
         '.subline-italic': {
           'line-height': '1.5',
           'font-style': 'italic',
@@ -209,9 +159,6 @@ module.exports = {
           'font-style': 'italic',
         },
         '.quote-featured-italic': {
-          'font-style': 'italic',
-        },
-        '.body-narrative-italic': {
           'font-style': 'italic',
         },
         '.divider-spacing': {
