@@ -36,6 +36,9 @@ export default function Footer({ data, debugMode = false }) {
       <div className="py-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
+          {/* — Fine line above navigation — */}
+          <div className="border-t border-white/10 mb-8"></div>
+
           {/* 1 — Navigation horizontal */}
           <div className="mb-8 flex flex-wrap justify-center gap-6 font-primary text-menu-text text-white/70">
             {nav.map((item, index) => (
