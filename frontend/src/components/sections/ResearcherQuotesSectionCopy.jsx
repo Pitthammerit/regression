@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { researchers } from '../../content/plr-de'
+import { researchers, ui } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
+import ExpandToggleButton from '../ui/ExpandToggleButton'
 
 /**
  * ResearcherQuotesSectionCopy — Research authority quotes with portraits
@@ -93,24 +94,14 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
       {/* Expandable "Mehr/Weniger" - only show if more than 3 authors */}
       {hasMore && (
         <>
-          <div className="flex items-center gap-4 my-10">
-            <div className="flex-1 h-px bg-on-dark-divider"></div>
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-2 font-primary text-meta text-on-dark-label hover:text-on-dark-accent transition-colors cursor-pointer"
-            >
-              {isExpanded ? 'Weniger' : 'Mehr'}
-              <svg
-                className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div className="flex-1 h-px bg-on-dark-divider"></div>
-          </div>
+          <ExpandToggleButton
+            isExpanded={isExpanded}
+            onToggle={() => setIsExpanded(!isExpanded)}
+            labelMore={ui.showMore}
+            labelLess={ui.showLess}
+            debugMode={debugMode}
+            className="my-10"
+          />
 
           {/* Expanded content - authors 4+ */}
           {isExpanded && (

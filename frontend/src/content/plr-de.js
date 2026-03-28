@@ -624,6 +624,14 @@ export const footer = {
 };
 
 // ═══════════════════════════════════════════════════════════
+// UI LABELS (Global UI text strings)
+// ═══════════════════════════════════════════════════════════
+export const ui = {
+  showMore: "Mehr",
+  showLess: "Weniger",
+};
+
+// ═══════════════════════════════════════════════════════════
 // TranscriptPage — TRANSCRIPT PAGE CONTENT
 // ═══════════════════════════════════════════════════════════
 export const transcriptPage = {

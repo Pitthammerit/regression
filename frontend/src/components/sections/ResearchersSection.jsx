@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { researchers } from '../../content/plr-de'
+import { researchers, ui } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
-import { ChevronDown } from 'lucide-react'
+import ExpandToggleButton from '../ui/ExpandToggleButton'
 
-export default function ResearchersSectionCopy({ debugMode = false }) {
+export default function ResearchersSection({ debugMode = false }) {
   const authors = researchers.authors
   const featuredAuthor = authors.find(author => author.featured)
   const [expandedId, setExpandedId] = useState(null)
@@ -187,19 +187,14 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                 </DebugLabel>
 
                 {/* Read more button - centered with divider lines */}
-                <div className="flex items-center gap-4 element-spacing-md">
-                  <div className="flex-1 h-px bg-on-dark-divider"></div>
-                  <DebugLabel type="button-text" debugMode={debugMode}>
-                    <button
-                      onClick={() => toggleExpand(author.id)}
-                      className="font-primary text-meta uppercase tracking-label-alt text-on-dark-label hover:text-on-dark-accent transition-colors flex items-center gap-2"
-                    >
-                      {expandedId === author.id ? researchers.accordion.readLess : researchers.accordion.readMore}
-                      <ChevronDown className={`transition-transform duration-200 ${expandedId === author.id ? 'rotate-180' : ''}`} />
-                    </button>
-                  </DebugLabel>
-                  <div className="flex-1 h-px bg-on-dark-divider"></div>
-                </div>
+                <ExpandToggleButton
+                  isExpanded={expandedId === author.id}
+                  onToggle={() => toggleExpand(author.id)}
+                  labelMore={ui.showMore}
+                  labelLess={ui.showLess}
+                  debugMode={debugMode}
+                  className="element-spacing-md"
+                />
               </div>
             </div>
 

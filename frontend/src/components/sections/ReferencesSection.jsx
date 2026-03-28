@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { references } from '../../content/plr-de'
+import { references, ui } from '../../content/plr-de'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
-import { BookOpen, ChevronDown } from 'lucide-react'
+import ExpandToggleButton from '../ui/ExpandToggleButton'
+import { BookOpen } from 'lucide-react'
 
 /**
  * ReferencesSectionCopy — References section with typography tokens
@@ -120,21 +121,14 @@ export default function ReferencesSection({ debugMode = false }) {
                 </div>
 
                 {/* Divider with Mehr anzeigen button */}
-                <div className="md:col-span-2 pt-[36px]">
-                  <div className="flex items-center gap-4">
-                    <div className="flex-1 h-px bg-on-dark-divider"></div>
-                    <DebugLabel type="button-text" debugMode={debugMode}>
-                      <button
-                        onClick={() => setExpanded(!expanded)}
-                        className="flex items-center gap-2 font-primary text-button-text button-text text-on-dark-label hover:text-on-dark-heading transition-colors cursor-pointer"
-                      >
-                        {expanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-                        <ChevronDown className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
-                      </button>
-                    </DebugLabel>
-                    <div className="flex-1 h-px bg-on-dark-divider"></div>
-                  </div>
-                </div>
+                <ExpandToggleButton
+                  isExpanded={expanded}
+                  onToggle={() => setExpanded(!expanded)}
+                  labelMore={ui.showMore}
+                  labelLess={ui.showLess}
+                  debugMode={debugMode}
+                  className="md:col-span-2 pt-[36px]"
+                />
               </div>
             ))}
 
