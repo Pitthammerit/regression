@@ -83,6 +83,9 @@ module.exports = {
         'h2': ['2.25rem', {
           lineHeight: '1.2',
         }],
+        'h2-hand': ['2.25rem', {
+          lineHeight: '1.2',
+        }],
         'h3': ['1.875rem', {
           lineHeight: '1.2',
         }],

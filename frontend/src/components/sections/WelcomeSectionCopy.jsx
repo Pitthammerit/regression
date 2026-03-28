@@ -49,13 +49,13 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
             ))}
           </div>
 
-          {/* Signature image */}
+          {/* Signature — handwriting text */}
           <div className="mt-8">
-            <LazyImage
-              src={welcome.signatureUrl}
-              alt={welcome.author}
-              className="h-14 md:h-16 object-contain object-left opacity-80"
-            />
+            <DebugLabel type="h2-hand" debugMode={debugMode}>
+              <p className="font-handwriting text-h2-hand text-color-heading">
+                {welcome.author}
+              </p>
+            </DebugLabel>
           </div>
         </div>
       </div>
