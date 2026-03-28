@@ -14,7 +14,7 @@ export default function CtaButton({ label, variant = 'primary', className = '', 
     primary:   `${base} bg-brand-deep text-white hover:bg-brand-steel`,
     secondary: `${base} border border-brand-deep text-brand-deep hover:bg-brand-deep hover:text-white`,
     ghost:     `${base} text-brand-steel hover:text-brand-deep`,
-    inverted:  `${base} bg-on-dark text-color-heading hover:bg-brand-cream`,
+    inverted:  `${base} bg-on-dark text-color-heading hover:bg-brand-steel`,
   }
 
   return (
