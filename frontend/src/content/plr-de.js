@@ -455,7 +455,7 @@ export const simpleCta = {
 export const simpleCtaWithImage = {
   label: "DEIN NEXT STEP",
   headline: "Bereit, deiner Seele zuzuhören?",
-  subline: "Ein unverbindliches Erstgespräch. Wir schauen gemeinsam, ob eine Session der richtige Schritt für dich ist.",
+  subline: "Ein unverbindliches Erstgespräch. Wir schauen gemeinsam, ob eine Session der richtige Schritt für dich ist. Kein Druck, keine Erwartung — nur ein klärendes Gespräch.",
   cta: "Intro-Call buchen",
   imageUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/2%20s%20350px.png",
   imageAlt: "Benjamin Kurtz",
