@@ -62,7 +62,7 @@ export const welcome = {
     "Außerdem findest hier Podcast-Episoden, wissenschaftliche Hintergründe und die Möglichkeit, in einem Intro-Call direkt mit mir in Kontakt zu treten.",
     "Ich freu mich von dir zu hören. Viel Freude.",
   ],
-  author: "Benjamin Kurtz",
+  author: "Benjamin",
   imageUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/2%20s%20350px.png",
   signatureUrl: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/signature_benjamin_black.png",
 };

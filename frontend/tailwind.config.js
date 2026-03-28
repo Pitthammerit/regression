@@ -67,7 +67,7 @@ module.exports = {
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
         primary: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        handwriting: ['Handlee', 'cursive'],
+        handwriting: ['Kalam', 'cursive'],
       },
       fontSize: {
         'hero-large': ['clamp(2.4rem, 6.6vw, 5.4rem)', {
