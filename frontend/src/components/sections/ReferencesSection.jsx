@@ -70,7 +70,7 @@ export default function ReferencesSection({ debugMode = false }) {
                       className="w-full h-auto rounded-lg"
                     />
                   ) : (
-                    <AspectRatio ratio={2 / 3}>
+                    <AspectRatio ratio={expanded ? 3 / 4 : 1 / 1}>
                       <div className="w-full h-full border border-on-dark-divider rounded-lg flex items-center justify-center bg-color-bg-dark/50">
                         <BookOpen className="w-12 h-12 text-on-dark-heading/30" />
                       </div>
@@ -144,7 +144,7 @@ export default function ReferencesSection({ debugMode = false }) {
                       className="w-full h-auto rounded-lg"
                     />
                   ) : (
-                    <AspectRatio ratio={2 / 3}>
+                    <AspectRatio ratio={3 / 4}>
                       <div className="w-full h-full border border-on-dark-divider rounded-lg flex items-center justify-center bg-color-bg-dark/50">
                         <BookOpen className="w-12 h-12 text-on-dark-heading/30" />
                       </div>
