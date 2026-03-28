@@ -4,6 +4,7 @@ import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
+import AccordionWrap from '../ui/AccordionWrap'
 import { ChevronDown, User } from 'lucide-react'
 
 export default function CaseStudiesSection({ debugMode = false }) {
@@ -98,8 +99,8 @@ export default function CaseStudiesSection({ debugMode = false }) {
               />
             </button>
 
-            <div className={`overflow-hidden transition-all transition-slow ${openIndex === i ? 'max-h-[1600px] pb-10' : 'max-h-0'}`}>
-              <div className="grid md:grid-cols-3 gap-6 pt-2">
+            <AccordionWrap isOpen={openIndex === i}>
+              <div className="pb-10 grid md:grid-cols-3 gap-6 pt-2">
                 {[
                   { label: cases.sectionLabels.situation, text: item.situation },
                   { label: cases.sectionLabels.session,   text: item.session },
@@ -127,7 +128,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   </p>
                 </DebugLabel>
               )}
-            </div>
+            </AccordionWrap>
           </div>
         ))}
       </div>
