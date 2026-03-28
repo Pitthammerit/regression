@@ -4,7 +4,6 @@ import { references, ui } from '../../content/plr-de'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
-import CtaButton from '../ui/CtaButton'
 import { BookOpen } from 'lucide-react'
 
 /**
@@ -198,16 +197,6 @@ export default function ReferencesSection({ debugMode = false }) {
             ))}
           </>
         )}
-      </div>
-
-      {/* CTA - Fills gap before footer */}
-      <div className="flex justify-center pt-16">
-        <DebugLabel type="button-text" debugMode={debugMode}>
-          <CtaButton
-            label={references.cta}
-            variant="inverted"
-          />
-        </DebugLabel>
       </div>
     </section>
   )

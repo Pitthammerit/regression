@@ -378,7 +378,6 @@ Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP):
 export const references = {
   bigLabel: "WEITERFÜHRENDE LITERATUR",
   headline: "Vertiefung & Quellen",
-  cta: "Intro-Call buchen",
   items: [
     {
       type: "journal",
@@ -438,6 +437,16 @@ Life Before Life stellt die Fälle auf unkomplizierte Weise vor und erforscht di
       sourceUrl: "https://www.amazon.com/Life-Before-Childrens-Memories-Previous/dp/031237674X/ref=sr_1_2?crid=1ZD24S35MAXG5&dib=eyJ2IjoiMSJ9.JT7FiJTVfWmTqVGUD0Np5YYLmkWWFmtNWPGjFvATCQpgUzPKgt18cDIrQf6yDLLjY7jUz64XfzKwyCIRgCxQ0JCzCy7gVxVQKPEoZL3zjno0m_ARh4VFRxJjN2SuvACb5iP1mHCpVCoIB4w6ibQvENsofsEbcevb1ZJ50LZEVnBIKQGehy4gEONsJJZfmHCufdgVTRBKjnOsCq5xIaRJnWiL90tKe3XthfNgeqJfzUE.9tzXkfmbVtx-y2GAnUw2Ru1irBtcDgTO2uMvptt7C2U&dib_tag=se&keywords=life%27s+before+life+tucker&qid=1774617870&s=books&sprefix=life%27s+before+life+tuc%2Cstripbooks-intl-ship%2C389&sr=1-2",
     },
   ],
+};
+
+// ═══════════════════════════════════════════════════════════
+// SimpleCtaSection — SIMPLE CTA
+// ═══════════════════════════════════════════════════════════
+export const simpleCta = {
+  label: "DEIN NEXT STEP",
+  headline: "Bereit, deiner Seele zuzuhören?",
+  subline: "Ein unverbindliches Erstgespräch. Wir schauen gemeinsam, ob eine Session der richtige Schritt für dich ist.",
+  cta: "Intro-Call buchen",
 };
 
 // ═══════════════════════════════════════════════════════════

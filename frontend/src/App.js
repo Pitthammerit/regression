@@ -22,8 +22,8 @@ import ProcessSection from './components/sections/ProcessSection'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import TestimonialsSection from './components/sections/TestimonialsSection'
 import TestimonialsSectionCopy from './components/sections/TestimonialsSectionCopy'
-import TestimonialCarousel from './components/sections/TestimonialCarousel'
 import BookingSection from './components/sections/BookingSection'
+import SimpleCtaSection from './components/sections/SimpleCtaSection'
 import TranscriptPage from './pages/TranscriptPage'
 import MenuDemoPage from './pages/demos/MenuDemoPage'
 import TypographyDemoPage from './pages/demos/TypographyDemoPage'
@@ -72,45 +72,61 @@ function FloatingBurger() {
 }
 
 function MainPage() {
+  const [debugMode, setDebugMode] = useState(false)
+
   // Section mapping with props
   const sectionMap = {
-    'HeroV3Section': <HeroV3Section />,
-    'ServicesSection': <ServicesSection />,
-    'WelcomeSection': <WelcomeSection />,
-    'WhatIsSection': <WhatIsSection />,
-    'ResearchersSection': <ResearchersSection />,
-    'ResearcherQuotesSection': <ResearcherQuotesSection />,
-    'PodcastVideoSection': <PodcastVideoSection />,
-    'StatementSection': <StatementSection />,
-    'ForWhomSection': <ForWhomSection />,
-    'AboutSection': <AboutSection />,
-    'ProcessSection': <ProcessSection />,
-    'PodcastSection': <PodcastSection />,
-    'CaseStudiesSection': <CaseStudiesSection />,
-    'TestimonialsSection': <TestimonialsSection />,
-    'TestimonialsSectionCopy': <TestimonialsSectionCopy />,
-    'TestimonialCarousel': (
-      <TestimonialCarousel
+    'HeroV3Section': <HeroV3Section debugMode={debugMode} />,
+    'ServicesSection': <ServicesSection debugMode={debugMode} />,
+    'WelcomeSection': <WelcomeSection debugMode={debugMode} />,
+    'WhatIsSection': <WhatIsSection debugMode={debugMode} />,
+    'ResearchersSection': <ResearchersSection debugMode={debugMode} />,
+    'ResearcherQuotesSection': <ResearcherQuotesSection debugMode={debugMode} />,
+    'PodcastVideoSection': <PodcastVideoSection debugMode={debugMode} />,
+    'StatementSection': <StatementSection debugMode={debugMode} />,
+    'ForWhomSection': <ForWhomSection debugMode={debugMode} />,
+    'AboutSection': <AboutSection debugMode={debugMode} />,
+    'ProcessSection': <ProcessSection debugMode={debugMode} />,
+    'PodcastSection': <PodcastSection debugMode={debugMode} />,
+    'CaseStudiesSection': <CaseStudiesSection debugMode={debugMode} />,
+    'TestimonialsSection': <TestimonialsSection debugMode={debugMode} />,
+    'TestimonialsSectionCopy': <TestimonialsSectionCopy debugMode={debugMode} />,
+    'TestimonialCarouselCopy': (
+      <TestimonialsSectionCopy
         clients={testimonials.clients}
         label={testimonials.clientLabel}
         subtitle="Kundenstimmen"
       />
     ),
-    'BookingSection': <BookingSection />,
-    'FAQSection': <FAQSection />,
-    'ReferencesSection': <ReferencesSection />,
+    'BookingSection': <BookingSection debugMode={debugMode} />,
+    'FAQSection': <FAQSection debugMode={debugMode} />,
+    'ReferencesSection': <ReferencesSection debugMode={debugMode} />,
+    'SimpleCtaSection': <SimpleCtaSection debugMode={debugMode} />,
   }
 
   return (
     <div className="bg-brand-cream bg-paper min-h-screen font-sans text-brand-body">
+      {/* Debug Toggle */}
+      <div className="fixed top-4 left-4 z-[100] bg-white p-3 rounded-lg shadow-lg border border-black/10">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={debugMode}
+            onChange={(e) => setDebugMode(e.target.checked)}
+            className="w-4 h-4"
+          />
+          <span className="font-primary text-sm">🔍 Debug Mode</span>
+        </label>
+      </div>
+
       <FloatingBurger />
-      <Header />
+      <Header debugMode={debugMode} />
       <main>
         {SECTIONS_ORDER.map((sectionName) => (
           <React.Fragment key={sectionName}>{sectionMap[sectionName]}</React.Fragment>
         ))}
       </main>
-      <Footer data={footer} />
+      <Footer data={footer} debugMode={debugMode} />
     </div>
   )
 }

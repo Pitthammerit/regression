@@ -21,4 +21,5 @@ export const SECTIONS_ORDER = [
   'BookingSection',
   'FAQSection',
   'ReferencesSection',
+  'SimpleCtaSection',
 ]
