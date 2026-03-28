@@ -54,14 +54,14 @@ export default function PodcastSectionCopy({ debugMode = false }) {
               </p>
             </DebugLabel>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 margin-top-md">
               {podcast.podcastLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="button-text text-color-heading border border-color-heading/30 rounded-sm px-7 py-3 hover:bg-color-heading hover:text-white transition-colors min-w-[180px] text-center"
+                  className="button-text text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
                   data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                 >
                   {link.label}
