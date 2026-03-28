@@ -1,29 +1,36 @@
-import React, { useState, useEffect } from "react";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { TESTIMONIALS_LIST } from "../../content/testimonials.list";
+import { useState, useEffect } from "react"
+import { Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { TESTIMONIALS_LIST } from "../../content/testimonials.list"
+import DebugLabel from "../ui/DebugLabel"
 
 /**
- * TestimonialCarousel - Carousel for client testimonials
- * Based on Journey Within Retreats implementation
+ * TestimonialCarousel- Carousel with typography tokens
  *
- * Features:
+ * MIGRATED to design tokens (Single Source of Truth):
+ * - Font-family: font-display (headlines), font-primary (body)
+ * - Label: text-label (15px) + color-label
+ * - H2: text-h2 (36px) + color-heading
+ * - Name: text-h5 (20px) + color-heading (semibold)
+ * - Context: text-label (15px) + color-label
+ * - Quote: text-body-narrative (18px) + color-body
+ *
+ * FEATURES:
  * - Auto-advancing every 5 seconds + 2s (7s total)
- * - Progress bar inside active dot showing time remaining
+ * - Progress bar inside active dot
  * - Manual navigation (arrows, dots)
  * - Pauses on hover
  *
  * @param {Object} props
- * @param {Array} props.clients - Array of client objects with { name, context, quote, image }
- * @param {string} props.label - Section label (e.g., "KUNDENSTIMMEN")
+ * @param {Array} props.clients - Array of client objects
+ * @param {string} props.label - Section label
  * @param {string} props.subtitle - Section subtitle/h2
  */
-export const TestimonialCarousel = ({ clients, label, subtitle }) => {
-  // Use TESTIMONIALS_LIST by default, fallback to props.clients for backward compatibility
+export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = false }) => {
   const carouselClients = clients || TESTIMONIALS_LIST
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [progress, setProgress] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
 
   // Auto-advance every 5 seconds + 2s = 7 seconds total
   // Progress updates every 100ms
@@ -32,62 +39,66 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
       const progressInterval = setInterval(() => {
         setProgress((prev) => {
           if (prev >= 100) {
-            return 0;
+            return 0
           }
-          return prev + (100 / 70); // 7000ms total, updated every 100ms
-        });
-      }, 100);
+          return prev + (100 / 70) // 7000ms total, updated every 100ms
+        })
+      }, 100)
 
-      return () => clearInterval(progressInterval);
+      return () => clearInterval(progressInterval)
     }
-  }, [isPaused]);
+  }, [isPaused])
 
   // When progress completes, move to next slide
   useEffect(() => {
     if (progress >= 100 && carouselClients.length > 0) {
-      setCurrentIndex((prev) => (prev + 1) % carouselClients.length);
-      setProgress(0);
+      setCurrentIndex((prev) => (prev + 1) % carouselClients.length)
+      setProgress(0)
     }
-  }, [progress, carouselClients.length]);
+  }, [progress, carouselClients.length])
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % carouselClients.length);
-    setProgress(0);
-  };
+    setCurrentIndex((prev) => (prev + 1) % carouselClients.length)
+    setProgress(0)
+  }
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + carouselClients.length) % carouselClients.length);
-    setProgress(0);
-  };
+    setCurrentIndex((prev) => (prev - 1 + carouselClients.length) % carouselClients.length)
+    setProgress(0)
+  }
 
   const handleDotClick = (index) => {
-    if (index === currentIndex) return;
-    setCurrentIndex(index);
-    setProgress(0);
-  };
+    if (index === currentIndex) return
+    setCurrentIndex(index)
+    setProgress(0)
+  }
 
   if (!carouselClients || carouselClients.length === 0) {
-    return null;
+    return null
   }
 
   // Direct R2 URL (no transformation - images served as-is)
   const getOptimizedImageUrl = (url) => {
-    if (!url) return '';
-    if (url.startsWith('http')) return url;
-    return `https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev${url}`;
-  };
+    if (!url) return ''
+    if (url.startsWith('http')) return url
+    return `https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev${url}`
+  }
 
   return (
     <section className="py-16 md:py-20">
       <div className="max-w-content mx-auto px-6">
         {/* Section Title - centered */}
-        <div className="mb-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-color-label">
-            {label}
-          </p>
-          <h2 className="mt-2 font-serif text-3xl text-color-heading sm:text-4xl text-center">
-            {subtitle}
-          </h2>
+        <div className="content-spacing-lg text-center">
+          <DebugLabel type="label" debugMode={debugMode}>
+            <p className="font-primary text-label label text-color-label">
+              {label}
+            </p>
+          </DebugLabel>
+          <DebugLabel type="h2" debugMode={debugMode}>
+            <h2 className="font-display text-h2 text-color-heading text-center label-heading-spacing">
+              {subtitle}
+            </h2>
+          </DebugLabel>
         </div>
 
         {/* Main Carousel Container */}
@@ -107,17 +118,17 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
           {/* Sliding Cards Container */}
           <div className="overflow-hidden rounded-2xl">
             <div
-              className="flex transition-transform duration-600 ease-in-out"
+              className="flex transition-transform duration-[600ms] ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {carouselClients.map((t, idx) => (
                 <div key={`${t.name}-${idx}`} className="min-w-full">
-                  <div className="flex flex-col gap-3 rounded-2xl bg-white/50 p-6 border border-brand-sand shadow-sm backdrop-blur-sm">
+                  <div className="flex flex-col gap-3 rounded-2xl bg-color-card-overlay p-[34px] border border-color-bg-light shadow-sm backdrop-blur-sm">
                     {/* Top Row: Avatar + Name/Role + Stars */}
-                    <div className="flex flex-col sm:flex-row items-start gap-4">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
                       <div className="flex items-center gap-4">
                         {t.image && (
-                          <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-white shadow-md">
+                          <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-border shadow-md">
                             <img
                               src={getOptimizedImageUrl(t.image)}
                               width="60"
@@ -129,26 +140,32 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
                           </div>
                         )}
                         <div>
-                          <p className="text-sm font-semibold text-color-heading">{t.name}</p>
-                          <p className="text-xs text-color-label">
-                            {t.context}
-                          </p>
+                          <DebugLabel type="h5" debugMode={debugMode}>
+                            <p className="font-primary text-h5 font-semibold text-color-heading">{t.name}</p>
+                          </DebugLabel>
+                          <DebugLabel type="role" debugMode={debugMode}>
+                            <p className="font-primary text-label text-color-label label tracking-wider">
+                              {t.context}
+                            </p>
+                          </DebugLabel>
                         </div>
                       </div>
-                      {/* 5 Stars - semantic accent color (green) */}
-                      <div className="flex items-center gap-0.5 text-color-accent sm:ml-auto sm:mt-1">
+                      {/* 5 Stars - semantic star color (yellow) */}
+                      <div className="flex items-center gap-0.5 text-color-star">
                         {Array.from({ length: 5 }).map((_, starIdx) => (
-                          <Star key={starIdx} className="w-star h-star fill-current" />
+                          <Star key={starIdx} className="w-[19px] h-[19px] fill-current" />
                         ))}
                       </div>
                     </div>
 
                     {/* Quote - below stars */}
-                    <div className="text-sm text-color-body">
-                      <p className="italic text-center sm:text-left">
-                        "{t.quote}"
-                      </p>
-                    </div>
+                    <DebugLabel type="body-narrative" debugMode={debugMode}>
+                      <div className="text-color-body">
+                        <p className="font-display text-body-narrative body-narrative-italic text-center sm:text-left">
+                          "{t.quote}"
+                        </p>
+                      </div>
+                    </DebugLabel>
                   </div>
                 </div>
               ))}
@@ -165,19 +182,19 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
         </div>
 
         {/* Navigation Dots with Progress Bar inside active dot */}
-        <div className="mt-8 flex justify-center gap-2">
+        <div className="content-spacing-lg flex justify-center gap-2">
           {carouselClients.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
               className={`relative h-3 overflow-hidden rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'w-12 bg-brand-deep' : 'w-3 bg-brand-steel'
+                index === currentIndex ? 'w-12 bg-color-heading' : 'w-3 bg-color-label'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}>
               {/* Progress bar inside active dot */}
               {index === currentIndex && (
                 <div
-                  className="absolute left-0 top-0 h-full bg-white/40 transition-all duration-100 ease-linear"
+                  className="absolute left-0 top-0 h-full bg-on-dark-divider transition-all duration-[100ms] ease-linear"
                   style={{ width: `${progress}%` }}
                 />
               )}
@@ -186,7 +203,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default TestimonialCarousel;
+export default TestimonialCarousel

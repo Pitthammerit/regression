@@ -22,6 +22,7 @@ import ProcessSection from './components/sections/ProcessSection'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import TestimonialsSection from './components/sections/TestimonialsSection'
 import TestimonialsSectionCopy from './components/sections/TestimonialsSectionCopy'
+import TestimonialCarousel from './components/sections/TestimonialCarousel'
 import BookingSection from './components/sections/BookingSection'
 import CtaImageSection from './components/sections/CtaImageSection'
 import TranscriptPage from './pages/TranscriptPage'
@@ -91,11 +92,12 @@ function MainPage() {
     'CaseStudiesSection': <CaseStudiesSection debugMode={debugMode} />,
     'TestimonialsSection': <TestimonialsSection debugMode={debugMode} />,
     'TestimonialsSectionCopy': <TestimonialsSectionCopy debugMode={debugMode} />,
-    'TestimonialCarouselCopy': (
-      <TestimonialsSectionCopy
+    'TestimonialCarousel': (
+      <TestimonialCarousel
         clients={testimonials.clients}
         label={testimonials.clientLabel}
         subtitle="Kundenstimmen"
+        debugMode={debugMode}
       />
     ),
     'BookingSection': <BookingSection debugMode={debugMode} />,
