@@ -116,13 +116,13 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
           </button>
 
           {/* Sliding Cards Container */}
-          <div className="overflow-x-hidden rounded-2xl">
+          <div className="overflow-hidden rounded-2xl">
             <div
               className="flex transition-transform duration-[600ms] ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {carouselClients.map((t, idx) => (
-                <div key={`${t.name}-${idx}`} className="min-w-full flex-shrink-0">
+                <div key={`${t.name}-${idx}`} className="min-w-full">
                   <div className="flex flex-col gap-3 rounded-2xl bg-color-card-overlay p-[34px] border border-color-bg-light shadow-sm backdrop-blur-sm">
                     {/* Top Row: Avatar + Name/Role + Stars */}
                     <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
