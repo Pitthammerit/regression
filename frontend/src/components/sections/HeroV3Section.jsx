@@ -28,18 +28,13 @@ export default function HeroV3Section({ debugMode = false }) {
               </span>
             </DebugLabel>
           </div>
-          {/* Second line — right-aligned, tight spacing */}
-          <DebugLabel type="hero" debugMode={debugMode}>
-            <p className="text-right font-display italic text-color-heading mt-0.5 text-hero">
-              {hero.heroCta}
-            </p>
-          </DebugLabel>
+
         </div>
       </div>
 
-      {/* VIDEO — same max-width as headline */}
+      {/* VIDEO — 15% smaller (979px instead of 1152px) */}
       <div className="px-8 md:px-14 lg:px-20 w-full">
-        <div className="max-w-content mx-auto">
+        <div className="max-w-[979px] mx-auto">
           <CustomVideoPlayer
             type="r2"
             src={hero.videoUrl}
@@ -50,9 +45,20 @@ export default function HeroV3Section({ debugMode = false }) {
         </div>
       </div>
 
-      {/* Arrow — no line, directly below video */}
+      {/* CTA — centered below video */}
+      <div className="px-8 md:px-14 lg:px-20 pt-6">
+        <div className="max-w-[979px] mx-auto text-center">
+          <DebugLabel type="hero" debugMode={debugMode}>
+            <p className="font-display italic text-color-heading text-hero">
+              {hero.heroCta}
+            </p>
+          </DebugLabel>
+        </div>
+      </div>
+
+      {/* Arrow */}
       <div className="px-8 md:px-14 lg:px-20 pt-3 pb-4">
-        <div className="max-w-content mx-auto flex justify-center" data-testid="hero-cta-scroll">
+        <div className="max-w-[979px] mx-auto flex justify-center" data-testid="hero-cta-scroll">
           <button
             onClick={handleScrollDown}
             aria-label="Nach unten scrollen"
