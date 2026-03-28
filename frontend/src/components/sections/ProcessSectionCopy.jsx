@@ -42,7 +42,7 @@ export default function ProcessSectionCopy({ debugMode = false }) {
       </div>
 
       {/* Steps */}
-      <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-16 max-w-5xl mx-auto" data-testid="process-steps">
+      <div className="grid md:grid-cols-3 gap-10 md:gap-12 content-spacing-lg max-w-5xl mx-auto" data-testid="process-steps">
         {processSection.steps.map((step, i) => (
           <div key={i} className="relative overflow-hidden md:overflow-visible">
             {/* Big transparent background number — scales down on mobile */}
