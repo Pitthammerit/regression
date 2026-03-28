@@ -5,9 +5,9 @@ import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import { r2, portraits } from '../../utils/media'
 
-export default function AboutSectionCopy({ debugMode = false }) {
+export default function AboutSection({ debugMode = false }) {
   return (
-    <SectionWrapper id="ueber-copy" data-testid="about-section-copy">
+    <SectionWrapper id="ueber" data-testid="about-section">
       <div className="grid md:grid-cols-2 grid-gap-xl items-start">
 
         {/* Left: Portrait photo — sticky */}

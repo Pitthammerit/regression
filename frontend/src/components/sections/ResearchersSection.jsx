@@ -33,8 +33,8 @@ export default function ResearchersSection({ debugMode = false }) {
 
   return (
     <section
-      id="science-copy"
-      data-testid="science-section-copy"
+      id="science"
+      data-testid="science-section"
       className="section-padding bg-color-bg-dark text-on-dark relative overflow-hidden"
     >
       {/* Subtle paper texture overlay */}
