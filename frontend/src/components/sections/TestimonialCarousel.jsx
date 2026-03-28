@@ -84,6 +84,14 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
     return `https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev${url}`
   }
 
+  // Adaptive font size based on text length (18px min, 24px max)
+  const getQuoteFontSize = (text) => {
+    const len = text.length
+    if (len < 100) return 'text-xl' // 20px
+    if (len < 150) return 'text-lg' // 18px (current default)
+    return 'text-base' // 16px for very long quotes
+  }
+
   return (
     <section className="py-16 md:py-20">
       <div className="max-w-content mx-auto px-6">
@@ -161,7 +169,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                   {/* Quote - below stars */}
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
                     <div className="text-color-body mt-3">
-                      <p className="font-display text-body-narrative body-narrative-italic text-center sm:text-left">
+                      <p className={`font-display body-narrative-italic text-center sm:text-left ${getQuoteFontSize(t.quote)}`}>
                         "{t.quote}"
                       </p>
                     </div>
