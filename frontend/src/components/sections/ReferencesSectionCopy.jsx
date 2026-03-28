@@ -123,13 +123,15 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                 <div className="md:col-span-2 pt-[36px]">
                   <div className="flex items-center gap-4">
                     <div className="flex-1 h-px bg-on-dark-divider"></div>
-                    <button
-                      onClick={() => setExpanded(!expanded)}
-                      className="flex items-center gap-2 font-primary text-body text-on-dark-label hover:text-on-dark-heading transition-colors cursor-pointer"
-                    >
-                      {expanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-                      <ChevronDown className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
-                    </button>
+                    <DebugLabel type="button-text" debugMode={debugMode}>
+                      <button
+                        onClick={() => setExpanded(!expanded)}
+                        className="flex items-center gap-2 font-primary text-button-text button-text text-on-dark-label hover:text-on-dark-heading transition-colors cursor-pointer"
+                      >
+                        {expanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+                        <ChevronDown className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`} />
+                      </button>
+                    </DebugLabel>
                     <div className="flex-1 h-px bg-on-dark-divider"></div>
                   </div>
                 </div>
