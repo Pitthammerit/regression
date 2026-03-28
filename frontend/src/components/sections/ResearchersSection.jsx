@@ -112,7 +112,7 @@ export default function ResearchersSection({ debugMode = false }) {
         {/* ═══════════════════════════════════════════════════════════ */}
 
         {authors.map((author) => (
-          <div key={author.id} className="section-block-spacing">
+          <div key={author.id} className="mb-3">
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
             <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 md:items-start">
               {/* Mobile: Portrait first (full width, 16:9) */}
