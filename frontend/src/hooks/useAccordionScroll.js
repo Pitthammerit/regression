@@ -56,7 +56,7 @@ export function useAccordionScroll(openId, setOpenId) {
     // Toggle accordion state
     setOpenId(wasOpen ? (typeof openId === 'number' ? -1 : null) : id)
 
-    // Wait for transition on clicked element, then scroll if needed
+    // Wait for transition, then scroll
     if (clickedElement && !wasOpen) {
       const handleTransitionEnd = () => {
         // Clean up scroll listener
@@ -67,11 +67,9 @@ export function useAccordionScroll(openId, setOpenId) {
           return
         }
 
-        // Only scroll if element is not already visible
-        if (!isElementInViewport(clickedElement)) {
-          const y = clickedElement.getBoundingClientRect().top + window.scrollY - 100
-          window.scrollTo({ top: y, behavior: 'smooth' })
-        }
+        // Always scroll to top when opening (100px offset)
+        const y = clickedElement.getBoundingClientRect().top + window.scrollY - 100
+        window.scrollTo({ top: y, behavior: 'smooth' })
 
         clickedElement.removeEventListener('transitionend', handleTransitionEnd)
       }
