@@ -63,7 +63,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-label italic transition-opacity transition-slower max-w-fit ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-body italic transition-opacity transition-slower max-w-fit ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-icon">↓</span>
