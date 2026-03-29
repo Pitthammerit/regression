@@ -12,7 +12,7 @@ export default function ServicesSection() {
               className="flex-1 py-6 md:py-5 md:px-10 first:md:pl-0 last:md:pr-0 flex flex-col justify-center"
               data-testid={`service-item-${i}`}
             >
-              <span className="font-sans text-xs tracking-[0.18em] uppercase text-label mb-1.5 block">
+              <span className="font-primary text-xs tracking-[0.18em] uppercase text-label mb-1.5 block">
                 {service.sub}
               </span>
               <span className="font-serif text-xl md:text-2xl text-heading">

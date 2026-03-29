@@ -30,7 +30,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
         <div className="flex flex-col justify-center pt-2">
           <DebugLabel type="hero-large" debugMode={debugMode}>
             <span
-              className="font-display text-hero-large text-color-heading leading-none block mb-0 select-none"
+              className="font-secondary text-hero-large text-color-heading leading-none block mb-0 select-none"
               aria-hidden="true"
             >
               "
@@ -41,7 +41,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
             {welcome.quoteLines.map((line, i) => (
               <DebugLabel key={i} type="quote-featured" debugMode={debugMode}>
                 <p
-                  className="font-display text-quote-featured text-color-heading leading-tight"
+                  className="font-secondary text-quote-featured text-color-heading leading-tight"
                 >
                   {line}
                 </p>

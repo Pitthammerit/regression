@@ -29,7 +29,7 @@ export default function ExpandToggleButton({
       <DebugLabel type="meta" debugMode={debugMode}>
         <button
           onClick={onToggle}
-          className="flex items-center gap-2 font-primary text-meta uppercase text-on-dark-label hover:text-on-dark-heading transition-colors cursor-pointer"
+          className="flex items-center gap-2 font-primary text-meta uppercase text-on-dark-meta hover:text-on-dark transition-colors cursor-pointer"
         >
           {isExpanded ? labelLess : labelMore}
           <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />

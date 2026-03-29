@@ -19,7 +19,7 @@ export default function ReferencesSection() {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <div className="font-sans text-xs uppercase tracking-[0.2em] text-label/80 mb-4">
+          <div className="font-primary text-xs uppercase tracking-[0.2em] text-label/80 mb-4">
             {references.bigLabel}
           </div>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight">
@@ -64,11 +64,11 @@ export default function ReferencesSection() {
                       {resource.name}
                     </p>
                   </a>
-                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
+                  <p className="font-primary text-white/70 text-sm uppercase tracking-wider mb-1">
                     {resource.role}
                   </p>
                   {resource.dates && (
-                    <p className="font-sans text-white/50 text-sm mb-4">
+                    <p className="font-primary text-white/50 text-sm mb-4">
                       {resource.dates}
                     </p>
                   )}
@@ -79,7 +79,7 @@ export default function ReferencesSection() {
                     href={resource.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-sm text-label hover:text-accent transition-colors"
+                    className="font-primary text-sm text-label hover:text-accent transition-colors"
                   >
                     {resource.sourceLabel} →
                   </a>
@@ -134,11 +134,11 @@ export default function ReferencesSection() {
                       {resource.name}
                     </p>
                   </a>
-                  <p className="font-sans text-white/70 text-sm uppercase tracking-wider mb-1">
+                  <p className="font-primary text-white/70 text-sm uppercase tracking-wider mb-1">
                     {resource.role}
                   </p>
                   {resource.dates && (
-                    <p className="font-sans text-white/50 text-sm mb-4">
+                    <p className="font-primary text-white/50 text-sm mb-4">
                       {resource.dates}
                     </p>
                   )}
@@ -149,7 +149,7 @@ export default function ReferencesSection() {
                     href={resource.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-sm text-label hover:text-accent transition-colors"
+                    className="font-primary text-sm text-label hover:text-accent transition-colors"
                   >
                     {resource.sourceLabel} →
                   </a>

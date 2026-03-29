@@ -9,7 +9,7 @@ import DebugLabel from '../ui/DebugLabel'
  * SimpleCtaSection — Simple CTA section with typography tokens
  *
  * Design Tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body)
+ * - Font-family: font-secondary (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label
  * - Headline: text-h2 (36px) + color-heading
  * - Subline: text-body-lg (20px) + color-body
@@ -30,7 +30,7 @@ export default function SimpleCtaSection({ debugMode = false }) {
         </DebugLabel>
 
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-color-heading leading-tight text-center content-spacing-md">
+          <h2 className="font-secondary text-h2 text-color-heading leading-tight text-center content-spacing-md">
             {simpleCta.headline}
           </h2>
         </DebugLabel>

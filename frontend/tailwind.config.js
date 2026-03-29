@@ -37,9 +37,8 @@ module.exports = {
         'on-dark-divider': '#ffffff33',
       },
       fontFamily: {
-        sans: ['DM Sans', 'system-ui', 'sans-serif'],
         primary: ['DM Sans', 'system-ui', 'sans-serif'],
-        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        secondary: ['Cormorant Garamond', 'Georgia', 'serif'],
         handwriting: ['Kalam', 'cursive'],
       },
       fontSize: {

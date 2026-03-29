@@ -10,7 +10,7 @@ import { ChevronDown } from 'lucide-react'
  * BookingSectionCopy — Booking section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body)
+ * - Font-family: font-secondary (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label
  * - Headline: hero-large (clamp 2.4-5.4rem) + color-heading
  * - Subline: text-body-lg (20px) + color-body
@@ -42,7 +42,7 @@ export default function BookingSection({ debugMode = false }) {
         </DebugLabel>
 
         <DebugLabel type="hero" debugMode={debugMode}>
-          <h2 className="font-display text-hero-large text-color-heading leading-tight content-spacing-md">
+          <h2 className="font-secondary text-hero-large text-color-heading leading-tight content-spacing-md">
             {booking.headline}
           </h2>
         </DebugLabel>

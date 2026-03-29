@@ -18,7 +18,7 @@ export default function AboutSection() {
               alt="Benjamin Kurtz"
               className="w-full h-full object-cover object-top"
               fallback={
-                <div className="w-full h-full flex items-center justify-center text-body font-sans text-sm">
+                <div className="w-full h-full flex items-center justify-center text-body font-primary text-sm">
                   {about.photoPlaceholder}
                 </div>
               }
@@ -34,19 +34,19 @@ export default function AboutSection() {
           </h2>
 
           {about.body.map((para, i) => (
-            <p key={i} className={`font-sans text-body leading-relaxed text-lg ${i > 0 ? 'mt-6' : ''}`}>
+            <p key={i} className={`font-primary text-body leading-relaxed text-lg ${i > 0 ? 'mt-6' : ''}`}>
               {para}
             </p>
           ))}
 
           {/* Credentials */}
           <div className="mt-12 pt-10 border-t border-color-border">
-            <p className="font-sans text-xs tracking-[0.2em] uppercase text-label mb-6">
+            <p className="font-primary text-xs tracking-[0.2em] uppercase text-label mb-6">
               {about.credentialsLabel}
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
-                <li key={i} className="font-sans text-sm text-body flex items-start gap-2">
+                <li key={i} className="font-primary text-sm text-body flex items-start gap-2">
                   <span className="text-heading shrink-0 mt-0.5">—</span>
                   {cred}
                 </li>

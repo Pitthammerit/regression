@@ -18,7 +18,7 @@ export default function TopicCard({ title, body, children, debugMode = false }) 
   return (
     <div className="bg-color-card-overlay rounded-2xl p-5 md:p-6 flex flex-col gap-2 border border-color-bg-light hover:border-color-label transition-colors">
       <DebugLabel type="h4" debugMode={debugMode}>
-        <h3 className="font-display text-h4 text-color-heading leading-snug">{title}</h3>
+        <h3 className="font-secondary text-h4 text-color-heading leading-snug">{title}</h3>
       </DebugLabel>
       {(body || children) && (
         <DebugLabel type="body" debugMode={debugMode}>

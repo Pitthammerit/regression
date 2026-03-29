@@ -34,10 +34,10 @@ export default function ProcessSection() {
               <h3 className="font-serif text-xl md:text-2xl lg:text-3xl text-heading mt-5 mb-2">
                 {step.title}
               </h3>
-              <p className="font-sans text-xs text-label uppercase tracking-widest mb-5">
+              <p className="font-primary text-xs text-label uppercase tracking-widest mb-5">
                 {step.duration}
               </p>
-              <p className="font-sans text-base text-body leading-relaxed">{step.body}</p>
+              <p className="font-primary text-base text-body leading-relaxed">{step.body}</p>
             </div>
           </div>
         ))}
@@ -47,7 +47,7 @@ export default function ProcessSection() {
         <CtaButton label={processSection.cta} variant="primary" />
       </div>
 
-      <p className="text-center font-sans text-sm italic text-body">
+      <p className="text-center font-primary text-sm italic text-body">
         {processSection.footnote}
       </p>
     </SectionWrapper>

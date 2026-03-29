@@ -39,7 +39,7 @@ function VimeoGlassEmbed({ src, title }) {
 
             {/* Subtle title placeholder */}
             <div className="absolute top-6 left-6 right-6">
-              <p className="font-sans text-label text-white/40">
+              <p className="font-primary text-label text-white/40">
                 {title}
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function HeroV2Section() {
       </div>
 
       {/* Subline */}
-      <p className="font-sans text-brand-muted text-sm tracking-wide text-center">
+      <p className="font-primary text-brand-muted text-sm tracking-wide text-center">
         {hero.subline}
       </p>
     </section>

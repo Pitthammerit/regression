@@ -32,7 +32,7 @@ export default function AboutSection({ debugMode = false }) {
             <SectionLabel text={about.label} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-color-heading leading-tight">
+            <h2 className="font-secondary text-h2 text-color-heading leading-tight">
               {about.headline}
             </h2>
           </DebugLabel>

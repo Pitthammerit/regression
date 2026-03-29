@@ -21,7 +21,7 @@ export default function PodcastVideoSection() {
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-color-heading leading-tight mb-6">
             {podcast.headline}
           </h2>
-          <p className="font-sans text-brand-muted text-lg leading-relaxed">
+          <p className="font-primary text-brand-muted text-lg leading-relaxed">
             {podcast.subline}
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function PodcastVideoSection() {
       >
         <div className="flex items-start justify-between px-8 pt-8 pb-6 border-b border-color-border">
           <div>
-            <p className="font-sans text-label text-color-label mb-1">{podcastVideo.panelLabel}</p>
+            <p className="font-primary text-label text-color-label mb-1">{podcastVideo.panelLabel}</p>
             <h3 className="font-serif text-2xl text-color-heading leading-tight">
               {podcastVideo.panelTitleLine1}<br />{podcastVideo.panelTitleLine2}
             </h3>
@@ -70,7 +70,7 @@ export default function PodcastVideoSection() {
         </div>
 
         <div className="flex-1 overflow-y-auto px-8 py-6">
-          <p className="font-sans text-sm text-brand-muted leading-relaxed mb-8">
+          <p className="font-primary text-sm text-brand-muted leading-relaxed mb-8">
             {podcastVideo.emailPrompt}
           </p>
           {fluentTranscriptUrl ? (
@@ -78,24 +78,24 @@ export default function PodcastVideoSection() {
           ) : (
             <div className="space-y-4" data-testid="transcript-placeholder-form">
               <div>
-                <label className="font-sans text-label text-color-label block mb-2">{podcastVideo.nameLabel}</label>
-                <input type="text" placeholder={podcastVideo.namePlaceholder} className="w-full bg-white/60 border border-color-border rounded-lg px-4 py-3 font-sans text-sm text-color-body placeholder:text-brand-muted/50 focus:outline-none focus:border-color-heading/40 transition-colors" data-testid="transcript-name-input" />
+                <label className="font-primary text-label text-color-label block mb-2">{podcastVideo.nameLabel}</label>
+                <input type="text" placeholder={podcastVideo.namePlaceholder} className="w-full bg-white/60 border border-color-border rounded-lg px-4 py-3 font-primary text-sm text-color-body placeholder:text-brand-muted/50 focus:outline-none focus:border-color-heading/40 transition-colors" data-testid="transcript-name-input" />
               </div>
               <div>
-                <label className="font-sans text-label text-color-label block mb-2">{podcastVideo.emailLabel}</label>
-                <input type="email" placeholder={podcastVideo.emailPlaceholder} className="w-full bg-white/60 border border-color-border rounded-lg px-4 py-3 font-sans text-sm text-color-body placeholder:text-brand-muted/50 focus:outline-none focus:border-color-heading/40 transition-colors" data-testid="transcript-email-input" />
+                <label className="font-primary text-label text-color-label block mb-2">{podcastVideo.emailLabel}</label>
+                <input type="email" placeholder={podcastVideo.emailPlaceholder} className="w-full bg-white/60 border border-color-border rounded-lg px-4 py-3 font-primary text-sm text-color-body placeholder:text-brand-muted/50 focus:outline-none focus:border-color-heading/40 transition-colors" data-testid="transcript-email-input" />
               </div>
-              <button className="w-full flex items-center justify-center gap-2.5 bg-color-heading text-white font-sans text-label text-color-label py-4 rounded-full hover:bg-brand-steel transition-colors duration-200 mt-2" data-testid="transcript-submit-btn">
+              <button className="w-full flex items-center justify-center gap-2.5 bg-color-heading text-white font-primary text-label text-color-label py-4 rounded-full hover:bg-brand-steel transition-colors duration-200 mt-2" data-testid="transcript-submit-btn">
                 <Send size={14} />
                 {podcastVideo.submitButtonLabel}
               </button>
-              <p className="font-sans text-xs text-brand-muted/60 text-center pt-2">{podcastVideo.fluentFormsNote}</p>
+              <p className="font-primary text-xs text-brand-muted/60 text-center pt-2">{podcastVideo.fluentFormsNote}</p>
             </div>
           )}
         </div>
 
         <div className="px-8 py-5 border-t border-color-border">
-          <p className="font-sans text-xs text-brand-muted/50 text-center leading-relaxed">
+          <p className="font-primary text-xs text-brand-muted/50 text-center leading-relaxed">
             {podcastVideo.privacyNoteLine1}<br />{podcastVideo.privacyNoteLine2}
           </p>
         </div>

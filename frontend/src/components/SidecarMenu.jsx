@@ -67,7 +67,7 @@ export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
         {/* Header - Floating Burger übernimmt Schließen */}
         <div className="flex items-center px-8 py-2 border-b border-black/8">
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-color-heading leading-tight">
+            <h2 className="font-secondary text-h2 text-color-heading leading-tight">
               Überblick
             </h2>
           </DebugLabel>

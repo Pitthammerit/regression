@@ -32,7 +32,7 @@ export default function RogerWoolgerSection() {
               href={rogerWoolger.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-6 text-sm text-brand-steel hover:text-brand-deep transition-colors font-sans"
+              className="inline-flex items-center gap-2 mt-6 text-sm text-brand-steel hover:text-brand-deep transition-colors font-primary"
             >
               <span className="uppercase tracking-wider">{rogerWoolger.sourceLabel}</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ export default function RogerWoolgerSection() {
             className="group inline-flex items-center gap-3 px-6 py-3 bg-brand-deep/5 hover:bg-brand-deep/10 rounded-full transition-all duration-300 mb-8"
             aria-expanded={showFullBio}
           >
-            <span className="font-sans text-sm text-brand-deep font-medium">
+            <span className="font-primary text-sm text-brand-deep font-medium">
               {showFullBio ? 'Weniger lesen' : 'Mehr über Roger Woolger'}
             </span>
             <svg
@@ -94,12 +94,12 @@ export default function RogerWoolgerSection() {
 
           {/* Credentials */}
           <div className="mt-12 pt-10 border-t border-black/10">
-            <p className="font-sans text-xs tracking-[0.2em] uppercase text-brand-steel mb-6">
+            <p className="font-primary text-xs tracking-[0.2em] uppercase text-brand-steel mb-6">
               Ausbildung & Werdegang
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {rogerWoolger.credentials.map((cred, i) => (
-                <li key={i} className="font-sans text-sm text-brand-muted flex items-start gap-2">
+                <li key={i} className="font-primary text-sm text-brand-muted flex items-start gap-2">
                   <span className="text-brand-deep shrink-0 mt-0.5">—</span>
                   {cred}
                 </li>

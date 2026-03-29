@@ -9,7 +9,7 @@ const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/p
  * PodcastSectionCopy — Podcast section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body)
+ * - Font-family: font-secondary (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label
  * - Headline: podcast-headline (clamp 2.8-5rem, line-height 0.95) + color-heading
  * - Body: text-body-lg (20px) + color-body
@@ -41,7 +41,7 @@ export default function PodcastSection({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="podcast-headline" debugMode={debugMode}>
-              <h2 className="font-display text-podcast-headline text-color-heading content-spacing-md">
+              <h2 className="font-secondary text-podcast-headline text-color-heading content-spacing-md">
                 {podcast.sectionHeadline.map((line, i) => (
                   <span key={i} className="block">{line}</span>
                 ))}

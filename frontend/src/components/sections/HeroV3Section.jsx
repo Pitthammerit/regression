@@ -16,7 +16,7 @@ export default function HeroV3Section({ debugMode = false }) {
       {/* HEADLINE — spacing to video */}
       <div className="pt-24 pb-6 px-8 md:px-14 lg:px-20 flex-shrink-0">
         <div className="max-w-content mx-auto text-center">
-          <div className="font-display tracking-tight leading-none">
+          <div className="font-secondary tracking-tight leading-none">
             <DebugLabel type="hero-large" debugMode={debugMode}>
               <span className="text-hero-large text-color-heading inline">
                 {hero.headlineLine1}&nbsp;
@@ -49,7 +49,7 @@ export default function HeroV3Section({ debugMode = false }) {
       <div className="px-8 md:px-14 lg:px-20 pt-6">
         <div className="max-w-[979px] mx-auto text-center">
           <DebugLabel type="hero" debugMode={debugMode}>
-            <p className="font-display italic text-color-heading text-hero">
+            <p className="font-secondary italic text-color-heading text-hero">
               {hero.heroCta}
             </p>
           </DebugLabel>

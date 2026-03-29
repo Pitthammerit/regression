@@ -15,7 +15,7 @@ export default function TranscriptPage() {
   if (token !== TOKEN) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-color-bg-light">
-        <p className="font-display text-h2 text-color-heading mb-4">
+        <p className="font-secondary text-h2 text-color-heading mb-4">
           {transcriptPage.accessDenied.title}
         </p>
         <p className="font-primary text-body text-color-body">
@@ -29,7 +29,7 @@ export default function TranscriptPage() {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-color-bg-dark text-on-dark-heading' : 'bg-color-bg-light text-color-body'}`}
+      className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-color-bg-dark text-on-dark' : 'bg-color-bg-light text-color-body'}`}
       data-testid="transcript-page"
     >
       {/* Toolbar */}
@@ -38,10 +38,10 @@ export default function TranscriptPage() {
         data-testid="transcript-toolbar"
       >
         <div className="flex items-center gap-3">
-          <span className="font-display text-h4 tracking-wide">
+          <span className="font-secondary text-h4 tracking-wide">
             {transcriptPage.toolbar.title}
           </span>
-          <span className={`font-primary text-label label tracking-widest ml-2 ${isDark ? 'text-on-dark-heading/40' : 'text-color-body/40'}`}>
+          <span className={`font-primary text-label label tracking-widest ml-2 ${isDark ? 'text-on-dark/40' : 'text-color-body/40'}`}>
             Episode {episode52.meta.episodeNumber} · {episode52.meta.podcastName}
           </span>
         </div>
@@ -97,11 +97,11 @@ export default function TranscriptPage() {
 
         {/* Episode header */}
         <div className={`mb-12 pb-10 border-b ${isDark ? 'border-on-dark-divider' : 'border-color-border'}`}>
-          <p className={`font-primary text-label label tracking-widest mb-4 ${isDark ? 'text-on-dark-heading/45' : 'text-color-body/45'}`}>
+          <p className={`font-primary text-label label tracking-widest mb-4 ${isDark ? 'text-on-dark/45' : 'text-color-body/45'}`}>
             Episode {episode52.meta.episodeNumber} · {episode52.meta.podcastName} · {episode52.meta.host} · {episode52.meta.duration}
           </p>
           <h1
-            className="font-display leading-tight"
+            className="font-secondary leading-tight"
             style={{ fontSize: `${Math.round(fontSize * 1.9)}px` }}
           >
             {episode52.meta.title}
@@ -110,7 +110,7 @@ export default function TranscriptPage() {
             className="font-primary mt-4 leading-relaxed"
             style={{ fontSize: `${fontSize - 2}px` }}
           >
-            <span className={isDark ? 'text-on-dark-heading/55' : 'text-color-body/55'}>
+            <span className={isDark ? 'text-on-dark/55' : 'text-color-body/55'}>
               {episode52.meta.description}
             </span>
           </p>
@@ -124,7 +124,7 @@ export default function TranscriptPage() {
                 className="font-primary text-label label tracking-widest mb-2"
                 style={{ fontSize: `${fontSize - 6}px` }}
               >
-                <span className={isDark ? 'text-on-dark-heading/40' : 'text-color-body/40'}>
+                <span className={isDark ? 'text-on-dark/40' : 'text-color-body/40'}>
                   {block.speaker}
                 </span>
               </p>
@@ -140,7 +140,7 @@ export default function TranscriptPage() {
 
         {/* Footer note */}
         <div className={`mt-16 pt-8 border-t ${isDark ? 'border-on-dark-divider' : 'border-color-border'}`}>
-          <p className={`font-primary text-label text-center ${isDark ? 'text-on-dark-heading/30' : 'text-color-body/30'}`}>
+          <p className={`font-primary text-label text-center ${isDark ? 'text-on-dark/30' : 'text-color-body/30'}`}>
             {transcriptPage.footer.copyright}
           </p>
         </div>

@@ -11,7 +11,7 @@ export default function HeroSection() {
 
           {/* Left: Headline + CTAs */}
           <div>
-            <p className="font-sans text-label text-color-label mb-8">
+            <p className="font-primary text-label text-color-label mb-8">
               {hero.label}
             </p>
             <h1 className="font-serif leading-[1.0] mb-8">
@@ -28,7 +28,7 @@ export default function HeroSection() {
                 {hero.headlineLine4}
               </span>
             </h1>
-            <p className="font-sans text-brand-muted text-base leading-relaxed mb-10 max-w-xs">
+            <p className="font-primary text-brand-muted text-base leading-relaxed mb-10 max-w-xs">
               {hero.subline}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

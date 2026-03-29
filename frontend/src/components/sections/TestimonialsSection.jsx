@@ -9,7 +9,7 @@ import DebugLabel from '../ui/DebugLabel'
  * TestimonialsSectionCopy - Client testimonials grid layout with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body/labels)
+ * - Font-family: font-secondary (headlines), font-primary (body/labels)
  * - Label: text-label (15px) + color-label + .label plugin (uppercase)
  * - H2: text-h2 (36px) + color-heading
  * - Quote (italic): text-body-lg (20px) + color-body + .quote-featured-italic plugin
@@ -59,7 +59,7 @@ export default function TestimonialsSection({ debugMode = false }) {
                 className="md:row-span-2 bg-color-card-overlay rounded-2xl p-8 border border-color-border flex flex-col justify-between"
                 data-testid="testimonial-card-featured"
               >
-                <blockquote className="font-display text-body-lg quote-featured-italic text-color-body leading-relaxed mb-8">
+                <blockquote className="font-secondary text-body-lg quote-featured-italic text-color-body leading-relaxed mb-8">
                   <DebugLabel token="text-body-lg (20px) + color-body + .quote-featured-italic" show={debugMode}>
                     "{featured.quote}"
                   </DebugLabel>
@@ -112,7 +112,7 @@ function TestimonialCard({ c, index, debugMode = false }) {
       className="bg-color-card-overlay rounded-2xl p-8 border border-color-border flex flex-col justify-between"
       data-testid={`testimonial-card-${index}`}
     >
-      <blockquote className="font-display text-body-lg quote-featured-italic text-color-body leading-relaxed mb-8">
+      <blockquote className="font-secondary text-body-lg quote-featured-italic text-color-body leading-relaxed mb-8">
         <DebugLabel token="text-body-lg (20px) + color-body + .quote-featured-italic" show={debugMode}>
           "{c.quote}"
         </DebugLabel>

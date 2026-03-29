@@ -7,7 +7,7 @@ import DebugLabel from '../ui/DebugLabel'
  * StatementSectionCopy — Statement section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (Cormorant Garamond, serif)
+ * - Font-family: font-secondary (Cormorant Garamond, serif)
  * - All lines: text-h2 (36px) + italic + color-heading (blue)
  * - Consistent styling across all statement lines
  *
@@ -23,7 +23,7 @@ export default function StatementSectionCopy({ debugMode = false }) {
         {statement.lines.map((line, i) => (
           <DebugLabel type={i === 1 ? 'h2' : 'h3'} debugMode={debugMode} key={i}>
             <p
-              className={`font-display leading-relaxed ${i > 0 ? 'mt-5' : ''
+              className={`font-secondary leading-relaxed ${i > 0 ? 'mt-5' : ''
                 } ${i === 1
                   ? 'text-h2 italic text-color-heading'
                   : 'text-h3 italic text-color-heading'

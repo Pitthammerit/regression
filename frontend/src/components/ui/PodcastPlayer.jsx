@@ -113,13 +113,13 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
 
         {/* Episode info */}
         <div className="space-y-1">
-          <p className="font-sans text-xs tracking-[0.2em] uppercase text-white/45">
+          <p className="font-primary text-xs tracking-[0.2em] uppercase text-white/45">
             {episodeLabel}
           </p>
           <h3 className="font-serif text-lg text-white leading-snug">
             {title}
           </h3>
-          <p className="font-sans text-xs text-white/55">{host}</p>
+          <p className="font-primary text-xs text-white/55">{host}</p>
         </div>
 
         {/* Playback Controls */}
@@ -131,7 +131,7 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
             data-testid="podcast-skip-back"
           >
             <SkipBack size={20} />
-            <span className="text-[9px] text-white/35 font-sans">30s</span>
+            <span className="text-[9px] text-white/35 font-primary">30s</span>
           </button>
 
           <button
@@ -155,7 +155,7 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
             data-testid="podcast-skip-forward"
           >
             <SkipForward size={20} />
-            <span className="text-[9px] text-white/35 font-sans">30s</span>
+            <span className="text-[9px] text-white/35 font-primary">30s</span>
           </button>
         </div>
 
@@ -167,7 +167,7 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
             onChange={handleSeek}
             className="w-full mb-1.5"
           />
-          <div className="flex justify-between text-xs text-white/35 font-sans">
+          <div className="flex justify-between text-xs text-white/35 font-primary">
             <span>{formatTime(currentTime)}</span>
             <span>{formatTime(totalDuration)}</span>
           </div>

@@ -45,12 +45,12 @@ export default function CaseStudiesSection() {
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-heading leading-tight">
           {cases.headline}
         </h2>
-        <p className="font-sans text-sm text-body mt-4 italic">{cases.subline}</p>
+        <p className="font-primary text-sm text-body mt-4 italic">{cases.subline}</p>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`mb-8 flex items-center gap-2 font-sans text-sm text-label/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`mb-8 flex items-center gap-2 font-primary text-sm text-label/60 italic transition-opacity duration-700 ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-base">↓</span>
@@ -75,13 +75,13 @@ export default function CaseStudiesSection() {
                 <AvatarSilhouette gender={item.gender} />
               )}
               <div className="flex-1 pr-4">
-                <span className="font-sans text-sm tracking-[0.15em] uppercase text-label block mb-2">
+                <span className="font-primary text-sm tracking-[0.15em] uppercase text-label block mb-2">
                   {item.tag}
                 </span>
                 <span className="font-serif text-2xl md:text-3xl text-heading group-hover:text-label transition-colors block leading-snug">
                   {item.name}{item.title ? ` — ${item.title}` : ''}
                 </span>
-                <span className="font-sans text-base text-body italic block mt-2">
+                <span className="font-primary text-base text-body italic block mt-2">
                   {item.teaser}
                 </span>
               </div>
@@ -99,10 +99,10 @@ export default function CaseStudiesSection() {
                   { label: cases.sectionLabels.result,    text: item.result },
                 ].map((block) => (
                   <div key={block.label} className="border-l-2 border-brand-deep pl-4">
-                    <span className="font-sans text-sm tracking-[0.15em] uppercase text-label block mb-3">
+                    <span className="font-primary text-sm tracking-[0.15em] uppercase text-label block mb-3">
                       {block.label}
                     </span>
-                    <p className="font-sans text-base md:text-lg text-body leading-relaxed">
+                    <p className="font-primary text-base md:text-lg text-body leading-relaxed">
                       {block.text}
                     </p>
                   </div>
@@ -110,7 +110,7 @@ export default function CaseStudiesSection() {
               </div>
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
-                <p className="font-sans text-xs text-body/35 mt-6 italic">
+                <p className="font-primary text-xs text-body/35 mt-6 italic">
                   * Namen wurde geändert
                 </p>
               )}

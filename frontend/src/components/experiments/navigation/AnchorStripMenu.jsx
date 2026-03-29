@@ -52,7 +52,7 @@ export default function AnchorStripMenu({ isOpen, onClose, activeSection }) {
                   <button
                     key={child.id}
                     onClick={() => handleNavClick(child.anchor)}
-                    className={`text-left font-sans text-base py-2 px-4 ml-4 rounded-lg transition-colors ${
+                    className={`text-left font-primary text-base py-2 px-4 ml-4 rounded-lg transition-colors ${
                       activeSection === child.id
                         ? 'bg-white/20 text-white'
                         : 'text-white/60 hover:text-white hover:bg-white/10'
@@ -74,7 +74,7 @@ export default function AnchorStripMenu({ isOpen, onClose, activeSection }) {
             e.preventDefault()
             handleNavClick(menu.header.cta.anchor)
           }}
-          className="block w-full bg-brand-green text-brand-deep font-sans text-sm uppercase tracking-widest py-4 rounded-full text-center hover:opacity-90 transition-opacity"
+          className="block w-full bg-brand-green text-brand-deep font-primary text-sm uppercase tracking-widest py-4 rounded-full text-center hover:opacity-90 transition-opacity"
         >
           {menu.header.cta.label}
         </a>

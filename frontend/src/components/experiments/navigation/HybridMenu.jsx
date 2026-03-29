@@ -88,7 +88,7 @@ export default function HybridMenu({ isOpen, onClose }) {
                     <button
                       key={child.id}
                       onClick={() => handleNavClick(child.anchor)}
-                      className="block w-full text-left font-sans text-lg md:text-xl text-white/60 hover:text-white transition-colors py-2"
+                      className="block w-full text-left font-primary text-lg md:text-xl text-white/60 hover:text-white transition-colors py-2"
                     >
                       {child.label}
                     </button>
@@ -111,7 +111,7 @@ export default function HybridMenu({ isOpen, onClose }) {
             e.preventDefault()
             handleNavClick(menu.header.cta.anchor)
           }}
-          className="block w-full bg-brand-green text-brand-deep font-sans text-sm uppercase tracking-widest py-4 rounded-full text-center hover:opacity-90 transition-opacity"
+          className="block w-full bg-brand-green text-brand-deep font-primary text-sm uppercase tracking-widest py-4 rounded-full text-center hover:opacity-90 transition-opacity"
         >
           {menu.header.cta.label}
         </a>

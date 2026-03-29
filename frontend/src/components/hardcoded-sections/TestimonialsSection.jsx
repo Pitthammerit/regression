@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
       {/* Client Testimonials */}
       <div className="py-16 md:py-20">
         <div className="max-w-content mx-auto px-6">
-          <h2 className="font-sans text-xs tracking-[0.2em] uppercase text-label mb-4">
+          <h2 className="font-primary text-xs tracking-[0.2em] uppercase text-label mb-4">
             WALL OF LOVE
           </h2>
           <SectionLabel text={testimonials.clientLabel} />
@@ -54,8 +54,8 @@ export default function TestimonialsSection() {
                     />
                   )}
                   <div>
-                    <div className="font-sans text-sm font-medium text-heading">{featured.name}</div>
-                    <div className="font-sans text-xs text-label mt-0.5">{featured.context}</div>
+                    <div className="font-primary text-sm font-medium text-heading">{featured.name}</div>
+                    <div className="font-primary text-xs text-label mt-0.5">{featured.context}</div>
                   </div>
                 </div>
               </div>
@@ -97,8 +97,8 @@ function TestimonialCard({ c, index }) {
           />
         )}
         <div>
-          <div className="font-sans text-sm font-medium text-heading">{c.name}</div>
-          <div className="font-sans text-xs text-label mt-0.5">{c.context}</div>
+          <div className="font-primary text-sm font-medium text-heading">{c.name}</div>
+          <div className="font-primary text-xs text-label mt-0.5">{c.context}</div>
         </div>
       </div>
     </div>

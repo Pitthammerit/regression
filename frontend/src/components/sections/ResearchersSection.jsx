@@ -48,7 +48,7 @@ export default function ResearchersSection({ debugMode = false }) {
             <SectionLabel text={researchers.authorBigLabel} light={true} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 leading-tight text-on-dark">
+            <h2 className="font-secondary text-h2 leading-tight text-on-dark">
               {researchers.authorHeadline}
             </h2>
           </DebugLabel>
@@ -85,7 +85,7 @@ export default function ResearchersSection({ debugMode = false }) {
             <div className="flex flex-col text-on-dark-body">
               {/* Quote - Top of right column */}
               <DebugLabel type="quote-featured" debugMode={debugMode}>
-                <blockquote className="font-display text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
+                <blockquote className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
               </DebugLabel>
@@ -93,7 +93,7 @@ export default function ResearchersSection({ debugMode = false }) {
               {/* Name + Title - Below quote */}
               <div>
                 <DebugLabel type="author-name" debugMode={debugMode}>
-                  <div className="font-display text-author-name text-on-dark name-role-spacing">{featuredAuthor.name}</div>
+                  <div className="font-secondary text-author-name text-on-dark name-role-spacing">{featuredAuthor.name}</div>
                 </DebugLabel>
                 <DebugLabel type="label" debugMode={debugMode}>
                   <div className="font-primary text-label label text-on-dark-meta name-role-spacing">{featuredAuthor.role}</div>
@@ -149,7 +149,7 @@ export default function ResearchersSection({ debugMode = false }) {
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden content-spacing-md">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-display text-author-name text-on-dark name-role-spacing">
+                    <h3 className="font-secondary text-author-name text-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
@@ -166,7 +166,7 @@ export default function ResearchersSection({ debugMode = false }) {
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block content-spacing-md">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-display text-author-name text-on-dark name-role-spacing">
+                    <h3 className="font-secondary text-author-name text-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
@@ -182,7 +182,7 @@ export default function ResearchersSection({ debugMode = false }) {
 
                 {/* Short text */}
                 <DebugLabel type="summary-large" debugMode={debugMode}>
-                  <p className="font-display text-summary-large text-on-dark-body leading-relaxed content-spacing">
+                  <p className="font-secondary text-summary-large text-on-dark-body leading-relaxed content-spacing">
                     {author.shortVersion}
                   </p>
                 </DebugLabel>
@@ -204,7 +204,7 @@ export default function ResearchersSection({ debugMode = false }) {
               <div className="md:col-span-2">
                 <div className="expanded-content-spacing">
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <p className="font-display text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="font-secondary text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {author.longVersion}
                     </p>
                   </DebugLabel>

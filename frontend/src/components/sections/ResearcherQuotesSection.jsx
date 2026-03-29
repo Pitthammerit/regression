@@ -35,7 +35,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
           <SectionLabel text={researchers.authorBigLabel} light />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 leading-tight text-on-dark">
+          <h2 className="font-secondary text-h2 leading-tight text-on-dark">
             {researchers.authorHeadline}
           </h2>
         </DebugLabel>
@@ -69,14 +69,14 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
 
             {/* Quote */}
             <DebugLabel type="quote-featured" debugMode={debugMode}>
-              <p className="font-display text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
+              <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
                 "{author.quote}"
               </p>
             </DebugLabel>
 
             {/* Name */}
             <DebugLabel type="author-name" debugMode={debugMode}>
-              <p className="font-display text-author-name text-on-dark name-role-spacing">
+              <p className="font-secondary text-author-name text-on-dark name-role-spacing">
                 {author.name}
               </p>
             </DebugLabel>
@@ -129,13 +129,13 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
                   </div>
 
                   <DebugLabel type="quote-featured" debugMode={debugMode}>
-                    <p className="font-display text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
+                    <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
                       "{author.quote}"
                     </p>
                   </DebugLabel>
 
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <p className="font-display text-author-name text-on-dark name-role-spacing">
+                    <p className="font-secondary text-author-name text-on-dark name-role-spacing">
                       {author.name}
                     </p>
                   </DebugLabel>

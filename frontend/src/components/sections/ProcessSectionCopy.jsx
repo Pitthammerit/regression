@@ -9,7 +9,7 @@ import DebugLabel from '../ui/DebugLabel'
  * ProcessSectionCopy — Process section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body)
+ * - Font-family: font-secondary (headlines), font-primary (body)
  * - Headline: text-h2 (36px) + color-heading
  * - Step titles: text-h3 (30px) + color-heading
  * - Labels: text-label (15px) + color-label
@@ -30,7 +30,7 @@ export default function ProcessSectionCopy({ debugMode = false }) {
           <SectionLabel text={processSection.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-color-heading leading-tight text-center content-spacing-md">
+          <h2 className="font-secondary text-h2 text-color-heading leading-tight text-center content-spacing-md">
             {processSection.headline}
           </h2>
         </DebugLabel>
@@ -48,7 +48,7 @@ export default function ProcessSectionCopy({ debugMode = false }) {
             {/* Big transparent background number — scales down on mobile */}
             <span
               aria-hidden="true"
-              className="process-bg-number absolute font-display text-color-heading select-none pointer-events-none"
+              className="process-bg-number absolute font-secondary text-color-heading select-none pointer-events-none"
               style={{ lineHeight: 1, opacity: 0.10 }}
             >
               {i + 1}
@@ -59,7 +59,7 @@ export default function ProcessSectionCopy({ debugMode = false }) {
             )}
             <div className="relative z-10 pt-2">
               <DebugLabel type="h3" debugMode={debugMode}>
-                <h3 className="font-display text-h3 text-color-heading mt-5 mb-2">
+                <h3 className="font-secondary text-h3 text-color-heading mt-5 mb-2">
                   {step.title}
                 </h3>
               </DebugLabel>

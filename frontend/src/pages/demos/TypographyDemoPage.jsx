@@ -32,7 +32,7 @@ export default function TypographyDemoPage() {
   const [accordionOpen, setAccordionOpen] = useState('tokens') // 'tokens' | 'preview'
 
   return (
-    <div className="bg-color-bg-light bg-paper min-h-screen font-sans text-color-body">
+    <div className="bg-color-bg-light bg-paper min-h-screen font-primary text-color-body">
       {/* Debug Toggle - Fixed */}
       <div className="fixed top-4 right-4 z-50 bg-white p-3 rounded-lg shadow-lg border border-black/10">
         <label className="flex items-center gap-2 cursor-pointer">
@@ -42,7 +42,7 @@ export default function TypographyDemoPage() {
             onChange={(e) => setDebugMode(e.target.checked)}
             className="w-4 h-4"
           />
-          <span className="font-sans text-sm">🔍 Debug-Klassen zeigen</span>
+          <span className="font-primary text-sm">🔍 Debug-Klassen zeigen</span>
         </label>
       </div>
 
@@ -52,13 +52,13 @@ export default function TypographyDemoPage() {
       <div className="max-w-content mx-auto px-6 py-20">
         {/* Header */}
         <div className="section-block-spacing pb-8 border-b border-black/10">
-          <p className="font-sans text-xs tracking-[0.2em] uppercase text-color-label mb-4">
+          <p className="font-primary text-xs tracking-[0.2em] uppercase text-color-label mb-4">
             DESIGN EXPLORATION
           </p>
           <h1 className="font-serif text-4xl md:text-5xl text-color-heading leading-tight mb-4">
             Typography Demo
           </h1>
-          <p className="font-sans text-color-body text-lg max-w-2xl">
+          <p className="font-primary text-color-body text-lg max-w-2xl">
             Experimentiere mit Typography-Klassen in diesen 8 Sections.
             Änderungen hier beeinflussen nicht die Live-Site.
           </p>
@@ -78,7 +78,7 @@ export default function TypographyDemoPage() {
 
           {accordionOpen === 'tokens' && (
             <div className="p-6">
-              <p className="font-sans text-sm text-color-body mb-6">
+              <p className="font-primary text-sm text-color-body mb-6">
                 Diese Design Tokens sind in <code className="bg-yellow-100 px-2 py-1 rounded">tailwind.config.js</code> definiert und stehen als Single Source of Truth zur Verfügung.
               </p>
 
@@ -238,7 +238,7 @@ export default function TypographyDemoPage() {
 
           {accordionOpen === 'preview' && (
             <div className="p-6">
-              <p className="font-sans text-sm text-color-body mb-6">
+              <p className="font-primary text-sm text-color-body mb-6">
                 Vergleiche alle Typography-Elemente mit Live-Vorschau. Änderungen in <code className="bg-yellow-100 px-2 py-1 rounded">tailwind.config.js</code> sind hier sofort sichtbar.
               </p>
 
@@ -267,7 +267,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Label</td>
                       <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-label text-color-label</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-label text-color-label">EVIDENZBASIERT</span>
+                        <span className="font-primary text-label text-color-label">EVIDENZBASIERT</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">WhatIs, About, CaseStudies, Researchers</td>
                     </tr>
@@ -297,7 +297,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Body</td>
                       <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-body</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-body text-color-body leading-relaxed">Fließtext mit Standardgröße für lesbaren Inhalt.</span>
+                        <span className="font-primary text-body text-color-body leading-relaxed">Fließtext mit Standardgröße für lesbaren Inhalt.</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">WhatIs, About</td>
                     </tr>
@@ -307,7 +307,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Subline</td>
                       <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-subline text-color-body italic</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-subline text-color-body italic">Ergänzender Text in Kursiv (16px)</span>
+                        <span className="font-primary text-subline text-color-body italic">Ergänzender Text in Kursiv (16px)</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">CaseStudies (unter H2, unter Namen)</td>
                     </tr>
@@ -336,7 +336,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Disclaimer</td>
                       <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-disclaimer text-color-body</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-disclaimer text-color-body">* Namen wurde geändert</span>
+                        <span className="font-primary text-disclaimer text-color-body">* Namen wurde geändert</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">CaseStudies</td>
                     </tr>
@@ -346,7 +346,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Item Teaser</td>
                       <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-base text-color-body italic</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-base text-color-body italic">Kurzbeschreibung des Falls</span>
+                        <span className="font-primary text-base text-color-body italic">Kurzbeschreibung des Falls</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">CaseStudies</td>
                     </tr>
@@ -366,7 +366,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">List</td>
                       <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-list text-color-body</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-list text-color-body">— NLP Master (16px)</span>
+                        <span className="font-primary text-list text-color-body">— NLP Master (16px)</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">About (Credentials Items)</td>
                     </tr>
@@ -385,7 +385,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Read More</td>
                       <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-read-more</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-read-more">Mehr lesen</span>
+                        <span className="font-primary text-read-more">Mehr lesen</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -395,7 +395,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Link</td>
                       <td className="py-3 px-4 font-mono text-xs bg-green-100 rounded text-green-800">text-source-link</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-source-link">Quelle →</span>
+                        <span className="font-primary text-source-link">Quelle →</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -412,9 +412,9 @@ export default function TypographyDemoPage() {
                     {/* ROLE */}
                     <tr className="border-b border-black/10">
                       <td className="py-3 px-4 font-semibold text-color-heading">Role</td>
-                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-on-dark-role uppercase tracking-wider</td>
+                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-on-dark-meta uppercase tracking-wider</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-sans text-sm text-on-dark-role uppercase tracking-wider">University of Virginia</span>
+                        <span className="font-primary text-sm text-on-dark-meta uppercase tracking-wider">University of Virginia</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -422,9 +422,9 @@ export default function TypographyDemoPage() {
                     {/* DATE */}
                     <tr className="border-b border-black/10">
                       <td className="py-3 px-4 font-semibold text-color-heading">Date</td>
-                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-on-dark-role</td>
+                      <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-on-dark-meta</td>
                       <td className="py-3 px-4 bg-color-bg-dark">
-                        <span className="font-sans text-sm text-on-dark-role">*1918–2007</span>
+                        <span className="font-primary text-sm text-on-dark-meta">*1918–2007</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">Researchers</td>
                     </tr>
@@ -444,7 +444,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Item Tag</td>
                       <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm tracking-[0.15em] uppercase text-color-label</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-sm tracking-[0.15em] uppercase text-color-label">HEILUNG</span>
+                        <span className="font-primary text-sm tracking-[0.15em] uppercase text-color-label">HEILUNG</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">CaseStudies</td>
                     </tr>
@@ -463,7 +463,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Credentials Label</td>
                       <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-label text-color-label</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-label text-color-label">AUSBILDUNGEN & ZERTIFIZIERUNGEN</span>
+                        <span className="font-primary text-label text-color-label">AUSBILDUNGEN & ZERTIFIZIERUNGEN</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">About</td>
                     </tr>
@@ -473,7 +473,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Credentials Item</td>
                       <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-sm text-color-body</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-sm text-color-body">— NLP Master & NR Practitioner</span>
+                        <span className="font-primary text-sm text-color-body">— NLP Master & NR Practitioner</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">About</td>
                     </tr>
@@ -483,7 +483,7 @@ export default function TypographyDemoPage() {
                       <td className="py-3 px-4 font-semibold text-color-heading">Section Body</td>
                       <td className="py-3 px-4 font-mono text-xs bg-yellow-100 rounded">text-base md:text-lg text-color-body leading-relaxed</td>
                       <td className="py-3 px-4">
-                        <span className="font-sans text-base md:text-lg text-color-body leading-relaxed">Detaillierter Beschreibungstext</span>
+                        <span className="font-primary text-base md:text-lg text-color-body leading-relaxed">Detaillierter Beschreibungstext</span>
                       </td>
                       <td className="py-3 px-4 text-xs text-color-body">CaseStudies (Situation/Session/Result)</td>
                     </tr>
@@ -517,7 +517,7 @@ export default function TypographyDemoPage() {
         {/* Sections Divider */}
         <div className="mb-16 pb-8 border-t border-black/10">
           <h2 className="font-serif text-2xl text-color-heading mb-4">📝 Live Sections</h2>
-          <p className="font-sans text-sm text-color-body">
+          <p className="font-primary text-sm text-color-body">
             Unten siehst du die 11 Sections mit Debug-Labels (aktiviere oben rechts den Toggle).
           </p>
         </div>
@@ -551,7 +551,7 @@ export default function TypographyDemoPage() {
 
       {/* Footer */}
       <div className="mt-20 pt-8 border-t border-color-border text-center">
-        <p className="font-sans text-sm text-color-label">
+        <p className="font-primary text-sm text-color-label">
           /typo-demo — Design Exploration Mode
         </p>
       </div>

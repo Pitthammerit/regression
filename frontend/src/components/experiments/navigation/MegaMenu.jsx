@@ -83,8 +83,8 @@ export default function MegaMenu({ isOpen, onClose }) {
                       onClick={() => handleNavClick(child.anchor)}
                       className="text-left p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
                     >
-                      <div className="font-sans text-lg text-white mb-1">{child.label}</div>
-                      <div className="font-sans text-sm text-white/40">{child.anchor}</div>
+                      <div className="font-primary text-lg text-white mb-1">{child.label}</div>
+                      <div className="font-primary text-sm text-white/40">{child.anchor}</div>
                     </button>
                   ))}
                 </div>
@@ -105,7 +105,7 @@ export default function MegaMenu({ isOpen, onClose }) {
             e.preventDefault()
             handleNavClick(menu.header.cta.anchor)
           }}
-          className="block w-full bg-brand-green text-brand-deep font-sans text-sm uppercase tracking-widest py-4 rounded-full text-center hover:opacity-90 transition-opacity"
+          className="block w-full bg-brand-green text-brand-deep font-primary text-sm uppercase tracking-widest py-4 rounded-full text-center hover:opacity-90 transition-opacity"
         >
           {menu.header.cta.label}
         </a>

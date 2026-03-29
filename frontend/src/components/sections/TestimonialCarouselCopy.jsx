@@ -7,7 +7,7 @@ import DebugLabel from "../ui/DebugLabel"
  * TestimonialCarouselCopy - Carousel with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body)
+ * - Font-family: font-secondary (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label
  * - H2: text-h2 (36px) + color-heading
  * - Name: text-h5 (20px) + color-heading (semibold)
@@ -95,7 +95,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
             </p>
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-color-heading text-center label-heading-spacing">
+            <h2 className="font-secondary text-h2 text-color-heading text-center label-heading-spacing">
               {subtitle}
             </h2>
           </DebugLabel>
@@ -161,7 +161,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                     {/* Quote - below stars */}
                     <DebugLabel type="body-narrative" debugMode={debugMode}>
                       <div className="text-color-body">
-                        <p className="font-display text-body-narrative body-narrative-italic text-center sm:text-left">
+                        <p className="font-secondary text-body-narrative body-narrative-italic text-center sm:text-left">
                           "{t.quote}"
                         </p>
                       </div>

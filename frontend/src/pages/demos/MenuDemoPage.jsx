@@ -82,7 +82,7 @@ function HeaderV1({ nav, cta }) {
                   key={item.anchor}
                   href={item.anchor}
                   onClick={(e) => { e.preventDefault(); handleNavClick(item.anchor) }}
-                  className="font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors tracking-wide whitespace-nowrap"
+                  className="font-primary text-sm text-brand-body/60 hover:text-brand-deep transition-colors tracking-wide whitespace-nowrap"
                 >
                   {item.label}
                 </a>
@@ -122,7 +122,7 @@ function HeaderV1({ nav, cta }) {
                 key={item.anchor}
                 href={item.anchor}
                 onClick={(e) => { e.preventDefault(); handleNavClick(item.anchor) }}
-                className="font-sans text-base text-brand-body/70 hover:text-brand-deep transition-colors py-2"
+                className="font-primary text-base text-brand-body/70 hover:text-brand-deep transition-colors py-2"
               >
                 {item.label}
               </a>
@@ -167,7 +167,7 @@ function HeaderV2({ cta }) {
       {item.children && (
         <div className="mt-3 space-y-2">
           {item.children.map((child) => (
-            <button key={child.id} onClick={() => handleNavClick(child.anchor)} className="block w-full text-left font-sans text-base text-white/60 hover:text-white transition-colors">
+            <button key={child.id} onClick={() => handleNavClick(child.anchor)} className="block w-full text-left font-primary text-base text-white/60 hover:text-white transition-colors">
               {child.label}
             </button>
           ))}
@@ -194,7 +194,7 @@ function HeaderV2({ cta }) {
             <div className="hidden lg:flex items-center flex-1 ml-12">
               <nav className="flex items-center justify-center gap-6 flex-1">
                 {mainNav.map((item) => (
-                  <a key={item.anchor} href={item.anchor} onClick={(e) => { e.preventDefault(); handleNavClick(item.anchor) }} className="font-sans text-sm text-brand-body/60 hover:text-brand-deep transition-colors tracking-wide">
+                  <a key={item.anchor} href={item.anchor} onClick={(e) => { e.preventDefault(); handleNavClick(item.anchor) }} className="font-primary text-sm text-brand-body/60 hover:text-brand-deep transition-colors tracking-wide">
                     {item.label}
                   </a>
                 ))}
@@ -248,7 +248,7 @@ function HeaderV2({ cta }) {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10 bg-brand-deep">
-            <button onClick={() => handleNavClick(cta.anchor)} className="w-full bg-brand-green text-brand-deep font-sans text-sm uppercase tracking-widest py-4 rounded-full">
+            <button onClick={() => handleNavClick(cta.anchor)} className="w-full bg-brand-green text-brand-deep font-primary text-sm uppercase tracking-widest py-4 rounded-full">
               {cta.label}
             </button>
           </div>
@@ -315,7 +315,7 @@ function HeaderV3({ cta }) {
                   {item.children && expandedCategory === item.id && (
                     <div className="pl-8 pt-2 pb-4 space-y-2">
                       {item.children.map((child) => (
-                        <button key={child.id} onClick={() => handleNavClick(child.anchor)} className="block w-full text-left font-sans text-lg text-white/60 hover:text-white py-2">
+                        <button key={child.id} onClick={() => handleNavClick(child.anchor)} className="block w-full text-left font-primary text-lg text-white/60 hover:text-white py-2">
                           {child.label}
                         </button>
                       ))}
@@ -329,7 +329,7 @@ function HeaderV3({ cta }) {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
-            <button onClick={() => handleNavClick(cta.anchor)} className="w-full bg-brand-green text-brand-deep font-sans text-sm uppercase tracking-widest py-4 rounded-full">
+            <button onClick={() => handleNavClick(cta.anchor)} className="w-full bg-brand-green text-brand-deep font-primary text-sm uppercase tracking-widest py-4 rounded-full">
               {cta.label}
             </button>
           </div>
@@ -373,14 +373,14 @@ export default function MenuDemoPage() {
   }
 
   return (
-    <div className="bg-brand-cream bg-paper min-h-screen font-sans text-brand-body">
+    <div className="bg-brand-cream bg-paper min-h-screen font-primary text-brand-body">
       {/* Variant Switcher */}
       <div className="fixed top-0 left-0 right-0 z-[60] bg-brand-deep text-white py-2 px-6 shadow-lg">
         <div className="max-w-content mx-auto flex items-center justify-between">
-          <span className="font-sans text-sm">🔧 Header-Variante:</span>
+          <span className="font-primary text-sm">🔧 Header-Variante:</span>
           <div className="flex gap-2">
             {[1, 2, 3].map((v) => (
-              <button key={v} onClick={() => setVariant(v)} className={`px-4 py-1 rounded-full font-sans text-sm transition-colors ${variant === v ? 'bg-brand-green text-brand-deep font-semibold' : 'bg-white/10 hover:bg-white/20'}`}>
+              <button key={v} onClick={() => setVariant(v)} className={`px-4 py-1 rounded-full font-primary text-sm transition-colors ${variant === v ? 'bg-brand-green text-brand-deep font-semibold' : 'bg-white/10 hover:bg-white/20'}`}>
                 V{v} {v === 1 ? '(Original)' : v === 2 ? '(Burger)' : '(Nested)'}
               </button>
             ))}

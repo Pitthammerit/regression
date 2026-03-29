@@ -19,7 +19,7 @@ export default function ServicesSection({ debugMode = false }) {
                 </span>
               </DebugLabel>
               <DebugLabel type="h4" debugMode={debugMode}>
-                <span className="font-display text-h4 text-color-heading">
+                <span className="font-secondary text-h4 text-color-heading">
                   {service.label}
                 </span>
               </DebugLabel>

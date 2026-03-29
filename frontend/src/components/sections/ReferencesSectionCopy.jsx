@@ -11,7 +11,7 @@ import { BookOpen } from 'lucide-react'
  * ReferencesSectionCopy — References section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body)
+ * - Font-family: font-secondary (headlines), font-primary (body)
  * - Label: text-label (15px) + on-dark-meta
  * - Headline: text-h2 (36px) + on-dark
  * - Resource name: text-h3 (30px) + on-dark
@@ -48,7 +48,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
           </DebugLabel>
 
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-on-dark leading-tight">
+            <h2 className="font-secondary text-h2 text-on-dark leading-tight">
               {references.headline}
             </h2>
           </DebugLabel>
@@ -82,7 +82,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
                   <DebugLabel type="h3" debugMode={debugMode}>
-                    <p className="font-display text-h3 text-on-dark font-semibold name-role-spacing">
+                    <p className="font-secondary text-h3 text-on-dark font-semibold name-role-spacing">
                       {resource.name}
                     </p>
                   </DebugLabel>
@@ -104,7 +104,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                   )}
 
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <p className="font-display text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="font-secondary text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
@@ -156,7 +156,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
                   <DebugLabel type="h3" debugMode={debugMode}>
-                    <p className="font-display text-h3 text-on-dark font-semibold name-role-spacing">
+                    <p className="font-secondary text-h3 text-on-dark font-semibold name-role-spacing">
                       {resource.name}
                     </p>
                   </DebugLabel>
@@ -178,7 +178,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                   )}
 
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <p className="font-display text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="font-secondary text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>

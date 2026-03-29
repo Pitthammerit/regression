@@ -39,7 +39,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
           <SectionLabel text={cases.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-color-heading leading-tight text-center content-spacing-md">
+          <h2 className="font-secondary text-h2 text-color-heading leading-tight text-center content-spacing-md">
             {cases.headline}
           </h2>
         </DebugLabel>
@@ -83,7 +83,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   </span>
                 </DebugLabel>
                 <DebugLabel type="h3" debugMode={debugMode}>
-                  <span className="font-display text-h3 text-color-heading group-hover:text-color-label transition-colors block leading-snug">
+                  <span className="font-secondary text-h3 text-color-heading group-hover:text-color-label transition-colors block leading-snug">
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>

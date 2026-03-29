@@ -11,7 +11,7 @@ import { X, Send } from "lucide-react"
  * PodcastVideoSectionCopy — Video section with transcript panel
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body)
+ * - Font-family: font-secondary (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label (uppercase via .label plugin)
  * - H2: text-h2 (36px) + color-heading
  * - Subline: text-body-lg (20px) + color-body
@@ -46,7 +46,7 @@ export default function PodcastVideoSectionCopy({ debugMode = false }) {
           </DebugLabel>
 
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 text-color-heading leading-tight content-spacing-md">
+            <h2 className="font-secondary text-h2 text-color-heading leading-tight content-spacing-md">
               {podcast.headline}
             </h2>
           </DebugLabel>
@@ -99,7 +99,7 @@ export default function PodcastVideoSectionCopy({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="h3" debugMode={debugMode}>
-              <h3 className="font-display text-h3 text-color-heading leading-tight">
+              <h3 className="font-secondary text-h3 text-color-heading leading-tight">
                 {podcastVideo.panelTitleLine1}<br />{podcastVideo.panelTitleLine2}
               </h3>
             </DebugLabel>

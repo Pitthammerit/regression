@@ -9,7 +9,7 @@ import DebugLabel from '../ui/DebugLabel'
  * ForWhomSectionCopy — For Whom section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-display (headlines), font-primary (body)
+ * - Font-family: font-secondary (headlines), font-primary (body)
  * - Headline: text-h2 (36px) + color-heading
  * - Card titles: text-h4 (24px) + color-heading
  * - Body text: text-body (18px) + color-body
@@ -29,7 +29,7 @@ export default function ForWhomSection({ debugMode = false }) {
           <SectionLabel text={forWhom.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-display text-h2 text-color-heading leading-tight content-spacing-md">
+          <h2 className="font-secondary text-h2 text-color-heading leading-tight content-spacing-md">
             {forWhom.headline}
           </h2>
         </DebugLabel>

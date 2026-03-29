@@ -29,7 +29,7 @@ export default function PodcastSection() {
                 <span key={i} className="block">{line}</span>
               ))}
             </h2>
-            <p className="font-sans text-brand-muted text-lg leading-relaxed mb-10">
+            <p className="font-primary text-brand-muted text-lg leading-relaxed mb-10">
               {podcast.sectionBody}
             </p>
             <div className="flex flex-wrap gap-3">
@@ -39,7 +39,7 @@ export default function PodcastSection() {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-sans text-label text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
+                  className="font-primary text-label text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
                   data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                 >
                   {link.label}
