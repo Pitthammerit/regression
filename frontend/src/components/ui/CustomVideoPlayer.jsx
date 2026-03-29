@@ -6,11 +6,13 @@ import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
  * type: 'youtube' | 'r2'
  * src:  YouTube URL (embed or watch) or direct MP4 URL
  * poster: optional thumbnail URL
+ * exitFullscreenAtTime: optional time in seconds to auto-exit fullscreen
  */
-export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '', onVideoEnded, enterFullscreenOnClick = false }) {
+export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '', onVideoEnded, enterFullscreenOnClick = false, exitFullscreenAtTime = null }) {
   const iframeRef = useRef(null)
   const videoRef  = useRef(null)
   const wasFullscreenRef = useRef(false)
+  const hasExitedFullscreenRef = useRef(false)
   const [playing,      setPlaying]      = useState(false)
   const [started,      setStarted]      = useState(false)
   const [volume,       setVolumeState]  = useState(80)
@@ -138,6 +140,24 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
             poster={poster}
             className="w-full h-full object-cover"
             onEnded={() => { setPlaying(false); setStarted(false); onVideoEnded?.() }}
+            onTimeUpdate={() => {
+              if (exitFullscreenAtTime && !hasExitedFullscreenRef.current && videoRef.current) {
+                const currentTime = videoRef.current.currentTime
+                if (currentTime >= exitFullscreenAtTime) {
+                  hasExitedFullscreenRef.current = true
+                  // Exit fullscreen if we're in it
+                  if (document.fullscreenElement) {
+                    document.exitFullscreen().catch(() => {
+                      // Ignore errors if already exited
+                    })
+                  }
+                  // Trigger scroll after a short delay
+                  setTimeout(() => {
+                    onVideoEnded?.()
+                  }, 300)
+                }
+              }
+            }}
             onClick={handleToggle}
           />
         ) : (

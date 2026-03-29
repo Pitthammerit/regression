@@ -42,6 +42,7 @@ export default function HeroV3Section({ debugMode = false }) {
             className="h-full"
             onVideoEnded={handleScrollDown}
             enterFullscreenOnClick
+            exitFullscreenAtTime={86}
           />
         </div>
       </div>
