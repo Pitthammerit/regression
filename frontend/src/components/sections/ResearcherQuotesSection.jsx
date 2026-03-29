@@ -6,6 +6,7 @@ import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
+import AccordionWrap from '../ui/AccordionWrap'
 
 /**
  * ResearcherQuotesSectionCopy — Research authority quotes with portraits
@@ -104,7 +105,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
           />
 
           {/* Expanded content - authors 4+ */}
-          {isExpanded && (
+          <AccordionWrap isOpen={isExpanded}>
             <div className="grid md:grid-cols-3 gap-10 md:gap-14">
               {authorsWithPortraits.slice(3).map((author) => (
                 <div key={author.id}>
@@ -148,7 +149,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
                 </div>
               ))}
             </div>
-          )}
+          </AccordionWrap>
         </>
       )}
     </SectionWrapper>

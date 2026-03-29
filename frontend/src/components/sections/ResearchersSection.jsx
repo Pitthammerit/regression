@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import { researchers, ui } from '../../content/plr-de'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
 import AccordionWrap from '../ui/AccordionWrap'
+import AnimatedAspectRatio from '../ui/AnimatedAspectRatio'
 
 export default function ResearchersSection({ debugMode = false }) {
   const authors = researchers.authors
@@ -59,26 +59,26 @@ export default function ResearchersSection({ debugMode = false }) {
           <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 section-block-spacing">
             {/* Mobile: Photo first (full width, 16:9) */}
             <div className="md:hidden content-spacing">
-              <AspectRatio ratio={16 / 9}>
+              <AnimatedAspectRatio ratio={16 / 9}>
                 <LazyImage
                   src={featuredAuthor.portrait}
                   alt={featuredAuthor.name}
                   className="w-full h-full object-cover rounded-lg"
                   objectPosition={getPortraitPosition(featuredAuthor.portraitFocus)}
                 />
-              </AspectRatio>
+              </AnimatedAspectRatio>
             </div>
 
             {/* Desktop: Photo - Left column */}
             <div className="hidden md:block md:max-w-[240px]">
-              <AspectRatio ratio={1 / 1}>
+              <AnimatedAspectRatio ratio={1 / 1}>
                 <LazyImage
                   src={featuredAuthor.portrait}
                   alt={featuredAuthor.name}
                   className="w-full h-full object-cover rounded-lg"
                   objectPosition={getPortraitPosition(featuredAuthor.portraitFocus)}
                 />
-              </AspectRatio>
+              </AnimatedAspectRatio>
             </div>
 
             {/* Right column: Quote + Name + Title */}
@@ -119,28 +119,28 @@ export default function ResearchersSection({ debugMode = false }) {
               {/* Mobile: Portrait first (full width, 16:9) */}
               {author.portrait && (
                 <div className="md:hidden content-spacing">
-                  <AspectRatio ratio={16 / 9}>
+                  <AnimatedAspectRatio ratio={16 / 9}>
                     <LazyImage
                       src={author.portrait}
                       alt={author.name}
                       className="w-full h-full object-cover rounded-lg"
                       objectPosition={getPortraitPosition(author.portraitFocus)}
                     />
-                  </AspectRatio>
+                  </AnimatedAspectRatio>
                 </div>
               )}
 
               {/* Desktop: Portrait - Left column */}
               {author.portrait && (
                 <div className="hidden md:block md:max-w-[240px] transition-all duration-[500ms] ease-in-out">
-                  <AspectRatio ratio={expandedId === author.id ? 3 / 4 : 1 / 1}>
+                  <AnimatedAspectRatio ratio={expandedId === author.id ? 3 / 4 : 1 / 1} duration="500ms">
                     <LazyImage
                       src={author.portrait}
                       alt={author.name}
                       className="w-full h-full object-cover rounded-lg"
                       objectPosition={getPortraitPosition(author.portraitFocus)}
                     />
-                  </AspectRatio>
+                  </AnimatedAspectRatio>
                 </div>
               )}
 
