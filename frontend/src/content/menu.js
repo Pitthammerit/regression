@@ -67,7 +67,7 @@ export const menu = {
         {
           id: "science-evidence",
           label: "Evidenz",
-          anchor: "#evidence-quotes",
+          anchor: "#science",
           order: 21,
         },
         {
@@ -98,7 +98,7 @@ export const menu = {
         {
           id: "experiences-love",
           label: "Wall of Love",
-          anchor: "#testimonials",
+          anchor: "#wall-of-love",
           order: 32,
         },
         {

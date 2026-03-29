@@ -94,7 +94,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
   }
 
   return (
-    <section className="py-16 md:py-20">
+    <section id="wall-of-love" className="py-16 md:py-20">
       <div className="max-w-content mx-auto px-6">
         {/* Section Title - centered */}
         <div className="content-spacing-lg text-center">
