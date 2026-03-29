@@ -206,7 +206,7 @@ export const processSection = {
 export const cases = {
   label: "FALLBEISPIELE",
   headline: "Geschichten aus der Praxis — wenn Seelen sich erinnern",
-  body: "Wenn Menschen ihre Geschichten teilen, zeigt es ihre authentische Stärke. Mit Bewunderung für ihren Mut erzähle ich hier einige ihrer Geschichten Arbeit und ihre positiven Auswirkungen. Alle Geschichten wurden mit ausdrücklichem Einverständnis geteilt. Namen mit * wurden durch Wunsch des Klienten geändert.",
+  body: "Wenn Menschen ihre Geschichten teilen, zeigt es ihre authentische Stärke. Mit Bewunderung für ihren Mut erzähle ich hier einige ihrer Fälle und ihre positiven Auswirkungen. Alle Geschichten wurden mit ausdrücklichem Einverständnis geteilt. Namen mit * wurden durch Wunsch des Klienten geändert.",
   items: [
     {
       name: "Marina", gender: "female",
