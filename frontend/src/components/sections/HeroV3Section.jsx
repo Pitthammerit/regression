@@ -7,8 +7,8 @@ import { scrollPresets } from '../../utils/scrollAnimations'
 
 export default function HeroV3Section({ debugMode = false }) {
   const handleScrollDown = () => {
-    // Medium-fast scroll (1200ms) with 500ms delay
-    scrollPresets.normal('#services', { delay: 500 })
+    // Medium-fast scroll (1200ms) with 500ms delay, scroll to welcome section
+    scrollPresets.normal('#welcome', { delay: 500, offset: 80 })
   }
 
   return (
