@@ -43,7 +43,10 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-body leading-relaxed">{cases.subline}</p>
+          <p className="font-primary text-body-lg text-color-body leading-relaxed">{cases.body}</p>
+        </DebugLabel>
+        <DebugLabel type="subline" debugMode={debugMode}>
+          <p className="font-primary text-subline text-color-label leading-relaxed">{cases.subline}</p>
         </DebugLabel>
       </div>
 
