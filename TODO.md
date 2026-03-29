@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-03-29 16:44
+Updated: 2026-03-29 16:53
 
 ---
 
@@ -148,7 +148,7 @@ Comprehensive review via `/multiloop` workflow revealed **6 critical bugs** that
 - [ ] Create `frontend/src/content/plr-en.js`
 - [ ] Create `frontend/src/content/index.js` with `getContent(lang)` export
 - [ ] Add `useContent()` hook
-- [ ] Update components to use `useContent()`
+- [x] Update components to use `useContent()`
 
 ### Resolve backend/ Folder Confusion
 - [x] Either remove `backend/` folder

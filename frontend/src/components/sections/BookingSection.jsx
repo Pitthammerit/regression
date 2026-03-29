@@ -63,7 +63,7 @@ export default function BookingSection({ debugMode = false }) {
         {/* Accordion CTA button */}
         <button
           onClick={() => setCalendarOpen(!calendarOpen)}
-          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-color-heading text-on-dark-heading hover:bg-color-label transition-colors duration-200"
+          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-color-heading text-on-dark hover:bg-color-label transition-colors duration-200"
           data-testid="booking-cta-button"
         >
           {booking.directBookingCta}

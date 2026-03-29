@@ -31,12 +31,8 @@ module.exports = {
         // 3. ON-DARK (semantische Namen)
         // ─────────────────────────────────────────────────────────────
         'on-dark':         '#FFFFFF',
-        'on-dark-heading': '#ffffff',
-        'on-dark-quote':   '#ffffff',
         'on-dark-body':    '#FFFFFFCC',
-        'on-dark-role':    '#ffffff9c',
-        'on-dark-date':    '#ffffff9c',
-        'on-dark-label':   '#ffffff9c',
+        'on-dark-meta':    '#ffffff9c',
         'on-dark-accent':  '#ffffff',
         'on-dark-divider': '#ffffff33',
       },

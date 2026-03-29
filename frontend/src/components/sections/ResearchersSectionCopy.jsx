@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import { researchers, ui } from '../../content/plr-de'
+import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
-import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
+import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
+import AccordionWrap from '../ui/AccordionWrap'
 
 export default function ResearchersSectionCopy({ debugMode = false }) {
   const authors = researchers.authors
@@ -47,7 +49,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             <SectionLabel text={researchers.authorBigLabel} light={true} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-display text-h2 leading-tight text-on-dark-heading">
+            <h2 className="font-display text-h2 leading-tight text-on-dark">
               {researchers.authorHeadline}
             </h2>
           </DebugLabel>
@@ -84,7 +86,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             <div className="flex flex-col text-on-dark-body">
               {/* Quote - Top of right column */}
               <DebugLabel type="quote-featured" debugMode={debugMode}>
-                <blockquote className="font-display text-quote-featured quote-featured-italic leading-tight text-on-dark-quote content-spacing">
+                <blockquote className="font-display text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
               </DebugLabel>
@@ -92,10 +94,10 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
               {/* Name + Title - Below quote */}
               <div>
                 <DebugLabel type="author-name" debugMode={debugMode}>
-                  <div className="font-display text-author-name text-on-dark-heading name-role-spacing">{featuredAuthor.name}</div>
+                  <div className="font-display text-author-name text-on-dark name-role-spacing">{featuredAuthor.name}</div>
                 </DebugLabel>
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <div className="font-primary text-label label text-on-dark-label name-role-spacing">{featuredAuthor.role}</div>
+                  <div className="font-primary text-label label text-on-dark-meta name-role-spacing">{featuredAuthor.role}</div>
                 </DebugLabel>
               </div>
             </div>
@@ -148,34 +150,34 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden content-spacing-md">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-display text-author-name text-on-dark-heading name-role-spacing">
+                    <h3 className="font-display text-author-name text-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label label text-on-dark-label role-date-spacing">
+                    <p className="font-primary text-label label text-on-dark-meta role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="meta" debugMode={debugMode}>
-                    <p className="font-primary text-meta text-on-dark-date block-label-spacing">{author.lifeDates}</p>
+                    <p className="font-primary text-meta text-on-dark-meta block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block content-spacing-md">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-display text-author-name text-on-dark-heading name-role-spacing">
+                    <h3 className="font-display text-author-name text-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label label text-on-dark-label role-date-spacing">
+                    <p className="font-primary text-label label text-on-dark-meta role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="meta" debugMode={debugMode}>
-                    <p className="font-primary text-meta text-on-dark-date block-label-spacing">{author.lifeDates}</p>
+                    <p className="font-primary text-meta text-on-dark-meta block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
@@ -213,7 +215,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
                         href={author.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-primary text-meta text-on-dark-label hover:text-on-dark-accent transition-colors"
+                        className="font-primary text-meta text-on-dark-meta hover:text-on-dark-accent transition-colors"
                       >
                         {author.sourceLabel} →
                       </a>
