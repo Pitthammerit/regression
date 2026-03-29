@@ -29,6 +29,22 @@ import { BookOpen } from 'lucide-react'
 export default function ReferencesSectionCopy({ debugMode = false }) {
   const [expanded, setExpanded] = useState(false)
 
+  const handleToggle = () => {
+    const willExpand = !expanded
+    setExpanded(willExpand)
+
+    // When opening, scroll to section after animation
+    if (willExpand) {
+      setTimeout(() => {
+        const section = document.querySelector('[data-testid="references-section"]')
+        if (section) {
+          const y = section.getBoundingClientRect().top + window.scrollY - 100
+          window.scrollTo({ top: y, behavior: 'smooth' })
+        }
+      }, 50)
+    }
+  }
+
   return (
     <section
       id="references"
@@ -124,7 +140,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                 {/* Divider with Mehr anzeigen button */}
                 <ExpandToggleButton
                   isExpanded={expanded}
-                  onToggle={() => setExpanded(!expanded)}
+                  onToggle={handleToggle}
                   labelMore={ui.showMore}
                   labelLess={ui.showLess}
                   debugMode={debugMode}
