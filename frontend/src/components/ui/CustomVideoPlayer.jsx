@@ -151,10 +151,8 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
                       // Ignore errors if already exited
                     })
                   }
-                  // Trigger scroll after a short delay
-                  setTimeout(() => {
-                    onVideoEnded?.()
-                  }, 300)
+                  // Trigger scroll (delay handled by scroll function)
+                  onVideoEnded?.()
                 }
               }
             }}

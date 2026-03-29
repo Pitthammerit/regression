@@ -3,11 +3,12 @@ import { hero } from '../../content/plr-de'
 import CustomVideoPlayer from '../ui/CustomVideoPlayer'
 import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
+import { scrollPresets } from '../../utils/scrollAnimations'
 
 export default function HeroV3Section({ debugMode = false }) {
   const handleScrollDown = () => {
-    const next = document.querySelector('#services')
-    if (next) next.scrollIntoView({ behavior: 'smooth' })
+    // Slow scroll (2000ms) with 500ms delay
+    scrollPresets.slow('#services', { delay: 500 })
   }
 
   return (
