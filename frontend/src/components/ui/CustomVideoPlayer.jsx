@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 
 /**
@@ -7,7 +7,7 @@ import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
  * src:  YouTube URL (embed or watch) or direct MP4 URL
  * poster: optional thumbnail URL
  */
-export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '', onVideoEnded }) {
+export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '', onVideoEnded, enterFullscreenOnClick = false }) {
   const iframeRef = useRef(null)
   const videoRef  = useRef(null)
   const [playing,      setPlaying]      = useState(false)
@@ -15,6 +15,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
   const [volume,       setVolumeState]  = useState(80)
   const [muted,        setMuted]        = useState(false)
   const [showControls, setShowControls] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false)
 
   // ── YouTube helpers ──────────────────────────────────
   const getYouTubeId = (url) => {
@@ -34,6 +35,9 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
   // ── Playback ──────────────────────────────────────────
   const handlePlay = () => {
+    if (enterFullscreenOnClick && !isFullscreen) {
+      handleFullscreen()
+    }
     if (type === 'youtube') ytCmd('playVideo')
     else videoRef.current?.play()
     setPlaying(true)
@@ -46,7 +50,12 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     setPlaying(false)
   }
 
-  const handleToggle = () => playing ? handlePause() : handlePlay()
+  const handleToggle = () => {
+    if (enterFullscreenOnClick && !isFullscreen && !playing) {
+      handleFullscreen()
+    }
+    playing ? handlePause() : handlePlay()
+  }
 
   // ── Volume ───────────────────────────────────────────
   const handleVolume = (val) => {
@@ -72,6 +81,38 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     if (el.requestFullscreen)       el.requestFullscreen()
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
   }
+
+  // Listen for fullscreen exit
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      const isCurrentlyFullscreen = !!(
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement
+      )
+
+      if (isFullscreen && !isCurrentlyFullscreen) {
+        // Just exited fullscreen
+        setIsFullscreen(false)
+        onVideoEnded?.()
+      }
+
+      setIsFullscreen(isCurrentlyFullscreen)
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange)
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange)
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange)
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange)
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange)
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange)
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange)
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange)
+    }
+  }, [isFullscreen, onVideoEnded])
 
   return (
     <div

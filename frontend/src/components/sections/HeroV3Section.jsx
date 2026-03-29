@@ -32,22 +32,23 @@ export default function HeroV3Section({ debugMode = false }) {
         </div>
       </div>
 
-      {/* VIDEO — 15% smaller (979px instead of 1152px) */}
+      {/* VIDEO — 20% smaller (783px instead of 979px) */}
       <div className="px-8 md:px-14 lg:px-20 w-full">
-        <div className="max-w-[979px] mx-auto">
+        <div className="max-w-[783px] mx-auto">
           <CustomVideoPlayer
             type="r2"
             src={hero.videoUrl}
             poster={hero.posterUrl}
             className="h-full"
             onVideoEnded={handleScrollDown}
+            enterFullscreenOnClick
           />
         </div>
       </div>
 
       {/* CTA — centered below video */}
       <div className="px-8 md:px-14 lg:px-20 pt-6">
-        <div className="max-w-[979px] mx-auto text-center">
+        <div className="max-w-[783px] mx-auto text-center">
           <DebugLabel type="hero" debugMode={debugMode}>
             <p className="font-secondary italic text-color-heading text-hero">
               {hero.heroCta}
@@ -58,7 +59,7 @@ export default function HeroV3Section({ debugMode = false }) {
 
       {/* Arrow */}
       <div className="px-8 md:px-14 lg:px-20 pt-3 pb-4">
-        <div className="max-w-[979px] mx-auto flex justify-center" data-testid="hero-cta-scroll">
+        <div className="max-w-[783px] mx-auto flex justify-center" data-testid="hero-cta-scroll">
           <button
             onClick={handleScrollDown}
             aria-label="Nach unten scrollen"
