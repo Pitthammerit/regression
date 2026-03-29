@@ -10,9 +10,14 @@ export default function AboutSection({ debugMode = false }) {
     <SectionWrapper id="ueber" data-testid="about-section">
       <div className="grid md:grid-cols-2 grid-gap-xl items-start">
 
-        {/* Left: Portrait photo — sticky */}
+        {/* Left: Label + Portrait photo — sticky */}
         <div className="md:sticky md:top-28">
-          <div className="aspect-[16/9] md:aspect-[3/4] rounded-2xl overflow-hidden bg-color-bg-light w-full md:max-w-sm">
+          {/* Label moved above image */}
+          <DebugLabel type="label" debugMode={debugMode}>
+            <SectionLabel text={about.label} />
+          </DebugLabel>
+
+          <div className="aspect-[16/9] md:aspect-[3/4] rounded-2xl overflow-hidden bg-color-bg-light w-full md:max-w-sm mt-6">
             <LazyImage
               src={r2(portraits.p37)}
               alt="Benjamin Kurtz"
@@ -28,11 +33,8 @@ export default function AboutSection({ debugMode = false }) {
 
         {/* Right: Bio */}
         <div>
-          <DebugLabel type="label" debugMode={debugMode}>
-            <SectionLabel text={about.label} />
-          </DebugLabel>
-          <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-color-heading leading-tight">
+          <DebugLabel type="hero" debugMode={debugMode}>
+            <h2 className="font-secondary text-hero text-color-heading leading-tight">
               {about.headline}
             </h2>
           </DebugLabel>
