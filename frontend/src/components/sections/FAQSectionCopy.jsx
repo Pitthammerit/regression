@@ -3,6 +3,7 @@ import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 import { useNavigation } from '../../contexts/NavigationContext'
+import { useAccordionScroll } from '../../hooks/useAccordionScroll'
 
 /**
  * FAQSectionCopy — FAQ section with typography tokens
@@ -22,10 +23,7 @@ import { useNavigation } from '../../contexts/NavigationContext'
  */
 export default function FAQSectionCopy({ debugMode = false }) {
   const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
-
-  const toggleExpand = (index) => {
-    setExpandedFAQIndex(expandedFAQIndex === index ? null : index)
-  }
+  const toggleExpand = useAccordionScroll(expandedFAQIndex, setExpandedFAQIndex, 'faq')
 
   return (
     <section
@@ -50,6 +48,7 @@ export default function FAQSectionCopy({ debugMode = false }) {
               <button
                 onClick={() => toggleExpand(index)}
                 className="w-full flex justify-between items-center py-6 text-left font-primary text-color-label hover:text-color-label/80 transition-colors"
+                data-testid={`faq-${index}`}
               >
                 <DebugLabel type="h4" debugMode={debugMode}>
                   <span className="font-medium text-h4 text-color-heading">{item.question}</span>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useAccordionScroll } from '../../hooks/useAccordionScroll'
 import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
@@ -9,6 +10,7 @@ import { ChevronDown, User } from 'lucide-react'
 export default function CaseStudiesSectionCopy({ debugMode = false }) {
   // All items closed by default, click to open individual
   const [openIndex, setOpenIndex] = useState(-1)
+  const toggleWithScroll = useAccordionScroll(openIndex, setOpenIndex, 'case-accordion')
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
@@ -49,19 +51,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
         {cases.items.map((item, i) => (
           <div key={i}>
             <button
-              onClick={() => {
-                const wasOpen = openIndex === i
-                setOpenIndex(wasOpen ? -1 : i)
-                // Scroll to headline with 100px offset from top (wait for accordion animation)
-                const targetIndex = !wasOpen ? i : 0
-                setTimeout(() => {
-                  const target = document.querySelector(`[data-testid="case-accordion-${targetIndex}"]`)
-                  if (target) {
-                    const y = target.getBoundingClientRect().top + window.scrollY - 100
-                    window.scrollTo({ top: y, behavior: 'smooth' })
-                  }
-                }, 600)
-              }}
+              onClick={() => toggleWithScroll(i)}
               className="w-full flex items-start gap-5 py-8 text-left group"
               data-testid={`case-accordion-${i}`}
             >
