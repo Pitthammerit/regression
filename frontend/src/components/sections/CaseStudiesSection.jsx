@@ -8,8 +8,8 @@ import AccordionWrap from '../ui/AccordionWrap'
 import { ChevronDown, User } from 'lucide-react'
 
 export default function CaseStudiesSection({ debugMode = false }) {
-  // All items open by default
-  const [openIndex, setOpenIndex] = useState(null) // null means all are open
+  // All items closed by default, click to open individual
+  const [openIndex, setOpenIndex] = useState(-1)
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
@@ -88,7 +88,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
               />
             </button>
 
-            <AccordionWrap isOpen={openIndex === null || openIndex === i}>
+            <AccordionWrap isOpen={openIndex === i}>
               <div className="pb-10 grid md:grid-cols-3 gap-6 pt-2">
                 {[
                   { label: cases.sectionLabels.situation, text: item.situation },

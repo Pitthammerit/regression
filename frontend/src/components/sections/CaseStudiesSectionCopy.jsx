@@ -7,8 +7,8 @@ import LazyImage from '../ui/LazyImage'
 import { ChevronDown, User } from 'lucide-react'
 
 export default function CaseStudiesSectionCopy({ debugMode = false }) {
-  // All items open by default
-  const [openIndex, setOpenIndex] = useState(null) // null means all are open
+  // All items closed by default, click to open individual
+  const [openIndex, setOpenIndex] = useState(-1)
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
@@ -87,7 +87,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               />
             </button>
 
-            <div className={`overflow-hidden transition-all transition-slow ${openIndex === null || openIndex === i ? 'max-h-[1600px] pb-10' : 'max-h-0'}`}>
+            <div className={`overflow-hidden transition-all transition-slow ${openIndex === i ? 'max-h-[1600px] pb-10' : 'max-h-0'}`}>
               <div className="grid md:grid-cols-3 gap-6 pt-2">
                 {[
                   { label: cases.sectionLabels.situation, text: item.situation },
