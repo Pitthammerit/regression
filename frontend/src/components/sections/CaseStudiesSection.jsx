@@ -8,8 +8,8 @@ import AccordionWrap from '../ui/AccordionWrap'
 import { ChevronDown, User } from 'lucide-react'
 
 export default function CaseStudiesSection({ debugMode = false }) {
-  // Marina (index 0) opens by default
-  const [openIndex, setOpenIndex] = useState(0)
+  // All items open by default
+  const [openIndex, setOpenIndex] = useState(null) // null means all are open
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
@@ -28,12 +28,12 @@ export default function CaseStudiesSection({ debugMode = false }) {
       </div>
 
       {/* Hint — always visible */}
-      <div className="content-spacing mx-auto flex items-center justify-center gap-2 text-hint hint-italic text-color-label italic max-w-fit">
+      <div className="mx-auto flex items-center justify-center gap-2 text-hint hint-italic text-color-label italic max-w-fit mb-4">
         <span>Klicke auf eine der Geschichten, um sie zu lesen.</span>
       </div>
 
       {/* Animated arrow — hint to scroll/click */}
-      <div className="flex justify-center pb-6">
+      <div className="flex justify-center pb-4">
         <button
           onClick={() => {
             const firstCase = document.querySelector('[data-testid="case-accordion-0"]')
@@ -88,7 +88,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
               />
             </button>
 
-            <AccordionWrap isOpen={openIndex === i}>
+            <AccordionWrap isOpen={openIndex === null || openIndex === i}>
               <div className="pb-10 grid md:grid-cols-3 gap-6 pt-2">
                 {[
                   { label: cases.sectionLabels.situation, text: item.situation },
