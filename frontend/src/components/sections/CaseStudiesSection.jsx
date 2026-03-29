@@ -62,6 +62,15 @@ export default function CaseStudiesSection({ debugMode = false }) {
                     }
                   }, 100)
                 }
+                // Scroll to first story when closing
+                if (wasOpen) {
+                  setTimeout(() => {
+                    const firstStory = document.querySelector(`[data-testid="case-accordion-0"]`)
+                    if (firstStory) {
+                      firstStory.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }, 100)
+                }
               }}
               className="w-full flex items-start gap-5 py-8 text-left group"
               data-testid={`case-accordion-${i}`}
