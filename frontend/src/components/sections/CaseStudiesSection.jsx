@@ -44,8 +44,22 @@ export default function CaseStudiesSection({ debugMode = false }) {
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-body leading-relaxed">{cases.body}</p>
+          <p className="font-primary text-body-lg text-color-label leading-relaxed italic">{cases.body}</p>
         </DebugLabel>
+      </div>
+
+      {/* Animated arrow — hint to scroll/click */}
+      <div className="flex justify-center pb-6">
+        <button
+          onClick={() => {
+            const firstCase = document.querySelector('[data-testid="case-accordion-0"]')
+            if (firstCase) firstCase.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          }}
+          aria-label="Zu den Fallbeispielen scrollen"
+          className="opacity-50 hover:opacity-80 transition-opacity duration-300"
+        >
+          <ChevronDown className="w-16 h-16 text-color-heading animate-pulse-down" />
+        </button>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
