@@ -27,6 +27,11 @@ export default function CaseStudiesSection({ debugMode = false }) {
         </DebugLabel>
       </div>
 
+      {/* Hint — always visible */}
+      <div className="content-spacing mx-auto flex items-center justify-center gap-2 text-hint hint-italic text-color-label italic max-w-fit">
+        <span>Klicke auf eine der Geschichten, um sie zu lesen.</span>
+      </div>
+
       {/* Animated arrow — hint to scroll/click */}
       <div className="flex justify-center pb-6">
         <button
@@ -39,12 +44,6 @@ export default function CaseStudiesSection({ debugMode = false }) {
         >
           <ChevronDown className="w-16 h-16 text-color-heading animate-pulse-down" />
         </button>
-      </div>
-
-      {/* Hint — always visible */}
-      <div className="content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-label italic max-w-fit">
-        <span className="text-icon">↓</span>
-        <span>Klicke auf eine der Geschichten, um sie zu lesen.</span>
       </div>
 
       <div className="divide-y divide-color-border max-w-4xl mx-auto">
