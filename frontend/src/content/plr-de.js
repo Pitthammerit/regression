@@ -145,7 +145,7 @@ export const forWhom = {
 // ═══════════════════════════════════════════════════════════
 export const about = {
   label: "ÜBER BENJAMIN KURTZ",
-  headline: "Was mich zu dieser Arbeit geführt hat",
+  headline: "Was mich zu dieser Arbeit gerufen hat",
   body: [
     "Mein erster Kontakt mit Seelenrückführung war kein sanftes Erwachen. Ich buchte ein Tagescoaching, weil ich Themen hatte, die auch ich als Coach nicht alleine löawn konnte. In einer der letzten Stunden — nach fast zehn Stunden Arbeit — führten mich die Coaches in ein früheres Seelenleben. Was ich darin erfahren habe, hat mir Dinge erklärt, die ich jahrelang nicht verstehen konnte. Durch direktes Erleben wurde es lebendig und schenkte mir Klarheit.",
     "Ich begleite Menschen seit mehr als einem JAhrzehnt — als NLP-Master, Hypnotherapeut, EMDR- und Wingwave-Practitioner, Reiki-und Quanten-Master Heiler. Mit einem Hintergrund in Unternehmertum als Filmemacher und Fotograf, Master in Design, einer spirituellen Praxis die mich von Köln von Indien bis hin zum Nomadentum geführt hat, und der tiefen Überzeugung: Regression Sessions sind keine weitere Methode. Sie sind der Raum, in dem sich am tiefsten etwas zeigen kann.",
