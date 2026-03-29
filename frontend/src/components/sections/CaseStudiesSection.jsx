@@ -53,12 +53,12 @@ export default function CaseStudiesSection({ debugMode = false }) {
               onClick={() => {
                 const wasOpen = openIndex === i
                 setOpenIndex(wasOpen ? -1 : i)
-                // Scroll to headline with 20px offset from top (wait for accordion animation)
+                // Scroll to headline with 100px offset from top (wait for accordion animation)
                 const targetIndex = !wasOpen ? i : 0
                 setTimeout(() => {
                   const target = document.querySelector(`[data-testid="case-accordion-${targetIndex}"]`)
                   if (target) {
-                    const y = target.getBoundingClientRect().top + window.scrollY - 20
+                    const y = target.getBoundingClientRect().top + window.scrollY - 100
                     window.scrollTo({ top: y, behavior: 'smooth' })
                   }
                 }, 600)
