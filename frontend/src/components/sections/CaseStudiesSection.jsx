@@ -46,9 +46,6 @@ export default function CaseStudiesSection({ debugMode = false }) {
         <DebugLabel type="body-lg" debugMode={debugMode}>
           <p className="font-primary text-body-lg text-color-body leading-relaxed">{cases.body}</p>
         </DebugLabel>
-        <DebugLabel type="subline" debugMode={debugMode}>
-          <p className="font-primary text-subline text-color-label leading-relaxed">{cases.subline}</p>
-        </DebugLabel>
       </div>
 
       {/* Hint — appears on first 3 page loads */}
