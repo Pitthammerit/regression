@@ -41,9 +41,6 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
   // ── Playback ──────────────────────────────────────────
   const handlePlay = () => {
-    if (enterFullscreenOnClick && !isFullscreen) {
-      handleFullscreen()
-    }
     if (type === 'youtube') ytCmd('playVideo')
     else videoRef.current?.play()
     setPlaying(true)
@@ -56,9 +53,14 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     setPlaying(false)
   }
 
-  const handleToggle = () => {
+  const handleToggle = (e) => {
+    // Request fullscreen BEFORE any state changes (direct user activation)
     if (enterFullscreenOnClick && !isFullscreen && !playing) {
-      handleFullscreen()
+      const el = type === 'youtube' ? iframeRef.current : videoRef.current
+      if (el) {
+        if (el.requestFullscreen) el.requestFullscreen()
+        else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
+      }
     }
     playing ? handlePause() : handlePlay()
   }
