@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useCallback } from 'react'
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 
 /**
@@ -10,12 +10,18 @@ import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '', onVideoEnded, enterFullscreenOnClick = false }) {
   const iframeRef = useRef(null)
   const videoRef  = useRef(null)
+  const wasFullscreenRef = useRef(false)
   const [playing,      setPlaying]      = useState(false)
   const [started,      setStarted]      = useState(false)
   const [volume,       setVolumeState]  = useState(80)
   const [muted,        setMuted]        = useState(false)
   const [showControls, setShowControls] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
+
+  // Stable callback for fullscreen exit
+  const handleFullscreenExit = useCallback(() => {
+    onVideoEnded?.()
+  }, [onVideoEnded])
 
   // ── YouTube helpers ──────────────────────────────────
   const getYouTubeId = (url) => {
@@ -92,13 +98,14 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
         document.msFullscreenElement
       )
 
-      if (isFullscreen && !isCurrentlyFullscreen) {
-        // Just exited fullscreen
-        setIsFullscreen(false)
-        onVideoEnded?.()
+      setIsFullscreen(isCurrentlyFullscreen)
+
+      // Only trigger if we were in fullscreen and now we're not
+      if (wasFullscreenRef.current && !isCurrentlyFullscreen && enterFullscreenOnClick) {
+        handleFullscreenExit()
       }
 
-      setIsFullscreen(isCurrentlyFullscreen)
+      wasFullscreenRef.current = isCurrentlyFullscreen
     }
 
     document.addEventListener('fullscreenchange', handleFullscreenChange)
@@ -112,7 +119,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       document.removeEventListener('mozfullscreenchange', handleFullscreenChange)
       document.removeEventListener('MSFullscreenChange', handleFullscreenChange)
     }
-  }, [isFullscreen, onVideoEnded])
+  }, [enterFullscreenOnClick, handleFullscreenExit])
 
   return (
     <div
