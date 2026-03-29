@@ -69,11 +69,8 @@ export function useAccordionScroll(openId, setOpenId) {
 
         // Only scroll if element is not already visible
         if (!isElementInViewport(clickedElement)) {
-          clickedElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'nearest'
-          })
+          const y = clickedElement.getBoundingClientRect().top + window.scrollY - 100
+          window.scrollTo({ top: y, behavior: 'smooth' })
         }
 
         clickedElement.removeEventListener('transitionend', handleTransitionEnd)
