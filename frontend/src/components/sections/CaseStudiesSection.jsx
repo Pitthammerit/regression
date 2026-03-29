@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
@@ -10,27 +10,6 @@ import { ChevronDown, User } from 'lucide-react'
 export default function CaseStudiesSection({ debugMode = false }) {
   // Marina (index 0) opens by default
   const [openIndex, setOpenIndex] = useState(0)
-  const [showHint, setShowHint] = useState(false)
-
-  useEffect(() => {
-    try {
-      const count = parseInt(localStorage.getItem('cases_hint_count') || '0')
-      if (count < 3) {
-        localStorage.setItem('cases_hint_count', String(count + 1))
-        setShowHint(true)
-        const t = setTimeout(() => setShowHint(false), 5000)
-        return () => clearTimeout(t)
-      }
-    } catch (error) {
-      // localStorage unavailable (private browsing, quota exceeded, etc.)
-      // Silently fail - hint just won't show or persist
-      console.warn('localStorage access failed:', error)
-      // Still show hint on first visit even without localStorage
-      setShowHint(true)
-      const t = setTimeout(() => setShowHint(false), 5000)
-      return () => clearTimeout(t)
-    }
-  }, [])
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
@@ -62,11 +41,8 @@ export default function CaseStudiesSection({ debugMode = false }) {
         </button>
       </div>
 
-      {/* Hint — appears on first 3 page loads */}
-      <div
-        className={`content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-label italic transition-opacity transition-slower max-w-fit ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-        data-testid="cases-hint"
-      >
+      {/* Hint — always visible */}
+      <div className="content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-label italic max-w-fit">
         <span className="text-icon">↓</span>
         <span>Klicke auf eine der Geschichten, um sie zu lesen.</span>
       </div>
