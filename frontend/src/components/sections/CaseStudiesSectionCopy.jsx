@@ -43,7 +43,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-label leading-relaxed italic">{cases.body}</p>
+          <p className="font-primary text-body-lg text-color-label leading-relaxed">{cases.body}</p>
         </DebugLabel>
       </div>
 
@@ -63,11 +63,11 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
 
       {/* Hint — appears on first 3 page loads */}
       <div
-        className={`content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-label/60 transition-opacity transition-slower max-w-fit ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`content-spacing mx-auto flex items-center gap-2 text-hint hint-italic text-color-label italic transition-opacity transition-slower max-w-fit ${showHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         data-testid="cases-hint"
       >
         <span className="text-icon">↓</span>
-        <span>Klicke auf die Namen, um mehr zu lesen</span>
+        <span>klicke auf eine der geschichten, um sie zu lesen.</span>
       </div>
 
       <div className="divide-y divide-color-border max-w-4xl mx-auto">
