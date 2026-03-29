@@ -52,24 +52,15 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               onClick={() => {
                 const wasOpen = openIndex === i
                 setOpenIndex(wasOpen ? -1 : i)
-                // Scroll to headline when opening (wait for accordion animation)
-                if (!wasOpen) {
-                  setTimeout(() => {
-                    const button = document.querySelector(`[data-testid="case-accordion-${i}"]`)
-                    if (button) {
-                      button.scrollIntoView({ behavior: 'smooth', block: 'center' })
-                    }
-                  }, 600)
-                }
-                // Scroll to first story when closing (wait for accordion animation)
-                if (wasOpen) {
-                  setTimeout(() => {
-                    const firstStory = document.querySelector(`[data-testid="case-accordion-0"]`)
-                    if (firstStory) {
-                      firstStory.scrollIntoView({ behavior: 'smooth', block: 'center' })
-                    }
-                  }, 600)
-                }
+                // Scroll to headline with 100px offset from top (wait for accordion animation)
+                const targetIndex = !wasOpen ? i : 0
+                setTimeout(() => {
+                  const target = document.querySelector(`[data-testid="case-accordion-${targetIndex}"]`)
+                  if (target) {
+                    const y = target.getBoundingClientRect().top + window.scrollY - 100
+                    window.scrollTo({ top: y, behavior: 'smooth' })
+                  }
+                }, 600)
               }}
               className="w-full flex items-start gap-5 py-8 text-left group"
               data-testid={`case-accordion-${i}`}
