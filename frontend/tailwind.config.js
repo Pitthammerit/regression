@@ -25,7 +25,7 @@ module.exports = {
         'color-body':    '#5A5550',
         'color-label':   '#7696AD',
         'color-accent':  '#2DAD71',
-        'color-star':    '#F59E0B',
+        'color-star':    '#f5f10b',
 
         // ─────────────────────────────────────────────────────────────
         // 3. ON-DARK (semantische Namen)
@@ -39,29 +39,6 @@ module.exports = {
         'on-dark-label':   '#ffffff9c',
         'on-dark-accent':  '#ffffff',
         'on-dark-divider': '#ffffff33',
-
-        // ─────────────────────────────────────────────────────────────
-        // 4. LEGACY (temporär - werden nach Migration entfernt)
-        // ─────────────────────────────────────────────────────────────
-        brand: {
-          deep:  '#224160',
-          body:  '#5A5550',
-          steel: '#7696AD',
-          green: '#2DAD71',
-          muted: '#5A5550',
-          dark:  '#1A2433',
-          cream: '#F0EBE1',
-          sand:  '#EDE7DC',
-        },
-        transcript: {
-          bg:         '#F0EBE1',
-          text:       '#2D2A26',
-          muted:      '#7D7469',
-          darkBg:     '#171614',
-          darkText:   '#D9D2C8',
-          border:     '#14000000',
-          darkBorder: '#14FFFFFF',
-        },
       },
       fontFamily: {
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
