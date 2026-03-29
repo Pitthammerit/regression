@@ -11,7 +11,7 @@ import { ChevronDown, User } from 'lucide-react'
 export default function CaseStudiesSection({ debugMode = false }) {
   // All items closed by default, click to open individual
   const [openIndex, setOpenIndex] = useState(-1)
-  const toggleWithScroll = useAccordionScroll(openIndex, setOpenIndex, 'case-accordion')
+  const toggleWithScroll = useAccordionScroll(openIndex, setOpenIndex, 'case-accordion', cases.items)
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">

@@ -23,7 +23,7 @@ import { useAccordionScroll } from '../../hooks/useAccordionScroll'
  */
 export default function FAQSectionCopy({ debugMode = false }) {
   const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
-  const toggleExpand = useAccordionScroll(expandedFAQIndex, setExpandedFAQIndex, 'faq')
+  const toggleExpand = useAccordionScroll(expandedFAQIndex, setExpandedFAQIndex, 'faq', faq.items)
 
   return (
     <section

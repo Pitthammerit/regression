@@ -6,15 +6,13 @@ import LazyImage from '../ui/LazyImage'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
 import AccordionWrap from '../ui/AccordionWrap'
 import AnimatedAspectRatio from '../ui/AnimatedAspectRatio'
+import { useAccordionScroll } from '../../hooks/useAccordionScroll'
 
 export default function ResearchersSection({ debugMode = false }) {
   const authors = researchers.authors
   const featuredAuthor = authors.find(author => author.featured)
   const [expandedId, setExpandedId] = useState(null)
-
-  const toggleExpand = (id) => {
-    setExpandedId(expandedId === id ? null : id)
-  }
+  const toggleExpand = useAccordionScroll(expandedId, setExpandedId, 'researcher', authors)
 
   // Map portraitFocus presets to CSS object-position values
   const getPortraitPosition = (focus) => {
@@ -113,7 +111,7 @@ export default function ResearchersSection({ debugMode = false }) {
         {/* ═══════════════════════════════════════════════════════════ */}
 
         {authors.map((author, index) => (
-          <div key={author.id} className={index === authors.length - 1 ? 'mb-10' : 'mb-3'}>
+          <div key={author.id} className={index === authors.length - 1 ? 'mb-10' : 'mb-3'} data-testid={`researcher-${author.id}`}>
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
             <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 md:items-start">
               {/* Mobile: Portrait first (full width, 16:9) */}
