@@ -83,7 +83,7 @@ export const statement = {
 // ═══════════════════════════════════════════════════════════
 export const whatIs = {
   label: "REGRESSION SESSIONS",
-  headline: "Jenseits von dem, was unser Verstand versteht.",
+  headline: "Was bedeutet Regression und was ist eine Seelenrückführung?",
   body: [
     "Regression, lateinisch regressus = Rückschritt/e, bedeutet, zurückzugehen zu früheren Erfahrungen, zu älteren Erinnerungen. Um zu verstehen, warum du heute so reagierst, wie du re-agierst. Warum bestimmte Muster sich immer wiederholen. Warum manche Themen sich anfühlen, als wären kennst du sie schon länger als dieses Menschenleben.",
     "Eine Seelenrückführung geht weiter. Es kann Fragen beantworten, warum dir manche Menschen so bekannt vor kommen, obwohl du sie erst gerade kennengelernt hast. Warum dir bestimmte Gaben einfach liegen oder Themen brennend interessieren.",

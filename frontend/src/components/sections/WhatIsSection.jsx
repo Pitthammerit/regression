@@ -15,8 +15,8 @@ export default function WhatIsSection({ debugMode = false }) {
           <DebugLabel type="label" debugMode={debugMode}>
             <SectionLabel text={whatIs.label} />
           </DebugLabel>
-          <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-color-heading leading-tight">
+          <DebugLabel type="hero" debugMode={debugMode}>
+            <h2 className="font-secondary text-hero text-color-heading leading-tight">
               {whatIs.headline}
             </h2>
           </DebugLabel>
