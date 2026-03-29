@@ -11,19 +11,12 @@ import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '', onVideoEnded, enterFullscreenOnClick = false, exitFullscreenAtTime = null }) {
   const iframeRef = useRef(null)
   const videoRef  = useRef(null)
-  const wasFullscreenRef = useRef(false)
-  const hasExitedFullscreenRef = useRef(false)
+  const hasTriggeredScrollRef = useRef(false)
   const [playing,      setPlaying]      = useState(false)
   const [started,      setStarted]      = useState(false)
   const [volume,       setVolumeState]  = useState(80)
   const [muted,        setMuted]        = useState(false)
   const [showControls, setShowControls] = useState(false)
-  const [isFullscreen, setIsFullscreen] = useState(false)
-
-  // Stable callback for fullscreen exit
-  const handleFullscreenExit = useCallback(() => {
-    onVideoEnded?.()
-  }, [onVideoEnded])
 
   // ── YouTube helpers ──────────────────────────────────
   const getYouTubeId = (url) => {
@@ -57,7 +50,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
   const handleToggle = (e) => {
     // Request fullscreen BEFORE any state changes (direct user activation)
-    if (enterFullscreenOnClick && !isFullscreen && !playing) {
+    if (enterFullscreenOnClick && !playing) {
       const el = type === 'youtube' ? iframeRef.current : videoRef.current
       if (el) {
         if (el.requestFullscreen) el.requestFullscreen()
@@ -92,39 +85,6 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
   }
 
-  // Listen for fullscreen exit
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      const isCurrentlyFullscreen = !!(
-        document.fullscreenElement ||
-        document.webkitFullscreenElement ||
-        document.mozFullScreenElement ||
-        document.msFullscreenElement
-      )
-
-      setIsFullscreen(isCurrentlyFullscreen)
-
-      // Only trigger if we were in fullscreen and now we're not
-      if (wasFullscreenRef.current && !isCurrentlyFullscreen && enterFullscreenOnClick) {
-        handleFullscreenExit()
-      }
-
-      wasFullscreenRef.current = isCurrentlyFullscreen
-    }
-
-    document.addEventListener('fullscreenchange', handleFullscreenChange)
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange)
-    document.addEventListener('mozfullscreenchange', handleFullscreenChange)
-    document.addEventListener('MSFullscreenChange', handleFullscreenChange)
-
-    return () => {
-      document.removeEventListener('fullscreenchange', handleFullscreenChange)
-      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange)
-      document.removeEventListener('mozfullscreenchange', handleFullscreenChange)
-      document.removeEventListener('MSFullscreenChange', handleFullscreenChange)
-    }
-  }, [enterFullscreenOnClick, handleFullscreenExit])
-
   return (
     <div
       className={`relative rounded-2xl overflow-hidden bg-brand-dark group cursor-pointer ${className}`}
@@ -141,18 +101,19 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
             className="w-full h-full object-cover"
             onEnded={() => { setPlaying(false); setStarted(false); onVideoEnded?.() }}
             onTimeUpdate={() => {
-              if (exitFullscreenAtTime && !hasExitedFullscreenRef.current && videoRef.current) {
+              if (exitFullscreenAtTime && !hasTriggeredScrollRef.current && videoRef.current) {
                 const currentTime = videoRef.current.currentTime
-                if (currentTime >= exitFullscreenAtTime) {
-                  hasExitedFullscreenRef.current = true
-                  // Exit fullscreen if we're in it
-                  if (document.fullscreenElement) {
-                    document.exitFullscreen().catch(() => {
-                      // Ignore errors if already exited
-                    })
-                  }
-                  // Trigger scroll (delay handled by scroll function)
-                  onVideoEnded?.()
+                // Only trigger if we're in fullscreen and reached the target time
+                if (currentTime >= exitFullscreenAtTime && document.fullscreenElement) {
+                  hasTriggeredScrollRef.current = true
+                  // Exit fullscreen first
+                  document.exitFullscreen().catch(() => {
+                    // Ignore errors if already exited
+                  })
+                  // Then trigger scroll after a short delay
+                  setTimeout(() => {
+                    onVideoEnded?.()
+                  }, 100)
                 }
               }
             }}
