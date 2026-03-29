@@ -58,7 +58,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   setTimeout(() => {
                     const button = document.querySelector(`[data-testid="case-accordion-${i}"]`)
                     if (button) {
-                      button.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                      button.scrollIntoView({ behavior: 'smooth', block: 'center' })
                     }
                   }, 600)
                 }
@@ -67,7 +67,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   setTimeout(() => {
                     const firstStory = document.querySelector(`[data-testid="case-accordion-0"]`)
                     if (firstStory) {
-                      firstStory.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                      firstStory.scrollIntoView({ behavior: 'smooth', block: 'center' })
                     }
                   }, 600)
                 }
