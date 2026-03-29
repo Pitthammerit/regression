@@ -49,7 +49,19 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
         {cases.items.map((item, i) => (
           <div key={i}>
             <button
-              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+              onClick={() => {
+                const wasOpen = openIndex === i
+                setOpenIndex(wasOpen ? -1 : i)
+                // Scroll to headline when opening
+                if (!wasOpen) {
+                  setTimeout(() => {
+                    const button = document.querySelector(`[data-testid="case-accordion-${i}"]`)
+                    if (button) {
+                      button.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }, 100)
+                }
+              }}
               className="w-full flex items-start gap-5 py-8 text-left group"
               data-testid={`case-accordion-${i}`}
             >
