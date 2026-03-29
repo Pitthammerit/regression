@@ -1,32 +1,93 @@
-import { useCallback } from 'react'
+import { useCallback, useRef } from 'react'
 
 /**
- * Reusable hook for accordion scroll behavior
- * Scrolls to target with 100px offset after 600ms (accordion animation duration)
+ * Check if element is visible in viewport
+ * @param {Element} element - Element to check
+ * @returns {boolean} True if element is in viewport
+ */
+function isElementInViewport(element) {
+  if (!element) return false
+  const rect = element.getBoundingClientRect()
+  // Element is visible if its top is within viewport (with small buffer)
+  return rect.top >= 0 && rect.top <= window.innerHeight
+}
+
+/**
+ * Reusable hook for accordion scroll behavior with robust visibility checking
+ *
+ * Features:
+ * - Uses clicked element as scroll target (no data-testid lookup needed)
+ * - Only scrolls if target is outside viewport
+ * - Waits for accordion animation to complete (transitionend event)
+ * - Respects user scroll during animation (skips if user scrolled manually)
  *
  * @param {number|string|null} openId - Currently open accordion ID (index or string ID)
  * @param {Function} setOpenId - Setter for open ID
- * @param {string} testIdPrefix - Prefix for data-testid attributes (e.g., "case-accordion", "faq", "researcher")
- * @param {Array} items - Items array to get first item ID when closing
  * @returns {Function} Enhanced toggle function with scroll behavior
+ *
+ * @example
+ * ```jsx
+ * const toggleExpand = useAccordionScroll(expandedId, setExpandedId)
+ *
+ * // In your onClick handler:
+ * onClick={(e) => toggleExpand(id, e)}
+ * ```
  */
-export function useAccordionScroll(openId, setOpenId, testIdPrefix, items) {
-  const toggleWithScroll = useCallback((id) => {
-    const wasOpen = openId === id
-    const targetId = wasOpen ? (items?.[0]?.id || 0) : id // Scroll to first item when closing, or current when opening
+export function useAccordionScroll(openId, setOpenId) {
+  const userScrolledRef = useRef(false)
+  const scrollStartYRef = useRef(0)
 
+  const toggleWithScroll = useCallback((id, event) => {
+    const wasOpen = openId === id
+    const clickedElement = event?.target.closest('[data-testid]')
+
+    // Track scroll position to detect user scroll during animation
+    scrollStartYRef.current = window.scrollY
+    userScrolledRef.current = false
+
+    // Listen for user scroll during animation
+    const handleUserScroll = () => {
+      if (Math.abs(window.scrollY - scrollStartYRef.current) > 10) {
+        userScrolledRef.current = true
+      }
+    }
+    window.addEventListener('scroll', handleUserScroll, { passive: true })
+
+    // Toggle accordion state
     setOpenId(wasOpen ? (typeof openId === 'number' ? -1 : null) : id)
 
-    // Start scroll immediately for smoother transition
-    // Scroll happens during accordion animation for more fluid feel
-    setTimeout(() => {
-      const target = document.querySelector(`[data-testid="${testIdPrefix}-${targetId}"]`)
-      if (target) {
-        const y = target.getBoundingClientRect().top + window.scrollY - 100
-        window.scrollTo({ top: y, behavior: 'smooth' })
+    // Wait for transition on clicked element, then scroll if needed
+    if (clickedElement && !wasOpen) {
+      const handleTransitionEnd = () => {
+        // Clean up scroll listener
+        window.removeEventListener('scroll', handleUserScroll)
+
+        // Skip if user scrolled manually during animation
+        if (userScrolledRef.current) {
+          return
+        }
+
+        // Only scroll if element is not already visible
+        if (!isElementInViewport(clickedElement)) {
+          clickedElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
+          })
+        }
+
+        clickedElement.removeEventListener('transitionend', handleTransitionEnd)
       }
-    }, 50)
-  }, [openId, setOpenId, testIdPrefix, items])
+
+      // Add timeout fallback in case transitionend doesn't fire
+      const timeoutId = setTimeout(() => {
+        window.removeEventListener('scroll', handleUserScroll)
+        clickedElement.removeEventListener('transitionend', handleTransitionEnd)
+      }, 1000) // 500ms transition + 500ms buffer
+
+      clickedElement.addEventListener('transitionend', handleTransitionEnd, { once: true })
+    }
+  }, [openId, setOpenId])
 
   return toggleWithScroll
 }

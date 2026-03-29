@@ -12,7 +12,7 @@ export default function ResearchersSection({ debugMode = false }) {
   const authors = researchers.authors
   const featuredAuthor = authors.find(author => author.featured)
   const [expandedId, setExpandedId] = useState(null)
-  const toggleExpand = useAccordionScroll(expandedId, setExpandedId, 'researcher', authors)
+  const toggleExpand = useAccordionScroll(expandedId, setExpandedId)
 
   // Map portraitFocus presets to CSS object-position values
   const getPortraitPosition = (focus) => {
@@ -188,7 +188,7 @@ export default function ResearchersSection({ debugMode = false }) {
                 {/* Read more button - centered with divider lines */}
                 <ExpandToggleButton
                   isExpanded={expandedId === author.id}
-                  onToggle={() => toggleExpand(author.id)}
+                  onToggle={(e) => toggleExpand(author.id, e)}
                   labelMore={ui.showMore}
                   labelLess={ui.showLess}
                   debugMode={debugMode}

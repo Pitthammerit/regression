@@ -23,7 +23,7 @@ import { useAccordionScroll } from '../../hooks/useAccordionScroll'
  */
 export default function FAQSectionCopy({ debugMode = false }) {
   const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
-  const toggleExpand = useAccordionScroll(expandedFAQIndex, setExpandedFAQIndex, 'faq', faq.items)
+  const toggleExpand = useAccordionScroll(expandedFAQIndex, setExpandedFAQIndex)
 
   return (
     <section
@@ -46,7 +46,7 @@ export default function FAQSectionCopy({ debugMode = false }) {
           {faq.items.map((item, index) => (
             <div id={`faq-${index}`} key={index} className="border-t border-color-border" style={{ scrollMarginTop: 80 }}>
               <button
-                onClick={() => toggleExpand(index)}
+                onClick={(e) => toggleExpand(index, e)}
                 className="w-full flex justify-between items-center py-6 text-left font-primary text-color-label hover:text-color-label/80 transition-colors"
                 data-testid={`faq-${index}`}
               >
