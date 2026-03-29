@@ -249,8 +249,8 @@ export const cases = {
 // ResearchersSection — RESEARCHERS & AUTHOR QUOTES
 // ═══════════════════════════════════════════════════════════
 export const researchers = {
-  authorBigLabel: "EVIDENZBASIERT",
-  authorHeadline: "Was die Forschung sagt",
+  authorBigLabel: "REGRESSION LEGENDEN",
+  authorHeadline: "Wenn Forscher aus Erfahrung sprechen",
   authorLabel: "WAS DIE FORSCHUNG SAGT",
   accordion: {
     readMore: "Mehr lesen",
