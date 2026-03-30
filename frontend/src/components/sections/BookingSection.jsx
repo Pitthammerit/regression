@@ -3,6 +3,7 @@ import { booking } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import TopicCard from '../ui/TopicCard'
+import TopicAccordionCard from '../ui/TopicAccordionCard'
 import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 
@@ -210,7 +211,7 @@ export function BookingSectionDark({ debugMode = false }) {
           </div>
         </div>
 
-        {/* Topics - collapse first with staggered animation, THEN calendar opens above */}
+        {/* Topics - Accordion cards with individual expand/collapse */}
         <div
           className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${
             calendarOpen
@@ -220,17 +221,7 @@ export function BookingSectionDark({ debugMode = false }) {
           data-testid="booking-topics-grid-dark"
         >
           {booking.formTopics.map((topic, i) => (
-            <div
-              key={i}
-              className="transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
-              style={{
-                transitionDelay: calendarOpen ? `${i * 50}ms` : `${i * 30}ms`,
-                transform: calendarOpen ? 'scale(0.95)' : 'scale(1)',
-                opacity: calendarOpen ? 0 : 1,
-              }}
-            >
-              <TopicCard title={topic} dark debugMode={debugMode} />
-            </div>
+            <TopicAccordionCard key={i} title={topic} dark debugMode={debugMode} />
           ))}
         </div>
 
