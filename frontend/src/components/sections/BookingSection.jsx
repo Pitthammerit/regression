@@ -26,12 +26,13 @@ import { ChevronDown } from 'lucide-react'
  * - TopicCard component for form topics (imported from ui/)
  */
 export default function BookingSection({ debugMode = false }) {
-  const [calendarOpen, setCalendarOpen] = useState(false)
+  // 'cards' | 'calendar' - which panel is expanded
+  const [expandedPanel, setExpandedPanel] = useState('cards')
   const embedCode = import.meta.env.VITE_CALENDAR_EMBED
 
   // Listen for global 'booking:open' event (dispatched by CtaButton)
   useEffect(() => {
-    const handler = () => setCalendarOpen(true)
+    const handler = () => setExpandedPanel('calendar')
     window.addEventListener('booking:open', handler)
     return () => window.removeEventListener('booking:open', handler)
   }, [])
@@ -55,32 +56,22 @@ export default function BookingSection({ debugMode = false }) {
           </p>
         </DebugLabel>
 
-        {/* Topics */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem]" data-testid="booking-topics-grid">
-          {booking.formTopics.map((topic, i) => (
-            <TopicCard key={i} title={topic} debugMode={debugMode} />
-          ))}
-        </div>
+        {/* Topics Accordion - 6 cards (initially open) */}
+        <AccordionWrap isOpen={expandedPanel === 'cards'} duration="500ms">
+          <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            expandedPanel === 'cards' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+          }`}>
+            {booking.formTopics.map((topic, i) => (
+              <TopicCard key={i} title={topic} debugMode={debugMode} />
+            ))}
+          </div>
+        </AccordionWrap>
 
-        {/* Accordion CTA button */}
-        <button
-          onClick={() => setCalendarOpen(!calendarOpen)}
-          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-color-primary text-on-dark hover:bg-color-secondary transition-colors duration-200"
-          data-testid="booking-cta-button"
-        >
-          {booking.directBookingCta}
-          <ChevronDown
-            size={14}
-            className={`transition-transform duration-300 ${calendarOpen ? 'rotate-180' : ''}`}
-          />
-        </button>
-
-        {/* Inline Calendar Accordion */}
-        <div
-          className={`overflow-hidden transition-all duration-500 ${calendarOpen ? 'max-h-[900px] mt-8' : 'max-h-0'}`}
-          data-testid="booking-calendar-accordion"
-        >
-          <div className="rounded-2xl border border-color-light bg-color-card-overlay p-8 text-left">
+        {/* Calendar Accordion (initially closed) */}
+        <AccordionWrap isOpen={expandedPanel === 'calendar'} duration="500ms">
+          <div className={`rounded-2xl border border-color-light bg-color-card-overlay p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] my-8 ${
+            expandedPanel === 'calendar' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
             {embedCode ? (
               <iframe
                 src={embedCode}
@@ -105,7 +96,20 @@ export default function BookingSection({ debugMode = false }) {
               </div>
             )}
           </div>
-        </div>
+        </AccordionWrap>
+
+        {/* Accordion CTA button - toggles between panels */}
+        <button
+          onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
+          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-color-primary text-on-dark hover:bg-color-secondary transition-colors duration-200"
+          data-testid="booking-cta-button"
+        >
+          {booking.directBookingCta}
+          <ChevronDown
+            size={14}
+            className={`transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
+          />
+        </button>
       </div>
     </SectionWrapper>
   )
