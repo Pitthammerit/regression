@@ -79,10 +79,6 @@ export default function Footer({ data = footerContent, debugMode = false }) {
             </div>
           </div>
 
-          {/* — Divider — */}
-          <div className="pt-10 mb-10">
-            <div className="h-px bg-color-border-light"></div>
-          </div>
           <div className="pt-10 mb-10">
 
             {/*
