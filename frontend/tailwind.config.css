@@ -560,8 +560,5 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   LOGO COLOR UTILITIES
+   BACKGROUND IMAGE (paper texture)
    ───────────────────────────────────────────────────────────── */
-@utility logo-primary {
-  filter: brightness(1.8) sepia(100%) saturate(300%) hue-rotate(195deg);
-}
