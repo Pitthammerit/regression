@@ -161,14 +161,17 @@ export function BookingSectionDark({ debugMode = false }) {
           </p>
         </DebugLabel>
 
-        {/* Inline Calendar Accordion - appears above when open */}
-        {/* Using grid-template-rows approach for smooth height animation */}
+        {/* Inline Calendar Accordion - opens AFTER cards collapse */}
+        {/* Two-stage animation: cards close first, then calendar opens from top */}
         <div
-          className={`grid transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`grid transition-all duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
             calendarOpen
               ? 'grid-rows-[1fr] opacity-100 mb-8'
               : 'grid-rows-[0fr] opacity-0'
           }`}
+          style={{
+            transitionDelay: calendarOpen ? '700ms' : '0ms',
+          }}
           data-testid="booking-calendar-accordion"
         >
           <div className="overflow-hidden">
@@ -200,10 +203,10 @@ export function BookingSectionDark({ debugMode = false }) {
           </div>
         </div>
 
-        {/* Topics - hidden when calendar is open with staggered fade-out */}
+        {/* Topics - collapse first with staggered animation, THEN calendar opens above */}
         <div
           className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem] transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            calendarOpen ? 'opacity-0 hidden' : 'opacity-100'
+            calendarOpen ? 'opacity-0' : 'opacity-100'
           }`}
           data-testid="booking-topics-grid-dark"
         >
@@ -212,8 +215,8 @@ export function BookingSectionDark({ debugMode = false }) {
               key={i}
               className="transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{
-                transitionDelay: calendarOpen ? `${i * 50}ms` : '0ms',
-                transform: calendarOpen ? 'scale(0.98)' : 'scale(1)',
+                transitionDelay: calendarOpen ? `${i * 50}ms` : `${i * 30}ms`,
+                transform: calendarOpen ? 'scale(0.95)' : 'scale(1)',
                 opacity: calendarOpen ? 0 : 1,
               }}
             >
