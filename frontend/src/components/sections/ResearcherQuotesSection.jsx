@@ -28,16 +28,13 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
     const willExpand = !isExpanded
     setIsExpanded(willExpand)
 
-    // When opening, scroll to first newly visible author
+    // When opening, scroll to first newly visible author (4th author overall)
     if (willExpand) {
       requestAnimationFrame(() => {
-        const firstNewAuthor = document.querySelector('[data-testid="researcher-quotes-section"] .grid.md\\:grid-cols-3:nth-child(2) > div:first-child')
-        // Fallback: scroll to section if no specific author found
-        const section = document.querySelector('[data-testid="researcher-quotes-section"]')
-
-        const targetElement = firstNewAuthor || section
-        if (targetElement) {
-          const rect = targetElement.getBoundingClientRect()
+        // Target the expanded grid (contains authors 4+)
+        const expandedGrid = document.querySelector('[data-testid="researcher-quotes-expanded"]')
+        if (expandedGrid) {
+          const rect = expandedGrid.getBoundingClientRect()
           const scrollTop = window.scrollY + rect.top - 100
 
           window.scrollTo({
@@ -131,7 +128,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
 
           {/* Expanded content - authors 4+ */}
           {isExpanded && (
-            <div className="grid md:grid-cols-3 gap-10 md:gap-14">
+            <div className="grid md:grid-cols-3 gap-10 md:gap-14" data-testid="researcher-quotes-expanded">
               {authorsWithPortraits.slice(3).map((author) => (
                 <div key={author.id}>
                   <div className="md:hidden mb-4">
