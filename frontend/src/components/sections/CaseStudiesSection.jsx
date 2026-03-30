@@ -6,7 +6,7 @@ import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import AccordionWrap from '../ui/AccordionWrap'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, UserCircle } from 'lucide-react'
 
 export default function CaseStudiesSection({ debugMode = false }) {
   // All items closed by default, click to open individual
@@ -64,10 +64,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 />
               ) : (
                 <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border border-color-primary flex items-center justify-center shrink-0">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-color-primary">
-                    <circle cx="12" cy="7.5" r="3" />
-                    <path d="M5 21c0-3 5-2 8 7 8s7-5 7-8" />
-                  </svg>
+                  <UserCircle className="w-12 h-12 text-color-primary" />
                 </div>
               )}
               <div className="flex-1 pr-4">
