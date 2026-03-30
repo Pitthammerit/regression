@@ -101,7 +101,7 @@ export default function ResearchersSection({ debugMode = false }) {
 
             {/* Divider - Full width, more spacing below */}
             <div className="md:col-span-2 divider-spacing">
-              <div className="divider-line border-color-primary"></div>
+              <div className="h-px bg-color-border-light"></div>
             </div>
           </div>
         )}
@@ -221,7 +221,7 @@ export default function ResearchersSection({ debugMode = false }) {
                 </div>
                 {/* Divider - Full width, same spacing as featured section */}
                 <div className="md:col-span-2 divider-spacing">
-                  <div className="divider-line border-color-primary"></div>
+                  <div className="h-px bg-color-border-light"></div>
                 </div>
               </div>
             </AccordionWrap>
