@@ -215,7 +215,19 @@ import { header, footer } from './content/plr-de'
 **Limitations:** No i18n system exists. English content is not implemented. All user-facing text should move to the content layer, but many components still have hardcoded German strings (notably `Footer.jsx` and `TranscriptPage.jsx`).
 
 ### Section Components
-`frontend/src/components/sections/` contains active section components used in the main application. The primary hero section is `HeroV3Section` — this is the only hero variant currently in production.
+
+**IMPORTANT:** Work only in `sections/` — the other folders are for reference only.
+
+```
+frontend/src/components/
+├── sections/              # ACTIVE SECTIONS — Work here only!
+├── copy-sections/         # REFERENCE ONLY — Copy sections from typography refactoring (March 2026)
+└── hardcoded-sections/    # REFERENCE ONLY — Old hardcoded sections (legacy)
+```
+
+#### `sections/` — Active Sections (WORK HERE)
+
+These are the production sections currently in use. **All development happens here.**
 
 **Active Sections:**
 - `HeroV3Section` — Main hero with background image
@@ -223,6 +235,28 @@ import { header, footer } from './content/plr-de'
 - `TestimonialCarousel` — Client testimonials carousel with auto-rotation
 - `PodcastSection`, `PodcastVideoSection` — Podcast integration
 - `CaseStudiesSection`, `ServicesSection`, `WelcomeSection`, etc.
+- `FAQSection` — FAQ with custom `useFAQScroll` hook
+- `ReferencesSection` — References with custom scroll logic
+- `ResearcherQuotesSection` — Research authority quotes with scroll
+- `ResearchersSection` — Evidence section with accordion cards
+
+#### `copy-sections/` — Reference Only
+
+These are *Copy sections created during the typography refactoring (March 2026). They preserved the old typography while the originals were migrated to design tokens.
+
+**Purpose:** Historical reference — shows what sections looked like before typography migration.
+
+**DO NOT:** Edit, import, or use these in production.
+
+#### `hardcoded-sections/` — Reference Only
+
+These are the original hardcoded sections from early development. They contain hardcoded content (before the content layer existed).
+
+**Purpose:** Legacy reference — shows the earliest implementation approach.
+
+**DO NOT:** Edit, import, or use these in production.
+
+---
 
 **Image Optimization:**
 - **Keine Build-time oder CDN-Optimierung** aktiviert
