@@ -34,11 +34,12 @@ export default function ReferencesSection({ debugMode = false }) {
 
     // When opening, scroll to first newly visible item after animation
     // Special case: content opens BELOW the weniger/mehr button
+    // We scroll to the 2nd reference overall (first one below the button)
     if (willExpand) {
       // Wait for content to render (no accordion animation, just state update)
       requestAnimationFrame(() => {
-        // Find the first newly visible reference (index 1 in items array)
-        const firstNewItem = document.querySelector('[data-testid="reference-item-1"]')
+        // Find the first newly visible reference (reference-item-0 = 2nd overall)
+        const firstNewItem = document.querySelector('[data-testid="reference-item-0"]')
         if (firstNewItem) {
           const rect = firstNewItem.getBoundingClientRect()
           const scrollTop = window.scrollY + rect.top - 100
