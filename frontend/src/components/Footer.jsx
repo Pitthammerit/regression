@@ -20,7 +20,7 @@ const CONTACT_ICONS = {
   instagram: <Instagram size={24} strokeWidth={1.5} />,
 }
 
-export default function Footer({ data, debugMode = false }) {
+export default function Footer({ data = footerContent, debugMode = false }) {
   const nav = siteHeader.nav
   const year = new Date().getFullYear()
   const { navigateTo } = useNavigation()
@@ -116,14 +116,14 @@ export default function Footer({ data, debugMode = false }) {
                   <div className="flex flex-col gap-3">
                     {data.legalLinks.map((link) => (
                       <DebugLabel key={link.label} type="menu-text" debugMode={debugMode}>
-                      <a
-                        key={link.label}
-                        href={link.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="font-primary text-menu-text text-white/60 hover:text-white transition-colors"
-                        data-testid={`footer-legal-${link.label.toLowerCase()}`}
-                      >
+                        <a
+                          key={link.label}
+                          href={link.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="font-primary text-menu-text text-white/60 hover:text-white transition-colors"
+                          data-testid={`footer-legal-${link.label.toLowerCase()}`}
+                        >
                           {link.label}
                         </a>
                       </DebugLabel>
@@ -141,14 +141,14 @@ export default function Footer({ data, debugMode = false }) {
                   <div className="flex flex-col gap-3">
                     {data.social.map((s) => (
                       <DebugLabel key={s.label} type="menu-text" debugMode={debugMode}>
-                      <a
-                        key={s.label}
-                        href={s.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="font-primary text-menu-text text-white/60 hover:text-white transition-colors"
-                        data-testid={`footer-social-${s.label.toLowerCase().replace(/ /g, '-')}`}
-                      >
+                        <a
+                          key={s.label}
+                          href={s.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="font-primary text-menu-text text-white/60 hover:text-white transition-colors"
+                          data-testid={`footer-social-${s.label.toLowerCase().replace(/ /g, '-')}`}
+                        >
                           {s.label}
                         </a>
                       </DebugLabel>
@@ -167,7 +167,7 @@ export default function Footer({ data, debugMode = false }) {
             </DebugLabel>
             <DebugLabel type="disclaimer" debugMode={debugMode}>
               <p className="font-primary text-disclaimer disclaimer text-white/50 leading-relaxed max-w-3xl mx-auto">
-              {footerContent.disclaimer.split('. ').map((sentence, index, array) => {
+                {footerContent.disclaimer.split('. ').map((sentence, index, array) => {
                 if (sentence.includes('Erstgespräch')) {
                   const [before, after] = sentence.split('Erstgespräch')
                   return (
@@ -200,15 +200,15 @@ export default function Footer({ data, debugMode = false }) {
           {/* — Divider + Copyright — */}
           <DebugLabel type="hint" debugMode={debugMode}>
             <div className="border-t border-white/10 pt-6 text-center font-primary text-hint hint text-white/50">
-            {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
-            <a
-              href={footerContent.copyright.homeUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-white/70 hover:text-white underline transition-colors"
-            >
-              {footerContent.copyright.homeLabel}
-            </a>
+              {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
+              <a
+                href={footerContent.copyright.homeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/70 hover:text-white underline transition-colors"
+              >
+                {footerContent.copyright.homeLabel}
+              </a>
             </div>
           </DebugLabel>
 
