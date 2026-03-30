@@ -41,7 +41,7 @@ export default function SimpleCtaSection({ debugMode = false }) {
           </p>
         </DebugLabel>
 
-        <div className="mt-[10rem]">
+        <div style={{ marginTop: '160px' }}>
           <DebugLabel type="button-text" debugMode={debugMode}>
             <CtaButton label={simpleCta.cta} variant="primary" className="py-4 px-12" />
           </DebugLabel>
