@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useAccordionScroll } from '../../hooks/useAccordionScroll'
+import { useCaseStudiesScroll } from '../../hooks/useCaseStudiesScroll'
 import { cases } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
@@ -11,7 +11,7 @@ import { ChevronDown, User } from 'lucide-react'
 export default function CaseStudiesSection({ debugMode = false }) {
   // All items closed by default, click to open individual
   const [openIndex, setOpenIndex] = useState(-1)
-  const toggleWithScroll = useAccordionScroll(openIndex, setOpenIndex)
+  const toggleWithScroll = useCaseStudiesScroll(openIndex, setOpenIndex)
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
