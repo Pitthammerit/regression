@@ -177,7 +177,7 @@ export function BookingSectionDark({ debugMode = false }) {
 
         {/* Calendar Accordion (initially closed) */}
         <AccordionWrap isOpen={expandedPanel === 'calendar'} duration="500ms">
-          <div className={`rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] mt-[3rem] mb-[3.5rem] ${
+          <div className={`rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] my-8 ${
             expandedPanel === 'calendar' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {embedCode ? (
