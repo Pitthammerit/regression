@@ -6,7 +6,7 @@ import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
 import AccordionWrap from '../ui/AccordionWrap'
-import { ChevronDown, User } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 export default function CaseStudiesSection({ debugMode = false }) {
   // All items closed by default, click to open individual
@@ -63,8 +63,10 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   className="w-24 h-24 rounded-full object-cover object-top border border-color-primary shrink-0 scale-[1.03]"
                 />
               ) : (
-                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border flex items-center justify-center shrink-0" style={{ borderColor: 'var(--color-border-primary)' }}>
-                  <User className="w-12 h-12 text-color-primary/30" />
+                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border-2 border-color-primary flex items-center justify-center shrink-0">
+                  <span className="font-secondary text-4xl font-semibold text-color-primary">
+                    {item.name.charAt(0)}
+                  </span>
                 </div>
               )}
               <div className="flex-1 pr-4">
