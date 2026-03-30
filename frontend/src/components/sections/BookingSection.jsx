@@ -164,7 +164,7 @@ export function BookingSectionDark({ debugMode = false }) {
         {/* Inline Calendar Accordion - opens AFTER cards collapse */}
         {/* Two-stage animation: cards close first, then calendar opens from top */}
         <div
-          className={`grid transition-all duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`grid transition-all duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
             calendarOpen
               ? 'grid-rows-[1fr] opacity-100'
               : 'grid-rows-[0fr] opacity-0'
@@ -175,7 +175,14 @@ export function BookingSectionDark({ debugMode = false }) {
           data-testid="booking-calendar-accordion"
         >
           <div className="overflow-hidden">
-            <div className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left">
+            <div
+              className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style={{
+                transitionDelay: calendarOpen ? '800ms' : '0ms',
+                transform: calendarOpen ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.98)',
+                opacity: calendarOpen ? 1 : 0,
+              }}
+            >
               {embedCode ? (
                 <iframe
                   src={embedCode}
