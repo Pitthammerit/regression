@@ -13,6 +13,7 @@ export default function NotFound() {
   const footerData = {
     contact: footerContent.contact,
     legalLinks: footerContent.legalLinks,
+    social: footerContent.social,
   }
 
   return (
