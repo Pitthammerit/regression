@@ -108,3 +108,104 @@ export default function BookingSection({ debugMode = false }) {
     </SectionWrapper>
   )
 }
+
+/**
+ * BookingSectionDark — Dark blue variation with on-dark tokens
+ *
+ * Same as BookingSection but with dark blue background and adapted colors:
+ * - Background: bg-color-primary (dark navy blue)
+ * - Headline: text-primary-on-dark (pure white)
+ * - Body text: text-on-dark (white 80%)
+ * - Labels: text-secondary-on-dark (white 60%)
+ * - Calendar card: adapted for dark background
+ * - Borders/dividers: use on-dark tokens
+ */
+export function BookingSectionDark({ debugMode = false }) {
+  const [calendarOpen, setCalendarOpen] = useState(false)
+  const embedCode = import.meta.env.VITE_CALENDAR_EMBED
+
+  // Listen for global 'booking:open' event (dispatched by CtaButton)
+  useEffect(() => {
+    const handler = () => setCalendarOpen(true)
+    window.addEventListener('booking:open', handler)
+    return () => window.removeEventListener('booking:open', handler)
+  }, [])
+
+  return (
+    <SectionWrapper
+      id="booking"
+      data-testid="booking-section"
+      className="bg-color-primary text-primary-on-dark"
+    >
+      <div className="max-w-centered-header content-spacing-lg mx-auto text-center">
+        <DebugLabel type="label" debugMode={debugMode}>
+          <SectionLabel text={booking.label} light />
+        </DebugLabel>
+
+        <DebugLabel type="hero" debugMode={debugMode}>
+          <h2 className="font-secondary text-hero-large leading-tight content-spacing-md">
+            {booking.headline}
+          </h2>
+        </DebugLabel>
+
+        <DebugLabel type="body-lg" debugMode={debugMode}>
+          <p className="font-primary text-body-lg text-on-dark leading-relaxed max-w-lg mx-auto">
+            {booking.subline}
+          </p>
+        </DebugLabel>
+
+        {/* Topics */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem]" data-testid="booking-topics-grid-dark">
+          {booking.formTopics.map((topic, i) => (
+            <TopicCard key={i} title={topic} dark debugMode={debugMode} />
+          ))}
+        </div>
+
+        {/* Accordion CTA button */}
+        <button
+          onClick={() => setCalendarOpen(!calendarOpen)}
+          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-colors duration-200"
+          data-testid="booking-cta-button"
+        >
+          {booking.directBookingCta}
+          <ChevronDown
+            size={14}
+            className={`transition-transform duration-300 ${calendarOpen ? 'rotate-180' : ''}`}
+          />
+        </button>
+
+        {/* Inline Calendar Accordion */}
+        <div
+          className={`overflow-hidden transition-all duration-500 ${calendarOpen ? 'max-h-[900px] mt-8' : 'max-h-0'}`}
+          data-testid="booking-calendar-accordion"
+        >
+          <div className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left">
+            {embedCode ? (
+              <iframe
+                src={embedCode}
+                className="w-full min-h-[600px] border-0 rounded-xl"
+                title="Intro-Call buchen"
+                data-testid="booking-iframe"
+              />
+            ) : (
+              <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
+                <div className="w-12 h-px bg-divider-on-dark" />
+                <DebugLabel type="body" debugMode={debugMode}>
+                  <p className="font-primary text-body text-on-dark">
+                    Kalender-Embed wird hier eingebettet.
+                  </p>
+                </DebugLabel>
+                <DebugLabel type="label" debugMode={debugMode}>
+                  <p className="font-primary text-label text-secondary-on-dark max-w-xs">
+                    Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
+                  </p>
+                </DebugLabel>
+                <div className="w-12 h-px bg-divider-on-dark" />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+  )
+}

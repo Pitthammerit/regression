@@ -22,7 +22,7 @@ import ProcessSection from './components/sections/ProcessSection'
 import CaseStudiesSection from './components/sections/CaseStudiesSection'
 import TestimonialsSection from './components/sections/TestimonialsSection'
 import TestimonialCarousel from './components/sections/TestimonialCarousel'
-import BookingSection from './components/sections/BookingSection'
+import { BookingSectionDark } from './components/sections/BookingSection'
 import CtaImageSection from './components/sections/CtaImageSection'
 import TranscriptPage from './pages/TranscriptPage'
 import MenuDemoPage from './pages/demos/MenuDemoPage'
@@ -98,7 +98,7 @@ function MainPage() {
         debugMode={debugMode}
       />
     ),
-    'BookingSection': <BookingSection debugMode={debugMode} />,
+    'BookingSection': <BookingSectionDark debugMode={debugMode} />,
     'FAQSection': <FAQSection debugMode={debugMode} />,
     'ReferencesSection': <ReferencesSection debugMode={debugMode} />,
     'CtaImageSection': <CtaImageSection debugMode={debugMode} />,

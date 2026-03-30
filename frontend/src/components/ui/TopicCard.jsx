@@ -14,16 +14,24 @@ import DebugLabel from './DebugLabel'
  * - ForWhomSection (title + body)
  * - BookingSection (title only)
  */
-export default function TopicCard({ title, body, children, debugMode = false }) {
+export default function TopicCard({ title, body, children, dark = false, debugMode = false }) {
   return (
-    <div className="bg-color-card-overlay rounded-2xl p-5 md:p-6 flex flex-col gap-2 border border-color-bg-light hover:border-color-secondary transition-colors">
+    <div className={`rounded-2xl p-5 md:p-6 flex flex-col gap-2 border transition-colors ${
+      dark
+        ? 'bg-white/5 border-divider-on-dark hover:border-secondary-on-dark'
+        : 'bg-color-card-overlay border-color-bg-light hover:border-color-secondary'
+    }`}>
       <DebugLabel type="h4" debugMode={debugMode}>
-        <h3 className="font-secondary text-h4 text-color-primary leading-snug">{title}</h3>
+        <h3 className={`font-secondary text-h4 leading-snug ${
+          dark ? 'text-primary-on-dark' : 'text-color-primary'
+        }`}>{title}</h3>
       </DebugLabel>
       {(body || children) && (
         <DebugLabel type="body" debugMode={debugMode}>
           {body ? (
-            <p className="font-primary text-body text-color-text leading-relaxed">{body}</p>
+            <p className={`font-primary text-body leading-relaxed ${
+              dark ? 'text-on-dark' : 'text-color-text'
+            }`}>{body}</p>
           ) : (
             children
           )}
