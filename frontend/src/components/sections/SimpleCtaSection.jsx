@@ -41,7 +41,7 @@ export default function SimpleCtaSection({ debugMode = false }) {
           </p>
         </DebugLabel>
 
-        <div style={{ marginTop: '160px' }}>
+        <div className="content-spacing-lg">
           <DebugLabel type="button-text" debugMode={debugMode}>
             <CtaButton label={simpleCta.cta} variant="primary" className="py-4 px-12" />
           </DebugLabel>

@@ -60,9 +60,9 @@ export default function CtaImageSection({ debugMode = false }) {
               </p>
             </DebugLabel>
 
-            <div className="content-spacing-md">
+            <div className="mt-[4rem]">
               <DebugLabel type="button-text" debugMode={debugMode}>
-                <CtaButton label={ctaImage.cta} variant="primary" />
+                <CtaButton label={ctaImage.cta} variant="primary" className="py-4 px-12" />
               </DebugLabel>
             </div>
           </div>
