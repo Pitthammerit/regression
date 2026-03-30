@@ -154,29 +154,11 @@ export function BookingSectionDark({ debugMode = false }) {
           </p>
         </DebugLabel>
 
-        {/* Topics */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem]" data-testid="booking-topics-grid-dark">
-          {booking.formTopics.map((topic, i) => (
-            <TopicCard key={i} title={topic} dark debugMode={debugMode} />
-          ))}
-        </div>
-
-        {/* Accordion CTA button */}
-        <button
-          onClick={() => setCalendarOpen(!calendarOpen)}
-          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-colors duration-200"
-          data-testid="booking-cta-button"
-        >
-          {booking.directBookingCta}
-          <ChevronDown
-            size={14}
-            className={`transition-transform duration-300 ${calendarOpen ? 'rotate-180' : ''}`}
-          />
-        </button>
-
-        {/* Inline Calendar Accordion */}
+        {/* Inline Calendar Accordion - appears above when open */}
         <div
-          className={`overflow-hidden transition-all duration-500 ${calendarOpen ? 'max-h-[900px] mt-8' : 'max-h-0'}`}
+          className={`overflow-hidden transition-all duration-500 ${
+            calendarOpen ? 'max-h-[900px] mb-8 opacity-100' : 'max-h-0 opacity-0'
+          }`}
           data-testid="booking-calendar-accordion"
         >
           <div className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left">
@@ -205,6 +187,28 @@ export function BookingSectionDark({ debugMode = false }) {
             )}
           </div>
         </div>
+
+        {/* Topics - hidden when calendar is open */}
+        <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem] transition-all duration-500 ${
+          calendarOpen ? 'opacity-0 hidden' : 'opacity-100'
+        }`} data-testid="booking-topics-grid-dark">
+          {booking.formTopics.map((topic, i) => (
+            <TopicCard key={i} title={topic} dark debugMode={debugMode} />
+          ))}
+        </div>
+
+        {/* Accordion CTA button - always visible */}
+        <button
+          onClick={() => setCalendarOpen(!calendarOpen)}
+          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-colors duration-200"
+          data-testid="booking-cta-button"
+        >
+          {booking.directBookingCta}
+          <ChevronDown
+            size={14}
+            className={`transition-transform duration-300 ${calendarOpen ? 'rotate-180' : ''}`}
+          />
+        </button>
       </div>
     </SectionWrapper>
   )
