@@ -6,14 +6,12 @@ import DebugLabel from '../ui/DebugLabel'
 const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/podcast%20bg%20blur.jpg"
 
 /**
- * PodcastSection — Podcast section with typography tokens
+ * PodcastSection — Podcast section with composite typography utilities
  *
- * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-secondary (headlines), font-primary (body)
- * - Label: text-label (15px) + color-label
- * - Headline: podcast-headline (clamp 2.8-5rem, line-height 0.95) + color-heading
- * - Body: text-body-lg (20px) + color-body
- * - Links: text-label (15px) + color-heading
+ * MIGRATED to composite typography utilities:
+ * - Podcast headline: font-secondary text-podcast-headline (kept as-is - no composite utility yet)
+ * - Body-lg: typography-body-lg (replaces font-primary text-body-lg text-color-text)
+ * - Button text: typography-menu-text (replaces font-primary text-button-text button-text)
  *
  * CRITICAL PRESERVED:
  * - Background image with cream tint overlay
@@ -49,7 +47,7 @@ export default function PodcastSection({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="body-lg" debugMode={debugMode}>
-              <p className="font-primary text-body-lg text-color-text leading-relaxed">
+              <p className="typography-body-lg leading-relaxed">
                 {podcast.sectionBody}
               </p>
             </DebugLabel>
@@ -61,7 +59,7 @@ export default function PodcastSection({ debugMode = false }) {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-primary text-button-text button-text text-color-primary border border-color-primary/30 rounded-sm px-5 py-2.5 hover:bg-color-primary hover:text-white transition-colors"
+                  className="typography-menu-text text-color-primary border border-color-primary/30 rounded-sm px-5 py-2.5 hover:bg-color-primary hover:text-white transition-colors"
                   data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                 >
                   {link.label}

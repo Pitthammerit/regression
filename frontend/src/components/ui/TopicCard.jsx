@@ -22,14 +22,14 @@ export default function TopicCard({ title, body, children, dark = false, debugMo
         : 'bg-color-card-overlay border-color-bg-light hover:border-color-secondary'
     }`}>
       <DebugLabel type="h4" debugMode={debugMode}>
-        <h3 className={`font-secondary text-h4 leading-snug ${
+        <h3 className={`typography-h4 ${
           dark ? 'text-primary-on-dark' : 'text-color-primary'
         }`}>{title}</h3>
       </DebugLabel>
       {(body || children) && (
         <DebugLabel type="body" debugMode={debugMode}>
           {body ? (
-            <p className={`font-primary text-body leading-relaxed ${
+            <p className={`typography-body ${
               dark ? 'text-on-dark' : 'text-color-text'
             }`}>{body}</p>
           ) : (

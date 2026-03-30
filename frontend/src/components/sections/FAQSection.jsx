@@ -7,14 +7,13 @@ import { useNavigation } from '../../contexts/NavigationContext'
 import { useFAQScroll } from '../../hooks/useFAQScroll'
 
 /**
- * FAQSection — FAQ section with typography tokens
+ * FAQSection — FAQ section with composite typography utilities
  *
- * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-secondary (headlines), font-primary (body)
- * - Label: text-label (15px) + color-label
- * - Headline: text-h2 (36px) + color-heading
- * - Question: text-h4 (24px) + color-heading
- * - Answer: text-body (18px) + color-heading
+ * MIGRATED to composite typography utilities (Single Source of Truth):
+ * - Label: typography-label (includes font-family, size, color)
+ * - Headline: typography-h2 (includes font-family, size, color, leading)
+ * - Question: typography-h4 (includes font-family, size, color)
+ * - Answer: typography-body (includes font-family, size, color, leading)
  *
  * CRITICAL PRESERVED:
  * - Section with id="faq" (scroll target)
@@ -43,7 +42,7 @@ export default function FAQSection({ debugMode = false }) {
         </DebugLabel>
 
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-primary leading-tight section-block-spacing">
+          <h2 className="typography-h2 section-block-spacing">
             {faq.headline}
           </h2>
         </DebugLabel>
@@ -57,7 +56,7 @@ export default function FAQSection({ debugMode = false }) {
                 data-testid={`faq-${index}`}
               >
                 <DebugLabel type="h4" debugMode={debugMode}>
-                  <span className="font-medium text-h4 text-color-primary">{item.question}</span>
+                  <span className="typography-h4">{item.question}</span>
                 </DebugLabel>
                 <ChevronDown
                   className={`transition-transform duration-500 ease-out ${
@@ -71,7 +70,7 @@ export default function FAQSection({ debugMode = false }) {
                     {item.answer.split('\n\n').map((paragraph, i, arr) => (
                       <p
                         key={i}
-                        className={`font-primary text-body text-color-primary leading-relaxed ${
+                        className={`typography-body ${
                           i < arr.length - 1 ? 'paragraph-spacing' : ''
                         }`}
                       >

@@ -6,19 +6,13 @@ import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * TestimonialsSection - Client testimonials grid layout with typography tokens
+ * TestimonialsSection - Client testimonials grid layout with composite typography utilities
  *
- * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-secondary (headlines), font-primary (body/labels)
- * - Label: text-label (15px) + color-label + .label plugin (uppercase)
- * - H2: text-h2 (36px) + color-heading
- * - Quote (italic): text-body-lg (20px) + color-body + .quote-featured-italic plugin
- * - Name: text-h5 (20px) + color-heading + font-semibold
- * - Context: text-label (15px) + color-label + .role plugin (uppercase)
- * - Background cards: bg-color-card-overlay (white/50)
- * - Borders: border-color-light (black/10)
- * - Circular avatars: border-2 border-color-primary (2px, #224160)
- * - Spacing: section-padding, content-spacing-lg, content-spacing-md, name-role-spacing
+ * MIGRATED to composite typography utilities:
+ * - Label: typography-label (replaces font-primary text-label label text-color-secondary)
+ * - Quote: font-secondary text-body-lg quote-featured-italic (kept - needs custom composite utility)
+ * - Name: font-primary text-h5 font-semibold (kept - no h5 composite utility yet)
+ * - Context: typography-label (replaces font-primary text-label role text-color-secondary)
  *
  * Layout:
  * - First testimonial (index 0): Left column, full height
@@ -38,8 +32,8 @@ export default function TestimonialsSection({ debugMode = false }) {
       {/* Client Testimonials */}
       <div className="section-padding">
         <div className="max-w-content mx-auto px-6">
-          <h2 className="font-primary text-label label text-color-secondary content-spacing-lg">
-            <DebugLabel token="text-label (15px) + color-label + .label" show={debugMode}>
+          <h2 className="typography-label content-spacing-lg">
+            <DebugLabel token="typography-label" show={debugMode}>
               WALL OF LOVE
             </DebugLabel>
           </h2>
@@ -79,8 +73,8 @@ export default function TestimonialsSection({ debugMode = false }) {
                         {featured.name}
                       </DebugLabel>
                     </div>
-                    <div className="font-primary text-label role text-color-secondary name-role-spacing">
-                      <DebugLabel token="text-label (15px) + color-label + .role" show={debugMode}>
+                    <div className="typography-label name-role-spacing">
+                      <DebugLabel token="typography-label" show={debugMode}>
                         {featured.context}
                       </DebugLabel>
                     </div>
@@ -132,8 +126,8 @@ function TestimonialCard({ c, index, debugMode = false }) {
               {c.name}
             </DebugLabel>
           </div>
-          <div className="font-primary text-label role text-color-secondary name-role-spacing">
-            <DebugLabel token="text-label (15px) + color-label + .role" show={debugMode}>
+          <div className="typography-label name-role-spacing">
+            <DebugLabel token="typography-label" show={debugMode}>
               {c.context}
             </DebugLabel>
           </div>

@@ -15,12 +15,12 @@ export default function ServicesSection({ debugMode = false }) {
               data-testid={`service-item-${i}`}
             >
               <DebugLabel type="label" debugMode={debugMode}>
-                <span className="font-primary text-label tracking-label-alt label text-color-secondary block-label-spacing">
+                <span className="typography-label block-label-spacing">
                   {service.sub}
                 </span>
               </DebugLabel>
               <DebugLabel type="h4" debugMode={debugMode}>
-                <span className="font-secondary text-h4 text-color-primary">
+                <span className="typography-h4">
                   {service.label}
                 </span>
               </DebugLabel>

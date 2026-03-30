@@ -20,12 +20,12 @@ export default function CaseStudiesSection({ debugMode = false }) {
           <SectionLabel text={cases.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-primary leading-tight text-center content-spacing-md">
+          <h2 className="typography-h2 leading-tight text-center content-spacing-md">
             {cases.headline}
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-text leading-relaxed">{cases.body}</p>
+          <p className="typography-body-lg leading-relaxed">{cases.body}</p>
         </DebugLabel>
       </div>
 
@@ -87,12 +87,12 @@ export default function CaseStudiesSection({ debugMode = false }) {
               )}
               <div className="flex-1 pr-4">
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <span className="font-primary text-label label text-color-secondary block item-tag-spacing">
+                  <span className="typography-label block item-tag-spacing">
                     {item.tag}
                   </span>
                 </DebugLabel>
                 <DebugLabel type="h3" debugMode={debugMode}>
-                  <span className="font-secondary text-h3 text-color-primary group-hover:text-color-secondary transition-colors block leading-snug">
+                  <span className="typography-h3 group-hover:text-color-secondary transition-colors block leading-snug">
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>
@@ -117,12 +117,12 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 ].map((block) => (
                   <div key={block.label} className="border-l border-color-primary pl-4">
                     <DebugLabel type="label" debugMode={debugMode}>
-                      <span className="font-primary text-label label text-color-secondary block block-label-spacing">
+                      <span className="typography-label block block-label-spacing">
                         {block.label}
                       </span>
                     </DebugLabel>
                     <DebugLabel type="body" debugMode={debugMode}>
-                      <p className="font-primary text-color-text text-body">
+                      <p className="typography-body">
                         {block.text}
                       </p>
                     </DebugLabel>

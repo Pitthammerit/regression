@@ -4,15 +4,14 @@ import { TESTIMONIALS_LIST } from "../../content/testimonials.list"
 import DebugLabel from "../ui/DebugLabel"
 
 /**
- * TestimonialCarousel- Carousel with typography tokens
+ * TestimonialCarousel- Carousel with composite typography utilities
  *
- * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-secondary (headlines), font-primary (body)
- * - Label: text-label (15px) + color-label
- * - H2: text-h2 (36px) + color-heading
- * - Name: text-h5 (20px) + color-heading (semibold)
- * - Context: text-label (15px) + color-label
- * - Quote: text-body-narrative (18px) + color-body
+ * MIGRATED to composite typography utilities:
+ * - Label: typography-label (replaces font-primary text-label label text-color-secondary)
+ * - H2: typography-h2 (replaces font-secondary text-h2 text-color-primary)
+ * - Name: font-primary text-h5 font-semibold (kept - no h5 composite utility yet)
+ * - Context: typography-label (replaces font-primary text-label text-color-secondary label)
+ * - Quote: font-secondary body-narrative-italic (kept - needs custom composite utility)
  *
  * FEATURES:
  * - Auto-advancing every 5 seconds + 2s (7s total)
@@ -99,12 +98,12 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
         {/* Section Title - centered */}
         <div className="content-spacing-lg text-center">
           <DebugLabel type="label" debugMode={debugMode}>
-            <p className="font-primary text-label label text-color-secondary">
+            <p className="typography-label">
               {label}
             </p>
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-color-primary text-center label-heading-spacing">
+            <h2 className="typography-h2 text-center label-heading-spacing">
               {subtitle}
             </h2>
           </DebugLabel>
@@ -153,7 +152,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                           <p className="font-primary text-h5 font-semibold text-color-primary">{t.name}</p>
                         </DebugLabel>
                         <DebugLabel type="role" debugMode={debugMode}>
-                          <p className="font-primary text-label text-color-secondary label tracking-wider">
+                          <p className="typography-label">
                             {t.context}
                           </p>
                         </DebugLabel>

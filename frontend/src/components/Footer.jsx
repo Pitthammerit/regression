@@ -72,7 +72,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                   className="h-[34px] w-auto object-contain mb-3 mx-auto md:mx-0"
                 />
                 <DebugLabel type="subline" debugMode={debugMode}>
-                  <p className="font-primary text-subline subline-italic text-white/45 leading-relaxed whitespace-pre-line">
+                  <p className="typography-subline-italic text-white/45 whitespace-pre-line">
                     {data.tagline}
                   </p>
                 </DebugLabel>
@@ -84,7 +84,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                 {/* Col 2 — Rechtliches */}
                 <div className="min-w-[120px]">
                   <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label label text-white/30 mb-5">
+                    <p className="typography-label text-white/30 mb-5">
                       {footerContent.legalLabel}
                     </p>
                   </DebugLabel>
@@ -109,7 +109,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                 {/* Col 3 — Folgen */}
                 <div className="min-w-[120px]">
                   <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label label text-white/30 mb-5">
+                    <p className="typography-label text-white/30 mb-5">
                       {footerContent.followLabel}
                     </p>
                   </DebugLabel>
@@ -134,7 +134,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                 {/* Col 4 — Reach Out */}
                 <div className="min-w-[120px]">
                   <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label label text-white/30 mb-5">
+                    <p className="typography-label text-white/30 mb-5">
                       REACH OUT
                     </p>
                   </DebugLabel>
@@ -166,10 +166,10 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           <div className="pt-6 pb-6 text-center">
             <div className="h-px bg-color-border-light mb-6"></div>
             <DebugLabel type="label" debugMode={debugMode}>
-              <h3 className="font-primary text-label label font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
+              <h3 className="typography-label font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
             </DebugLabel>
             <DebugLabel type="disclaimer" debugMode={debugMode}>
-              <p className="font-primary text-disclaimer disclaimer text-white/50 leading-relaxed max-w-3xl mx-auto">
+              <p className="typography-disclaimer text-white/50 max-w-3xl mx-auto">
                 {footerContent.disclaimer.split('. ').map((sentence, index, array) => {
                 if (sentence.includes('Erstgespräch')) {
                   const [before, after] = sentence.split('Erstgespräch')
@@ -204,7 +204,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           <div className="h-px bg-color-border-light mb-6 mt-6"></div>
 
           <DebugLabel type="hint" debugMode={debugMode}>
-            <div className="font-primary text-hint hint text-white/50 text-center">
+            <div className="typography-hint-italic text-white/50 text-center">
               {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
               <a
                 href={footerContent.copyright.homeUrl}

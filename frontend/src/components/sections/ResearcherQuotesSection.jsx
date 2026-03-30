@@ -8,7 +8,13 @@ import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
 
 /**
- * ResearcherQuotesSection — Research authority quotes with portraits
+ * ResearcherQuotesSection — Research authority quotes with composite typography utilities
+ *
+ * MIGRATED to composite typography utilities:
+ * - H2: typography-h2 (replaces font-secondary text-h2 leading-tight text-primary-on-dark)
+ * - Quote-featured: typography-quote-featured (replaces font-secondary text-quote-featured quote-featured-italic)
+ * - Author-name: typography-author-name (replaces font-secondary text-author-name)
+ * - Meta: typography-meta (replaces font-primary text-meta text-secondary-on-dark)
  *
  * REDESIGNED with cleaner spacing pattern:
  * - Label → H2 → Grid structure
@@ -58,7 +64,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
           <SectionLabel text={researchers.authorBigLabel} light />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 leading-tight text-primary-on-dark">
+          <h2 className="typography-h2 leading-tight text-primary-on-dark">
             {researchers.authorHeadline}
           </h2>
         </DebugLabel>
@@ -92,21 +98,21 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
 
             {/* Quote */}
             <DebugLabel type="quote-featured" debugMode={debugMode}>
-              <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-primary-on-dark content-spacing">
+              <p className="typography-quote-featured text-primary-on-dark content-spacing">
                 "{author.quote}"
               </p>
             </DebugLabel>
 
             {/* Name */}
             <DebugLabel type="author-name" debugMode={debugMode}>
-              <p className="font-secondary text-author-name text-primary-on-dark name-role-spacing">
+              <p className="typography-author-name text-primary-on-dark name-role-spacing">
                 {author.name}
               </p>
             </DebugLabel>
 
             {/* Role */}
             <DebugLabel type="meta" debugMode={debugMode}>
-              <p className="font-primary text-meta text-secondary-on-dark role-date-spacing">
+              <p className="typography-meta text-secondary-on-dark role-date-spacing">
                 {author.role}
               </p>
             </DebugLabel>
@@ -152,19 +158,19 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
                   </div>
 
                   <DebugLabel type="quote-featured" debugMode={debugMode}>
-                    <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-primary-on-dark content-spacing">
+                    <p className="typography-quote-featured text-primary-on-dark content-spacing">
                       "{author.quote}"
                     </p>
                   </DebugLabel>
 
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <p className="font-secondary text-author-name text-primary-on-dark name-role-spacing">
+                    <p className="typography-author-name text-primary-on-dark name-role-spacing">
                       {author.name}
                     </p>
                   </DebugLabel>
 
                   <DebugLabel type="meta" debugMode={debugMode}>
-                    <p className="font-primary text-meta text-secondary-on-dark role-date-spacing">
+                    <p className="typography-meta text-secondary-on-dark role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>

@@ -26,11 +26,11 @@ export default function NotFound() {
         <div className="max-w-content mx-auto text-center w-full">
           <SectionLabel text="404" />
 
-          <h1 className="font-secondary text-hero-large text-color-primary mb-6 leading-tight">
+          <h1 className="typography-hero-large mb-6">
             {notFound.title}
           </h1>
 
-          <p className="font-primary text-color-text text-body-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+          <p className="typography-body-lg mb-12 max-w-2xl mx-auto">
             {notFound.message}
           </p>
 

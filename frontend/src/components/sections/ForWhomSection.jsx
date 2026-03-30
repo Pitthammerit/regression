@@ -6,14 +6,12 @@ import TopicCard from '../ui/TopicCard'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * ForWhomSection — For Whom section with typography tokens
+ * ForWhomSection — For Whom section with composite typography utilities
  *
- * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-secondary (headlines), font-primary (body)
- * - Headline: text-h2 (36px) + color-heading
- * - Card titles: text-h4 (24px) + color-heading
- * - Body text: text-body (18px) + color-body
- * - Borders: semantic tokens (color-bg-light, color-label)
+ * MIGRATED to composite typography utilities:
+ * - Label: typography-label (replaces font-primary text-label label)
+ * - H2: typography-h2 (replaces font-secondary text-h2 text-color-primary)
+ * - Body-lg: typography-body-lg (replaces font-primary text-body-lg text-color-text)
  *
  * CRITICAL PRESERVED:
  * - SectionWrapper with id="fuer-wen" (scroll target)
@@ -29,12 +27,12 @@ export default function ForWhomSection({ debugMode = false }) {
           <SectionLabel text={forWhom.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-primary leading-tight content-spacing-md">
+          <h2 className="typography-h2 leading-tight content-spacing-md">
             {forWhom.headline}
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-text leading-relaxed">
+          <p className="typography-body-lg leading-relaxed">
             {forWhom.intro}
           </p>
         </DebugLabel>

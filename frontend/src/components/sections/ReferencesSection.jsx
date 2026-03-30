@@ -7,17 +7,16 @@ import ExpandToggleButton from '../ui/ExpandToggleButton'
 import { BookOpen } from 'lucide-react'
 
 /**
- * ReferencesSection — References section with typography tokens
+ * ReferencesSection — References section with composite typography utilities
  *
- * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-secondary (headlines), font-primary (body)
- * - Label: text-label (15px) + secondary-on-dark
- * - Headline: text-h2 (36px) + primary-on-dark
- * - Resource name: text-h3 (30px) + primary-on-dark
- * - Role: text-label (15px) uppercase + secondary-on-dark
- * - Dates: text-label (15px) + secondary-on-dark
- * - Description: text-body-lg (20px) + on-dark
- * - Source link: text-label (15px) + primary-on-dark
+ * MIGRATED to composite typography utilities:
+ * - Label: typography-label (replaces font-primary text-label label tracking-widest)
+ * - H2: typography-h2 (replaces font-secondary text-h2 text-primary-on-dark)
+ * - H3: typography-h3 (replaces font-secondary text-h3 text-primary-on-dark)
+ * - Role: typography-label (replaces font-primary text-label text-secondary-on-dark label)
+ * - Date: typography-label (replaces font-primary text-label text-secondary-on-dark)
+ * - Body-narrative: typography-body-narrative (replaces font-secondary text-body-narrative)
+ * - Source link: typography-label (replaces font-primary text-label text-secondary-on-dark)
  *
  * CRITICAL PRESERVED:
  * - Section with id="references" (scroll target)
@@ -66,13 +65,13 @@ export default function ReferencesSection({ debugMode = false }) {
         {/* Header */}
         <div className="max-w-centered-header mb-16">
           <DebugLabel type="label" debugMode={debugMode}>
-            <div className="font-primary text-label label tracking-widest text-secondary-on-dark label-heading-spacing">
+            <div className="typography-label text-secondary-on-dark label-heading-spacing">
               {references.bigLabel}
             </div>
           </DebugLabel>
 
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-primary-on-dark leading-tight">
+            <h2 className="typography-h2 text-primary-on-dark leading-tight">
               {references.headline}
             </h2>
           </DebugLabel>
@@ -106,14 +105,14 @@ export default function ReferencesSection({ debugMode = false }) {
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
                   <DebugLabel type="h3" debugMode={debugMode}>
-                    <p className="font-secondary text-h3 text-primary-on-dark font-semibold name-role-spacing">
+                    <p className="typography-h3 text-primary-on-dark font-semibold name-role-spacing">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
                     <DebugLabel type="role" debugMode={debugMode}>
-                      <p className="font-primary text-label text-secondary-on-dark label tracking-wider role-date-spacing">
+                      <p className="typography-label text-secondary-on-dark label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -121,14 +120,14 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.dates && (
                     <DebugLabel type="date" debugMode={debugMode}>
-                      <p className="font-primary text-label text-secondary-on-dark content-spacing-md">
+                      <p className="typography-label text-secondary-on-dark content-spacing-md">
                         {resource.dates}
                       </p>
                     </DebugLabel>
                   )}
 
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <p className="font-secondary text-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
@@ -138,7 +137,7 @@ export default function ReferencesSection({ debugMode = false }) {
                       href={resource.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-primary text-label text-secondary-on-dark hover:text-primary-on-dark transition-colors"
+                      className="typography-label text-secondary-on-dark hover:text-primary-on-dark transition-colors"
                     >
                       {resource.sourceLabel} →
                     </a>
@@ -180,14 +179,14 @@ export default function ReferencesSection({ debugMode = false }) {
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
                   <DebugLabel type="h3" debugMode={debugMode}>
-                    <p className="font-secondary text-h3 text-primary-on-dark font-semibold name-role-spacing">
+                    <p className="typography-h3 text-primary-on-dark font-semibold name-role-spacing">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
                     <DebugLabel type="role" debugMode={debugMode}>
-                      <p className="font-primary text-label text-secondary-on-dark label tracking-wider role-date-spacing">
+                      <p className="typography-label text-secondary-on-dark label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -195,14 +194,14 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.dates && (
                     <DebugLabel type="date" debugMode={debugMode}>
-                      <p className="font-primary text-label text-secondary-on-dark content-spacing-md">
+                      <p className="typography-label text-secondary-on-dark content-spacing-md">
                         {resource.dates}
                       </p>
                     </DebugLabel>
                   )}
 
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <p className="font-secondary text-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
@@ -212,7 +211,7 @@ export default function ReferencesSection({ debugMode = false }) {
                       href={resource.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-primary text-label text-secondary-on-dark hover:text-primary-on-dark transition-colors"
+                      className="typography-label text-secondary-on-dark hover:text-primary-on-dark transition-colors"
                     >
                       {resource.sourceLabel} →
                     </a>

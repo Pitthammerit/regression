@@ -6,15 +6,14 @@ import CtaButton from '../ui/CtaButton'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * ProcessSection — Process section with typography tokens
+ * ProcessSection — Process section with composite typography utilities
  *
- * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-secondary (headlines), font-primary (body)
- * - Headline: text-h2 (36px) + color-heading
- * - Step titles: text-h3 (30px) + color-heading
- * - Labels: text-label (15px) + color-label
- * - Body: text-body (18px) + color-body
- * - Backgrounds: semantic tokens (color-bg-light)
+ * MIGRATED to composite typography utilities:
+ * - Label: typography-label (replaces font-primary text-label text-color-secondary label)
+ * - H2: typography-h2 (replaces font-secondary text-h2 text-color-primary)
+ * - Body-lg: typography-body-lg (replaces font-primary text-body-lg text-color-text)
+ * - H3: typography-h3 (replaces font-secondary text-h3 text-color-primary)
+ * - Body: typography-body (replaces font-primary text-body text-color-text)
  *
  * CRITICAL PRESERVED:
  * - SectionWrapper with id="prozess" (scroll target)
@@ -30,12 +29,12 @@ export default function ProcessSection({ debugMode = false }) {
           <SectionLabel text={processSection.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-primary leading-tight text-center content-spacing-md">
+          <h2 className="typography-h2 leading-tight text-center content-spacing-md">
             {processSection.headline}
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-text leading-relaxed">
+          <p className="typography-body-lg leading-relaxed">
             {processSection.footnote}
           </p>
         </DebugLabel>
@@ -59,17 +58,17 @@ export default function ProcessSection({ debugMode = false }) {
             )}
             <div className="relative z-10 pt-2">
               <DebugLabel type="h3" debugMode={debugMode}>
-                <h3 className="font-secondary text-h3 text-color-primary mt-5 mb-2">
+                <h3 className="typography-h3 mt-5 mb-2">
                   {step.title}
                 </h3>
               </DebugLabel>
               <DebugLabel type="label" debugMode={debugMode}>
-                <p className="font-primary text-label text-color-secondary label tracking-widest mb-5">
+                <p className="typography-label mb-5">
                   {step.duration}
                 </p>
               </DebugLabel>
               <DebugLabel type="body" debugMode={debugMode}>
-                <p className="font-primary text-body text-color-text leading-relaxed">{step.body}</p>
+                <p className="typography-body leading-relaxed">{step.body}</p>
               </DebugLabel>
             </div>
           </div>

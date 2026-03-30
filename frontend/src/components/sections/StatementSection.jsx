@@ -4,12 +4,11 @@ import SectionWrapper from '../ui/SectionWrapper'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * StatementSection — Statement section with typography tokens
+ * StatementSection — Statement section with composite typography utilities
  *
- * MIGRATED to design tokens (Single Source of Truth):
- * - Font-family: font-secondary (Cormorant Garamond, serif)
- * - All lines: text-h2 (36px) + italic + color-heading (blue)
- * - Consistent styling across all statement lines
+ * MIGRATED to composite typography utilities:
+ * - H2: typography-h2 italic (replaces font-secondary text-h2 italic text-color-primary)
+ * - H3: typography-h3 italic (replaces font-secondary text-h3 italic text-color-primary)
  *
  * CRITICAL PRESERVED:
  * - SectionWrapper with id="statement" (scroll target)
@@ -23,10 +22,10 @@ export default function StatementSection({ debugMode = false }) {
         {statement.lines.map((line, i) => (
           <DebugLabel type={i === 1 ? 'h2' : 'h3'} debugMode={debugMode} key={i}>
             <p
-              className={`font-secondary leading-relaxed ${i > 0 ? 'mt-5' : ''
+              className={`leading-relaxed italic ${i > 0 ? 'mt-5' : ''
                 } ${i === 1
-                  ? 'text-h2 italic text-color-primary'
-                  : 'text-h3 italic text-color-primary'
+                  ? 'typography-h2'
+                  : 'typography-h3'
                 }`}
             >
               {line}

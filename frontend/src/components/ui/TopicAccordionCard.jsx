@@ -38,7 +38,7 @@ export default function TopicAccordionCard({
         aria-expanded={isExpanded}
       >
         <DebugLabel type="h4" debugMode={debugMode}>
-          <h3 className={`font-secondary text-h4 leading-snug ${
+          <h3 className={`typography-h4 ${
             dark ? 'text-primary-on-dark' : 'text-color-primary'
           }`}>
             {title}
@@ -58,7 +58,7 @@ export default function TopicAccordionCard({
         <div className="px-5 pb-5 md:px-6 md:pb-6">
           {description ? (
             <DebugLabel type="body" debugMode={debugMode}>
-              <p className={`font-primary text-body leading-relaxed ${
+              <p className={`typography-body ${
                 dark ? 'text-on-dark' : 'text-color-text'
               }`}>
                 {description}
@@ -66,7 +66,7 @@ export default function TopicAccordionCard({
             </DebugLabel>
           ) : (
             <DebugLabel type="body" debugMode={debugMode}>
-              <p className={`font-primary text-body italic leading-relaxed ${
+              <p className={`typography-body italic ${
                 dark ? 'text-secondary-on-dark' : 'text-color-secondary/60'
               }`}>
                 Klicke für mehr Informationen
