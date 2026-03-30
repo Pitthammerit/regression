@@ -36,12 +36,12 @@ export default function SimpleCtaSection({ debugMode = false }) {
         </DebugLabel>
 
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-text leading-relaxed content-spacing-md">
+          <p className="font-primary text-body-lg text-color-text leading-relaxed content-spacing-lg">
             {simpleCta.subline}
           </p>
         </DebugLabel>
 
-        <div className="mt-[3.5rem]">
+        <div className="content-spacing-lg">
           <DebugLabel type="button-text" debugMode={debugMode}>
             <CtaButton label={simpleCta.cta} variant="primary" className="py-4 px-12" />
           </DebugLabel>
