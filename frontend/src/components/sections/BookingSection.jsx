@@ -119,6 +119,13 @@ export default function BookingSection({ debugMode = false }) {
  * - Labels: text-secondary-on-dark (white 60%)
  * - Calendar card: adapted for dark background
  * - Borders/dividers: use on-dark tokens
+ *
+ * ADVANCED ANIMATIONS:
+ * - Custom cubic-bezier easing for spring-like motion
+ * - Staggered fade-out on topic cards (50ms per card)
+ * - Grid-template-rows for smoother height transition
+ * - Scale effects on topic cards during fade-out
+ * - Faster opening (400ms) vs slower closing (600ms)
  */
 export function BookingSectionDark({ debugMode = false }) {
   const [calendarOpen, setCalendarOpen] = useState(false)
@@ -155,45 +162,63 @@ export function BookingSectionDark({ debugMode = false }) {
         </DebugLabel>
 
         {/* Inline Calendar Accordion - appears above when open */}
+        {/* Using grid-template-rows approach for smooth height animation */}
         <div
-          className={`overflow-hidden transition-all duration-500 ${
-            calendarOpen ? 'max-h-[900px] mb-8 opacity-100' : 'max-h-0 opacity-0'
+          className={`grid transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            calendarOpen
+              ? 'grid-rows-[1fr] opacity-100 mb-8'
+              : 'grid-rows-[0fr] opacity-0'
           }`}
           data-testid="booking-calendar-accordion"
         >
-          <div className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left">
-            {embedCode ? (
-              <iframe
-                src={embedCode}
-                className="w-full min-h-[600px] border-0 rounded-xl"
-                title="Intro-Call buchen"
-                data-testid="booking-iframe"
-              />
-            ) : (
-              <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
-                <div className="w-12 h-px bg-divider-on-dark" />
-                <DebugLabel type="body" debugMode={debugMode}>
-                  <p className="font-primary text-body text-on-dark">
-                    Kalender-Embed wird hier eingebettet.
-                  </p>
-                </DebugLabel>
-                <DebugLabel type="label" debugMode={debugMode}>
-                  <p className="font-primary text-label text-secondary-on-dark max-w-xs">
-                    Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
-                  </p>
-                </DebugLabel>
-                <div className="w-12 h-px bg-divider-on-dark" />
-              </div>
-            )}
+          <div className="overflow-hidden">
+            <div className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left">
+              {embedCode ? (
+                <iframe
+                  src={embedCode}
+                  className="w-full min-h-[600px] border-0 rounded-xl"
+                  title="Intro-Call buchen"
+                  data-testid="booking-iframe"
+                />
+              ) : (
+                <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
+                  <div className="w-12 h-px bg-divider-on-dark" />
+                  <DebugLabel type="body" debugMode={debugMode}>
+                    <p className="font-primary text-body text-on-dark">
+                      Kalender-Embed wird hier eingebettet.
+                    </p>
+                  </DebugLabel>
+                  <DebugLabel type="label" debugMode={debugMode}>
+                    <p className="font-primary text-label text-secondary-on-dark max-w-xs">
+                      Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
+                    </p>
+                  </DebugLabel>
+                  <div className="w-12 h-px bg-divider-on-dark" />
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Topics - hidden when calendar is open */}
-        <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem] transition-all duration-500 ${
-          calendarOpen ? 'opacity-0 hidden' : 'opacity-100'
-        }`} data-testid="booking-topics-grid-dark">
+        {/* Topics - hidden when calendar is open with staggered fade-out */}
+        <div
+          className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem] transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            calendarOpen ? 'opacity-0 hidden' : 'opacity-100'
+          }`}
+          data-testid="booking-topics-grid-dark"
+        >
           {booking.formTopics.map((topic, i) => (
-            <TopicCard key={i} title={topic} dark debugMode={debugMode} />
+            <div
+              key={i}
+              className="transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+              style={{
+                transitionDelay: calendarOpen ? `${i * 50}ms` : '0ms',
+                transform: calendarOpen ? 'scale(0.98)' : 'scale(1)',
+                opacity: calendarOpen ? 0 : 1,
+              }}
+            >
+              <TopicCard title={topic} dark debugMode={debugMode} />
+            </div>
           ))}
         </div>
 
@@ -206,7 +231,7 @@ export function BookingSectionDark({ debugMode = false }) {
           {booking.directBookingCta}
           <ChevronDown
             size={14}
-            className={`transition-transform duration-300 ${calendarOpen ? 'rotate-180' : ''}`}
+            className={`transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${calendarOpen ? 'rotate-180' : ''}`}
           />
         </button>
       </div>
