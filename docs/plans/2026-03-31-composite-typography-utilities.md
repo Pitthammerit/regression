@@ -1,6 +1,13 @@
 # Composite Typography Utilities Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+> **For Claude:** REQUIRED EXECUTION: Use `/multiloop` skill (subagent-driven-development with LOOP BACK).
+>
+> This is a complex multi-file refactor requiring:
+> - 17+ sections to update
+> - Code review after each section
+> - Verification and testing between tasks
+>
+> Do NOT use executing-plans — use multiloop workflow for quality assurance.
 
 **Goal:** Create Tailwind v4 composite typography utilities that combine font-family, font-size, font-weight, line-height, and letter-spacing into single utilities for cleaner, more consistent component code.
 
@@ -443,3 +450,19 @@ typography-h2 text-color-secondary    // Different color
 typography-h2 text-on-dark             // On dark background
 typography-body text-color-primary     // Body as heading
 ```
+
+---
+
+## Execution Instructions
+
+**To implement this plan, use `/multiloop` skill.**
+
+This ensures:
+- Fresh subagent per section (no context pollution)
+- Code review after each section
+- Automatic loop back if issues found
+- Testing between tasks
+
+**Command:** `/multiloop`
+
+Then reference this plan: `docs/plans/2026-03-31-composite-typography-utilities.md`
