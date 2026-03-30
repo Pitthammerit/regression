@@ -24,7 +24,7 @@ export default function HeroV3Section({ debugMode = false }) {
               </span>
             </DebugLabel>
             <DebugLabel type="hero" debugMode={debugMode}>
-              <span className="text-hero text-color-primary/70 inline italic">
+              <span className="text-hero text-color-primary inline italic">
                 {hero.headlineLine2}
               </span>
             </DebugLabel>
