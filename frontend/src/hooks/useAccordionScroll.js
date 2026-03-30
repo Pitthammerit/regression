@@ -124,31 +124,20 @@ export function useAccordionScroll(openId, setOpenId) {
           return
         }
 
-        // Check if element is already in viewport
+        /**
+         * ALWAYS scroll to align element top to 100px offset
+         *
+         * Even if element is already visible, we want consistent alignment
+         * This ensures the same UX regardless of where the user is on the page
+         */
         const rect = portraitContainer.getBoundingClientRect()
         const buffer = 100 // 100px offset from top
-        const isInViewport = rect.top >= buffer && rect.top <= window.innerHeight - buffer
+        const scrollTop = window.scrollY + rect.top - buffer
 
-        if (!isInViewport) {
-          /**
-           * Use exact scroll calculation instead of scrollIntoView
-           *
-           * Why not scrollIntoView with block='nearest'?
-           * - 'nearest' means "minimum scroll to show element"
-           * - If element is already visible, no scroll happens (even if partially off-screen)
-           * - 'nearest' doesn't account for our 100px offset properly
-           *
-           * Exact calculation:
-           * - scrollTop = current scrollY + element's top offset - 100px buffer
-           * - Guarantees element appears with 100px spacing from top
-           */
-          const scrollTop = window.scrollY + rect.top - buffer
-
-          window.scrollTo({
-            top: Math.max(0, scrollTop), // Ensure we don't scroll to negative position
-            behavior: 'smooth'
-          })
-        }
+        window.scrollTo({
+          top: Math.max(0, scrollTop), // Ensure we don't scroll to negative position
+          behavior: 'smooth'
+        })
       })
     } else {
       // Clean up scroll listener if not opening
