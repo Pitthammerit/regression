@@ -80,7 +80,10 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           </div>
 
           {/* — Divider — */}
-          <div className="divider-line border-color-light pt-10 mb-10">
+          <div className="pt-10 mb-10">
+            <div className="h-px bg-color-border-light"></div>
+          </div>
+          <div className="pt-10 mb-10">
 
             {/*
               3 — Three columns: Branding | Rechtliches | Folgen
@@ -161,7 +164,8 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           </div>
 
           {/* — Divider + Disclaimer — */}
-          <div className="divider-line border-color-light pt-6 pb-6 text-center">
+          <div className="pt-6 pb-6 text-center">
+            <div className="h-px bg-color-border-light mb-6"></div>
             <DebugLabel type="label" debugMode={debugMode}>
               <h3 className="font-primary text-label label font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
             </DebugLabel>
@@ -198,8 +202,11 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           </div>
 
           {/* — Divider + Copyright — */}
+          <div className="pt-6 text-center">
+            <div className="h-px bg-color-border-light mb-6"></div>
+          </div>
           <DebugLabel type="hint" debugMode={debugMode}>
-            <div className="divider-line border-color-light pt-6 text-center font-primary text-hint hint text-white/50">
+            <div className="font-primary text-hint hint text-white/50">
               {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
               <a
                 href={footerContent.copyright.homeUrl}
