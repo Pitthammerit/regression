@@ -53,7 +53,7 @@
   --color-text: #5A5550;         /* Warm taupe gray — body text, paragraphs */
   --color-secondary: #7696AD;    /* Muted steel blue — labels, metadata, links, hover states */
   --color-accent: #2DAD71;       /* Fresh green — CTAs, success states, active elements */
-  --color-star: #f5f10b;         /* Bright yellow — star ratings, highlights */
+  --color-star: #f5d10a;         /* Bright yellow — star ratings, highlights */
 
      /* Backgrounds & Overlays */
   --color-bg-light: #EDE7DC;     /* Warm cream beige — main page background */
