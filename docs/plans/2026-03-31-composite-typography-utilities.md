@@ -112,6 +112,15 @@ Find line 241 (after `text-hint` utility) and add:
   color: var(--color-text);
 }
 
+@utility typography-body-narrative {
+  font-family: var(--font-secondary);
+  font-size: var(--font-body-narrative);
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
 /* Labels (Primary/Sans Font + Wide Spacing + Secondary Color by default) */
 @utility typography-label {
   font-family: var(--font-primary);
@@ -120,6 +129,73 @@ Find line 241 (after `text-hint` utility) and add:
   line-height: 1.5;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* Menu & Meta */
+@utility typography-menu-text {
+  font-family: var(--font-primary);
+  font-size: var(--font-menu-text);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--color-primary);
+}
+
+@utility typography-meta {
+  font-family: var(--font-primary);
+  font-size: var(--font-meta);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
+/* Quote & Author Utilities */
+@utility typography-quote-featured {
+  font-family: var(--font-secondary);
+  font-size: var(--font-quote-featured);
+  font-weight: 400;
+  line-height: 1.1;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--color-primary);
+}
+
+@utility typography-author-name {
+  font-family: var(--font-secondary);
+  font-size: var(--font-author-name);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--color-primary);
+}
+
+/* Special Utilities (for footer, etc.) */
+@utility typography-subline-italic {
+  font-family: var(--font-primary);
+  font-size: var(--font-subline);
+  font-weight: 400;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+@utility typography-disclaimer {
+  font-family: var(--font-primary);
+  font-size: var(--font-disclaimer);
+  font-weight: 400;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+@utility typography-hint-italic {
+  font-family: var(--font-primary);
+  font-size: var(--font-hint);
+  font-weight: 400;
+  line-height: 1.5;
+  font-style: italic;
   color: var(--color-secondary);
 }
 
@@ -304,7 +380,143 @@ git commit -m "refactor: UI components use composite typography utilities"
 
 ---
 
-## Task 6: Remove Deprecated Utilities (Optional Cleanup)
+## Task 6: Update NotFound.jsx (404 Page)
+
+**Files:**
+- Modify: `frontend/src/components/NotFound.jsx:29,33`
+
+**Step 1: Update h1 headline (line 29)**
+
+Change:
+```jsx
+<h1 className="font-secondary text-hero-large text-color-primary mb-6 leading-tight">
+```
+
+To:
+```jsx
+<h1 className="typography-hero-large mb-6">
+```
+
+**Step 2: Update p subline (line 33)**
+
+Change:
+```jsx
+<p className="font-primary text-color-text text-body-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+```
+
+To:
+```jsx
+<p className="typography-body-lg mb-12 max-w-2xl mx-auto">
+```
+
+**Step 3: Verify 404 page looks correct**
+
+Test: Visit a non-existent route to see the 404 page
+
+**Step 4: Commit**
+
+```bash
+git add frontend/src/components/NotFound.jsx
+git commit -m "refactor: NotFound.jsx use composite typography utilities"
+```
+
+---
+
+## Task 7: Update Header.jsx
+
+**Files:**
+- Modify: `frontend/src/components/Header.jsx:70`
+
+**Step 1: Find and update h2 in header**
+
+Search for: `font-secondary text-h2`
+
+Change:
+```jsx
+<h2 className="font-secondary text-h2 text-color-primary leading-tight">
+```
+
+To:
+```jsx
+<h2 className="typography-h2">
+```
+
+**Note:** Menu text uses `text-menu-text` which is fine to keep separate (different use case)
+
+**Step 2: Commit**
+
+```bash
+git add frontend/src/components/Header.jsx
+git commit -m "refactor: Header.jsx use composite typography utilities"
+```
+
+---
+
+## Task 8: Update Footer.jsx
+
+**Files:**
+- Modify: `frontend/src/components/Footer.jsx`
+
+**Step 1: Update all label occurrences (lines 61, 112, 137)**
+
+Change:
+```jsx
+<span className="font-primary text-label label text-white/50">
+```
+
+To:
+```jsx
+<span className="typography-label text-white/50">
+```
+
+**Step 2: Update subline-italic (line 100)**
+
+Change:
+```jsx
+<p className="font-primary text-subline subline-italic text-white/45 leading-relaxed whitespace-pre-line">
+```
+
+To:
+```jsx
+<p className="typography-subline-italic text-white/45 whitespace-pre-line">
+```
+
+**Step 3: Update disclaimer (line 169)**
+
+Change:
+```jsx
+<p className="font-primary text-disclaimer disclaimer text-white/50 leading-relaxed max-w-3xl mx-auto">
+```
+
+To:
+```jsx
+<p className="typography-disclaimer text-white/50 max-w-3xl mx-auto">
+```
+
+**Step 4: Update hint (line 202)**
+
+Change:
+```jsx
+<span className="font-primary text-hint hint text-white/50">
+```
+
+To:
+```jsx
+<span className="typography-hint-italic text-white/50">
+```
+
+**Step 5: Verify footer looks correct**
+
+**Step 6: Commit**
+
+```bash
+git add frontend/src/components/Footer.jsx
+git commit -m "refactor: Footer.jsx use composite typography utilities"
+```
+
+---
+
+## Task 9: Remove Deprecated Utilities (Optional Cleanup)
 
 **Files:**
 - Modify: `frontend/tailwind.config.css:132-241`
@@ -330,7 +542,7 @@ git commit -m "chore: remove deprecated typography utilities"
 
 ---
 
-## Task 7: Visual Testing and Documentation
+## Task 10: Visual Testing and Documentation
 
 **Files:**
 - Modify: `memory/2026-03-31-typography-composite-utilities.md` (create new memory file)
@@ -378,15 +590,59 @@ Single utilities that combine font-family, font-size, font-weight, line-height, 
 ```
 
 ## Available Utilities (include default colors)
+
+### Headlines (Serif + Primary Color)
 - `typography-hero-large` - Hero big (clamp 2.4-5.4rem, serif, **primary color**)
 - `typography-hero` - Hero (clamp 1.44-3.36rem, serif, **primary color**)
 - `typography-h2` - H2 (36px, serif, **primary color**)
 - `typography-h3` - H3 (30px, serif, **primary color**)
 - `typography-h4` - H4 (24px, serif, semibold, **primary color**)
+
+### Body (Sans-Serif + Text Color)
 - `typography-body` - Body (18px, sans-serif, **text color**)
 - `typography-body-lg` - Body large (20px, sans-serif, **text color**)
-- `typography-label` - Label (15px, sans-serif, uppercase, **secondary color**, wide spacing)
+- `typography-body-narrative` - Narrative (18px, serif, **text color**)
+
+### Labels (Sans-Serif + Uppercase + Secondary Color)
+- `typography-label` - Label (15px, uppercase, **secondary color**, wide spacing)
+
+### Special (Footer, etc.)
+- `typography-subline-italic` - Subline italic (16px, italic, **text color**)
+- `typography-disclaimer` - Disclaimer (12px, italic, **secondary color**)
+- `typography-hint-italic` - Hint italic (14px, italic, **secondary color**)
+
+### Decorative
 - `typography-handwriting` - Handwriting font (24px, Kalam)
+- `typography-quote-featured` - Featured quote (36px, serif, italic)
+- `typography-author-name` - Author name (32px, serif)
+
+### Menu & Meta
+- `typography-menu-text` - Menu text (15px, **primary color**)
+- `typography-meta` - Meta text (14px, **text color**)
+
+## On-Dark Exception Pattern
+
+**Exception:** Headlines on dark backgrounds use white instead of blue.
+
+**Pattern:** Override color with `text-on-dark` or `text-primary-on-dark`
+
+```jsx
+// Light background (default):
+<h2 className="typography-h2">  // color: #224160 (blue)
+
+// Dark background (exception):
+<section className="bg-color-primary">
+  <h2 className="typography-h2 text-on-dark">  // color: #FFFFFF (white)
+</section>
+
+// Or for primary heading on dark:
+<h2 className="typography-h2 text-primary-on-dark">  // color: #FFFFFF (white)
+```
+
+**Apply this pattern in:**
+- ResearchersSection (dark background section)
+- EvidenceQuotesSection (dark background)
+- Any component with `bg-color-primary` or `bg-brand-deep`
 ```
 
 **Step 3: Commit documentation**
@@ -398,7 +654,7 @@ git commit -m "docs: document composite typography utilities"
 
 ---
 
-## Task 8: Final Build and Deploy
+## Task 11: Final Build and Deploy
 
 **Step 1: Production build**
 
@@ -425,10 +681,16 @@ git commit --allow-empty -m "chore: composite typography utilities migration com
 ## Success Criteria
 
 - [ ] All typography uses composite utilities (typography-*)
+- [ ] All sections converted (17 sections)
+- [ ] NotFound.jsx (404 page) converted
+- [ ] Header.jsx converted
+- [ ] Footer.jsx converted (all labels, sublines, disclaimers, hints)
 - [ ] No visual regressions
 - [ ] FAQ section h2/h4 use same font-family (both serif)
 - [ ] Build succeeds
-- [ ] All sections deployed successfully
+- [ ] All components deployed successfully
+- [ ] Code review approved
+- [ ] Tests pass
 - [ ] Documentation created in memory
 
 ---
