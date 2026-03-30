@@ -728,3 +728,30 @@ This ensures:
 **Command:** `/multiloop`
 
 Then reference this plan: `docs/plans/2026-03-31-composite-typography-utilities.md`
+
+---
+
+## ✅ What's Next After Completion
+
+Once this composite typography utilities migration is complete and verified:
+
+**Next Plan:** `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md`
+
+**Why this order:**
+- Composite utilities simplifies code BEFORE major migration
+- Cleaner codebase = easier multi-site refactoring
+- Typography is now consistent across all components
+
+**What the next plan builds:**
+- Tailwind v4 migration complete (mostly done)
+- Multi-site architecture (Regression, Reiki, Podcast)
+- Multi-language foundation (German → English ready)
+- Site-first URL routing (`/regression/de`, `/regression/en`, `/reiki/de`)
+- Backend-ready for Supabase or Cloudflare D1
+
+**Timeline:** 24-36 hours (6-8 weeks at part-time pace)
+
+**Quick handoff:**
+1. Verify all success criteria checked above
+2. Update MEMORY.md with lessons learned
+3. Move to multi-site plan with `/multiloop`
