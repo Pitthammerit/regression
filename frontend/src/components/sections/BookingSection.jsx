@@ -78,7 +78,7 @@ export default function BookingSection({ debugMode = false }) {
           className={`overflow-hidden transition-all duration-500 ${calendarOpen ? 'max-h-[900px] mt-8' : 'max-h-0'}`}
           data-testid="booking-calendar-accordion"
         >
-          <div className="rounded-2xl border border-color-bg-light bg-color-card-overlay p-8 text-left">
+          <div className="rounded-2xl border border-color-light bg-color-card-overlay p-8 text-left">
             {embedCode ? (
               <iframe
                 src={embedCode}

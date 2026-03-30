@@ -48,7 +48,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
         </button>
       </div>
 
-      <div className="divide-y divide-color-border-light max-w-4xl mx-auto">
+      <div className="divide-y divide-color-light max-w-4xl mx-auto">
         {cases.items.map((item, i) => (
           <div key={i}>
             <button
@@ -60,7 +60,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 <LazyImage
                   src={item.image}
                   alt={item.name}
-                  className="w-24 h-24 rounded-full object-cover object-top border-2 border-color-light shrink-0"
+                  className="w-24 h-24 rounded-full object-cover object-top border-2 border-color-primary shrink-0"
                 />
               ) : (
                 <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border-2 border-color-light flex items-center justify-center shrink-0">

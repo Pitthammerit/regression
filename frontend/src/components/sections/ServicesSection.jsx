@@ -6,7 +6,7 @@ export default function ServicesSection({ debugMode = false }) {
   return (
     <section id="services" className="pt-2 pb-8" data-testid="services-section">
       <div className="max-w-content mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-stretch divide-y md:divide-y-0 md:divide-x divide-black/10">
+        <div className="flex flex-col md:flex-row items-stretch divide-y md:divide-y-0 md:divide-x divide-color-light">
           {services.items.map((service, i) => (
             <div
               key={i}

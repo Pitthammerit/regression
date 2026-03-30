@@ -51,14 +51,14 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
   const hasMore = authorsWithPortraits.length > 3
 
   return (
-    <SectionWrapper className="bg-color-primary text-on-dark" data-testid="researcher-quotes-section">
+    <SectionWrapper className="bg-color-primary text-primary-on-dark" data-testid="researcher-quotes-section">
       {/* Header group with controlled spacing */}
       <div className="mb-12 md:mb-16">
         <DebugLabel type="label" debugMode={debugMode}>
           <SectionLabel text={researchers.authorBigLabel} light />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 leading-tight text-on-dark">
+          <h2 className="font-secondary text-h2 leading-tight text-primary-on-dark">
             {researchers.authorHeadline}
           </h2>
         </DebugLabel>
@@ -92,21 +92,21 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
 
             {/* Quote */}
             <DebugLabel type="quote-featured" debugMode={debugMode}>
-              <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
+              <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-primary-on-dark content-spacing">
                 "{author.quote}"
               </p>
             </DebugLabel>
 
             {/* Name */}
             <DebugLabel type="author-name" debugMode={debugMode}>
-              <p className="font-secondary text-author-name text-on-dark name-role-spacing">
+              <p className="font-secondary text-author-name text-primary-on-dark name-role-spacing">
                 {author.name}
               </p>
             </DebugLabel>
 
             {/* Role */}
             <DebugLabel type="meta" debugMode={debugMode}>
-              <p className="font-primary text-meta text-on-dark-meta role-date-spacing">
+              <p className="font-primary text-meta text-secondary-on-dark role-date-spacing">
                 {author.role}
               </p>
             </DebugLabel>
@@ -152,19 +152,19 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
                   </div>
 
                   <DebugLabel type="quote-featured" debugMode={debugMode}>
-                    <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
+                    <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-primary-on-dark content-spacing">
                       "{author.quote}"
                     </p>
                   </DebugLabel>
 
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <p className="font-secondary text-author-name text-on-dark name-role-spacing">
+                    <p className="font-secondary text-author-name text-primary-on-dark name-role-spacing">
                       {author.name}
                     </p>
                   </DebugLabel>
 
                   <DebugLabel type="meta" debugMode={debugMode}>
-                    <p className="font-primary text-meta text-on-dark-meta role-date-spacing">
+                    <p className="font-primary text-meta text-secondary-on-dark role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>

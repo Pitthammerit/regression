@@ -125,7 +125,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
           </button>
 
           {/* Card Wrapper with border/background */}
-          <div className="overflow-x-hidden rounded-2xl bg-color-card-overlay border border-color-bg-light shadow-sm backdrop-blur-sm">
+          <div className="overflow-x-hidden rounded-2xl bg-color-card-overlay border border-color-light shadow-sm backdrop-blur-sm">
             {/* Sliding Cards Container */}
             <div
               className="flex transition-transform duration-[600ms] ease-in-out"
@@ -137,7 +137,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                   <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
                     <div className="flex items-center gap-4">
                       {t.image && (
-                        <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-light shadow-md">
+                        <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-primary shadow-md">
                           <img
                             src={getOptimizedImageUrl(t.image)}
                             width="60"
@@ -202,7 +202,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
               {/* Progress bar inside active dot */}
               {index === currentIndex && (
                 <div
-                  className="absolute left-0 top-0 h-full bg-on-dark-divider transition-all duration-[100ms] ease-linear"
+                  className="absolute left-0 top-0 h-full bg-divider-on-dark transition-all duration-[100ms] ease-linear"
                   style={{ width: `${progress}%` }}
                 />
               )}

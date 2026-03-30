@@ -45,31 +45,31 @@
   --font-hint: 0.875rem;
 
   /* ─────────────────────────────────────────────────────────────
-     COLORS (Semantic)
+     COLORS (Universal + Purpose-Specific)
      ───────────────────────────────────────────────────────────── */
-  /* General Purpose */
-  --color-bg-light: #EDE7DC;
-  --color-bg-dark: var(--color-primary);
-  --color-card-overlay: #ffffff80;
-  --color-overlay-dark: #00000040;
+  
+    /* Core Brand Colors */
+  --color-primary: #224160;      /* Dark navy steel blue — headings, buttons, dark bg, circular borders */
+  --color-text: #5A5550;         /* Warm taupe gray — body text, paragraphs */
+  --color-secondary: #7696AD;    /* Muted steel blue — labels, metadata, links, hover states */
+  --color-accent: #2DAD71;       /* Fresh green — CTAs, success states, active elements */
+  --color-star: #f5f10b;         /* Bright yellow — star ratings, highlights */
 
-  /* Semantic Names (Simplified) */
-  --color-primary: #224160;
-  --color-text: #5A5550;
-  --color-secondary: #7696AD;
-  --color-accent: #2DAD71;
-  --color-star: #f5f10b;
+     /* Backgrounds & Overlays */
+  --color-bg-light: #EDE7DC;     /* Warm cream beige — main page background */
+  --color-bg-dark: var(--color-primary);  /* Dark navy — hero, footer, dark sections */
+  --color-card-overlay: #ffffff80;        /* Semi-transparent white (50%) — card overlays */
+  --color-overlay-dark: #00000040;        /* Semi-transparent black (25%) — dark overlays */
 
   /* Border Colors */
-  --color-border-primary: #224160;
-  --color-border-light: #0000001A;
+  --color-border-primary: #224160;  /* Dark navy — circular image borders, prominent borders */
+  --color-border-light: #0000001A;   /* Subtle black (10%) — dividers, card borders */
 
-  /* On-Dark */
-  --color-on-dark: #FFFFFF;
-  --color-on-dark-body: #FFFFFFCC;
-  --color-on-dark-meta: #ffffff9c;
-  --color-on-dark-accent: #ffffff;
-  --color-on-dark-divider: #ffffff33;
+  /* On-Dark (used on dark backgrounds like hero, footer) */
+  --color-primary-on-dark: #FFFFFF;      /* Pure white — headings on dark */
+  --color-text-on-dark: #FFFFFFCC;       /* White 80% — body text on dark */
+  --color-secondary-on-dark: #ffffff9c;  /* White 60% — metadata on dark */
+  --color-divider-on-dark: #ffffff33;    /* White 20% — dividers on dark */
 
   /* ─────────────────────────────────────────────────────────────
      SPACING UTILITIES (27 tokens)
@@ -274,37 +274,21 @@
   color: var(--color-star);
 }
 
-/* On-Dark Text Utilities (8) */
+/* On-Dark Text Utilities (Universal Naming) */
+@utility text-primary-on-dark {
+  color: var(--color-primary-on-dark);
+}
+
 @utility text-on-dark {
-  color: var(--color-on-dark);
+  color: var(--color-text-on-dark);
 }
 
-@utility text-on-dark-body {
-  color: var(--color-on-dark-body);
+@utility text-secondary-on-dark {
+  color: var(--color-secondary-on-dark);
 }
 
-@utility text-on-dark-meta {
-  color: var(--color-on-dark-meta);
-}
-
-@utility text-on-dark-accent {
-  color: var(--color-on-dark-accent);
-}
-
-@utility on-dark {
-  color: var(--color-on-dark);
-}
-
-@utility on-dark-body {
-  color: var(--color-on-dark-body);
-}
-
-@utility on-dark-meta {
-  color: var(--color-on-dark-meta);
-}
-
-@utility on-dark-accent {
-  color: var(--color-on-dark-accent);
+@utility text-divider-on-dark {
+  color: var(--color-divider-on-dark);
 }
 
 /* Background Color Utilities (5) */
@@ -316,8 +300,8 @@
   background-color: var(--color-bg-dark);
 }
 
-@utility bg-on-dark-divider {
-  background-color: var(--color-on-dark-divider);
+@utility bg-divider-on-dark {
+  background-color: var(--color-divider-on-dark);
 }
 
 @utility bg-color-card-overlay {
@@ -381,6 +365,10 @@
 
 @utility border-color-bg-dark {
   border-color: var(--color-bg-dark);
+}
+
+@utility border-divider-on-dark {
+  border-color: var(--color-divider-on-dark);
 }
 
 /* ─────────────────────────────────────────────────────────────

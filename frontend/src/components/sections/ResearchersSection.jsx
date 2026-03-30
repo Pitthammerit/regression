@@ -34,7 +34,7 @@ export default function ResearchersSection({ debugMode = false }) {
     <section
       id="science"
       data-testid="science-section"
-      className="section-padding bg-color-primary text-on-dark relative overflow-hidden"
+      className="section-padding bg-color-primary text-primary-on-dark relative overflow-hidden"
     >
       {/* Subtle paper texture overlay */}
       <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none" />
@@ -46,7 +46,7 @@ export default function ResearchersSection({ debugMode = false }) {
             <SectionLabel text={researchers.authorBigLabel} light={true} />
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 leading-tight text-on-dark">
+            <h2 className="font-secondary text-h2 leading-tight text-primary-on-dark">
               {researchers.authorHeadline}
             </h2>
           </DebugLabel>
@@ -80,10 +80,10 @@ export default function ResearchersSection({ debugMode = false }) {
             </div>
 
             {/* Right column: Quote + Name + Title */}
-            <div className="flex flex-col text-on-dark-body">
+            <div className="flex flex-col text-on-dark">
               {/* Quote - Top of right column */}
               <DebugLabel type="quote-featured" debugMode={debugMode}>
-                <blockquote className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
+                <blockquote className="font-secondary text-quote-featured quote-featured-italic leading-tight text-primary-on-dark content-spacing">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
               </DebugLabel>
@@ -91,17 +91,17 @@ export default function ResearchersSection({ debugMode = false }) {
               {/* Name + Title - Below quote */}
               <div>
                 <DebugLabel type="author-name" debugMode={debugMode}>
-                  <div className="font-secondary text-author-name text-on-dark name-role-spacing">{featuredAuthor.name}</div>
+                  <div className="font-secondary text-author-name text-primary-on-dark name-role-spacing">{featuredAuthor.name}</div>
                 </DebugLabel>
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <div className="font-primary text-label label text-on-dark-meta name-role-spacing">{featuredAuthor.role}</div>
+                  <div className="font-primary text-label label text-secondary-on-dark name-role-spacing">{featuredAuthor.role}</div>
                 </DebugLabel>
               </div>
             </div>
 
             {/* Divider - Full width, more spacing below */}
             <div className="md:col-span-2 divider-spacing">
-              <div className="h-px bg-on-dark-divider"></div>
+              <div className="border-t border-color-light"></div>
             </div>
           </div>
         )}
@@ -147,40 +147,40 @@ export default function ResearchersSection({ debugMode = false }) {
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden content-spacing-md">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-secondary text-author-name text-on-dark name-role-spacing">
+                    <h3 className="font-secondary text-author-name text-primary-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label label text-on-dark-meta role-date-spacing">
+                    <p className="font-primary text-label label text-secondary-on-dark role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="meta" debugMode={debugMode}>
-                    <p className="font-primary text-meta text-on-dark-meta block-label-spacing">{author.lifeDates}</p>
+                    <p className="font-primary text-meta text-secondary-on-dark block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block content-spacing-md">
                   <DebugLabel type="author-name" debugMode={debugMode}>
-                    <h3 className="font-secondary text-author-name text-on-dark name-role-spacing">
+                    <h3 className="font-secondary text-author-name text-primary-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label label text-on-dark-meta role-date-spacing">
+                    <p className="font-primary text-label label text-secondary-on-dark role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="meta" debugMode={debugMode}>
-                    <p className="font-primary text-meta text-on-dark-meta block-label-spacing">{author.lifeDates}</p>
+                    <p className="font-primary text-meta text-secondary-on-dark block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Short text */}
                 <DebugLabel type="summary-large" debugMode={debugMode}>
-                  <p className="font-secondary text-summary-large text-on-dark-body leading-relaxed content-spacing">
+                  <p className="font-secondary text-summary-large text-on-dark leading-relaxed content-spacing">
                     {author.shortVersion}
                   </p>
                 </DebugLabel>
@@ -202,7 +202,7 @@ export default function ResearchersSection({ debugMode = false }) {
               <div className="md:col-span-2">
                 <div className="expanded-content-spacing">
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <p className="font-secondary text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="font-secondary text-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
                       {author.longVersion}
                     </p>
                   </DebugLabel>
@@ -212,7 +212,7 @@ export default function ResearchersSection({ debugMode = false }) {
                         href={author.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-primary text-meta text-on-dark-meta hover:text-on-dark-accent transition-colors"
+                        className="font-primary text-meta text-secondary-on-dark hover:text-primary-on-dark transition-colors"
                       >
                         {author.sourceLabel} →
                       </a>
@@ -221,7 +221,7 @@ export default function ResearchersSection({ debugMode = false }) {
                 </div>
                 {/* Divider - Full width, same spacing as featured section */}
                 <div className="md:col-span-2 divider-spacing">
-                  <div className="h-px bg-on-dark-divider"></div>
+                  <div className="border-t border-color-light"></div>
                 </div>
               </div>
             </AccordionWrap>

@@ -19,7 +19,7 @@ export default function Header({ debugMode = false }) {
       <header
         data-testid="site-header"
         className={`fixed top-0 left-0 right-0 z-50 bg-color-bg-light transition-[padding,border] duration-300 ${
-          scrolled ? 'border-b border-black/8 py-3' : 'py-4'
+          scrolled ? 'border-b border-color-light py-3' : 'py-4'
         }`}
       >
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-8 xl:px-8">
