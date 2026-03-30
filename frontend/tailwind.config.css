@@ -419,6 +419,11 @@
   font-style: italic;
 }
 
+/* Divider line - explicit 1px top border for consistent weight */
+@utility divider-line {
+  border-top: 1px solid;
+}
+
 @utility divider-spacing {
   padding-top: 2.25rem;
 }
