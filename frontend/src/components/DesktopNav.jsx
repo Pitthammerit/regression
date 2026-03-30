@@ -32,7 +32,7 @@ export default function DesktopNav({ debugMode = false }) {
             </DebugLabel>
 
             {item.hasSubmenu && openIndex === index && (
-              <ul className="absolute top-full left-0 min-w-[200px] bg-color-card-overlay backdrop-blur-[16px] rounded-lg shadow-xl border border-color-light py-1 z-50">
+              <ul className="absolute top-full left-0 min-w-[200px] bg-color-card-overlay backdrop-blur-[16px] rounded-lg shadow-xl py-1 z-50">
                 {menu.items
                   .find(cat => cat.label === item.label)
                   ?.children.map((child) => (
