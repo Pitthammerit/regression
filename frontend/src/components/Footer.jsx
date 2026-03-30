@@ -76,23 +76,6 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                     {data.tagline}
                   </p>
                 </DebugLabel>
-
-                {/* Contact icons */}
-                <div className="flex gap-4 mt-4 justify-center md:justify-start">
-                  {data.contact.map((c) => (
-                    <a
-                      key={c.label}
-                      href={c.url}
-                      target={c.url.startsWith('mailto') ? undefined : '_blank'}
-                      rel="noreferrer"
-                      className="text-white/70 hover:text-white transition-colors"
-                      aria-label={c.label}
-                      data-testid={`footer-contact-${c.icon}`}
-                    >
-                      {CONTACT_ICONS[c.icon]}
-                    </a>
-                  ))}
-                </div>
               </div>
 
               {/* Cols 2+3 — side-by-side on mobile AND desktop */}
@@ -149,6 +132,30 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                 </div>
 
               </div>
+            </div>
+          </div>
+
+          {/* Contact icons row - centered */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <DebugLabel type="label" debugMode={debugMode}>
+              <span className="font-primary text-label label text-white/50">
+                {footerContent.contactLabel}
+              </span>
+            </DebugLabel>
+            <div className="flex gap-4">
+              {data.contact.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.url}
+                  target={c.url.startsWith('mailto') ? undefined : '_blank'}
+                  rel="noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                  aria-label={c.label}
+                  data-testid={`footer-contact-${c.icon}`}
+                >
+                  {CONTACT_ICONS[c.icon]}
+                </a>
+              ))}
             </div>
           </div>
 
