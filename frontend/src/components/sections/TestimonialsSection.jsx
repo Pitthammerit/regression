@@ -70,7 +70,7 @@ export default function TestimonialsSection({ debugMode = false }) {
                     <LazyImage
                       src={featured.image}
                       alt={featured.name}
-                      className="w-12 h-12 rounded-full object-cover object-top border-2 border-color-primary shrink-0"
+                      className="w-12 h-12 rounded-full object-cover object-top border border-color-primary shrink-0"
                     />
                   )}
                   <div>
@@ -123,7 +123,7 @@ function TestimonialCard({ c, index, debugMode = false }) {
           <LazyImage
             src={c.image}
             alt={c.name}
-            className="w-12 h-12 rounded-full object-cover border-2 border-color-primary shrink-0"
+            className="w-12 h-12 rounded-full object-cover border border-color-primary shrink-0"
           />
         )}
         <div>

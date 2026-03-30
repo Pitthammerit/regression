@@ -25,7 +25,7 @@ export default function ExpandToggleButton({
 }) {
   return (
     <div className={`flex items-center gap-4 ${className}`}>
-      <div className="flex-1 h-px bg-on-dark-divider"></div>
+      <div className="flex-1 h-px bg-color-border-light"></div>
       <DebugLabel type="meta" debugMode={debugMode}>
         <button
           onClick={onToggle}
@@ -35,7 +35,7 @@ export default function ExpandToggleButton({
           <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
         </button>
       </DebugLabel>
-      <div className="flex-1 h-px bg-on-dark-divider"></div>
+      <div className="flex-1 h-px bg-color-border-light"></div>
     </div>
   )
 }

@@ -11,7 +11,7 @@ export default function WelcomeSection({ debugMode = false }) {
 
         {/* Left: Circular portrait + greeting directly below */}
         <div className="flex flex-col items-center md:items-start gap-6">
-          <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 border-2 border-color-primary">
+          <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 border border-color-primary">
             <LazyImage
               src={welcome.imageUrl}
               alt={welcome.author}

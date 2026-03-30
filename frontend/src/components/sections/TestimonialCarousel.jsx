@@ -137,7 +137,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                   <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
                     <div className="flex items-center gap-4">
                       {t.image && (
-                        <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-primary shadow-md">
+                        <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border border-color-primary shadow-md">
                           <img
                             src={getOptimizedImageUrl(t.image)}
                             width="60"

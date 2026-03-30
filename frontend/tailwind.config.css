@@ -63,7 +63,7 @@
 
   /* Border Colors */
   --color-border-primary: #224160;  /* Dark navy — circular image borders, prominent borders */
-  --color-border-light: #0000001A;   /* Subtle black (10%) — dividers, card borders */
+  --color-border-light: #ffffff4D;   /* White 30% — dividers, card borders, mehr/weniger lines */
 
   /* On-Dark (used on dark backgrounds like hero, footer) */
   --color-primary-on-dark: #FFFFFF;      /* Pure white — headings on dark */
@@ -333,6 +333,10 @@
   background-color: var(--color-star);
 }
 
+@utility bg-color-border-light {
+  background-color: var(--color-border-light);
+}
+
 /* Border Color Utilities (for buttons, etc.) */
 @utility border-color-primary {
   border-color: var(--color-border-primary);
@@ -369,6 +373,14 @@
 
 @utility border-divider-on-dark {
   border-color: var(--color-divider-on-dark);
+}
+
+@utility divide-color-bg-dark {
+  border-color: var(--color-bg-dark);
+}
+
+@utility divide-color-primary {
+  border-color: var(--color-border-primary);
 }
 
 /* ─────────────────────────────────────────────────────────────

@@ -1,0 +1,295 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   SHARED THEME TOKENS (for multi-site future)
+   ───────────────────────────────────────────────────────────── */
+
+@theme {
+  /* ─────────────────────────────────────────────────────────────
+     FONT FAMILIES (3 total)
+     ───────────────────────────────────────────────────────────── */
+  --font-primary: "DM Sans", system-ui, sans-serif;
+  --font-secondary: "Cormorant Garamond", Georgia, serif;
+  --font-handwriting: "Kalam", cursive;
+
+  /* ─────────────────────────────────────────────────────────────
+     TYPOGRAPHY SCALE (18 tokens)
+     ───────────────────────────────────────────────────────────── */
+  /* Hero */
+  --font-hero-large: clamp(2.4rem, 6.6vw, 5.4rem);
+  --font-hero: clamp(1.44rem, 3.84vw, 3.36rem);
+  --font-podcast-headline: clamp(2.8rem, 6vw, 5rem);
+
+  /* Headlines */
+  --font-h2: 2.25rem;
+  --font-h2-hand: 2.25rem;
+  --font-h3: 1.875rem;
+  --font-h3-hand: 1.875rem;
+  --font-h4: 1.5rem;
+
+  /* Body */
+  --font-body: 1.125rem;
+  --font-body-lg: 1.25rem;
+  --font-label: 0.94rem;
+  --font-menu-text: 0.9375rem;
+  --font-subline: 1rem;
+
+  /* Special */
+  --font-quote-featured: 2.25rem;
+  --font-author-name: 2rem;
+  --font-summary-large: 1.625rem;
+  --font-body-narrative: 1.125rem;
+  --font-meta: 0.875rem;
+  --font-disclaimer: 0.75rem;
+  --font-button-text: 0.875rem;
+  --font-hint: 0.875rem;
+
+  /* ─────────────────────────────────────────────────────────────
+     COLORS (Semantic)
+     ───────────────────────────────────────────────────────────── */
+  /* General Purpose */
+  --color-bg-light: #EDE7DC;
+  --color-bg-medium: #E5DFD5;
+  --color-bg-dark: #224160;
+  --color-card-overlay: #ffffff80;
+  --color-border: #0000001A;
+  --color-overlay-dark: #00000040;
+
+  /* Semantic Names */
+  --color-heading: #224160;
+  --color-body: #5A5550;
+  --color-label: #7696AD;
+  --color-accent: #2DAD71;
+  --color-star: #f5f10b;
+
+  /* On-Dark */
+  --color-on-dark: #FFFFFF;
+  --color-on-dark-body: #FFFFFFCC;
+  --color-on-dark-meta: #ffffff9c;
+  --color-on-dark-accent: #ffffff;
+  --color-on-dark-divider: #ffffff33;
+
+  /* ─────────────────────────────────────────────────────────────
+     SPACING UTILITIES (27 tokens)
+     ───────────────────────────────────────────────────────────── */
+  /* Section Spacing */
+  --spacing-section-padding: 5rem 0 7rem 0;
+  --spacing-section-block-spacing: 4rem;
+  --spacing-section-padding-sm: 2.5rem 0 0 0;
+
+  /* Content Spacing */
+  --spacing-content-spacing: 1.5rem;
+  --spacing-content-spacing-md: 1rem;
+  --spacing-content-spacing-lg: 2rem;
+
+  /* Element Spacing */
+  --spacing-label-heading: 0.7rem;
+  --spacing-name-role: 0.25rem;
+  --spacing-role-date: 0.25rem;
+  --spacing-block-label: 0.75rem;
+  --spacing-item-tag: 0.5rem;
+  --spacing-paragraph: 1rem;
+  --spacing-expanded-content: 1rem 0 0 2rem;
+
+  /* Margin Top */
+  --spacing-element-xs: 0.5rem;
+  --spacing-element-sm: 0.75rem;
+  --spacing-element-md: 1rem;
+  --spacing-margin-top-sm: 1.5rem;
+  --spacing-margin-top-md: 3rem;
+
+  /* Grid */
+  --spacing-grid-gap-lg: 2rem;
+  --spacing-grid-gap-xl: 4rem;
+
+  /* Letter Spacing */
+  --letter-heading-tight: -0.02em;
+  --letter-label-wide: 0.2em;
+  --letter-label-alt: 0.15em;
+
+  /* Max Width */
+  --max-width-content: 72rem;
+  --max-width-centered-header: 48rem;
+
+  /* Transitions */
+  --transition-fast: 200ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  --transition-slower: 700ms;
+
+  /* ─────────────────────────────────────────────────────────────
+     BREAKPOINTS (Custom)
+     ───────────────────────────────────────────────────────────── */
+  --breakpoint-900: 900px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CUSTOM UTILITIES (from plugin - 24 utilities)
+   ───────────────────────────────────────────────────────────── */
+
+@utility label {
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@utility button-text {
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@utility subline-italic {
+  line-height: 1.5;
+  font-style: italic;
+}
+
+@utility hint-italic {
+  line-height: 1.5;
+  font-style: italic;
+}
+
+@utility disclaimer-italic {
+  line-height: 1.5;
+  font-style: italic;
+}
+
+@utility quote-featured-italic {
+  font-style: italic;
+}
+
+@utility divider-spacing {
+  padding-top: 2.25rem;
+}
+
+@utility section-padding {
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+}
+
+@utility section-block-spacing {
+  margin-bottom: 4rem;
+}
+
+@utility grid-gap-lg {
+  gap: 2rem;
+}
+
+@utility grid-gap-xl {
+  gap: 4rem;
+}
+
+@utility margin-top-sm {
+  margin-top: 1.5rem;
+}
+
+@utility margin-top-md {
+  margin-top: 3rem;
+}
+
+@utility section-padding-sm {
+  padding-top: 2.5rem;
+}
+
+@utility transition-fast {
+  transition-duration: 200ms;
+}
+
+@utility transition-normal {
+  transition-duration: 300ms;
+}
+
+@utility transition-slow {
+  transition-duration: 500ms;
+}
+
+@utility transition-slower {
+  transition-duration: 700ms;
+}
+
+@utility tracking-label-alt {
+  letter-spacing: 0.15em;
+}
+
+@utility label-heading-spacing {
+  margin-bottom: 0.7rem;
+}
+
+@utility name-role-spacing {
+  margin-bottom: 0.25rem;
+}
+
+@utility role-date-spacing {
+  margin-bottom: 0.25rem;
+}
+
+@utility block-label-spacing {
+  margin-bottom: 0.75rem;
+}
+
+@utility content-spacing {
+  margin-bottom: 1.5rem;
+}
+
+@utility content-spacing-md {
+  margin-bottom: 1rem;
+}
+
+@utility content-spacing-lg {
+  margin-bottom: 2rem;
+}
+
+@utility item-tag-spacing {
+  margin-bottom: 0.5rem;
+}
+
+@utility element-spacing-xs {
+  margin-top: 0.5rem;
+}
+
+@utility element-spacing-sm {
+  margin-top: 0.75rem;
+}
+
+@utility element-spacing-md {
+  margin-top: 1rem;
+}
+
+@utility paragraph-spacing {
+  margin-bottom: 1rem;
+}
+
+@utility expanded-content-spacing {
+  margin-top: 1rem;
+  padding-top: 2rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TRACKING UTILITIES (Letter Spacing)
+   ───────────────────────────────────────────────────────────── */
+@utility tracking-heading-tight {
+  letter-spacing: -0.02em;
+}
+
+@utility tracking-label-wide {
+  letter-spacing: 0.2em;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MAX-WIDTH UTILITIES
+   ───────────────────────────────────────────────────────────── */
+@utility max-w-content {
+  max-width: 72rem;
+}
+
+@utility max-w-centered-header {
+  max-width: 48rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BACKGROUND IMAGE (paper texture)
+   ───────────────────────────────────────────────────────────── */
+@utility bg-paper {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+}
