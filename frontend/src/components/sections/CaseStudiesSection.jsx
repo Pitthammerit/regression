@@ -25,7 +25,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-secondary leading-relaxed">{cases.body}</p>
+          <p className="font-primary text-body-lg text-color-text leading-relaxed">{cases.body}</p>
         </DebugLabel>
       </div>
 
