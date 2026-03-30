@@ -41,9 +41,9 @@ export default function SimpleCtaSection({ debugMode = false }) {
           </p>
         </DebugLabel>
 
-        <div className="content-spacing-md">
+        <div className="mt-[3.5rem]">
           <DebugLabel type="button-text" debugMode={debugMode}>
-            <CtaButton label={simpleCta.cta} variant="primary" />
+            <CtaButton label={simpleCta.cta} variant="primary" className="py-4 px-12" />
           </DebugLabel>
         </div>
       </div>
