@@ -236,7 +236,7 @@ export function BookingSectionDark({ debugMode = false }) {
         <button
           onClick={() => setCalendarOpen(!calendarOpen)}
           className={`inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200 ${
-            calendarOpen ? 'mt-8' : ''
+            calendarOpen ? 'mt-4' : ''
           }`}
           data-testid="booking-cta-button"
         >
