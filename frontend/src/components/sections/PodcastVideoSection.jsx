@@ -34,7 +34,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
   const [panelOpen, setPanelOpen] = useState(false)
   // Get first podcast (for backwards compatibility)
   const podcast = podcasts[0]
-  const fluentTranscriptUrl = process.env.REACT_APP_FLUENT_FORMS_TRANSCRIPT_URL
+  const fluentTranscriptUrl = import.meta.env.VITE_FLUENT_FORMS_TRANSCRIPT_URL
 
   return (
     <>

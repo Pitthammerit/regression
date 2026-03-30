@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { transcriptPage } from '../content/plr-de'
 import { episode52 } from '../content/transcripts/episode52.de'
 
-const TOKEN = process.env.REACT_APP_TRANSCRIPT_TOKEN
+const TOKEN = import.meta.env.VITE_TRANSCRIPT_TOKEN
 
 export default function TranscriptPage() {
   const [searchParams] = useSearchParams()

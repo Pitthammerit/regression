@@ -17,10 +17,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 3. **Check Memory** — Read relevant memories for context (use `list_memories` tool)
 
-4. **Check Active Plans** — Look in `docs/` directory for current project plans
-   - Active work-in-progress documents are stored in `docs/`
-   - Examples: `typography-refactoring-plan.md`, `TODO-AUTO-SYNC-PLAN.md`
-   - Before starting work, check if there's an existing plan for the task
+4. **Check Active Plans** — Look in `docs/plans/` directory for current project plans
+   - **PRIMARY PLAN:** `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md`
+   - This is the main execution plan for the current project
+   - Before starting work, read this plan first!
+   - Other archived docs are in `docs/archived/` (historical reference only)
 
 ### Why This Section Exists
 
@@ -59,7 +60,7 @@ See "Multiagent Orchestration" section below for detailed workflow.
 
 This is a React app for "Regression" (Past Life Regression sessions by Benjamin Kurtz), deployed via Cloudflare Pages. Only the `frontend/` directory is deployed — the monorepo structure exists for future expansion but currently contains no active backend.
 
-**Tech Stack:** React 19, React Router v7, Tailwind CSS, npm
+**Tech Stack:** React 19, React Router v7, Vite 5, Tailwind CSS v4, npm
 
 ## Deployment Rules (Critical)
 
@@ -93,6 +94,20 @@ Common syntax error: missing commas in array literals (check line endings in `wh
 - Build command: `npm run build`
 - Build output: `build/`
 - Environment variable: `CI=false` (required to prevent build failures from warnings)
+
+**Environment Variables (Vite prefix):**
+- **IMPORTANT:** Vite requires `VITE_` prefix for all environment variables
+- Old CRA format: `REACT_APP_*` → New Vite format: `VITE_*`
+- Required variables:
+  - `VITE_TRANSCRIPT_TOKEN` (was `REACT_APP_TRANSCRIPT_TOKEN`)
+  - `VITE_R2_BASE_URL` (was `REACT_APP_R2_BASE_URL`)
+  - `VITE_CALENDAR_EMBED` (was `REACT_APP_CALENDAR_EMBED`)
+  - `VITE_FLUENT_FORMS_TRANSCRIPT_URL` (was `REACT_APP_FLUENT_FORMS_TRANSCRIPT_URL`)
+
+**Local Development:**
+- Copy `frontend/.env.example` to `frontend/.env.local`
+- Fill in the required values
+- Vite automatically loads `.env.local`
 
 ### Git Workflow
 

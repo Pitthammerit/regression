@@ -25,7 +25,7 @@ import { ChevronDown } from 'lucide-react'
  */
 export default function BookingSection({ debugMode = false }) {
   const [calendarOpen, setCalendarOpen] = useState(false)
-  const embedCode = process.env.REACT_APP_CALENDAR_EMBED
+  const embedCode = import.meta.env.VITE_CALENDAR_EMBED
 
   // Listen for global 'booking:open' event (dispatched by CtaButton)
   useEffect(() => {

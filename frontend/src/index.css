@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Import custom theme tokens */
+@import "../tailwind.config.css";
+
+/* ─────────────────────────────────────────────────────────────
+   BASE STYLES
+   ───────────────────────────────────────────────────────────── */
 
 body {
   background-color: #F0EBE1;
@@ -14,6 +19,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   CUSTOM ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
 
 @keyframes scrollFade {
   0%, 100% { opacity: 0.25; }
@@ -42,12 +51,8 @@ html {
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 @keyframes scaleIn {
@@ -72,17 +77,25 @@ html {
   }
 }
 
-.animate-pulse-soft {
+/* ─────────────────────────────────────────────────────────────
+   ANIMATION UTILITIES
+   ───────────────────────────────────────────────────────────── */
+
+@utility animate-pulse-soft {
   animation: pulseSoft 2.8s ease-in-out infinite;
 }
 
-.animate-pulse-down {
+@utility animate-pulse-down {
   animation: pulseDown 1.5s ease-in-out infinite;
 }
 
-.animate-fadeIn {
+@utility animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   COMPONENT-SPECIFIC STYLES
+   ───────────────────────────────────────────────────────────── */
 
 .process-bg-number {
   font-size: clamp(21rem, 40vw, 28rem);
