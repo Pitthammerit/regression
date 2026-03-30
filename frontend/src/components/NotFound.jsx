@@ -2,12 +2,18 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import SectionLabel from './ui/SectionLabel'
 import CtaButton from './ui/CtaButton'
-import { notFound } from '../content/plr-de'
+import { notFound, footer as footerContent } from '../content/plr-de'
 import Header from './Header'
 import Footer from './Footer'
 
 export default function NotFound() {
   const navigate = useNavigate()
+
+  // Prepare data for Footer component
+  const footerData = {
+    contact: footerContent.contact,
+    legalLinks: footerContent.legalLinks,
+  }
 
   return (
     <div className="min-h-screen bg-color-bg-light bg-paper font-primary text-color-body">
@@ -36,7 +42,7 @@ export default function NotFound() {
       </main>
 
       {/* Use shared Footer for consistent navigation */}
-      <Footer />
+      <Footer data={footerData} />
     </div>
   )
 }
