@@ -54,7 +54,7 @@ export default function BookingSection({ debugMode = false }) {
         </DebugLabel>
 
         {/* Topics */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mb-10" data-testid="booking-topics-grid">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem]" data-testid="booking-topics-grid">
           {booking.formTopics.map((topic, i) => (
             <TopicCard key={i} title={topic} debugMode={debugMode} />
           ))}
