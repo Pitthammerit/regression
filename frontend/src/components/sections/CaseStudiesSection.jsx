@@ -60,7 +60,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 <LazyImage
                   src={item.image}
                   alt={item.name}
-                  className="w-24 h-24 rounded-full object-cover object-top border border-color-primary shrink-0"
+                  className="w-24 h-24 rounded-full object-cover object-top border border-color-primary shrink-0 scale-[1.03]"
                 />
               ) : (
                 <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border flex items-center justify-center shrink-0" style={{ borderColor: 'var(--color-border-primary)' }}>

@@ -15,7 +15,7 @@ export default function WelcomeSection({ debugMode = false }) {
             <LazyImage
               src={welcome.imageUrl}
               alt={welcome.author}
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-top scale-[1.03]"
             />
           </div>
           {/* Greeting directly under photo */}

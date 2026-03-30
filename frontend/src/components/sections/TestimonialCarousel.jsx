@@ -144,7 +144,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                             height="60"
                             alt={`${t.name}`}
                             loading="lazy"
-                            className="h-full w-full scale-110 object-cover object-center"
+                            className="h-full w-full scale-[1.03] object-cover object-center"
                           />
                         </div>
                       )}
