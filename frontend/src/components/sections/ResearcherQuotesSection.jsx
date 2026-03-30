@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import { researchers, ui } from '../../content/plr-de'
 import SectionWrapper from '../ui/SectionWrapper'
@@ -6,7 +6,6 @@ import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
-import { useAccordionScroll } from '../../hooks/useAccordionScroll'
 
 /**
  * ResearcherQuotesSectionCopy — Research authority quotes with portraits
@@ -23,7 +22,32 @@ import { useAccordionScroll } from '../../hooks/useAccordionScroll'
  */
 export default function ResearcherQuotesSection({ debugMode = false }) {
   const [isExpanded, setIsExpanded] = useState(false)
-  const toggleExpand = useAccordionScroll(isExpanded, setIsExpanded)
+
+  // Simple scroll to align section top when expanding
+  const handleToggle = useCallback(() => {
+    const willExpand = !isExpanded
+    setIsExpanded(willExpand)
+
+    // When opening, scroll to first newly visible author
+    if (willExpand) {
+      requestAnimationFrame(() => {
+        const firstNewAuthor = document.querySelector('[data-testid="researcher-quotes-section"] .grid.md\\:grid-cols-3:nth-child(2) > div:first-child')
+        // Fallback: scroll to section if no specific author found
+        const section = document.querySelector('[data-testid="researcher-quotes-section"]')
+
+        const targetElement = firstNewAuthor || section
+        if (targetElement) {
+          const rect = targetElement.getBoundingClientRect()
+          const scrollTop = window.scrollY + rect.top - 100
+
+          window.scrollTo({
+            top: Math.max(0, scrollTop),
+            behavior: 'smooth'
+          })
+        }
+      })
+    }
+  }, [isExpanded])
 
   // Filter authors with portraits (from plr-de.js)
   const authorsWithPortraits = researchers.authors.filter(author => author.portrait !== null)
@@ -98,7 +122,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
         <>
           <ExpandToggleButton
             isExpanded={isExpanded}
-            onToggle={toggleExpand}
+            onToggle={handleToggle}
             labelMore={ui.showMore}
             labelLess={ui.showLess}
             debugMode={debugMode}
