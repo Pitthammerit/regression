@@ -166,7 +166,7 @@ export function BookingSectionDark({ debugMode = false }) {
         <div
           className={`grid transition-all duration-[500ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
             calendarOpen
-              ? 'grid-rows-[1fr] opacity-100 mb-8'
+              ? 'grid-rows-[1fr] opacity-100'
               : 'grid-rows-[0fr] opacity-0'
           }`}
           style={{
@@ -228,7 +228,9 @@ export function BookingSectionDark({ debugMode = false }) {
         {/* Accordion CTA button - always visible */}
         <button
           onClick={() => setCalendarOpen(!calendarOpen)}
-          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-colors duration-200"
+          className={`inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200 ${
+            calendarOpen ? 'mt-8' : ''
+          }`}
           data-testid="booking-cta-button"
         >
           {booking.directBookingCta}
