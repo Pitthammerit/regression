@@ -64,9 +64,11 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 />
               ) : (
                 <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border-2 border-color-primary flex items-center justify-center shrink-0">
-                  <span className="font-secondary text-4xl font-semibold text-color-primary">
-                    {item.name.charAt(0)}
-                  </span>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-color-primary">
+                    <circle cx="12" cy="8" r="3" />
+                    <path d="M5 21c0-3 5-2 8 7 8s7-5 7-8" />
+                    <path d="M10 14c0-1.5 2-2.5 2-4 0-1.5-.5-3-2-4.5" />
+                  </svg>
                 </div>
               )}
               <div className="flex-1 pr-4">
