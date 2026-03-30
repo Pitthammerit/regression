@@ -202,11 +202,9 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           </div>
 
           {/* — Divider + Copyright — */}
-          <div className="pt-6 text-center">
-            <div className="h-px bg-color-border-light mb-6"></div>
-          </div>
+          <div className="h-px bg-color-border-light mb-6 mt-6"></div>
           <DebugLabel type="hint" debugMode={debugMode}>
-            <div className="font-primary text-hint hint text-white/50">
+            <div className="font-primary text-hint hint text-white/50 text-center">
               {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
               <a
                 href={footerContent.copyright.homeUrl}
