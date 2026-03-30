@@ -4,7 +4,7 @@ import DebugLabel from '../ui/DebugLabel'
 import AccordionWrap from '../ui/AccordionWrap'
 import { ChevronDown } from 'lucide-react'
 import { useNavigation } from '../../contexts/NavigationContext'
-import { useAccordionScroll } from '../../hooks/useAccordionScroll'
+import { useFAQScroll } from '../../hooks/useFAQScroll'
 
 /**
  * FAQSectionCopy — FAQ section with typography tokens
@@ -22,11 +22,14 @@ import { useAccordionScroll } from '../../hooks/useAccordionScroll'
  * - Only one item expanded at a time
  * - Map over faq.items
  *
- * UPDATED: Using AccordionWrap for smooth 500ms ease-in-out animations
+ * UPDATED: Using useFAQScroll hook for FAQ-specific scroll behavior
+ * - Monitors section-level stability (not button height)
+ * - Targets question container (not portrait container)
+ * - Waits for full layout stabilization (previous collapse + new expand)
  */
 export default function FAQSection({ debugMode = false }) {
   const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
-  const toggleExpand = useAccordionScroll(expandedFAQIndex, setExpandedFAQIndex)
+  const toggleExpand = useFAQScroll(expandedFAQIndex, setExpandedFAQIndex)
 
   return (
     <section
