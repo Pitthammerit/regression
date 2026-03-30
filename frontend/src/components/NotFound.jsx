@@ -17,7 +17,7 @@ export default function NotFound() {
   }
 
   return (
-    <div className="min-h-screen bg-color-bg-light bg-paper font-primary text-color-body">
+    <div className="min-h-screen bg-color-bg-light bg-paper font-primary text-color-text">
       {/* Use shared Header for consistent navigation */}
       <Header />
 
@@ -26,11 +26,11 @@ export default function NotFound() {
         <div className="max-w-content mx-auto text-center w-full">
           <SectionLabel text="404" />
 
-          <h1 className="font-secondary text-hero-large text-color-heading mb-6 leading-tight">
+          <h1 className="font-secondary text-hero-large text-color-primary mb-6 leading-tight">
             {notFound.title}
           </h1>
 
-          <p className="font-primary text-color-body text-body-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+          <p className="font-primary text-color-text text-body-lg leading-relaxed mb-12 max-w-2xl mx-auto">
             {notFound.message}
           </p>
 

@@ -30,13 +30,13 @@ export default function SimpleCtaSection({ debugMode = false }) {
         </DebugLabel>
 
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-heading leading-tight text-center content-spacing-md">
+          <h2 className="font-secondary text-h2 text-color-primary leading-tight text-center content-spacing-md">
             {simpleCta.headline}
           </h2>
         </DebugLabel>
 
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-body leading-relaxed content-spacing-md">
+          <p className="font-primary text-body-lg text-color-text leading-relaxed content-spacing-md">
             {simpleCta.subline}
           </p>
         </DebugLabel>

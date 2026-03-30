@@ -23,7 +23,7 @@ export default function AboutSection({ debugMode = false }) {
               alt="Benjamin Kurtz"
               className="w-full h-full object-cover object-top"
               fallback={
-                <div className="w-full h-full flex items-center justify-center text-body font-primary text-color-body">
+                <div className="w-full h-full flex items-center justify-center text-body font-primary text-color-text">
                   {about.photoPlaceholder}
                 </div>
               }
@@ -34,31 +34,31 @@ export default function AboutSection({ debugMode = false }) {
         {/* Right: Bio */}
         <div>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-color-heading leading-tight">
+            <h2 className="font-secondary text-h2 text-color-primary leading-tight">
               {about.headline}
             </h2>
           </DebugLabel>
 
           {about.body.map((para, i) => (
             <DebugLabel type="body" debugMode={debugMode} key={i}>
-              <p className={`font-primary text-color-body text-body ${i > 0 ? 'margin-top-sm' : ''}`}>
+              <p className={`font-primary text-color-text text-body ${i > 0 ? 'margin-top-sm' : ''}`}>
                 {para}
               </p>
             </DebugLabel>
           ))}
 
           {/* Credentials */}
-          <div className="margin-top-md section-padding-sm border-t border-color-border">
+          <div className="margin-top-md section-padding-sm border-t border-color-light">
             <DebugLabel type="label" debugMode={debugMode}>
-              <p className="font-primary text-label label text-color-label content-spacing-lg">
+              <p className="font-primary text-label label text-color-secondary content-spacing-lg">
                 {about.credentialsLabel}
               </p>
             </DebugLabel>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
-                <li key={i} className="font-primary text-list text-color-body flex items-start gap-2">
+                <li key={i} className="font-primary text-list text-color-text flex items-start gap-2">
                   <DebugLabel type="list" debugMode={debugMode}>
-                    <span className="text-color-heading shrink-0 mt-0.5">—</span>
+                    <span className="text-color-primary shrink-0 mt-0.5">—</span>
                     {cred}
                   </DebugLabel>
                 </li>

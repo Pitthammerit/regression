@@ -37,7 +37,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
     <section
       id="science-copy"
       data-testid="science-section-copy"
-      className="section-padding bg-color-bg-dark text-on-dark relative overflow-hidden"
+      className="section-padding bg-color-primary text-on-dark relative overflow-hidden"
     >
       {/* Subtle paper texture overlay */}
       <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none" />

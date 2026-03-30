@@ -46,13 +46,13 @@ export default function PodcastVideoSection({ debugMode = false }) {
           </DebugLabel>
 
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-color-heading leading-tight content-spacing-md">
+            <h2 className="font-secondary text-h2 text-color-primary leading-tight content-spacing-md">
               {podcast.headline}
             </h2>
           </DebugLabel>
 
           <DebugLabel type="body-lg" debugMode={debugMode}>
-            <p className="font-primary text-body-lg text-color-body leading-relaxed">
+            <p className="font-primary text-body-lg text-color-text leading-relaxed">
               {podcast.subline}
             </p>
           </DebugLabel>
@@ -90,16 +90,16 @@ export default function PodcastVideoSection({ debugMode = false }) {
         }`}
         data-testid="transcript-panel"
       >
-        <div className="flex items-start justify-between px-8 pt-8 pb-6 border-b border-color-border">
+        <div className="flex items-start justify-between px-8 pt-8 pb-6 border-b border-color-light">
           <div>
             <DebugLabel type="label" debugMode={debugMode}>
-              <p className="font-primary text-label label text-color-label name-role-spacing">
+              <p className="font-primary text-label label text-color-secondary name-role-spacing">
                 {podcastVideo.panelLabel}
               </p>
             </DebugLabel>
 
             <DebugLabel type="h3" debugMode={debugMode}>
-              <h3 className="font-secondary text-h3 text-color-heading leading-tight">
+              <h3 className="font-secondary text-h3 text-color-primary leading-tight">
                 {podcastVideo.panelTitleLine1}<br />{podcastVideo.panelTitleLine2}
               </h3>
             </DebugLabel>
@@ -111,12 +111,12 @@ export default function PodcastVideoSection({ debugMode = false }) {
             aria-label={podcastVideo.closeButtonLabel}
             data-testid="transcript-panel-close"
           >
-            <X className="w-icon-md h-icon-md text-color-heading" />
+            <X className="w-icon-md h-icon-md text-color-primary" />
           </button>
         </div>
 
         <div className="flex-1 overflow-y-auto px-8 py-6">
-          <p className="font-primary text-body text-color-body leading-relaxed content-spacing-lg">
+          <p className="font-primary text-body text-color-text leading-relaxed content-spacing-lg">
             {podcastVideo.emailPrompt}
           </p>
 
@@ -131,7 +131,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
             <div className="space-y-4" data-testid="transcript-placeholder-form">
               <div>
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <label className="font-primary text-label label text-color-label block block-label-spacing">
+                  <label className="font-primary text-label label text-color-secondary block block-label-spacing">
                     {podcastVideo.nameLabel}
                   </label>
                 </DebugLabel>
@@ -139,14 +139,14 @@ export default function PodcastVideoSection({ debugMode = false }) {
                 <input
                   type="text"
                   placeholder={podcastVideo.namePlaceholder}
-                  className="w-full bg-color-card-overlay border border-color-border rounded-lg px-4 py-3 font-primary text-body text-color-body placeholder:text-color-label/50 focus:outline-none focus:border-color-heading/40 transition-colors"
+                  className="w-full bg-color-card-overlay border border-color-light rounded-lg px-4 py-3 font-primary text-body text-color-text placeholder:text-color-secondary/50 focus:outline-none focus:border-color-primary/40 transition-colors"
                   data-testid="transcript-name-input"
                 />
               </div>
 
               <div>
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <label className="font-primary text-label label text-color-label block block-label-spacing">
+                  <label className="font-primary text-label label text-color-secondary block block-label-spacing">
                     {podcastVideo.emailLabel}
                   </label>
                 </DebugLabel>
@@ -154,28 +154,28 @@ export default function PodcastVideoSection({ debugMode = false }) {
                 <input
                   type="email"
                   placeholder={podcastVideo.emailPlaceholder}
-                  className="w-full bg-color-card-overlay border border-color-border rounded-lg px-4 py-3 font-primary text-body text-color-body placeholder:text-color-label/50 focus:outline-none focus:border-color-heading/40 transition-colors"
+                  className="w-full bg-color-card-overlay border border-color-light rounded-lg px-4 py-3 font-primary text-body text-color-text placeholder:text-color-secondary/50 focus:outline-none focus:border-color-primary/40 transition-colors"
                   data-testid="transcript-email-input"
                 />
               </div>
 
               <button
-                className="w-full flex items-center justify-center gap-2.5 bg-color-heading font-primary text-label label text-on-dark py-4 rounded-full hover:bg-color-label transition-colors transition-normal element-spacing-sm"
+                className="w-full flex items-center justify-center gap-2.5 bg-color-primary font-primary text-label label text-on-dark py-4 rounded-full hover:bg-color-secondary transition-colors transition-normal element-spacing-sm"
                 data-testid="transcript-submit-btn"
               >
                 <Send className="w-icon-sm h-icon-sm" />
                 {podcastVideo.submitButtonLabel}
               </button>
 
-              <p className="font-primary text-hint text-color-label/60 text-center pt-2">
+              <p className="font-primary text-hint text-color-secondary/60 text-center pt-2">
                 {podcastVideo.fluentFormsNote}
               </p>
             </div>
           )}
         </div>
 
-        <div className="px-8 py-5 border-t border-color-border">
-          <p className="font-primary text-hint text-color-label/50 text-center leading-relaxed">
+        <div className="px-8 py-5 border-t border-color-light">
+          <p className="font-primary text-hint text-color-secondary/50 text-center leading-relaxed">
             {podcastVideo.privacyNoteLine1}<br />{podcastVideo.privacyNoteLine2}
           </p>
         </div>

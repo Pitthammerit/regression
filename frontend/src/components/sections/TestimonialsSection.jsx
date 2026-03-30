@@ -16,7 +16,7 @@ import DebugLabel from '../ui/DebugLabel'
  * - Name: text-h5 (20px) + color-heading + font-semibold
  * - Context: text-label (15px) + color-label + .role plugin (uppercase)
  * - Background cards: bg-color-card-overlay (white/50)
- * - Borders: border-color-border (black/10)
+ * - Borders: border-color-light (black/10)
  * - Spacing: section-padding, content-spacing-lg, content-spacing-md, name-role-spacing
  *
  * Layout:
@@ -37,7 +37,7 @@ export default function TestimonialsSection({ debugMode = false }) {
       {/* Client Testimonials */}
       <div className="section-padding">
         <div className="max-w-content mx-auto px-6">
-          <h2 className="font-primary text-label label text-color-label content-spacing-lg">
+          <h2 className="font-primary text-label label text-color-secondary content-spacing-lg">
             <DebugLabel token="text-label (15px) + color-label + .label" show={debugMode}>
               WALL OF LOVE
             </DebugLabel>
@@ -56,10 +56,10 @@ export default function TestimonialsSection({ debugMode = false }) {
             {/* Featured testimonial — left, full height */}
             {featured && (
               <div
-                className="md:row-span-2 bg-color-card-overlay rounded-2xl p-8 border border-color-border flex flex-col justify-between"
+                className="md:row-span-2 bg-color-card-overlay rounded-2xl p-8 border border-color-light flex flex-col justify-between"
                 data-testid="testimonial-card-featured"
               >
-                <blockquote className="font-secondary text-body-lg quote-featured-italic text-color-body leading-relaxed mb-8">
+                <blockquote className="font-secondary text-body-lg quote-featured-italic text-color-text leading-relaxed mb-8">
                   <DebugLabel token="text-body-lg (20px) + color-body + .quote-featured-italic" show={debugMode}>
                     "{featured.quote}"
                   </DebugLabel>
@@ -69,16 +69,16 @@ export default function TestimonialsSection({ debugMode = false }) {
                     <LazyImage
                       src={featured.image}
                       alt={featured.name}
-                      className="w-12 h-12 rounded-full object-cover object-top border border-color-border shrink-0"
+                      className="w-12 h-12 rounded-full object-cover object-top border border-color-light shrink-0"
                     />
                   )}
                   <div>
-                    <div className="font-primary text-h5 font-semibold text-color-heading">
+                    <div className="font-primary text-h5 font-semibold text-color-primary">
                       <DebugLabel token="text-h5 (20px) + color-heading + font-semibold" show={debugMode}>
                         {featured.name}
                       </DebugLabel>
                     </div>
-                    <div className="font-primary text-label role text-color-label name-role-spacing">
+                    <div className="font-primary text-label role text-color-secondary name-role-spacing">
                       <DebugLabel token="text-label (15px) + color-label + .role" show={debugMode}>
                         {featured.context}
                       </DebugLabel>
@@ -95,7 +95,7 @@ export default function TestimonialsSection({ debugMode = false }) {
 
             {/* Empty slot(s) if needed to maintain grid layout */}
             {others.length < 4 && (
-              <div className="hidden md:block rounded-2xl border border-dashed border-color-border" />
+              <div className="hidden md:block rounded-2xl border border-dashed border-color-light" />
             )}
 
           </div>
@@ -109,10 +109,10 @@ export default function TestimonialsSection({ debugMode = false }) {
 function TestimonialCard({ c, index, debugMode = false }) {
   return (
     <div
-      className="bg-color-card-overlay rounded-2xl p-8 border border-color-border flex flex-col justify-between"
+      className="bg-color-card-overlay rounded-2xl p-8 border border-color-light flex flex-col justify-between"
       data-testid={`testimonial-card-${index}`}
     >
-      <blockquote className="font-secondary text-body-lg quote-featured-italic text-color-body leading-relaxed mb-8">
+      <blockquote className="font-secondary text-body-lg quote-featured-italic text-color-text leading-relaxed mb-8">
         <DebugLabel token="text-body-lg (20px) + color-body + .quote-featured-italic" show={debugMode}>
           "{c.quote}"
         </DebugLabel>
@@ -122,16 +122,16 @@ function TestimonialCard({ c, index, debugMode = false }) {
           <LazyImage
             src={c.image}
             alt={c.name}
-            className="w-12 h-12 rounded-full object-cover border border-color-border shrink-0"
+            className="w-12 h-12 rounded-full object-cover border border-color-light shrink-0"
           />
         )}
         <div>
-          <div className="font-primary text-h5 font-semibold text-color-heading">
+          <div className="font-primary text-h5 font-semibold text-color-primary">
             <DebugLabel token="text-h5 (20px) + color-heading + font-semibold" show={debugMode}>
               {c.name}
             </DebugLabel>
           </div>
-          <div className="font-primary text-label role text-color-label name-role-spacing">
+          <div className="font-primary text-label role text-color-secondary name-role-spacing">
             <DebugLabel token="text-label (15px) + color-label + .role" show={debugMode}>
               {c.context}
             </DebugLabel>

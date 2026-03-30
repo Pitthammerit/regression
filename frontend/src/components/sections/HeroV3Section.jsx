@@ -19,12 +19,12 @@ export default function HeroV3Section({ debugMode = false }) {
         <div className="max-w-content mx-auto text-center">
           <div className="font-secondary tracking-tight leading-none">
             <DebugLabel type="hero-large" debugMode={debugMode}>
-              <span className="text-hero-large text-color-heading inline">
+              <span className="text-hero-large text-color-primary inline">
                 {hero.headlineLine1}&nbsp;
               </span>
             </DebugLabel>
             <DebugLabel type="hero" debugMode={debugMode}>
-              <span className="text-hero text-color-heading/70 inline italic">
+              <span className="text-hero text-color-primary/70 inline italic">
                 {hero.headlineLine2}
               </span>
             </DebugLabel>
@@ -52,7 +52,7 @@ export default function HeroV3Section({ debugMode = false }) {
       <div className="px-8 md:px-14 lg:px-20 pt-6">
         <div className="max-w-[783px] mx-auto text-center">
           <DebugLabel type="hero" debugMode={debugMode}>
-            <p className="font-secondary italic text-color-heading text-hero">
+            <p className="font-secondary italic text-color-primary text-hero">
               {hero.heroCta}
             </p>
           </DebugLabel>
@@ -68,7 +68,7 @@ export default function HeroV3Section({ debugMode = false }) {
             className="opacity-50 hover:opacity-80 transition-opacity duration-300"
           >
             <ChevronDown
-              className="w-20 h-20 text-color-heading animate-pulse-down"
+              className="w-20 h-20 text-color-primary animate-pulse-down"
             />
           </button>
         </div>

@@ -20,17 +20,17 @@ export default function CaseStudiesSection({ debugMode = false }) {
           <SectionLabel text={cases.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-heading leading-tight text-center content-spacing-md">
+          <h2 className="font-secondary text-h2 text-color-primary leading-tight text-center content-spacing-md">
             {cases.headline}
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-label leading-relaxed">{cases.body}</p>
+          <p className="font-primary text-body-lg text-color-secondary leading-relaxed">{cases.body}</p>
         </DebugLabel>
       </div>
 
       {/* Hint — always visible */}
-      <div className="mx-auto flex items-center justify-center gap-2 text-hint hint-italic text-color-label italic max-w-fit mb-4">
+      <div className="mx-auto flex items-center justify-center gap-2 text-hint hint-italic text-color-secondary italic max-w-fit mb-4">
         <span>Klicke auf eine der Geschichten, um sie zu lesen.</span>
       </div>
 
@@ -44,11 +44,11 @@ export default function CaseStudiesSection({ debugMode = false }) {
           aria-label="Zu den Fallbeispielen scrollen"
           className="opacity-50 hover:opacity-80 transition-opacity duration-300"
         >
-          <ChevronDown className="w-16 h-16 text-color-heading animate-pulse-down" />
+          <ChevronDown className="w-16 h-16 text-color-primary animate-pulse-down" />
         </button>
       </div>
 
-      <div className="divide-y divide-color-border max-w-4xl mx-auto">
+      <div className="divide-y divide-color-border-light max-w-4xl mx-auto">
         {cases.items.map((item, i) => (
           <div key={i}>
             <button
@@ -60,33 +60,33 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 <LazyImage
                   src={item.image}
                   alt={item.name}
-                  className="w-24 h-24 rounded-full object-cover object-top border-2 border-color-border shrink-0"
+                  className="w-24 h-24 rounded-full object-cover object-top border-2 border-color-light shrink-0"
                 />
               ) : (
-                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border-2 border-color-border flex items-center justify-center shrink-0">
-                  <User className="w-12 h-12 text-color-heading/30" />
+                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border-2 border-color-light flex items-center justify-center shrink-0">
+                  <User className="w-12 h-12 text-color-primary/30" />
                 </div>
               )}
               <div className="flex-1 pr-4">
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <span className="font-primary text-label label text-color-label block item-tag-spacing">
+                  <span className="font-primary text-label label text-color-secondary block item-tag-spacing">
                     {item.tag}
                   </span>
                 </DebugLabel>
                 <DebugLabel type="h3" debugMode={debugMode}>
-                  <span className="font-secondary text-h3 text-color-heading group-hover:text-color-label transition-colors block leading-snug">
+                  <span className="font-secondary text-h3 text-color-primary group-hover:text-color-secondary transition-colors block leading-snug">
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>
                 <DebugLabel type="subline" debugMode={debugMode}>
-                  <span className="text-subline subline-italic text-color-body block element-spacing-xs">
+                  <span className="text-subline subline-italic text-color-text block element-spacing-xs">
                     {item.teaser}
                   </span>
                 </DebugLabel>
               </div>
               <ChevronDown
                 size={18}
-                className={`text-color-label mt-1 shrink-0 transition-transform transition-normal ${openIndex === i ? 'rotate-180' : ''}`}
+                className={`text-color-secondary mt-1 shrink-0 transition-transform transition-normal ${openIndex === i ? 'rotate-180' : ''}`}
               />
             </button>
 
@@ -97,14 +97,14 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   { label: cases.sectionLabels.session,   text: item.session },
                   { label: cases.sectionLabels.result,    text: item.result },
                 ].map((block) => (
-                  <div key={block.label} className="border-l-2 border-color-heading pl-4">
+                  <div key={block.label} className="border-l-2 border-color-primary pl-4">
                     <DebugLabel type="label" debugMode={debugMode}>
-                      <span className="font-primary text-label label text-color-label block block-label-spacing">
+                      <span className="font-primary text-label label text-color-secondary block block-label-spacing">
                         {block.label}
                       </span>
                     </DebugLabel>
                     <DebugLabel type="body" debugMode={debugMode}>
-                      <p className="font-primary text-color-body text-body">
+                      <p className="font-primary text-color-text text-body">
                         {block.text}
                       </p>
                     </DebugLabel>
@@ -114,7 +114,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
                 <DebugLabel type="disclaimer" debugMode={debugMode}>
-                  <p className="text-disclaimer disclaimer-italic text-color-body/35 element-spacing-sm">
+                  <p className="text-disclaimer disclaimer-italic text-color-text/35 element-spacing-sm">
                     * Namen wurde geändert
                   </p>
                 </DebugLabel>

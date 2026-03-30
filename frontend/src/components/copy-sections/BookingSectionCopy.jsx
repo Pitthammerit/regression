@@ -42,13 +42,13 @@ export default function BookingSectionCopy({ debugMode = false }) {
         </DebugLabel>
 
         <DebugLabel type="hero" debugMode={debugMode}>
-          <h2 className="font-secondary text-hero-large text-color-heading leading-tight content-spacing-md">
+          <h2 className="font-secondary text-hero-large text-color-primary leading-tight content-spacing-md">
             {booking.headline}
           </h2>
         </DebugLabel>
 
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-body leading-relaxed max-w-lg mx-auto">
+          <p className="font-primary text-body-lg text-color-text leading-relaxed max-w-lg mx-auto">
             {booking.subline}
           </p>
         </DebugLabel>
@@ -63,7 +63,7 @@ export default function BookingSectionCopy({ debugMode = false }) {
         {/* Accordion CTA button */}
         <button
           onClick={() => setCalendarOpen(!calendarOpen)}
-          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-color-heading text-on-dark hover:bg-color-label transition-colors duration-200"
+          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-color-primary text-on-dark hover:bg-color-secondary transition-colors duration-200"
           data-testid="booking-cta-button"
         >
           {booking.directBookingCta}
@@ -88,18 +88,18 @@ export default function BookingSectionCopy({ debugMode = false }) {
               />
             ) : (
               <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
-                <div className="w-12 h-px bg-color-heading/20" />
+                <div className="w-12 h-px bg-color-primary/20" />
                 <DebugLabel type="body" debugMode={debugMode}>
-                  <p className="font-primary text-body text-color-body">
+                  <p className="font-primary text-body text-color-text">
                     Kalender-Embed wird hier eingebettet.
                   </p>
                 </DebugLabel>
                 <DebugLabel type="label" debugMode={debugMode}>
-                  <p className="font-primary text-label text-color-label/60 max-w-xs">
+                  <p className="font-primary text-label text-color-secondary/60 max-w-xs">
                     Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
                   </p>
                 </DebugLabel>
-                <div className="w-12 h-px bg-color-heading/20" />
+                <div className="w-12 h-px bg-color-primary/20" />
               </div>
             )}
           </div>

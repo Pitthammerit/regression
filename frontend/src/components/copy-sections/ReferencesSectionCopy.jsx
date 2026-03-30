@@ -22,7 +22,7 @@ import { BookOpen } from 'lucide-react'
  *
  * CRITICAL PRESERVED:
  * - Section with id="references" (scroll target)
- * - Dark background (bg-color-bg-dark)
+ * - Dark background (bg-color-primary)
  * - Expandable "Mehr anzeigen" for additional references
  * - Map over references.items
  */
@@ -49,7 +49,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
     <section
       id="references"
       data-testid="references-section"
-      className="py-20 md:py-28 bg-color-bg-dark text-on-dark relative overflow-hidden"
+      className="py-20 md:py-28 bg-color-primary text-on-dark relative overflow-hidden"
     >
       {/* Subtle paper texture overlay */}
       <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none" />
@@ -88,7 +88,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                     />
                   ) : (
                     <AspectRatio ratio={2 / 3}>
-                      <div className="w-full h-full border border-on-dark-divider rounded-lg flex items-center justify-center bg-color-bg-dark/50">
+                      <div className="w-full h-full border border-on-dark-divider rounded-lg flex items-center justify-center bg-color-primary/50">
                         <BookOpen className="w-12 h-12 text-on-dark/30" />
                       </div>
                     </AspectRatio>
@@ -162,7 +162,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                     />
                   ) : (
                     <AspectRatio ratio={2 / 3}>
-                      <div className="w-full h-full border border-on-dark-divider rounded-lg flex items-center justify-center bg-color-bg-dark/50">
+                      <div className="w-full h-full border border-on-dark-divider rounded-lg flex items-center justify-center bg-color-primary/50">
                         <BookOpen className="w-12 h-12 text-on-dark/30" />
                       </div>
                     </AspectRatio>

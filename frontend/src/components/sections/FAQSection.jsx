@@ -43,21 +43,21 @@ export default function FAQSection({ debugMode = false }) {
         </DebugLabel>
 
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-heading leading-tight section-block-spacing">
+          <h2 className="font-secondary text-h2 text-color-primary leading-tight section-block-spacing">
             {faq.headline}
           </h2>
         </DebugLabel>
 
         <div>
           {faq.items.map((item, index) => (
-            <div id={`faq-${index}`} key={index} className="border-t border-color-border" style={{ scrollMarginTop: 80 }}>
+            <div id={`faq-${index}`} key={index} className="border-t border-color-light" style={{ scrollMarginTop: 80 }}>
               <button
                 onClick={(e) => toggleExpand(index, e)}
-                className="w-full flex justify-between items-center py-6 text-left font-primary text-color-label hover:text-color-label/80 transition-colors"
+                className="w-full flex justify-between items-center py-6 text-left font-primary text-color-secondary hover:text-color-secondary/80 transition-colors"
                 data-testid={`faq-${index}`}
               >
                 <DebugLabel type="h4" debugMode={debugMode}>
-                  <span className="font-medium text-h4 text-color-heading">{item.question}</span>
+                  <span className="font-medium text-h4 text-color-primary">{item.question}</span>
                 </DebugLabel>
                 <ChevronDown
                   className={`transition-transform duration-500 ease-out ${
@@ -71,7 +71,7 @@ export default function FAQSection({ debugMode = false }) {
                     {item.answer.split('\n\n').map((paragraph, i, arr) => (
                       <p
                         key={i}
-                        className={`font-primary text-body text-color-heading leading-relaxed ${
+                        className={`font-primary text-body text-color-primary leading-relaxed ${
                           i < arr.length - 1 ? 'paragraph-spacing' : ''
                         }`}
                       >

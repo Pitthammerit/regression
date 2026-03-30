@@ -40,7 +40,7 @@ export default function AboutSection() {
           ))}
 
           {/* Credentials */}
-          <div className="mt-12 pt-10 border-t border-color-border">
+          <div className="mt-12 pt-10 border-t border-color-light">
             <p className="font-primary text-xs tracking-[0.2em] uppercase text-label mb-6">
               {about.credentialsLabel}
             </p>

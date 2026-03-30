@@ -41,7 +41,7 @@ export default function PodcastSection({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="podcast-headline" debugMode={debugMode}>
-              <h2 className="font-secondary text-podcast-headline text-color-heading content-spacing-md">
+              <h2 className="font-secondary text-podcast-headline text-color-primary content-spacing-md">
                 {podcast.sectionHeadline.map((line, i) => (
                   <span key={i} className="block">{line}</span>
                 ))}
@@ -49,7 +49,7 @@ export default function PodcastSection({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="body-lg" debugMode={debugMode}>
-              <p className="font-primary text-body-lg text-color-body leading-relaxed">
+              <p className="font-primary text-body-lg text-color-text leading-relaxed">
                 {podcast.sectionBody}
               </p>
             </DebugLabel>
@@ -61,7 +61,7 @@ export default function PodcastSection({ debugMode = false }) {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-primary text-button-text button-text text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
+                  className="font-primary text-button-text button-text text-color-primary border border-color-primary/30 rounded-sm px-5 py-2.5 hover:bg-color-primary hover:text-white transition-colors"
                   data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                 >
                   {link.label}

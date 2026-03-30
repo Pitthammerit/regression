@@ -18,7 +18,7 @@ export default function PodcastVideoSection() {
         {/* Centered heading */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <SectionLabel text={podcast.label} />
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-color-heading leading-tight mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-color-primary leading-tight mb-6">
             {podcast.headline}
           </h2>
           <p className="font-primary text-brand-muted text-lg leading-relaxed">
@@ -57,15 +57,15 @@ export default function PodcastVideoSection() {
         style={{ transform: panelOpen ? 'translateX(0)' : 'translateX(100%)', transition: 'transform 0.4s ease-in-out' }}
         data-testid="transcript-panel"
       >
-        <div className="flex items-start justify-between px-8 pt-8 pb-6 border-b border-color-border">
+        <div className="flex items-start justify-between px-8 pt-8 pb-6 border-b border-color-light">
           <div>
-            <p className="font-primary text-label text-color-label mb-1">{podcastVideo.panelLabel}</p>
-            <h3 className="font-serif text-2xl text-color-heading leading-tight">
+            <p className="font-primary text-label text-color-secondary mb-1">{podcastVideo.panelLabel}</p>
+            <h3 className="font-serif text-2xl text-color-primary leading-tight">
               {podcastVideo.panelTitleLine1}<br />{podcastVideo.panelTitleLine2}
             </h3>
           </div>
           <button onClick={() => setPanelOpen(false)} className="p-1.5 hover:opacity-50 transition-opacity" aria-label={podcastVideo.closeButtonLabel} data-testid="transcript-panel-close">
-            <X size={18} className="text-color-heading" />
+            <X size={18} className="text-color-primary" />
           </button>
         </div>
 
@@ -78,14 +78,14 @@ export default function PodcastVideoSection() {
           ) : (
             <div className="space-y-4" data-testid="transcript-placeholder-form">
               <div>
-                <label className="font-primary text-label text-color-label block mb-2">{podcastVideo.nameLabel}</label>
-                <input type="text" placeholder={podcastVideo.namePlaceholder} className="w-full bg-white/60 border border-color-border rounded-lg px-4 py-3 font-primary text-sm text-color-body placeholder:text-brand-muted/50 focus:outline-none focus:border-color-heading/40 transition-colors" data-testid="transcript-name-input" />
+                <label className="font-primary text-label text-color-secondary block mb-2">{podcastVideo.nameLabel}</label>
+                <input type="text" placeholder={podcastVideo.namePlaceholder} className="w-full bg-white/60 border border-color-light rounded-lg px-4 py-3 font-primary text-sm text-color-text placeholder:text-brand-muted/50 focus:outline-none focus:border-color-primary/40 transition-colors" data-testid="transcript-name-input" />
               </div>
               <div>
-                <label className="font-primary text-label text-color-label block mb-2">{podcastVideo.emailLabel}</label>
-                <input type="email" placeholder={podcastVideo.emailPlaceholder} className="w-full bg-white/60 border border-color-border rounded-lg px-4 py-3 font-primary text-sm text-color-body placeholder:text-brand-muted/50 focus:outline-none focus:border-color-heading/40 transition-colors" data-testid="transcript-email-input" />
+                <label className="font-primary text-label text-color-secondary block mb-2">{podcastVideo.emailLabel}</label>
+                <input type="email" placeholder={podcastVideo.emailPlaceholder} className="w-full bg-white/60 border border-color-light rounded-lg px-4 py-3 font-primary text-sm text-color-text placeholder:text-brand-muted/50 focus:outline-none focus:border-color-primary/40 transition-colors" data-testid="transcript-email-input" />
               </div>
-              <button className="w-full flex items-center justify-center gap-2.5 bg-color-heading text-white font-primary text-label text-color-label py-4 rounded-full hover:bg-brand-steel transition-colors duration-200 mt-2" data-testid="transcript-submit-btn">
+              <button className="w-full flex items-center justify-center gap-2.5 bg-color-primary text-white font-primary text-label text-color-secondary py-4 rounded-full hover:bg-brand-steel transition-colors duration-200 mt-2" data-testid="transcript-submit-btn">
                 <Send size={14} />
                 {podcastVideo.submitButtonLabel}
               </button>
@@ -94,7 +94,7 @@ export default function PodcastVideoSection() {
           )}
         </div>
 
-        <div className="px-8 py-5 border-t border-color-border">
+        <div className="px-8 py-5 border-t border-color-light">
           <p className="font-primary text-xs text-brand-muted/50 text-center leading-relaxed">
             {podcastVideo.privacyNoteLine1}<br />{podcastVideo.privacyNoteLine2}
           </p>

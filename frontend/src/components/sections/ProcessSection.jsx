@@ -30,12 +30,12 @@ export default function ProcessSection({ debugMode = false }) {
           <SectionLabel text={processSection.label} />
         </DebugLabel>
         <DebugLabel type="h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-heading leading-tight text-center content-spacing-md">
+          <h2 className="font-secondary text-h2 text-color-primary leading-tight text-center content-spacing-md">
             {processSection.headline}
           </h2>
         </DebugLabel>
         <DebugLabel type="body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-body leading-relaxed">
+          <p className="font-primary text-body-lg text-color-text leading-relaxed">
             {processSection.footnote}
           </p>
         </DebugLabel>
@@ -48,7 +48,7 @@ export default function ProcessSection({ debugMode = false }) {
             {/* Big transparent background number — scales down on mobile */}
             <span
               aria-hidden="true"
-              className="process-bg-number absolute font-secondary text-color-heading select-none pointer-events-none"
+              className="process-bg-number absolute font-secondary text-color-primary select-none pointer-events-none"
               style={{ lineHeight: 1, opacity: 0.10 }}
             >
               {i + 1}
@@ -59,17 +59,17 @@ export default function ProcessSection({ debugMode = false }) {
             )}
             <div className="relative z-10 pt-2">
               <DebugLabel type="h3" debugMode={debugMode}>
-                <h3 className="font-secondary text-h3 text-color-heading mt-5 mb-2">
+                <h3 className="font-secondary text-h3 text-color-primary mt-5 mb-2">
                   {step.title}
                 </h3>
               </DebugLabel>
               <DebugLabel type="label" debugMode={debugMode}>
-                <p className="font-primary text-label text-color-label label tracking-widest mb-5">
+                <p className="font-primary text-label text-color-secondary label tracking-widest mb-5">
                   {step.duration}
                 </p>
               </DebugLabel>
               <DebugLabel type="body" debugMode={debugMode}>
-                <p className="font-primary text-body text-color-body leading-relaxed">{step.body}</p>
+                <p className="font-primary text-body text-color-text leading-relaxed">{step.body}</p>
               </DebugLabel>
             </div>
           </div>

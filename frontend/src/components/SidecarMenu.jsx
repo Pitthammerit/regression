@@ -67,7 +67,7 @@ export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
         {/* Header - Floating Burger übernimmt Schließen */}
         <div className="flex items-center px-8 py-2 border-b border-black/8">
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-color-heading leading-tight">
+            <h2 className="font-secondary text-h2 text-color-primary leading-tight">
               Überblick
             </h2>
           </DebugLabel>
@@ -81,7 +81,7 @@ export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
                 {item.children ? (
                   <>
                     <DebugLabel type="menu-text" debugMode={debugMode}>
-                      <div className="font-primary text-menu-text text-color-heading leading-[1.6] py-0.5">
+                      <div className="font-primary text-menu-text text-color-primary leading-[1.6] py-0.5">
                         {item.label}
                       </div>
                     </DebugLabel>
@@ -90,7 +90,7 @@ export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
                         <DebugLabel key={child.id} type="menu-text" debugMode={debugMode}>
                           <button
                             onClick={() => handleNavClick(child.anchor)}
-                            className="block w-full text-left font-primary text-menu-text text-color-body hover:text-color-heading leading-[1.6] py-0.5 px-2 rounded hover:bg-black/5 transition-colors"
+                            className="block w-full text-left font-primary text-menu-text text-color-text hover:text-color-primary leading-[1.6] py-0.5 px-2 rounded hover:bg-black/5 transition-colors"
                           >
                             {child.label}
                           </button>
@@ -102,7 +102,7 @@ export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
                   <DebugLabel type="menu-text" debugMode={debugMode}>
                     <button
                       onClick={() => handleNavClick(item.anchor)}
-                      className="w-full text-left font-primary text-menu-text text-color-heading hover:text-color-label leading-[1.6] py-0.5 transition-colors"
+                      className="w-full text-left font-primary text-menu-text text-color-primary hover:text-color-secondary leading-[1.6] py-0.5 transition-colors"
                     >
                       {item.label}
                     </button>

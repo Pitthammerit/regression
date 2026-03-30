@@ -105,7 +105,7 @@ function MainPage() {
   }
 
   return (
-    <div className="bg-color-bg-light bg-paper min-h-screen font-primary text-color-body">
+    <div className="bg-color-bg-light bg-paper min-h-screen font-primary text-color-text">
       {/* Debug Toggle */}
       <div className="fixed top-4 left-4 z-[100] bg-white p-3 rounded-lg shadow-lg border border-black/10">
         <label className="flex items-center gap-2 cursor-pointer">

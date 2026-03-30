@@ -22,7 +22,7 @@ export default function PodcastSection() {
           <div>
             <SectionLabel text={podcast.label} />
             <h2
-              className="font-serif text-color-heading leading-none mb-8"
+              className="font-serif text-color-primary leading-none mb-8"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', lineHeight: 0.95 }}
             >
               {podcast.sectionHeadline.map((line, i) => (
@@ -39,7 +39,7 @@ export default function PodcastSection() {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-primary text-label text-color-heading border border-color-heading/30 rounded-sm px-5 py-2.5 hover:bg-color-heading hover:text-white transition-colors"
+                  className="font-primary text-label text-color-primary border border-color-primary/30 rounded-sm px-5 py-2.5 hover:bg-color-primary hover:text-white transition-colors"
                   data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                 >
                   {link.label}

@@ -11,10 +11,10 @@ export default function CtaButton({ label, variant = 'primary', className = '', 
 
   const base = 'inline-block font-primary text-button-text button-text py-3 px-8 rounded-full transition-colors duration-200 cursor-pointer'
   const styles = {
-    primary:   `${base} bg-color-heading text-white hover:bg-color-label`,
-    secondary: `${base} border border-color-heading text-color-heading hover:bg-color-heading hover:text-white`,
-    ghost:     `${base} text-color-label hover:text-color-heading`,
-    inverted:  `${base} bg-on-dark text-color-heading hover:bg-color-label hover:text-white`,
+    primary:   `${base} bg-color-primary text-white hover:bg-color-secondary`,
+    secondary: `${base} border border-color-primary text-color-primary hover:bg-color-primary hover:text-white`,
+    ghost:     `${base} text-color-secondary hover:text-color-primary`,
+    inverted:  `${base} bg-on-dark text-color-primary hover:bg-color-secondary hover:text-white`,
   }
 
   return (

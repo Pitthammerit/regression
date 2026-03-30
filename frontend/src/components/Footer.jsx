@@ -32,7 +32,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
   }
 
   return (
-    <footer className="bg-color-bg-dark text-white" data-testid="site-footer">
+    <footer className="bg-color-primary text-white" data-testid="site-footer">
       <div className="py-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 

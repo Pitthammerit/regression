@@ -49,13 +49,13 @@ export default function CtaImageSection({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="h2" debugMode={debugMode}>
-              <h2 className="font-secondary text-h2 text-color-heading leading-tight content-spacing-md">
+              <h2 className="font-secondary text-h2 text-color-primary leading-tight content-spacing-md">
                 {ctaImage.headline}
               </h2>
             </DebugLabel>
 
             <DebugLabel type="body-lg" debugMode={debugMode}>
-              <p className="font-primary text-body-lg text-color-body leading-relaxed content-spacing-md">
+              <p className="font-primary text-body-lg text-color-text leading-relaxed content-spacing-md">
                 {ctaImage.subline}
               </p>
             </DebugLabel>

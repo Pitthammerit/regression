@@ -7,7 +7,7 @@ import { ChevronDown, User } from 'lucide-react'
 
 function AvatarSilhouette({ gender }) {
   return (
-    <div className="w-24 h-24 rounded-full bg-brand-sand/60 border border-color-border flex items-center justify-center shrink-0">
+    <div className="w-24 h-24 rounded-full bg-brand-sand/60 border border-color-light flex items-center justify-center shrink-0">
       <User className="w-12 h-12 text-heading/30" />
     </div>
   )
@@ -69,7 +69,7 @@ export default function CaseStudiesSection() {
                 <LazyImage
                   src={item.image}
                   alt={item.name}
-                  className="w-24 h-24 rounded-full object-cover object-top border border-color-border shrink-0"
+                  className="w-24 h-24 rounded-full object-cover object-top border border-color-light shrink-0"
                 />
               ) : (
                 <AvatarSilhouette gender={item.gender} />

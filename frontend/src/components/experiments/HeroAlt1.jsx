@@ -28,11 +28,11 @@ export default function HeroAlt1() {
       <div className="max-w-content mx-auto px-6 w-full">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <p className="font-primary text-label text-color-label mb-8">{hero.label}</p>
+            <p className="font-primary text-label text-color-secondary mb-8">{hero.label}</p>
             <h1 className="font-serif leading-[1.0] mb-8">
-              <span className="block text-6xl md:text-7xl lg:text-8xl uppercase text-color-heading tracking-tight">{hero.headlineLine1}</span>
-              <span className="block text-5xl md:text-6xl lg:text-7xl italic text-color-heading">{hero.headlineLine2}</span>
-              <span className="block text-4xl md:text-5xl lg:text-6xl text-color-body mt-3 font-light">{hero.headlineLine3}</span>
+              <span className="block text-6xl md:text-7xl lg:text-8xl uppercase text-color-primary tracking-tight">{hero.headlineLine1}</span>
+              <span className="block text-5xl md:text-6xl lg:text-7xl italic text-color-primary">{hero.headlineLine2}</span>
+              <span className="block text-4xl md:text-5xl lg:text-6xl text-color-text mt-3 font-light">{hero.headlineLine3}</span>
               <span className="block text-4xl md:text-5xl lg:text-6xl italic text-brand-muted font-light">{hero.headlineLine4}</span>
             </h1>
             <div className="flex flex-col sm:flex-row gap-4">

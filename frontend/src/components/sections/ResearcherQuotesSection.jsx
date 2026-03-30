@@ -51,7 +51,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
   const hasMore = authorsWithPortraits.length > 3
 
   return (
-    <SectionWrapper className="bg-color-bg-dark text-on-dark" data-testid="researcher-quotes-section">
+    <SectionWrapper className="bg-color-primary text-on-dark" data-testid="researcher-quotes-section">
       {/* Header group with controlled spacing */}
       <div className="mb-12 md:mb-16">
         <DebugLabel type="label" debugMode={debugMode}>

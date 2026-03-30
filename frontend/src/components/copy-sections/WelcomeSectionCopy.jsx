@@ -20,7 +20,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
           </div>
           {/* Greeting directly under photo */}
           <DebugLabel type="h3-hand" debugMode={debugMode}>
-            <p className="font-handwriting text-h3-hand text-color-heading text-center md:text-left leading-snug whitespace-pre-line">
+            <p className="font-handwriting text-h3-hand text-color-primary text-center md:text-left leading-snug whitespace-pre-line">
               {welcome.headline}
             </p>
           </DebugLabel>
@@ -30,7 +30,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
         <div className="flex flex-col justify-center pt-2">
           <DebugLabel type="hero-large" debugMode={debugMode}>
             <span
-              className="font-secondary text-hero-large text-color-heading leading-none block mb-0 select-none"
+              className="font-secondary text-hero-large text-color-primary leading-none block mb-0 select-none"
               aria-hidden="true"
             >
               "
@@ -41,7 +41,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
             {welcome.quoteLines.map((line, i) => (
               <DebugLabel key={i} type="quote-featured" debugMode={debugMode}>
                 <p
-                  className="font-secondary text-quote-featured text-color-heading leading-tight"
+                  className="font-secondary text-quote-featured text-color-primary leading-tight"
                 >
                   {line}
                 </p>
@@ -52,7 +52,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
           {/* Signature — handwriting text */}
           <div className="mt-8">
             <DebugLabel type="h2-hand" debugMode={debugMode}>
-              <p className="font-handwriting text-h2-hand text-color-heading">
+              <p className="font-handwriting text-h2-hand text-color-primary">
                 {welcome.author}
               </p>
             </DebugLabel>

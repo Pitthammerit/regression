@@ -34,7 +34,7 @@ export default function ResearchersSection({ debugMode = false }) {
     <section
       id="science"
       data-testid="science-section"
-      className="section-padding bg-color-bg-dark text-on-dark relative overflow-hidden"
+      className="section-padding bg-color-primary text-on-dark relative overflow-hidden"
     >
       {/* Subtle paper texture overlay */}
       <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none" />

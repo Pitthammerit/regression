@@ -99,12 +99,12 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
         {/* Section Title - centered */}
         <div className="content-spacing-lg text-center">
           <DebugLabel type="label" debugMode={debugMode}>
-            <p className="font-primary text-label label text-color-label">
+            <p className="font-primary text-label label text-color-secondary">
               {label}
             </p>
           </DebugLabel>
           <DebugLabel type="h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-color-heading text-center label-heading-spacing">
+            <h2 className="font-secondary text-h2 text-color-primary text-center label-heading-spacing">
               {subtitle}
             </h2>
           </DebugLabel>
@@ -119,7 +119,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
           {/* Left Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-label transition-opacity hover:opacity-70 xl:block"
+            className="absolute left-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-secondary transition-opacity hover:opacity-70 xl:block"
             aria-label="Previous testimonial">
             <ChevronLeft className="w-icon h-icon" />
           </button>
@@ -137,7 +137,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                   <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
                     <div className="flex items-center gap-4">
                       {t.image && (
-                        <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-border shadow-md">
+                        <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border-2 border-color-light shadow-md">
                           <img
                             src={getOptimizedImageUrl(t.image)}
                             width="60"
@@ -150,10 +150,10 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                       )}
                       <div>
                         <DebugLabel type="h5" debugMode={debugMode}>
-                          <p className="font-primary text-h5 font-semibold text-color-heading">{t.name}</p>
+                          <p className="font-primary text-h5 font-semibold text-color-primary">{t.name}</p>
                         </DebugLabel>
                         <DebugLabel type="role" debugMode={debugMode}>
-                          <p className="font-primary text-label text-color-label label tracking-wider">
+                          <p className="font-primary text-label text-color-secondary label tracking-wider">
                             {t.context}
                           </p>
                         </DebugLabel>
@@ -169,7 +169,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
 
                   {/* Quote - below stars */}
                   <DebugLabel type="body-narrative" debugMode={debugMode}>
-                    <div className="text-color-body mt-3">
+                    <div className="text-color-text mt-3">
                       <p className={`font-secondary body-narrative-italic text-center sm:text-left ${getQuoteFontSize(t.quote)}`}>
                         "{t.quote}"
                       </p>
@@ -183,7 +183,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
           {/* Right Arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-label transition-opacity hover:opacity-70 xl:block"
+            className="absolute right-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-secondary transition-opacity hover:opacity-70 xl:block"
             aria-label="Next testimonial">
             <ChevronRight className="w-icon h-icon" />
           </button>
@@ -196,7 +196,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
               key={index}
               onClick={() => handleDotClick(index)}
               className={`relative h-3 overflow-hidden rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'w-12 bg-color-heading' : 'w-3 bg-color-label'
+                index === currentIndex ? 'w-12 bg-color-primary' : 'w-3 bg-color-secondary'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}>
               {/* Progress bar inside active dot */}
