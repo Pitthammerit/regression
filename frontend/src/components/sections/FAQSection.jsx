@@ -50,7 +50,7 @@ export default function FAQSection({ debugMode = false }) {
 
         <div>
           {faq.items.map((item, index) => (
-            <div id={`faq-${index}`} key={index} className="border-t border-color-light" style={{ scrollMarginTop: 80 }}>
+            <div id={`faq-${index}`} key={index} style={{ scrollMarginTop: 80 }}>
               <button
                 onClick={(e) => toggleExpand(index, e)}
                 className="w-full flex justify-between items-center py-6 text-left font-primary text-color-secondary hover:text-color-secondary/80 transition-colors"
