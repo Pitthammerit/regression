@@ -63,40 +63,12 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   className="w-24 h-24 rounded-full object-cover object-top border border-color-primary shrink-0 scale-[1.03]"
                 />
               ) : (
-                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border border-color-primary flex items-center justify-center shrink-0">
-                  <svg
-                    viewBox="0 0 64 64"
-                    className="w-14 h-14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    {/* Hair - elegant bob shape */}
-                    <path
-                      d="M12 28C12 18 18 12 32 12C46 12 52 18 52 28C52 32 50 34 48 34C48 28 46 20 32 20C18 20 16 28 16 34C14 34 12 32 12 28Z"
-                      fill="currentColor"
-                      className="text-color-primary/30"
-                    />
-                    {/* Head/Neck - feminine shape */}
-                    <path
-                      d="M32 16C38 16 42 20 42 26V30C42 34 40 36 38 36V44C38 46 36 48 32 48C28 48 26 46 26 44V36C24 36 22 34 22 30V26C22 20 26 16 32 16Z"
-                      fill="currentColor"
-                      className="text-color-primary/20"
-                    />
-                    {/* Face outline - subtle */}
-                    <path
-                      d="M32 18C37 18 40 21 40 26V30C40 33 38 35 35 35V42C35 44 34 45 32 45C30 45 29 44 29 42V35C26 35 24 33 24 30V26C24 21 27 18 32 18Z"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      className="text-color-primary"
-                    />
-                    {/* Shoulders */}
-                    <path
-                      d="M20 48C20 44 24 42 32 42C40 42 44 44 44 48V52H20V48Z"
-                      fill="currentColor"
-                      className="text-color-primary/15"
-                    />
-                  </svg>
+                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border border-color-primary flex items-center justify-center shrink-0 overflow-hidden">
+                  <LazyImage
+                    src="https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/female-avatar.svg"
+                    alt={item.name}
+                    className="w-12 h-12"
+                  />
                 </div>
               )}
               <div className="flex-1 pr-4">
