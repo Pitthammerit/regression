@@ -24,7 +24,7 @@ export default function DesktopNav({ debugMode = false }) {
           >
             <DebugLabel type="menu-text" debugMode={debugMode}>
               <button
-                className="px-3 py-2 font-primary text-menu-text text-color-text rounded hover:bg-color-bg-light transition-colors"
+                className="px-3 py-2 font-primary text-menu-text text-color-primary rounded hover:bg-color-bg-light transition-colors"
                 onClick={() => !item.hasSubmenu && handleNavClick(item.anchor)}
               >
                 {item.label}
