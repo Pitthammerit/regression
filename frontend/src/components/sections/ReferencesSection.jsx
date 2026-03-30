@@ -33,14 +33,22 @@ export default function ReferencesSection({ debugMode = false }) {
     setExpanded(willExpand)
 
     // When opening, scroll to first newly visible item after animation
+    // Special case: content opens BELOW the weniger/mehr button
     if (willExpand) {
-      setTimeout(() => {
-        const section = document.querySelector('[data-testid="references-section"]')
-        if (section) {
-          const y = section.getBoundingClientRect().top + window.scrollY - 100
-          window.scrollTo({ top: y, behavior: 'smooth' })
+      // Wait for content to render (no accordion animation, just state update)
+      requestAnimationFrame(() => {
+        // Find the first newly visible reference (index 1 in items array)
+        const firstNewItem = document.querySelector('[data-testid="reference-item-1"]')
+        if (firstNewItem) {
+          const rect = firstNewItem.getBoundingClientRect()
+          const scrollTop = window.scrollY + rect.top - 100
+
+          window.scrollTo({
+            top: Math.max(0, scrollTop),
+            behavior: 'smooth'
+          })
         }
-      }, 50)
+      })
     }
   }
 
@@ -150,7 +158,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
             {/* Remaining references - expandable */}
             {expanded && references.items.slice(1).map((resource, index) => (
-              <div key={resource.type} className={index === references.items.slice(1).length - 1 ? 'grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-10' : 'grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-6'}>
+              <div key={resource.type} data-testid={`reference-item-${index}`} className={index === references.items.slice(1).length - 1 ? 'grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-10' : 'grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-6'}>
                 {/* Photo - Left column */}
                 <div className="md:max-w-[240px]">
                   {resource.portrait && resource.portrait.trim() !== '' ? (

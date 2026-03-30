@@ -6,6 +6,7 @@ import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
+import { useAccordionScroll } from '../../hooks/useAccordionScroll'
 
 /**
  * ResearcherQuotesSectionCopy — Research authority quotes with portraits
@@ -22,6 +23,7 @@ import ExpandToggleButton from '../ui/ExpandToggleButton'
  */
 export default function ResearcherQuotesSection({ debugMode = false }) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const toggleExpand = useAccordionScroll(isExpanded, setIsExpanded)
 
   // Filter authors with portraits (from plr-de.js)
   const authorsWithPortraits = researchers.authors.filter(author => author.portrait !== null)
@@ -96,7 +98,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
         <>
           <ExpandToggleButton
             isExpanded={isExpanded}
-            onToggle={() => setIsExpanded(!isExpanded)}
+            onToggle={toggleExpand}
             labelMore={ui.showMore}
             labelLess={ui.showLess}
             debugMode={debugMode}
