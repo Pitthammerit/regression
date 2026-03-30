@@ -37,7 +37,7 @@ export default function Header({ debugMode = false }) {
               <img
                 src={r2(logos.dark)}
                 alt="Benjamin Kurtz Academy"
-                className="hidden lg:block h-full w-auto object-contain"
+                className="hidden lg:block h-full w-auto object-contain logo-primary"
               />
             </a>
 
