@@ -170,7 +170,7 @@ export function BookingSectionDark({ debugMode = false }) {
             expandedPanel === 'cards' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}>
             {booking.formTopics.map((topic, i) => (
-              <TopicAccordionCard key={i} title={topic} dark debugMode={debugMode} />
+              <TopicCard key={i} title={topic} dark debugMode={debugMode} />
             ))}
           </div>
         </AccordionWrap>
