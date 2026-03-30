@@ -220,6 +220,7 @@ Comprehensive review via `/multiloop` workflow revealed **6 critical bugs** that
 1. **No i18n system** — All content in `plr-de.js`, English not implemented
 2. **backend/ folder** — Misleading, no backend deployed
 3. **No catch-all route** — Invalid URLs render blank (should show NotFound)
+4. **TranscriptPage needs user review** — Token-protected page (`/transkript?token=...`) not visible in normal browsing, may have hardcoded styles that weren't migrated. User should review with valid token link.
 
 ---
 
