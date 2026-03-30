@@ -129,12 +129,13 @@ export default function BookingSection({ debugMode = false }) {
  * - Faster opening (400ms) vs slower closing (600ms)
  */
 export function BookingSectionDark({ debugMode = false }) {
-  const [calendarOpen, setCalendarOpen] = useState(false)
+  // 'cards' | 'calendar' - which panel is expanded
+  const [expandedPanel, setExpandedPanel] = useState('cards')
   const embedCode = import.meta.env.VITE_CALENDAR_EMBED
 
   // Listen for global 'booking:open' event (dispatched by CtaButton)
   useEffect(() => {
-    const handler = () => setCalendarOpen(true)
+    const handler = () => setExpandedPanel('calendar')
     window.addEventListener('booking:open', handler)
     return () => window.removeEventListener('booking:open', handler)
   }, [])
@@ -162,81 +163,56 @@ export function BookingSectionDark({ debugMode = false }) {
           </p>
         </DebugLabel>
 
-        {/* Inline Calendar Accordion - opens AFTER cards collapse */}
-        {/* Two-stage animation: cards close first, then calendar opens from top */}
-        <div
-          className={`grid transition-all duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            calendarOpen
-              ? 'grid-rows-[1fr] opacity-100'
-              : 'grid-rows-[0fr] opacity-0'
-          }`}
-          style={{
-            transitionDelay: calendarOpen ? '700ms' : '0ms',
-          }}
-          data-testid="booking-calendar-accordion"
-        >
-          <div className="overflow-hidden">
-            <div
-              className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
-              style={{
-                transitionDelay: calendarOpen ? '800ms' : '0ms',
-                transform: calendarOpen ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.98)',
-                opacity: calendarOpen ? 1 : 0,
-              }}
-            >
-              {embedCode ? (
-                <iframe
-                  src={embedCode}
-                  className="w-full min-h-[600px] border-0 rounded-xl"
-                  title="Intro-Call buchen"
-                  data-testid="booking-iframe"
-                />
-              ) : (
-                <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
-                  <div className="w-12 h-px bg-divider-on-dark" />
-                  <DebugLabel type="body" debugMode={debugMode}>
-                    <p className="font-primary text-body text-on-dark">
-                      Kalender-Embed wird hier eingebettet.
-                    </p>
-                  </DebugLabel>
-                  <DebugLabel type="label" debugMode={debugMode}>
-                    <p className="font-primary text-label text-secondary-on-dark max-w-xs">
-                      Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
-                    </p>
-                  </DebugLabel>
-                  <div className="w-12 h-px bg-divider-on-dark" />
-                </div>
-              )}
-            </div>
+        {/* Topics Accordion - 6 cards (initially open) */}
+        <AccordionWrap isOpen={expandedPanel === 'cards'} duration="500ms">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem]">
+            {booking.formTopics.map((topic, i) => (
+              <TopicAccordionCard key={i} title={topic} dark debugMode={debugMode} />
+            ))}
           </div>
-        </div>
+        </AccordionWrap>
 
-        {/* Topics - Accordion cards with individual expand/collapse */}
-        <div
-          className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${
-            calendarOpen
-              ? 'opacity-0 h-0 mt-0 mb-0'
-              : 'opacity-100 h-auto mt-[3rem] mb-[3.5rem]'
-          }`}
-          data-testid="booking-topics-grid-dark"
-        >
-          {booking.formTopics.map((topic, i) => (
-            <TopicAccordionCard key={i} title={topic} dark debugMode={debugMode} />
-          ))}
-        </div>
+        {/* Calendar Accordion (initially closed) */}
+        <AccordionWrap isOpen={expandedPanel === 'calendar'} duration="500ms">
+          <div className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left">
+            {embedCode ? (
+              <iframe
+                src={embedCode}
+                className="w-full min-h-[600px] border-0 rounded-xl"
+                title="Intro-Call buchen"
+                data-testid="booking-iframe"
+              />
+            ) : (
+              <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
+                <div className="w-12 h-px bg-divider-on-dark" />
+                <DebugLabel type="body" debugMode={debugMode}>
+                  <p className="font-primary text-body text-on-dark">
+                    Kalender-Embed wird hier eingebettet.
+                  </p>
+                </DebugLabel>
+                <DebugLabel type="label" debugMode={debugMode}>
+                  <p className="font-primary text-label text-secondary-on-dark max-w-xs">
+                    Sobald du den Embed-Code bereitstellts, erscheint hier das Buchungsformular direkt auf der Seite.
+                  </p>
+                </DebugLabel>
+                <div className="w-12 h-px bg-divider-on-dark" />
+              </div>
+            )}
+          </div>
+        </AccordionWrap>
 
-        {/* Accordion CTA button - always visible */}
+        {/* Accordion CTA button - toggles between panels */}
         <button
-          onClick={() => setCalendarOpen(!calendarOpen)}
+          onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
           className={`inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200 ${
-            calendarOpen ? 'mt-4' : ''
+            expandedPanel === 'calendar' ? 'mt-4' : ''
           }`}
           data-testid="booking-cta-button"
         >
           {booking.directBookingCta}
           <ChevronDown
             size={14}
-            className={`transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${calendarOpen ? 'rotate-180' : ''}`}
+            className={`transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
           />
         </button>
       </div>
