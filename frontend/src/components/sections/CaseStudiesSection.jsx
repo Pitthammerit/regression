@@ -66,7 +66,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border border-color-primary flex items-center justify-center shrink-0 overflow-hidden">
                   <svg
                     viewBox="0 0 31.259 31.259"
-                    className="w-14 h-14"
+                    className="w-20 h-20"
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true"
                   >
