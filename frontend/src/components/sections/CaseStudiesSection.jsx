@@ -63,11 +63,11 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   className="w-24 h-24 rounded-full object-cover object-top border border-color-primary shrink-0 scale-[1.03]"
                 />
               ) : (
-                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border border-color-primary flex items-center justify-center shrink-0">
-                  <img
+                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border border-color-primary flex items-center justify-center shrink-0 overflow-hidden">
+                  <LazyImage
                     src="https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/client-portraits/female-avatar.svg"
                     alt={item.name}
-                    className="w-12 h-12 text-color-primary"
+                    className="w-12 h-12"
                   />
                 </div>
               )}
