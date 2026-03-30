@@ -60,7 +60,7 @@ export default function CtaImageSection({ debugMode = false }) {
               </p>
             </DebugLabel>
 
-            <div className="mt-[4rem]">
+            <div className="mt-[3rem]">
               <DebugLabel type="button-text" debugMode={debugMode}>
                 <CtaButton label={ctaImage.cta} variant="primary" className="py-4 px-12" />
               </DebugLabel>
