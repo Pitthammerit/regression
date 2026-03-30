@@ -7,7 +7,7 @@ import ExpandToggleButton from '../ui/ExpandToggleButton'
 import { BookOpen } from 'lucide-react'
 
 /**
- * ReferencesSectionCopy — References section with typography tokens
+ * ReferencesSection — References section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)

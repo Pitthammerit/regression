@@ -8,7 +8,7 @@ import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
 
 /**
- * ResearcherQuotesSectionCopy — Research authority quotes with portraits
+ * ResearcherQuotesSection — Research authority quotes with portraits
  *
  * REDESIGNED with cleaner spacing pattern:
  * - Label → H2 → Grid structure

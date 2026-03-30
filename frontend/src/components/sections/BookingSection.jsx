@@ -7,7 +7,7 @@ import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 
 /**
- * BookingSectionCopy — Booking section with typography tokens
+ * BookingSection — Booking section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)

@@ -6,7 +6,7 @@ import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * TestimonialsSectionCopy - Client testimonials grid layout with typography tokens
+ * TestimonialsSection - Client testimonials grid layout with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body/labels)

@@ -7,7 +7,7 @@ import { useNavigation } from '../../contexts/NavigationContext'
 import { useFAQScroll } from '../../hooks/useFAQScroll'
 
 /**
- * FAQSectionCopy — FAQ section with typography tokens
+ * FAQSection — FAQ section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)

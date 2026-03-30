@@ -6,7 +6,7 @@ import CtaButton from '../ui/CtaButton'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * ProcessSectionCopy — Process section with typography tokens
+ * ProcessSection — Process section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)

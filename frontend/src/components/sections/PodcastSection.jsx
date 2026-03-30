@@ -6,7 +6,7 @@ import DebugLabel from '../ui/DebugLabel'
 const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/podcast%20bg%20blur.jpg"
 
 /**
- * PodcastSectionCopy — Podcast section with typography tokens
+ * PodcastSection — Podcast section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)
@@ -17,7 +17,7 @@ const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/p
  *
  * CRITICAL PRESERVED:
  * - Background image with cream tint overlay
- * - Grid layout with copy on left, player on right
+ * - Grid layout with player on right
  * - PodcastPlayer component
  * - Map over podcast.podcastLinks
  */
@@ -34,7 +34,7 @@ export default function PodcastSection({ debugMode = false }) {
       <div className="relative z-10 max-w-content mx-auto px-8 md:px-14 lg:px-20 py-16 md:py-20">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
 
-          {/* Left: Copy */}
+          {/* Left: Content */}
           <div>
             <DebugLabel type="label" debugMode={debugMode}>
               <SectionLabel text={podcast.label} />

@@ -8,7 +8,7 @@ import DebugLabel from "../ui/DebugLabel"
 import { X, Send } from "lucide-react"
 
 /**
- * PodcastVideoSectionCopy — Video section with transcript panel
+ * PodcastVideoSection — Video section with transcript panel
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)

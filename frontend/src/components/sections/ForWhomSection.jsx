@@ -6,7 +6,7 @@ import TopicCard from '../ui/TopicCard'
 import DebugLabel from '../ui/DebugLabel'
 
 /**
- * ForWhomSectionCopy — For Whom section with typography tokens
+ * ForWhomSection — For Whom section with typography tokens
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)
