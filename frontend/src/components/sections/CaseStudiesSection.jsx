@@ -48,7 +48,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
         </button>
       </div>
 
-      <div className="divide-y divide-color-primary max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {cases.items.map((item, i) => (
           <div key={i}>
             <button
