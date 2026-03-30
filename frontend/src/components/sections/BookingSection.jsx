@@ -177,7 +177,7 @@ export function BookingSectionDark({ debugMode = false }) {
 
         {/* Calendar Accordion (initially closed) */}
         <AccordionWrap isOpen={expandedPanel === 'calendar'} duration="500ms">
-          <div className={`rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          <div className={`rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] mt-[3rem] mb-[3.5rem] ${
             expandedPanel === 'calendar' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {embedCode ? (
@@ -209,9 +209,7 @@ export function BookingSectionDark({ debugMode = false }) {
         {/* Accordion CTA button - toggles between panels */}
         <button
           onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
-          className={`inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200 ${
-            expandedPanel === 'calendar' ? 'mt-4' : ''
-          }`}
+          className="inline-flex items-center gap-3 font-primary text-button-text button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200"
           data-testid="booking-cta-button"
         >
           {booking.directBookingCta}
