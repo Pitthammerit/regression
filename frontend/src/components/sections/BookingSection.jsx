@@ -212,8 +212,10 @@ export function BookingSectionDark({ debugMode = false }) {
 
         {/* Topics - collapse first with staggered animation, THEN calendar opens above */}
         <div
-          className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            calendarOpen ? 'opacity-0 mb-0' : 'opacity-100 mb-[3.5rem]'
+          className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            calendarOpen
+              ? 'opacity-0 mt-0 mb-0'
+              : 'opacity-100 mt-[3rem] mb-[3.5rem]'
           }`}
           data-testid="booking-topics-grid-dark"
         >
