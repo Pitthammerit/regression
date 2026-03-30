@@ -146,11 +146,12 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                           href={c.url}
                           target={c.url.startsWith('mailto') ? undefined : '_blank'}
                           rel="noreferrer"
-                          className="text-white/60 hover:text-white transition-colors"
+                          className="text-white/60 hover:text-white transition-colors flex items-center gap-2"
                           aria-label={c.label}
                           data-testid={`footer-contact-${c.icon}`}
                         >
                           {CONTACT_ICONS[c.icon]}
+                          <span>{c.label}</span>
                         </a>
                       </DebugLabel>
                     ))}
