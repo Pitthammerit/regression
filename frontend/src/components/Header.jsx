@@ -31,7 +31,7 @@ export default function Header({ debugMode = false }) {
               <img
                 src={r2('logos/BKA logo 500 px black.png')}
                 alt="Benjamin Kurtz Academy"
-                className="lg:hidden h-full w-auto object-contain"
+                className="lg:hidden h-full w-auto object-contain logo-primary"
               />
               {/* Desktop (>=1024px): Wordmark logo */}
               <img
