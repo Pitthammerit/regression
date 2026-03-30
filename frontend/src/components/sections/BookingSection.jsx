@@ -166,7 +166,9 @@ export function BookingSectionDark({ debugMode = false }) {
 
         {/* Topics Accordion - 6 cards (initially open) */}
         <AccordionWrap isOpen={expandedPanel === 'cards'} duration="500ms">
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem]">
+          <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            expandedPanel === 'cards' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+          }`}>
             {booking.formTopics.map((topic, i) => (
               <TopicAccordionCard key={i} title={topic} dark debugMode={debugMode} />
             ))}
@@ -175,7 +177,9 @@ export function BookingSectionDark({ debugMode = false }) {
 
         {/* Calendar Accordion (initially closed) */}
         <AccordionWrap isOpen={expandedPanel === 'calendar'} duration="500ms">
-          <div className="rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left">
+          <div className={`rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            expandedPanel === 'calendar' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
             {embedCode ? (
               <iframe
                 src={embedCode}
