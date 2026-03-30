@@ -55,30 +55,6 @@ export default function Footer({ data = footerContent, debugMode = false }) {
             ))}
           </div>
 
-          {/* 2 — Contact icons with label */}
-          <div className="mb-6 flex justify-center items-center gap-4">
-            <DebugLabel type="label" debugMode={debugMode}>
-              <span className="font-primary text-label label text-white/50">
-                {footerContent.contactLabel}
-              </span>
-            </DebugLabel>
-            <div className="flex gap-4">
-              {data.contact.map((c) => (
-                <a
-                  key={c.label}
-                  href={c.url}
-                  target={c.url.startsWith('mailto') ? undefined : '_blank'}
-                  rel="noreferrer"
-                  className="text-white/70 hover:text-white transition-colors"
-                  aria-label={c.label}
-                  data-testid={`footer-contact-${c.icon}`}
-                >
-                  {CONTACT_ICONS[c.icon]}
-                </a>
-              ))}
-            </div>
-          </div>
-
           <div className="pt-10 mb-10">
 
             {/*
@@ -199,6 +175,31 @@ export default function Footer({ data = footerContent, debugMode = false }) {
 
           {/* — Divider + Copyright — */}
           <div className="h-px bg-color-border-light mb-6 mt-6"></div>
+
+          {/* Contact icons */}
+          <div className="mb-6 flex justify-center items-center gap-4">
+            <DebugLabel type="label" debugMode={debugMode}>
+              <span className="font-primary text-label label text-white/50">
+                {footerContent.contactLabel}
+              </span>
+            </DebugLabel>
+            <div className="flex gap-4">
+              {data.contact.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.url}
+                  target={c.url.startsWith('mailto') ? undefined : '_blank'}
+                  rel="noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                  aria-label={c.label}
+                  data-testid={`footer-contact-${c.icon}`}
+                >
+                  {CONTACT_ICONS[c.icon]}
+                </a>
+              ))}
+            </div>
+          </div>
+
           <DebugLabel type="hint" debugMode={debugMode}>
             <div className="font-primary text-hint hint text-white/50 text-center">
               {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
