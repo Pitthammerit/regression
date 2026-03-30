@@ -58,9 +58,9 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           <div className="pt-10 mb-10">
 
             {/*
-              3 — Three columns: Branding | Rechtliches | Folgen
-              Desktop: all three in one row
-              Mobile:  Branding centered (full row), then Rechtliches+Folgen side-by-side below
+              4 — Four columns: Branding | Rechtliches | Folgen | Reach Out
+              Desktop: all four in one row
+              Mobile:  Branding centered (full row), then Rechtliches+Folgen+ReachOut side-by-side below
             */}
             <div className="flex flex-col items-center gap-10 md:flex-row md:justify-center md:items-start md:gap-16">
 
@@ -131,31 +131,33 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                   </div>
                 </div>
 
-              </div>
-            </div>
-          </div>
+                {/* Col 4 — Reach Out */}
+                <div className="min-w-[120px]">
+                  <DebugLabel type="label" debugMode={debugMode}>
+                    <p className="font-primary text-label label text-white/30 mb-5">
+                      REACH OUT
+                    </p>
+                  </DebugLabel>
+                  <div className="flex flex-col gap-3">
+                    {data.contact.map((c) => (
+                      <DebugLabel key={c.label} type="menu-text" debugMode={debugMode}>
+                        <a
+                          key={c.label}
+                          href={c.url}
+                          target={c.url.startsWith('mailto') ? undefined : '_blank'}
+                          rel="noreferrer"
+                          className="text-white/60 hover:text-white transition-colors"
+                          aria-label={c.label}
+                          data-testid={`footer-contact-${c.icon}`}
+                        >
+                          {CONTACT_ICONS[c.icon]}
+                        </a>
+                      </DebugLabel>
+                    ))}
+                  </div>
+                </div>
 
-          {/* Contact icons row - centered */}
-          <div className="flex justify-center items-center gap-4 mt-8">
-            <DebugLabel type="label" debugMode={debugMode}>
-              <span className="font-primary text-label label text-white/50">
-                {footerContent.contactLabel}
-              </span>
-            </DebugLabel>
-            <div className="flex gap-4">
-              {data.contact.map((c) => (
-                <a
-                  key={c.label}
-                  href={c.url}
-                  target={c.url.startsWith('mailto') ? undefined : '_blank'}
-                  rel="noreferrer"
-                  className="text-white/70 hover:text-white transition-colors"
-                  aria-label={c.label}
-                  data-testid={`footer-contact-${c.icon}`}
-                >
-                  {CONTACT_ICONS[c.icon]}
-                </a>
-              ))}
+              </div>
             </div>
           </div>
 
