@@ -63,7 +63,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   className="w-24 h-24 rounded-full object-cover object-top border border-color-primary shrink-0"
                 />
               ) : (
-                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border-2 flex items-center justify-center shrink-0" style={{ borderColor: 'var(--color-border-primary)' }}>
+                <div className="w-24 h-24 rounded-full bg-color-bg-light/60 border flex items-center justify-center shrink-0" style={{ borderColor: 'var(--color-border-primary)' }}>
                   <User className="w-12 h-12 text-color-primary/30" />
                 </div>
               )}
@@ -97,7 +97,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   { label: cases.sectionLabels.session,   text: item.session },
                   { label: cases.sectionLabels.result,    text: item.result },
                 ].map((block) => (
-                  <div key={block.label} className="border-l-2 border-color-primary pl-4">
+                  <div key={block.label} className="border-l border-color-primary pl-4">
                     <DebugLabel type="label" debugMode={debugMode}>
                       <span className="font-primary text-label label text-color-secondary block block-label-spacing">
                         {block.label}
