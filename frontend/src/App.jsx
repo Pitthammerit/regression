@@ -8,6 +8,8 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import BurgerButton from './components/ui/BurgerButton'
 import CtaButton from './components/ui/CtaButton'
+import LanguageSwitcher from './components/LanguageSwitcher'
+import { useSite } from './contexts/SiteContext'
 import HeroV3Section from './components/sections/HeroV3Section'
 import ServicesSection from './components/sections/ServicesSection'
 import WelcomeSection from './components/sections/WelcomeSection'
@@ -37,6 +39,7 @@ import { SECTIONS_ORDER } from './config/sections.config'
 
 function FloatingBurger() {
   const { sidecarOpen, setSidecarOpen, setIsBurgerClosing, isBurgerClosing, navigateTo } = useNavigation()
+  const { currentLang } = useSite()
   const [ctaVisible, setCtaVisible] = useState(false)
 
   useEffect(() => {
@@ -57,10 +60,14 @@ function FloatingBurger() {
     }
   }
 
+  // CTA visible when scrolled + (sidecar closed OR closing in progress)
+  // Language switcher always visible when sidecar is closed
   const showCta = ctaVisible && (!sidecarOpen || isBurgerClosing)
+  const showLangSwitcher = !sidecarOpen || isBurgerClosing
 
   return (
-    <div className="fixed top-2 right-8 z-[100] flex items-center gap-4">
+    <div className="fixed top-2 right-8 z-[100] flex items-center gap-3">
+      {/* CTA Button - appears on scroll */}
       <div
         className={`transition-opacity ${
           sidecarOpen && !isBurgerClosing ? 'duration-[100ms]' : 'delay-[200ms] duration-[800ms]'
@@ -68,6 +75,17 @@ function FloatingBurger() {
       >
         <CtaButton label={menu.header.cta.label} variant="primary" className="!py-2 !px-6 !text-xs" onClick={() => navigateTo('#booking')} />
       </div>
+
+      {/* Language Switcher - compact circular button */}
+      <div
+        className={`transition-opacity ${
+          sidecarOpen && !isBurgerClosing ? 'duration-[100ms]' : 'delay-[200ms] duration-[800ms]'
+        } ${showLangSwitcher ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      >
+        <LanguageSwitcher compact={true} />
+      </div>
+
+      {/* Burger Button */}
       <BurgerButton isOpen={sidecarOpen} onClick={handleBurgerClick} />
     </div>
   )

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { menu } from '../content/menu'
 import { useNavigation } from '../contexts/NavigationContext'
 import DebugLabel from './ui/DebugLabel'
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function DesktopNav({ debugMode = false }) {
   const { navigateTo } = useNavigation()
@@ -13,7 +14,8 @@ export default function DesktopNav({ debugMode = false }) {
   }
 
   return (
-    <nav className="flex items-center justify-center flex-1">
+    <nav className="flex items-center justify-center flex-1 gap-6">
+      {/* Navigation Menu */}
       <ul className="flex items-center gap-1">
         {menu.header.mainNav.map((item, index) => (
           <li
@@ -52,6 +54,9 @@ export default function DesktopNav({ debugMode = false }) {
           </li>
         ))}
       </ul>
+
+      {/* Language Switcher - inline with menu */}
+      <LanguageSwitcher />
     </nav>
   )
 }

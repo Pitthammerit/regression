@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { r2, logos } from '../utils/media'
 import DesktopNav from './DesktopNav'
 import SidecarMenu from './SidecarMenu'
-import LanguageSwitcher from './LanguageSwitcher'
 import { useNavigation } from '../contexts/NavigationContext'
-import { useSite } from '../contexts/SiteContext'
 
 export default function Header({ debugMode = false }) {
   const { sidecarOpen, setSidecarOpen } = useNavigation()
@@ -43,14 +41,9 @@ export default function Header({ debugMode = false }) {
               />
             </a>
 
-            {/* Desktop Nav - horizontal zentriert */}
+            {/* Desktop Nav with inline Language Switcher */}
             <div className="hidden 900:flex items-center flex-1 justify-center -ml-[20%]">
               <DesktopNav debugMode={debugMode} />
-            </div>
-
-            {/* Language Switcher - desktop only */}
-            <div className="hidden 900:flex">
-              <LanguageSwitcher />
             </div>
           </div>
         </div>
