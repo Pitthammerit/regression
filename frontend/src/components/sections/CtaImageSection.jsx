@@ -12,7 +12,7 @@ import DebugLabel from '../ui/DebugLabel'
  * Design Tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)
  * - Label: text-label (15px) + color-label
- * - Headline: text-h2 (36px) + color-heading
+ * - Headline: typography-hero-large (48px) + color-heading
  * - Subline: text-body-lg (20px) + color-body
  * - Button: CtaButton with primary variant
  *
@@ -20,6 +20,7 @@ import DebugLabel from '../ui/DebugLabel'
  * - Image on left (max-w-[280px] on mobile, max-w-[320px] on desktop)
  * - Text left-aligned on right
  * - Button underneath text
+ * - Full viewport height (100vh)
  *
  * CRITICAL PRESERVED:
  * - SectionWrapper with id="simple-cta" (scroll target)
@@ -31,7 +32,7 @@ export default function CtaImageSection({ debugMode = false }) {
 
   return (
     <SectionWrapper id="simple-cta" data-testid="simple-cta-section">
-      <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 min-h-screen flex items-center">
         <div className="grid md:grid-cols-[288px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-center">
           {/* Image - Left column */}
           <div className="flex justify-center md:justify-start">
@@ -50,8 +51,8 @@ export default function CtaImageSection({ debugMode = false }) {
               <SectionLabel text={ctaImage.label} />
             </DebugLabel>
 
-            <DebugLabel type="typography-h2" debugMode={debugMode}>
-              <h2 className="typography-h2 leading-tight heading-body-spacing">
+            <DebugLabel type="typography-hero-large" debugMode={debugMode}>
+              <h2 className="typography-hero-large leading-tight heading-body-spacing">
                 {ctaImage.headline}
               </h2>
             </DebugLabel>

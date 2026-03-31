@@ -128,7 +128,7 @@ export default function ReferencesSection({ debugMode = false }) {
                   )}
 
                   <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
-                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing-md whitespace-pre-line">
+                    <p className="typography-body-narrative text-on-dark leading-relaxed heading-body-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
@@ -202,7 +202,7 @@ export default function ReferencesSection({ debugMode = false }) {
                   )}
 
                   <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
-                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing-md whitespace-pre-line">
+                    <p className="typography-body-narrative text-on-dark leading-relaxed heading-body-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
