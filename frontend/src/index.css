@@ -30,7 +30,8 @@ section[data-testid="researchers-section"],
 section[data-testid="faq-section"],
 section[data-testid="cases-section"],
 section[data-testid="researcher-quotes-section"],
-section[data-testid="forwhom-section"] {
+section[data-testid="forwhom-section"],
+section[data-testid="about-section"] {
   scroll-snap-stop: always;
   scroll-margin-bottom: 15vh;
 }
