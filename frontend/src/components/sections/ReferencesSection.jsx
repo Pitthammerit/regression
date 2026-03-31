@@ -231,7 +231,7 @@ export default function ReferencesSection({ debugMode = false }) {
             aria-label="Weiter zum CTA"
           >
             <DebugLabel type="typography-h2-on-dark" debugMode={debugMode}>
-              <p className="typography-h2-on-dark">Bereit, weiterzugehen?</p>
+              <p className="typography-h2-on-dark">Bereit deine eigenen Erfahrungen zu machen?</p>
             </DebugLabel>
             <ChevronDown className="next-arrow-button-on-dark animate-pulse-down" />
           </button>

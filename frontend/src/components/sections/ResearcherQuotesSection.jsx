@@ -65,7 +65,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
           <SectionLabel text={researchers.authorBigLabel} light />
         </DebugLabel>
         <DebugLabel type="typography-h2-on-dark" debugMode={debugMode}>
-          <h2 className="typography-h2-on-dark leading-tight">
+          <h2 className="typography-h2-on-dark leading-tight heading-body-spacing">
             {researchers.authorHeadline}
           </h2>
         </DebugLabel>
