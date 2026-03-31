@@ -90,7 +90,7 @@ export default function ResearchersSection({ debugMode = false }) {
               </DebugLabel>
 
               {/* Name + Title - Below quote */}
-              <div>
+              <div className="content-spacing">
                 <DebugLabel type="typography-author-name" debugMode={debugMode}>
                   <div className="typography-author-name-on-dark">{featuredAuthor.name}</div>
                 </DebugLabel>
