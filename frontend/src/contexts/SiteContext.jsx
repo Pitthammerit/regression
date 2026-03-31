@@ -22,13 +22,20 @@ export function SiteProvider({ children }) {
   const { site: siteParam, lang: langParam } = useParams()
   const navigate = useNavigate()
 
+  // DEBUG: Log what we're getting from URL
+  console.log('SiteProvider: siteParam=', siteParam, 'langParam=', langParam)
+
   // Validate and default to regression/de
   const site = VALID_SITES.includes(siteParam) ? siteParam : 'regression'
   const lang = VALID_LANGUAGES.includes(langParam) ? langParam : 'de'
 
+  console.log('SiteProvider: resolved site=', site, 'lang=', lang)
+
   // Redirect invalid URLs
   useEffect(() => {
+    console.log('SiteProvider useEffect: siteParam=', siteParam, 'langParam=', langParam)
     if (!VALID_SITES.includes(siteParam) || !VALID_LANGUAGES.includes(langParam)) {
+      console.log('SiteProvider: redirecting to', `/${site}/${lang}`)
       navigate(`/${site}/${lang}`, { replace: true })
     }
   }, [siteParam, langParam, navigate, site, lang])

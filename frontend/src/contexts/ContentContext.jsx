@@ -16,11 +16,19 @@ const ContentContext = createContext(null)
 export function ContentProvider({ children }) {
   const { currentSite, currentLang } = useSite()
 
+  console.log('ContentProvider: currentSite=', currentSite, 'currentLang=', currentLang)
+
   // Initialize with default content immediately (not null)
-  const [content, setContent] = useState(() => getContent(currentSite, currentLang))
+  const [content, setContent] = useState(() => {
+    const initialContent = getContent(currentSite, currentLang)
+    console.log('ContentProvider: initialContent keys=', Object.keys(initialContent))
+    return initialContent
+  })
 
   useEffect(() => {
+    console.log('ContentProvider useEffect: currentSite=', currentSite, 'currentLang=', currentLang)
     const newContent = getContent(currentSite, currentLang)
+    console.log('ContentProvider: newContent keys=', Object.keys(newContent))
     setContent(newContent)
   }, [currentSite, currentLang])
 

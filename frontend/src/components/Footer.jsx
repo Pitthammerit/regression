@@ -1,10 +1,10 @@
 import React from 'react'
 import { Instagram, Mail } from 'lucide-react'
+import { useContent } from '../contexts/ContentContext'
 import { branding } from '../content/branding'
 import LazyImage from './ui/LazyImage'
 import DebugLabel from './ui/DebugLabel'
 import { useNavigation } from '../contexts/NavigationContext'
-import { useContent } from '../contexts/ContentContext'
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
