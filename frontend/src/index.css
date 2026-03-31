@@ -33,7 +33,7 @@ section[data-testid="researcher-quotes-section"],
 section[data-testid="forwhom-section"],
 section[data-testid="about-section"] {
   scroll-snap-stop: always;
-  scroll-margin-bottom: 30vh;
+  scroll-margin-bottom: 50vh;
 }
 
 /* ─────────────────────────────────────────────────────────────
