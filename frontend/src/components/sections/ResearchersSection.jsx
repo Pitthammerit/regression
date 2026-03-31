@@ -115,7 +115,7 @@ export default function ResearchersSection({ debugMode = false }) {
         {/* ═══════════════════════════════════════════════════════════ */}
 
         {authors.map((author, index) => (
-          <div key={author.id} className={index === authors.length - 1 ? 'mb-10' : 'mb-3'} data-testid={`researcher-${author.id}`}>
+          <div key={author.id} className={index === authors.length - 1 ? 'mb-10' : 'mb-12'} data-testid={`researcher-${author.id}`}>
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
             <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 md:items-start">
               {/* Mobile: Portrait first (full width, 16:9) */}
@@ -223,8 +223,8 @@ export default function ResearchersSection({ debugMode = false }) {
                     </DebugLabel>
                   )}
                 </div>
-                {/* Divider - Full width, same spacing as featured section */}
-                <div className="md:col-span-2 divider-spacing">
+                {/* Divider - Full width, less spacing before */}
+                <div className="md:col-span-2 pt-4">
                   <div className="h-px bg-color-border-light"></div>
                 </div>
               </div>
