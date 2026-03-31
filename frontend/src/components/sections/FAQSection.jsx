@@ -43,7 +43,7 @@ export default function FAQSection({ debugMode = false }) {
         </DebugLabel>
 
         <DebugLabel type="typography-h2" debugMode={debugMode}>
-          <h2 className="typography-h2 section-block-spacing">
+          <h2 className="typography-h2 leading-tight heading-body-spacing">
             {faq.headline}
           </h2>
         </DebugLabel>
