@@ -90,7 +90,7 @@ export default function ResearchersSection({ debugMode = false }) {
               </DebugLabel>
 
               {/* Name + Title - Below quote */}
-              <div className="mt-8">
+              <div className="mt-8 -mt-2">
                 <DebugLabel type="typography-author-name" debugMode={debugMode}>
                   <div className="typography-author-name-on-dark">{featuredAuthor.name}</div>
                 </DebugLabel>
@@ -166,7 +166,7 @@ export default function ResearchersSection({ debugMode = false }) {
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
-                <div className="hidden md:block">
+                <div className="hidden md:block -mt-2">
                   <DebugLabel type="typography-author-name" debugMode={debugMode}>
                     <h3 className="typography-author-name-on-dark">
                       {author.name}
@@ -184,7 +184,7 @@ export default function ResearchersSection({ debugMode = false }) {
 
                 {/* Short text */}
                 <DebugLabel type="typography-summary-large-on-dark" debugMode={debugMode}>
-                  <p className="typography-summary-large-on-dark content-spacing-md">
+                  <p className="typography-summary-large-on-dark md:mt-4 content-spacing-md">
                     {author.shortVersion}
                   </p>
                 </DebugLabel>
