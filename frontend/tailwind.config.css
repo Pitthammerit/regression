@@ -605,6 +605,30 @@
   color: var(--color-primary);
 }
 
+/* ─────────────────────────────────────────────────────────────
+   NEXT ARROW BUTTON UTILITY (for scroll arrows in Hero & CaseStudies)
+   ─────────────────────────────────────────────────────────────
+   These are LARGER bouncing arrows used as scroll triggers.
+   They are different from accordion chevrons (which use chevron utilities above).
+
+   Usage:
+   - HeroV3Section: next-arrow-button (primary color)
+   - CaseStudiesSection: next-arrow-button-on-dark (on dark background)
+
+   Do NOT use for accordion chevrons — use chevron/chevron-lg instead.
+   ───────────────────────────────────────────────────────────── */
+@utility next-arrow-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-primary);
+}
+
+@utility next-arrow-button-on-dark {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-primary-on-dark);
+}
+
 @utility section-padding {
   padding-top: 5rem;
   padding-bottom: 7rem;

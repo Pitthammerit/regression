@@ -45,7 +45,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
           aria-label="Zu den Fallbeispielen scrollen"
           className="opacity-50 hover:opacity-80 transition-opacity duration-300"
         >
-          <ChevronDown className="chevron-lg-on-dark animate-pulse-down" />
+          <ChevronDown className="next-arrow-button-on-dark animate-pulse-down" />
         </button>
       </div>
 
