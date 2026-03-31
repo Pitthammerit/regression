@@ -1,5 +1,5 @@
-import React from 'react'
 import { useContent } from '../../contexts/ContentContext'
+import FullHeightSection from '../ui/FullHeightSection'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'
 import LazyImage from '../ui/LazyImage'
@@ -19,7 +19,7 @@ import DebugLabel from '../ui/DebugLabel'
  * - Image on left (max-w-[280px] on mobile, max-w-[320px] on desktop)
  * - Text left-aligned on right
  * - Button underneath text
- * - Exact viewport height (h-screen = 100vh)
+ * - Full viewport height using FullHeightSection utility
  *
  * CRITICAL PRESERVED:
  * - Section with id="simple-cta" (scroll target)
@@ -30,46 +30,44 @@ export default function CtaImageSection({ debugMode = false }) {
   const { ctaImage } = useContent()
 
   return (
-    <section id="simple-cta" data-testid="simple-cta-section" className="h-screen flex items-center">
-      <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
-        <div className="grid md:grid-cols-[288px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-center">
-          {/* Image - Left column */}
-          <div className="flex justify-center md:justify-start">
-            <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 border border-color-primary">
-              <LazyImage
-                src={ctaImage.imageUrl}
-                alt={ctaImage.imageAlt}
-                className="w-full h-full object-cover object-top scale-[1.03]"
-              />
-            </div>
+    <FullHeightSection id="simple-cta" data-testid="simple-cta-section">
+      <div className="grid md:grid-cols-[288px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-center">
+        {/* Image - Left column */}
+        <div className="flex justify-center md:justify-start">
+          <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 border border-color-primary">
+            <LazyImage
+              src={ctaImage.imageUrl}
+              alt={ctaImage.imageAlt}
+              className="w-full h-full object-cover object-top scale-[1.03]"
+            />
           </div>
+        </div>
 
-          {/* Text - Right column, left-aligned */}
-          <div className="text-left">
-            <DebugLabel type="typography-label" debugMode={debugMode}>
-              <SectionLabel text={ctaImage.label} />
+        {/* Text - Right column, left-aligned */}
+        <div className="text-left">
+          <DebugLabel type="typography-label" debugMode={debugMode}>
+            <SectionLabel text={ctaImage.label} />
+          </DebugLabel>
+
+          <DebugLabel type="typography-hero-large" debugMode={debugMode}>
+            <h2 className="typography-hero-large leading-tight heading-body-spacing">
+              {ctaImage.headline}
+            </h2>
+          </DebugLabel>
+
+          <DebugLabel type="typography-body-lg" debugMode={debugMode}>
+            <p className="typography-body-lg leading-relaxed">
+              {ctaImage.subline}
+            </p>
+          </DebugLabel>
+
+          <div className="margin-top-md">
+            <DebugLabel type="typography-menu-text" debugMode={debugMode}>
+              <CtaButton label={ctaImage.cta} variant="primary" className="py-4 px-12" />
             </DebugLabel>
-
-            <DebugLabel type="typography-hero-large" debugMode={debugMode}>
-              <h2 className="typography-hero-large leading-tight heading-body-spacing">
-                {ctaImage.headline}
-              </h2>
-            </DebugLabel>
-
-            <DebugLabel type="typography-body-lg" debugMode={debugMode}>
-              <p className="typography-body-lg leading-relaxed">
-                {ctaImage.subline}
-              </p>
-            </DebugLabel>
-
-            <div className="margin-top-md">
-              <DebugLabel type="typography-menu-text" debugMode={debugMode}>
-                <CtaButton label={ctaImage.cta} variant="primary" className="py-4 px-12" />
-              </DebugLabel>
-            </div>
           </div>
         </div>
       </div>
-    </section>
+    </FullHeightSection>
   )
 }
