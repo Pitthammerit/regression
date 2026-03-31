@@ -18,6 +18,8 @@ body {
 
 /* Scroll Snap Container */
 html {
+  height: 100%;
+  overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
