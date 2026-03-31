@@ -53,7 +53,7 @@ export default function FAQSection({ debugMode = false }) {
             <div id={`faq-${index}`} key={index} style={{ scrollMarginTop: 80 }}>
               <button
                 onClick={(e) => toggleExpand(index, e)}
-                className="w-full flex justify-between items-center py-6 text-left font-primary text-color-secondary hover:text-color-secondary/80 transition-colors"
+                className="w-full flex justify-between items-center py-4 text-left font-primary text-color-secondary hover:text-color-secondary/80 transition-colors"
                 data-testid={`faq-${index}`}
               >
                 <DebugLabel type="typography-h4" debugMode={debugMode}>
@@ -66,7 +66,7 @@ export default function FAQSection({ debugMode = false }) {
                 />
               </button>
               <AccordionWrap isOpen={expandedFAQIndex === index}>
-                <div className="pb-6">
+                <div className="pb-4">
                   <DebugLabel type="typography-body" debugMode={debugMode}>
                     {item.answer.split('\n\n').map((paragraph, i, arr) => (
                       <p
