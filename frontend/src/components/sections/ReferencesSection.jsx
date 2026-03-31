@@ -4,7 +4,7 @@ import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
-import { BookOpen } from 'lucide-react'
+import { BookOpen, ChevronDown } from 'lucide-react'
 
 /**
  * ReferencesSection — References section with composite typography utilities
@@ -222,6 +222,20 @@ export default function ReferencesSection({ debugMode = false }) {
             ))}
           </>
         )}
+
+        {/* Scroll to CTA section */}
+        <div className="text-center margin-top-lg">
+          <button
+            onClick={() => document.getElementById('simple-cta')?.scrollIntoView({ behavior: 'smooth' })}
+            className="flex flex-col items-center gap-3 mx-auto hover:opacity-80 transition-opacity cursor-pointer"
+            aria-label="Weiter zum CTA"
+          >
+            <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
+              <p className="typography-label-on-dark">Bereit, weiterzugehen?</p>
+            </DebugLabel>
+            <ChevronDown className="next-arrow-button-on-dark animate-pulse-down" />
+          </button>
+        </div>
       </div>
     </section>
   )
