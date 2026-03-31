@@ -51,7 +51,7 @@ export default function AboutSection({ debugMode = false }) {
           ))}
 
           {/* Credentials */}
-          <div className="margin-top-md section-padding-sm border-t border-color-light">
+          <div className="margin-top-sm border-t border-color-light">
             <DebugLabel type="typography-label" debugMode={debugMode}>
               <p className="typography-label">
                 {about.credentialsLabel}
