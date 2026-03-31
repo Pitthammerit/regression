@@ -62,7 +62,7 @@ export default function CtaImageSection({ debugMode = false }) {
               </p>
             </DebugLabel>
 
-            <div className="mt-12">
+            <div className="margin-top-md">
               <DebugLabel type="typography-menu-text" debugMode={debugMode}>
                 <CtaButton label={ctaImage.cta} variant="primary" className="py-4 px-12" />
               </DebugLabel>
