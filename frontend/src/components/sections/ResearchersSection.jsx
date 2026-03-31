@@ -55,7 +55,7 @@ export default function ResearchersSection({ debugMode = false }) {
 
         {/* Featured Researcher */}
         {featuredAuthor && (
-          <div className="flex flex-col md:grid md:grid-cols-[255px_1fr] md:card-grid-gap-lg section-block-spacing">
+          <div className="flex flex-col md:grid md:grid-cols-[255px_1fr] md:card-grid-gap-lg margin-top-md section-block-spacing">
             {/* Mobile: Photo first (full width, 16:9) */}
             <div className="md:hidden content-spacing">
               <AnimatedAspectRatio ratio={16 / 9}>
