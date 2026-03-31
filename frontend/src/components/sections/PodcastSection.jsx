@@ -42,9 +42,7 @@ export default function PodcastSection({ debugMode = false }) {
 
               <DebugLabel type="typography-hero" debugMode={debugMode}>
                 <h2 className="typography-hero leading-tight heading-body-spacing">
-                  {podcast.sectionHeadline.map((line, i) => (
-                    <span key={i} className="block">{line}</span>
-                  ))}
+                  {podcast.sectionHeadline}
                 </h2>
               </DebugLabel>
 
