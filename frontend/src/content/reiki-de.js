@@ -122,7 +122,7 @@ export const about = {
     "Als Reiki-Master (Usui) habe ich Menschen auf ihrem Heilungsweg begleitet — bei körperlichen Beschwerden, emotionalen Blockaden, spirituellen Krisen. Reiki hat sich als einer der wirksamsten Wege erwiesen, Balance wiederherzustellen und den Körper zur Selbstheilung zu aktivieren.",
   ],
   credentials: [
-    "Reiki Master (Usui)",
+    "Reiki Master Teacher (Usui)",
     "Quanten-Heilung",
     "Energiearbeit & Chakra-Balance",
     "NLP Master & NR Practitioner",

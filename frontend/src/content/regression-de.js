@@ -154,7 +154,7 @@ export const about = {
     "NLP Master & NR Practitioner",
     "Hypnose-Coach",
     "EMDR · wingwave® Coach",
-    "Reiki Master (Usui)",
+    "Reiki Master Teacher (Usui)",
     "Aufstellungsarbeit",
     "Breathwork & Meditation",
     "Past Life Regression",

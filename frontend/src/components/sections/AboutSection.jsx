@@ -53,14 +53,14 @@ export default function AboutSection({ debugMode = false }) {
           {/* Credentials */}
           <div className="margin-top-md section-padding-sm border-t border-color-light">
             <DebugLabel type="typography-label" debugMode={debugMode}>
-              <p className="typography-label content-spacing-lg">
+              <p className="typography-label">
                 {about.credentialsLabel}
               </p>
             </DebugLabel>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
-                <li key={i} className="font-primary text-list text-color-text flex items-start gap-2">
-                  <DebugLabel type="typography-body" debugMode={debugMode}>
+                <li key={i} className="flex items-start gap-2">
+                  <DebugLabel type="typography-list" debugMode={debugMode}>
                     <span className="text-color-primary shrink-0 mt-0.5">—</span>
                     {cred}
                   </DebugLabel>

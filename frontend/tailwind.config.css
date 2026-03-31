@@ -238,6 +238,15 @@
   margin-bottom: 0.25rem;
 }
 
+@utility typography-list {
+  font-family: var(--font-primary);
+  font-size: var(--font-meta);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
 /* Quote & Author Utilities */
 @utility typography-quote-featured {
   font-family: var(--font-secondary);
