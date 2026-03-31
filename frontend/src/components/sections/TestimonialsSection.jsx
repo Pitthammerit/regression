@@ -33,12 +33,9 @@ export default function TestimonialsSection({ debugMode = false }) {
       {/* Client Testimonials */}
       <div className="section-padding">
         <div className="max-w-content mx-auto px-6">
-          <h2 className="typography-label content-spacing-lg">
-            <DebugLabel token="typography-label" show={debugMode}>
-              WALL OF LOVE
-            </DebugLabel>
-          </h2>
-          <SectionLabel text={testimonials.clientLabel} />
+          <DebugLabel type="typography-label" debugMode={debugMode}>
+            <SectionLabel text={testimonials.clientLabel} />
+          </DebugLabel>
 
           {/*
             Layout:
