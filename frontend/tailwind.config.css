@@ -126,121 +126,6 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   MISSING TYPOGRAPHY & COLOR UTILITIES (35 utilities)
-   ───────────────────────────────────────────────────────────── */
-
-/* Typography Size Utilities (20) */
-@utility text-hero-large {
-  font-size: var(--font-hero-large);
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-@utility text-hero {
-  font-size: var(--font-hero);
-  line-height: 1.1;
-}
-
-@utility text-podcast-headline {
-  font-size: var(--font-podcast-headline);
-  line-height: 0.95;
-}
-
-@utility text-h2 {
-  font-size: var(--font-h2);
-  line-height: 1.2;
-}
-
-@utility text-h2-hand {
-  font-size: var(--font-h2-hand);
-  line-height: 1.2;
-}
-
-@utility text-h3 {
-  font-size: var(--font-h3);
-  line-height: 1.2;
-}
-
-@utility text-h3-hand {
-  font-size: var(--font-h3-hand);
-  line-height: 1.2;
-}
-
-@utility text-h4 {
-  font-size: var(--font-h4);
-  line-height: 1.2;
-}
-
-@utility text-body {
-  font-size: var(--font-body);
-  line-height: 1.75;
-}
-
-@utility text-body-lg {
-  font-size: var(--font-body-lg);
-  line-height: 1.625;
-}
-
-@utility text-label {
-  font-size: var(--font-label);
-  line-height: 1.5;
-  letter-spacing: 0.2em;
-}
-
-@utility text-menu-text {
-  font-size: var(--font-menu-text);
-  line-height: 1.5;
-}
-
-@utility text-subline {
-  font-size: var(--font-subline);
-  line-height: 1.5;
-}
-
-@utility text-quote-featured {
-  font-size: var(--font-quote-featured);
-  line-height: 1.1;
-}
-
-@utility text-author-name {
-  font-size: var(--font-author-name);
-  line-height: 1.2;
-}
-
-@utility text-summary-large {
-  font-size: var(--font-summary-large);
-  line-height: 1.6;
-}
-
-@utility text-body-narrative {
-  font-size: var(--font-body-narrative);
-  line-height: 1.75;
-}
-
-@utility text-meta {
-  font-size: var(--font-meta);
-  line-height: 1.5;
-}
-
-@utility text-disclaimer {
-  font-size: var(--font-disclaimer);
-  line-height: 1.5;
-  font-style: italic;
-}
-
-@utility text-button-text {
-  font-size: var(--font-button-text);
-  line-height: 1.5;
-  letter-spacing: 0.2em;
-}
-
-@utility text-hint {
-  font-size: var(--font-hint);
-  line-height: 1.5;
-  font-style: italic;
-}
-
-/* ─────────────────────────────────────────────────────────────
    COMPOSITE TYPOGRAPHY UTILITIES (font + size + weight + line-height + spacing)
    ───────────────────────────────────────────────────────────── */
 
@@ -403,6 +288,7 @@
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0;
+    color: var(--color-primary);
 }
 
 /* Font Family Utilities (3) */
