@@ -115,7 +115,7 @@ export default function ResearchersSection({ debugMode = false }) {
         {/* ═══════════════════════════════════════════════════════════ */}
 
         {authors.map((author, index) => (
-          <div key={author.id} className={index === authors.length - 1 ? 'mb-10' : 'mb-12'} data-testid={`researcher-${author.id}`}>
+          <div key={author.id} className={index === authors.length - 1 ? 'mb-10' : 'mb-16'} data-testid={`researcher-${author.id}`}>
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
             <div className="flex flex-col md:grid md:grid-cols-[255px_1fr] md:gap-12 md:items-start">
               {/* Mobile: Portrait first (full width, 16:9) */}
@@ -196,7 +196,7 @@ export default function ResearchersSection({ debugMode = false }) {
                   labelMore={ui.showMore}
                   labelLess={ui.showLess}
                   debugMode={debugMode}
-                  className="element-spacing-xs"
+                  className="mt-6"
                 />
               </div>
             </div>
