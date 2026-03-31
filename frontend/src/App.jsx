@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext'
 import { SiteProvider } from './contexts/SiteContext'
-import { ContentProvider } from './contexts/ContentContext'
+import { ContentProvider, useContent } from './contexts/ContentContext'
 import ErrorBoundary from './components/ErrorBoundary'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -93,6 +93,7 @@ function FloatingBurger() {
 
 function MainPage() {
   const [debugMode, setDebugMode] = useState(false)
+  const { testimonials } = useContent()
 
   const sectionMap = {
     'HeroV3Section': <HeroV3Section debugMode={debugMode} />,
@@ -109,7 +110,14 @@ function MainPage() {
     'PodcastSection': <PodcastSection debugMode={debugMode} />,
     'CaseStudiesSection': <CaseStudiesSection debugMode={debugMode} />,
     'TestimonialsSection': <TestimonialsSection debugMode={debugMode} />,
-    'TestimonialCarousel': <TestimonialCarousel debugMode={debugMode} />,
+    'TestimonialCarousel': (
+      <TestimonialCarousel
+        clients={testimonials?.clients || []}
+        label={testimonials?.clientLabel || ''}
+        subtitle={testimonials?.clientSubtitle || ''}
+        debugMode={debugMode}
+      />
+    ),
     'BookingSection': <BookingSectionDark debugMode={debugMode} />,
     'FAQSection': <FAQSection debugMode={debugMode} />,
     'ReferencesSection': <ReferencesSection debugMode={debugMode} />,
