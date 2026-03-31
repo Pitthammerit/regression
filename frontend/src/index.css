@@ -25,13 +25,14 @@ html {
   scroll-padding-bottom: 5vh;
 }
 
-/* Accordion sections get extra space after them for expanded content */
+/* Accordion sections are priority snap points - forces scroll to stop here */
 section[data-testid="researchers-section"],
 section[data-testid="faq-section"],
 section[data-testid="cases-section"],
 section[data-testid="researcher-quotes-section"],
 section[data-testid="forwhom-section"] {
-  scroll-margin-bottom: 25vh;
+  scroll-snap-stop: always;
+  scroll-margin-bottom: 15vh;
 }
 
 /* ─────────────────────────────────────────────────────────────
