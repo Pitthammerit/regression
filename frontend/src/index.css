@@ -24,17 +24,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Sections rasten am oberen Rand ein */
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
-}
-
-/* Disable scroll-snap on sections with active accordions */
-section[data-accordion-active="true"] {
-  scroll-snap-align: none;
-}
-
 /* ─────────────────────────────────────────────────────────────
    CUSTOM ANIMATIONS
    ───────────────────────────────────────────────────────────── */

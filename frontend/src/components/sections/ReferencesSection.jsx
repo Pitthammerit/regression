@@ -57,7 +57,7 @@ export default function ReferencesSection({ debugMode = false }) {
     <section
       id="references"
       data-testid="references-section"
-      className="py-20 md:py-28 bg-color-primary text-primary-on-dark relative overflow-hidden"
+      className="py-20 md:py-28 bg-color-primary text-primary-on-dark relative overflow-hidden snap-section"
     >
       {/* Subtle paper texture overlay */}
       <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none" />
