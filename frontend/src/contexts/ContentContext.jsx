@@ -14,8 +14,10 @@ const ContentContext = createContext(null)
  * Automatically reloads content when site or language changes via SiteContext
  */
 export function ContentProvider({ children }) {
-  const [content, setContent] = useState(null)
   const { currentSite, currentLang } = useSite()
+
+  // Initialize with default content immediately (not null)
+  const [content, setContent] = useState(() => getContent(currentSite, currentLang))
 
   useEffect(() => {
     const newContent = getContent(currentSite, currentLang)

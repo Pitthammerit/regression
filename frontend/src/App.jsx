@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext'
 import { SiteProvider } from './contexts/SiteContext'
 import { ContentProvider } from './contexts/ContentContext'
+import ErrorBoundary from './components/ErrorBoundary'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import BurgerButton from './components/ui/BurgerButton'
@@ -29,6 +30,7 @@ import CtaImageSection from './components/sections/CtaImageSection'
 import TranscriptPage from './pages/TranscriptPage'
 import MenuDemoPage from './pages/demos/MenuDemoPage'
 import TypographyDemoPage from './pages/demos/TypographyDemoPage'
+import DebugTest from './components/DebugTest'
 import NotFound from './components/NotFound'
 import { menu } from './content/menu'
 import { SECTIONS_ORDER } from './config/sections.config'
@@ -55,7 +57,6 @@ function FloatingBurger() {
     }
   }
 
-  // CTA visible when scrolled + (sidecar closed OR closing in progress)
   const showCta = ctaVisible && (!sidecarOpen || isBurgerClosing)
 
   return (
@@ -75,7 +76,6 @@ function FloatingBurger() {
 function MainPage() {
   const [debugMode, setDebugMode] = useState(false)
 
-  // Section mapping with props
   const sectionMap = {
     'HeroV3Section': <HeroV3Section debugMode={debugMode} />,
     'ServicesSection': <ServicesSection debugMode={debugMode} />,
@@ -100,16 +100,10 @@ function MainPage() {
 
   return (
     <div className="bg-color-bg-light bg-paper min-h-screen font-primary text-color-text">
-      {/* Debug Toggle */}
       <div className="fixed top-4 left-4 z-[100] bg-white p-3 rounded-lg shadow-lg border border-black/10">
         <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={debugMode}
-            onChange={(e) => setDebugMode(e.target.checked)}
-            className="w-4 h-4"
-          />
-          <span className="font-primary text-sm">🔍 Debug Mode</span>
+          <input type="checkbox" checked={debugMode} onChange={(e) => setDebugMode(e.target.checked)} className="w-4 h-4" />
+          <span className="font-primary text-sm">Debug Mode</span>
         </label>
       </div>
 
@@ -125,34 +119,30 @@ function MainPage() {
   )
 }
 
+function SitePage() {
+  return (
+    <ErrorBoundary>
+      <SiteProvider>
+        <ContentProvider>
+          <MainPage />
+        </ContentProvider>
+      </SiteProvider>
+    </ErrorBoundary>
+  )
+}
+
 export default function App() {
   return (
     <NavigationProvider>
       <BrowserRouter>
         <Routes>
-          {/* Multi-site routes: /:site/:lang */}
-          <Route path="/:site/:lang" element={
-            <SiteProvider>
-              <ContentProvider>
-                <MainPage />
-              </ContentProvider>
-            </SiteProvider>
-          } />
-
-          {/* Default redirect to regression/de */}
+          <Route path="/debug-test" element={<DebugTest />} />
+          <Route path="/:site/:lang" element={<SitePage />} />
           <Route path="/" element={<Navigate to="/regression/de" replace />} />
-
-          {/* Site without language - redirect to German */}
           <Route path="/:site" element={<Navigate to="/regression/de" replace />} />
-
-          {/* Legacy routes (backwards compatibility) */}
-          <Route path="/transkript" element={<Navigate to="/regression/de/transkript" replace />} />
-
-          {/* Demo pages */}
+          <Route path="/transkript" element={<TranscriptPage />} />
           <Route path="/menu-demo" element={<MenuDemoPage />} />
           <Route path="/typo-demo" element={<TypographyDemoPage />} />
-
-          {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

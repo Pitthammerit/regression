@@ -1,14 +1,10 @@
 import React from 'react'
 import { Instagram, Mail } from 'lucide-react'
-import { getContent } from '../content'
 import { branding } from '../content/branding'
 import LazyImage from './ui/LazyImage'
 import DebugLabel from './ui/DebugLabel'
 import { useNavigation } from '../contexts/NavigationContext'
-
-// Load content (default: regression/de)
-const content = getContent('regression', 'de')
-const { header: siteHeader, footer: footerContent } = content
+import { useContent } from '../contexts/ContentContext'
 
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -24,7 +20,10 @@ const CONTACT_ICONS = {
   instagram: <Instagram size={24} strokeWidth={1.5} />,
 }
 
-export default function Footer({ data = footerContent, debugMode = false }) {
+export default function Footer({ debugMode = false }) {
+  const content = useContent()
+  const { header: siteHeader, footer: footerContent } = content
+  const data = footerContent
   const nav = siteHeader.nav
   const year = new Date().getFullYear()
   const { navigateTo } = useNavigation()
