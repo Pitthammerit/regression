@@ -156,7 +156,7 @@ export default function ResearchersSection({ debugMode = false }) {
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label-on-dark">
+                    <p className="typography-label-on-dark element-spacing-xs">
                       {author.role}
                     </p>
                   </DebugLabel>
@@ -173,7 +173,7 @@ export default function ResearchersSection({ debugMode = false }) {
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label-on-dark">
+                    <p className="typography-label-on-dark element-spacing-xs">
                       {author.role}
                     </p>
                   </DebugLabel>
