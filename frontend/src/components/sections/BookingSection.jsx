@@ -112,8 +112,7 @@ export default function BookingSection({ debugMode = false }) {
         >
           {booking.directBookingCta}
           <ChevronDown
-            size={14}
-            className={`transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
+            className={`chevron-on-dark transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
           />
         </button>
       </div>
@@ -225,8 +224,7 @@ export function BookingSectionDark({ debugMode = false }) {
         >
           {booking.directBookingCta}
           <ChevronDown
-            size={14}
-            className={`transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
+            className={`chevron-on-dark transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
           />
         </button>
       </div>

@@ -60,7 +60,7 @@ export default function FAQSection({ debugMode = false }) {
                   <span className="typography-h4">{item.question}</span>
                 </DebugLabel>
                 <ChevronDown
-                  className={`transition-transform duration-500 ease-out ${
+                  className={`chevron transition-transform duration-500 ease-out ${
                     expandedFAQIndex === index ? 'rotate-180' : ''
                   }`}
                 />

@@ -45,7 +45,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
           aria-label="Zu den Fallbeispielen scrollen"
           className="opacity-50 hover:opacity-80 transition-opacity duration-300"
         >
-          <ChevronDown className="w-16 h-16 text-color-primary animate-pulse-down" />
+          <ChevronDown className="chevron-lg-on-dark animate-pulse-down" />
         </button>
       </div>
 
@@ -104,8 +104,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 </DebugLabel>
               </div>
               <ChevronDown
-                size={18}
-                className={`text-color-secondary mt-1 shrink-0 transition-transform transition-normal ${openIndex === i ? 'rotate-180' : ''}`}
+                className={`chevron-lg text-color-secondary mt-1 shrink-0 transition-transform transition-normal ${openIndex === i ? 'rotate-180' : ''}`}
               />
             </button>
 

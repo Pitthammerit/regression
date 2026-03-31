@@ -32,7 +32,7 @@ export default function ExpandToggleButton({
           className="flex items-center gap-2 typography-meta-on-dark uppercase hover:text-primary-on-dark transition-colors cursor-pointer"
         >
           {isExpanded ? labelLess : labelMore}
-          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`chevron transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
         </button>
       </DebugLabel>
       <div className="flex-1 h-px bg-color-border-light"></div>

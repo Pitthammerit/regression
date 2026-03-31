@@ -582,6 +582,29 @@
   padding-top: 2.25rem;
 }
 
+/* Chevron Utilities - standardized icon sizing */
+@utility chevron {
+  width: 1rem;
+  height: 1rem;
+}
+
+@utility chevron-on-dark {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-primary);
+}
+
+@utility chevron-lg {
+  width: 4rem;
+  height: 4rem;
+}
+
+@utility chevron-lg-on-dark {
+  width: 4rem;
+  height: 4rem;
+  color: var(--color-primary);
+}
+
 @utility section-padding {
   padding-top: 5rem;
   padding-bottom: 7rem;
