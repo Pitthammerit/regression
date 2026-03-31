@@ -50,7 +50,7 @@ export default function WelcomeSection({ debugMode = false }) {
           </div>
 
           {/* Signature — handwriting text */}
-          <div className="mt-8">
+          <div className="mt-4">
             <DebugLabel type="typography-handwriting" debugMode={debugMode}>
               <p className="typography-handwriting">
                 {welcome.author}
