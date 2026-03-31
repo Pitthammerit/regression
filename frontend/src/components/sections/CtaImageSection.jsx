@@ -1,6 +1,5 @@
 import React from 'react'
 import { useContent } from '../../contexts/ContentContext'
-import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'
 import LazyImage from '../ui/LazyImage'
@@ -20,10 +19,10 @@ import DebugLabel from '../ui/DebugLabel'
  * - Image on left (max-w-[280px] on mobile, max-w-[320px] on desktop)
  * - Text left-aligned on right
  * - Button underneath text
- * - Full viewport height (100vh)
+ * - Exact viewport height (h-screen = 100vh)
  *
  * CRITICAL PRESERVED:
- * - SectionWrapper with id="simple-cta" (scroll target)
+ * - Section with id="simple-cta" (scroll target)
  * - Content from plr-de.js (no hardcoding)
  * - Reuses existing components (CtaButton, SectionLabel, DebugLabel, LazyImage)
  */
@@ -31,8 +30,8 @@ export default function CtaImageSection({ debugMode = false }) {
   const { ctaImage } = useContent()
 
   return (
-    <SectionWrapper id="simple-cta" data-testid="simple-cta-section">
-      <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 min-h-screen flex items-center">
+    <section id="simple-cta" data-testid="simple-cta-section" className="h-screen flex items-center">
+      <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
         <div className="grid md:grid-cols-[288px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-center">
           {/* Image - Left column */}
           <div className="flex justify-center md:justify-start">
@@ -71,6 +70,6 @@ export default function CtaImageSection({ debugMode = false }) {
           </div>
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   )
 }
