@@ -1,92 +1,72 @@
 # TODO
 
-Updated: 2026-03-31 12:24
+Updated: 2026-03-31 12:39
 
 ---
 
-## 🔴 PRIORITY 1 — Composite Typography Utilities
+## 🔴 PRIORITY 1 — Multi-Site + Multi-Language Architecture
 
-**Status:** READY TO REVIEW & EXECUTE
-**Plan:** `docs/plans/2026-03-31-composite-typography-utilities.md`
+**Status:** READY TO EXECUTE
+**Plan:** `docs/plans/2026-03-31-multi-site-multilang-architecture.md` (consolidated from old plan)
 
 **What this builds:**
-- Combined typography utilities (`typography-h2`, `typography-body`, etc.)
-- Single class replaces 4-5 classes (font, size, weight, line-height, color, spacing)
-- Consistent typography across ALL components
-- Easier maintenance (change once in CSS, not 50+ JSX files)
+- Multi-site architecture (Regression + Reiki first)
+- Multi-language foundation (German → English)
+- Content abstraction layer with content files in flat structure
+- Site-first URL routing (`/regression/de`, `/regression/en`, `/reiki/de`)
+- Language switcher in Header
 
-**Components to update (11 tasks):**
-1. tailwind.config.css — Add all composite utilities
-2. FAQSection — Fix h2/h4 font inconsistency
-3. HeroV3Section
-4. All 17 sections (Welcome, ForWhom, Services, etc.)
-5. UI Components (SectionLabel, TopicCard, etc.)
-6. NotFound.jsx (404 page)
-7. Header.jsx
-8. Footer.jsx
+**Foundation already complete:**
+- ✅ Vite 5.0 + Tailwind v4 running
+- ✅ Design tokens in @theme directive
+- ✅ 27 composite utilities working
+- ✅ 13 on-dark utilities working
 
-**Timeline:** 4-6 hours with `/multiloop` execution
+**Phases:**
+1. Content directory restructuring (30 min) — `regression-de.js`, `reiki-de.js`
+2. Site & Content Contexts (2 hours) — React contexts for site/lang state
+3. Update sections (3-4 hours) — All 21 sections use `useContent()`
+4. Multi-site routing (2 hours) — Site-first URLs with language switcher
+5. Site-specific theming (1 hour) — Prepare for site-specific colors
+6. English content placeholder (30 min)
+7. Backend documentation (30 min)
+
+**Timeline:** 8-10 hours total (2-3 weeks at part-time pace)
 
 **Quick Start:**
-1. Review plan: `docs/plans/2026-03-31-composite-typography-utilities.md`
-2. Improve if needed (add missing utilities, adjust patterns)
-3. Execute with `/multiloop`
-4. Code review after each component
-5. Deploy and test
-
-**Execution method:** `/multiloop` (subagent-driven with LOOP BACK)
-
----
-
-## 🔴 PRIORITY 2 — Multi-Site + Tailwind v4 + Vite Migration
-
-**Status:** START AFTER PRIORITY 1 COMPLETE
-**Plan:** `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md`
-**Prerequisite:** Composite typography utilities complete
-
-**Why this order:**
-- Composite utilities simplifies code BEFORE major migration
-- Cleaner codebase = easier multi-site refactoring
-- Migration is mostly complete (Tailwind v4 stable release)
-- Ready for multi-site and language expansion
-
-**What this builds:**
-- Tailwind v4 migration complete (mostly done)
-- Multi-site architecture (Regression, Reiki, Podcast)
-- Multi-language foundation (German → English ready)
-- Site-first URL routing (`/regression/de`, `/regression/en`, `/reiki/de`)
-- Backend-ready for Supabase or Cloudflare D1
-
-**Timeline:** 24-36 hours (6-8 weeks at part-time pace)
+1. Review the consolidated plan
+2. Start with Phase 1 (Content directory)
+3. Use `/multiloop` for Phases 2-4
+4. Deploy and test after each phase
 
 ---
 
 ## 🟡 MEDIUM PRIORITY
 
 ### English Content Translation
-**Status:** Pending — After PRIORITY 1 & 2 complete
+**Status:** Pending — After multi-site architecture complete
 
 **What needs translation:**
-- `content/regression/de.js` → Create `content/regression/en.js`
+- `regression-de.js` → `regression-en.js`
 - ~677 lines of German content
 - Focus on key sections first (Hero, Services, Booking)
 
 ---
 
-### Reiki Site Content
-**Status:** Future — After English translations complete
-
----
-
-### Podcast Site Content
-**Status:** Future — After Reiki site complete
+### Reiki Site Real Content
+**Status:** Future — Test structure in place, real content needed
 
 ---
 
 ## 🟢 LOW PRIORITY
 
+### Podcast Site (Future)
+**Status:** Can be added later following the same pattern as Reiki
+
+---
+
 ### Backend Integration (Future)
-**Status:** Documented, not scheduled
+**Status:** Documented in Phase 7, not scheduled
 
 ---
 
@@ -96,25 +76,19 @@ Updated: 2026-03-31 12:24
 
 ---
 
-### Add SPA Fallback for Deep Links
-- [ ] Create `frontend/public/_redirects` with: `/*    /index.html   200`
-
----
-
 ## Quick Reference
 
 | Document | Purpose | Priority |
 |----------|---------|----------|
-| `docs/plans/2026-03-31-composite-typography-utilities.md` | **START HERE** — Composite utilities | 🔴 1 |
-| `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md` | Multi-site + v4 migration | 🔴 2 |
-| `docs/ESM_MIGRATION_SUMMARY.md` | ESM/Vite migration analysis | Reference |
-| `docs/TAILWIND_V4_ASSESSMENT_SUMMARY.md` | Tailwind v4 comparison | Reference |
+| `docs/plans/2026-03-31-multi-site-multilang-architecture.md` | **START HERE** — Multi-site implementation | 🔴 1 |
+| `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md` | Old migration plan (archived) | Reference |
+| `memory/MEMORY.md` | Project memory and quick links | Reference |
 
 ---
 
 ## Known Issues
 
-1. **No English content yet** — All content in `regression/de.js`, English not implemented
+1. **No English content yet** — German only, English structure in place
 2. **backend/ folder** — Misleading, no backend deployed
 3. **No catch-all route** — Invalid URLs may render blank
 
@@ -124,15 +98,12 @@ Updated: 2026-03-31 12:24
 
 Previous documentation has been moved to `docs/archived/`:
 - Architectural review docs (i18n, multi-site analysis)
-- Critical bugs fix plan (referenced Copy sections that no longer exist)
-- Section migration plans (typography refactoring complete)
-- Tailwind v4 alpha assessments (superseded by stable release)
+- Tailwind v4 migration plan (superseded by consolidated plan)
 
 ---
 
 **Last Updated:** 2026-03-31
 **Next Session Steps:**
-1. Review `docs/plans/2026-03-31-composite-typography-utilities.md`
-2. Improve if needed
-3. Execute with `/multiloop`
-4. After completion → Continue with `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md`
+1. Review consolidated multi-site plan
+2. Execute Phase 1 (Content directory restructuring)
+3. Use `/multiloop` for Phases 2-4
