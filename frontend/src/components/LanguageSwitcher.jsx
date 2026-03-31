@@ -3,21 +3,25 @@ import { useSite } from '../contexts/SiteContext'
 /**
  * LanguageSwitcher - DE/EN language selector
  *
- * Compact button showing current language (DE or EN).
+ * Simple text showing current language (DE or EN).
  * Click to toggle to the other language.
  * English is disabled until content exists (Phase 6).
  *
  * @param {string} className - Additional CSS classes
- * @param {boolean} compact - If true, shows as single circular button
+ * @param {boolean} compact - If true, shows as compact text next to burger
  */
 export default function LanguageSwitcher({ className = '', compact = false }) {
   const { currentLang, switchLanguage } = useSite()
-  const displayLang = currentLang.toUpperCase()
-  const otherLang = currentLang === 'de' ? 'en' : 'de'
   const isEnglishEnabled = false // TODO: Enable in Phase 6 when English content exists
 
   const handleSwitch = () => {
     if (currentLang === 'de') {
+      // Try to switch to English
+      if (!isEnglishEnabled) {
+        // Show brief warning and stay on German
+        alert('English coming soon!')
+        return
+      }
       switchLanguage('en')
     } else {
       switchLanguage('de')
@@ -25,31 +29,48 @@ export default function LanguageSwitcher({ className = '', compact = false }) {
   }
 
   if (compact) {
+    // Compact: "DE" only, shows current language
     return (
-      <button
+      <span
         onClick={handleSwitch}
-        disabled={currentLang === 'en' && !isEnglishEnabled}
-        className={`flex items-center justify-center w-10 h-10 rounded-full border border-color-border-light bg-white hover:bg-color-bg-light transition-colors ${
-          (currentLang === 'en' && !isEnglishEnabled) ? 'opacity-50 cursor-not-allowed' : ''
-        } ${className}`}
-        aria-label={`Switch to ${otherLang.toUpperCase()}`}
-        title={`Current language: ${displayLang}. Click to switch to ${otherLang.toUpperCase()}`}
+        className={`text-sm font-medium text-color-text hover:text-color-primary cursor-pointer transition-colors ${className}`}
+        title="Sprache wechseln / Switch language"
       >
-        <span className="text-sm font-medium text-color-text">{displayLang}</span>
-      </button>
+        {currentLang.toUpperCase()}
+      </span>
     )
   }
 
+  // Full: "DE | EN" with both options
+  const deClass = currentLang === 'de'
+    ? 'text-color-primary font-medium'
+    : 'text-color-text/60 hover:text-color-primary cursor-pointer'
+
+  const enClass = currentLang === 'en'
+    ? 'text-color-primary font-medium'
+    : 'text-color-text/60 hover:text-color-primary cursor-pointer'
+
   return (
-    <button
-      onClick={handleSwitch}
-      disabled={currentLang === 'en' && !isEnglishEnabled}
-      className={`px-3 py-1.5 rounded-full border border-color-border-light bg-white hover:bg-color-bg-light transition-colors ${
-        (currentLang === 'en' && !isEnglishEnabled) ? 'opacity-50 cursor-not-allowed' : ''
-      } ${className}`}
-      aria-label={`Switch to ${otherLang.toUpperCase()}`}
-    >
-      <span className="text-sm font-medium text-color-text">{displayLang}</span>
-    </button>
+    <div className={`flex items-center gap-2 text-sm ${className}`}>
+      <span
+        onClick={() => currentLang !== 'de' && switchLanguage('de')}
+        className={deClass + ' cursor-pointer transition-colors'}
+      >
+        DE
+      </span>
+      <span className="text-color-text/30">|</span>
+      <span
+        onClick={() => {
+          if (!isEnglishEnabled) {
+            alert('English coming soon!')
+            return
+          }
+          if (currentLang !== 'en') switchLanguage('en')
+        }}
+        className={enClass + (isEnglishEnabled ? ' cursor-pointer transition-colors' : ' opacity-50 cursor-not-allowed')}
+      >
+        EN
+      </span>
+    </div>
   )
 }

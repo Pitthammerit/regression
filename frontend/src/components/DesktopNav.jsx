@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { menu } from '../content/menu'
 import { useNavigation } from '../contexts/NavigationContext'
 import DebugLabel from './ui/DebugLabel'
-import LanguageSwitcher from './LanguageSwitcher'
 
 export default function DesktopNav({ debugMode = false }) {
   const { navigateTo } = useNavigation()
@@ -54,9 +53,6 @@ export default function DesktopNav({ debugMode = false }) {
           </li>
         ))}
       </ul>
-
-      {/* Language Switcher - inline with menu */}
-      <LanguageSwitcher />
     </nav>
   )
 }
