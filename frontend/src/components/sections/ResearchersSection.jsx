@@ -95,7 +95,7 @@ export default function ResearchersSection({ debugMode = false }) {
                   <div className="typography-author-name-on-dark">{featuredAuthor.name}</div>
                 </DebugLabel>
                 <DebugLabel type="typography-label" debugMode={debugMode}>
-                  <div className="typography-label-on-dark">{featuredAuthor.role}</div>
+                  <div className="typography-label-on-dark element-spacing-xs">{featuredAuthor.role}</div>
                 </DebugLabel>
                 <DebugLabel type="typography-meta" debugMode={debugMode}>
                   <div className="typography-meta-on-dark element-spacing-xs">{featuredAuthor.lifeDates}</div>
