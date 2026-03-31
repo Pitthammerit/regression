@@ -26,9 +26,9 @@ export default function PodcastSection({ debugMode = false }) {
   return (
     <div id="podcast" className="relative overflow-hidden" data-testid="podcast-player-section">
       {/* Background photo — visible, no dark overlay */}
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${SECTION_BG})` }} />
+      <div className="absolute inset-0 bg-cover bg-center backdrop-blur-sm" style={{ backgroundImage: `url(${SECTION_BG})` }} />
       {/* Medium-dark cream tint for text readability */}
-      <div className="absolute inset-0 bg-color-bg-light/50" />
+      <div className="absolute inset-0 bg-color-bg-light/75" />
 
       <div className="relative z-10 max-w-content mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
         <div className="max-w-content mx-auto section-padding-sm">
