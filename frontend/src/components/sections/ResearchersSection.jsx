@@ -55,7 +55,7 @@ export default function ResearchersSection({ debugMode = false }) {
 
         {/* Featured Researcher */}
         {featuredAuthor && (
-          <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 section-block-spacing">
+          <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-12 section-block-spacing">
             {/* Mobile: Photo first (full width, 16:9) */}
             <div className="md:hidden content-spacing">
               <AnimatedAspectRatio ratio={16 / 9}>
@@ -117,7 +117,7 @@ export default function ResearchersSection({ debugMode = false }) {
         {authors.map((author, index) => (
           <div key={author.id} className={index === authors.length - 1 ? 'mb-10' : 'mb-12'} data-testid={`researcher-${author.id}`}>
             {/* Row 1: Portrait + Name/Title/Year/ShortText + Button */}
-            <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-8 md:items-start">
+            <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] md:gap-12 md:items-start">
               {/* Mobile: Portrait first (full width, 16:9) */}
               {author.portrait && (
                 <div className="md:hidden content-spacing">
