@@ -223,7 +223,8 @@
   font-size: var(--font-menu-text);
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: 0;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--color-primary);
 }
 
@@ -259,34 +260,6 @@
   margin-bottom: 0.25rem;
 }
 
-/* Special Utilities (for footer, etc.) */
-@utility typography-subline-italic {
-  font-family: var(--font-primary);
-  font-size: var(--font-subline);
-  font-weight: 400;
-  line-height: 1.5;
-  font-style: italic;
-  color: var(--color-text);
-}
-
-@utility typography-disclaimer {
-  font-family: var(--font-primary);
-  font-size: var(--font-disclaimer);
-  font-weight: 400;
-  line-height: 1.5;
-  font-style: italic;
-  color: var(--color-secondary);
-}
-
-@utility typography-hint-italic {
-  font-family: var(--font-primary);
-  font-size: var(--font-hint);
-  font-weight: 400;
-  line-height: 1.5;
-  font-style: italic;
-  color: var(--color-secondary);
-}
-
 /* Handwriting Font (for decorative use) */
 @utility typography-handwriting {
   font-family: var(--font-handwriting);
@@ -295,6 +268,133 @@
   line-height: 1.2;
   letter-spacing: 0;
     color: var(--color-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ON-DARK TYPOGRAPHY UTILITIES (14 utilities)
+   ───────────────────────────────────────────────────────────── */
+
+/* Headlines on dark (white on dark blue) */
+@utility typography-hero-large-on-dark {
+  font-family: var(--font-secondary);
+  font-size: var(--font-hero-large);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-on-dark);
+}
+
+@utility typography-hero-on-dark {
+  font-family: var(--font-secondary);
+  font-size: var(--font-hero);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-on-dark);
+}
+
+@utility typography-h2-on-dark {
+  font-family: var(--font-secondary);
+  font-size: var(--font-h2);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-on-dark);
+}
+
+@utility typography-h3-on-dark {
+  font-family: var(--font-secondary);
+  font-size: var(--font-h3);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-on-dark);
+}
+
+@utility typography-h4-on-dark {
+  font-family: var(--font-secondary);
+  font-size: var(--font-h4);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-on-dark);
+}
+
+/* Body text on dark (white on dark blue) */
+@utility typography-body-on-dark {
+  font-family: var(--font-primary);
+  font-size: var(--font-body);
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0;
+  color: var(--color-text-on-dark);
+}
+
+@utility typography-body-lg-on-dark {
+  font-family: var(--font-primary);
+  font-size: var(--font-body-lg);
+  font-weight: 400;
+  line-height: 1.625;
+  letter-spacing: 0;
+  color: var(--color-text-on-dark);
+}
+
+@utility typography-body-narrative-on-dark {
+  font-family: var(--font-secondary);
+  font-size: var(--font-body-narrative);
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0;
+  color: var(--color-text-on-dark);
+}
+
+/* Labels on dark */
+@utility typography-label-on-dark {
+  font-family: var(--font-primary);
+  font-size: var(--font-label);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary-on-dark);
+}
+
+@utility typography-menu-text-on-dark {
+  font-family: var(--font-primary);
+  font-size: var(--font-menu-text);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--color-primary-on-dark);
+}
+
+@utility typography-meta-on-dark {
+  font-family: var(--font-primary);
+  font-size: var(--font-meta);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--color-secondary-on-dark);
+}
+
+/* Quote & Author on dark */
+@utility typography-quote-featured-on-dark {
+  font-family: var(--font-secondary);
+  font-size: var(--font-quote-featured);
+  font-weight: 400;
+  line-height: 1.1;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--color-primary-on-dark);
+}
+
+@utility typography-author-name-on-dark {
+  font-family: var(--font-secondary);
+  font-size: var(--font-author-name);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--color-primary-on-dark);
 }
 
 /* Font Family Utilities (3) */
@@ -441,40 +541,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   CUSTOM UTILITIES (from plugin - 24 utilities)
+   CUSTOM UTILITIES (from plugin - 14 utilities after cleanup)
    ───────────────────────────────────────────────────────────── */
-
-@utility label {
-  line-height: 1.5;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
-@utility button-text {
-  line-height: 1.5;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-@utility subline-italic {
-  line-height: 1.5;
-  font-style: italic;
-}
-
-@utility hint-italic {
-  line-height: 1.5;
-  font-style: italic;
-}
-
-@utility disclaimer-italic {
-  line-height: 1.5;
-  font-style: italic;
-}
-
-@utility quote-featured-italic {
-  font-style: italic;
-}
 
 /* Divider line - explicit 1px top border for consistent weight */
 @utility divider-line {
@@ -588,17 +656,6 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   TRACKING UTILITIES (Letter Spacing)
-   ───────────────────────────────────────────────────────────── */
-@utility tracking-heading-tight {
-  letter-spacing: -0.02em;
-}
-
-@utility tracking-label-wide {
-  letter-spacing: 0.2em;
-}
-
-/* ─────────────────────────────────────────────────────────────
    MAX-WIDTH UTILITIES
    ───────────────────────────────────────────────────────────── */
 @utility max-w-content {
@@ -615,7 +672,3 @@
 @utility bg-paper {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
 }
-
-/* ─────────────────────────────────────────────────────────────
-   BACKGROUND IMAGE (paper texture)
-   ───────────────────────────────────────────────────────────── */

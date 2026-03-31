@@ -30,7 +30,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
       </div>
 
       {/* Hint — always visible */}
-      <div className="mx-auto flex items-center justify-center gap-2 text-hint hint-italic text-color-secondary italic max-w-fit mb-4">
+      <div className="mx-auto flex items-center justify-center gap-2 typography-hint text-color-secondary max-w-fit mb-4">
         <span>Klicke auf eine der Geschichten, um sie zu lesen.</span>
       </div>
 
@@ -97,7 +97,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   </span>
                 </DebugLabel>
                 <DebugLabel type="typography-body" debugMode={debugMode}>
-                  <span className="text-subline subline-italic text-color-text block element-spacing-xs">
+                  <span className="typography-subline text-color-text italic block element-spacing-xs">
                     {item.teaser}
                   </span>
                 </DebugLabel>
@@ -132,7 +132,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
                 <DebugLabel type="typography-disclaimer" debugMode={debugMode}>
-                  <p className="text-disclaimer disclaimer-italic text-color-text/35 element-spacing-sm">
+                  <p className="typography-disclaimer text-color-text/35 element-spacing-sm">
                     * Namen wurde geändert
                   </p>
                 </DebugLabel>

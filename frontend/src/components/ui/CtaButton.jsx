@@ -9,7 +9,7 @@ export default function CtaButton({ label, variant = 'primary', className = '', 
     window.dispatchEvent(new CustomEvent('booking:open'))
   })
 
-  const base = 'inline-block font-primary text-button-text button-text py-3 px-8 rounded-full transition-colors duration-200 cursor-pointer'
+  const base = 'inline-block typography-menu-text py-3 px-8 rounded-full transition-colors duration-200 cursor-pointer'
   const styles = {
     primary:   `${base} bg-color-primary text-white hover:bg-color-secondary`,
     secondary: `${base} border border-color-primary text-color-primary hover:bg-color-primary hover:text-white`,

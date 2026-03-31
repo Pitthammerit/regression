@@ -37,7 +37,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
           {/* 1 — Navigation horizontal */}
-          <div className="mb-6 flex flex-wrap justify-center gap-6 font-primary text-menu-text text-white/70">
+          <div className="mb-6 flex flex-wrap justify-center gap-6 text-sm text-white/70">
             {nav.map((item, index) => (
               <DebugLabel key={item.anchor} type="typography-menu-text" debugMode={debugMode}>
                 <a
@@ -72,7 +72,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                   className="h-[34px] w-auto object-contain mb-3 mx-auto md:mx-0"
                 />
                 <DebugLabel type="typography-subline" debugMode={debugMode}>
-                  <p className="typography-subline-italic text-white/45 whitespace-pre-line">
+                  <p className="text-white/45 italic text-subline whitespace-pre-line">
                     {data.tagline}
                   </p>
                 </DebugLabel>
@@ -84,7 +84,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                 {/* Col 2 — Rechtliches */}
                 <div className="min-w-[120px]">
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label text-white/30 mb-5">
+                    <p className="text-white/30 uppercase text-sm tracking-wider mb-5">
                       {footerContent.legalLabel}
                     </p>
                   </DebugLabel>
@@ -96,7 +96,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                           href={link.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-primary text-menu-text text-white/60 hover:text-white transition-colors"
+                          className="text-white/60 text-sm hover:text-white transition-colors"
                           data-testid={`footer-legal-${link.label.toLowerCase()}`}
                         >
                           {link.label}
@@ -109,7 +109,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                 {/* Col 3 — Folgen */}
                 <div className="min-w-[120px]">
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label text-white/30 mb-5">
+                    <p className="text-white/30 uppercase text-sm tracking-wider mb-5">
                       {footerContent.followLabel}
                     </p>
                   </DebugLabel>
@@ -121,7 +121,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                           href={s.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-primary text-menu-text text-white/60 hover:text-white transition-colors"
+                          className="text-white/60 text-sm hover:text-white transition-colors"
                           data-testid={`footer-social-${s.label.toLowerCase().replace(/ /g, '-')}`}
                         >
                           {s.label}
@@ -134,7 +134,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                 {/* Col 4 — Reach Out */}
                 <div className="min-w-[120px]">
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label text-white/30 mb-5">
+                    <p className="text-white/30 uppercase text-sm tracking-wider mb-5">
                       REACH OUT
                     </p>
                   </DebugLabel>
@@ -166,10 +166,10 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           <div className="pt-6 pb-6 text-center">
             <div className="h-px bg-color-border-light mb-6"></div>
             <DebugLabel type="typography-label" debugMode={debugMode}>
-              <h3 className="typography-label font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
+              <h3 className="uppercase text-sm tracking-wider font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
             </DebugLabel>
             <DebugLabel type="typography-disclaimer" debugMode={debugMode}>
-              <p className="typography-disclaimer text-white/50 max-w-3xl mx-auto">
+              <p className="text-xs text-white/50 max-w-3xl mx-auto">
                 {footerContent.disclaimer.split('. ').map((sentence, index, array) => {
                 if (sentence.includes('Erstgespräch')) {
                   const [before, after] = sentence.split('Erstgespräch')
@@ -204,7 +204,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           <div className="h-px bg-color-border-light mb-6 mt-6"></div>
 
           <DebugLabel type="typography-hint" debugMode={debugMode}>
-            <div className="typography-hint-italic text-white/50 text-center">
+            <div className="text-xs text-white/50 text-center">
               {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
               <a
                 href={footerContent.copyright.homeUrl}

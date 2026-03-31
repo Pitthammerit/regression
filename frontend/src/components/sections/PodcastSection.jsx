@@ -9,7 +9,7 @@ const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/p
  * PodcastSection — Podcast section with composite typography utilities
  *
  * MIGRATED to composite typography utilities:
- * - Podcast headline: font-secondary text-podcast-headline (kept as-is - no composite utility yet)
+ * - Podcast headline: typography-hero-large (replaces font-secondary text-podcast-headline)
  * - Body-lg: typography-body-lg (replaces font-primary text-body-lg text-color-text)
  * - Button text: typography-menu-text (replaces font-primary text-button-text button-text)
  *
@@ -26,8 +26,8 @@ export default function PodcastSection({ debugMode = false }) {
     <div id="podcast" className="relative overflow-hidden" data-testid="podcast-player-section">
       {/* Background photo — visible, no dark overlay */}
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${SECTION_BG})` }} />
-      {/* Very light cream tint for text readability */}
-      <div className="absolute inset-0 bg-color-bg-light/30" />
+      {/* Medium-dark cream tint for text readability */}
+      <div className="absolute inset-0 bg-color-bg-light/50" />
 
       <div className="relative z-10 max-w-content mx-auto px-8 md:px-14 lg:px-20 py-16 md:py-20">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
@@ -38,8 +38,8 @@ export default function PodcastSection({ debugMode = false }) {
               <SectionLabel text={podcast.label} />
             </DebugLabel>
 
-            <DebugLabel type="typography-h2" debugMode={debugMode}>
-              <h2 className="font-secondary text-podcast-headline text-color-primary content-spacing-md">
+            <DebugLabel type="typography-hero-large" debugMode={debugMode}>
+              <h2 className="typography-hero-large leading-tight content-spacing-md">
                 {podcast.sectionHeadline.map((line, i) => (
                   <span key={i} className="block">{line}</span>
                 ))}

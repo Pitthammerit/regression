@@ -11,18 +11,24 @@ import { ChevronDown } from 'lucide-react'
 /**
  * BookingSection — Booking section with composite typography utilities
  *
- * MIGRATED to composite typography utilities:
+ * LIGHT VARIANT:
  * - Hero-large: typography-hero-large (replaces font-secondary text-hero-large text-color-primary)
  * - Body-lg: typography-body-lg (replaces font-primary text-body-lg text-color-text)
- * - Body: typography-body (replaces font-primary text-body text-color-text)
- * - Label: typography-label (replaces font-primary text-label text-color-secondary)
- * - Button text: typography-menu-text (replaces font-primary text-button-text button-text)
+ *
+ * DARK VARIANT (bg-color-primary):
+ * - Hero-large: typography-hero-large-on-dark (white text on dark blue)
+ * - Body-lg: typography-body-lg text-on-dark (white 80% text)
+ * - Label: typography-label text-secondary-on-dark (white 60%)
  *
  * CRITICAL PRESERVED:
  * - SectionWrapper with id="booking" (scroll target)
  * - Global 'booking:open' event listener for CtaButton integration
  * - Accordion with calendar embed
  * - TopicCard component for form topics (imported from ui/)
+ *
+ * CTAs use INLINE utilities (too specific for composite):
+ * - inline-flex items-center gap-3 (icon alignment)
+ * - font-primary text-button-text (inline typography)
  */
 export default function BookingSection({ debugMode = false }) {
   // 'cards' | 'calendar' - which panel is expanded
@@ -43,7 +49,7 @@ export default function BookingSection({ debugMode = false }) {
           <SectionLabel text={booking.label} />
         </DebugLabel>
 
-        <DebugLabel type="typography-hero" debugMode={debugMode}>
+        <DebugLabel type="typography-hero-large" debugMode={debugMode}>
           <h2 className="typography-hero-large leading-tight content-spacing-md">
             {booking.headline}
           </h2>
@@ -100,7 +106,7 @@ export default function BookingSection({ debugMode = false }) {
         {/* Accordion CTA button - toggles between panels */}
         <button
           onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
-          className="inline-flex items-center gap-3 typography-menu-text py-4 px-12 rounded-full bg-color-primary text-on-dark hover:bg-color-secondary transition-colors duration-200"
+          className="inline-flex items-center gap-3 font-primary text-button-text py-4 px-12 rounded-full bg-color-primary text-on-dark hover:bg-color-secondary transition-colors duration-200"
           data-testid="booking-cta-button"
         >
           {booking.directBookingCta}
@@ -155,8 +161,8 @@ export function BookingSectionDark({ debugMode = false }) {
           <SectionLabel text={booking.label} light />
         </DebugLabel>
 
-        <DebugLabel type="typography-hero" debugMode={debugMode}>
-          <h2 className="typography-hero-large leading-tight content-spacing-md">
+        <DebugLabel type="typography-hero-large-on-dark" debugMode={debugMode}>
+          <h2 className="typography-hero-large-on-dark leading-tight content-spacing-md">
             {booking.headline}
           </h2>
         </DebugLabel>
@@ -212,7 +218,7 @@ export function BookingSectionDark({ debugMode = false }) {
         {/* Accordion CTA button - toggles between panels */}
         <button
           onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
-          className="inline-flex items-center gap-3 typography-menu-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200"
+          className="inline-flex items-center gap-3 font-primary text-button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200"
           data-testid="booking-cta-button"
         >
           {booking.directBookingCta}

@@ -10,13 +10,13 @@ import { BookOpen } from 'lucide-react'
  * ReferencesSection — References section with composite typography utilities
  *
  * MIGRATED to composite typography utilities:
- * - Label: typography-label (replaces font-primary text-label label tracking-widest)
- * - H2: typography-h2 (replaces font-secondary text-h2 text-primary-on-dark)
- * - H3: typography-h3 (replaces font-secondary text-h3 text-primary-on-dark)
- * - Role: typography-label (replaces font-primary text-label text-secondary-on-dark label)
- * - Date: typography-label (replaces font-primary text-label text-secondary-on-dark)
- * - Body-narrative: typography-body-narrative (replaces font-secondary text-body-narrative)
- * - Source link: typography-label (replaces font-primary text-label text-secondary-on-dark)
+ * - Label: typography-label-on-dark (replaces typography-label text-secondary-on-dark)
+ * - H2: typography-h2-on-dark (replaces typography-h2 text-primary-on-dark)
+ * - H3: typography-h3-on-dark (replaces typography-h3 text-primary-on-dark)
+ * - Role: typography-label-on-dark (replaces typography-label text-secondary-on-dark label)
+ * - Date: typography-label-on-dark (replaces typography-label text-secondary-on-dark)
+ * - Body-narrative: typography-body-narrative (replaces typography-body-narrative)
+ * - Source link: typography-label-on-dark (replaces typography-label text-secondary-on-dark)
  *
  * CRITICAL PRESERVED:
  * - Section with id="references" (scroll target)
@@ -64,14 +64,14 @@ export default function ReferencesSection({ debugMode = false }) {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-centered-header mb-16">
-          <DebugLabel type="typography-label" debugMode={debugMode}>
-            <div className="typography-label text-secondary-on-dark">
+          <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
+            <div className="typography-label-on-dark">
               {references.bigLabel}
             </div>
           </DebugLabel>
 
-          <DebugLabel type="typography-h2" debugMode={debugMode}>
-            <h2 className="typography-h2 text-primary-on-dark leading-tight">
+          <DebugLabel type="typography-h2-on-dark" debugMode={debugMode}>
+            <h2 className="typography-h2-on-dark leading-tight">
               {references.headline}
             </h2>
           </DebugLabel>
@@ -104,23 +104,23 @@ export default function ReferencesSection({ debugMode = false }) {
 
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
-                  <DebugLabel type="typography-h3" debugMode={debugMode}>
-                    <p className="typography-h3 text-primary-on-dark font-semibold">
+                  <DebugLabel type="typography-h3-on-dark" debugMode={debugMode}>
+                    <p className="typography-h3-on-dark font-semibold">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="typography-meta" debugMode={debugMode}>
-                      <p className="typography-label text-secondary-on-dark label tracking-wider">
+                    <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
+                      <p className="typography-label-on-dark label tracking-wider">
                         {resource.role}
                       </p>
                     </DebugLabel>
                   )}
 
                   {resource.dates && (
-                    <DebugLabel type="typography-meta" debugMode={debugMode}>
-                      <p className="typography-label text-secondary-on-dark">
+                    <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
+                      <p className="typography-label-on-dark">
                         {resource.dates}
                       </p>
                     </DebugLabel>
@@ -132,12 +132,12 @@ export default function ReferencesSection({ debugMode = false }) {
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="typography-meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
                     <a
                       href={resource.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="typography-label text-secondary-on-dark hover:text-primary-on-dark transition-colors"
+                      className="typography-label-on-dark hover:text-primary-on-dark transition-colors"
                     >
                       {resource.sourceLabel} →
                     </a>
@@ -178,23 +178,23 @@ export default function ReferencesSection({ debugMode = false }) {
 
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
-                  <DebugLabel type="typography-h3" debugMode={debugMode}>
-                    <p className="typography-h3 text-primary-on-dark font-semibold">
+                  <DebugLabel type="typography-h3-on-dark" debugMode={debugMode}>
+                    <p className="typography-h3-on-dark font-semibold">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="typography-meta" debugMode={debugMode}>
-                      <p className="typography-label text-secondary-on-dark label tracking-wider">
+                    <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
+                      <p className="typography-label-on-dark label tracking-wider">
                         {resource.role}
                       </p>
                     </DebugLabel>
                   )}
 
                   {resource.dates && (
-                    <DebugLabel type="typography-meta" debugMode={debugMode}>
-                      <p className="typography-label text-secondary-on-dark">
+                    <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
+                      <p className="typography-label-on-dark">
                         {resource.dates}
                       </p>
                     </DebugLabel>
@@ -206,12 +206,12 @@ export default function ReferencesSection({ debugMode = false }) {
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="typography-meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
                     <a
                       href={resource.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="typography-label text-secondary-on-dark hover:text-primary-on-dark transition-colors"
+                      className="typography-label-on-dark hover:text-primary-on-dark transition-colors"
                     >
                       {resource.sourceLabel} →
                     </a>

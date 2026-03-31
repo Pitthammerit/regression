@@ -12,11 +12,10 @@ import { X, Send } from "lucide-react"
  *
  * MIGRATED to design tokens (Single Source of Truth):
  * - Font-family: font-secondary (headlines), font-primary (body)
- * - Label: text-label (15px) + color-label (uppercase via .label plugin)
+ * - Label: typography-label (includes font-primary, text-label, label, text-color-secondary, letter-spacing)
  * - H2: text-h2 (36px) + color-heading
  * - Subline: text-body-lg (20px) + color-body
  * - Panel H3: text-h3 (30px) + color-heading
- * - Form labels: text-label (15px) + color-label (uppercase via .label plugin)
  * - Body: text-body (18px) + color-body
  * - Backgrounds: color-bg-light, color-card-overlay
  * - Borders: color-border
@@ -93,7 +92,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
         <div className="flex items-start justify-between px-8 pt-8 pb-6 border-b border-color-light">
           <div>
             <DebugLabel type="typography-label" debugMode={debugMode}>
-              <p className="font-primary text-label label text-color-secondary name-role-spacing">
+              <p className="typography-label !mb-1">
                 {podcastVideo.panelLabel}
               </p>
             </DebugLabel>
@@ -131,7 +130,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
             <div className="space-y-4" data-testid="transcript-placeholder-form">
               <div>
                 <DebugLabel type="typography-label" debugMode={debugMode}>
-                  <label className="font-primary text-label label text-color-secondary block block-label-spacing">
+                  <label className="typography-label block mb-3">
                     {podcastVideo.nameLabel}
                   </label>
                 </DebugLabel>
@@ -146,7 +145,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
 
               <div>
                 <DebugLabel type="typography-label" debugMode={debugMode}>
-                  <label className="font-primary text-label label text-color-secondary block block-label-spacing">
+                  <label className="typography-label block mb-3">
                     {podcastVideo.emailLabel}
                   </label>
                 </DebugLabel>

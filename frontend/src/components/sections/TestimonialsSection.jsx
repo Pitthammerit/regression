@@ -10,7 +10,7 @@ import DebugLabel from '../ui/DebugLabel'
  *
  * MIGRATED to composite typography utilities:
  * - Label: typography-label (replaces font-primary text-label label text-color-secondary)
- * - Quote: font-secondary text-body-lg quote-featured-italic (kept - needs custom composite utility)
+ * - Quote: typography-quote-featured (composite: font-secondary + text-quote-featured + italic)
  * - Name: font-primary text-h5 font-semibold (kept - no h5 composite utility yet)
  * - Context: typography-label (replaces font-primary text-label role text-color-secondary)
  *
@@ -54,8 +54,8 @@ export default function TestimonialsSection({ debugMode = false }) {
                 className="md:row-span-2 bg-color-card-overlay rounded-2xl p-8 border border-color-light flex flex-col justify-between"
                 data-testid="testimonial-card-featured"
               >
-                <blockquote className="font-secondary text-body-lg quote-featured-italic text-color-text leading-relaxed mb-8">
-                  <DebugLabel token="text-body-lg (20px) + color-body + .quote-featured-italic" show={debugMode}>
+                <blockquote className="typography-quote-featured text-color-text leading-relaxed mb-8">
+                  <DebugLabel token="typography-quote-featured" show={debugMode}>
                     "{featured.quote}"
                   </DebugLabel>
                 </blockquote>
@@ -107,8 +107,8 @@ function TestimonialCard({ c, index, debugMode = false }) {
       className="bg-color-card-overlay rounded-2xl p-8 border border-color-light flex flex-col justify-between"
       data-testid={`testimonial-card-${index}`}
     >
-      <blockquote className="font-secondary text-body-lg quote-featured-italic text-color-text leading-relaxed mb-8">
-        <DebugLabel token="text-body-lg (20px) + color-body + .quote-featured-italic" show={debugMode}>
+      <blockquote className="typography-quote-featured text-color-text leading-relaxed mb-8">
+        <DebugLabel token="typography-quote-featured" show={debugMode}>
           "{c.quote}"
         </DebugLabel>
       </blockquote>

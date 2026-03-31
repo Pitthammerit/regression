@@ -46,7 +46,7 @@ export default function ResearchersSection({ debugMode = false }) {
             <SectionLabel text={researchers.authorBigLabel} light={true} />
           </DebugLabel>
           <DebugLabel type="typography-h2" debugMode={debugMode}>
-            <h2 className="typography-h2 text-primary-on-dark leading-tight">
+            <h2 className="typography-h2-on-dark leading-tight">
               {researchers.authorHeadline}
             </h2>
           </DebugLabel>
@@ -83,7 +83,7 @@ export default function ResearchersSection({ debugMode = false }) {
             <div className="flex flex-col text-on-dark">
               {/* Quote - Top of right column */}
               <DebugLabel type="typography-quote-featured" debugMode={debugMode}>
-                <blockquote className="typography-quote-featured text-primary-on-dark">
+                <blockquote className="typography-quote-featured-on-dark">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
               </DebugLabel>
@@ -91,10 +91,10 @@ export default function ResearchersSection({ debugMode = false }) {
               {/* Name + Title - Below quote */}
               <div>
                 <DebugLabel type="typography-author-name" debugMode={debugMode}>
-                  <div className="typography-author-name text-primary-on-dark">{featuredAuthor.name}</div>
+                  <div className="typography-author-name-on-dark">{featuredAuthor.name}</div>
                 </DebugLabel>
                 <DebugLabel type="typography-label" debugMode={debugMode}>
-                  <div className="typography-label text-secondary-on-dark">{featuredAuthor.role}</div>
+                  <div className="typography-label-on-dark">{featuredAuthor.role}</div>
                 </DebugLabel>
               </div>
             </div>
@@ -147,34 +147,34 @@ export default function ResearchersSection({ debugMode = false }) {
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden content-spacing-md">
                   <DebugLabel type="typography-author-name" debugMode={debugMode}>
-                    <h3 className="typography-author-name text-primary-on-dark">
+                    <h3 className="typography-author-name-on-dark">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label text-secondary-on-dark">
+                    <p className="typography-label-on-dark">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta text-secondary-on-dark">{author.lifeDates}</p>
+                    <p className="typography-meta-on-dark">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block content-spacing-md">
                   <DebugLabel type="typography-author-name" debugMode={debugMode}>
-                    <h3 className="typography-author-name text-primary-on-dark">
+                    <h3 className="typography-author-name-on-dark">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label text-secondary-on-dark">
+                    <p className="typography-label-on-dark">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta text-secondary-on-dark">{author.lifeDates}</p>
+                    <p className="typography-meta-on-dark">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
@@ -202,7 +202,7 @@ export default function ResearchersSection({ debugMode = false }) {
               <div className="md:col-span-2">
                 <div className="expanded-content-spacing">
                   <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
-                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="typography-body-narrative-on-dark leading-relaxed content-spacing whitespace-pre-line">
                       {author.longVersion}
                     </p>
                   </DebugLabel>
@@ -212,7 +212,7 @@ export default function ResearchersSection({ debugMode = false }) {
                         href={author.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="typography-meta text-secondary-on-dark hover:text-primary-on-dark transition-colors"
+                        className="typography-meta-on-dark hover:text-primary-on-dark transition-colors"
                       >
                         {author.sourceLabel} →
                       </a>

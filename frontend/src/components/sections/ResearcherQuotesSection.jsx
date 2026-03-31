@@ -11,10 +11,10 @@ import ExpandToggleButton from '../ui/ExpandToggleButton'
  * ResearcherQuotesSection — Research authority quotes with composite typography utilities
  *
  * MIGRATED to composite typography utilities:
- * - H2: typography-h2 (replaces font-secondary text-h2 leading-tight text-primary-on-dark)
- * - Quote-featured: typography-quote-featured (replaces font-secondary text-quote-featured quote-featured-italic)
- * - Author-name: typography-author-name (replaces font-secondary text-author-name)
- * - Meta: typography-meta (replaces font-primary text-meta text-secondary-on-dark)
+ * - H2-on-dark: typography-h2-on-dark (replaces typography-h2 text-primary-on-dark)
+ * - Quote-featured-on-dark: typography-quote-featured-on-dark (replaces typography-quote-featured text-primary-on-dark)
+ * - Author-name-on-dark: typography-author-name-on-dark (replaces typography-author-name text-primary-on-dark)
+ * - Meta-on-dark: typography-meta-on-dark (replaces typography-meta text-secondary-on-dark)
  *
  * REDESIGNED with cleaner spacing pattern:
  * - Label → H2 → Grid structure
@@ -63,8 +63,8 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
         <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={researchers.authorBigLabel} light />
         </DebugLabel>
-        <DebugLabel type="typography-h2" debugMode={debugMode}>
-          <h2 className="typography-h2 leading-tight text-primary-on-dark">
+        <DebugLabel type="typography-h2-on-dark" debugMode={debugMode}>
+          <h2 className="typography-h2-on-dark leading-tight">
             {researchers.authorHeadline}
           </h2>
         </DebugLabel>
@@ -97,22 +97,22 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
             </div>
 
             {/* Quote */}
-            <DebugLabel type="typography-quote-featured" debugMode={debugMode}>
-              <p className="typography-quote-featured text-primary-on-dark content-spacing">
+            <DebugLabel type="typography-quote-featured-on-dark" debugMode={debugMode}>
+              <p className="typography-quote-featured-on-dark content-spacing">
                 "{author.quote}"
               </p>
             </DebugLabel>
 
             {/* Name */}
-            <DebugLabel type="typography-author-name" debugMode={debugMode}>
-              <p className="typography-author-name text-primary-on-dark">
+            <DebugLabel type="typography-author-name-on-dark" debugMode={debugMode}>
+              <p className="typography-author-name-on-dark">
                 {author.name}
               </p>
             </DebugLabel>
 
             {/* Role */}
-            <DebugLabel type="typography-meta" debugMode={debugMode}>
-              <p className="typography-meta text-secondary-on-dark">
+            <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
+              <p className="typography-meta-on-dark">
                 {author.role}
               </p>
             </DebugLabel>
@@ -157,20 +157,20 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
                     </AspectRatio>
                   </div>
 
-                  <DebugLabel type="typography-quote-featured" debugMode={debugMode}>
-                    <p className="typography-quote-featured text-primary-on-dark content-spacing">
+                  <DebugLabel type="typography-quote-featured-on-dark" debugMode={debugMode}>
+                    <p className="typography-quote-featured-on-dark content-spacing">
                       "{author.quote}"
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="typography-author-name" debugMode={debugMode}>
-                    <p className="typography-author-name text-primary-on-dark">
+                  <DebugLabel type="typography-author-name-on-dark" debugMode={debugMode}>
+                    <p className="typography-author-name-on-dark">
                       {author.name}
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta text-secondary-on-dark">
+                  <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
+                    <p className="typography-meta-on-dark">
                       {author.role}
                     </p>
                   </DebugLabel>
