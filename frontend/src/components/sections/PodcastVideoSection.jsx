@@ -38,40 +38,43 @@ export default function PodcastVideoSection({ debugMode = false }) {
 
   return (
     <>
-      <SectionWrapper id="podcast-video" data-testid="podcast-video-section">
-        {/* Centered heading */}
-        <div className="text-center max-w-centered-header mx-auto content-spacing-lg">
-          <DebugLabel type="typography-label" debugMode={debugMode}>
-            <SectionLabel text={podcast.label} />
-          </DebugLabel>
+      <SectionWrapper id="podcast-video" className="section-padding" data-testid="podcast-video-section">
+        <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
+          <div className="grid md:grid-cols-[1fr_500px] gap-8 md:gap-12 items-start">
+            {/* Left: Content */}
+            <div>
+              <DebugLabel type="typography-label" debugMode={debugMode}>
+                <SectionLabel text={podcast.label} />
+              </DebugLabel>
 
-          <DebugLabel type="typography-h2" debugMode={debugMode}>
-            <h2 className="typography-h2 leading-tight content-spacing-md">
-              {podcast.headline}
-            </h2>
-          </DebugLabel>
+              <DebugLabel type="typography-h2" debugMode={debugMode}>
+                <h2 className="typography-h2 leading-tight content-spacing-md">
+                  {podcast.headline}
+                </h2>
+              </DebugLabel>
 
-          <DebugLabel type="typography-body-lg" debugMode={debugMode}>
-            <p className="typography-body-lg leading-relaxed">
-              {podcast.subline}
-            </p>
-          </DebugLabel>
-        </div>
+              <DebugLabel type="typography-body-lg" debugMode={debugMode}>
+                <p className="typography-body-lg leading-relaxed">
+                  {podcast.subline}
+                </p>
+              </DebugLabel>
 
-        {/* YouTube Video — centered */}
-        <div className="max-w-4xl mx-auto w-full" data-testid="podcast-video-embed">
-          <CustomVideoPlayer type="youtube" src={podcast.youtubeEmbedUrl} />
-        </div>
+              <div className="margin-top-md">
+                <CtaButton
+                  label={podcastVideo.downloadButtonLabel}
+                  variant="secondary"
+                  onClick={() => setPanelOpen(true)}
+                  className="animate-pulse-soft"
+                  data-testid="transcript-download-btn"
+                />
+              </div>
+            </div>
 
-        {/* Transcript download button — centered */}
-        <div className="margin-top-md flex justify-center">
-          <CtaButton
-            label={podcastVideo.downloadButtonLabel}
-            variant="secondary"
-            onClick={() => setPanelOpen(true)}
-            className="animate-pulse-soft"
-            data-testid="transcript-download-btn"
-          />
+            {/* Right: Video */}
+            <div className="flex justify-center">
+              <CustomVideoPlayer type="youtube" src={podcast.youtubeEmbedUrl} data-testid="podcast-video-embed" />
+            </div>
+          </div>
         </div>
       </SectionWrapper>
 
