@@ -74,7 +74,7 @@ export default function TestimonialsSection({ debugMode = false }) {
                         {featured.name}
                       </DebugLabel>
                     </div>
-                    <div className="typography-label element-spacing-xs">
+                    <div className="typography-label">
                       <DebugLabel token="typography-label" show={debugMode}>
                         {featured.context}
                       </DebugLabel>
