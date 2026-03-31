@@ -113,7 +113,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
 
             {/* Role */}
             <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-              <p className="typography-meta-on-dark">
+              <p className="typography-meta-on-dark element-spacing-xs">
                 {author.role}
               </p>
             </DebugLabel>
