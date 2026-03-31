@@ -100,7 +100,7 @@ export const podcasts = [
     id: "berggesundheit-052",
     label: "IM PODCAST, FOLGE #52",
     headline: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
-    sectionHeadline: ["Manche erinnern", "wir jenseits", "dieses Lebens."],
+    sectionHeadline: "Manche erinnern sich jenseits dieses Lebens.",
     sectionBody: `"Auf einmal haben sich Dinge zusammengesetzt, die vorher unerklärbar waren." Eine Regression Session zeigt dir nicht nur was war — sie zeigt dir, warum du so bist, wie du bist. Benjamin im ausführlichen Gespräch mit Tobias Berg über Reinkarnation, Seelenerinnerung und was wirklich in einer Session passiert.`,
     subline:
       "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",

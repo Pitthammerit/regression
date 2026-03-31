@@ -54,7 +54,7 @@ export default function PodcastSection({ debugMode = false }) {
                 </p>
               </DebugLabel>
 
-              <div className="flex flex-col gap-4 margin-top-md">
+              <div className="flex flex-wrap gap-3 margin-top-md">
                 {podcast.podcastLinks.map((link) => (
                   <a
                     key={link.label}
