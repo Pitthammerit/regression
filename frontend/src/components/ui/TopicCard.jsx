@@ -16,7 +16,7 @@ import DebugLabel from './DebugLabel'
  */
 export default function TopicCard({ title, body, children, dark = false, debugMode = false }) {
   return (
-    <div className={`rounded-2xl p-5 md:p-6 flex flex-col gap-2 border transition-colors ${
+    <div className={`rounded-2xl pt-5 md:pt-6 pb-2.5 md:pb-3 px-5 md:px-6 flex flex-col gap-2 border transition-colors ${
       dark
         ? 'bg-white/5 border-divider-on-dark hover:border-secondary-on-dark'
         : 'bg-color-card-overlay border-color-bg-light hover:border-color-secondary'
