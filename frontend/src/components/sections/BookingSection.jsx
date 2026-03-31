@@ -105,16 +105,18 @@ export default function BookingSection({ debugMode = false }) {
         </AccordionWrap>
 
         {/* Accordion CTA button - toggles between panels */}
-        <button
-          onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
-          className="inline-flex items-center gap-3 font-primary text-button-text py-4 px-12 rounded-full bg-color-primary text-on-dark hover:bg-color-secondary transition-colors duration-200"
-          data-testid="booking-cta-button"
-        >
-          {booking.directBookingCta}
-          <ChevronDown
-            className={`chevron-on-dark transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
-          />
-        </button>
+        <div className="margin-top-md">
+          <button
+            onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
+            className="inline-flex items-center gap-3 font-primary text-button-text py-4 px-12 rounded-full bg-color-primary text-on-dark hover:bg-color-secondary transition-colors duration-200"
+            data-testid="booking-cta-button"
+          >
+            {booking.directBookingCta}
+            <ChevronDown
+              className={`chevron-on-dark transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
+            />
+          </button>
+        </div>
       </div>
     </SectionWrapper>
   )
@@ -217,16 +219,18 @@ export function BookingSectionDark({ debugMode = false }) {
         </AccordionWrap>
 
         {/* Accordion CTA button - toggles between panels */}
-        <button
-          onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
-          className="inline-flex items-center gap-3 font-primary text-button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200"
-          data-testid="booking-cta-button"
-        >
-          {booking.directBookingCta}
-          <ChevronDown
-            className={`chevron-on-dark transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
-          />
-        </button>
+        <div className="margin-top-md">
+          <button
+            onClick={() => setExpandedPanel(expandedPanel === 'cards' ? 'calendar' : 'cards')}
+            className="inline-flex items-center gap-3 font-primary text-button-text py-4 px-12 rounded-full bg-white text-color-primary hover:bg-color-secondary hover:text-on-dark transition-all duration-200"
+            data-testid="booking-cta-button"
+          >
+            {booking.directBookingCta}
+            <ChevronDown
+              className={`chevron-on-dark transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${expandedPanel === 'calendar' ? 'rotate-180' : ''}`}
+            />
+          </button>
+        </div>
       </div>
     </SectionWrapper>
   )
