@@ -31,6 +31,10 @@ export function smoothScrollTo(selector, options = {}) {
       cancelAnimationFrame(window._scrollAnimationId)
     }
 
+    // Disable scroll-snap during programmatic scroll
+    const originalSnapType = document.documentElement.style.scrollSnapType
+    document.documentElement.style.scrollSnapType = 'none'
+
     let startTime = null
 
     function animation(currentTime) {
@@ -47,6 +51,11 @@ export function smoothScrollTo(selector, options = {}) {
 
       if (progress < 1) {
         window._scrollAnimationId = requestAnimationFrame(animation)
+      } else {
+        // Re-enable scroll-snap after animation completes (plus buffer)
+        setTimeout(() => {
+          document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
+        }, 100)
       }
     }
 
