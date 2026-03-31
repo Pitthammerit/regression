@@ -97,6 +97,9 @@ export default function ResearchersSection({ debugMode = false }) {
                 <DebugLabel type="typography-label" debugMode={debugMode}>
                   <div className="typography-label-on-dark">{featuredAuthor.role}</div>
                 </DebugLabel>
+                <DebugLabel type="typography-meta" debugMode={debugMode}>
+                  <div className="typography-meta-on-dark">{featuredAuthor.lifeDates}</div>
+                </DebugLabel>
               </div>
             </div>
 
