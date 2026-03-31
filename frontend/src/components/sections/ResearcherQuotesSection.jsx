@@ -105,14 +105,14 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
 
             {/* Name */}
             <DebugLabel type="typography-author-name" debugMode={debugMode}>
-              <p className="typography-author-name text-primary-on-dark name-role-spacing">
+              <p className="typography-author-name text-primary-on-dark">
                 {author.name}
               </p>
             </DebugLabel>
 
             {/* Role */}
             <DebugLabel type="typography-meta" debugMode={debugMode}>
-              <p className="typography-meta text-secondary-on-dark role-date-spacing">
+              <p className="typography-meta text-secondary-on-dark">
                 {author.role}
               </p>
             </DebugLabel>
@@ -164,13 +164,13 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
                   </DebugLabel>
 
                   <DebugLabel type="typography-author-name" debugMode={debugMode}>
-                    <p className="typography-author-name text-primary-on-dark name-role-spacing">
+                    <p className="typography-author-name text-primary-on-dark">
                       {author.name}
                     </p>
                   </DebugLabel>
 
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta text-secondary-on-dark role-date-spacing">
+                    <p className="typography-meta text-secondary-on-dark">
                       {author.role}
                     </p>
                   </DebugLabel>

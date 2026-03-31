@@ -87,7 +87,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
               )}
               <div className="flex-1 pr-4">
                 <DebugLabel type="typography-label" debugMode={debugMode}>
-                  <span className="typography-label block item-tag-spacing">
+                  <span className="typography-label block">
                     {item.tag}
                   </span>
                 </DebugLabel>
@@ -117,7 +117,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 ].map((block) => (
                   <div key={block.label} className="border-l border-color-primary pl-4">
                     <DebugLabel type="typography-label" debugMode={debugMode}>
-                      <span className="typography-label block block-label-spacing">
+                      <span className="typography-label block">
                         {block.label}
                       </span>
                     </DebugLabel>

@@ -65,7 +65,7 @@ export default function ReferencesSection({ debugMode = false }) {
         {/* Header */}
         <div className="max-w-centered-header mb-16">
           <DebugLabel type="typography-label" debugMode={debugMode}>
-            <div className="typography-label text-secondary-on-dark label-heading-spacing">
+            <div className="typography-label text-secondary-on-dark">
               {references.bigLabel}
             </div>
           </DebugLabel>
@@ -105,14 +105,14 @@ export default function ReferencesSection({ debugMode = false }) {
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
                   <DebugLabel type="typography-h3" debugMode={debugMode}>
-                    <p className="typography-h3 text-primary-on-dark font-semibold name-role-spacing">
+                    <p className="typography-h3 text-primary-on-dark font-semibold">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
                     <DebugLabel type="typography-meta" debugMode={debugMode}>
-                      <p className="typography-label text-secondary-on-dark label tracking-wider role-date-spacing">
+                      <p className="typography-label text-secondary-on-dark label tracking-wider">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -120,7 +120,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.dates && (
                     <DebugLabel type="typography-meta" debugMode={debugMode}>
-                      <p className="typography-label text-secondary-on-dark content-spacing-md">
+                      <p className="typography-label text-secondary-on-dark">
                         {resource.dates}
                       </p>
                     </DebugLabel>
@@ -179,14 +179,14 @@ export default function ReferencesSection({ debugMode = false }) {
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
                   <DebugLabel type="typography-h3" debugMode={debugMode}>
-                    <p className="typography-h3 text-primary-on-dark font-semibold name-role-spacing">
+                    <p className="typography-h3 text-primary-on-dark font-semibold">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
                     <DebugLabel type="typography-meta" debugMode={debugMode}>
-                      <p className="typography-label text-secondary-on-dark label tracking-wider role-date-spacing">
+                      <p className="typography-label text-secondary-on-dark label tracking-wider">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -194,7 +194,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.dates && (
                     <DebugLabel type="typography-meta" debugMode={debugMode}>
-                      <p className="typography-label text-secondary-on-dark content-spacing-md">
+                      <p className="typography-label text-secondary-on-dark">
                         {resource.dates}
                       </p>
                     </DebugLabel>

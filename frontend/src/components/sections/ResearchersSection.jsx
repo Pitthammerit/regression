@@ -83,7 +83,7 @@ export default function ResearchersSection({ debugMode = false }) {
             <div className="flex flex-col text-on-dark">
               {/* Quote - Top of right column */}
               <DebugLabel type="typography-quote-featured" debugMode={debugMode}>
-                <blockquote className="typography-quote-featured text-primary-on-dark content-spacing">
+                <blockquote className="typography-quote-featured text-primary-on-dark">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
               </DebugLabel>
@@ -91,10 +91,10 @@ export default function ResearchersSection({ debugMode = false }) {
               {/* Name + Title - Below quote */}
               <div>
                 <DebugLabel type="typography-author-name" debugMode={debugMode}>
-                  <div className="typography-author-name text-primary-on-dark name-role-spacing">{featuredAuthor.name}</div>
+                  <div className="typography-author-name text-primary-on-dark">{featuredAuthor.name}</div>
                 </DebugLabel>
                 <DebugLabel type="typography-label" debugMode={debugMode}>
-                  <div className="typography-label text-secondary-on-dark name-role-spacing">{featuredAuthor.role}</div>
+                  <div className="typography-label text-secondary-on-dark">{featuredAuthor.role}</div>
                 </DebugLabel>
               </div>
             </div>
@@ -147,34 +147,34 @@ export default function ResearchersSection({ debugMode = false }) {
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden content-spacing-md">
                   <DebugLabel type="typography-author-name" debugMode={debugMode}>
-                    <h3 className="typography-author-name text-primary-on-dark name-role-spacing">
+                    <h3 className="typography-author-name text-primary-on-dark">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label text-secondary-on-dark role-date-spacing">
+                    <p className="typography-label text-secondary-on-dark">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta text-secondary-on-dark block-label-spacing">{author.lifeDates}</p>
+                    <p className="typography-meta text-secondary-on-dark">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block content-spacing-md">
                   <DebugLabel type="typography-author-name" debugMode={debugMode}>
-                    <h3 className="typography-author-name text-primary-on-dark name-role-spacing">
+                    <h3 className="typography-author-name text-primary-on-dark">
                       {author.name}
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="typography-label" debugMode={debugMode}>
-                    <p className="typography-label text-secondary-on-dark role-date-spacing">
+                    <p className="typography-label text-secondary-on-dark">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta text-secondary-on-dark block-label-spacing">{author.lifeDates}</p>
+                    <p className="typography-meta text-secondary-on-dark">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 

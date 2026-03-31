@@ -15,7 +15,7 @@ export default function ServicesSection({ debugMode = false }) {
               data-testid={`service-item-${i}`}
             >
               <DebugLabel type="typography-label" debugMode={debugMode}>
-                <span className="typography-label block-label-spacing">
+                <span className="typography-label">
                   {service.sub}
                 </span>
               </DebugLabel>

@@ -73,7 +73,7 @@ export default function TestimonialsSection({ debugMode = false }) {
                         {featured.name}
                       </DebugLabel>
                     </div>
-                    <div className="typography-label name-role-spacing">
+                    <div className="typography-label">
                       <DebugLabel token="typography-label" show={debugMode}>
                         {featured.context}
                       </DebugLabel>
@@ -126,7 +126,7 @@ function TestimonialCard({ c, index, debugMode = false }) {
               {c.name}
             </DebugLabel>
           </div>
-          <div className="typography-label name-role-spacing">
+          <div className="typography-label">
             <DebugLabel token="typography-label" show={debugMode}>
               {c.context}
             </DebugLabel>
