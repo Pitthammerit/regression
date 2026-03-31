@@ -37,7 +37,7 @@ export default function AboutSection({ debugMode = false }) {
         {/* Right: Bio */}
         <div>
           <DebugLabel type="typography-h2" debugMode={debugMode}>
-            <h2 className="typography-h2 leading-tight">
+            <h2 className="typography-h2 leading-tight heading-body-spacing">
               {about.headline}
             </h2>
           </DebugLabel>
