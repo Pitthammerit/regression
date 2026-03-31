@@ -22,7 +22,15 @@ html {
   overflow-y: scroll;
   scroll-snap-type: y proximity;
   scroll-behavior: smooth;
-  scroll-padding-bottom: 70vh;
+  scroll-padding-bottom: 5vh;
+}
+
+/* Accordion sections get extra space after them for expanded content */
+section[data-testid="researchers-section"],
+section[data-testid="faq-section"],
+section[data-testid="cases-section"],
+section[data-testid="researcher-quotes-section"] {
+  scroll-margin-bottom: 60vh;
 }
 
 /* ─────────────────────────────────────────────────────────────
