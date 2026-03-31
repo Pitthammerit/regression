@@ -95,10 +95,10 @@ export default function ResearchersSection({ debugMode = false }) {
                   <div className="typography-author-name-on-dark">{featuredAuthor.name}</div>
                 </DebugLabel>
                 <DebugLabel type="typography-label" debugMode={debugMode}>
-                  <div className="typography-label-on-dark element-spacing-xs">{featuredAuthor.role}</div>
+                  <div className="typography-label-on-dark mt-1">{featuredAuthor.role}</div>
                 </DebugLabel>
                 <DebugLabel type="typography-meta" debugMode={debugMode}>
-                  <div className="typography-meta-on-dark element-spacing-xs">{featuredAuthor.lifeDates}</div>
+                  <div className="typography-meta-on-dark mt-1">{featuredAuthor.lifeDates}</div>
                 </DebugLabel>
               </div>
             </div>
@@ -156,12 +156,12 @@ export default function ResearchersSection({ debugMode = false }) {
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
-                    <p className="typography-label-on-dark element-spacing-xs">
+                    <p className="typography-label-on-dark mt-1">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta-on-dark element-spacing-xs">{author.lifeDates}</p>
+                    <p className="typography-meta-on-dark mt-1">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
@@ -173,12 +173,12 @@ export default function ResearchersSection({ debugMode = false }) {
                     </h3>
                   </DebugLabel>
                   <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
-                    <p className="typography-label-on-dark element-spacing-xs">
+                    <p className="typography-label-on-dark mt-1">
                       {author.role}
                     </p>
                   </DebugLabel>
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta-on-dark element-spacing-xs">{author.lifeDates}</p>
+                    <p className="typography-meta-on-dark mt-1">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 

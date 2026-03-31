@@ -113,7 +113,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.role && (
                     <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-                      <p className="typography-label-on-dark label tracking-wider element-spacing-xs">
+                      <p className="typography-label-on-dark label tracking-wider mt-1">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -121,7 +121,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.dates && (
                     <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-                      <p className="typography-label-on-dark element-spacing-xs">
+                      <p className="typography-label-on-dark mt-1">
                         {resource.dates}
                       </p>
                     </DebugLabel>
@@ -187,7 +187,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.role && (
                     <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-                      <p className="typography-label-on-dark label tracking-wider element-spacing-xs">
+                      <p className="typography-label-on-dark label tracking-wider mt-1">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -195,7 +195,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.dates && (
                     <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-                      <p className="typography-label-on-dark element-spacing-xs">
+                      <p className="typography-label-on-dark mt-1">
                         {resource.dates}
                       </p>
                     </DebugLabel>
