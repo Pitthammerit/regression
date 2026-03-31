@@ -1,5 +1,5 @@
 import React from 'react'
-import { simpleCta } from '../../content/plr-de'
+import { simpleCta } from '../../content'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'

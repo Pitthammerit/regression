@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { booking } from '../../content/plr-de'
+import { booking } from "../../content"
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import { ChevronDown } from 'lucide-react'

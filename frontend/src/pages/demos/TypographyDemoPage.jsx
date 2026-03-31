@@ -17,7 +17,7 @@ import ResearchersSectionCopy from '../../components/copy-sections/ResearchersSe
 import ReferencesSectionCopy from '../../components/copy-sections/ReferencesSectionCopy'
 import TestimonialCarouselCopy from '../../components/copy-sections/TestimonialCarouselCopy'
 import PodcastVideoSectionCopy from '../../components/copy-sections/PodcastVideoSectionCopy'
-import { testimonials } from '../../content/plr-de'
+import { testimonials } from '../../content'
 
 /**
  * TypographyDemoPage — Design Exploration Page

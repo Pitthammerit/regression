@@ -1,5 +1,5 @@
 import React from 'react'
-import { whatIs } from '../../content/plr-de'
+import { whatIs } from '../../content'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'

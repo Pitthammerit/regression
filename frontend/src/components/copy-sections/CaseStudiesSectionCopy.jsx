@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAccordionScroll } from '../../hooks/useAccordionScroll'
-import { cases } from '../../content/plr-de'
+import { cases } from '../../content'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'

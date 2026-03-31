@@ -1,5 +1,5 @@
 import React from 'react'
-import { services } from '../../content/plr-de'
+import { services } from "../../content"
 
 export default function ServicesSection() {
   return (

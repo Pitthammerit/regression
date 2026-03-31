@@ -1,5 +1,5 @@
 import React from 'react'
-import { faq } from '../../content/plr-de'
+import { faq } from "../../content"
 import SectionLabel from '../ui/SectionLabel'
 import { ChevronDown } from 'lucide-react'
 import { useNavigation } from '../../contexts/NavigationContext'

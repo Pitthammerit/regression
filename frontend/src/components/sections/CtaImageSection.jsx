@@ -1,5 +1,5 @@
 import React from 'react'
-import { ctaImage } from '../../content/plr-de'
+import { ctaImage } from '../../content'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'

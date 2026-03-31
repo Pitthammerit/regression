@@ -1,4 +1,4 @@
-import { podcasts } from '../../content/plr-de'
+import { podcasts } from '../../content'
 import SectionLabel from '../ui/SectionLabel'
 import PodcastPlayer from '../ui/PodcastPlayer'
 import DebugLabel from '../ui/DebugLabel'

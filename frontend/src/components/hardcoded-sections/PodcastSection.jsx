@@ -1,5 +1,5 @@
 import React from 'react'
-import { podcasts } from '../../content/plr-de'
+import { podcasts } from "../../content"
 import SectionLabel from '../ui/SectionLabel'
 import PodcastPlayer from '../ui/PodcastPlayer'
 

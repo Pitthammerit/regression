@@ -1,7 +1,7 @@
 // HeroAlt1 — saved alternative: 2-column layout (Headline left, Video right)
 import React, { useState } from 'react'
 import { Play } from 'lucide-react'
-import { hero } from '../../content/plr-de'
+import { hero } from "../../content"
 import CtaButton from '../ui/CtaButton'
 
 function VimeoGlassEmbed({ src, title }) {

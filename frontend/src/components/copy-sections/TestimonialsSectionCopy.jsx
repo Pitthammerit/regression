@@ -1,5 +1,5 @@
 import React from 'react'
-import { testimonials } from '../../content/plr-de'
+import { testimonials } from '../../content'
 import { TESTIMONIALS_LIST } from '../../content/testimonials.list'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { hero } from '../../content/plr-de'
+import { hero } from "../../content"
 import CtaButton from '../ui/CtaButton'
 import VimeoGlassEmbed from '../ui/VimeoGlassEmbed'
 

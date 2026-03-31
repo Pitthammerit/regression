@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { rogerWoolger } from '../../content/plr-de'
+import { rogerWoolger } from "../../content"
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'

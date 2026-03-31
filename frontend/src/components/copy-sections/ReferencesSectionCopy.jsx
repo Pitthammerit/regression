@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { references, ui } from '../../content/plr-de'
+import { references, ui } from '../../content'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'

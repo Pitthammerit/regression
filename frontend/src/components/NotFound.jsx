@@ -2,9 +2,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import SectionLabel from './ui/SectionLabel'
 import CtaButton from './ui/CtaButton'
-import { notFound, footer as footerContent } from '../content/plr-de'
+import { getContent } from '../content'
 import Header from './Header'
 import Footer from './Footer'
+
+// Load content (default: regression/de)
+const content = getContent('regression', 'de')
+const { notFound, footer: footerContent } = content
 
 export default function NotFound() {
   const navigate = useNavigate()

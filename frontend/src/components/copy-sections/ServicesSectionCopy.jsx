@@ -1,5 +1,5 @@
 import React from 'react'
-import { services } from '../../content/plr-de'
+import { services } from '../../content'
 import DebugLabel from '../ui/DebugLabel'
 
 export default function ServicesSectionCopy({ debugMode = false }) {

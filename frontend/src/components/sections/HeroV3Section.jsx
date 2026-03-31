@@ -1,9 +1,12 @@
 import React from 'react'
-import { hero } from '../../content/plr-de'
+import { getContent } from '../../content'
 import CustomVideoPlayer from '../ui/CustomVideoPlayer'
 import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 import { scrollPresets } from '../../utils/scrollAnimations'
+
+const content = getContent('regression', 'de')
+const { hero } = content
 
 export default function HeroV3Section({ debugMode = false }) {
   const handleScrollDown = () => {

@@ -1,4 +1,4 @@
-import { faq } from '../../content/plr-de'
+import { faq } from '../../content'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import AccordionWrap from '../ui/AccordionWrap'

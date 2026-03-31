@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { researchers } from '../../content/plr-de'
+import { researchers } from "../../content"
 import LazyImage from '../ui/LazyImage'
 import { ChevronDown } from 'lucide-react'
 

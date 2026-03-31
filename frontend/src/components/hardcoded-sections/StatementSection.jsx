@@ -1,5 +1,5 @@
 import React from 'react'
-import { statement } from '../../content/plr-de'
+import { statement } from "../../content"
 import SectionWrapper from '../ui/SectionWrapper'
 
 export default function StatementSection() {

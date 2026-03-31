@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { researchers, ui } from '../../content/plr-de'
+import { researchers, ui } from '../../content'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'

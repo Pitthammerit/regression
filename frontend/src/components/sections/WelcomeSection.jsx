@@ -1,5 +1,5 @@
 import React from 'react'
-import { welcome } from '../../content/plr-de'
+import { welcome } from '../../content'
 import SectionWrapper from '../ui/SectionWrapper'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'

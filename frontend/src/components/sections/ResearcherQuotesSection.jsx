@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { researchers, ui } from '../../content/plr-de'
+import { researchers, ui } from '../../content'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'

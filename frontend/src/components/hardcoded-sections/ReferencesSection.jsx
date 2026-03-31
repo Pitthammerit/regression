@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { references } from '../../content/plr-de'
+import { references } from "../../content"
 import LazyImage from '../ui/LazyImage'
 import { BookOpen, ChevronDown } from 'lucide-react'
 

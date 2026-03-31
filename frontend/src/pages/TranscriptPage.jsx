@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { transcriptPage } from '../content/plr-de'
+import { getContent } from '../content'
 import { episode52 } from '../content/transcripts/episode52.de'
+
+// Load content (default: regression/de)
+const content = getContent('regression', 'de')
+const { transcriptPage } = content
 
 const TOKEN = import.meta.env.VITE_TRANSCRIPT_TOKEN
 
@@ -48,103 +52,63 @@ export default function TranscriptPage() {
 
         <div className="flex items-center gap-3">
           {/* Font size controls */}
-          <div className={`flex items-center gap-1 rounded-full px-2 py-1 border ${isDark ? 'border-on-dark-divider' : 'border-color-light'}`}>
-            <button
-              onClick={() => setFontSize(s => Math.max(13, s - 1))}
-              className="px-2 py-0.5 font-primary text-label hover:opacity-60 transition-opacity"
-              style={{ fontSize: '13px' }}
-              data-testid="font-decrease"
-              aria-label={transcriptPage.toolbar.fontSizeDecreaseLabel}
-            >
-              A
-            </button>
-            <span className={isDark ? 'text-on-dark-divider' : 'text-color-text'} style={{ fontSize: '12px' }}>|</span>
-            <button
-              onClick={() => setFontSize(s => Math.min(28, s + 1))}
-              className="px-2 py-0.5 font-primary hover:opacity-60 transition-opacity"
-              style={{ fontSize: '17px' }}
-              data-testid="font-increase"
-              aria-label={transcriptPage.toolbar.fontSizeIncreaseLabel}
-            >
-              A
-            </button>
-          </div>
+          <button
+            onClick={() => setFontSize(Math.max(14, fontSize - 2))}
+            className={`px-3 py-1 text-sm border ${isDark ? 'border-on-dark-divider hover:bg-on-dark/10' : 'border-color-light hover:bg-color-light'} transition-colors`}
+            aria-label={transcriptPage.toolbar.fontSizeDecreaseLabel}
+            data-testid="font-decrease"
+          >
+            A-
+          </button>
+          <span className={`text-sm ${isDark ? 'text-on-dark/60' : 'text-color-text/60'}`}>
+            {fontSize}px
+          </span>
+          <button
+            onClick={() => setFontSize(Math.min(24, fontSize + 2))}
+            className={`px-3 py-1 text-sm border ${isDark ? 'border-on-dark-divider hover:bg-on-dark/10' : 'border-color-light hover:bg-color-light'} transition-colors`}
+            aria-label={transcriptPage.toolbar.fontSizeIncreaseLabel}
+            data-testid="font-increase"
+          >
+            A+
+          </button>
+
+          <div className="w-px h-6 bg-current opacity-20 mx-2"></div>
 
           {/* Theme toggle */}
           <button
-            onClick={() => setTheme(t => t === 'dark' ? 'beige' : 'dark')}
-            className={`flex items-center gap-2 rounded-full px-4 py-1.5 font-primary text-label label tracking-widest hover:opacity-70 transition-opacity border ${isDark ? 'border-on-dark-divider' : 'border-color-light'}`}
-            data-testid="theme-toggle"
+            onClick={() => setTheme(isDark ? 'beige' : 'dark')}
+            className={`px-3 py-1 text-sm border ${isDark ? 'border-on-dark-divider hover:bg-on-dark/10' : 'border-color-light hover:bg-color-light'} transition-colors`}
             aria-label={transcriptPage.toolbar.themeToggleLabel}
+            data-testid="theme-toggle"
           >
-            {isDark ? (
-              <>
-                <span style={{ fontSize: '14px' }}>◑</span>
-                <span>{transcriptPage.toolbar.themeToggleLight}</span>
-              </>
-            ) : (
-              <>
-                <span style={{ fontSize: '14px' }}>●</span>
-                <span>{transcriptPage.toolbar.themeToggleDark}</span>
-              </>
-            )}
+            {isDark ? transcriptPage.toolbar.themeToggleLight : transcriptPage.toolbar.themeToggleDark}
           </button>
         </div>
       </div>
 
       {/* Content */}
-      <div className="max-w-2xl mx-auto px-6 pt-28 pb-20">
-
-        {/* Episode header */}
-        <div className={`mb-12 pb-10 border-b ${isDark ? 'border-on-dark-divider' : 'border-color-light'}`}>
-          <p className={`font-primary text-label label tracking-widest mb-4 ${isDark ? 'text-on-dark/45' : 'text-color-text/45'}`}>
-            Episode {episode52.meta.episodeNumber} · {episode52.meta.podcastName} · {episode52.meta.host} · {episode52.meta.duration}
-          </p>
-          <h1
-            className="font-secondary leading-tight"
-            style={{ fontSize: `${Math.round(fontSize * 1.9)}px` }}
+      <div className="pt-24 pb-16 px-8">
+        <div className="max-w-3xl mx-auto">
+          <article
+            className="prose prose-lg max-w-none"
+            style={{ fontSize: `${fontSize}px`, lineHeight: '1.8' }}
+            data-testid="transcript-content"
           >
-            {episode52.meta.title}
-          </h1>
-          <p
-            className="font-primary mt-4 leading-relaxed"
-            style={{ fontSize: `${fontSize - 2}px` }}
-          >
-            <span className={isDark ? 'text-on-dark/55' : 'text-color-text/55'}>
-              {episode52.meta.description}
-            </span>
-          </p>
-        </div>
-
-        {/* Transcript blocks */}
-        <div className="space-y-8">
-          {episode52.transcript.map((block, i) => (
-            <div key={i}>
-              <p
-                className="font-primary text-label label tracking-widest mb-2"
-                style={{ fontSize: `${fontSize - 6}px` }}
-              >
-                <span className={isDark ? 'text-on-dark/40' : 'text-color-text/40'}>
-                  {block.speaker}
-                </span>
+            {episode52.transcript.map((paragraph, index) => (
+              <p key={index} className="mb-4">
+                {paragraph}
               </p>
-              <p
-                className="font-primary leading-[1.85]"
-                style={{ fontSize: `${fontSize}px` }}
-              >
-                {block.text}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Footer note */}
-        <div className={`mt-16 pt-8 border-t ${isDark ? 'border-on-dark-divider' : 'border-color-light'}`}>
-          <p className={`font-primary text-label text-center ${isDark ? 'text-on-dark/30' : 'text-color-text/30'}`}>
-            {transcriptPage.footer.copyright}
-          </p>
+            ))}
+          </article>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className={`text-center py-6 border-t ${isDark ? 'border-on-dark-divider' : 'border-color-light'}`}>
+        <p className={`text-sm ${isDark ? 'text-on-dark/60' : 'text-color-text/60'}`}>
+          {transcriptPage.footer.copyright}
+        </p>
+      </footer>
     </div>
   )
 }

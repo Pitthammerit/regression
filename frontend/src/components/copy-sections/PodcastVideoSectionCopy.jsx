@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { podcasts, podcastVideo } from "../../content/plr-de"
+import { podcasts, podcastVideo } from "../../content"
 import SectionWrapper from "../ui/SectionWrapper"
 import SectionLabel from "../ui/SectionLabel"
 import CustomVideoPlayer from "../ui/CustomVideoPlayer"

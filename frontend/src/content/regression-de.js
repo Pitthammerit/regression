@@ -1,4 +1,4 @@
-// frontend/src/content/plr-de.js
+// frontend/src/content/regression-de.js
 // All German copy for the Regression website.
 // Import this file into components — never hardcode strings.
 
@@ -706,3 +706,11 @@ export const podcastVideo = {
   privacyNoteLine2: "Du kannst dich jederzeit abmelden.",
   fluentFormsNote: "[ Fluent Forms Embed wird hier eingesetzt ]",
 };
+
+// Default export for backwards compatibility
+export default {
+  meta, header, hero, services, welcome, statement, whatIs, podcasts,
+  forWhom, about, processSection, cases, researchers, references,
+  simpleCta, ctaImage, testimonials, booking, faq, footer, ui,
+  transcriptPage, notFound, podcastVideo,
+}

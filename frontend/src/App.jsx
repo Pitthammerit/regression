@@ -28,9 +28,14 @@ import TranscriptPage from './pages/TranscriptPage'
 import MenuDemoPage from './pages/demos/MenuDemoPage'
 import TypographyDemoPage from './pages/demos/TypographyDemoPage'
 import NotFound from './components/NotFound'
-import { footer, testimonials } from './content/plr-de'
+import { getContent } from './content'
 import { menu } from './content/menu'
 import { SECTIONS_ORDER } from './config/sections.config'
+
+// Load content for current site (default: regression/de)
+// In Phase 3, this will be dynamic based on URL routing
+const content = getContent('regression', 'de')
+const { footer, testimonials } = content
 
 function FloatingBurger() {
   const { sidecarOpen, setSidecarOpen, setIsBurgerClosing, isBurgerClosing, navigateTo } = useNavigation()
