@@ -61,7 +61,7 @@ export default function PodcastSection({ debugMode = false }) {
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="typography-menu-text text-color-primary border border-color-primary/30 rounded-none px-5 py-2.5 hover:bg-color-primary hover:text-white transition-colors block text-center"
+                    className="typography-menu-text text-color-primary border border-color-primary/30 rounded-none px-5 py-2.5 hover:bg-color-primary hover:text-white transition-colors"
                     data-testid={`podcast-link-${link.label.toLowerCase().replace(/ /g, '-')}`}
                   >
                     {link.label}
