@@ -166,7 +166,7 @@ export default function ResearchersSection({ debugMode = false }) {
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
-                <div className="hidden md:block content-spacing-md">
+                <div className="hidden md:block">
                   <DebugLabel type="typography-author-name" debugMode={debugMode}>
                     <h3 className="typography-author-name-on-dark">
                       {author.name}
