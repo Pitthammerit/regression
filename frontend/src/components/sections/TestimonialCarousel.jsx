@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { TESTIMONIALS_LIST } from "../../content/testimonials.list"
+import FullHeightSection from "../ui/FullHeightSection"
 import DebugLabel from "../ui/DebugLabel"
 
 /**
@@ -93,123 +94,121 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
   }
 
   return (
-    <section id="wall-of-love" className="py-16 md:py-20">
-      <div className="max-w-content mx-auto px-6">
-        {/* Section Title - centered */}
-        <div className="content-spacing-lg text-center">
-          <DebugLabel type="typography-label" debugMode={debugMode}>
-            <p className="typography-label">
-              {label}
-            </p>
-          </DebugLabel>
-          <DebugLabel type="typography-h2" debugMode={debugMode}>
-            <h2 className="typography-h2 text-center label-heading-spacing">
-              {subtitle}
-            </h2>
-          </DebugLabel>
-        </div>
+    <FullHeightSection id="wall-of-love">
+      {/* Section Title - centered */}
+      <div className="content-spacing-lg text-center">
+        <DebugLabel type="typography-label" debugMode={debugMode}>
+          <p className="typography-label">
+            {label}
+          </p>
+        </DebugLabel>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
+          <h2 className="typography-h2 text-center label-heading-spacing">
+            {subtitle}
+          </h2>
+        </DebugLabel>
+      </div>
 
-        {/* Main Carousel Container */}
-        <div
-          className="relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Left Arrow */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-secondary transition-opacity hover:opacity-70 xl:block"
-            aria-label="Previous testimonial">
-            <ChevronLeft className="w-icon h-icon" />
-          </button>
+      {/* Main Carousel Container */}
+      <div
+        className="relative"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Left Arrow */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-secondary transition-opacity hover:opacity-70 xl:block"
+          aria-label="Previous testimonial">
+          <ChevronLeft className="w-icon h-icon" />
+        </button>
 
-          {/* Card Wrapper with border/background */}
-          <div className="overflow-x-hidden rounded-2xl bg-color-card-overlay border border-color-light shadow-sm backdrop-blur-sm">
-            {/* Sliding Cards Container */}
-            <div
-              className="flex transition-transform duration-[600ms] ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {carouselClients.map((t, idx) => (
-                <div key={`${t.name}-${idx}`} className="min-w-full p-[34px]">
-                  {/* Top Row: Avatar + Name/Role + Stars */}
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      {t.image && (
-                        <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border border-color-primary shadow-md">
-                          <img
-                            src={getOptimizedImageUrl(t.image)}
-                            width="60"
-                            height="60"
-                            alt={`${t.name}`}
-                            loading="lazy"
-                            className="h-full w-full scale-[1.03] object-cover object-center"
-                          />
-                        </div>
-                      )}
-                      <div>
-                        <DebugLabel type="typography-h4" debugMode={debugMode}>
-                          <p className="font-primary text-h5 font-semibold text-color-primary">{t.name}</p>
-                        </DebugLabel>
-                        <DebugLabel type="typography-meta" debugMode={debugMode}>
-                          <p className="typography-label">
-                            {t.context}
-                          </p>
-                        </DebugLabel>
+        {/* Card Wrapper with border/background */}
+        <div className="overflow-x-hidden rounded-2xl bg-color-card-overlay border border-color-light shadow-sm backdrop-blur-sm">
+          {/* Sliding Cards Container */}
+          <div
+            className="flex transition-transform duration-[600ms] ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {carouselClients.map((t, idx) => (
+              <div key={`${t.name}-${idx}`} className="min-w-full p-[34px]">
+                {/* Top Row: Avatar + Name/Role + Stars */}
+                <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    {t.image && (
+                      <div className="h-[60px] w-[60px] flex-shrink-0 overflow-hidden rounded-full border border-color-primary shadow-md">
+                        <img
+                          src={getOptimizedImageUrl(t.image)}
+                          width="60"
+                          height="60"
+                          alt={`${t.name}`}
+                          loading="lazy"
+                          className="h-full w-full scale-[1.03] object-cover object-center"
+                        />
                       </div>
-                    </div>
-                    {/* 5 Stars - semantic star color (yellow) */}
-                    <div className="flex items-center gap-0.5 text-color-star mr-8">
-                      {Array.from({ length: 5 }).map((_, starIdx) => (
-                        <Star key={starIdx} className="w-[19px] h-[19px] fill-current" />
-                      ))}
+                    )}
+                    <div>
+                      <DebugLabel type="typography-h4" debugMode={debugMode}>
+                        <p className="font-primary text-h5 font-semibold text-color-primary">{t.name}</p>
+                      </DebugLabel>
+                      <DebugLabel type="typography-meta" debugMode={debugMode}>
+                        <p className="typography-label">
+                          {t.context}
+                        </p>
+                      </DebugLabel>
                     </div>
                   </div>
-
-                  {/* Quote - below stars */}
-                  <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
-                    <div className="text-color-text mt-3">
-                      <p className={`font-secondary body-narrative-italic text-center sm:text-left ${getQuoteFontSize(t.quote)}`}>
-                        "{t.quote}"
-                      </p>
-                    </div>
-                  </DebugLabel>
+                  {/* 5 Stars - semantic star color (yellow) */}
+                  <div className="flex items-center gap-0.5 text-color-star mr-8">
+                    {Array.from({ length: 5 }).map((_, starIdx) => (
+                      <Star key={starIdx} className="w-[19px] h-[19px] fill-current" />
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
+
+                {/* Quote - below stars */}
+                <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
+                  <div className="text-color-text mt-3">
+                    <p className={`font-secondary body-narrative-italic text-center sm:text-left ${getQuoteFontSize(t.quote)}`}>
+                      "{t.quote}"
+                    </p>
+                  </div>
+                </DebugLabel>
+              </div>
+            ))}
           </div>
-
-          {/* Right Arrow */}
-          <button
-            onClick={handleNext}
-            className="absolute right-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-secondary transition-opacity hover:opacity-70 xl:block"
-            aria-label="Next testimonial">
-            <ChevronRight className="w-icon h-icon" />
-          </button>
         </div>
 
-        {/* Navigation Dots with Progress Bar inside active dot */}
-        <div className="mt-4 flex justify-center gap-2">
-          {carouselClients.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleDotClick(index)}
-              className={`relative h-3 overflow-hidden rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'w-12 bg-color-primary' : 'w-3 bg-color-secondary'
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}>
-              {/* Progress bar inside active dot */}
-              {index === currentIndex && (
-                <div
-                  className="absolute left-0 top-0 h-full bg-divider-on-dark transition-all duration-[100ms] ease-linear"
-                  style={{ width: `${progress}%` }}
-                />
-              )}
-            </button>
-          ))}
-        </div>
+        {/* Right Arrow */}
+        <button
+          onClick={handleNext}
+          className="absolute right-[-70px] top-1/2 z-10 hidden -translate-y-1/2 text-color-secondary transition-opacity hover:opacity-70 xl:block"
+          aria-label="Next testimonial">
+          <ChevronRight className="w-icon h-icon" />
+        </button>
       </div>
-    </section>
+
+      {/* Navigation Dots with Progress Bar inside active dot */}
+      <div className="mt-4 flex justify-center gap-2">
+        {carouselClients.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleDotClick(index)}
+            className={`relative h-3 overflow-hidden rounded-full transition-all duration-300 ${
+              index === currentIndex ? 'w-12 bg-color-primary' : 'w-3 bg-color-secondary'
+            }`}
+            aria-label={`Go to testimonial ${index + 1}`}>
+            {/* Progress bar inside active dot */}
+            {index === currentIndex && (
+              <div
+                className="absolute left-0 top-0 h-full bg-divider-on-dark transition-all duration-[100ms] ease-linear"
+                style={{ width: `${progress}%` }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
+    </FullHeightSection>
   )
 }
 

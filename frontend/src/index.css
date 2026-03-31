@@ -30,6 +30,11 @@ section {
   scroll-snap-stop: normal;
 }
 
+/* Disable scroll-snap on sections with active accordions */
+section[data-accordion-active="true"] {
+  scroll-snap-align: none;
+}
+
 /* ─────────────────────────────────────────────────────────────
    CUSTOM ANIMATIONS
    ───────────────────────────────────────────────────────────── */

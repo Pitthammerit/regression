@@ -31,10 +31,9 @@ export function useCaseStudiesScroll(openIndex, setOpenIndex) {
     // Find the parent section to disable snap during accordion operation
     const section = clickedElement?.closest('section')
 
-    // Disable scroll-snap on this section during accordion operation
+    // Disable scroll-snap on this section during accordion operation using data attribute
     if (section) {
-      section.style.scrollSnapAlign = 'none'
-      section.style.scrollSnapStop = 'always'
+      section.setAttribute('data-accordion-active', 'true')
     }
 
     // Track scroll position to detect user scroll during animation
@@ -58,8 +57,7 @@ export function useCaseStudiesScroll(openIndex, setOpenIndex) {
       if (!casesSection) {
         window.removeEventListener('scroll', handleUserScroll)
         if (section) {
-          section.style.scrollSnapAlign = ''
-          section.style.scrollSnapStop = ''
+          section.removeAttribute('data-accordion-active')
         }
         return
       }
@@ -127,8 +125,7 @@ export function useCaseStudiesScroll(openIndex, setOpenIndex) {
         // Skip if user scrolled manually during animation
         if (userScrolledRef.current) {
           if (section) {
-            section.style.scrollSnapAlign = ''
-            section.style.scrollSnapStop = ''
+            section.removeAttribute('data-accordion-active')
           }
           return
         }
@@ -151,8 +148,7 @@ export function useCaseStudiesScroll(openIndex, setOpenIndex) {
           setTimeout(() => {
             document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
             if (section) {
-              section.style.scrollSnapAlign = ''
-              section.style.scrollSnapStop = ''
+              section.removeAttribute('data-accordion-active')
             }
           }, 800)
         }
@@ -162,8 +158,7 @@ export function useCaseStudiesScroll(openIndex, setOpenIndex) {
       setTimeout(() => {
         window.removeEventListener('scroll', handleUserScroll)
         if (section) {
-          section.style.scrollSnapAlign = ''
-          section.style.scrollSnapStop = ''
+          section.removeAttribute('data-accordion-active')
         }
       }, 600)
     }

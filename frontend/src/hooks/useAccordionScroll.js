@@ -41,10 +41,9 @@ export function useAccordionScroll(openId, setOpenId) {
     // Find the parent section to disable snap during accordion operation
     const section = clickedElement?.closest('section')
 
-    // Disable scroll-snap on this section during accordion operation
+    // Disable scroll-snap on this section during accordion operation using data attribute
     if (section) {
-      section.style.scrollSnapAlign = 'none'
-      section.style.scrollSnapStop = 'always'
+      section.setAttribute('data-accordion-active', 'true')
     }
 
     // Track scroll position to detect user scroll during animation
@@ -132,8 +131,7 @@ export function useAccordionScroll(openId, setOpenId) {
         if (userScrolledRef.current) {
           // Re-enable snap on section
           if (section) {
-            section.style.scrollSnapAlign = ''
-            section.style.scrollSnapStop = ''
+            section.removeAttribute('data-accordion-active')
           }
           return
         }
@@ -161,11 +159,6 @@ export function useAccordionScroll(openId, setOpenId) {
         // Re-enable scroll-snap after scroll completes (plus buffer)
         setTimeout(() => {
           document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
-          // Re-enable snap on section after everything settles
-          if (section) {
-            section.style.scrollSnapAlign = ''
-            section.style.scrollSnapStop = ''
-          }
         }, 800) // Wait for smooth scroll (typically 500-600ms) + buffer
       })
     } else {
@@ -173,8 +166,7 @@ export function useAccordionScroll(openId, setOpenId) {
       setTimeout(() => {
         window.removeEventListener('scroll', handleUserScroll)
         if (section) {
-          section.style.scrollSnapAlign = ''
-          section.style.scrollSnapStop = ''
+          section.removeAttribute('data-accordion-active')
         }
       }, 600) // Wait for accordion collapse animation
     }
