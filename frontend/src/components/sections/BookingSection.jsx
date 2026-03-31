@@ -158,19 +158,19 @@ export function BookingSectionDark({ debugMode = false }) {
       data-testid="booking-section"
       className="bg-color-primary text-primary-on-dark"
     >
-      <div className="max-w-centered-header content-spacing-lg mx-auto text-center">
+      <div className="max-w-centered-header mx-auto text-center section-padding-sm">
         <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={booking.label} light />
         </DebugLabel>
 
         <DebugLabel type="typography-hero-large-on-dark" debugMode={debugMode}>
-          <h2 className="typography-hero-large-on-dark leading-tight content-spacing-md">
+          <h2 className="typography-hero-large-on-dark leading-tight heading-body-spacing">
             {booking.headline}
           </h2>
         </DebugLabel>
 
-        <DebugLabel type="typography-body-lg" debugMode={debugMode}>
-          <p className="typography-body-lg text-on-dark leading-relaxed max-w-lg mx-auto">
+        <DebugLabel type="typography-body-lg-on-dark" debugMode={debugMode}>
+          <p className="typography-body-lg-on-dark leading-relaxed max-w-lg mx-auto">
             {booking.subline}
           </p>
         </DebugLabel>
@@ -206,8 +206,8 @@ export function BookingSectionDark({ debugMode = false }) {
                     Kalender-Embed wird hier eingebettet.
                   </p>
                 </DebugLabel>
-                <DebugLabel type="typography-label" debugMode={debugMode}>
-                  <p className="typography-label text-secondary-on-dark max-w-xs">
+                <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
+                  <p className="typography-label-on-dark max-w-xs">
                     Sobald du den Embed-Code bereitstellts, erscheint hier das Buchungsformular direkt auf der Seite.
                   </p>
                 </DebugLabel>
