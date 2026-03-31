@@ -113,6 +113,10 @@ export function useFAQScroll(expandedIndex, setExpandedIndex) {
         }
 
         if (questionContainer) {
+          // Bypass scroll-snap during programmatic scroll
+          const originalSnapType = document.documentElement.style.scrollSnapType
+          document.documentElement.style.scrollSnapType = 'none'
+
           const rect = questionContainer.getBoundingClientRect()
           const buffer = 100 // 100px offset from top
           const scrollTop = window.scrollY + rect.top - buffer
@@ -121,6 +125,11 @@ export function useFAQScroll(expandedIndex, setExpandedIndex) {
             top: Math.max(0, scrollTop),
             behavior: 'smooth'
           })
+
+          // Re-enable scroll-snap after scroll completes (plus buffer)
+          setTimeout(() => {
+            document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
+          }, 800)
         }
       })
     } else {

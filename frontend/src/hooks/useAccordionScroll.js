@@ -130,6 +130,11 @@ export function useAccordionScroll(openId, setOpenId) {
          * Even if element is already visible, we want consistent alignment
          * This ensures the same UX regardless of where the user is on the page
          */
+
+        // Bypass scroll-snap during programmatic scroll
+        const originalSnapType = document.documentElement.style.scrollSnapType
+        document.documentElement.style.scrollSnapType = 'none'
+
         const rect = portraitContainer.getBoundingClientRect()
         const buffer = 100 // 100px offset from top
         const scrollTop = window.scrollY + rect.top - buffer
@@ -138,6 +143,11 @@ export function useAccordionScroll(openId, setOpenId) {
           top: Math.max(0, scrollTop), // Ensure we don't scroll to negative position
           behavior: 'smooth'
         })
+
+        // Re-enable scroll-snap after scroll completes (plus buffer)
+        setTimeout(() => {
+          document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
+        }, 800) // Wait for smooth scroll (typically 500-600ms) + buffer
       })
     } else {
       // Clean up scroll listener if not opening

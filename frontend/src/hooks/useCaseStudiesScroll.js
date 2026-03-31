@@ -117,6 +117,10 @@ export function useCaseStudiesScroll(openIndex, setOpenIndex) {
         }
 
         if (caseButton) {
+          // Bypass scroll-snap during programmatic scroll
+          const originalSnapType = document.documentElement.style.scrollSnapType
+          document.documentElement.style.scrollSnapType = 'none'
+
           const rect = caseButton.getBoundingClientRect()
           const buffer = 100 // 100px offset from top
           const scrollTop = window.scrollY + rect.top - buffer
@@ -125,6 +129,11 @@ export function useCaseStudiesScroll(openIndex, setOpenIndex) {
             top: Math.max(0, scrollTop),
             behavior: 'smooth'
           })
+
+          // Re-enable scroll-snap after scroll completes (plus buffer)
+          setTimeout(() => {
+            document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
+          }, 800)
         }
       })
     } else {
