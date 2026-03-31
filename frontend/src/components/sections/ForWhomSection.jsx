@@ -40,7 +40,7 @@ export default function ForWhomSection({ debugMode = false }) {
         </DebugLabel>
       </div>
 
-      <div className="mt-[3rem] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5" data-testid="topic-cards-grid">
+      <div className="margin-top-md grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5" data-testid="topic-cards-grid">
         {forWhom.topics.map((topic, i) => (
           <TopicCard key={i} title={topic.title} body={topic.body} debugMode={debugMode} />
         ))}
