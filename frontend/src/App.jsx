@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext'
+import { SiteProvider } from './contexts/SiteContext'
+import { ContentProvider } from './contexts/ContentContext'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import BurgerButton from './components/ui/BurgerButton'
@@ -141,10 +143,21 @@ export default function App() {
     <NavigationProvider>
       <BrowserRouter>
         <Routes>
+          {/* Legacy routes (backwards compatibility) */}
           <Route path="/" element={<MainPage />} />
           <Route path="/transkript" element={<TranscriptPage />} />
           <Route path="/menu-demo" element={<MenuDemoPage />} />
           <Route path="/typo-demo" element={<TypographyDemoPage />} />
+
+          {/* New multi-site routes (Phase 2 preparation) */}
+          {/* ContentProvider will be activated in Phase 3 */}
+          <Route path="/:site/:lang" element={
+            <SiteProvider>
+              <MainPage />
+            </SiteProvider>
+          } />
+
+          {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
