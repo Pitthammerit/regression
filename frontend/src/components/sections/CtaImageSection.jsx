@@ -1,5 +1,5 @@
 import React from 'react'
-import { ctaImage } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'
@@ -27,6 +27,8 @@ import DebugLabel from '../ui/DebugLabel'
  * - Reuses existing components (CtaButton, SectionLabel, DebugLabel, LazyImage)
  */
 export default function CtaImageSection({ debugMode = false }) {
+  const { ctaImage } = useContent()
+
   return (
     <SectionWrapper id="simple-cta" data-testid="simple-cta-section">
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">

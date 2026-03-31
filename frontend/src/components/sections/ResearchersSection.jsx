@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { researchers, ui } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
@@ -9,6 +9,7 @@ import AnimatedAspectRatio from '../ui/AnimatedAspectRatio'
 import { useAccordionScroll } from '../../hooks/useAccordionScroll'
 
 export default function ResearchersSection({ debugMode = false }) {
+  const { researchers, ui } = useContent()
   const authors = researchers.authors
   const featuredAuthor = authors.find(author => author.featured)
   const [expandedId, setExpandedId] = useState(null)

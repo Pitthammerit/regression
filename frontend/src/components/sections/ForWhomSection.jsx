@@ -1,5 +1,5 @@
 import React from 'react'
-import { forWhom } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import TopicCard from '../ui/TopicCard'
@@ -20,6 +20,8 @@ import DebugLabel from '../ui/DebugLabel'
  */
 
 export default function ForWhomSection({ debugMode = false }) {
+  const { forWhom } = useContent()
+
   return (
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { statement } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from '../ui/SectionWrapper'
 import DebugLabel from '../ui/DebugLabel'
 
@@ -16,6 +16,8 @@ import DebugLabel from '../ui/DebugLabel'
  * - Border styling (border-black/10)
  */
 export default function StatementSection({ debugMode = false }) {
+  const { statement } = useContent()
+
   return (
     <SectionWrapper id="statement" data-testid="statement-section">
       <div className="max-w-centered-header mx-auto text-center border-t border-b border-color-light py-10">

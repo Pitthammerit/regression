@@ -1,8 +1,10 @@
 import React from 'react'
-import { services } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import DebugLabel from '../ui/DebugLabel'
 
 export default function ServicesSection({ debugMode = false }) {
+  const { services } = useContent()
+
   return (
     <section id="services" className="pt-2 pb-8" data-testid="services-section">
       <div className="max-w-content mx-auto px-6">

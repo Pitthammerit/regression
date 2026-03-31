@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
+import { useContent } from '../../contexts/ContentContext'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { researchers, ui } from '../../content'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
@@ -27,6 +27,7 @@ import ExpandToggleButton from '../ui/ExpandToggleButton'
  * - Responsive: 16:9 on mobile, 1:1 on desktop
  */
 export default function ResearcherQuotesSection({ debugMode = false }) {
+  const { researchers, ui } = useContent()
   const [isExpanded, setIsExpanded] = useState(false)
 
   // Simple scroll to align section top when expanding

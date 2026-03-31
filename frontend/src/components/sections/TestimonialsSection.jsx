@@ -1,5 +1,5 @@
 import React from 'react'
-import { testimonials } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import { TESTIMONIALS_LIST } from '../../content/testimonials.list'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
@@ -23,6 +23,7 @@ import DebugLabel from '../ui/DebugLabel'
  * @param {boolean} props.debugMode - Show debug labels for typography tokens
  */
 export default function TestimonialsSection({ debugMode = false }) {
+  const { testimonials } = useContent()
   // Dynamic testimonials from list
   const [featured, ...others] = TESTIMONIALS_LIST
   // featured = Anna (first), others = [Alexander, Arthur, Hernan, ...]

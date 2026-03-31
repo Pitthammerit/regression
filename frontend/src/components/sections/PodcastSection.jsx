@@ -1,4 +1,4 @@
-import { podcasts } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionLabel from '../ui/SectionLabel'
 import PodcastPlayer from '../ui/PodcastPlayer'
 import DebugLabel from '../ui/DebugLabel'
@@ -20,6 +20,7 @@ const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/p
  * - Map over podcast.podcastLinks
  */
 export default function PodcastSection({ debugMode = false }) {
+  const { podcasts } = useContent()
   // Get first podcast (for backwards compatibility)
   const podcast = podcasts[0]
   return (

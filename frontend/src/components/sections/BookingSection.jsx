@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { booking } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import TopicCard from '../ui/TopicCard'
@@ -31,6 +31,7 @@ import { ChevronDown } from 'lucide-react'
  * - font-primary text-button-text (inline typography)
  */
 export default function BookingSection({ debugMode = false }) {
+  const { booking } = useContent()
   // 'cards' | 'calendar' - which panel is expanded
   const [expandedPanel, setExpandedPanel] = useState('cards')
   const embedCode = import.meta.env.VITE_CALENDAR_EMBED
@@ -139,6 +140,7 @@ export default function BookingSection({ debugMode = false }) {
  * - Faster opening (400ms) vs slower closing (600ms)
  */
 export function BookingSectionDark({ debugMode = false }) {
+  const { booking } = useContent()
   // 'cards' | 'calendar' - which panel is expanded
   const [expandedPanel, setExpandedPanel] = useState('cards')
   const embedCode = import.meta.env.VITE_CALENDAR_EMBED

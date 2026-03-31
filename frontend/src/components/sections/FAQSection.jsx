@@ -1,4 +1,4 @@
-import { faq } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import AccordionWrap from '../ui/AccordionWrap'
@@ -27,6 +27,7 @@ import { useFAQScroll } from '../../hooks/useFAQScroll'
  * - Waits for full layout stabilization (previous collapse + new expand)
  */
 export default function FAQSection({ debugMode = false }) {
+  const { faq } = useContent()
   const { expandedFAQIndex, setExpandedFAQIndex } = useNavigation()
   const toggleExpand = useFAQScroll(expandedFAQIndex, setExpandedFAQIndex)
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
+import { useContent } from '../../contexts/ContentContext'
 import { useCaseStudiesScroll } from '../../hooks/useCaseStudiesScroll'
-import { cases } from '../../content'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
@@ -9,6 +9,7 @@ import AccordionWrap from '../ui/AccordionWrap'
 import { ChevronDown } from 'lucide-react'
 
 export default function CaseStudiesSection({ debugMode = false }) {
+  const { cases } = useContent()
   // All items closed by default, click to open individual
   const [openIndex, setOpenIndex] = useState(-1)
   const toggleWithScroll = useCaseStudiesScroll(openIndex, setOpenIndex)

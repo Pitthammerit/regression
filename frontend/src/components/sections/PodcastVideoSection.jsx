@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { podcasts, podcastVideo } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from "../ui/SectionWrapper"
 import SectionLabel from "../ui/SectionLabel"
 import CustomVideoPlayer from "../ui/CustomVideoPlayer"
@@ -30,6 +30,7 @@ import { X, Send } from "lucide-react"
  * @param {boolean} props.debugMode - Show debug labels
  */
 export default function PodcastVideoSection({ debugMode = false }) {
+  const { podcasts, podcastVideo } = useContent()
   const [panelOpen, setPanelOpen] = useState(false)
   // Get first podcast (for backwards compatibility)
   const podcast = podcasts[0]

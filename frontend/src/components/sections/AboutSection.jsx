@@ -1,4 +1,5 @@
-import { about } from '../../content'
+import React from 'react'
+import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
@@ -6,6 +7,8 @@ import LazyImage from '../ui/LazyImage'
 import { r2, portraits } from '../../utils/media'
 
 export default function AboutSection({ debugMode = false }) {
+  const { about } = useContent()
+
   return (
     <SectionWrapper id="ueber" data-testid="about-section">
       <div className="grid md:grid-cols-2 grid-gap-xl items-start">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { simpleCta } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'
@@ -22,6 +22,8 @@ import DebugLabel from '../ui/DebugLabel'
  * - Reuses existing components (CtaButton, SectionLabel, DebugLabel)
  */
 export default function SimpleCtaSection({ debugMode = false }) {
+  const { simpleCta } = useContent()
+
   return (
     <SectionWrapper id="simple-cta" data-testid="simple-cta-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">

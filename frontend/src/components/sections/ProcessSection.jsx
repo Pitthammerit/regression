@@ -1,5 +1,5 @@
 import React from 'react'
-import { processSection } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from '../ui/SectionWrapper'
 import SectionLabel from '../ui/SectionLabel'
 import CtaButton from '../ui/CtaButton'
@@ -22,6 +22,8 @@ import DebugLabel from '../ui/DebugLabel'
  * - Map over processSection.steps
  */
 export default function ProcessSection({ debugMode = false }) {
+  const { processSection } = useContent()
+
   return (
     <SectionWrapper id="prozess" data-testid="process-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">

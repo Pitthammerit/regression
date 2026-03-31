@@ -1,14 +1,13 @@
 import React from 'react'
-import { getContent } from '../../content'
+import { useContent } from '../../contexts/ContentContext'
 import CustomVideoPlayer from '../ui/CustomVideoPlayer'
 import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 import { scrollPresets } from '../../utils/scrollAnimations'
 
-const content = getContent('regression', 'de')
-const { hero } = content
-
 export default function HeroV3Section({ debugMode = false }) {
+  const { hero } = useContent()
+
   const handleScrollDown = () => {
     // Medium-fast scroll (1200ms) with 500ms delay, scroll to welcome section
     scrollPresets.normal('#welcome', { delay: 500, offset: 80 })

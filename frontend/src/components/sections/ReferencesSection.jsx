@@ -1,6 +1,6 @@
 import { useState } from 'react'
+import { useContent } from '../../contexts/ContentContext'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import { references, ui } from '../../content'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
@@ -25,6 +25,7 @@ import { BookOpen } from 'lucide-react'
  * - Map over references.items
  */
 export default function ReferencesSection({ debugMode = false }) {
+  const { references, ui } = useContent()
   const [expanded, setExpanded] = useState(false)
 
   const handleToggle = () => {

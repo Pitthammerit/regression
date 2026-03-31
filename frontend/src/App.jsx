@@ -30,14 +30,8 @@ import TranscriptPage from './pages/TranscriptPage'
 import MenuDemoPage from './pages/demos/MenuDemoPage'
 import TypographyDemoPage from './pages/demos/TypographyDemoPage'
 import NotFound from './components/NotFound'
-import { getContent } from './content'
 import { menu } from './content/menu'
 import { SECTIONS_ORDER } from './config/sections.config'
-
-// Load content for current site (default: regression/de)
-// In Phase 3, this will be dynamic based on URL routing
-const content = getContent('regression', 'de')
-const { footer, testimonials } = content
 
 function FloatingBurger() {
   const { sidecarOpen, setSidecarOpen, setIsBurgerClosing, isBurgerClosing, navigateTo } = useNavigation()
@@ -97,14 +91,7 @@ function MainPage() {
     'PodcastSection': <PodcastSection debugMode={debugMode} />,
     'CaseStudiesSection': <CaseStudiesSection debugMode={debugMode} />,
     'TestimonialsSection': <TestimonialsSection debugMode={debugMode} />,
-    'TestimonialCarousel': (
-      <TestimonialCarousel
-        clients={testimonials.clients}
-        label={testimonials.clientLabel}
-        subtitle={testimonials.clientSubtitle}
-        debugMode={debugMode}
-      />
-    ),
+    'TestimonialCarousel': <TestimonialCarousel debugMode={debugMode} />,
     'BookingSection': <BookingSectionDark debugMode={debugMode} />,
     'FAQSection': <FAQSection debugMode={debugMode} />,
     'ReferencesSection': <ReferencesSection debugMode={debugMode} />,
@@ -133,7 +120,7 @@ function MainPage() {
           <React.Fragment key={sectionName}>{sectionMap[sectionName]}</React.Fragment>
         ))}
       </main>
-      <Footer data={footer} debugMode={debugMode} />
+      <Footer debugMode={debugMode} />
     </div>
   )
 }
@@ -144,7 +131,13 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           {/* Legacy routes (backwards compatibility) */}
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={
+            <SiteProvider>
+              <ContentProvider>
+                <MainPage />
+              </ContentProvider>
+            </SiteProvider>
+          } />
           <Route path="/transkript" element={<TranscriptPage />} />
           <Route path="/menu-demo" element={<MenuDemoPage />} />
           <Route path="/typo-demo" element={<TypographyDemoPage />} />
@@ -153,7 +146,9 @@ export default function App() {
           {/* ContentProvider will be activated in Phase 3 */}
           <Route path="/:site/:lang" element={
             <SiteProvider>
-              <MainPage />
+              <ContentProvider>
+                <MainPage />
+              </ContentProvider>
             </SiteProvider>
           } />
 
