@@ -60,6 +60,8 @@ See "Multiagent Orchestration" section below for detailed workflow.
 
 This is a React app for "Regression" (Past Life Regression sessions by Benjamin Kurtz), deployed via Cloudflare Pages. Only the `frontend/` directory is deployed — the monorepo structure exists for future expansion but currently contains no active backend.
 
+**Upcoming:** Multi-site architecture (Regression, Reiki, Podcast) with i18n support. See `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md` for details.
+
 **Tech Stack:** React 19, React Router v7, Vite 5, Tailwind CSS v4, npm
 
 ## Deployment Rules (Critical)
@@ -162,6 +164,20 @@ npm --prefix frontend run build
 npm --prefix frontend test
 ```
 
+## Documentation & Plans
+
+### Plan Workflow
+- **Active plans:** Write in `docs/plans/`
+- **Completed plans:** Move to `docs/plans/archived-plans/`
+- **Historical docs:** Stored in `docs/archived/`
+- **Primary plan:** `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md`
+
+**When creating a new plan:**
+1. Use format: `YYYY-MM-DD-descriptive-title.md`
+2. Add to `docs/plans/` directory
+3. Update reference in CLAUDE.md if it's the primary plan
+4. When complete, move to `docs/plans/archived-plans/`
+
 ## Development Workflow
 
 ### Localhost Preview + Cloudflare Deploy
@@ -241,6 +257,8 @@ frontend/src/components/
 ```
 
 #### `sections/` — Active Sections (WORK HERE)
+
+**WARNING:** Do NOT edit `copy-sections/` or `hardcoded-sections/` — these are reference only.
 
 These are the production sections currently in use. **All development happens here.**
 
@@ -467,103 +485,16 @@ export const evidence = {
 - App.js structure
 - Tailwind config (colors should only be changed with developer assistance)
 
-## EvidenceSection Architecture (March 2026 — Phase 3 Complete)
+## Known Issues
 
-**Current status:** Phase 3 implemented — all content now dynamic (authors + resources).
-
-**Two Evidence Sections:**
-1. **EvidenceSection** (`id="science"`) — Main section with:
-   - Upper tier: 4-author portrait grid with English quotes
-   - Lower tier: Accordion cards with `shortVersion`/`longVersion`
-   - Bottom: Resources (journal + books)
-
-2. **EvidenceQuotesSection** (`id="evidence-quotes"`) — Compact quotes section:
-   - 3 researchers with portraits (filters for `portrait !== null`)
-   - Dark background (`bg-brand-deep`)
-   - English quotes only
-
-**Content structure in `plr-de.js`:**
-```javascript
-export const evidence = {
-  authorBigLabel: "EVIDENZBASIERT",
-  authorHeadline: "Was die Forschung sagt",
-  accordion: {
-    readMore: "Mehr lesen",
-    readLess: "Weniger lesen",
-  },
-  authors: [
-    {
-      id: "ian-stevenson",
-      name: "Ian Stevenson MD",
-      role: "University of Virginia, DOPS",
-      lifeDates: "*1918–2007",
-      portrait: "https://...",
-      quote: "The evidence suggesting reincarnation is real...",
-      shortVersion: "Über 2.500 dokumentierte Kinderfälle...",
-      longVersion: "Ian Stevenson gilt als Begründer...",
-      sourceLabel: "Quelle",
-      sourceUrl: "https://...",
-    },
-    // ... 3 more authors (Jim Tucker, Brian Weiss, Roger Woolger)
-  ],
-  resources: [
-    {
-      type: "journal",
-      name: "International Journal of Regression Therapy",
-      dates: "1986–heute",
-      // ... journal fields
-    },
-    {
-      type: "book",
-      name: "Many Lives, Many Masters",
-      dates: "1988",
-      // ... book fields
-    },
-    // ... more resources (books, audiobooks)
-  ],
-}
-```
-
-**Implemented (Phase 2 — 2026-03-05):**
-- ✅ All 4 authorities render dynamically from `evidence.authors` array
-- ✅ `shortQuote` → `shortVersion` renamed for clarity
-- ✅ `quote` field added to Ian Stevenson and Jim Tucker (English quotes for upper tier)
-- ✅ `sourceLabel` + `sourceUrl` added to all authorities
-- ✅ Accordion strings moved to content layer (`evidence.accordion.readMore/readLess`)
-- ✅ Self-Service: Users can now add authorities by editing `plr-de.js`
-
-**Implemented (Phase 3 — 2026-03-05):**
-- ✅ `evidence.resources` array created (journal + books)
-- ✅ EvidenceSection renders resources with `resources.map()`
-- ✅ `podcasts` array created (extensible for future episodes)
-- ✅ PodcastSection/PodcastVideoSection updated to use `podcasts[0]`
-- ✅ Portrait URLs fixed (Brian Weiss + Roger Woolger)
-
-**Accordion state:** Uses `useState` with `expandedId` pattern — only one card expanded at a time
-**Responsive:** Mobile = photo above text, name above photo; Desktop = photo left, text right
-**Images:** Uses native `LazyImage` component with R2 CDN URLs
-**Section IDs:** `id="science"` (EvidenceSection), `id="evidence-quotes"` (EvidenceQuotesSection)
-
-## Known Issues from Code Review
-
-1. **No i18n system**: A minimal implementation would need:
-   - `frontend/src/content/plr-en.js`
-   - `frontend/src/content/index.js` exporting `getContent(lang)`
-   - A `useContent()` hook
-   - Components should call `useContent()` instead of importing `plr-de.js` directly
-
-2. **backend/ folder**: Misleading — no backend is currently deployed. Remove or add a clarifying note.
+1. **No i18n system yet**: Currently all content is German-only (`plr-de.js`).
+   - **Planned:** Multi-site architecture with i18n support (Regression, Reiki, Podcast sites)
+   - See: `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md`
+   - No catch-all route — invalid URLs render blank (should show NotFound)
 
 **Resolved (2026-03-05):**
 - ~~Footer hardcoded strings~~ — All strings now from `footerContent` and `data` props
 - ~~TranscriptPage hardcoded strings~~ — All strings now from `transcriptPage` and `episode52` content files
-
-## Deep Links
-
-If deep links like `/transkript` break on refresh, add SPA fallback via `frontend/public/_redirects`:
-```
-/*    /index.html   200
-```
 
 ## Development Principles
 
