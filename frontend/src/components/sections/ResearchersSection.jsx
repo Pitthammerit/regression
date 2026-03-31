@@ -196,7 +196,7 @@ export default function ResearchersSection({ debugMode = false }) {
                   labelMore={ui.showMore}
                   labelLess={ui.showLess}
                   debugMode={debugMode}
-                  className="element-spacing-sm"
+                  className="element-spacing-xs"
                 />
               </div>
             </div>
