@@ -46,13 +46,13 @@ export default function PodcastVideoSection({ debugMode = false }) {
           </DebugLabel>
 
           <DebugLabel type="typography-h2" debugMode={debugMode}>
-            <h2 className="font-secondary text-h2 text-color-primary leading-tight content-spacing-md">
+            <h2 className="typography-h2 leading-tight content-spacing-md">
               {podcast.headline}
             </h2>
           </DebugLabel>
 
           <DebugLabel type="typography-body-lg" debugMode={debugMode}>
-            <p className="font-primary text-body-lg text-color-text leading-relaxed">
+            <p className="typography-body-lg leading-relaxed">
               {podcast.subline}
             </p>
           </DebugLabel>
@@ -99,7 +99,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="typography-h3" debugMode={debugMode}>
-              <h3 className="font-secondary text-h3 text-color-primary leading-tight">
+              <h3 className="typography-h3 leading-tight">
                 {podcastVideo.panelTitleLine1}<br />{podcastVideo.panelTitleLine2}
               </h3>
             </DebugLabel>
@@ -116,7 +116,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
         </div>
 
         <div className="flex-1 overflow-y-auto px-8 py-6">
-          <p className="font-primary text-body text-color-text leading-relaxed content-spacing-lg">
+          <p className="typography-body leading-relaxed content-spacing-lg">
             {podcastVideo.emailPrompt}
           </p>
 
