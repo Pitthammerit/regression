@@ -9,7 +9,7 @@ const SECTION_BG = "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/images/p
  * PodcastSection — Podcast section with composite typography utilities
  *
  * MIGRATED to composite typography utilities:
- * - Podcast headline: typography-hero-large (replaces font-secondary text-podcast-headline)
+ * - Podcast headline: typography-hero (replaces font-secondary text-podcast-headline)
  * - Body-lg: typography-body-lg (replaces font-primary text-body-lg text-color-text)
  * - Button text: typography-menu-text (replaces font-primary text-button-text button-text)
  *
@@ -39,8 +39,8 @@ export default function PodcastSection({ debugMode = false }) {
               <SectionLabel text={podcast.label} />
             </DebugLabel>
 
-            <DebugLabel type="typography-hero-large" debugMode={debugMode}>
-              <h2 className="typography-hero-large leading-tight content-spacing-md">
+            <DebugLabel type="typography-hero" debugMode={debugMode}>
+              <h2 className="typography-hero leading-tight content-spacing-md">
                 {podcast.sectionHeadline.map((line, i) => (
                   <span key={i} className="block">{line}</span>
                 ))}
