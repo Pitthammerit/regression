@@ -22,10 +22,16 @@
 | ✅ Phase 2: Contexts | **COMPLETE** | 2 hours | March 31, 2026 |
 | ✅ Phase 3: Update Sections | **COMPLETE** | 3-4 hours | March 31, 2026 |
 | ✅ Phase 4: Multi-Site Routing | **COMPLETE** | 2 hours | March 31, 2026 |
-| ⬜ Phase 5: Site Theming | Pending | 1 hour | — |
-| ⬜ Phase 6: English Placeholder | Pending | 30 min | — |
+| ✅ Phase 5: Site Theming | **COMPLETE** | 1 hour | April 1, 2026 |
+| ✅ Phase 6: English Placeholder | **COMPLETE** | 30 min | April 1, 2026 |
+| ✅ Bonus: Menu Migration | **COMPLETE** | 30 min | April 1, 2026 |
 
-**Total remaining:** 1.5 hours (originally 9-11 hours)
+**Total:** ALL PHASES COMPLETE ✅
+
+**Remaining work (content, not architecture):**
+- Reiki real content (replace test content)
+- Podcast site (optional, follow same pattern)
+- English translation (replace "Placeholder:" text)
 
 **Detailed Status:** See [docs/plans/multiloop/2026-04-01-multi-site-implementation-status.md](./multiloop/2026-04-01-multi-site-implementation-status.md)
 
@@ -1036,11 +1042,19 @@ LOOP 3: Code Quality Review
 
 **Last Updated:** 2026-04-01
 
-**Progress:** 70% Complete (Phases 1-4 done, Phases 5-6 remaining)
+**Progress:** ✅ **100% COMPLETE** — All phases finished!
 
-**Next Steps:**
-1. Complete Phase 5: Site-specific theming (1 hour)
-2. Complete Phase 6: English content placeholder (30 min)
-3. Run 3 test loops after each phase
-4. Deploy and verify on Cloudflare Pages
-5. Use `/multiloop` skill for execution
+**Completed:**
+1. ✅ Phase 5: Site-specific theming (data-site attributes)
+2. ✅ Phase 6: English content placeholder
+3. ✅ Bonus: Menu migration to content layer
+4. ✅ Deployed and verified on Cloudflare Pages
+
+**Remaining (Content work, not architecture):**
+- 🔄 Translate English content (replace "Placeholder:" text)
+- 🔄 Add real Reiki content (currently test content)
+- 📋 Podcast site (optional, follow same pattern)
+
+**Deployment:**
+- Latest commit: `0366dfb`
+- URLs: `/regression/de`, `/regression/en`, `/reiki/de`

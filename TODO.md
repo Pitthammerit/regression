@@ -1,61 +1,24 @@
 # TODO
 
-Updated: 2026-03-31 19:52
+Updated: 2026-03-31 19:53
 
 ---
 
-## 🔴 PRIORITY 0 — Fix English Content Display
+## 🔴 PRIORITY 1 — Translate English Content
 
-**Status:** URGENT — English content not showing on `/regression/en`
+**Status:** Ready to start — Menu migration complete ✅
 
-**ROOT CAUSE:** Menu stored in separate `menu.js` file, never migrated to `useContent()`!
-
-**Files affected:**
-- ❌ `frontend/src/content/menu.js` — Static German menu (NEEDS MIGRATION)
-- ❌ `frontend/src/components/DesktopNav.jsx` — Static import, doesn't switch
-- ❌ `frontend/src/components/SidecarMenu.jsx` — Static import, doesn't switch
-
-**Fix required:**
-1. Add `menu` export to `regression-de.js` (copy from menu.js)
-2. Add `menu` export to `regression-en.js` (English translation)
-3. Update `DesktopNav.jsx` to use `useContent()` hook
-4. Update `SidecarMenu.jsx` to use `useContent()` hook
-5. Delete `frontend/src/content/menu.js` (after migration)
-
-**Debugging steps:**
-1. Test menu switching on `/regression/en` → should show English labels
-2. Test sections showing English placeholder content
-
----
-
-## 🔴 PRIORITY 1 — Lock German Content
-
-**Status:** Pending — After English display is fixed
-
-**What this means:**
-- Mark `regression-de.js` as "FINAL" — no more changes
-- Document that German content is source of truth for translations
-- Create backup/archive of final German version
-- Any future content changes should update BOTH de and en files
-
-**Why:** Prevents drift between German and English versions during translation work
-
----
-
-## 🔴 PRIORITY 2 — Translate English Content
-
-**Status:** Pending — After German is locked
-
-**Source:** `frontend/src/content/regression-de.js` (716 lines)
-**Target:** `frontend/src/content/regression-en.js` (471 lines - needs completion)
+**Source:** `frontend/src/content/regression-de.js` (780 lines with menu)
+**Target:** `frontend/src/content/regression-en.js` (533 lines with menu)
 
 **Translation sections:**
-1. ✅ **Hero** — Already translated (good English)
-2. ✅ **Header** — Already translated
-3. ⚠️ **Welcome** — Has "Placeholder:" prefix, needs real translation
-4. ⚠️ **What Is** — Has "Placeholder:" prefixes
-5. ⚠️ **Services** — Mixed (some German: "Seelenrückführung")
-6. ⚠️ **All other sections** — Check for "Placeholder:" markers
+1. ✅ **Menu** — Complete (English labels working)
+2. ✅ **Hero** — Already translated (good English)
+3. ✅ **Header** — Already translated
+4. ⚠️ **Welcome** — Has "Placeholder:" prefix, needs real translation
+5. ⚠️ **What Is** — Has "Placeholder:" prefixes
+6. ⚠️ **Services** — Mixed (some German: "Seelenrückführung")
+7. ⚠️ **All other sections** — Check for "Placeholder:" markers
 
 **Translation approach:**
 - Remove "Placeholder: Translate from German" prefixes
@@ -67,24 +30,53 @@ Updated: 2026-03-31 19:52
 
 ---
 
+## 🔴 PRIORITY 2 — Lock German Content
+
+**Status:** Pending — After English translation begins
+
+**What this means:**
+- Mark `regression-de.js` as "FINAL" — no more changes
+- Document that German content is source of truth for translations
+- Create backup/archive of final German version
+- Any future content changes should update BOTH de and en files
+
+**Why:** Prevents drift between German and English versions during translation work
+
+---
+
 ## 🟡 MEDIUM PRIORITY
 
 ### Reiki Site Real Content
-**Status:** Future — Test structure in place, real content needed
+**Status:** Test structure in place, real content needed
+
+**Current:** `frontend/src/content/reiki-de.js` has test content copied from Regression
+
+**Needed:**
+- Reiki-specific hero content
+- Reiki services (energy work, healing modalities)
+- Reiki-specific sections (chakra work, certification, etc.)
+- Reiki testimonials and case studies
+
+**Pattern:** Follow same structure as `regression-de.js`
 
 ---
-
-### Scroll Snap Improvements (Lower Priority)
-**Status:** Deferred until English content is done
-
----
-
-## 🟢 LOW PRIORITY
 
 ### Podcast Site (Future)
 **Status:** Can be added later following the same pattern as Reiki
 
+**To add:**
+1. Create `frontend/src/content/podcast-de.js`
+2. Add `'podcast'` to `VALID_SITES` in SiteContext.jsx
+3. Add `podcast: { de: podcastDe, en: null }` to CONTENT_MAP in index.js
+
 ---
+
+### Scroll Snap Improvements (Lower Priority)
+**Status:** Deferred until content translation is done
+
+---
+
+## 🟢 LOW PRIORITY
 
 ### Resolve backend/ Folder Confusion
 - [ ] Remove `backend/` folder OR
@@ -92,20 +84,17 @@ Updated: 2026-03-31 19:52
 
 ---
 
+### Delete Obsolete menu.js
+- [x] Delete `frontend/src/content/menu.js` (no longer needed, migrated to content layer)
+
+---
+
 ## Quick Reference
 
 | Document | Purpose | Priority |
 |----------|---------|----------|
-| `docs/plans/2026-04-01-multi-site-regression-reiki.md` | Multi-site plan (Phases 1-6 complete) | ✅ Done |
+| `docs/plans/2026-04-01-multi-site-regression-reiki.md` | ✅ **COMPLETE** — Multi-site architecture | Done |
 | `.serena/memories/multi-site-phases-5-6-complete.md` | Implementation status | Reference |
-
----
-
-## Known Issues
-
-1. **English content not displaying** — Sections empty on `/regression/en` (Priority 0)
-2. **Scroll-snap on accordions** — Deferred (lower priority now)
-3. **backend/ folder** — Misleading, no backend deployed
 
 ---
 
@@ -120,17 +109,25 @@ Updated: 2026-03-31 19:52
 | 3 | Sections Migration | ✅ Complete |
 | 4 | Multi-Site Routing | ✅ Complete |
 | 5 | Site Theming | ✅ Complete |
-| 6 | English Content Placeholder | ✅ Complete (but not displaying) |
+| 6 | English Content Placeholder | ✅ Complete |
+| Bonus | Menu Migration | ✅ Complete |
 
 **URLs:**
 - `/` → `/regression/de` (default)
-- `/regression/en` → Should show English (currently broken)
-- `/reiki/de` → Reiki site
+- `/regression/en` → English site (working!)
+- `/reiki/de` → Reiki site (test content)
+
+---
+
+## Known Issues
+
+1. **Scroll-snap on accordions** — Deferred (lower priority now)
+2. **backend/ folder** — Misleading, no backend deployed
 
 ---
 
 **Last Updated:** 2026-04-01
 **Next Session Steps:**
-1. **URGENT:** Fix English content display issue
-2. Lock German content as final
-3. Translate English content from German source
+1. Translate English content from German source (Priority 1)
+2. Lock German content as final (Priority 2)
+3. Add real Reiki content (replace test content)
