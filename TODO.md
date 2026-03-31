@@ -1,6 +1,28 @@
 # TODO
 
-Updated: 2026-03-31 19:38
+Updated: 2026-03-31 19:39
+
+---
+
+## 🔴 PRIORITY 0 — Scroll Snap Improvements
+
+**Status:** ALMOST COMPLETE — Needs extra improvements for accordion sections
+**Memory:** `memory/scroll-snap-implementation.md`
+
+**What's working:**
+- ✅ Proximity scroll-snap (`y proximity`)
+- ✅ All sections have snap capability
+- ✅ Targeted buffers for accordion sections (50vh after, 30vh before next)
+- ✅ Scroll hooks updated to use `y proximity`
+
+**Known issues:**
+- ⚠️ Some accordion sections still jump/snap when expanding/closing
+- ⚠️ Buffer size may need fine-tuning for specific sections
+
+**Next improvements:**
+- Fine-tune buffer sizes per section (not one-size-fits-all)
+- Consider JavaScript-based scroll-snap disable during accordion transitions
+- Test on mobile (address bar, browser chrome issues)
 
 ---
 
@@ -88,9 +110,10 @@ Updated: 2026-03-31 19:38
 
 ## Known Issues
 
-1. **No English content yet** — German only, English structure in place
-2. **backend/ folder** — Misleading, no backend deployed
-3. **No catch-all route** — Invalid URLs may render blank
+1. **Scroll-snap on accordions** — Some accordion sections still jump when expanding/closing (almost done)
+2. **No English content yet** — German only, English structure in place
+3. **backend/ folder** — Misleading, no backend deployed
+4. **No catch-all route** — Invalid URLs may render blank
 
 ---
 
@@ -102,8 +125,8 @@ Previous documentation has been moved to `docs/archived/`:
 
 ---
 
-**Last Updated:** 2026-03-31
+**Last Updated:** 2026-04-01
 **Next Session Steps:**
-1. Review consolidated multi-site plan
-2. Execute Phase 1 (Content directory restructuring)
-3. Use `/multiloop` for Phases 2-4
+1. Fine-tune scroll-snap buffers for specific accordion sections
+2. Test scroll-snap on mobile devices
+3. Then proceed to multi-site architecture (Priority 1)
