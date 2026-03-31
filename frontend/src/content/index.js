@@ -80,6 +80,7 @@ export const ui = regressionDe.ui
 export const transcriptPage = regressionDe.transcriptPage
 export const notFound = regressionDe.notFound
 export const podcastVideo = regressionDe.podcastVideo
+export const menu = regressionDe.menu
 
 // Default export: Regression German content (backwards compatibility)
 export default regressionDe

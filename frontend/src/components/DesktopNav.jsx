@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { menu } from '../content/menu'
+import { useContent } from '../contexts/ContentContext'
 import { useNavigation } from '../contexts/NavigationContext'
 import DebugLabel from './ui/DebugLabel'
 
 export default function DesktopNav({ debugMode = false }) {
+  const { menu } = useContent()
   const { navigateTo } = useNavigation()
   const [openIndex, setOpenIndex] = useState(null)
 

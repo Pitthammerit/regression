@@ -462,10 +462,97 @@ export const podcastVideo = {
   fluentFormsNote: "[ Fluent Forms Embed will be used here ]",
 };
 
+export const menu = {
+  header: {
+    logo: {
+      src: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/logos/BKA%20logo%20500%20px%20black.png",
+      alt: "Benjamin Kurtz Academy"
+    },
+    cta: {
+      label: "Intro Call",
+      anchor: "#booking"
+    },
+    variant: "sidecar",
+    mainNav: [
+      { label: "Regression", anchor: null, hasSubmenu: true },
+      { label: "Science", anchor: null, hasSubmenu: true },
+      { label: "Experiences", anchor: null, hasSubmenu: true },
+      { label: "About", anchor: null, hasSubmenu: true },
+      { label: "FAQ", anchor: null, hasSubmenu: true },
+    ],
+  },
+  items: [
+    {
+      id: "regression",
+      label: "Regression",
+      order: 10,
+      children: [
+        { id: "regression-welcome", label: "Welcome", anchor: "#hero", order: 11 },
+        { id: "regression-what", label: "What is Regression?", anchor: "#what-is", order: 12 },
+        { id: "regression-for-whom", label: "Who comes for regression?", anchor: "#for-whom", order: 13 },
+        { id: "regression-process", label: "Session Process", anchor: "#process", order: 14 },
+      ],
+    },
+    {
+      id: "science",
+      label: "Science",
+      order: 20,
+      children: [
+        { id: "science-evidence", label: "Evidence", anchor: "#science", order: 21 },
+        { id: "science-authors", label: "Researchers & Authors", anchor: "#science", order: 22 },
+        { id: "science-references", label: "References", anchor: "#references", order: 23 },
+      ],
+    },
+    {
+      id: "experiences",
+      label: "Experiences",
+      order: 30,
+      children: [
+        { id: "experiences-cases", label: "Case Studies", anchor: "#cases", order: 31 },
+        { id: "experiences-love", label: "Wall of Love", anchor: "#wall-of-love", order: 32 },
+        { id: "experiences-youtube", label: "Podcast (YouTube)", anchor: "#podcast-video", order: 33 },
+        { id: "experiences-audio", label: "Audio Podcast", anchor: "#podcast", order: 34 },
+      ],
+    },
+    {
+      id: "about",
+      label: "About",
+      order: 40,
+      children: [
+        { id: "about-benjamin", label: "Benjamin Kurtz", anchor: "#about", order: 41 },
+      ],
+    },
+    {
+      id: "faq",
+      label: "FAQ",
+      order: 50,
+      children: [
+        { id: "faq-0", label: "Regression vs. Past Life Regression?", anchor: "#faq-0", order: 51 },
+        { id: "faq-1", label: "Must I believe in reincarnation?", anchor: "#faq-1", order: 52 },
+        { id: "faq-2", label: "Is this channeling?", anchor: "#faq-2", order: 53 },
+        { id: "faq-3", label: "What happens in a session?", anchor: "#faq-3", order: 54 },
+        { id: "faq-more", label: "More Answers", anchor: "#faq", order: 55 },
+      ],
+    },
+  ],
+  footer: {
+    items: [
+      { label: "Regression", anchor: "#what-is" },
+      { label: "Science", anchor: "#science" },
+      { label: "For Whom?", anchor: "#for-whom" },
+      { label: "About Benjamin", anchor: "#about" },
+      { label: "Process", anchor: "#process" },
+      { label: "Experiences", anchor: "#cases" },
+      { label: "FAQ", anchor: "#faq" },
+      { label: "References", anchor: "#references" },
+    ],
+  },
+};
+
 // Default export for backwards compatibility
 export default {
   meta, header, hero, services, welcome, statement, whatIs, podcasts,
   forWhom, about, processSection, cases, researchers, references,
   simpleCta, ctaImage, testimonials, booking, faq, footer, ui,
-  transcriptPage, notFound, podcastVideo,
+  transcriptPage, notFound, podcastVideo, menu,
 }

@@ -1,82 +1,81 @@
 # TODO
 
-Updated: 2026-03-31 19:48
+Updated: 2026-03-31 19:52
 
 ---
 
-## 🔴 PRIORITY 0 — Scroll Snap Improvements
+## 🔴 PRIORITY 0 — Fix English Content Display
 
-**Status:** ALMOST COMPLETE — Needs extra improvements for accordion sections
-**Memory:** `memory/scroll-snap-implementation.md`
+**Status:** URGENT — English content not showing on `/regression/en`
 
-**What's working:**
-- ✅ Proximity scroll-snap (`y proximity`)
-- ✅ All sections have snap capability
-- ✅ Targeted buffers for accordion sections (50vh after, 30vh before next)
-- ✅ Scroll hooks updated to use `y proximity`
+**ROOT CAUSE:** Menu stored in separate `menu.js` file, never migrated to `useContent()`!
 
-**Known issues:**
-- ⚠️ Some accordion sections still jump/snap when expanding/closing
-- ⚠️ Buffer size may need fine-tuning for specific sections
+**Files affected:**
+- ❌ `frontend/src/content/menu.js` — Static German menu (NEEDS MIGRATION)
+- ❌ `frontend/src/components/DesktopNav.jsx` — Static import, doesn't switch
+- ❌ `frontend/src/components/SidecarMenu.jsx` — Static import, doesn't switch
 
-**Next improvements:**
-- Fine-tune buffer sizes per section (not one-size-fits-all)
-- Consider JavaScript-based scroll-snap disable during accordion transitions
-- Test on mobile (address bar, browser chrome issues)
+**Fix required:**
+1. Add `menu` export to `regression-de.js` (copy from menu.js)
+2. Add `menu` export to `regression-en.js` (English translation)
+3. Update `DesktopNav.jsx` to use `useContent()` hook
+4. Update `SidecarMenu.jsx` to use `useContent()` hook
+5. Delete `frontend/src/content/menu.js` (after migration)
+
+**Debugging steps:**
+1. Test menu switching on `/regression/en` → should show English labels
+2. Test sections showing English placeholder content
 
 ---
 
-## 🔴 PRIORITY 1 — Multi-Site + Multi-Language Architecture
+## 🔴 PRIORITY 1 — Lock German Content
 
-**Status:** READY TO EXECUTE
-**Plan:** `docs/plans/2026-03-31-multi-site-multilang-architecture.md` (consolidated from old plan)
+**Status:** Pending — After English display is fixed
 
-**What this builds:**
-- Multi-site architecture (Regression + Reiki first)
-- Multi-language foundation (German → English)
-- Content abstraction layer with content files in flat structure
-- Site-first URL routing (`/regression/de`, `/regression/en`, `/reiki/de`)
-- Language switcher in Header
+**What this means:**
+- Mark `regression-de.js` as "FINAL" — no more changes
+- Document that German content is source of truth for translations
+- Create backup/archive of final German version
+- Any future content changes should update BOTH de and en files
 
-**Foundation already complete:**
-- ✅ Vite 5.0 + Tailwind v4 running
-- ✅ Design tokens in @theme directive
-- ✅ 27 composite utilities working
-- ✅ 13 on-dark utilities working
+**Why:** Prevents drift between German and English versions during translation work
 
-**Phases:**
-1. Content directory restructuring (30 min) — `regression-de.js`, `reiki-de.js`
-2. Site & Content Contexts (2 hours) — React contexts for site/lang state
-3. Update sections (3-4 hours) — All 21 sections use `useContent()`
-4. Multi-site routing (2 hours) — Site-first URLs with language switcher
-5. Site-specific theming (1 hour) — Prepare for site-specific colors
-6. English content placeholder (30 min)
-7. Backend documentation (30 min)
+---
 
-**Timeline:** 8-10 hours total (2-3 weeks at part-time pace)
+## 🔴 PRIORITY 2 — Translate English Content
 
-**Quick Start:**
-1. Review the consolidated plan
-2. Start with Phase 1 (Content directory)
-3. Use `/multiloop` for Phases 2-4
-4. Deploy and test after each phase
+**Status:** Pending — After German is locked
+
+**Source:** `frontend/src/content/regression-de.js` (716 lines)
+**Target:** `frontend/src/content/regression-en.js` (471 lines - needs completion)
+
+**Translation sections:**
+1. ✅ **Hero** — Already translated (good English)
+2. ✅ **Header** — Already translated
+3. ⚠️ **Welcome** — Has "Placeholder:" prefix, needs real translation
+4. ⚠️ **What Is** — Has "Placeholder:" prefixes
+5. ⚠️ **Services** — Mixed (some German: "Seelenrückführung")
+6. ⚠️ **All other sections** — Check for "Placeholder:" markers
+
+**Translation approach:**
+- Remove "Placeholder: Translate from German" prefixes
+- Replace with actual English translations
+- Keep structure exactly matching German version
+- Test each section after translation
+
+**Estimated effort:** 2-4 hours (depends on translation speed)
 
 ---
 
 ## 🟡 MEDIUM PRIORITY
 
-### English Content Translation
-**Status:** Pending — After multi-site architecture complete
-
-**What needs translation:**
-- `regression-de.js` → `regression-en.js`
-- ~677 lines of German content
-- Focus on key sections first (Hero, Services, Booking)
+### Reiki Site Real Content
+**Status:** Future — Test structure in place, real content needed
 
 ---
 
-### Reiki Site Real Content
-**Status:** Future — Test structure in place, real content needed
+### Scroll Snap Improvements (Lower Priority)
+**Status:** Deferred until English content is done
 
 ---
 
@@ -84,11 +83,6 @@ Updated: 2026-03-31 19:48
 
 ### Podcast Site (Future)
 **Status:** Can be added later following the same pattern as Reiki
-
----
-
-### Backend Integration (Future)
-**Status:** Documented in Phase 7, not scheduled
 
 ---
 
@@ -102,31 +96,41 @@ Updated: 2026-03-31 19:48
 
 | Document | Purpose | Priority |
 |----------|---------|----------|
-| `docs/plans/2026-03-31-multi-site-multilang-architecture.md` | **START HERE** — Multi-site implementation | 🔴 1 |
-| `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md` | Old migration plan (archived) | Reference |
-| `memory/MEMORY.md` | Project memory and quick links | Reference |
+| `docs/plans/2026-04-01-multi-site-regression-reiki.md` | Multi-site plan (Phases 1-6 complete) | ✅ Done |
+| `.serena/memories/multi-site-phases-5-6-complete.md` | Implementation status | Reference |
 
 ---
 
 ## Known Issues
 
-1. **Scroll-snap on accordions** — Some accordion sections still jump when expanding/closing (almost done)
-2. **No English content yet** — German only, English structure in place
+1. **English content not displaying** — Sections empty on `/regression/en` (Priority 0)
+2. **Scroll-snap on accordions** — Deferred (lower priority now)
 3. **backend/ folder** — Misleading, no backend deployed
-4. **No catch-all route** — Invalid URLs may render blank
 
 ---
 
-## Archive
+## Multi-Site Architecture Status
 
-Previous documentation has been moved to `docs/archived/`:
-- Architectural review docs (i18n, multi-site analysis)
-- Tailwind v4 migration plan (superseded by consolidated plan)
+✅ **COMPLETE** (2026-04-01)
+
+| Phase | Component | Status |
+|-------|-----------|--------|
+| 1 | Content Directory | ✅ Complete |
+| 2 | Contexts | ✅ Complete |
+| 3 | Sections Migration | ✅ Complete |
+| 4 | Multi-Site Routing | ✅ Complete |
+| 5 | Site Theming | ✅ Complete |
+| 6 | English Content Placeholder | ✅ Complete (but not displaying) |
+
+**URLs:**
+- `/` → `/regression/de` (default)
+- `/regression/en` → Should show English (currently broken)
+- `/reiki/de` → Reiki site
 
 ---
 
 **Last Updated:** 2026-04-01
 **Next Session Steps:**
-1. Fine-tune scroll-snap buffers for specific accordion sections
-2. Test scroll-snap on mobile devices
-3. Then proceed to multi-site architecture (Priority 1)
+1. **URGENT:** Fix English content display issue
+2. Lock German content as final
+3. Translate English content from German source

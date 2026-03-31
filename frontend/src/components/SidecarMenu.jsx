@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { menu } from '../content/menu'
+import { useContent } from '../contexts/ContentContext'
 import CtaButton from './ui/CtaButton'
 import DebugLabel from './ui/DebugLabel'
 import { useNavigation } from '../contexts/NavigationContext'
 
 export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
+  const { menu } = useContent()
   const [isClosing, setIsClosing] = React.useState(false)
   const closeTimeoutRef = useRef(null)
   const { navigateTo, isBurgerClosing } = useNavigation()
