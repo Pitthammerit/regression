@@ -184,7 +184,7 @@ export default function ResearchersSection({ debugMode = false }) {
 
                 {/* Short text */}
                 <DebugLabel type="typography-summary-large-on-dark" debugMode={debugMode}>
-                  <p className="typography-summary-large-on-dark content-spacing">
+                  <p className="typography-summary-large-on-dark content-spacing-md">
                     {author.shortVersion}
                   </p>
                 </DebugLabel>
@@ -224,7 +224,7 @@ export default function ResearchersSection({ debugMode = false }) {
                   )}
                 </div>
                 {/* Divider - Full width, less spacing before */}
-                <div className="md:col-span-2 pt-4">
+                <div className="md:col-span-2 pt-3">
                   <div className="h-px bg-color-border-light"></div>
                 </div>
               </div>
