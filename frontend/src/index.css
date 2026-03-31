@@ -36,6 +36,15 @@ section[data-testid="about-section"] {
   scroll-margin-bottom: 50vh;
 }
 
+/* Sections after accordion sections get top margin to prevent early snap */
+section[data-testid="podcast-video-section"],
+section[data-testid="process-section"],
+section[data-testid="podcast-section"],
+section[data-testid="booking-section"],
+section[data-testid="cta-section"] {
+  scroll-margin-top: 30vh;
+}
+
 /* ─────────────────────────────────────────────────────────────
    CUSTOM ANIMATIONS
    ───────────────────────────────────────────────────────────── */
