@@ -29,7 +29,8 @@ html {
 section[data-testid="researchers-section"],
 section[data-testid="faq-section"],
 section[data-testid="cases-section"],
-section[data-testid="researcher-quotes-section"] {
+section[data-testid="researcher-quotes-section"],
+section[data-testid="forwhom-section"] {
   scroll-margin-bottom: 25vh;
 }
 
