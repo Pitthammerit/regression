@@ -64,7 +64,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
-        <div className="max-w-centered-header mb-16">
+        <div className="max-w-centered-header section-block-spacing">
           <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
             <div className="typography-label-on-dark">
               {references.bigLabel}
@@ -72,7 +72,7 @@ export default function ReferencesSection({ debugMode = false }) {
           </DebugLabel>
 
           <DebugLabel type="typography-h2-on-dark" debugMode={debugMode}>
-            <h2 className="typography-h2-on-dark leading-tight">
+            <h2 className="typography-h2-on-dark leading-tight heading-body-spacing">
               {references.headline}
             </h2>
           </DebugLabel>
@@ -85,7 +85,7 @@ export default function ReferencesSection({ debugMode = false }) {
           <>
             {/* First reference - always visible */}
             {references.items.slice(0, 1).map((resource) => (
-              <div key={resource.type} className={!expanded ? 'grid md:grid-cols-[240px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start mb-10' : 'grid md:grid-cols-[240px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start mb-3'}>
+              <div key={resource.type} className={!expanded ? 'grid md:grid-cols-[240px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start mb-16' : 'grid md:grid-cols-[240px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start mb-6'}>
                 {/* Photo - Left column */}
                 <div className="md:max-w-[240px]">
                   {resource.portrait && resource.portrait.trim() !== '' ? (
@@ -112,8 +112,8 @@ export default function ReferencesSection({ debugMode = false }) {
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-                      <p className="typography-label-on-dark label tracking-wider mt-1">
+                    <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
+                      <p className="typography-label-on-dark label tracking-wider name-role-spacing">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -121,14 +121,14 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.dates && (
                     <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-                      <p className="typography-label-on-dark mt-1">
+                      <p className="typography-meta-on-dark role-date-spacing">
                         {resource.dates}
                       </p>
                     </DebugLabel>
                   )}
 
                   <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
-                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing-md whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
@@ -138,7 +138,7 @@ export default function ReferencesSection({ debugMode = false }) {
                       href={resource.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="typography-label-on-dark hover:text-primary-on-dark transition-colors"
+                      className="typography-meta-on-dark hover:text-primary-on-dark transition-colors"
                     >
                       {resource.sourceLabel} →
                     </a>
@@ -159,7 +159,7 @@ export default function ReferencesSection({ debugMode = false }) {
 
             {/* Remaining references - expandable */}
             {expanded && references.items.slice(1).map((resource, index) => (
-              <div key={resource.type} data-testid={`reference-item-${index}`} className={index === references.items.slice(1).length - 1 ? 'grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-10' : 'grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-6'}>
+              <div key={resource.type} data-testid={`reference-item-${index}`} className={index === references.items.slice(1).length - 1 ? 'grid md:grid-cols-[240px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start mb-16' : 'grid md:grid-cols-[240px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start mb-12'}>
                 {/* Photo - Left column */}
                 <div className="md:max-w-[240px]">
                   {resource.portrait && resource.portrait.trim() !== '' ? (
@@ -186,8 +186,8 @@ export default function ReferencesSection({ debugMode = false }) {
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-                      <p className="typography-label-on-dark label tracking-wider mt-1">
+                    <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
+                      <p className="typography-label-on-dark label tracking-wider name-role-spacing">
                         {resource.role}
                       </p>
                     </DebugLabel>
@@ -195,14 +195,14 @@ export default function ReferencesSection({ debugMode = false }) {
 
                   {resource.dates && (
                     <DebugLabel type="typography-meta-on-dark" debugMode={debugMode}>
-                      <p className="typography-label-on-dark mt-1">
+                      <p className="typography-meta-on-dark role-date-spacing">
                         {resource.dates}
                       </p>
                     </DebugLabel>
                   )}
 
                   <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
-                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
+                    <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing-md whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
@@ -212,7 +212,7 @@ export default function ReferencesSection({ debugMode = false }) {
                       href={resource.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="typography-label-on-dark hover:text-primary-on-dark transition-colors"
+                      className="typography-meta-on-dark hover:text-primary-on-dark transition-colors"
                     >
                       {resource.sourceLabel} →
                     </a>
