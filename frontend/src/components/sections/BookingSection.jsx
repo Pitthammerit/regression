@@ -64,7 +64,7 @@ export default function BookingSection({ debugMode = false }) {
 
         {/* Topics Accordion - 6 cards (initially open) */}
         <AccordionWrap isOpen={expandedPanel === 'cards'} duration="500ms">
-          <div className={`grid grid-cols-2 sm:grid-cols-3 card-grid-gap-sm md:card-grid-gap-md margin-top-md margin-top-sm mt-[3.5rem] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          <div className={`grid grid-cols-2 sm:grid-cols-3 card-grid-gap-sm md:card-grid-gap-md margin-top-md transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
             expandedPanel === 'cards' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}>
             {booking.formTopics.map((topic, i) => (
@@ -75,7 +75,7 @@ export default function BookingSection({ debugMode = false }) {
 
         {/* Calendar Accordion (initially closed) */}
         <AccordionWrap isOpen={expandedPanel === 'calendar'} duration="500ms">
-          <div className={`rounded-2xl border border-color-light bg-color-card-overlay p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] my-8 ${
+          <div className={`rounded-2xl border border-color-light bg-color-card-overlay p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] mt-8 ${
             expandedPanel === 'calendar' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {embedCode ? (
@@ -178,7 +178,7 @@ export function BookingSectionDark({ debugMode = false }) {
 
         {/* Topics Accordion - 6 cards (initially open) */}
         <AccordionWrap isOpen={expandedPanel === 'cards'} duration="500ms">
-          <div className={`grid grid-cols-2 sm:grid-cols-3 card-grid-gap-sm md:card-grid-gap-md margin-top-md margin-top-sm mt-[3.5rem] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          <div className={`grid grid-cols-2 sm:grid-cols-3 card-grid-gap-sm md:card-grid-gap-md margin-top-md transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
             expandedPanel === 'cards' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}>
             {booking.formTopics.map((topic, i) => (
@@ -189,7 +189,7 @@ export function BookingSectionDark({ debugMode = false }) {
 
         {/* Calendar Accordion (initially closed) */}
         <AccordionWrap isOpen={expandedPanel === 'calendar'} duration="500ms">
-          <div className={`rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] my-8 ${
+          <div className={`rounded-2xl border border-divider-on-dark bg-white/5 backdrop-blur-sm p-8 text-left transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] mt-8 ${
             expandedPanel === 'calendar' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {embedCode ? (
