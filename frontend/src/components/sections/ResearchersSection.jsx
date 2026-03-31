@@ -42,10 +42,10 @@ export default function ResearchersSection({ debugMode = false }) {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-3xl section-block-spacing">
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <SectionLabel text={researchers.authorBigLabel} light={true} />
           </DebugLabel>
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="typography-h2 text-primary-on-dark leading-tight">
               {researchers.authorHeadline}
             </h2>
@@ -82,7 +82,7 @@ export default function ResearchersSection({ debugMode = false }) {
             {/* Right column: Quote + Name + Title */}
             <div className="flex flex-col text-on-dark">
               {/* Quote - Top of right column */}
-              <DebugLabel type="quote-featured" debugMode={debugMode}>
+              <DebugLabel type="typography-quote-featured" debugMode={debugMode}>
                 <blockquote className="typography-quote-featured text-primary-on-dark content-spacing">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
@@ -90,10 +90,10 @@ export default function ResearchersSection({ debugMode = false }) {
 
               {/* Name + Title - Below quote */}
               <div>
-                <DebugLabel type="author-name" debugMode={debugMode}>
+                <DebugLabel type="typography-author-name" debugMode={debugMode}>
                   <div className="typography-author-name text-primary-on-dark name-role-spacing">{featuredAuthor.name}</div>
                 </DebugLabel>
-                <DebugLabel type="label" debugMode={debugMode}>
+                <DebugLabel type="typography-label" debugMode={debugMode}>
                   <div className="typography-label text-secondary-on-dark name-role-spacing">{featuredAuthor.role}</div>
                 </DebugLabel>
               </div>
@@ -146,40 +146,40 @@ export default function ResearchersSection({ debugMode = false }) {
               <div className="flex flex-col">
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden content-spacing-md">
-                  <DebugLabel type="author-name" debugMode={debugMode}>
+                  <DebugLabel type="typography-author-name" debugMode={debugMode}>
                     <h3 className="typography-author-name text-primary-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
-                  <DebugLabel type="label" debugMode={debugMode}>
+                  <DebugLabel type="typography-label" debugMode={debugMode}>
                     <p className="typography-label text-secondary-on-dark role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
-                  <DebugLabel type="meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta" debugMode={debugMode}>
                     <p className="typography-meta text-secondary-on-dark block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block content-spacing-md">
-                  <DebugLabel type="author-name" debugMode={debugMode}>
+                  <DebugLabel type="typography-author-name" debugMode={debugMode}>
                     <h3 className="typography-author-name text-primary-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
-                  <DebugLabel type="label" debugMode={debugMode}>
+                  <DebugLabel type="typography-label" debugMode={debugMode}>
                     <p className="typography-label text-secondary-on-dark role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
-                  <DebugLabel type="meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta" debugMode={debugMode}>
                     <p className="typography-meta text-secondary-on-dark block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Short text */}
-                <DebugLabel type="h2" debugMode={debugMode}>
+                <DebugLabel type="typography-h2" debugMode={debugMode}>
                   <p className="font-secondary text-summary-large text-on-dark leading-relaxed content-spacing">
                     {author.shortVersion}
                   </p>
@@ -201,13 +201,13 @@ export default function ResearchersSection({ debugMode = false }) {
             <AccordionWrap isOpen={expandedId === author.id}>
               <div className="md:col-span-2">
                 <div className="expanded-content-spacing">
-                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                  <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
                     <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
                       {author.longVersion}
                     </p>
                   </DebugLabel>
                   {author.sourceUrl && (
-                    <DebugLabel type="meta" debugMode={debugMode}>
+                    <DebugLabel type="typography-meta" debugMode={debugMode}>
                       <a
                         href={author.sourceUrl}
                         target="_blank"

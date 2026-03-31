@@ -37,17 +37,17 @@ export default function BookingSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="booking" data-testid="booking-section">
       <div className="max-w-centered-header content-spacing-lg mx-auto text-center">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={booking.label} />
         </DebugLabel>
 
-        <DebugLabel type="hero" debugMode={debugMode}>
+        <DebugLabel type="typography-hero" debugMode={debugMode}>
           <h2 className="font-secondary text-hero-large text-color-primary leading-tight content-spacing-md">
             {booking.headline}
           </h2>
         </DebugLabel>
 
-        <DebugLabel type="body-lg" debugMode={debugMode}>
+        <DebugLabel type="typography-body-lg" debugMode={debugMode}>
           <p className="font-primary text-body-lg text-color-text leading-relaxed max-w-lg mx-auto">
             {booking.subline}
           </p>
@@ -89,12 +89,12 @@ export default function BookingSectionCopy({ debugMode = false }) {
             ) : (
               <div className="min-h-[300px] flex flex-col items-center justify-center gap-4 text-center">
                 <div className="w-12 h-px bg-color-primary/20" />
-                <DebugLabel type="body" debugMode={debugMode}>
+                <DebugLabel type="typography-body" debugMode={debugMode}>
                   <p className="font-primary text-body text-color-text">
                     Kalender-Embed wird hier eingebettet.
                   </p>
                 </DebugLabel>
-                <DebugLabel type="label" debugMode={debugMode}>
+                <DebugLabel type="typography-label" debugMode={debugMode}>
                   <p className="font-primary text-label text-color-secondary/60 max-w-xs">
                     Sobald du den Embed-Code bereitstellst, erscheint hier das Buchungsformular direkt auf der Seite.
                   </p>

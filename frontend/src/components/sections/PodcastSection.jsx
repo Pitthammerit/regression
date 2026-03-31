@@ -34,11 +34,11 @@ export default function PodcastSection({ debugMode = false }) {
 
           {/* Left: Content */}
           <div>
-            <DebugLabel type="label" debugMode={debugMode}>
+            <DebugLabel type="typography-label" debugMode={debugMode}>
               <SectionLabel text={podcast.label} />
             </DebugLabel>
 
-            <DebugLabel type="h2" debugMode={debugMode}>
+            <DebugLabel type="typography-h2" debugMode={debugMode}>
               <h2 className="font-secondary text-podcast-headline text-color-primary content-spacing-md">
                 {podcast.sectionHeadline.map((line, i) => (
                   <span key={i} className="block">{line}</span>
@@ -46,7 +46,7 @@ export default function PodcastSection({ debugMode = false }) {
               </h2>
             </DebugLabel>
 
-            <DebugLabel type="body-lg" debugMode={debugMode}>
+            <DebugLabel type="typography-body-lg" debugMode={debugMode}>
               <p className="typography-body-lg leading-relaxed">
                 {podcast.sectionBody}
               </p>

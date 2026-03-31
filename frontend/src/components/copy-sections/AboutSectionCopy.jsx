@@ -13,7 +13,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
         {/* Left: Label + Portrait photo — sticky */}
         <div className="md:sticky md:top-28">
           {/* Label moved above image */}
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <SectionLabel text={about.label} />
           </DebugLabel>
 
@@ -33,14 +33,14 @@ export default function AboutSectionCopy({ debugMode = false }) {
 
         {/* Right: Bio */}
         <div>
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="font-secondary text-h2 text-color-primary leading-tight">
               {about.headline}
             </h2>
           </DebugLabel>
 
           {about.body.map((para, i) => (
-            <DebugLabel type="body" debugMode={debugMode} key={i}>
+            <DebugLabel type="typography-body" debugMode={debugMode} key={i}>
               <p className={`font-primary text-color-text text-body ${i > 0 ? 'margin-top-sm' : ''}`}>
                 {para}
               </p>
@@ -49,7 +49,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
 
           {/* Credentials */}
           <div className="margin-top-md section-padding-sm border-t border-color-light">
-            <DebugLabel type="label" debugMode={debugMode}>
+            <DebugLabel type="typography-label" debugMode={debugMode}>
               <p className="font-primary text-label label text-color-secondary content-spacing-lg">
                 {about.credentialsLabel}
               </p>
@@ -57,7 +57,7 @@ export default function AboutSectionCopy({ debugMode = false }) {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
                 <li key={i} className="font-primary text-list text-color-text flex items-start gap-2">
-                  <DebugLabel type="list" debugMode={debugMode}>
+                  <DebugLabel type="typography-list" debugMode={debugMode}>
                     <span className="text-color-primary shrink-0 mt-0.5">—</span>
                     {cred}
                   </DebugLabel>

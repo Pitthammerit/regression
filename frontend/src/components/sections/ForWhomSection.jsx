@@ -23,15 +23,15 @@ export default function ForWhomSection({ debugMode = false }) {
   return (
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={forWhom.label} />
         </DebugLabel>
-        <DebugLabel type="h2" debugMode={debugMode}>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
           <h2 className="typography-h2 leading-tight content-spacing-md">
             {forWhom.headline}
           </h2>
         </DebugLabel>
-        <DebugLabel type="body-lg" debugMode={debugMode}>
+        <DebugLabel type="typography-body-lg" debugMode={debugMode}>
           <p className="typography-body-lg leading-relaxed">
             {forWhom.intro}
           </p>

@@ -31,10 +31,10 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
     <SectionWrapper className="bg-color-primary text-on-dark" data-testid="researcher-quotes-section">
       {/* Header group with controlled spacing */}
       <div className="mb-12 md:mb-16">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={researchers.authorBigLabel} light />
         </DebugLabel>
-        <DebugLabel type="h2" debugMode={debugMode}>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
           <h2 className="font-secondary text-h2 leading-tight text-on-dark">
             {researchers.authorHeadline}
           </h2>
@@ -68,21 +68,21 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
             </div>
 
             {/* Quote */}
-            <DebugLabel type="quote-featured" debugMode={debugMode}>
+            <DebugLabel type="typography-quote-featured" debugMode={debugMode}>
               <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
                 "{author.quote}"
               </p>
             </DebugLabel>
 
             {/* Name */}
-            <DebugLabel type="author-name" debugMode={debugMode}>
+            <DebugLabel type="typography-author-name" debugMode={debugMode}>
               <p className="font-secondary text-author-name text-on-dark name-role-spacing">
                 {author.name}
               </p>
             </DebugLabel>
 
             {/* Role */}
-            <DebugLabel type="meta" debugMode={debugMode}>
+            <DebugLabel type="typography-meta" debugMode={debugMode}>
               <p className="font-primary text-meta text-on-dark-meta role-date-spacing">
                 {author.role}
               </p>
@@ -128,19 +128,19 @@ export default function ResearcherQuotesSectionCopy({ debugMode = false }) {
                     </AspectRatio>
                   </div>
 
-                  <DebugLabel type="quote-featured" debugMode={debugMode}>
+                  <DebugLabel type="typography-quote-featured" debugMode={debugMode}>
                     <p className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
                       "{author.quote}"
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="author-name" debugMode={debugMode}>
+                  <DebugLabel type="typography-author-name" debugMode={debugMode}>
                     <p className="font-secondary text-author-name text-on-dark name-role-spacing">
                       {author.name}
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta" debugMode={debugMode}>
                     <p className="font-primary text-meta text-on-dark-meta role-date-spacing">
                       {author.role}
                     </p>

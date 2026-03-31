@@ -97,12 +97,12 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
       <div className="max-w-content mx-auto px-6">
         {/* Section Title - centered */}
         <div className="content-spacing-lg text-center">
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <p className="typography-label">
               {label}
             </p>
           </DebugLabel>
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="typography-h2 text-center label-heading-spacing">
               {subtitle}
             </h2>
@@ -148,10 +148,10 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                         </div>
                       )}
                       <div>
-                        <DebugLabel type="h4" debugMode={debugMode}>
+                        <DebugLabel type="typography-h4" debugMode={debugMode}>
                           <p className="font-primary text-h5 font-semibold text-color-primary">{t.name}</p>
                         </DebugLabel>
-                        <DebugLabel type="meta" debugMode={debugMode}>
+                        <DebugLabel type="typography-meta" debugMode={debugMode}>
                           <p className="typography-label">
                             {t.context}
                           </p>
@@ -167,7 +167,7 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                   </div>
 
                   {/* Quote - below stars */}
-                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                  <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
                     <div className="text-color-text mt-3">
                       <p className={`font-secondary body-narrative-italic text-center sm:text-left ${getQuoteFontSize(t.quote)}`}>
                         "{t.quote}"

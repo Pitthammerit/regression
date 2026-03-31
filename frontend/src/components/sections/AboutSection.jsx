@@ -13,7 +13,7 @@ export default function AboutSection({ debugMode = false }) {
         {/* Left: Label + Portrait photo — sticky */}
         <div className="md:sticky md:top-28">
           {/* Label moved above image */}
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <SectionLabel text={about.label} />
           </DebugLabel>
 
@@ -33,14 +33,14 @@ export default function AboutSection({ debugMode = false }) {
 
         {/* Right: Bio */}
         <div>
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="typography-h2 leading-tight">
               {about.headline}
             </h2>
           </DebugLabel>
 
           {about.body.map((para, i) => (
-            <DebugLabel type="body" debugMode={debugMode} key={i}>
+            <DebugLabel type="typography-body" debugMode={debugMode} key={i}>
               <p className={`typography-body ${i > 0 ? 'margin-top-sm' : ''}`}>
                 {para}
               </p>
@@ -49,7 +49,7 @@ export default function AboutSection({ debugMode = false }) {
 
           {/* Credentials */}
           <div className="margin-top-md section-padding-sm border-t border-color-light">
-            <DebugLabel type="label" debugMode={debugMode}>
+            <DebugLabel type="typography-label" debugMode={debugMode}>
               <p className="typography-label content-spacing-lg">
                 {about.credentialsLabel}
               </p>
@@ -57,7 +57,7 @@ export default function AboutSection({ debugMode = false }) {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
                 <li key={i} className="font-primary text-list text-color-text flex items-start gap-2">
-                  <DebugLabel type="body" debugMode={debugMode}>
+                  <DebugLabel type="typography-body" debugMode={debugMode}>
                     <span className="text-color-primary shrink-0 mt-0.5">—</span>
                     {cred}
                   </DebugLabel>

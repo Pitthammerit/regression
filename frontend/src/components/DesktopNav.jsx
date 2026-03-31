@@ -22,7 +22,7 @@ export default function DesktopNav({ debugMode = false }) {
             onMouseEnter={() => item.hasSubmenu && setOpenIndex(index)}
             onMouseLeave={() => setOpenIndex(null)}
           >
-            <DebugLabel type="menu-text" debugMode={debugMode}>
+            <DebugLabel type="typography-menu-text" debugMode={debugMode}>
               <button
                 className="px-3 py-2 font-primary text-menu-text text-color-primary rounded hover:bg-color-bg-light transition-colors"
                 onClick={() => !item.hasSubmenu && handleNavClick(item.anchor)}
@@ -37,7 +37,7 @@ export default function DesktopNav({ debugMode = false }) {
                   .find(cat => cat.label === item.label)
                   ?.children.map((child) => (
                     <li key={child.id}>
-                      <DebugLabel type="menu-text" debugMode={debugMode}>
+                      <DebugLabel type="typography-menu-text" debugMode={debugMode}>
                         <button
                           onClick={() => handleNavClick(child.anchor)}
                           className="block w-full text-left px-4 py-2 font-primary text-menu-text text-color-text hover:font-bold transition-all"

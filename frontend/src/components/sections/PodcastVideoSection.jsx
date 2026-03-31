@@ -41,17 +41,17 @@ export default function PodcastVideoSection({ debugMode = false }) {
       <SectionWrapper id="podcast-video" data-testid="podcast-video-section">
         {/* Centered heading */}
         <div className="text-center max-w-centered-header mx-auto content-spacing-lg">
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <SectionLabel text={podcast.label} />
           </DebugLabel>
 
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="font-secondary text-h2 text-color-primary leading-tight content-spacing-md">
               {podcast.headline}
             </h2>
           </DebugLabel>
 
-          <DebugLabel type="body-lg" debugMode={debugMode}>
+          <DebugLabel type="typography-body-lg" debugMode={debugMode}>
             <p className="font-primary text-body-lg text-color-text leading-relaxed">
               {podcast.subline}
             </p>
@@ -92,13 +92,13 @@ export default function PodcastVideoSection({ debugMode = false }) {
       >
         <div className="flex items-start justify-between px-8 pt-8 pb-6 border-b border-color-light">
           <div>
-            <DebugLabel type="label" debugMode={debugMode}>
+            <DebugLabel type="typography-label" debugMode={debugMode}>
               <p className="font-primary text-label label text-color-secondary name-role-spacing">
                 {podcastVideo.panelLabel}
               </p>
             </DebugLabel>
 
-            <DebugLabel type="h3" debugMode={debugMode}>
+            <DebugLabel type="typography-h3" debugMode={debugMode}>
               <h3 className="font-secondary text-h3 text-color-primary leading-tight">
                 {podcastVideo.panelTitleLine1}<br />{podcastVideo.panelTitleLine2}
               </h3>
@@ -130,7 +130,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
           ) : (
             <div className="space-y-4" data-testid="transcript-placeholder-form">
               <div>
-                <DebugLabel type="label" debugMode={debugMode}>
+                <DebugLabel type="typography-label" debugMode={debugMode}>
                   <label className="font-primary text-label label text-color-secondary block block-label-spacing">
                     {podcastVideo.nameLabel}
                   </label>
@@ -145,7 +145,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
               </div>
 
               <div>
-                <DebugLabel type="label" debugMode={debugMode}>
+                <DebugLabel type="typography-label" debugMode={debugMode}>
                   <label className="font-primary text-label label text-color-secondary block block-label-spacing">
                     {podcastVideo.emailLabel}
                   </label>

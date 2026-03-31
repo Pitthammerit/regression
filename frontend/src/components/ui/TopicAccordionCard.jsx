@@ -37,7 +37,7 @@ export default function TopicAccordionCard({
         className="w-full flex items-center justify-between p-5 md:p-6 text-left"
         aria-expanded={isExpanded}
       >
-        <DebugLabel type="h4" debugMode={debugMode}>
+        <DebugLabel type="typography-h4" debugMode={debugMode}>
           <h3 className={`typography-h4 ${
             dark ? 'text-primary-on-dark' : 'text-color-primary'
           }`}>
@@ -57,7 +57,7 @@ export default function TopicAccordionCard({
       <AccordionWrap isOpen={isExpanded} duration="300ms">
         <div className="px-5 pb-5 md:px-6 md:pb-6">
           {description ? (
-            <DebugLabel type="body" debugMode={debugMode}>
+            <DebugLabel type="typography-body" debugMode={debugMode}>
               <p className={`typography-body ${
                 dark ? 'text-on-dark' : 'text-color-text'
               }`}>
@@ -65,7 +65,7 @@ export default function TopicAccordionCard({
               </p>
             </DebugLabel>
           ) : (
-            <DebugLabel type="body" debugMode={debugMode}>
+            <DebugLabel type="typography-body" debugMode={debugMode}>
               <p className={`typography-body italic ${
                 dark ? 'text-secondary-on-dark' : 'text-color-secondary/60'
               }`}>

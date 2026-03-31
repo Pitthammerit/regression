@@ -36,11 +36,11 @@ export default function PodcastSectionCopy({ debugMode = false }) {
 
           {/* Left: Copy */}
           <div>
-            <DebugLabel type="label" debugMode={debugMode}>
+            <DebugLabel type="typography-label" debugMode={debugMode}>
               <SectionLabel text={podcast.label} />
             </DebugLabel>
 
-            <DebugLabel type="podcast-headline" debugMode={debugMode}>
+            <DebugLabel type="typography-podcast-headline" debugMode={debugMode}>
               <h2 className="font-secondary text-podcast-headline text-color-primary content-spacing-md">
                 {podcast.sectionHeadline.map((line, i) => (
                   <span key={i} className="block">{line}</span>
@@ -48,7 +48,7 @@ export default function PodcastSectionCopy({ debugMode = false }) {
               </h2>
             </DebugLabel>
 
-            <DebugLabel type="body-lg" debugMode={debugMode}>
+            <DebugLabel type="typography-body-lg" debugMode={debugMode}>
               <p className="font-primary text-body-lg text-color-text leading-relaxed">
                 {podcast.sectionBody}
               </p>

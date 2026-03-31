@@ -32,11 +32,11 @@ export default function FAQSectionCopy({ debugMode = false }) {
       className="py-20 md:py-28 bg-color-bg-light"
     >
       <div className="max-w-content mx-auto px-6">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={faq.bigLabel} />
         </DebugLabel>
 
-        <DebugLabel type="h2" debugMode={debugMode}>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
           <h2 className="font-secondary text-h2 text-color-primary leading-tight section-block-spacing">
             {faq.headline}
           </h2>
@@ -50,7 +50,7 @@ export default function FAQSectionCopy({ debugMode = false }) {
                 className="w-full flex justify-between items-center py-6 text-left font-primary text-color-secondary hover:text-color-secondary/80 transition-colors"
                 data-testid={`faq-${index}`}
               >
-                <DebugLabel type="h4" debugMode={debugMode}>
+                <DebugLabel type="typography-h4" debugMode={debugMode}>
                   <span className="font-medium text-h4 text-color-primary">{item.question}</span>
                 </DebugLabel>
                 <ChevronDown
@@ -64,7 +64,7 @@ export default function FAQSectionCopy({ debugMode = false }) {
                   expandedFAQIndex === index ? 'max-h-[600px] pb-6' : 'max-h-0'
                 }`}
               >
-                <DebugLabel type="body" debugMode={debugMode}>
+                <DebugLabel type="typography-body" debugMode={debugMode}>
                   {item.answer.split('\n\n').map((paragraph, i, arr) => (
                     <p
                       key={i}

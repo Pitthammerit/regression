@@ -45,10 +45,10 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-3xl section-block-spacing">
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <SectionLabel text={researchers.authorBigLabel} light={true} />
           </DebugLabel>
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="font-secondary text-h2 leading-tight text-on-dark">
               {researchers.authorHeadline}
             </h2>
@@ -85,7 +85,7 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             {/* Right column: Quote + Name + Title */}
             <div className="flex flex-col text-on-dark-body">
               {/* Quote - Top of right column */}
-              <DebugLabel type="quote-featured" debugMode={debugMode}>
+              <DebugLabel type="typography-quote-featured" debugMode={debugMode}>
                 <blockquote className="font-secondary text-quote-featured quote-featured-italic leading-tight text-on-dark content-spacing">
                   "{featuredAuthor.featuredQuote}"
                 </blockquote>
@@ -93,10 +93,10 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
 
               {/* Name + Title - Below quote */}
               <div>
-                <DebugLabel type="author-name" debugMode={debugMode}>
+                <DebugLabel type="typography-author-name" debugMode={debugMode}>
                   <div className="font-secondary text-author-name text-on-dark name-role-spacing">{featuredAuthor.name}</div>
                 </DebugLabel>
-                <DebugLabel type="label" debugMode={debugMode}>
+                <DebugLabel type="typography-label" debugMode={debugMode}>
                   <div className="font-primary text-label label text-on-dark-meta name-role-spacing">{featuredAuthor.role}</div>
                 </DebugLabel>
               </div>
@@ -149,40 +149,40 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
               <div className="flex flex-col">
                 {/* Mobile: Name/Role/Date above portrait */}
                 <div className="md:hidden content-spacing-md">
-                  <DebugLabel type="author-name" debugMode={debugMode}>
+                  <DebugLabel type="typography-author-name" debugMode={debugMode}>
                     <h3 className="font-secondary text-author-name text-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
-                  <DebugLabel type="label" debugMode={debugMode}>
+                  <DebugLabel type="typography-label" debugMode={debugMode}>
                     <p className="font-primary text-label label text-on-dark-meta role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
-                  <DebugLabel type="meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta" debugMode={debugMode}>
                     <p className="font-primary text-meta text-on-dark-meta block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Desktop: Name/Title/Year */}
                 <div className="hidden md:block content-spacing-md">
-                  <DebugLabel type="author-name" debugMode={debugMode}>
+                  <DebugLabel type="typography-author-name" debugMode={debugMode}>
                     <h3 className="font-secondary text-author-name text-on-dark name-role-spacing">
                       {author.name}
                     </h3>
                   </DebugLabel>
-                  <DebugLabel type="label" debugMode={debugMode}>
+                  <DebugLabel type="typography-label" debugMode={debugMode}>
                     <p className="font-primary text-label label text-on-dark-meta role-date-spacing">
                       {author.role}
                     </p>
                   </DebugLabel>
-                  <DebugLabel type="meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta" debugMode={debugMode}>
                     <p className="font-primary text-meta text-on-dark-meta block-label-spacing">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
                 {/* Short text */}
-                <DebugLabel type="summary-large" debugMode={debugMode}>
+                <DebugLabel type="typography-summary-large" debugMode={debugMode}>
                   <p className="font-secondary text-summary-large text-on-dark-body leading-relaxed content-spacing">
                     {author.shortVersion}
                   </p>
@@ -204,13 +204,13 @@ export default function ResearchersSectionCopy({ debugMode = false }) {
             {expandedId === author.id && (
               <>
                 <div className="expanded-content-spacing md:col-span-2">
-                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                  <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
                     <p className="font-secondary text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {author.longVersion}
                     </p>
                   </DebugLabel>
                   {author.sourceUrl && (
-                    <DebugLabel type="meta" debugMode={debugMode}>
+                    <DebugLabel type="typography-meta" debugMode={debugMode}>
                       <a
                         href={author.sourceUrl}
                         target="_blank"

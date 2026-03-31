@@ -16,15 +16,15 @@ export default function CaseStudiesSection({ debugMode = false }) {
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={cases.label} />
         </DebugLabel>
-        <DebugLabel type="h2" debugMode={debugMode}>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
           <h2 className="typography-h2 leading-tight text-center content-spacing-md">
             {cases.headline}
           </h2>
         </DebugLabel>
-        <DebugLabel type="body-lg" debugMode={debugMode}>
+        <DebugLabel type="typography-body-lg" debugMode={debugMode}>
           <p className="typography-body-lg leading-relaxed">{cases.body}</p>
         </DebugLabel>
       </div>
@@ -86,17 +86,17 @@ export default function CaseStudiesSection({ debugMode = false }) {
                 </div>
               )}
               <div className="flex-1 pr-4">
-                <DebugLabel type="label" debugMode={debugMode}>
+                <DebugLabel type="typography-label" debugMode={debugMode}>
                   <span className="typography-label block item-tag-spacing">
                     {item.tag}
                   </span>
                 </DebugLabel>
-                <DebugLabel type="h3" debugMode={debugMode}>
+                <DebugLabel type="typography-h3" debugMode={debugMode}>
                   <span className="typography-h3 group-hover:text-color-secondary transition-colors block leading-snug">
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>
-                <DebugLabel type="body" debugMode={debugMode}>
+                <DebugLabel type="typography-body" debugMode={debugMode}>
                   <span className="text-subline subline-italic text-color-text block element-spacing-xs">
                     {item.teaser}
                   </span>
@@ -116,12 +116,12 @@ export default function CaseStudiesSection({ debugMode = false }) {
                   { label: cases.sectionLabels.result,    text: item.result },
                 ].map((block) => (
                   <div key={block.label} className="border-l border-color-primary pl-4">
-                    <DebugLabel type="label" debugMode={debugMode}>
+                    <DebugLabel type="typography-label" debugMode={debugMode}>
                       <span className="typography-label block block-label-spacing">
                         {block.label}
                       </span>
                     </DebugLabel>
-                    <DebugLabel type="body" debugMode={debugMode}>
+                    <DebugLabel type="typography-body" debugMode={debugMode}>
                       <p className="typography-body">
                         {block.text}
                       </p>
@@ -131,7 +131,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
               </div>
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
-                <DebugLabel type="disclaimer" debugMode={debugMode}>
+                <DebugLabel type="typography-disclaimer" debugMode={debugMode}>
                   <p className="text-disclaimer disclaimer-italic text-color-text/35 element-spacing-sm">
                     * Namen wurde geändert
                   </p>

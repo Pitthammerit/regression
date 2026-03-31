@@ -64,13 +64,13 @@ export default function ReferencesSection({ debugMode = false }) {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-centered-header mb-16">
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <div className="typography-label text-secondary-on-dark label-heading-spacing">
               {references.bigLabel}
             </div>
           </DebugLabel>
 
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="typography-h2 text-primary-on-dark leading-tight">
               {references.headline}
             </h2>
@@ -104,14 +104,14 @@ export default function ReferencesSection({ debugMode = false }) {
 
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
-                  <DebugLabel type="h3" debugMode={debugMode}>
+                  <DebugLabel type="typography-h3" debugMode={debugMode}>
                     <p className="typography-h3 text-primary-on-dark font-semibold name-role-spacing">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="meta" debugMode={debugMode}>
+                    <DebugLabel type="typography-meta" debugMode={debugMode}>
                       <p className="typography-label text-secondary-on-dark label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
@@ -119,20 +119,20 @@ export default function ReferencesSection({ debugMode = false }) {
                   )}
 
                   {resource.dates && (
-                    <DebugLabel type="meta" debugMode={debugMode}>
+                    <DebugLabel type="typography-meta" debugMode={debugMode}>
                       <p className="typography-label text-secondary-on-dark content-spacing-md">
                         {resource.dates}
                       </p>
                     </DebugLabel>
                   )}
 
-                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                  <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
                     <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta" debugMode={debugMode}>
                     <a
                       href={resource.sourceUrl}
                       target="_blank"
@@ -178,14 +178,14 @@ export default function ReferencesSection({ debugMode = false }) {
 
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
-                  <DebugLabel type="h3" debugMode={debugMode}>
+                  <DebugLabel type="typography-h3" debugMode={debugMode}>
                     <p className="typography-h3 text-primary-on-dark font-semibold name-role-spacing">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="meta" debugMode={debugMode}>
+                    <DebugLabel type="typography-meta" debugMode={debugMode}>
                       <p className="typography-label text-secondary-on-dark label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
@@ -193,20 +193,20 @@ export default function ReferencesSection({ debugMode = false }) {
                   )}
 
                   {resource.dates && (
-                    <DebugLabel type="meta" debugMode={debugMode}>
+                    <DebugLabel type="typography-meta" debugMode={debugMode}>
                       <p className="typography-label text-secondary-on-dark content-spacing-md">
                         {resource.dates}
                       </p>
                     </DebugLabel>
                   )}
 
-                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                  <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
                     <p className="typography-body-narrative text-on-dark leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="meta" debugMode={debugMode}>
+                  <DebugLabel type="typography-meta" debugMode={debugMode}>
                     <a
                       href={resource.sourceUrl}
                       target="_blank"

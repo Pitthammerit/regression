@@ -17,12 +17,12 @@ export default function HeroV3Section({ debugMode = false }) {
       {/* HEADLINE — spacing to video */}
       <div className="pt-24 pb-6 px-8 md:px-14 lg:px-20 flex-shrink-0">
         <div className="max-w-content mx-auto text-center">
-          <DebugLabel type="hero-large" debugMode={debugMode}>
+          <DebugLabel type="typography-hero-large" debugMode={debugMode}>
             <span className="typography-hero-large inline">
               {hero.headlineLine1}&nbsp;
             </span>
           </DebugLabel>
-          <DebugLabel type="hero" debugMode={debugMode}>
+          <DebugLabel type="typography-hero" debugMode={debugMode}>
             <span className="typography-hero italic inline">
               {hero.headlineLine2}
             </span>
@@ -49,7 +49,7 @@ export default function HeroV3Section({ debugMode = false }) {
       {/* CTA — centered below video */}
       <div className="px-8 md:px-14 lg:px-20 pt-6">
         <div className="max-w-[783px] mx-auto text-center">
-          <DebugLabel type="hero" debugMode={debugMode}>
+          <DebugLabel type="typography-hero" debugMode={debugMode}>
             <p className="typography-hero italic">
               {hero.heroCta}
             </p>

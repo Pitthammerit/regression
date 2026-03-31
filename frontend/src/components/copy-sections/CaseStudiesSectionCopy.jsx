@@ -15,15 +15,15 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={cases.label} />
         </DebugLabel>
-        <DebugLabel type="h2" debugMode={debugMode}>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
           <h2 className="font-secondary text-h2 text-color-primary leading-tight text-center content-spacing-md">
             {cases.headline}
           </h2>
         </DebugLabel>
-        <DebugLabel type="body-lg" debugMode={debugMode}>
+        <DebugLabel type="typography-body-lg" debugMode={debugMode}>
           <p className="font-primary text-body-lg text-color-secondary leading-relaxed">{cases.body}</p>
         </DebugLabel>
       </div>
@@ -67,17 +67,17 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                 </div>
               )}
               <div className="flex-1 pr-4">
-                <DebugLabel type="label" debugMode={debugMode}>
+                <DebugLabel type="typography-label" debugMode={debugMode}>
                   <span className="font-primary text-label label text-color-secondary block item-tag-spacing">
                     {item.tag}
                   </span>
                 </DebugLabel>
-                <DebugLabel type="h3" debugMode={debugMode}>
+                <DebugLabel type="typography-h3" debugMode={debugMode}>
                   <span className="font-secondary text-h3 text-color-primary group-hover:text-color-secondary transition-colors block leading-snug">
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>
-                <DebugLabel type="subline" debugMode={debugMode}>
+                <DebugLabel type="typography-subline" debugMode={debugMode}>
                   <span className="text-subline subline-italic text-color-text block element-spacing-xs">
                     {item.teaser}
                   </span>
@@ -97,12 +97,12 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
                   { label: cases.sectionLabels.result,    text: item.result },
                 ].map((block) => (
                   <div key={block.label} className="border-l-2 border-color-primary pl-4">
-                    <DebugLabel type="label" debugMode={debugMode}>
+                    <DebugLabel type="typography-label" debugMode={debugMode}>
                       <span className="font-primary text-label label text-color-secondary block block-label-spacing">
                         {block.label}
                       </span>
                     </DebugLabel>
-                    <DebugLabel type="body" debugMode={debugMode}>
+                    <DebugLabel type="typography-body" debugMode={debugMode}>
                       <p className="font-primary text-color-text text-body">
                         {block.text}
                       </p>
@@ -112,7 +112,7 @@ export default function CaseStudiesSectionCopy({ debugMode = false }) {
               </div>
               {/* Tanja-specific anonymity note — inside her accordion */}
               {item.name.includes('*') && (
-                <DebugLabel type="disclaimer" debugMode={debugMode}>
+                <DebugLabel type="typography-disclaimer" debugMode={debugMode}>
                   <p className="text-disclaimer disclaimer-italic text-color-text/35 element-spacing-sm">
                     * Namen wurde geändert
                   </p>

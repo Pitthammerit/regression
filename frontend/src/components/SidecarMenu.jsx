@@ -66,7 +66,7 @@ export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
       >
         {/* Header - Floating Burger übernimmt Schließen */}
         <div className="flex items-center px-8 py-2">
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="typography-h2">
               Überblick
             </h2>
@@ -80,14 +80,14 @@ export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
               <div key={item.id} className={index > 0 ? 'mt-4' : ''}>
                 {item.children ? (
                   <>
-                    <DebugLabel type="menu-text" debugMode={debugMode}>
+                    <DebugLabel type="typography-menu-text" debugMode={debugMode}>
                       <div className="font-primary text-menu-text text-color-primary leading-[1.6] py-0.5">
                         {item.label}
                       </div>
                     </DebugLabel>
                     <div className="pl-3 pb-1 space-y-0">
                       {item.children.map((child) => (
-                        <DebugLabel key={child.id} type="menu-text" debugMode={debugMode}>
+                        <DebugLabel key={child.id} type="typography-menu-text" debugMode={debugMode}>
                           <button
                             onClick={() => handleNavClick(child.anchor)}
                             className="block w-full text-left font-primary text-menu-text text-color-text hover:text-color-primary leading-[1.6] py-0.5 px-2 rounded hover:bg-black/5 transition-colors"
@@ -99,7 +99,7 @@ export default function SidecarMenu({ isOpen, onClose, debugMode = false }) {
                     </div>
                   </>
                 ) : (
-                  <DebugLabel type="menu-text" debugMode={debugMode}>
+                  <DebugLabel type="typography-menu-text" debugMode={debugMode}>
                     <button
                       onClick={() => handleNavClick(item.anchor)}
                       className="w-full text-left font-primary text-menu-text text-color-primary hover:text-color-secondary leading-[1.6] py-0.5 transition-colors"

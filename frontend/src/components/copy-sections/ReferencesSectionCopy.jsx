@@ -57,13 +57,13 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         {/* Header */}
         <div className="max-w-centered-header mb-16">
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <div className="font-primary text-label label tracking-widest text-on-dark-meta label-heading-spacing">
               {references.bigLabel}
             </div>
           </DebugLabel>
 
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="font-secondary text-h2 text-on-dark leading-tight">
               {references.headline}
             </h2>
@@ -97,14 +97,14 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
 
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
-                  <DebugLabel type="h3" debugMode={debugMode}>
+                  <DebugLabel type="typography-h3" debugMode={debugMode}>
                     <p className="font-secondary text-h3 text-on-dark font-semibold name-role-spacing">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="role" debugMode={debugMode}>
+                    <DebugLabel type="typography-role" debugMode={debugMode}>
                       <p className="font-primary text-label text-on-dark-meta label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
@@ -112,20 +112,20 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                   )}
 
                   {resource.dates && (
-                    <DebugLabel type="date" debugMode={debugMode}>
+                    <DebugLabel type="typography-date" debugMode={debugMode}>
                       <p className="font-primary text-label text-on-dark-meta content-spacing-md">
                         {resource.dates}
                       </p>
                     </DebugLabel>
                   )}
 
-                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                  <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
                     <p className="font-secondary text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="source-link" debugMode={debugMode}>
+                  <DebugLabel type="typography-source-link" debugMode={debugMode}>
                     <a
                       href={resource.sourceUrl}
                       target="_blank"
@@ -171,14 +171,14 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
 
                 {/* Right column: Title → Role → Dates → Description → Source */}
                 <div className="flex flex-col">
-                  <DebugLabel type="h3" debugMode={debugMode}>
+                  <DebugLabel type="typography-h3" debugMode={debugMode}>
                     <p className="font-secondary text-h3 text-on-dark font-semibold name-role-spacing">
                       {resource.name}
                     </p>
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="role" debugMode={debugMode}>
+                    <DebugLabel type="typography-role" debugMode={debugMode}>
                       <p className="font-primary text-label text-on-dark-meta label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
@@ -186,20 +186,20 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
                   )}
 
                   {resource.dates && (
-                    <DebugLabel type="date" debugMode={debugMode}>
+                    <DebugLabel type="typography-date" debugMode={debugMode}>
                       <p className="font-primary text-label text-on-dark-meta content-spacing-md">
                         {resource.dates}
                       </p>
                     </DebugLabel>
                   )}
 
-                  <DebugLabel type="body-narrative" debugMode={debugMode}>
+                  <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
                     <p className="font-secondary text-body-narrative text-on-dark-body leading-relaxed content-spacing whitespace-pre-line">
                       {resource.description}
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="source-link" debugMode={debugMode}>
+                  <DebugLabel type="typography-source-link" debugMode={debugMode}>
                     <a
                       href={resource.sourceUrl}
                       target="_blank"
@@ -218,7 +218,7 @@ export default function ReferencesSectionCopy({ debugMode = false }) {
 
       {/* CTA - Fills gap before footer */}
       <div className="flex justify-center pt-16">
-        <DebugLabel type="button-text" debugMode={debugMode}>
+        <DebugLabel type="typography-button-text" debugMode={debugMode}>
           <CtaButton
             label={references.cta}
             variant="inverted"

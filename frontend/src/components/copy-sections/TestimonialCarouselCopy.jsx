@@ -89,12 +89,12 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
       <div className="max-w-content mx-auto px-6">
         {/* Section Title - centered */}
         <div className="content-spacing-lg text-center">
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <p className="font-primary text-label label text-color-secondary">
               {label}
             </p>
           </DebugLabel>
-          <DebugLabel type="h2" debugMode={debugMode}>
+          <DebugLabel type="typography-h2" debugMode={debugMode}>
             <h2 className="font-secondary text-h2 text-color-primary text-center label-heading-spacing">
               {subtitle}
             </h2>
@@ -140,10 +140,10 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                           </div>
                         )}
                         <div>
-                          <DebugLabel type="h5" debugMode={debugMode}>
+                          <DebugLabel type="typography-h5" debugMode={debugMode}>
                             <p className="font-primary text-h5 font-semibold text-color-primary">{t.name}</p>
                           </DebugLabel>
-                          <DebugLabel type="role" debugMode={debugMode}>
+                          <DebugLabel type="typography-role" debugMode={debugMode}>
                             <p className="font-primary text-label text-color-secondary label tracking-wider">
                               {t.context}
                             </p>
@@ -159,7 +159,7 @@ export const TestimonialCarouselCopy = ({ clients, label, subtitle, debugMode = 
                     </div>
 
                     {/* Quote - below stars */}
-                    <DebugLabel type="body-narrative" debugMode={debugMode}>
+                    <DebugLabel type="typography-body-narrative" debugMode={debugMode}>
                       <div className="text-color-text">
                         <p className="font-secondary text-body-narrative body-narrative-italic text-center sm:text-left">
                           "{t.quote}"

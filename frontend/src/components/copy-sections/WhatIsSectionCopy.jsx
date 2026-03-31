@@ -12,10 +12,10 @@ export default function WhatIsSectionCopy({ debugMode = false }) {
       <div className="grid md:grid-cols-2 grid-gap-xl items-start">
         {/* Left — sticky headline */}
         <div className="md:sticky md:top-32">
-          <DebugLabel type="label" debugMode={debugMode}>
+          <DebugLabel type="typography-label" debugMode={debugMode}>
             <SectionLabel text={whatIs.label} />
           </DebugLabel>
-          <DebugLabel type="hero" debugMode={debugMode}>
+          <DebugLabel type="typography-hero" debugMode={debugMode}>
             <h2 className="font-secondary text-hero text-color-primary leading-tight">
               {whatIs.headline}
             </h2>
@@ -25,7 +25,7 @@ export default function WhatIsSectionCopy({ debugMode = false }) {
         {/* Right — body + skeptic toggle */}
         <div>
           {whatIs.body.map((para, i) => (
-            <DebugLabel type="body" debugMode={debugMode} key={i}>
+            <DebugLabel type="typography-body" debugMode={debugMode} key={i}>
               <p className={`font-primary text-color-text text-body ${i > 0 ? 'margin-top-sm' : ''}`}>
                 {para}
               </p>

@@ -3,18 +3,18 @@ import React from 'react'
 /**
  * DebugLabel — Typography Label for Design Exploration
  *
- * Zeigt den Token-Namen direkt als Label (keine Abstraktion).
+ * Zeigt den tatsächlichen CSS-Klassennamen als Label (keine Abstraktion).
  *
  * Usage:
- * <DebugLabel type="h3" debugMode={true}>
- *   <h2 className="text-h3">Überschrift</h2>
+ * <DebugLabel type="typography-h3" debugMode={true}>
+ *   <h2 className="typography-h3">Überschrift</h2>
  * </DebugLabel>
  *
- * Der Label zeigt genau den Token-Namen, der im Tailwind verwendet wird.
+ * Der Label zeigt genau den Klassennamen, der im Element verwendet wird.
  */
-export default function DebugLabel({ children, type = 'text', debugMode = false }) {
-  // Zeigt den Token-Namen direkt als Label (keine Abstraktion)
-  const label = type.toUpperCase()
+export default function DebugLabel({ children, type = 'typography-text', debugMode = false }) {
+  // Zeigt den tatsächlichen CSS-Klassennamen (z.B. "typography-h2")
+  const label = type
 
   // Wenn nicht im Debug-Mode, Kinder ohne Wrapper zurückgeben (kein Layout-Einfluss)
   if (!debugMode) {

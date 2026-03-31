@@ -14,12 +14,12 @@ export default function ServicesSection({ debugMode = false }) {
               style={{ borderLeftColor: 'var(--color-border-primary)' }}
               data-testid={`service-item-${i}`}
             >
-              <DebugLabel type="label" debugMode={debugMode}>
+              <DebugLabel type="typography-label" debugMode={debugMode}>
                 <span className="typography-label block-label-spacing">
                   {service.sub}
                 </span>
               </DebugLabel>
-              <DebugLabel type="h4" debugMode={debugMode}>
+              <DebugLabel type="typography-h4" debugMode={debugMode}>
                 <span className="typography-h4">
                   {service.label}
                 </span>

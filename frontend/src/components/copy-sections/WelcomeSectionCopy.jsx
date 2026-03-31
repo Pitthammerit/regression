@@ -19,7 +19,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
             />
           </div>
           {/* Greeting directly under photo */}
-          <DebugLabel type="h3-hand" debugMode={debugMode}>
+          <DebugLabel type="typography-h3-hand" debugMode={debugMode}>
             <p className="font-handwriting text-h3-hand text-color-primary text-center md:text-left leading-snug whitespace-pre-line">
               {welcome.headline}
             </p>
@@ -28,7 +28,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
 
         {/* Right: Body text + signature */}
         <div className="flex flex-col justify-center pt-2">
-          <DebugLabel type="hero-large" debugMode={debugMode}>
+          <DebugLabel type="typography-hero-large" debugMode={debugMode}>
             <span
               className="font-secondary text-hero-large text-color-primary leading-none block mb-0 select-none"
               aria-hidden="true"
@@ -39,7 +39,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
 
           <div className="space-y-5 -mt-4">
             {welcome.quoteLines.map((line, i) => (
-              <DebugLabel key={i} type="quote-featured" debugMode={debugMode}>
+              <DebugLabel key={i} type="typography-quote-featured" debugMode={debugMode}>
                 <p
                   className="font-secondary text-quote-featured text-color-primary leading-tight"
                 >
@@ -51,7 +51,7 @@ export default function WelcomeSectionCopy({ debugMode = false }) {
 
           {/* Signature — handwriting text */}
           <div className="mt-8">
-            <DebugLabel type="h2-hand" debugMode={debugMode}>
+            <DebugLabel type="typography-h2-hand" debugMode={debugMode}>
               <p className="font-handwriting text-h2-hand text-color-primary">
                 {welcome.author}
               </p>

@@ -26,7 +26,7 @@ export default function ExpandToggleButton({
   return (
     <div className={`flex items-center gap-4 ${className}`}>
       <div className="flex-1 h-px bg-color-border-light"></div>
-      <DebugLabel type="meta" debugMode={debugMode}>
+      <DebugLabel type="typography-meta" debugMode={debugMode}>
         <button
           onClick={onToggle}
           className="flex items-center gap-2 typography-meta uppercase text-on-dark-meta hover:text-on-dark transition-colors cursor-pointer"

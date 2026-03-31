@@ -25,15 +25,15 @@ export default function ForWhomSectionCopy({ debugMode = false }) {
   return (
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={forWhom.label} />
         </DebugLabel>
-        <DebugLabel type="h2" debugMode={debugMode}>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
           <h2 className="font-secondary text-h2 text-color-primary leading-tight content-spacing-md">
             {forWhom.headline}
           </h2>
         </DebugLabel>
-        <DebugLabel type="body-lg" debugMode={debugMode}>
+        <DebugLabel type="typography-body-lg" debugMode={debugMode}>
           <p className="font-primary text-body-lg text-color-text leading-relaxed">
             {forWhom.intro}
           </p>

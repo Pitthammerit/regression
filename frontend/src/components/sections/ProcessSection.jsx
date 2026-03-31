@@ -25,15 +25,15 @@ export default function ProcessSection({ debugMode = false }) {
   return (
     <SectionWrapper id="prozess" data-testid="process-section">
       <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={processSection.label} />
         </DebugLabel>
-        <DebugLabel type="h2" debugMode={debugMode}>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
           <h2 className="typography-h2 leading-tight text-center content-spacing-md">
             {processSection.headline}
           </h2>
         </DebugLabel>
-        <DebugLabel type="body-lg" debugMode={debugMode}>
+        <DebugLabel type="typography-body-lg" debugMode={debugMode}>
           <p className="typography-body-lg leading-relaxed">
             {processSection.footnote}
           </p>
@@ -57,17 +57,17 @@ export default function ProcessSection({ debugMode = false }) {
               <div className="hidden md:block absolute top-4 left-full w-full h-px bg-color-bg-light -translate-x-6 z-0 pointer-events-none" />
             )}
             <div className="relative z-10 pt-2">
-              <DebugLabel type="h3" debugMode={debugMode}>
+              <DebugLabel type="typography-h3" debugMode={debugMode}>
                 <h3 className="typography-h3 mt-5 mb-2">
                   {step.title}
                 </h3>
               </DebugLabel>
-              <DebugLabel type="label" debugMode={debugMode}>
+              <DebugLabel type="typography-label" debugMode={debugMode}>
                 <p className="typography-label mb-5">
                   {step.duration}
                 </p>
               </DebugLabel>
-              <DebugLabel type="body" debugMode={debugMode}>
+              <DebugLabel type="typography-body" debugMode={debugMode}>
                 <p className="typography-body leading-relaxed">{step.body}</p>
               </DebugLabel>
             </div>

@@ -39,7 +39,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           {/* 1 — Navigation horizontal */}
           <div className="mb-6 flex flex-wrap justify-center gap-6 font-primary text-menu-text text-white/70">
             {nav.map((item, index) => (
-              <DebugLabel key={item.anchor} type="menu-text" debugMode={debugMode}>
+              <DebugLabel key={item.anchor} type="typography-menu-text" debugMode={debugMode}>
                 <a
                   href={item.anchor}
                   onClick={(e) => {
@@ -71,7 +71,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
                   alt={branding.logo.alt}
                   className="h-[34px] w-auto object-contain mb-3 mx-auto md:mx-0"
                 />
-                <DebugLabel type="subline" debugMode={debugMode}>
+                <DebugLabel type="typography-subline" debugMode={debugMode}>
                   <p className="typography-subline-italic text-white/45 whitespace-pre-line">
                     {data.tagline}
                   </p>
@@ -83,14 +83,14 @@ export default function Footer({ data = footerContent, debugMode = false }) {
 
                 {/* Col 2 — Rechtliches */}
                 <div className="min-w-[120px]">
-                  <DebugLabel type="label" debugMode={debugMode}>
+                  <DebugLabel type="typography-label" debugMode={debugMode}>
                     <p className="typography-label text-white/30 mb-5">
                       {footerContent.legalLabel}
                     </p>
                   </DebugLabel>
                   <div className="flex flex-col gap-3">
                     {data.legalLinks.map((link) => (
-                      <DebugLabel key={link.label} type="menu-text" debugMode={debugMode}>
+                      <DebugLabel key={link.label} type="typography-menu-text" debugMode={debugMode}>
                         <a
                           key={link.label}
                           href={link.url}
@@ -108,14 +108,14 @@ export default function Footer({ data = footerContent, debugMode = false }) {
 
                 {/* Col 3 — Folgen */}
                 <div className="min-w-[120px]">
-                  <DebugLabel type="label" debugMode={debugMode}>
+                  <DebugLabel type="typography-label" debugMode={debugMode}>
                     <p className="typography-label text-white/30 mb-5">
                       {footerContent.followLabel}
                     </p>
                   </DebugLabel>
                   <div className="flex flex-col gap-3">
                     {data.social.map((s) => (
-                      <DebugLabel key={s.label} type="menu-text" debugMode={debugMode}>
+                      <DebugLabel key={s.label} type="typography-menu-text" debugMode={debugMode}>
                         <a
                           key={s.label}
                           href={s.url}
@@ -133,14 +133,14 @@ export default function Footer({ data = footerContent, debugMode = false }) {
 
                 {/* Col 4 — Reach Out */}
                 <div className="min-w-[120px]">
-                  <DebugLabel type="label" debugMode={debugMode}>
+                  <DebugLabel type="typography-label" debugMode={debugMode}>
                     <p className="typography-label text-white/30 mb-5">
                       REACH OUT
                     </p>
                   </DebugLabel>
                   <div className="flex flex-col gap-3">
                     {data.contact.map((c) => (
-                      <DebugLabel key={c.label} type="menu-text" debugMode={debugMode}>
+                      <DebugLabel key={c.label} type="typography-menu-text" debugMode={debugMode}>
                         <a
                           key={c.label}
                           href={c.url}
@@ -165,10 +165,10 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           {/* — Divider + Disclaimer — */}
           <div className="pt-6 pb-6 text-center">
             <div className="h-px bg-color-border-light mb-6"></div>
-            <DebugLabel type="label" debugMode={debugMode}>
+            <DebugLabel type="typography-label" debugMode={debugMode}>
               <h3 className="typography-label font-semibold text-white/80 mb-3">{footerContent.disclaimerTitle}</h3>
             </DebugLabel>
-            <DebugLabel type="disclaimer" debugMode={debugMode}>
+            <DebugLabel type="typography-disclaimer" debugMode={debugMode}>
               <p className="typography-disclaimer text-white/50 max-w-3xl mx-auto">
                 {footerContent.disclaimer.split('. ').map((sentence, index, array) => {
                 if (sentence.includes('Erstgespräch')) {
@@ -203,7 +203,7 @@ export default function Footer({ data = footerContent, debugMode = false }) {
           {/* — Divider + Copyright — */}
           <div className="h-px bg-color-border-light mb-6 mt-6"></div>
 
-          <DebugLabel type="hint" debugMode={debugMode}>
+          <DebugLabel type="typography-hint" debugMode={debugMode}>
             <div className="typography-hint-italic text-white/50 text-center">
               {`© ${year} Benjamin Kurtz Academy LLC. ${footerContent.copyright.prefix} `}
               <a

@@ -37,11 +37,11 @@ export default function FAQSection({ debugMode = false }) {
       className="py-20 md:py-28 bg-color-bg-light"
     >
       <div className="max-w-content mx-auto px-6">
-        <DebugLabel type="label" debugMode={debugMode}>
+        <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={faq.bigLabel} />
         </DebugLabel>
 
-        <DebugLabel type="h2" debugMode={debugMode}>
+        <DebugLabel type="typography-h2" debugMode={debugMode}>
           <h2 className="typography-h2 section-block-spacing">
             {faq.headline}
           </h2>
@@ -55,7 +55,7 @@ export default function FAQSection({ debugMode = false }) {
                 className="w-full flex justify-between items-center py-6 text-left font-primary text-color-secondary hover:text-color-secondary/80 transition-colors"
                 data-testid={`faq-${index}`}
               >
-                <DebugLabel type="h4" debugMode={debugMode}>
+                <DebugLabel type="typography-h4" debugMode={debugMode}>
                   <span className="typography-h4">{item.question}</span>
                 </DebugLabel>
                 <ChevronDown
@@ -66,7 +66,7 @@ export default function FAQSection({ debugMode = false }) {
               </button>
               <AccordionWrap isOpen={expandedFAQIndex === index}>
                 <div className="pb-6">
-                  <DebugLabel type="body" debugMode={debugMode}>
+                  <DebugLabel type="typography-body" debugMode={debugMode}>
                     {item.answer.split('\n\n').map((paragraph, i, arr) => (
                       <p
                         key={i}

@@ -44,24 +44,24 @@ export default function CtaImageSection({ debugMode = false }) {
 
           {/* Text - Right column, left-aligned */}
           <div className="text-left">
-            <DebugLabel type="label" debugMode={debugMode}>
+            <DebugLabel type="typography-label" debugMode={debugMode}>
               <SectionLabel text={ctaImage.label} />
             </DebugLabel>
 
-            <DebugLabel type="h2" debugMode={debugMode}>
+            <DebugLabel type="typography-h2" debugMode={debugMode}>
               <h2 className="font-secondary text-h2 text-color-primary leading-tight content-spacing-md">
                 {ctaImage.headline}
               </h2>
             </DebugLabel>
 
-            <DebugLabel type="body-lg" debugMode={debugMode}>
+            <DebugLabel type="typography-body-lg" debugMode={debugMode}>
               <p className="font-primary text-body-lg text-color-text leading-relaxed content-spacing-md">
                 {ctaImage.subline}
               </p>
             </DebugLabel>
 
             <div className="mt-[3rem]">
-              <DebugLabel type="menu-text" debugMode={debugMode}>
+              <DebugLabel type="typography-menu-text" debugMode={debugMode}>
                 <CtaButton label={ctaImage.cta} variant="primary" className="py-4 px-12" />
               </DebugLabel>
             </div>

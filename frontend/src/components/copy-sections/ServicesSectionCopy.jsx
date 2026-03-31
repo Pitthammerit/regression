@@ -13,12 +13,12 @@ export default function ServicesSectionCopy({ debugMode = false }) {
               className="flex-1 py-6 md:py-5 md:px-10 first:md:pl-0 last:md:pr-0 flex flex-col justify-center"
               data-testid={`service-item-${i}`}
             >
-              <DebugLabel type="label" debugMode={debugMode}>
+              <DebugLabel type="typography-label" debugMode={debugMode}>
                 <span className="font-primary text-label tracking-label-alt label text-color-secondary block-label-spacing">
                   {service.sub}
                 </span>
               </DebugLabel>
-              <DebugLabel type="h4" debugMode={debugMode}>
+              <DebugLabel type="typography-h4" debugMode={debugMode}>
                 <span className="font-secondary text-h4 text-color-primary">
                   {service.label}
                 </span>
