@@ -146,7 +146,7 @@ export function useCaseStudiesScroll(openIndex, setOpenIndex) {
 
           // Re-enable scroll-snap after scroll completes (plus buffer)
           setTimeout(() => {
-            document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
+            document.documentElement.style.scrollSnapType = originalSnapType || 'y proximity'
             if (section) {
               section.removeAttribute('data-accordion-active')
             }
