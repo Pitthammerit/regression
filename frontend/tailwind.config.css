@@ -659,6 +659,15 @@
   gap: 2rem;
 }
 
+/* Author Grid Gap - for researcher quotes section (3-column author grid) */
+@utility author-grid-gap {
+  gap: 2.5rem;
+}
+
+@utility author-grid-gap-lg {
+  gap: 3.5rem;
+}
+
 @utility margin-top-sm {
   margin-top: 1.5rem;
 }

@@ -60,7 +60,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
   return (
     <SectionWrapper className="bg-color-primary text-primary-on-dark" data-testid="researcher-quotes-section">
       {/* Header group with controlled spacing */}
-      <div className="mb-12 md:mb-16">
+      <div className="margin-top-md">
         <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={researchers.authorBigLabel} light />
         </DebugLabel>
@@ -72,7 +72,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
       </div>
 
       {/* Grid - first 3 authors */}
-      <div className="grid md:grid-cols-3 gap-10 md:gap-14">
+      <div className="grid md:grid-cols-3 author-grid-gap md:author-grid-gap-lg">
         {authorsWithPortraits.slice(0, 3).map((author) => (
           <div key={author.id}>
             {/* Mobile: 16:9 aspect ratio */}
@@ -135,7 +135,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
 
           {/* Expanded content - authors 4+ */}
           {isExpanded && (
-            <div className="grid md:grid-cols-3 gap-10 md:gap-14" data-testid="researcher-quotes-expanded">
+            <div className="grid md:grid-cols-3 author-grid-gap md:author-grid-gap-lg" data-testid="researcher-quotes-expanded">
               {authorsWithPortraits.slice(3).map((author) => (
                 <div key={author.id}>
                   <div className="md:hidden mb-4">
