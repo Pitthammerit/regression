@@ -5,14 +5,14 @@ import { useSite } from '../contexts/SiteContext'
  *
  * Simple text showing current language (DE or EN).
  * Click to toggle to the other language.
- * English is disabled until content exists (Phase 6).
+ * English enabled in Phase 6 with placeholder content.
  *
  * @param {string} className - Additional CSS classes
  * @param {boolean} compact - If true, shows as compact text next to burger
  */
 export default function LanguageSwitcher({ className = '', compact = false }) {
   const { currentLang, switchLanguage } = useSite()
-  const isEnglishEnabled = false // TODO: Enable in Phase 6 when English content exists
+  const isEnglishEnabled = true // English content enabled (Phase 6)
 
   const handleSwitch = () => {
     if (currentLang === 'de') {

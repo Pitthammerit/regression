@@ -1,10 +1,8 @@
-@import "tailwindcss";
-
-/* Import custom theme tokens */
-@import "../tailwind.config.css";
+/* Import base theme (includes Tailwind + custom theme tokens) */
+@import "./styles/base-theme.css";
 
 /* ─────────────────────────────────────────────────────────────
-   BASE STYLES
+   BASE STYLES (additional custom styles not in base-theme.css)
    ───────────────────────────────────────────────────────────── */
 
 body {

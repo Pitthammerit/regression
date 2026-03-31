@@ -2,17 +2,18 @@
 // Content loader for multi-site, multi-language architecture
 
 import regressionDe from './regression-de.js'
+import regressionEn from './regression-en.js'
 import reikiDe from './reiki-de.js'
 
 // Content map: site -> language -> content
 const CONTENT_MAP = {
   regression: {
     de: regressionDe,
-    en: null, // Coming in Phase 3
+    en: regressionEn, // English placeholder content (Phase 6)
   },
   reiki: {
     de: reikiDe,
-    en: null, // Coming in Phase 3
+    en: null, // Coming later
   },
 }
 

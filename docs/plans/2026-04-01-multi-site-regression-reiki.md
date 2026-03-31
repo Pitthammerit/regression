@@ -14,18 +14,63 @@
 
 ## Migration Status
 
-| Phase | Status | Effort |
-|-------|--------|--------|
-| ✅ Foundation | **COMPLETE** (March 2026) | — |
-| ✅ Vite + Tailwind v4 | **COMPLETE** (March 2026) | — |
-| ⬜ Phase 1: Content Directory | Pending | 30 min |
-| ⬜ Phase 2: Contexts | Pending | 2 hours |
-| ⬜ Phase 3: Update Sections | Pending | 3-4 hours |
-| ⬜ Phase 4: Multi-Site Routing | Pending | 2 hours |
-| ⬜ Phase 5: Site Theming | Pending | 1 hour |
-| ⬜ Phase 6: English Placeholder | Pending | 30 min |
+| Phase | Status | Effort | Completed Date |
+|-------|--------|--------|----------------|
+| ✅ Foundation | **COMPLETE** (March 2026) | — | March 2026 |
+| ✅ Vite + Tailwind v4 | **COMPLETE** (March 2026) | — | March 2026 |
+| ✅ Phase 1: Content Directory | **COMPLETE** | 30 min | March 31, 2026 |
+| ✅ Phase 2: Contexts | **COMPLETE** | 2 hours | March 31, 2026 |
+| ✅ Phase 3: Update Sections | **COMPLETE** | 3-4 hours | March 31, 2026 |
+| ✅ Phase 4: Multi-Site Routing | **COMPLETE** | 2 hours | March 31, 2026 |
+| ⬜ Phase 5: Site Theming | Pending | 1 hour | — |
+| ⬜ Phase 6: English Placeholder | Pending | 30 min | — |
 
-**Total remaining:** 9-11 hours
+**Total remaining:** 1.5 hours (originally 9-11 hours)
+
+**Detailed Status:** See [docs/plans/multiloop/2026-04-01-multi-site-implementation-status.md](./multiloop/2026-04-01-multi-site-implementation-status.md)
+
+---
+
+## Quick Summary: What's Been Done
+
+### ✅ Completed (Phases 1-4)
+
+**Phase 1: Content Directory** — March 31, 2026
+- Created `regression-de.js` (54KB) from `plr-de.js`
+- Created `reiki-de.js` (16KB) with test content
+- Created `index.js` content loader with `getContent()`, `getAvailableSites()`, `getAvailableLanguages()`
+- Backwards compatible exports for legacy imports
+
+**Phase 2: Contexts** — March 31, 2026
+- Created `SiteContext.jsx` (2.4KB) — site/language state, navigation
+- Created `ContentContext.jsx` (1.8KB) — dynamic content loading
+- Both contexts include debug logging
+- Hooks: `useSite()`, `useContent()`
+
+**Phase 3: Sections Migration** — March 31, 2026
+- 19/20 sections migrated to `useContent()` hook
+- Footer.jsx updated
+- TestimonialCarousel receives content via props
+- Pattern: `const { hero } = useContent()`
+
+**Phase 4: Multi-Site Routing** — March 31, 2026
+- Routes: `/:site/:lang`, `/`, `/:site`, `/transkript`, demos, 404
+- LanguageSwitcher component (2.3KB) — compact + full variants
+- FloatingBurger integrates compact LanguageSwitcher
+- English disabled with "coming soon" alert
+- Build passing: 1.66s
+
+### ⬜ Remaining (Phases 5-6)
+
+**Phase 5: Site-Specific Styling** (1 hour)
+- Create `frontend/src/styles/base-theme.css`
+- Add `data-site` attribute to root div in App.jsx
+- Update `frontend/src/index.css`
+
+**Phase 6: English Content Placeholder** (30 min)
+- Create `frontend/src/content/regression-en.js`
+- Update `frontend/src/content/index.js`
+- Enable English in LanguageSwitcher (`isEnglishEnabled = true`)
 
 ---
 
@@ -43,13 +88,18 @@
 - ✅ 27 composite utilities working
 - ✅ 13 on-dark utilities working
 
-**Current State:**
-- Single-site (Regression only)
-- Single-language (German only)
-- Content in `frontend/src/content/plr-de.js` (677 lines)
-- 21 active sections in `frontend/src/components/sections/`
-- 62 files import directly from `plr-de.js`
-- No SiteContext or ContentContext exists
+**Current State (as of 2026-04-01):**
+- ✅ Multi-site structure (Regression, Reiki)
+- ✅ Multi-language foundation (DE active, EN placeholder pending)
+- ✅ Content in `frontend/src/content/regression-de.js` (54,216 bytes)
+- ✅ Content in `frontend/src/content/reiki-de.js` (16,423 bytes - test content)
+- ✅ SiteContext and ContentContext implemented
+- ✅ 19/20 sections using `useContent()` hook
+- ✅ Multi-site routing (`/:site/:lang`) active
+- ✅ LanguageSwitcher component created
+- ✅ Build passing (1.66s)
+- ⬜ English content file pending
+- ⬜ Site-specific theming (`data-site` attribute) pending
 
 ---
 
@@ -911,17 +961,17 @@ git commit -m "feat: add English content placeholder
 
 ## Timeline
 
-| Phase | Tasks | Effort | Status |
-|-------|-------|--------|--------|
-| ✅ Foundation | Vite + Tailwind v4 | Complete | Done |
-| Phase 1 | Content directory | 30 min | Pending |
-| Phase 2 | Contexts | 2 hours | Pending |
-| Phase 3 | Update sections | 3-4 hours | Pending |
-| Phase 4 | Routing | 2 hours | Pending |
-| Phase 5 | Site theming | 1 hour | Pending |
-| Phase 6 | English content | 30 min | Pending |
+| Phase | Tasks | Effort | Status | Completed |
+|-------|-------|--------|--------|-----------|
+| ✅ Foundation | Vite + Tailwind v4 | — | Complete | March 2026 |
+| ✅ Phase 1 | Content directory | 30 min | **COMPLETE** | March 31, 2026 |
+| ✅ Phase 2 | Contexts | 2 hours | **COMPLETE** | March 31, 2026 |
+| ✅ Phase 3 | Update sections | 3-4 hours | **COMPLETE** | March 31, 2026 |
+| ✅ Phase 4 | Routing | 2 hours | **COMPLETE** | March 31, 2026 |
+| ⬜ Phase 5 | Site theming | 1 hour | Pending | — |
+| ⬜ Phase 6 | English content | 30 min | Pending | — |
 
-**Total remaining:** 9-11 hours
+**Total remaining:** 1.5 hours (70% complete)
 
 **Note:** Podcast site can be added later following the same pattern as Reiki
 
@@ -986,9 +1036,11 @@ LOOP 3: Code Quality Review
 
 **Last Updated:** 2026-04-01
 
+**Progress:** 70% Complete (Phases 1-4 done, Phases 5-6 remaining)
+
 **Next Steps:**
-1. User gives "go" signal
-2. Start with Phase 1 (Content directory restructuring)
-3. Use `/multiloop` for ALL phases
-4. 3 test loops after EACH phase — zero exceptions
-5. Deploy and verify on Cloudflare Pages
+1. Complete Phase 5: Site-specific theming (1 hour)
+2. Complete Phase 6: English content placeholder (30 min)
+3. Run 3 test loops after each phase
+4. Deploy and verify on Cloudflare Pages
+5. Use `/multiloop` skill for execution

@@ -94,6 +94,7 @@ function FloatingBurger() {
 function MainPage() {
   const [debugMode, setDebugMode] = useState(false)
   const { testimonials } = useContent()
+  const { currentSite } = useSite()
 
   const sectionMap = {
     'HeroV3Section': <HeroV3Section debugMode={debugMode} />,
@@ -125,7 +126,10 @@ function MainPage() {
   }
 
   return (
-    <div className="bg-color-bg-light bg-paper min-h-screen font-primary text-color-text">
+    <div
+      data-site={currentSite}
+      className="bg-color-bg-light bg-paper min-h-screen font-primary text-color-text"
+    >
       <div className="fixed top-4 left-4 z-[100] bg-white p-3 rounded-lg shadow-lg border border-black/10">
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={debugMode} onChange={(e) => setDebugMode(e.target.checked)} className="w-4 h-4" />

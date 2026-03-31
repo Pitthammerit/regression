@@ -1,0 +1,35 @@
+/* frontend/src/styles/base-theme.css */
+/* Shared theme tokens for all sites */
+
+@import "tailwindcss";
+
+/* Import existing theme config */
+@import "../../tailwind.config.css";
+
+/* ─────────────────────────────────────────────────────────────
+   BASE STYLES (shared across all sites)
+   ───────────────────────────────────────────────────────────── */
+
+body {
+  @apply bg-color-bg-light font-primary text-color-text;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SITE-SPECIFIC DATA ATTRIBUTES (for future theming)
+   ───────────────────────────────────────────────────────────── */
+
+/* Regression site - default brand colors from tailwind.config.css */
+[data-site="regression"] {
+  /* Default theme - no overrides needed */
+}
+
+/* Reiki site - can add custom colors later */
+[data-site="reiki"] {
+  /* Example: --color-primary: #2E5A4C; */ /* Green for Reiki */
+  /* Currently uses default theme */
+}
+
+/* Podcast site can be added later following the same pattern */
+/* [data-site="podcast"] {
+  Future theme customization
+} */
