@@ -16,8 +16,16 @@ body {
   color: #1A1814;
 }
 
+/* Scroll Snap Container */
 html {
+  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+}
+
+/* Sections rasten am oberen Rand ein */
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 /* ─────────────────────────────────────────────────────────────
