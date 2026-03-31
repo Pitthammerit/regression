@@ -615,6 +615,10 @@
   margin-bottom: 0.7rem;
 }
 
+@utility heading-body-spacing {
+  margin-bottom: 1.5rem;
+}
+
 @utility name-role-spacing {
   margin-bottom: 0.25rem;
 }

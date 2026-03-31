@@ -45,13 +45,13 @@ export default function BookingSection({ debugMode = false }) {
 
   return (
     <SectionWrapper id="booking" data-testid="booking-section">
-      <div className="max-w-centered-header content-spacing-lg mx-auto text-center">
+      <div className="max-w-centered-header mx-auto text-center section-padding-sm">
         <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={booking.label} />
         </DebugLabel>
 
         <DebugLabel type="typography-hero-large" debugMode={debugMode}>
-          <h2 className="typography-hero-large leading-tight content-spacing-md">
+          <h2 className="typography-hero-large leading-tight heading-body-spacing">
             {booking.headline}
           </h2>
         </DebugLabel>

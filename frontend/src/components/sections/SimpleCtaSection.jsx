@@ -26,24 +26,24 @@ export default function SimpleCtaSection({ debugMode = false }) {
 
   return (
     <SectionWrapper id="simple-cta" data-testid="simple-cta-section">
-      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
+      <div className="max-w-centered-header text-center mx-auto section-padding-sm">
         <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={simpleCta.label} />
         </DebugLabel>
 
         <DebugLabel type="typography-h2" debugMode={debugMode}>
-          <h2 className="font-secondary text-h2 text-color-primary leading-tight text-center content-spacing-md">
+          <h2 className="typography-h2 leading-tight text-center heading-body-spacing">
             {simpleCta.headline}
           </h2>
         </DebugLabel>
 
         <DebugLabel type="typography-body-lg" debugMode={debugMode}>
-          <p className="font-primary text-body-lg text-color-text leading-relaxed content-spacing-lg">
+          <p className="typography-body-lg leading-relaxed">
             {simpleCta.subline}
           </p>
         </DebugLabel>
 
-        <div className="content-spacing-lg">
+        <div>
           <DebugLabel type="typography-menu-text" debugMode={debugMode}>
             <CtaButton label={simpleCta.cta} variant="primary" className="py-4 px-12" />
           </DebugLabel>

@@ -16,12 +16,12 @@ export default function CaseStudiesSection({ debugMode = false }) {
 
   return (
     <SectionWrapper id="cases" data-testid="cases-section">
-      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
+      <div className="max-w-centered-header text-center mx-auto section-padding-sm">
         <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={cases.label} />
         </DebugLabel>
         <DebugLabel type="typography-h2" debugMode={debugMode}>
-          <h2 className="typography-h2 leading-tight text-center content-spacing-md">
+          <h2 className="typography-h2 leading-tight text-center heading-body-spacing">
             {cases.headline}
           </h2>
         </DebugLabel>

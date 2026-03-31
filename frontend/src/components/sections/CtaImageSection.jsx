@@ -51,18 +51,18 @@ export default function CtaImageSection({ debugMode = false }) {
             </DebugLabel>
 
             <DebugLabel type="typography-h2" debugMode={debugMode}>
-              <h2 className="font-secondary text-h2 text-color-primary leading-tight content-spacing-md">
+              <h2 className="typography-h2 leading-tight heading-body-spacing">
                 {ctaImage.headline}
               </h2>
             </DebugLabel>
 
             <DebugLabel type="typography-body-lg" debugMode={debugMode}>
-              <p className="font-primary text-body-lg text-color-text leading-relaxed content-spacing-md">
+              <p className="typography-body-lg leading-relaxed">
                 {ctaImage.subline}
               </p>
             </DebugLabel>
 
-            <div className="mt-[3rem]">
+            <div className="mt-12">
               <DebugLabel type="typography-menu-text" debugMode={debugMode}>
                 <CtaButton label={ctaImage.cta} variant="primary" className="py-4 px-12" />
               </DebugLabel>

@@ -41,13 +41,13 @@ export default function PodcastVideoSection({ debugMode = false }) {
       <SectionWrapper id="podcast-video" className="section-padding" data-testid="podcast-video-section">
         <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
           {/* Centered heading */}
-          <div className="text-center max-w-centered-header mx-auto">
+          <div className="text-center max-w-centered-header mx-auto section-padding-sm">
             <DebugLabel type="typography-label" debugMode={debugMode}>
               <SectionLabel text={podcast.label} />
             </DebugLabel>
 
             <DebugLabel type="typography-h2" debugMode={debugMode}>
-              <h2 className="typography-h2 leading-tight">
+              <h2 className="typography-h2 leading-tight heading-body-spacing">
                 {podcast.headline}
               </h2>
             </DebugLabel>

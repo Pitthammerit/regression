@@ -24,12 +24,12 @@ export default function ForWhomSection({ debugMode = false }) {
 
   return (
     <SectionWrapper id="fuer-wen" data-testid="forwhom-section">
-      <div className="max-w-centered-header content-spacing-lg text-center mx-auto">
+      <div className="max-w-centered-header text-center mx-auto section-padding-sm">
         <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={forWhom.label} />
         </DebugLabel>
         <DebugLabel type="typography-h2" debugMode={debugMode}>
-          <h2 className="typography-h2 leading-tight content-spacing-md">
+          <h2 className="typography-h2 leading-tight heading-body-spacing">
             {forWhom.headline}
           </h2>
         </DebugLabel>
