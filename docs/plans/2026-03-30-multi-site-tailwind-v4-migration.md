@@ -11,6 +11,19 @@
 
 ---
 
+## Migration Status
+
+| Phase | Status | Effort |
+|-------|--------|--------|
+| ✅ Typography & Design Tokens | **COMPLETE** (March 2026) | — |
+| ⬜ Phase 1: Vite + Tailwind v4 | Pending | 8-12 hours |
+| ⬜ Phase 2: Content Layer | Pending | 6-8 hours |
+| ⬜ Phase 3: Multi-Site Routing | Pending | 4-6 hours |
+| ⬜ Phase 4: Multi-Language | Pending | 4-6 hours |
+| ⬜ Phase 5: Backend-Ready | Pending | 2-4 hours |
+
+---
+
 ## Architecture Overview
 
 ### URL Structure (Site-First)
@@ -57,6 +70,47 @@ Users can navigate between sites while maintaining language:
 
 ---
 
+## ✅ Pre-Migration Accomplishments (March 2026)
+
+Before starting this migration, we have already completed significant foundation work:
+
+### Typography & Design Token System — COMPLETE
+
+**File:** `frontend/tailwind.config.css` (675 lines)
+
+**What's implemented:**
+- ✅ `@theme` directive with all design tokens (lines 7-126)
+- ✅ Font families: `--font-primary`, `--font-secondary`, `--font-handwriting`
+- ✅ Typography scale: `--font-hero-large`, `--font-hero`, `--font-h1-h4`, `--font-body`, `--font-body-lg`, `--font-label`
+- ✅ Color tokens: `--color-primary`, `--color-text`, `--color-secondary`, `--color-accent`, `--color-star`
+- ✅ On-dark colors: `--color-primary-on-dark`, `--color-text-on-dark`, `--color-secondary-on-dark`
+- ✅ Spacing utilities: `--spacing-section-padding`, `--spacing-content-spacing`, etc.
+
+**Composite Utilities — 27 total:**
+- ✅ `typography-hero-large`, `typography-hero`, `typography-h2-h4`
+- ✅ `typography-body`, `typography-body-lg`, `typography-body-narrative`
+- ✅ `typography-label`, `typography-menu-text`, `typography-meta`
+- ✅ `typography-quote-featured`, `typography-author-name`, `typography-handwriting`
+
+**On-Dark Utilities — 13 total:**
+- ✅ `typography-hero-large-on-dark`, `typography-hero-on-dark`, `typography-h2-on-dark`, etc.
+- ✅ `typography-body-on-dark`, `typography-body-lg-on-dark`, `typography-meta-on-dark`, etc.
+
+**All 17 sections migrated to composite utilities:**
+- ✅ HeroV3Section, ServicesSection, WelcomeSection, etc.
+- ✅ DebugLabels updated and accurate
+- ✅ On-dark utilities working in dark sections
+
+**What this means for migration:**
+- We don't need to create design tokens from scratch
+- We don't need to define typography scales from scratch
+- We just need to ensure our existing `@theme` and `@utility` syntax is v4-compatible
+- Most of our syntax is already v4-ready!
+
+**See also:** `memory/on-dark-composite-utilities.md`, `memory/debuglabel-hygiene.md`
+
+---
+
 ## Tailwind v4 Theming Strategy
 
 ### Key Research Findings
@@ -82,10 +136,12 @@ frontend/src/styles/
 
 ### base-theme.css (Shared Tokens)
 
-```css
-@import "tailwindcss";
+**✅ ALREADY IMPLEMENTED (March 2026)**
 
-/* Shared typography tokens (all sites) */
+We already have a complete design token system in `tailwind.config.css`:
+
+```css
+/* Lines 7-126 in tailwind.config.css */
 @theme {
   /* Font Families */
   --font-primary: "DM Sans", sans-serif;
@@ -93,24 +149,38 @@ frontend/src/styles/
   --font-handwriting: "Kalam", cursive;
 
   /* Typography Scale (shared) */
-  --font-hero-large: clamp(2.4rem, 5vw + 1rem, 5.4rem);
-  --font-hero: clamp(1.44rem, 2vw + 0.5rem, 3.36rem);
-  --font-h1: 48px;
-  --font-h2: 36px;
-  --font-h3: 30px;
-  --font-h4: 24px;
-  --font-body: 18px;
-  --font-body-lg: 20px;
-  --font-label: 15px;
+  --font-hero-large: clamp(2.4rem, 6.6vw, 5.4rem);
+  --font-hero: clamp(1.44rem, 3.84vw, 3.36rem);
+  --font-h2: 2.25rem;
+  --font-h3: 1.875rem;
+  --font-h4: 1.5rem;
+  --font-body: 1.125rem;
+  --font-body-lg: 1.25rem;
+  --font-label: 0.94rem;
 
-  /* Spacing Utilities (shared) */
-  --spacing-section-padding: 5rem;
+  /* Colors */
+  --color-primary: #224160;
+  --color-text: #5A5550;
+  --color-secondary: #7696AD;
+  --color-accent: #2DAD71;
+  --color-star: #f5d10a;
+
+  /* On-dark colors */
+  --color-primary-on-dark: #FFFFFF;
+  --color-text-on-dark: #FFFFFFCC;
+  --color-secondary-on-dark: #ffffff9c;
+
+  /* Spacing Utilities */
+  --spacing-section-padding: 5rem 0 7rem 0;
   --spacing-content-spacing: 1.5rem;
 }
 
-/* Dark mode variant (shared across all sites) */
-@custom-variant dark (&:where(.dark, .dark *));
+/* 27+ composite utilities implemented */
+/* 13 on-dark utilities implemented */
 ```
+
+**Migration task:** Copy existing tokens to Tailwind v4 `@theme` syntax during Vite migration (Phase 1, Task 7).
+
 
 ### regression-theme.css (Site-Specific)
 
@@ -236,11 +306,13 @@ frontend/src/styles/
    )
    ```
 
-7. **Create tailwind.config.css with all current tokens**
-   - Copy all typography tokens (hero-large, h1-h4, body, label, etc.)
-   - Copy all color tokens (heading, body, label, brand-deep, brand-accent, etc.)
-   - Copy all spacing utilities (section-padding, content-spacing, etc.)
-   - Add dark mode and site-specific variants
+7. **Migrate tailwind.config.css to Tailwind v4 @theme syntax**
+   - ✅ **WE ALREADY HAVE ALL TOKENS** in current `tailwind.config.css` (lines 7-126)
+   - ✅ **WE ALREADY HAVE 27+ COMPOSITE UTILITIES** (typography-hero-large, typography-h2, etc.)
+   - ✅ **WE ALREADY HAVE 13 ON-DARK UTILITIES** (typography-hero-large-on-dark, etc.)
+   - ⬜ **Task:** Convert existing `@utility` syntax to Tailwind v4 format if needed
+   - ⬜ **Task:** Ensure `@theme` directive is v4-compatible
+   - **Note:** Most of our syntax is already v4-ready!
 
 8. **Fix border color issues** (43 files)
    - Find: `className="border"` without color
@@ -577,15 +649,18 @@ frontend/src/styles/
 
 ## Migration Timeline
 
-| Phase | Tasks | Effort |
-|-------|-------|--------|
-| Phase 1: Vite + Tailwind v4 | 10 tasks | 8-12 hours |
-| Phase 2: Content Layer | 5 tasks | 6-8 hours |
-| Phase 3: Multi-Site Routing | 5 tasks | 4-6 hours |
-| Phase 4: Multi-Language | 3 tasks | 4-6 hours |
-| Phase 5: Backend-Ready | 2 tasks | 2-4 hours |
+| Phase | Tasks | Effort | Status |
+|-------|-------|--------|--------|
+| ✅ Foundation: Design Tokens | Complete | — | Done (March 2026) |
+| Phase 1: Vite + Tailwind v4 | 10 tasks | 8-12 hours | Pending |
+| Phase 2: Content Layer | 5 tasks | 6-8 hours | Pending |
+| Phase 3: Multi-Site Routing | 5 tasks | 4-6 hours | Pending |
+| Phase 4: Multi-Language | 3 tasks | 4-6 hours | Pending |
+| Phase 5: Backend-Ready | 2 tasks | 2-4 hours | Pending |
 
-**Total:** 24-36 hours (6-8 weeks at part-time pace)
+**Remaining:** 24-36 hours (6-8 weeks at part-time pace)
+
+**Note:** Foundation work (typography + design tokens) is complete, reducing overall risk.
 
 ---
 
@@ -639,7 +714,7 @@ frontend/src/styles/
 
 ---
 
-**Last Updated:** 2026-03-30
+**Last Updated:** 2026-03-31 (Updated to reflect completed foundation work)
 
 **Quick Reference:**
 - **Main Plan:** This document
