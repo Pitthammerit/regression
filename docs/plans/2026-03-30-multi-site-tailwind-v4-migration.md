@@ -16,7 +16,7 @@
 | Phase | Status | Effort |
 |-------|--------|--------|
 | ✅ Typography & Design Tokens | **COMPLETE** (March 2026) | — |
-| ⬜ Phase 1: Vite + Tailwind v4 | Pending | 8-12 hours |
+| ✅ Phase 1: Vite + Tailwind v4 | **COMPLETE** (March 2026) | — |
 | ⬜ Phase 2: Content Layer | Pending | 6-8 hours |
 | ⬜ Phase 3: Multi-Site Routing | Pending | 4-6 hours |
 | ⬜ Phase 4: Multi-Language | Pending | 4-6 hours |
@@ -236,106 +236,23 @@ We already have a complete design token system in `tailwind.config.css`:
 
 ## Implementation Phases
 
-### Phase 1: Tailwind v4 + Vite Migration (8-12 hours)
+## ✅ Phase 1: Tailwind v4 + Vite Migration — COMPLETE (March 2026)
 
-**Goal:** Replace Create React App with Vite, convert Tailwind v3 → v4 CSS-first config
+**Status:** Fully implemented and working in production
 
-**Tasks:**
+**What was implemented:**
+- ✅ Vite 5.0 installed with @vitejs/plugin-react 4.0
+- ✅ Tailwind CSS v4 via @tailwindcss/vite plugin
+- ✅ vite.config.js configured with build output to `build/`
+- ✅ main.jsx entry point using React 19 createRoot
+- ✅ index.html moved to frontend/ root
+- ✅ package.json updated with `"type": "module"` and Vite scripts
+- ✅ index.css using `@import "tailwindcss"` (v4 syntax)
+- ✅ All design tokens migrated to @theme directive
+- ✅ 27 composite utilities working
+- ✅ 13 on-dark utilities working
 
-1. **Create backup branch**
-   ```bash
-   git checkout -b backup/pre-migration
-   git push origin backup/pre-migration
-   git checkout -  # return to working branch
-   ```
-
-2. **Install Vite dependencies**
-   ```bash
-   npm --prefix frontend install --save-dev vite@^5.0.0 @vitejs/plugin-react@^4.0.0
-   npm --prefix frontend install tailwindcss@next
-   npm --prefix frontend uninstall react-scripts
-   npm --prefix frontend install @testing-library/user-event@^14.0.0
-   ```
-
-3. **Create vite.config.js**
-   ```javascript
-   import { defineConfig } from 'vite'
-   import react from '@vitejs/plugin-react'
-
-   export default defineConfig({
-     plugins: [react()],
-     build: {
-       outDir: 'build',  // Keep 'build' to match Cloudflare config
-       sourcemap: true,
-     },
-     server: {
-       port: 3000,
-       open: true,
-     },
-   })
-   ```
-
-4. **Update package.json**
-   - Add `"type": "module"`
-   - Update scripts:
-     ```json
-     "scripts": {
-       "dev": "vite",
-       "build": "vite build",
-       "preview": "vite preview"
-     }
-     ```
-
-5. **Move index.html**
-   ```bash
-   mv frontend/public/index.html frontend/index.html
-   ```
-   Update script tag to: `<script type="module" src="/src/main.jsx"></script>`
-
-6. **Create main.jsx entry point**
-   ```javascript
-   import React from 'react'
-   import ReactDOM from 'react-dom/client'
-   import App from './App'
-   import './index.css'
-
-   ReactDOM.createRoot(document.getElementById('root')).render(
-     <React.StrictMode>
-       <App />
-     </React.StrictMode>
-   )
-   ```
-
-7. **Migrate tailwind.config.css to Tailwind v4 @theme syntax**
-   - ✅ **WE ALREADY HAVE ALL TOKENS** in current `tailwind.config.css` (lines 7-126)
-   - ✅ **WE ALREADY HAVE 27+ COMPOSITE UTILITIES** (typography-hero-large, typography-h2, etc.)
-   - ✅ **WE ALREADY HAVE 13 ON-DARK UTILITIES** (typography-hero-large-on-dark, etc.)
-   - ⬜ **Task:** Convert existing `@utility` syntax to Tailwind v4 format if needed
-   - ⬜ **Task:** Ensure `@theme` directive is v4-compatible
-   - **Note:** Most of our syntax is already v4-ready!
-
-8. **Fix border color issues** (43 files)
-   - Find: `className="border"` without color
-   - Replace: `className="border color-border"`
-
-9. **Test Vite build**
-   ```bash
-   npm --prefix frontend run dev    # Should start instantly with HMR
-   npm --prefix frontend run build  # Should complete in <30 seconds
-   npm --prefix frontend run preview
-   ```
-
-10. **Deploy and verify**
-    ```bash
-    git add .
-    git commit -m "feat: migrate to Vite + Tailwind v4"
-    git push origin main
-    ```
-    - Cloudflare auto-deploys
-    - Verify on deployed URL
-    - **No Cloudflare config changes needed!** ✅
-
-**Deliverable:** Working Vite + Tailwind v4 setup with 2-5x faster builds
+**Note:** This phase is complete. All 10 tasks done. See [Pre-Migration Accomplishments](#-pre-migration-accomplishments-march-2026) above.
 
 ---
 
@@ -652,15 +569,15 @@ We already have a complete design token system in `tailwind.config.css`:
 | Phase | Tasks | Effort | Status |
 |-------|-------|--------|--------|
 | ✅ Foundation: Design Tokens | Complete | — | Done (March 2026) |
-| Phase 1: Vite + Tailwind v4 | 10 tasks | 8-12 hours | Pending |
+| ✅ Phase 1: Vite + Tailwind v4 | Complete | — | Done (March 2026) |
 | Phase 2: Content Layer | 5 tasks | 6-8 hours | Pending |
 | Phase 3: Multi-Site Routing | 5 tasks | 4-6 hours | Pending |
 | Phase 4: Multi-Language | 3 tasks | 4-6 hours | Pending |
 | Phase 5: Backend-Ready | 2 tasks | 2-4 hours | Pending |
 
-**Remaining:** 24-36 hours (6-8 weeks at part-time pace)
+**Remaining:** 16-22 hours (4-5 weeks at part-time pace)
 
-**Note:** Foundation work (typography + design tokens) is complete, reducing overall risk.
+**Note:** Foundation work (typography + design tokens + Vite + Tailwind v4) is complete, significantly reducing remaining effort.
 
 ---
 
@@ -714,7 +631,7 @@ We already have a complete design token system in `tailwind.config.css`:
 
 ---
 
-**Last Updated:** 2026-03-31 (Updated to reflect completed foundation work)
+**Last Updated:** 2026-03-31 (Updated to reflect Phase 1 is complete)
 
 **Quick Reference:**
 - **Main Plan:** This document
