@@ -49,10 +49,10 @@ export default function WelcomeSection({ debugMode = false }) {
             ))}
           </div>
 
-          {/* Signature — handwriting text */}
+          {/* Signature — handwriting text, larger than greeting */}
           <div className="mt-8">
             <DebugLabel type="typography-handwriting" debugMode={debugMode}>
-              <p className="typography-handwriting">
+              <p className="typography-handwriting text-[2.25rem]">
                 {welcome.author}
               </p>
             </DebugLabel>
