@@ -793,3 +793,8 @@
 @utility snap-none {
   scroll-snap-align: none;
 }
+
+/* Disable scroll-snap on this section entirely */
+@utility section-no-snap {
+  scroll-snap-stop: always;
+}

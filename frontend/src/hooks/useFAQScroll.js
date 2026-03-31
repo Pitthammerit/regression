@@ -24,6 +24,15 @@ export function useFAQScroll(expandedIndex, setExpandedIndex) {
 
     if (!clickedElement) return
 
+    // Find the parent section to disable snap during accordion operation
+    const section = clickedElement?.closest('section')
+
+    // Disable scroll-snap on this section during accordion operation
+    if (section) {
+      section.style.scrollSnapAlign = 'none'
+      section.style.scrollSnapStop = 'always'
+    }
+
     // Track scroll position to detect user scroll during animation
     scrollStartYRef.current = window.scrollY
     userScrolledRef.current = false
@@ -44,6 +53,10 @@ export function useFAQScroll(expandedIndex, setExpandedIndex) {
       const faqSection = document.querySelector('[data-testid="faq-section"]')
       if (!faqSection) {
         window.removeEventListener('scroll', handleUserScroll)
+        if (section) {
+          section.style.scrollSnapAlign = ''
+          section.style.scrollSnapStop = ''
+        }
         return
       }
 
@@ -109,6 +122,10 @@ export function useFAQScroll(expandedIndex, setExpandedIndex) {
 
         // Skip if user scrolled manually during animation
         if (userScrolledRef.current) {
+          if (section) {
+            section.style.scrollSnapAlign = ''
+            section.style.scrollSnapStop = ''
+          }
           return
         }
 
@@ -129,6 +146,10 @@ export function useFAQScroll(expandedIndex, setExpandedIndex) {
           // Re-enable scroll-snap after scroll completes (plus buffer)
           setTimeout(() => {
             document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
+            if (section) {
+              section.style.scrollSnapAlign = ''
+              section.style.scrollSnapStop = ''
+            }
           }, 800)
         }
       })
@@ -136,7 +157,11 @@ export function useFAQScroll(expandedIndex, setExpandedIndex) {
       // Clean up scroll listener if closing
       setTimeout(() => {
         window.removeEventListener('scroll', handleUserScroll)
-      }, 100)
+        if (section) {
+          section.style.scrollSnapAlign = ''
+          section.style.scrollSnapStop = ''
+        }
+      }, 600)
     }
   }, [expandedIndex, setExpandedIndex])
 
