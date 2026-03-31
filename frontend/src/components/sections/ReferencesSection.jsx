@@ -85,7 +85,7 @@ export default function ReferencesSection({ debugMode = false }) {
           <>
             {/* First reference - always visible */}
             {references.items.slice(0, 1).map((resource) => (
-              <div key={resource.type} className={!expanded ? 'grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-10' : 'grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-start mb-3'}>
+              <div key={resource.type} className={!expanded ? 'grid md:grid-cols-[240px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start mb-10' : 'grid md:grid-cols-[240px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start mb-3'}>
                 {/* Photo - Left column */}
                 <div className="md:max-w-[240px]">
                   {resource.portrait && resource.portrait.trim() !== '' ? (

@@ -64,7 +64,7 @@ export default function BookingSection({ debugMode = false }) {
 
         {/* Topics Accordion - 6 cards (initially open) */}
         <AccordionWrap isOpen={expandedPanel === 'cards'} duration="500ms">
-          <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          <div className={`grid grid-cols-2 sm:grid-cols-3 card-grid-gap-sm md:card-grid-gap-md margin-top-md margin-top-sm mt-[3.5rem] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
             expandedPanel === 'cards' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}>
             {booking.formTopics.map((topic, i) => (
@@ -177,7 +177,7 @@ export function BookingSectionDark({ debugMode = false }) {
 
         {/* Topics Accordion - 6 cards (initially open) */}
         <AccordionWrap isOpen={expandedPanel === 'cards'} duration="500ms">
-          <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 mt-[3rem] mb-[3.5rem] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          <div className={`grid grid-cols-2 sm:grid-cols-3 card-grid-gap-sm md:card-grid-gap-md margin-top-md margin-top-sm mt-[3.5rem] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
             expandedPanel === 'cards' ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}>
             {booking.formTopics.map((topic, i) => (

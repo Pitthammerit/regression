@@ -9,7 +9,7 @@ export default function WelcomeSection({ debugMode = false }) {
 
   return (
     <SectionWrapper id="welcome" data-testid="welcome-section">
-      <div className="grid md:grid-cols-[300px_1fr] lg:grid-cols-[340px_1fr] gap-10 md:gap-16 items-start">
+      <div className="grid md:grid-cols-[300px_1fr] lg:grid-cols-[340px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-start">
 
         {/* Left: Circular portrait + greeting directly below */}
         <div className="flex flex-col items-center md:items-start gap-6">

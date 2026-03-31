@@ -588,6 +588,19 @@
   gap: 4rem;
 }
 
+/* Card Grid Gaps - for topic cards, form cards, etc. */
+@utility card-grid-gap-sm {
+  gap: 1rem;
+}
+
+@utility card-grid-gap-md {
+  gap: 1.25rem;
+}
+
+@utility card-grid-gap-lg {
+  gap: 2rem;
+}
+
 @utility margin-top-sm {
   margin-top: 1.5rem;
 }

@@ -11,7 +11,7 @@ export default function AboutSection({ debugMode = false }) {
 
   return (
     <SectionWrapper id="ueber" data-testid="about-section">
-      <div className="grid md:grid-cols-2 grid-gap-xl items-start">
+      <div className="grid md:grid-cols-2 md:card-grid-gap-lg items-start">
 
         {/* Left: Label + Portrait photo — sticky */}
         <div className="md:sticky md:top-28">

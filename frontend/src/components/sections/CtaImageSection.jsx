@@ -32,7 +32,7 @@ export default function CtaImageSection({ debugMode = false }) {
   return (
     <SectionWrapper id="simple-cta" data-testid="simple-cta-section">
       <div className="max-w-content mx-auto px-6 md:px-10 lg:px-16">
-        <div className="grid md:grid-cols-[288px_1fr] gap-8 md:gap-12 items-center">
+        <div className="grid md:grid-cols-[288px_1fr] card-grid-gap-sm md:card-grid-gap-lg items-center">
           {/* Image - Left column */}
           <div className="flex justify-center md:justify-start">
             <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden flex-shrink-0 border border-color-primary">
