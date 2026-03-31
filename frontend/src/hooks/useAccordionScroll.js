@@ -146,7 +146,7 @@ export function useAccordionScroll(openId, setOpenId) {
 
         // Re-enable scroll-snap after scroll completes (plus buffer)
         setTimeout(() => {
-          document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
+          document.documentElement.style.scrollSnapType = originalSnapType || 'y proximity'
         }, 800) // Wait for smooth scroll (typically 500-600ms) + buffer
       })
     } else {
