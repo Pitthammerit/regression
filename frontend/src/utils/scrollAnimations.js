@@ -54,7 +54,7 @@ export function smoothScrollTo(selector, options = {}) {
       } else {
         // Re-enable scroll-snap after animation completes (plus buffer)
         setTimeout(() => {
-          document.documentElement.style.scrollSnapType = originalSnapType || 'y proximity'
+          document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
         }, 100)
       }
     }

@@ -128,7 +128,7 @@ export function useFAQScroll(expandedIndex, setExpandedIndex) {
 
           // Re-enable scroll-snap after scroll completes (plus buffer)
           setTimeout(() => {
-            document.documentElement.style.scrollSnapType = originalSnapType || 'y proximity'
+            document.documentElement.style.scrollSnapType = originalSnapType || 'y mandatory'
           }, 800)
         }
       })
