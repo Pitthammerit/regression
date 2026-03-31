@@ -230,8 +230,8 @@ export default function ReferencesSection({ debugMode = false }) {
             className="flex flex-col items-center gap-3 mx-auto hover:opacity-80 transition-opacity cursor-pointer"
             aria-label="Weiter zum CTA"
           >
-            <DebugLabel type="typography-label-on-dark" debugMode={debugMode}>
-              <p className="typography-label-on-dark">Bereit, weiterzugehen?</p>
+            <DebugLabel type="typography-h2-on-dark" debugMode={debugMode}>
+              <p className="typography-h2-on-dark">Bereit, weiterzugehen?</p>
             </DebugLabel>
             <ChevronDown className="next-arrow-button-on-dark animate-pulse-down" />
           </button>
