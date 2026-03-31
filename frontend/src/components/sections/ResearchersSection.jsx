@@ -98,7 +98,7 @@ export default function ResearchersSection({ debugMode = false }) {
                   <div className="typography-label-on-dark">{featuredAuthor.role}</div>
                 </DebugLabel>
                 <DebugLabel type="typography-meta" debugMode={debugMode}>
-                  <div className="typography-meta-on-dark">{featuredAuthor.lifeDates}</div>
+                  <div className="typography-meta-on-dark element-spacing-xs">{featuredAuthor.lifeDates}</div>
                 </DebugLabel>
               </div>
             </div>
@@ -161,7 +161,7 @@ export default function ResearchersSection({ debugMode = false }) {
                     </p>
                   </DebugLabel>
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta-on-dark">{author.lifeDates}</p>
+                    <p className="typography-meta-on-dark element-spacing-xs">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
@@ -178,7 +178,7 @@ export default function ResearchersSection({ debugMode = false }) {
                     </p>
                   </DebugLabel>
                   <DebugLabel type="typography-meta" debugMode={debugMode}>
-                    <p className="typography-meta-on-dark">{author.lifeDates}</p>
+                    <p className="typography-meta-on-dark element-spacing-xs">{author.lifeDates}</p>
                   </DebugLabel>
                 </div>
 
