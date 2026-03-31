@@ -19,7 +19,7 @@ export default function WelcomeSection({ debugMode = false }) {
             />
           </div>
           {/* Greeting directly under photo */}
-          <DebugLabel type="h3-hand" debugMode={debugMode}>
+          <DebugLabel type="handwriting" debugMode={debugMode}>
             <p className="typography-handwriting text-center md:text-left whitespace-pre-line">
               {welcome.headline}
             </p>
@@ -49,7 +49,7 @@ export default function WelcomeSection({ debugMode = false }) {
 
           {/* Signature — handwriting text */}
           <div className="mt-8">
-            <DebugLabel type="h2-hand" debugMode={debugMode}>
+            <DebugLabel type="handwriting" debugMode={debugMode}>
               <p className="typography-handwriting text-h2-hand">
                 {welcome.author}
               </p>

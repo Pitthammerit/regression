@@ -42,7 +42,7 @@ export default function SimpleCtaSection({ debugMode = false }) {
         </DebugLabel>
 
         <div className="content-spacing-lg">
-          <DebugLabel type="button-text" debugMode={debugMode}>
+          <DebugLabel type="menu-text" debugMode={debugMode}>
             <CtaButton label={simpleCta.cta} variant="primary" className="py-4 px-12" />
           </DebugLabel>
         </div>

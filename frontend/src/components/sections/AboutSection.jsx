@@ -57,7 +57,7 @@ export default function AboutSection({ debugMode = false }) {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4">
               {about.credentials.map((cred, i) => (
                 <li key={i} className="font-primary text-list text-color-text flex items-start gap-2">
-                  <DebugLabel type="list" debugMode={debugMode}>
+                  <DebugLabel type="body" debugMode={debugMode}>
                     <span className="text-color-primary shrink-0 mt-0.5">—</span>
                     {cred}
                   </DebugLabel>

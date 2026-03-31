@@ -96,7 +96,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
                     {item.name}{item.title ? ` — ${item.title}` : ''}
                   </span>
                 </DebugLabel>
-                <DebugLabel type="subline" debugMode={debugMode}>
+                <DebugLabel type="body" debugMode={debugMode}>
                   <span className="text-subline subline-italic text-color-text block element-spacing-xs">
                     {item.teaser}
                   </span>

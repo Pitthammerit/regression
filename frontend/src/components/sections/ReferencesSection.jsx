@@ -111,7 +111,7 @@ export default function ReferencesSection({ debugMode = false }) {
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="role" debugMode={debugMode}>
+                    <DebugLabel type="meta" debugMode={debugMode}>
                       <p className="typography-label text-secondary-on-dark label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
@@ -119,7 +119,7 @@ export default function ReferencesSection({ debugMode = false }) {
                   )}
 
                   {resource.dates && (
-                    <DebugLabel type="date" debugMode={debugMode}>
+                    <DebugLabel type="meta" debugMode={debugMode}>
                       <p className="typography-label text-secondary-on-dark content-spacing-md">
                         {resource.dates}
                       </p>
@@ -132,7 +132,7 @@ export default function ReferencesSection({ debugMode = false }) {
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="source-link" debugMode={debugMode}>
+                  <DebugLabel type="meta" debugMode={debugMode}>
                     <a
                       href={resource.sourceUrl}
                       target="_blank"
@@ -185,7 +185,7 @@ export default function ReferencesSection({ debugMode = false }) {
                   </DebugLabel>
 
                   {resource.role && (
-                    <DebugLabel type="role" debugMode={debugMode}>
+                    <DebugLabel type="meta" debugMode={debugMode}>
                       <p className="typography-label text-secondary-on-dark label tracking-wider role-date-spacing">
                         {resource.role}
                       </p>
@@ -193,7 +193,7 @@ export default function ReferencesSection({ debugMode = false }) {
                   )}
 
                   {resource.dates && (
-                    <DebugLabel type="date" debugMode={debugMode}>
+                    <DebugLabel type="meta" debugMode={debugMode}>
                       <p className="typography-label text-secondary-on-dark content-spacing-md">
                         {resource.dates}
                       </p>
@@ -206,7 +206,7 @@ export default function ReferencesSection({ debugMode = false }) {
                     </p>
                   </DebugLabel>
 
-                  <DebugLabel type="source-link" debugMode={debugMode}>
+                  <DebugLabel type="meta" debugMode={debugMode}>
                     <a
                       href={resource.sourceUrl}
                       target="_blank"

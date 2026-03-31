@@ -179,7 +179,7 @@ export default function ResearchersSection({ debugMode = false }) {
                 </div>
 
                 {/* Short text */}
-                <DebugLabel type="summary-large" debugMode={debugMode}>
+                <DebugLabel type="h2" debugMode={debugMode}>
                   <p className="font-secondary text-summary-large text-on-dark leading-relaxed content-spacing">
                     {author.shortVersion}
                   </p>

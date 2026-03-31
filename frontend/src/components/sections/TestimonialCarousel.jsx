@@ -148,10 +148,10 @@ export const TestimonialCarousel = ({ clients, label, subtitle, debugMode = fals
                         </div>
                       )}
                       <div>
-                        <DebugLabel type="h5" debugMode={debugMode}>
+                        <DebugLabel type="h4" debugMode={debugMode}>
                           <p className="font-primary text-h5 font-semibold text-color-primary">{t.name}</p>
                         </DebugLabel>
-                        <DebugLabel type="role" debugMode={debugMode}>
+                        <DebugLabel type="meta" debugMode={debugMode}>
                           <p className="typography-label">
                             {t.context}
                           </p>

@@ -38,7 +38,7 @@ export default function PodcastSection({ debugMode = false }) {
               <SectionLabel text={podcast.label} />
             </DebugLabel>
 
-            <DebugLabel type="podcast-headline" debugMode={debugMode}>
+            <DebugLabel type="h2" debugMode={debugMode}>
               <h2 className="font-secondary text-podcast-headline text-color-primary content-spacing-md">
                 {podcast.sectionHeadline.map((line, i) => (
                   <span key={i} className="block">{line}</span>
