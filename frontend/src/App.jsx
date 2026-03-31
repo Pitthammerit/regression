@@ -130,20 +130,7 @@ export default function App() {
     <NavigationProvider>
       <BrowserRouter>
         <Routes>
-          {/* Legacy routes (backwards compatibility) */}
-          <Route path="/" element={
-            <SiteProvider>
-              <ContentProvider>
-                <MainPage />
-              </ContentProvider>
-            </SiteProvider>
-          } />
-          <Route path="/transkript" element={<TranscriptPage />} />
-          <Route path="/menu-demo" element={<MenuDemoPage />} />
-          <Route path="/typo-demo" element={<TypographyDemoPage />} />
-
-          {/* New multi-site routes (Phase 2 preparation) */}
-          {/* ContentProvider will be activated in Phase 3 */}
+          {/* Multi-site routes: /:site/:lang */}
           <Route path="/:site/:lang" element={
             <SiteProvider>
               <ContentProvider>
@@ -152,7 +139,20 @@ export default function App() {
             </SiteProvider>
           } />
 
-          {/* Catch-all */}
+          {/* Default redirect to regression/de */}
+          <Route path="/" element={<Navigate to="/regression/de" replace />} />
+
+          {/* Site without language - redirect to German */}
+          <Route path="/:site" element={<Navigate to="/regression/de" replace />} />
+
+          {/* Legacy routes (backwards compatibility) */}
+          <Route path="/transkript" element={<Navigate to="/regression/de/transkript" replace />} />
+
+          {/* Demo pages */}
+          <Route path="/menu-demo" element={<MenuDemoPage />} />
+          <Route path="/typo-demo" element={<TypographyDemoPage />} />
+
+          {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
