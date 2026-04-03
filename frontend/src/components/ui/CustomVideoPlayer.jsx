@@ -39,9 +39,9 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     )
   }
 
-  // YouTube time tracking
+  // YouTube time tracking - start immediately to get duration, continue when playing
   useEffect(() => {
-    if (type !== 'youtube' || !playing) return
+    if (type !== 'youtube') return
 
     const interval = setInterval(() => {
       ytCmd('getCurrentTime', [])
