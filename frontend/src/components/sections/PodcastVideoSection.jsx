@@ -3,7 +3,6 @@ import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from "../ui/SectionWrapper"
 import SectionLabel from "../ui/SectionLabel"
 import VideoPlayer from "../ui/VideoPlayer"
-import MultiPlayerTest from "../ui/MultiPlayer.test" // ✅ TESTING: Using test version
 import CtaButton from "../ui/CtaButton"
 import DebugLabel from "../ui/DebugLabel"
 import { X, Send } from "lucide-react"
@@ -70,7 +69,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
           {/* YouTube Video — centered with custom controls */}
           <div className="max-w-4xl mx-auto w-full" data-testid="podcast-video-embed">
             {ytId && (
-              <MultiPlayerTest
+              <VideoPlayer
                 type="youtube"
                 videoId={ytId}
                 poster={podcast.thumbnailUrl}
