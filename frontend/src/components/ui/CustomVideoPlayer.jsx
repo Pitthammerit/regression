@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-import { Play, Pause, Volume2, VolumeX, Maximize, History } from 'lucide-react'
+import { Play, Pause, Volume2, VolumeX, Maximize, RefreshCw } from 'lucide-react'
 import { useMedia } from '../../contexts/MediaContext'
 
 /**
@@ -258,15 +258,14 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
                 transition-all duration-300 shadow-2xl pointer-events-auto"
               aria-label="15 seconds back"
             >
-              <History size={18} className="text-white" />
+              <RefreshCw size={18} className="text-white" />
             </button>
           </button>
         </div>
       </div>
 
       {/* ── Progress bar (scrubber) ─── */}
-      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-white/20 cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-20
-        ${showControls ? 'opacity-100' : 'opacity-0'}`} onClick={handleSeek}>
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-20" onClick={handleSeek}>
         <div
           className="h-full bg-white/60 group-hover/progress:bg-white transition-colors"
           style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
