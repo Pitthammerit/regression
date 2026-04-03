@@ -182,10 +182,6 @@ export default function MultiPlayer({
             ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           onClick={playing ? handlePause : handlePlay}
         >
-          {!started && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
-          )}
-
           <button
             className="relative w-20 h-20 rounded-full bg-color-primary flex items-center justify-center
               hover:bg-color-secondary transition-colors duration-200 pointer-events-auto
@@ -255,7 +251,7 @@ export default function MultiPlayer({
               handleFullscreen()
             }}
             className="text-white/80 hover:text-white transition-colors"
-            aria-label="Vollbild"
+            aria-label="Fullscreen"
           >
             <Maximize size={20} />
           </button>
