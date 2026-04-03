@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from "../ui/SectionWrapper"
 import SectionLabel from "../ui/SectionLabel"
+import YouTubePlayer from "../ui/YouTubePlayer"
 import CtaButton from "../ui/CtaButton"
 import DebugLabel from "../ui/DebugLabel"
 import { X, Send } from "lucide-react"
@@ -65,20 +66,9 @@ export default function PodcastVideoSection({ debugMode = false }) {
             </DebugLabel>
           </div>
 
-          {/* YouTube Video — centered */}
+          {/* YouTube Video — centered with custom controls */}
           <div className="max-w-4xl mx-auto w-full" data-testid="podcast-video-embed">
-            {ytId && (
-              <div className="aspect-video rounded-2xl overflow-hidden bg-brand-dark">
-                <iframe
-                  src={`https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1`}
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Podcast Video"
-                />
-              </div>
-            )}
+            {ytId && <YouTubePlayer videoId={ytId} />}
           </div>
 
           {/* Transcript download button — centered */}
