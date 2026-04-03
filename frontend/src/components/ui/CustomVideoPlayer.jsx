@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
+import { Play, Pause, Volume2, VolumeX, Maximize, Rewind } from 'lucide-react'
 
 /**
  * CustomVideoPlayer
@@ -17,6 +17,8 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
   const [volume,       setVolumeState]  = useState(80)
   const [muted,        setMuted]        = useState(false)
   const [showControls, setShowControls] = useState(false)
+  const [currentTime,  setCurrentTime]  = useState(0)
+  const [duration,    setDuration]     = useState(0)
 
   // ── YouTube helpers ──────────────────────────────────
   const getYouTubeId = (url) => {
@@ -25,7 +27,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
   }
   const ytId  = type === 'youtube' ? getYouTubeId(src) : null
   const ytSrc = ytId
-    ? `https://www.youtube.com/embed/${ytId}?controls=0&enablejsapi=1&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3`
+    ? `https://www.youtube.com/embed/${ytId}?controls=0&enablejsapi=1&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&start=115`
     : null
 
   const ytCmd = (func, args = []) => {
@@ -33,6 +35,38 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       JSON.stringify({ event: 'command', func, args }), '*'
     )
   }
+
+  // YouTube time tracking
+  useEffect(() => {
+    if (type !== 'youtube' || !playing) return
+
+    const interval = setInterval(() => {
+      ytCmd('getCurrentTime', [])
+      ytCmd('getDuration', [])
+    }, 500)
+
+    // Listen for YouTube API responses
+    const handleMessage = (event) => {
+      if (event.origin !== 'https://www.youtube.com') return
+      try {
+        const data = JSON.parse(event.data)
+        if (data.event === 'infoDelivery') {
+          if (data.info?.currentTime !== undefined) {
+            setCurrentTime(data.info.currentTime)
+          }
+          if (data.info?.duration !== undefined) {
+            setDuration(data.info.duration)
+          }
+        }
+      } catch {}
+    }
+
+    window.addEventListener('message', handleMessage)
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener('message', handleMessage)
+    }
+  }, [type, playing])
 
   // ── Playback ──────────────────────────────────────────
   const handlePlay = () => {
@@ -46,6 +80,28 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     if (type === 'youtube') ytCmd('pauseVideo')
     else videoRef.current?.pause()
     setPlaying(false)
+  }
+
+  const handleRewind15 = () => {
+    const newTime = Math.max(0, currentTime - 15)
+    if (type === 'youtube') {
+      ytCmd('seekTo', [newTime, true])
+      setCurrentTime(newTime)
+    } else if (videoRef.current) {
+      videoRef.current.currentTime = newTime
+    }
+  }
+
+  const handleSeek = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const percent = (e.clientX - rect.left) / rect.width
+    const newTime = percent * duration
+    if (type === 'youtube') {
+      ytCmd('seekTo', [newTime, true])
+      setCurrentTime(newTime)
+    } else if (videoRef.current) {
+      videoRef.current.currentTime = newTime
+    }
   }
 
   const handleToggle = (e) => {
@@ -85,6 +141,13 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
   }
 
+  // Format time as M:SS
+  const formatTime = (s) => {
+    const mins = Math.floor(s / 60)
+    const secs = Math.floor(s % 60)
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
   return (
     <div
       className={`relative rounded-2xl overflow-hidden bg-brand-dark group cursor-pointer ${className}`}
@@ -100,7 +163,9 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
             poster={poster}
             className="w-full h-full object-cover"
             onEnded={() => { setPlaying(false); setStarted(false); onVideoEnded?.() }}
-            onTimeUpdate={() => {
+            onTimeUpdate={(e) => {
+              setCurrentTime(e.currentTarget.currentTime)
+              setDuration(e.currentTarget.duration)
               if (exitFullscreenAtTime && !hasTriggeredScrollRef.current && videoRef.current) {
                 const currentTime = videoRef.current.currentTime
                 // Only trigger if we're in fullscreen and reached the target time
@@ -132,7 +197,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
         )}
       </div>
 
-      {/* ── Glass Play / Pause overlay ─── */}
+      {/* ── Glass overlay with -15s, Play/Pause ─── */}
       <div
         className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
           ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
@@ -142,20 +207,46 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
         {!started && (
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
         )}
-        <button
-          data-testid="glass-play-button"
-          className="relative z-10 w-20 h-20 rounded-full
-            bg-white/20 backdrop-blur-md border border-white/40
-            flex items-center justify-center
-            hover:bg-white/30 hover:scale-105
-            transition-all duration-300 shadow-2xl"
-          aria-label={playing ? 'Pause' : 'Play'}
-        >
-          {playing
-            ? <Pause size={26} className="text-white" fill="white" />
-            : <Play  size={26} className="text-white ml-1" fill="white" />
-          }
-        </button>
+
+        {/* Controls row: -15s | Play/Pause */}
+        <div className="relative z-10 flex items-center gap-4">
+          {/* -15 Seconds Rewind (glass style) */}
+          <button
+            onClick={(e) => { e.stopPropagation(); handleRewind15() }}
+            className="w-14 h-14 rounded-full
+              bg-white/20 backdrop-blur-md border border-white/40
+              flex items-center justify-center
+              hover:bg-white/30 hover:scale-105
+              transition-all duration-300 shadow-2xl"
+            aria-label="15 seconds back"
+          >
+            <Rewind size={20} className="text-white" fill="white" />
+          </button>
+
+          {/* Play/Pause (glass style) */}
+          <button
+            data-testid="glass-play-button"
+            className="w-20 h-20 rounded-full
+              bg-white/20 backdrop-blur-md border border-white/40
+              flex items-center justify-center
+              hover:bg-white/30 hover:scale-105
+              transition-all duration-300 shadow-2xl"
+            aria-label={playing ? 'Pause' : 'Play'}
+          >
+            {playing
+              ? <Pause size={26} className="text-white" fill="white" />
+              : <Play  size={26} className="text-white ml-1" fill="white" />
+            }
+          </button>
+        </div>
+      </div>
+
+      {/* ── Progress bar (scrubber) ─── */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 cursor-pointer group/progress" onClick={handleSeek}>
+        <div
+          className="h-full bg-white/60 group-hover/progress:bg-white transition-colors"
+          style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
+        />
       </div>
 
       {/* ── Bottom controls bar ─── */}
@@ -165,37 +256,45 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
           transition-opacity duration-300
           ${showControls ? 'opacity-100' : 'opacity-0'}`}
       >
-        {/* Volume */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={handleMuteToggle}
-            className="text-white/80 hover:text-white transition-colors"
-            aria-label="Mute toggle"
-          >
-            {muted || volume === 0
-              ? <VolumeX size={16} />
-              : <Volume2 size={16} />
-            }
-          </button>
-          <input
-            type="range" min="0" max="100"
-            value={muted ? 0 : volume}
-            onChange={(e) => handleVolume(e.target.value)}
-            className="w-20 h-0.5 accent-white cursor-pointer"
-            onClick={(e) => e.stopPropagation()}
-            data-testid="volume-slider"
-          />
+        {/* Time display */}
+        <div className="text-white/80 text-xs font-medium">
+          {formatTime(currentTime)} / {formatTime(duration)}
         </div>
 
-        {/* Fullscreen */}
-        <button
-          onClick={(e) => { e.stopPropagation(); handleFullscreen() }}
-          className="text-white/80 hover:text-white transition-colors"
-          aria-label="Vollbild"
-          data-testid="fullscreen-button"
-        >
-          <Maximize size={16} />
-        </button>
+        {/* Controls row */}
+        <div className="flex items-center gap-3">
+          {/* Volume */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleMuteToggle}
+              className="text-white/80 hover:text-white transition-colors"
+              aria-label="Mute toggle"
+            >
+              {muted || volume === 0
+                ? <VolumeX size={16} />
+                : <Volume2 size={16} />
+              }
+            </button>
+            <input
+              type="range" min="0" max="100"
+              value={muted ? 0 : volume}
+              onChange={(e) => handleVolume(e.target.value)}
+              className="w-20 h-0.5 accent-white cursor-pointer"
+              onClick={(e) => e.stopPropagation()}
+              data-testid="volume-slider"
+            />
+          </div>
+
+          {/* Fullscreen */}
+          <button
+            onClick={(e) => { e.stopPropagation(); handleFullscreen() }}
+            className="text-white/80 hover:text-white transition-colors"
+            aria-label="Vollbild"
+            data-testid="fullscreen-button"
+          >
+            <Maximize size={16} />
+          </button>
+        </div>
       </div>
     </div>
   )
