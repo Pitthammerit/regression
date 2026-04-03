@@ -108,6 +108,7 @@ export default function VideoPlayer({
       rel: 0,
       modestbranding: 1,
       playsinline: 1,
+      start: 115, // Start from 1:55
     },
   }
 
