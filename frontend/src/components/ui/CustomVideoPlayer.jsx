@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-import { Play, Pause, Volume2, VolumeX, Maximize, Rewind } from 'lucide-react'
+import { Play, Pause, Volume2, VolumeX, Maximize, RotateCcw } from 'lucide-react'
 import { useMedia } from '../../contexts/MediaContext'
 
 /**
@@ -251,14 +251,14 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
             {/* -15 Seconds Rewind (glass style) - positioned relative to Play button */}
             <button
               onClick={(e) => { e.stopPropagation(); handleRewind15() }}
-              className="absolute -left-16 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full
+              className="absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
                 bg-white/20 backdrop-blur-md border border-white/40
                 flex items-center justify-center
                 hover:bg-white/30 hover:scale-105
                 transition-all duration-300 shadow-2xl"
               aria-label="15 seconds back"
             >
-              <Rewind size={20} className="text-white" fill="white" />
+              <RotateCcw size={18} className="text-white" fill="white" />
             </button>
           </button>
         </div>
