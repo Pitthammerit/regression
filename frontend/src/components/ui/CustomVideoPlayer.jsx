@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react'
 import { Play, Pause, Volume2, VolumeX, Maximize, Rewind } from 'lucide-react'
+import { useMedia } from '../../contexts/MediaContext'
 
 /**
  * CustomVideoPlayer
@@ -12,6 +13,8 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
   const iframeRef = useRef(null)
   const videoRef  = useRef(null)
   const hasTriggeredScrollRef = useRef(false)
+  const playerId = useRef(`media-${Math.random().toString(36).slice(2)}`)
+  const { registerPlayer, unregisterPlayer, requestPlay } = useMedia()
   const [playing,      setPlaying]      = useState(false)
   const [started,      setStarted]      = useState(false)
   const [volume,       setVolumeState]  = useState(80)
@@ -68,8 +71,27 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     }
   }, [type, playing])
 
+  // Register with MediaContext for mutual exclusion
+  useEffect(() => {
+    const onPause = () => {
+      setPlaying(false)
+      if (type === 'youtube') {
+        ytCmd('pauseVideo')
+      } else if (videoRef.current) {
+        videoRef.current.pause()
+      }
+    }
+
+    registerPlayer(playerId.current, onPause)
+
+    return () => {
+      unregisterPlayer(playerId.current)
+    }
+  }, [type, registerPlayer, unregisterPlayer])
+
   // ── Playback ──────────────────────────────────────────
   const handlePlay = () => {
+    requestPlay(playerId.current)
     if (type === 'youtube') ytCmd('playVideo')
     else videoRef.current?.play()
     setPlaying(true)
