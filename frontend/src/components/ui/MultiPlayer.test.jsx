@@ -1,0 +1,365 @@
+import React, { useEffect, useRef } from 'react'
+import YouTube from 'react-youtube'
+import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
+import useGlassPlayer from '../../hooks/useGlassPlayer'
+import { formatTime } from '../../utils/timeFormat'
+
+/**
+ * MultiPlayer TEST VERSION - liquidGL DISABLED
+ * This is a test version to isolate the disappearance issue
+ *
+ * CHANGES FROM ORIGINAL:
+ * - Lines 55-149: Entire liquidGL initialization effect is DISABLED
+ * - No canvas overlay creation
+ * - No WebGL initialization
+ * - No html2canvas dependency
+ */
+export default function MultiPlayerTest({
+  type = 'r2',
+  src,
+  videoId,
+  poster,
+  className = '',
+  onVideoEnded,
+}) {
+  const containerRef = useRef(null)
+
+  const {
+    playerRef,
+    ytPlayerRef,
+    ytId,
+    playing,
+    started,
+    volume,
+    muted,
+    currentTime,
+    duration,
+    showControls,
+    setShowControls,
+    handlePlay,
+    handlePause,
+    handleSeek,
+    handleVolume,
+    handleMuteToggle,
+    handleFullscreen,
+    handleTimeUpdate,
+    handleVideoEnded,
+    onYouTubeReady,
+    onYouTubeStateChange,
+  } = useGlassPlayer({ type, src, videoId, onEnded: onVideoEnded })
+
+  // ❌ LIQUIDGL DISABLED FOR TESTING
+  // This entire useEffect (lines 55-149 in original) is commented out
+  // to test if the component works without liquidGL
+  /*
+  useEffect(() => {
+    if (!containerRef.current || liquidGLInstance.current) return
+
+    // Check if html2canvas is loaded (required by liquidGL)
+    if (typeof window.html2canvas === 'undefined') {
+      console.warn('[MultiPlayer] html2canvas not loaded yet - waiting...')
+      // Retry after a short delay
+      const timer = setTimeout(() => {
+        if (typeof window.html2canvas !== 'undefined' && typeof window.liquidGL !== 'undefined') {
+          initLiquidGL()
+        }
+      }, 100)
+      return () => clearTimeout(timer)
+    }
+
+    // Check if liquidGL is available
+    if (typeof window.liquidGL === 'undefined') {
+      console.warn('[MultiPlayer] liquidGL not available - falling back to CSS-only glass')
+      return
+    }
+
+    initLiquidGL()
+
+    function initLiquidGL() {
+      try {
+        // Initialize liquidGL with multiple targets for different glass elements
+        liquidGLInstance.current = window.liquidGL({
+        target: '.multi-player-target',
+        snapshot: 'body',
+        resolution: 2.0,
+        refraction: 0.12,
+        bevelDepth: 0.3,
+        bevelWidth: 0.18,
+        frost: 6,
+        shadow: true,
+        specular: true,
+        tilt: false,
+        reveal: 'instant',
+        on: {
+          init(instance) {
+            console.log('[MultiPlayer] liquidGL ready!', instance)
+
+            // After main target is ready, initialize glass for progress fill
+            if (typeof window.html2canvas !== 'undefined' && typeof window.liquidGL !== 'undefined') {
+              try {
+                window.liquidGL({
+                  target: '.multi-player-progress-fill',
+                  snapshot: 'body',
+                  resolution: 2.0,
+                  refraction: 0.1,
+                  bevelDepth: 0.25,
+                  bevelWidth: 0.12,
+                  frost: 5,
+                  shadow: false,
+                  specular: true,
+                  tilt: false,
+                  reveal: 'instant',
+                })
+              } catch (e) {
+                console.warn('[MultiPlayer] Progress fill glass init failed:', e)
+              }
+
+              // Initialize glass for volume slider
+              try {
+                window.liquidGL({
+                  target: '.multi-player-volume-slider',
+                  snapshot: 'body',
+                  resolution: 2.0,
+                  refraction: 0.08,
+                  bevelDepth: 0.2,
+                  bevelWidth: 0.1,
+                  frost: 4,
+                  shadow: false,
+                  specular: true,
+                  reveal: 'instant',
+                })
+              } catch (e) {
+                console.warn('[MultiPlayer] Volume glass init failed:', e)
+              }
+            } else {
+              console.warn('[MultiPlayer] html2canvas or liquidGL not available for nested initialization')
+            }
+          },
+        },
+      })
+      } catch (error) {
+        console.warn('[MultiPlayer] liquidGL initialization failed:', error)
+      }
+    }
+
+    return () => {
+      // Cleanup if needed
+      liquidGLInstance.current = null
+    }
+  }, [])
+  */
+
+  // ✅ TESTING: Log when component renders
+  useEffect(() => {
+    console.log('[MultiPlayerTest] Component mounted - liquidGL DISABLED')
+    console.log('[MultiPlayerTest] Container ref:', containerRef.current)
+    console.log('[MultiPlayerTest] YouTube ID:', ytId)
+    console.log('[MultiPlayerTest] Poster URL:', poster)
+
+    // Set up a visibility checker
+    const checkVisibility = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect()
+        const isVisible = rect.width > 0 && rect.height > 0
+        const styles = window.getComputedStyle(containerRef.current)
+        console.log('[MultiPlayerTest] Visibility check:', {
+          isVisible,
+          width: rect.width,
+          height: rect.height,
+          display: styles.display,
+          visibility: styles.visibility,
+          opacity: styles.opacity,
+          zIndex: styles.zIndex,
+        })
+      }
+    }
+
+    // Check immediately and every second
+    checkVisibility()
+    const interval = setInterval(checkVisibility, 1000)
+
+    return () => {
+      clearInterval(interval)
+      console.log('[MultiPlayerTest] Component unmounting')
+    }
+  }, [ytId, poster])
+
+  // YouTube player options
+  const opts = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      rel: 0,
+      modestbranding: 1,
+      iv_load_policy: 3,
+      fs: 0,
+      playsinline: 1,
+      enablejsapi: 1,
+    },
+  }
+
+  // Get Vimeo embed URL
+  const getVimeoUrl = (url) => {
+    const m = url?.match(/vimeo\.com\/(\d+)/)
+    return m ? `https://player.vimeo.com/video/${m[1]}?autoplay=0&controls=0` : url
+  }
+
+  const vimeoUrl = type === 'vimeo' ? getVimeoUrl(src) : null
+
+  // Handle progress bar click
+  const handleProgressClick = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const percent = (e.clientX - rect.left) / rect.width
+    handleSeek(percent)
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className={`multi-player-target relative rounded-2xl overflow-hidden bg-black/40 group cursor-pointer ${className}`}
+      onMouseEnter={() => setShowControls(true)}
+      onMouseLeave={() => setShowControls(false)}
+      style={{ border: '2px solid red' }} // ✅ TESTING: Red border to verify visibility
+    >
+      {/* Video Container */}
+      <div className="relative aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto [&:fullscreen_&]:flex [&:fullscreen_&]:items-center [&:fullscreen_&]:justify-center">
+        {/* Thumbnail - shown until started */}
+        {!started && poster && (
+          <img
+            src={poster}
+            alt="Video thumbnail"
+            fetchPriority="high"
+            loading="eager"
+            decoding="sync"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
+
+        {/* Video Element (R2/MP4) */}
+        {type === 'r2' && (
+          <video
+            ref={playerRef}
+            src={src}
+            poster={poster}
+            className="w-full h-full object-cover"
+            onEnded={handleVideoEnded}
+            onTimeUpdate={handleTimeUpdate}
+            onClick={playing ? handlePause : handlePlay}
+          />
+        )}
+
+        {/* YouTube Player - lazy loaded */}
+        {type === 'youtube' && ytId && started && (
+          <YouTube
+            videoId={ytId}
+            opts={opts}
+            onReady={onYouTubeReady}
+            onStateChange={onYouTubeStateChange}
+            className="w-full h-full"
+          />
+        )}
+
+        {/* Vimeo Player - lazy loaded */}
+        {type === 'vimeo' && vimeoUrl && started && (
+          <iframe
+            src={vimeoUrl}
+            className="w-full h-full"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          />
+        )}
+
+        {/* Play Button Overlay */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
+            ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          onClick={playing ? handlePause : handlePlay}
+        >
+          <button
+            className="multi-player-play-button relative w-20 h-20 rounded-full flex items-center justify-center
+              bg-white/15 border border-white/35
+              hover:bg-white/20 transition-all duration-200 pointer-events-auto
+              shadow-lg"
+            aria-label={playing ? 'Pause' : 'Play'}
+          >
+            {playing ? (
+              <Pause size={26} className="text-white" fill="white" />
+            ) : (
+              <Play size={26} className="text-white ml-1" fill="white" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Progress Bar - Blue background, white glass progress fill */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
+          group/progress transition-opacity duration-300 pointer-events-auto z-30"
+        style={{ opacity: showControls ? 1 : 0 }}
+        onClick={handleProgressClick}
+      >
+        <div
+          className="multi-player-progress-fill h-full bg-white/70 group-hover/progress:bg-white/90 transition-colors"
+          style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
+        />
+      </div>
+
+      {/* Controls Bar - Dark gradient for contrast, NO glass */}
+      <div
+        className={`absolute bottom-[11px] left-0 right-0 flex items-center justify-between
+          px-5 py-3 pointer-events-auto
+          bg-gradient-to-t from-black/60 via-black/40 to-transparent
+          transition-opacity duration-300`}
+        style={{ opacity: showControls ? 1 : 0 }}
+      >
+        {/* Time Display - NO glass, white text */}
+        <div className="text-white text-xs font-medium">
+          {formatTime(currentTime)} / {formatTime(duration)}
+        </div>
+
+        {/* Volume + Fullscreen - Right Aligned */}
+        <div className="flex items-center gap-3">
+          {/* Volume - WITH glass effect */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleMuteToggle}
+              className="text-white/80 hover:text-white transition-colors"
+              aria-label="Mute toggle"
+            >
+              {muted || volume === 0 ? <VolumeX size={16} /> : <Volume2 size={16} />}
+            </button>
+            <div className="multi-player-volume-slider relative">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={muted ? 0 : volume}
+                onChange={(e) => handleVolume(e.target.value)}
+                className="w-20 h-1 bg-white/30 rounded-full appearance-none cursor-pointer
+                  [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3
+                  [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full
+                  [&::-webkit-slider-thumb]:bg-white/80 [&::-webkit-slider-thumb]:cursor-pointer
+                  [&::-webkit-slider-thumb]:transition-all"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          </div>
+
+          {/* Fullscreen - NO glass, white icon */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              handleFullscreen()
+            }}
+            className="text-white/80 hover:text-white transition-colors"
+            aria-label="Fullscreen"
+          >
+            <Maximize size={20} />
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
