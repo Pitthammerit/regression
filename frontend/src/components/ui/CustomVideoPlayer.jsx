@@ -303,8 +303,6 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
         {/* Time display */}
         <div className="text-white/80 text-xs font-medium">
           {formatTime(currentTime)} / {formatTime(duration)}
-          {/* Debug: show raw values */}
-          <span className="opacity-50 text-[10px] ml-2">({Math.round(currentTime)}s / {Math.round(duration)}s)</span>
         </div>
 
         {/* Controls row */}
