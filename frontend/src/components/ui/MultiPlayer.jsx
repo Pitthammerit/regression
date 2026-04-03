@@ -57,15 +57,30 @@ export default function MultiPlayer({
   useEffect(() => {
     if (!containerRef.current || liquidGLInstance.current) return
 
+    // Check if html2canvas is loaded (required by liquidGL)
+    if (typeof window.html2canvas === 'undefined') {
+      console.warn('[MultiPlayer] html2canvas not loaded yet - waiting...')
+      // Retry after a short delay
+      const timer = setTimeout(() => {
+        if (typeof window.html2canvas !== 'undefined' && typeof window.liquidGL !== 'undefined') {
+          initLiquidGL()
+        }
+      }, 100)
+      return () => clearTimeout(timer)
+    }
+
     // Check if liquidGL is available
     if (typeof window.liquidGL === 'undefined') {
       console.warn('[MultiPlayer] liquidGL not available - falling back to CSS-only glass')
       return
     }
 
-    try {
-      // Initialize liquidGL with multiple targets for different glass elements
-      liquidGLInstance.current = window.liquidGL({
+    initLiquidGL()
+
+    function initLiquidGL() {
+      try {
+        // Initialize liquidGL with multiple targets for different glass elements
+        liquidGLInstance.current = window.liquidGL({
         target: '.multi-player-target',
         snapshot: 'body',
         resolution: 2.0,
@@ -81,7 +96,7 @@ export default function MultiPlayer({
             console.log('[MultiPlayer] liquidGL ready!', instance)
 
             // After main target is ready, initialize glass for progress fill
-            if (typeof window.liquidGL !== 'undefined') {
+            if (typeof window.html2canvas !== 'undefined' && typeof window.liquidGL !== 'undefined') {
               try {
                 window.liquidGL({
                   target: '.multi-player-progress-fill',
@@ -100,29 +115,30 @@ export default function MultiPlayer({
               }
 
               // Initialize glass for volume slider
-              if (typeof window.liquidGL !== 'undefined') {
-                try {
-                  window.liquidGL({
-                    target: '.multi-player-volume-slider',
-                    snapshot: 'body',
-                    resolution: 2.0,
-                    refraction: 0.08,
-                    bevelDepth: 0.2,
-                    bevelWidth: 0.1,
-                    frost: 4,
-                    shadow: false,
-                    specular: true,
-                  })
-                } catch (e) {
-                  console.warn('[MultiPlayer] Volume glass init failed:', e)
-                }
+              try {
+                window.liquidGL({
+                  target: '.multi-player-volume-slider',
+                  snapshot: 'body',
+                  resolution: 2.0,
+                  refraction: 0.08,
+                  bevelDepth: 0.2,
+                  bevelWidth: 0.1,
+                  frost: 4,
+                  shadow: false,
+                  specular: true,
+                })
+              } catch (e) {
+                console.warn('[MultiPlayer] Volume glass init failed:', e)
               }
+            } else {
+              console.warn('[MultiPlayer] html2canvas or liquidGL not available for nested initialization')
             }
           },
         },
       })
-    } catch (error) {
-      console.warn('[MultiPlayer] liquidGL initialization failed:', error)
+      } catch (error) {
+        console.warn('[MultiPlayer] liquidGL initialization failed:', error)
+      }
     }
 
     return () => {
