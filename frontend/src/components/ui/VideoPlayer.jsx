@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from 'react'
 import YouTube from 'react-youtube'
 import { Play, Pause, Volume2, VolumeX, Maximize, RedoDot } from 'lucide-react'
 import { useMedia } from '../../contexts/MediaContext'
+import useYouTubePlayer from '../../hooks/useYouTubePlayer'
+import { formatTime } from '../../utils/timeFormat'
 
 /**
  * VideoPlayer — Unified player for R2/native video and YouTube
@@ -34,12 +36,14 @@ export default function VideoPlayer({
 
   const [playing, setPlaying] = useState(false)
   const [started, setStarted] = useState(false)
-  const [playerReady, setPlayerReady] = useState(false)
   const [volume, setVolumeState] = useState(80)
   const [muted, setMuted] = useState(false)
   const [showControls, setShowControls] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
+
+  // YouTube player hook
+  const ytPlayer = useYouTubePlayer()
 
   // Extract YouTube ID from URL if needed
   const getYouTubeId = (url) => {
@@ -52,11 +56,10 @@ export default function VideoPlayer({
   // R2: Uses onTimeUpdate event
   // YouTube: Uses polling interval
   useEffect(() => {
-    if (type === 'youtube' && playing && playerRef.current) {
+    if (type === 'youtube' && playing && ytPlayer.ready) {
       progressInterval.current = setInterval(() => {
-        if (playerRef.current) {
-          setCurrentTime(playerRef.current.getCurrentTime())
-        }
+        const time = ytPlayer.getCurrentTime()
+        if (time !== undefined) setCurrentTime(time)
       }, 250)
     } else {
       if (progressInterval.current) {
@@ -69,25 +72,16 @@ export default function VideoPlayer({
         clearInterval(progressInterval.current)
       }
     }
-  }, [type, playing])
+  }, [type, playing, ytPlayer.ready, ytPlayer.getCurrentTime])
 
   // ── MediaContext mutual exclusion ───────────────────────────
   useEffect(() => {
     const onPause = () => {
       setPlaying(false)
-      if (playerRef.current) {
-        if (type === 'youtube') {
-          // Only call YouTube API if player is ready
-          if (playerReady) {
-            try {
-              playerRef.current.pauseVideo()
-            } catch (e) {
-              console.error('[VideoPlayer] YouTube pauseVideo error:', e)
-            }
-          }
-        } else {
-          playerRef.current.pause()
-        }
+      if (type === 'youtube') {
+        ytPlayer.pause()
+      } else if (playerRef.current) {
+        playerRef.current.pause()
       }
     }
 
@@ -96,7 +90,7 @@ export default function VideoPlayer({
     return () => {
       unregisterPlayer(playerId.current)
     }
-  }, [type, playerReady, registerPlayer, unregisterPlayer])
+  }, [type, ytPlayer.pause, registerPlayer, unregisterPlayer])
 
   // ── YouTube specific events ─────────────────────────────────
   const opts = {
@@ -113,20 +107,15 @@ export default function VideoPlayer({
   }
 
   const onReady = (event) => {
-    if (!event?.target) return
-    playerRef.current = event.target
-    try {
-      const dur = event.target.getDuration()
-      setDuration(dur)
-      setPlayerReady(true) // Mark player as ready for API calls
-    } catch (e) {
-      console.error('[VideoPlayer] Failed to get duration:', e)
-    }
+    ytPlayer.onReady(event)
+    const dur = ytPlayer.getDuration()
+    if (dur !== undefined) setDuration(dur)
   }
 
   const onStateChange = (event) => {
-    if (!event?.data && event.data !== 0) return
-    const playerState = event.data
+    const playerState = ytPlayer.onStateChange(event)
+    if (playerState === undefined) return
+
     if (playerState === 1) { // PLAYING
       setPlaying(true)
       setStarted(true)
@@ -142,13 +131,7 @@ export default function VideoPlayer({
   const handlePlay = () => {
     requestPlay(playerId.current)
     if (type === 'youtube') {
-      if (playerRef.current && playerReady) {
-        try {
-          playerRef.current.playVideo()
-        } catch (e) {
-          console.error('[VideoPlayer] YouTube playVideo error:', e)
-        }
-      }
+      ytPlayer.play()
     } else {
       playerRef.current?.play()
     }
@@ -158,13 +141,7 @@ export default function VideoPlayer({
 
   const handlePause = () => {
     if (type === 'youtube') {
-      if (playerRef.current && playerReady) {
-        try {
-          playerRef.current.pauseVideo()
-        } catch (e) {
-          console.error('[VideoPlayer] YouTube pauseVideo error:', e)
-        }
-      }
+      ytPlayer.pause()
     } else {
       playerRef.current?.pause()
     }
@@ -174,14 +151,8 @@ export default function VideoPlayer({
   const handleRewind15 = () => {
     const newTime = Math.max(0, currentTime - 15)
     if (type === 'youtube') {
-      if (playerRef.current && playerReady) {
-        try {
-          playerRef.current.seekTo(newTime, true)
-          setCurrentTime(newTime)
-        } catch (e) {
-          console.error('[VideoPlayer] YouTube seekTo error:', e)
-        }
-      }
+      ytPlayer.seekTo(newTime)
+      setCurrentTime(newTime)
     } else if (playerRef.current) {
       playerRef.current.currentTime = newTime
       setCurrentTime(newTime)
@@ -193,14 +164,8 @@ export default function VideoPlayer({
     const percent = (e.clientX - rect.left) / rect.width
     const newTime = percent * duration
     if (type === 'youtube') {
-      if (playerRef.current && playerReady) {
-        try {
-          playerRef.current.seekTo(newTime, true)
-          setCurrentTime(newTime)
-        } catch (e) {
-          console.error('[VideoPlayer] YouTube seekTo error:', e)
-        }
-      }
+      ytPlayer.seekTo(newTime)
+      setCurrentTime(newTime)
     } else if (playerRef.current) {
       playerRef.current.currentTime = newTime
       setCurrentTime(newTime)
@@ -225,13 +190,7 @@ export default function VideoPlayer({
     setVolumeState(v)
     setMuted(v === 0)
     if (type === 'youtube') {
-      if (playerRef.current && playerReady) {
-        try {
-          playerRef.current.setVolume(v)
-        } catch (e) {
-          console.error('[VideoPlayer] YouTube setVolume error:', e)
-        }
-      }
+      ytPlayer.setVolume(v)
     } else if (playerRef.current) {
       playerRef.current.volume = v / 100
     }
@@ -241,24 +200,12 @@ export default function VideoPlayer({
     if (muted) {
       handleVolume(volume || 80)
       if (type === 'youtube') {
-        if (playerRef.current && playerReady) {
-          try {
-            playerRef.current.unMute()
-          } catch (e) {
-            console.error('[VideoPlayer] YouTube unMute error:', e)
-          }
-        }
+        ytPlayer.unMute()
       }
     } else {
       handleVolume(0)
       if (type === 'youtube') {
-        if (playerRef.current && playerReady) {
-          try {
-            playerRef.current.mute()
-          } catch (e) {
-            console.error('[VideoPlayer] YouTube mute error:', e)
-          }
-        }
+        ytPlayer.mute()
       }
     }
   }
@@ -267,7 +214,7 @@ export default function VideoPlayer({
   const handleFullscreen = () => {
     let el
     if (type === 'youtube') {
-      el = playerRef.current?.getIframe()?.parentElement
+      el = ytPlayer.playerRef?.current?.getIframe()?.parentElement
     } else {
       el = playerRef.current
     }
@@ -276,16 +223,9 @@ export default function VideoPlayer({
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
   }
 
-  // Format time as M:SS
-  const formatTime = (s) => {
-    const mins = Math.floor(s / 60)
-    const secs = Math.floor(s % 60)
-    return `${mins}:${secs.toString().padStart(2, '0')}`
-  }
-
   return (
     <div
-      className={`relative rounded-2xl overflow-hidden bg-brand-dark group cursor-pointer ${className}`}
+      className={`relative rounded-2xl overflow-hidden bg-color-bg-dark group cursor-pointer ${className}`}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
@@ -347,12 +287,12 @@ export default function VideoPlayer({
           {/* Play/Pause (glass style) */}
           <button
             data-testid="glass-play-button"
-            className={`relative w-20 h-20 rounded-full
-              bg-white/10 border border-white/20
+            className={`relative player-button rounded-full
+              bg-color-overlay-dark border border-color-light
               flex items-center justify-center
               hover:bg-white/20 hover:scale-105
               transition-all duration-300 shadow-2xl pointer-events-auto
-              ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
+              blur-player-glass`}
             aria-label={playing ? 'Pause' : 'Play'}
           >
             {playing
@@ -364,12 +304,12 @@ export default function VideoPlayer({
             {started && (
               <button
                 onClick={(e) => { e.stopPropagation(); handleRewind15() }}
-                className={`absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
-                  bg-white/10 border border-white/20
+                className={`absolute -left-14 top-1/2 -translate-y-1/2 player-rewind rounded-full
+                  bg-color-overlay-dark border border-color-light
                   flex items-center justify-center
                   hover:bg-white/20 hover:scale-105
                   transition-all duration-300 shadow-2xl pointer-events-auto
-                  ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
+                  blur-player-glass`}
                 aria-label="15 seconds back"
               >
                 <RedoDot size={18} className="text-white scale-x-[-1]" />
@@ -382,7 +322,7 @@ export default function VideoPlayer({
       {/* ── Progress bar (scrubber) ─── */}
       <div
         data-testid="scrubber-bar"
-        className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-30 opacity-0 group-hover:opacity-100"
+        className="absolute bottom-0 left-0 right-0 player-scrubber bg-color-primary cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-30 opacity-0 group-hover:opacity-100"
         onClick={handleSeek}
       >
         <div
@@ -394,7 +334,7 @@ export default function VideoPlayer({
       {/* ── Bottom controls bar ─── */}
       <div
         className={`absolute bottom-[5px] left-0 right-0 flex items-center justify-between
-          px-5 py-3 bg-gradient-to-t from-black/70 to-transparent
+          player-padding player-controls-overlay
           transition-opacity duration-300 pointer-events-auto
           ${showControls ? 'opacity-100' : 'opacity-0'}`}
       >
@@ -404,7 +344,7 @@ export default function VideoPlayer({
         </div>
 
         {/* Controls row */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center player-gap">
           {/* Volume */}
           <div className="flex items-center gap-2">
             <button
