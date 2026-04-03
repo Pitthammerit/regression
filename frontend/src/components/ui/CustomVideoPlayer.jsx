@@ -222,8 +222,8 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
       {/* ── Glass overlay with -15s, Play/Pause ─── */}
       <div
-        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
-          ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 pointer-events-none
+          ${playing && !showControls ? 'opacity-0' : 'opacity-100'}`}
         onClick={handleToggle}
       >
         {/* Gradient vignette so button is always readable */}
@@ -240,7 +240,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
               bg-white/20 backdrop-blur-md border border-white/40
               flex items-center justify-center
               hover:bg-white/30 hover:scale-105
-              transition-all duration-300 shadow-2xl"
+              transition-all duration-300 shadow-2xl pointer-events-auto"
             aria-label={playing ? 'Pause' : 'Play'}
           >
             {playing
@@ -248,14 +248,14 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
               : <Play  size={26} className="text-white ml-1" fill="white" />
             }
 
-            {/* -15 Seconds Rewind (glass style) - positioned relative to Play button */}
+            {/* -15 Seconds Rewind (ground: Rewind (glass style) - positioned relative to Play button */}
             <button
               onClick={(e) => { e.stopPropagation(); handleRewind15() }}
               className="absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
                 bg-white/20 backdrop-blur-md border border-white/40
                 flex items-center justify-center
                 hover:bg-white/30 hover:scale-105
-                transition-all duration-300 shadow-2xl"
+                transition-all duration-300 shadow-2xl pointer-events-auto"
               aria-label="15 seconds back"
             >
               <RotateCcw size={18} className="text-white" fill="white" />
@@ -265,7 +265,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       </div>
 
       {/* ── Progress bar (scrubber) ─── */}
-      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-white/20 cursor-pointer group/progress transition-opacity duration-300
+      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-white/20 cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto
         ${showControls ? 'opacity-100' : 'opacity-0'}`} onClick={handleSeek}>
         <div
           className="h-full bg-white/60 group-hover/progress:bg-white transition-colors"
@@ -277,7 +277,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       <div
         className={`absolute bottom-0 left-0 right-0 flex items-center justify-between
           px-5 py-3 bg-gradient-to-t from-black/70 to-transparent
-          transition-opacity duration-300
+          transition-opacity duration-300 pointer-events-auto
           ${showControls ? 'opacity-100' : 'opacity-0'}`}
       >
         {/* Time display */}
