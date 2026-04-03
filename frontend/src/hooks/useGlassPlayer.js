@@ -11,6 +11,7 @@ import { useState, useRef, useCallback } from 'react'
  * @param {string} options.src - Video URL or R2 path
  * @param {string} [options.videoId] - Explicit video ID (for YouTube)
  * @param {Function} [options.onEnded] - Callback when video ends
+ *   NOTE: Should be memoized with useCallback in parent component
  *
  * @returns {Object} Player state, refs, and handlers
  */
@@ -132,7 +133,11 @@ export default function useGlassPlayer({ type, src, videoId, onEnded }) {
    * @param {number} percent - Position as percentage (0-1)
    */
   const handleSeek = useCallback((percent) => {
-    const newTime = percent * duration
+    // Clamp percent to valid range and guard against invalid duration
+    const clampedPercent = Math.max(0, Math.min(1, percent))
+    if (!duration || duration <= 0) return
+
+    const newTime = clampedPercent * duration
     setCurrentTime(newTime)
 
     if (type === 'youtube' && ytPlayerRef.current) {
