@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { SkipBack, Play, Pause, SkipForward } from 'lucide-react'
 import { Slider } from './Slider'
 import { useMedia } from '../../contexts/MediaContext'
+import { formatTime } from '../../utils/timeFormat'
 
 /**
  * PodcastPlayer — in-page HTML5 audio player
@@ -91,15 +92,6 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
       audioRef.current.currentTime = newTime
       setCurrentTime(newTime)
     }
-  }
-
-  const formatTime = (secs) => {
-    if (!secs || isNaN(secs)) return '0:00'
-    const h = Math.floor(secs / 3600)
-    const m = Math.floor((secs % 3600) / 60)
-    const s = Math.floor(secs % 60)
-    if (h > 0) return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
-    return `${m}:${String(s).padStart(2, '0')}`
   }
 
   const progress = totalDuration > 0 ? (currentTime / totalDuration) * 100 : 0

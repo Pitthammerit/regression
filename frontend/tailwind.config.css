@@ -123,6 +123,30 @@
      BREAKPOINTS (Custom)
      ───────────────────────────────────────────────────────────── */
   --breakpoint-900: 900px;
+
+  /* ─────────────────────────────────────────────────────────────
+     VIDEO PLAYER TOKENS (7 sizes, 1 spacing, 1 blur, 1 overlay)
+     ───────────────────────────────────────────────────────────── */
+  /* Player-specific sizes */
+  --size-player-button: 5rem;           /* w-20 h-20 */
+  --size-player-rewind: 2.5rem;         /* w-10 h-10 */
+  --size-player-icon-lg: 1.625rem;      /* 26px */
+  --size-player-icon-md: 1.125rem;      /* 18px */
+  --size-player-icon-sm: 1rem;          /* 16px */
+  --size-player-icon-xl: 1.25rem;       /* 20px */
+
+  /* Scrubber */
+  --height-player-scrubber: 11px;
+
+  /* Blur */
+  --blur-player-glass: 2px;             /* Single blur value for all glass effects */
+
+  /* Spacing */
+  --spacing-player-gap: 0.75rem;        /* gap-3 */
+  --spacing-player-padding: 1.25rem;    /* px-5 py-3 */
+
+  /* Overlay */
+  --overlay-player-controls: rgba(0, 0, 0, 0.7);  /* from-black/70 */
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -797,4 +821,40 @@
 /* Disable scroll-snap on this section entirely */
 @utility section-no-snap {
   scroll-snap-stop: always;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   VIDEO PLAYER UTILITIES (7 utilities)
+   ───────────────────────────────────────────────────────────── */
+@utility player-button {
+  width: var(--size-player-button);
+  height: var(--size-player-button);
+}
+
+@utility player-rewind {
+  width: var(--size-player-rewind);
+  height: var(--size-player-rewind);
+}
+
+@utility player-scrubber {
+  height: var(--height-player-scrubber);
+}
+
+@utility blur-player-glass {
+  backdrop-filter: blur(var(--blur-player-glass));
+}
+
+@utility player-gap {
+  gap: var(--spacing-player-gap);
+}
+
+@utility player-padding {
+  padding-left: var(--spacing-player-padding);
+  padding-right: var(--spacing-player-padding);
+  padding-top: var(--spacing-player-padding);
+  padding-bottom: var(--spacing-player-padding);
+}
+
+@utility player-controls-overlay {
+  background-color: var(--overlay-player-controls);
 }
