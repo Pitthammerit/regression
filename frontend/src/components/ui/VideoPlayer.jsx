@@ -99,20 +99,23 @@ export default function VideoPlayer({
       controls: 0,
       rel: 0,
       modestbranding: 1,
-      iv_load_policy: 3,
-      fs: 0,
       playsinline: 1,
-      enablejsapi: 1,
     },
   }
 
   const onReady = (event) => {
+    if (!event?.target) return
     playerRef.current = event.target
-    const dur = event.target.getDuration()
-    setDuration(dur)
+    try {
+      const dur = event.target.getDuration()
+      setDuration(dur)
+    } catch (e) {
+      console.error('[VideoPlayer] Failed to get duration:', e)
+    }
   }
 
   const onStateChange = (event) => {
+    if (!event?.data && event.data !== 0) return
     const playerState = event.data
     if (playerState === 1) { // PLAYING
       setPlaying(true)
@@ -235,13 +238,19 @@ export default function VideoPlayer({
       {/* ── Media element ─── */}
       <div className="aspect-video [&_iframe]:w-full [&_iframe]:h-full [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto">
         {type === 'youtube' ? (
-          <YouTube
-            videoId={ytId}
-            opts={opts}
-            onReady={onReady}
-            onStateChange={onStateChange}
-            className="w-full h-full"
-          />
+          ytId ? (
+            <YouTube
+              videoId={ytId}
+              opts={opts}
+              onReady={onReady}
+              onStateChange={onStateChange}
+              className="w-full h-full"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-white">
+              Invalid YouTube video ID
+            </div>
+          )
         ) : (
           <video
             ref={playerRef}
