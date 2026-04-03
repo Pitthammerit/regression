@@ -284,7 +284,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       {/* ── Progress bar (scrubber) ─── */}
       <div
         data-testid="scrubber-bar"
-        className="absolute bottom-0 left-0 right-0 h-2 bg-red-500 cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-30"
+        className="absolute bottom-0 left-0 right-0 h-2 bg-color-primary cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-30"
         onClick={handleSeek}
       >
         <div
