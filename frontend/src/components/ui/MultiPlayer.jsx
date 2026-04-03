@@ -56,6 +56,10 @@ export default function MultiPlayer({
 
   // Initialize liquidGL on mount
   useEffect(() => {
+    // 🔴 TEMPORARILY DISABLED: liquidGL causing player to disappear
+    console.warn('[MultiPlayer] liquidGL DISABLED for testing - player should work without glass effect')
+    return
+
     if (!containerRef.current || liquidGLInstance.current) return
 
     // Check if html2canvas is loaded (required by liquidGL)
