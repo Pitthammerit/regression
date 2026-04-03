@@ -4,6 +4,22 @@ Updated: 2026-04-03 07:40
 
 ---
 
+## ✅ COMPLETE — Media Mutual Exclusion (2026-04-01)
+
+All media players (video/audio) now coordinate — only one plays at a time.
+Improved video controls: Rewind button (icon only, circular), scrubbing on hover, fullscreen handling.
+
+**Features:**
+- MediaContext coordinates all videos/audio for mutual exclusion
+- CustomVideoPlayer & PodcastPlayer integrated
+- Rewind button: Circular, icon only, positioned left of centered Play button
+- Scrubbing bar: Visible only on hover (like other controls)
+- YouTube fullscreen: Custom controls visible (no native YouTube controls)
+
+See: `docs/plans/2026-04-01-media-mutual-exclusion-implementation.md`
+
+---
+
 ## 🔴 PRIORITY 1 — Translate English Content
 
 **Status:** Ready to start — Menu migration complete ✅
