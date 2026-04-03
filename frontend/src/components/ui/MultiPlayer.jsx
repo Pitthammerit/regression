@@ -149,6 +149,7 @@ export default function MultiPlayer({
       ref={containerRef}
       id={playerId}
       className={`relative rounded-2xl overflow-hidden bg-black/40 group cursor-pointer ${className}`}
+      style={{ opacity: 1 }}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
