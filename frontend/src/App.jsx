@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext'
 import { SiteProvider } from './contexts/SiteContext'
 import { ContentProvider, useContent } from './contexts/ContentContext'
+import { MediaProvider } from './contexts/MediaContext'
 import ErrorBoundary from './components/ErrorBoundary'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -34,7 +35,7 @@ import MenuDemoPage from './pages/demos/MenuDemoPage'
 import TypographyDemoPage from './pages/demos/TypographyDemoPage'
 import DebugTest from './components/DebugTest'
 import NotFound from './components/NotFound'
-import { menu } from './content/menu'
+import { menu } from './content'
 import { SECTIONS_ORDER } from './config/sections.config'
 
 function FloatingBurger() {
@@ -152,11 +153,13 @@ function MainPage() {
 function SitePage() {
   return (
     <ErrorBoundary>
-      <SiteProvider>
-        <ContentProvider>
-          <MainPage />
-        </ContentProvider>
-      </SiteProvider>
+      <MediaProvider>
+        <SiteProvider>
+          <ContentProvider>
+            <MainPage />
+          </ContentProvider>
+        </SiteProvider>
+      </MediaProvider>
     </ErrorBoundary>
   )
 }
