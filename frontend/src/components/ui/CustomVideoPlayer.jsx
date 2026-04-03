@@ -30,7 +30,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
   }
   const ytId  = type === 'youtube' ? getYouTubeId(src) : null
   const ytSrc = ytId
-    ? `https://www.youtube.com/embed/${ytId}?controls=0&enablejsapi=1&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&start=115`
+    ? `https://www.youtube.com/embed/${ytId}?controls=0&enablejsapi=1&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&fs=0&start=115`
     : null
 
   const ytCmd = (func, args = []) => {
@@ -157,7 +157,8 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
   // ── Fullscreen ────────────────────────────────────────
   const handleFullscreen = () => {
-    const el = type === 'youtube' ? iframeRef.current : videoRef.current
+    // For YouTube, fullscreen the wrapper div to keep custom controls visible
+    const el = type === 'youtube' ? iframeRef.current?.parentElement : videoRef.current
     if (!el) return
     if (el.requestFullscreen)       el.requestFullscreen()
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
@@ -177,7 +178,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       onMouseLeave={() => setShowControls(false)}
     >
       {/* ── Media ─── */}
-      <div className="aspect-video">
+      <div className="aspect-video [&_iframe]:w-full [&_iframe]:h-full [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto">
         {type === 'r2' ? (
           <video
             ref={videoRef}
