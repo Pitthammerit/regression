@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useMemo } from 'react'
 import YouTube from 'react-youtube'
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 import useGlassPlayer from '../../hooks/useGlassPlayer'
@@ -26,6 +26,9 @@ export default function MultiPlayer({
 }) {
   const containerRef = useRef(null)
   const liquidGLInstance = useRef(null)
+
+  // Generate unique ID for this player instance
+  const playerId = useMemo(() => `multi-player-${Math.random().toString(36).substr(2, 9)}`, [])
 
   const {
     playerRef,
@@ -77,66 +80,28 @@ export default function MultiPlayer({
 
     function initLiquidGL() {
       try {
-        // Initialize liquidGL with multiple targets for different glass elements
+        // Initialize liquidGL with unique ID selector
         liquidGLInstance.current = window.liquidGL({
-        target: '.multi-player-target',
-        snapshot: 'body',
-        resolution: 2.0,
-        refraction: 0.12,
-        bevelDepth: 0.3,
-        bevelWidth: 0.18,
-        frost: 6,
-        shadow: true,
-        specular: true,
-        tilt: false,
-        reveal: 'instant',
-        on: {
-          init(instance) {
-            console.log('[MultiPlayer] liquidGL ready!', instance)
-
-            // After main target is ready, initialize glass for progress fill
-            if (typeof window.html2canvas !== 'undefined' && typeof window.liquidGL !== 'undefined') {
-              try {
-                window.liquidGL({
-                  target: '.multi-player-progress-fill',
-                  snapshot: 'body',
-                  resolution: 2.0,
-                  refraction: 0.1,
-                  bevelDepth: 0.25,
-                  bevelWidth: 0.12,
-                  frost: 5,
-                  shadow: false,
-                  specular: true,
-                  tilt: false,
-                  reveal: 'instant',
-                })
-              } catch (e) {
-                console.warn('[MultiPlayer] Progress fill glass init failed:', e)
-              }
-
-              // Initialize glass for volume slider
-              try {
-                window.liquidGL({
-                  target: '.multi-player-volume-slider',
-                  snapshot: 'body',
-                  resolution: 2.0,
-                  refraction: 0.08,
-                  bevelDepth: 0.2,
-                  bevelWidth: 0.1,
-                  frost: 4,
-                  shadow: false,
-                  specular: true,
-                  reveal: 'instant',
-                })
-              } catch (e) {
-                console.warn('[MultiPlayer] Volume glass init failed:', e)
-              }
-            } else {
-              console.warn('[MultiPlayer] html2canvas or liquidGL not available for nested initialization')
-            }
+          target: `#${playerId}`,
+          snapshot: 'body',
+          resolution: 2.0,
+          refraction: 0.12,
+          bevelDepth: 0.3,
+          bevelWidth: 0.18,
+          frost: 6,
+          shadow: true,
+          specular: true,
+          tilt: false,
+          reveal: 'instant',
+          on: {
+            init(instance) {
+              console.log('[MultiPlayer] liquidGL ready!', instance)
+            },
+            error(err) {
+              console.error('[MultiPlayer] liquidGL error:', err)
+            },
           },
-        },
-      })
+        })
       } catch (error) {
         console.warn('[MultiPlayer] liquidGL initialization failed:', error)
       }
@@ -146,7 +111,7 @@ export default function MultiPlayer({
       // Cleanup if needed
       liquidGLInstance.current = null
     }
-  }, [])
+  }, [playerId])
 
   // YouTube player options
   const opts = {
@@ -182,12 +147,18 @@ export default function MultiPlayer({
   return (
     <div
       ref={containerRef}
-      className={`multi-player-target relative rounded-2xl overflow-hidden bg-black/40 group cursor-pointer ${className}`}
+      id={playerId}
+      className={`relative rounded-2xl overflow-hidden bg-black/40 group cursor-pointer ${className}`}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
       {/* Video Container */}
       <div className="relative aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto [&:fullscreen_&]:flex [&:fullscreen_&]:items-center [&:fullscreen_&]:justify-center">
+        {/* Default gradient background when no poster */}
+        {!started && !poster && (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black" />
+        )}
+
         {/* Thumbnail - shown until started */}
         {!started && poster && (
           <img
@@ -264,7 +235,7 @@ export default function MultiPlayer({
         onClick={handleProgressClick}
       >
         <div
-          className="multi-player-progress-fill h-full bg-white/70 group-hover/progress:bg-white/90 transition-colors"
+          className="multi-player-progress-fill h-full backdrop-blur-sm bg-white/70 group-hover/progress:bg-white/90 transition-colors"
           style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
         />
       </div>
@@ -300,7 +271,7 @@ export default function MultiPlayer({
                 max="100"
                 value={muted ? 0 : volume}
                 onChange={(e) => handleVolume(e.target.value)}
-                className="w-20 h-1 bg-white/30 rounded-full appearance-none cursor-pointer
+                className="w-20 h-1 bg-white/30 rounded-full appearance-none cursor-pointer backdrop-blur-sm
                   [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3
                   [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full
                   [&::-webkit-slider-thumb]:bg-white/80 [&::-webkit-slider-thumb]:cursor-pointer
