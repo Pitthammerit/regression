@@ -254,9 +254,9 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
           <button
             data-testid="glass-play-button"
             className="relative w-20 h-20 rounded-full
-              bg-white/20 backdrop-blur-md border border-white/40
+              bg-white/10 backdrop-blur-md border border-white/20
               flex items-center justify-center
-              hover:bg-white/30 hover:scale-105
+              hover:bg-white/20 hover:scale-105
               transition-all duration-300 shadow-2xl pointer-events-auto"
             aria-label={playing ? 'Pause' : 'Play'}
           >
@@ -266,17 +266,19 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
             }
 
             {/* -15 Seconds Rewind (ground: Rewind (glass style) - positioned relative to Play button */}
-            <button
-              onClick={(e) => { e.stopPropagation(); handleRewind15() }}
-              className="absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
-                bg-white/20 backdrop-blur-md border border-white/40
-                flex items-center justify-center
-                hover:bg-white/30 hover:scale-105
-                transition-all duration-300 shadow-2xl pointer-events-auto"
-              aria-label="15 seconds back"
-            >
-              <RedoDot size={18} className="text-white scale-x-[-1]" />
-            </button>
+            {started && (
+              <button
+                onClick={(e) => { e.stopPropagation(); handleRewind15() }}
+                className="absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
+                  bg-white/10 backdrop-blur-md border border-white/20
+                  flex items-center justify-center
+                  hover:bg-white/20 hover:scale-105
+                  transition-all duration-300 shadow-2xl pointer-events-auto"
+                aria-label="15 seconds back"
+              >
+                <RedoDot size={18} className="text-white scale-x-[-1]" />
+              </button>
+            )}
           </button>
         </div>
       </div>
