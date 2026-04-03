@@ -222,8 +222,8 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
       {/* ── Glass overlay with -15s, Play/Pause ─── */}
       <div
-        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 pointer-events-none
-          ${playing && !showControls ? 'opacity-0' : 'opacity-100'}`}
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
+          ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         onClick={handleToggle}
       >
         {/* Gradient vignette so button is always readable */}
