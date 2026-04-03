@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import YouTube from 'react-youtube'
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 import useGlassPlayer from '../../hooks/useGlassPlayer'
-// Load liquidGL IIFE module to set window.liquidGL
-import '../../lib/liquidGL/liquidGL.js'
 import { formatTime } from '../../utils/timeFormat'
 
 /**
