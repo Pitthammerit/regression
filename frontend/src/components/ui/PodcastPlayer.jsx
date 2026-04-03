@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { SkipBack, Play, Pause, SkipForward } from 'lucide-react'
 import { Slider } from './Slider'
+import { useMedia } from '../../contexts/MediaContext'
 
 /**
  * PodcastPlayer — in-page HTML5 audio player
@@ -8,6 +9,8 @@ import { Slider } from './Slider'
  */
 export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl, audioUrl }) {
   const audioRef = useRef(null)
+  const playerId = useRef(`media-${Math.random().toString(36).slice(2)}`)
+  const { registerPlayer, unregisterPlayer, requestPlay } = useMedia()
   const [playing, setPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [totalDuration, setTotalDuration] = useState(0)
@@ -38,6 +41,22 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
     }
   }, [])
 
+  // Register with MediaContext for mutual exclusion
+  useEffect(() => {
+    const onPause = () => {
+      const audio = audioRef.current
+      if (!audio) return
+      audio.pause()
+      setPlaying(false)
+    }
+
+    registerPlayer(playerId.current, onPause)
+
+    return () => {
+      unregisterPlayer(playerId.current)
+    }
+  }, [registerPlayer, unregisterPlayer])
+
   const togglePlay = () => {
     const audio = audioRef.current
     if (!audio) return
@@ -45,6 +64,7 @@ export default function PodcastPlayer({ title, host, episodeLabel, thumbnailUrl,
       audio.pause()
       setPlaying(false)
     } else {
+      requestPlay(playerId.current)
       audio.play().catch(() => {})
       setPlaying(true)
     }
