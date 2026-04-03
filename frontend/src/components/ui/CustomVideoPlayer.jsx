@@ -43,31 +43,44 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
   useEffect(() => {
     if (type !== 'youtube') return
 
+    console.log('[YouTube] Time tracking started')
+
     const interval = setInterval(() => {
       ytCmd('getCurrentTime', [])
       ytCmd('getDuration', [])
+      console.log('[YouTube] Polling time/duration...')
     }, 500)
 
     // Listen for YouTube API responses
     const handleMessage = (event) => {
-      if (event.origin !== 'https://www.youtube.com') return
+      if (event.origin !== 'https://www.youtube.com') {
+        console.log('[YouTube] Message from wrong origin:', event.origin)
+        return
+      }
       try {
         const data = JSON.parse(event.data)
+        console.log('[YouTube] Got message:', data)
         if (data.event === 'infoDelivery') {
+          console.log('[YouTube] Info delivery:', data.info)
           if (data.info?.currentTime !== undefined) {
+            console.log('[YouTube] Current time:', data.info.currentTime)
             setCurrentTime(data.info.currentTime)
           }
           if (data.info?.duration !== undefined) {
+            console.log('[YouTube] Duration:', data.info.duration)
             setDuration(data.info.duration)
           }
         }
-      } catch {}
+      } catch (e) {
+        console.error('[YouTube] Failed to parse message:', e)
+      }
     }
 
     window.addEventListener('message', handleMessage)
     return () => {
       clearInterval(interval)
       window.removeEventListener('message', handleMessage)
+      console.log('[YouTube] Time tracking cleaned up')
     }
   }, [type, playing])
 
