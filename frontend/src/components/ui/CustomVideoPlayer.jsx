@@ -1,124 +1,31 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Play, Pause, Volume2, VolumeX, Maximize, RedoDot } from 'lucide-react'
 import { useMedia } from '../../contexts/MediaContext'
 
 /**
- * CustomVideoPlayer
- * type: 'youtube' | 'r2'
- * src:  YouTube URL (embed or watch) or direct MP4 URL
+ * CustomVideoPlayer — R2/Native video player with custom controls
+ * src: MP4 video URL
  * poster: optional thumbnail URL
  * exitFullscreenAtTime: optional time in seconds to auto-exit fullscreen
  */
-export default function CustomVideoPlayer({ type = 'r2', src, poster, className = '', onVideoEnded, enterFullscreenOnClick = false, exitFullscreenAtTime = null }) {
-  const iframeRef = useRef(null)
-  const videoRef  = useRef(null)
+export default function CustomVideoPlayer({ src, poster, className = '', onVideoEnded, enterFullscreenOnClick = false, exitFullscreenAtTime = null }) {
+  const videoRef = useRef(null)
   const hasTriggeredScrollRef = useRef(false)
   const playerId = useRef(`media-${Math.random().toString(36).slice(2)}`)
   const { registerPlayer, unregisterPlayer, requestPlay } = useMedia()
-  const [playing,      setPlaying]      = useState(false)
-  const [started,      setStarted]      = useState(false)
-  const [volume,       setVolumeState]  = useState(80)
-  const [muted,        setMuted]        = useState(false)
-  const [showControls, setShowControls] = useState(type === 'youtube')
-  const [currentTime,  setCurrentTime]  = useState(0)
-  const [duration,    setDuration]     = useState(0)
-
-  // ── YouTube helpers ──────────────────────────────────
-  const getYouTubeId = (url) => {
-    const m = url.match(/(?:embed\/|watch\?v=|youtu\.be\/)([^?&]+)/)
-    return m ? m[1] : url
-  }
-  const ytId  = type === 'youtube' ? getYouTubeId(src) : null
-  const ytSrc = ytId
-    ? `https://www.youtube.com/embed/${ytId}?controls=0&enablejsapi=1&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&fs=0&start=115`
-    : null
-
-  const ytCmd = (func, args = []) => {
-    if (type === 'youtube' && iframeRef.current) {
-      const message = JSON.stringify({ event: 'command', func, args })
-      console.log('[YouTube] Sending command:', func, args, '→', message)
-      iframeRef.current.contentWindow.postMessage(message, '*')
-    }
-  }
-
-  // YouTube time tracking - wait for ready, then track time
-  useEffect(() => {
-    if (type !== 'youtube') return
-
-    console.log('[YouTube] Setting up time tracking...')
-
-    let pollingInterval = null
-    let isReady = false
-
-    // Start polling for time updates (only after ready)
-    const startPolling = () => {
-      if (pollingInterval) clearInterval(pollingInterval)
-      pollingInterval = setInterval(() => {
-        ytCmd('getCurrentTime', [])
-      }, 250)
-      console.log('[YouTube] Time polling started')
-    }
-
-    // Listen for YouTube API responses
-    const handleMessage = (event) => {
-      if (event.origin !== 'https://www.youtube.com') {
-        return
-      }
-      try {
-        const data = JSON.parse(event.data)
-        console.log('[YouTube] Event:', data.event, data)
-
-        // YouTube is ready - get duration and start polling
-        if (data.event === 'onReady' && !isReady) {
-          isReady = true
-          console.log('[YouTube] API ready - getting duration')
-          ytCmd('getDuration', [])
-          startPolling()
-        }
-
-        // Time/duration updates
-        if (data.event === 'infoDelivery') {
-          if (data.info?.currentTime !== undefined) {
-            setCurrentTime(data.info.currentTime)
-          }
-          if (data.info?.duration !== undefined) {
-            setDuration(data.info.duration)
-            console.log('[YouTube] Duration:', data.info.duration)
-          }
-        }
-
-        // Track playback state for time display updates
-        if (data.event === 'onStateChange') {
-          const playerState = data.info?.playerState
-          // 1=playing, 2=paused
-          if (playerState === 1 && !pollingInterval) {
-            startPolling()
-          } else if (playerState === 2 && pollingInterval) {
-            clearInterval(pollingInterval)
-            pollingInterval = null
-          }
-        }
-      } catch (e) {
-        console.error('[YouTube] Failed to parse message:', e, event.data)
-      }
-    }
-
-    window.addEventListener('message', handleMessage)
-
-    return () => {
-      if (pollingInterval) clearInterval(pollingInterval)
-      window.removeEventListener('message', handleMessage)
-      console.log('[YouTube] Time tracking cleaned up')
-    }
-  }, [type])
+  const [playing, setPlaying] = useState(false)
+  const [started, setStarted] = useState(false)
+  const [volume, setVolumeState] = useState(80)
+  const [muted, setMuted] = useState(false)
+  const [showControls, setShowControls] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
 
   // Register with MediaContext for mutual exclusion
   useEffect(() => {
     const onPause = () => {
       setPlaying(false)
-      if (type === 'youtube') {
-        ytCmd('pauseVideo')
-      } else if (videoRef.current) {
+      if (videoRef.current) {
         videoRef.current.pause()
       }
     }
@@ -128,29 +35,24 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     return () => {
       unregisterPlayer(playerId.current)
     }
-  }, [type, registerPlayer, unregisterPlayer])
+  }, [registerPlayer, unregisterPlayer])
 
   // ── Playback ──────────────────────────────────────────
   const handlePlay = () => {
     requestPlay(playerId.current)
-    if (type === 'youtube') ytCmd('playVideo')
-    else videoRef.current?.play()
+    videoRef.current?.play()
     setPlaying(true)
     setStarted(true)
   }
 
   const handlePause = () => {
-    if (type === 'youtube') ytCmd('pauseVideo')
-    else videoRef.current?.pause()
+    videoRef.current?.pause()
     setPlaying(false)
   }
 
   const handleRewind15 = () => {
     const newTime = Math.max(0, currentTime - 15)
-    if (type === 'youtube') {
-      ytCmd('seekTo', [newTime, true])
-      setCurrentTime(newTime)
-    } else if (videoRef.current) {
+    if (videoRef.current) {
       videoRef.current.currentTime = newTime
     }
   }
@@ -159,10 +61,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     const rect = e.currentTarget.getBoundingClientRect()
     const percent = (e.clientX - rect.left) / rect.width
     const newTime = percent * duration
-    if (type === 'youtube') {
-      ytCmd('seekTo', [newTime, true])
-      setCurrentTime(newTime)
-    } else if (videoRef.current) {
+    if (videoRef.current) {
       videoRef.current.currentTime = newTime
     }
   }
@@ -170,7 +69,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
   const handleToggle = (e) => {
     // Request fullscreen BEFORE any state changes (direct user activation)
     if (enterFullscreenOnClick && !playing) {
-      const el = type === 'youtube' ? iframeRef.current : videoRef.current
+      const el = videoRef.current
       if (el) {
         if (el.requestFullscreen) el.requestFullscreen()
         else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
@@ -184,8 +83,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     const v = Number(val)
     setVolumeState(v)
     setMuted(v === 0)
-    if (type === 'youtube') { ytCmd('setVolume', [v]); v === 0 ? ytCmd('mute') : ytCmd('unMute') }
-    else if (videoRef.current) videoRef.current.volume = v / 100
+    if (videoRef.current) videoRef.current.volume = v / 100
   }
 
   const handleMuteToggle = () => {
@@ -198,10 +96,9 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
   // ── Fullscreen ────────────────────────────────────────
   const handleFullscreen = () => {
-    // For YouTube, fullscreen the wrapper div to keep custom controls visible
-    const el = type === 'youtube' ? iframeRef.current?.parentElement : videoRef.current
+    const el = videoRef.current
     if (!el) return
-    if (el.requestFullscreen)       el.requestFullscreen()
+    if (el.requestFullscreen) el.requestFullscreen()
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
   }
 
@@ -218,47 +115,35 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
-      {/* ── Media ─── */}
-      <div className="aspect-video [&_iframe]:w-full [&_iframe]:h-full [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto">
-        {type === 'r2' ? (
-          <video
-            ref={videoRef}
-            src={src}
-            poster={poster}
-            className="w-full h-full object-cover"
-            onEnded={() => { setPlaying(false); setStarted(false); onVideoEnded?.() }}
-            onTimeUpdate={(e) => {
-              setCurrentTime(e.currentTarget.currentTime)
-              setDuration(e.currentTarget.duration)
-              if (exitFullscreenAtTime && !hasTriggeredScrollRef.current && videoRef.current) {
-                const currentTime = videoRef.current.currentTime
-                // Only trigger if we're in fullscreen and reached the target time
-                if (currentTime >= exitFullscreenAtTime && document.fullscreenElement) {
-                  hasTriggeredScrollRef.current = true
-                  // Exit fullscreen first
-                  document.exitFullscreen().catch(() => {
-                    // Ignore errors if already exited
-                  })
-                  // Then trigger scroll after a short delay
-                  setTimeout(() => {
-                    onVideoEnded?.()
-                  }, 100)
-                }
+      {/* ── Video ─── */}
+      <div className="aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto">
+        <video
+          ref={videoRef}
+          src={src}
+          poster={poster}
+          className="w-full h-full object-cover"
+          onEnded={() => { setPlaying(false); setStarted(false); onVideoEnded?.() }}
+          onTimeUpdate={(e) => {
+            setCurrentTime(e.currentTarget.currentTime)
+            setDuration(e.currentTarget.duration)
+            if (exitFullscreenAtTime && !hasTriggeredScrollRef.current && videoRef.current) {
+              const currentTime = videoRef.current.currentTime
+              // Only trigger if we're in fullscreen and reached the target time
+              if (currentTime >= exitFullscreenAtTime && document.fullscreenElement) {
+                hasTriggeredScrollRef.current = true
+                // Exit fullscreen first
+                document.exitFullscreen().catch(() => {
+                  // Ignore errors if already exited
+                })
+                // Then trigger scroll after a short delay
+                setTimeout(() => {
+                  onVideoEnded?.()
+                }, 100)
               }
-            }}
-            onClick={handleToggle}
-          />
-        ) : (
-          <iframe
-            ref={iframeRef}
-            src={ytSrc}
-            className="w-full h-full"
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-            allowFullScreen
-            title="Video player"
-          />
-        )}
+            }
+          }}
+          onClick={handleToggle}
+        />
       </div>
 
       {/* ── Glass overlay with -15s, Play/Pause ─── */}
@@ -289,7 +174,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
               : <Play  size={26} className="text-white ml-1" fill="white" />
             }
 
-            {/* -15 Seconds Rewind (ground: Rewind (glass style) - positioned relative to Play button */}
+            {/* -15 Seconds Rewind (positioned relative to Play button) */}
             {started && (
               <button
                 onClick={(e) => { e.stopPropagation(); handleRewind15() }}

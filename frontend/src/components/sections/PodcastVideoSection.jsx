@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useContent } from '../../contexts/ContentContext'
 import SectionWrapper from "../ui/SectionWrapper"
 import SectionLabel from "../ui/SectionLabel"
-import CustomVideoPlayer from "../ui/CustomVideoPlayer"
 import CtaButton from "../ui/CtaButton"
 import DebugLabel from "../ui/DebugLabel"
 import { X, Send } from "lucide-react"
@@ -36,6 +35,13 @@ export default function PodcastVideoSection({ debugMode = false }) {
   const podcast = podcasts[0]
   const fluentTranscriptUrl = import.meta.env.VITE_FLUENT_FORMS_TRANSCRIPT_URL
 
+  // Extract YouTube ID from URL
+  const getYouTubeId = (url) => {
+    const m = url.match(/(?:embed\/|watch\?v=|youtu\.be\/)([^?&]+)/)
+    return m ? m[1] : url
+  }
+  const ytId = podcast?.youtubeEmbedUrl ? getYouTubeId(podcast.youtubeEmbedUrl) : null
+
   return (
     <>
       <SectionWrapper id="podcast-video" className="section-padding" data-testid="podcast-video-section">
@@ -61,7 +67,18 @@ export default function PodcastVideoSection({ debugMode = false }) {
 
           {/* YouTube Video — centered */}
           <div className="max-w-4xl mx-auto w-full" data-testid="podcast-video-embed">
-            <CustomVideoPlayer type="youtube" src={podcast.youtubeEmbedUrl} />
+            {ytId && (
+              <div className="aspect-video rounded-2xl overflow-hidden bg-brand-dark">
+                <iframe
+                  src={`https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1`}
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Podcast Video"
+                />
+              </div>
+            )}
           </div>
 
           {/* Transcript download button — centered */}
