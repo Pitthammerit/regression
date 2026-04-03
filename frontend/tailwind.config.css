@@ -138,15 +138,9 @@
   /* Scrubber */
   --height-player-scrubber: 11px;
 
-  /* Blur */
-  --blur-player-glass: 2px;             /* Single blur value for all glass effects */
-
   /* Spacing */
   --spacing-player-gap: 0.75rem;        /* gap-3 */
   --spacing-player-padding: 1.25rem;    /* px-5 py-3 */
-
-  /* Overlay */
-  --overlay-player-controls: rgba(0, 0, 0, 0.7);  /* from-black/70 */
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -824,71 +818,10 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   VIDEO PLAYER UTILITIES (7 utilities)
+   VIDEO PLAYER UTILITIES (minimal)
    ───────────────────────────────────────────────────────────── */
-@utility player-button {
-  width: var(--size-player-button);
-  height: var(--size-player-button);
-  backdrop-filter: blur(var(--blur-player-glass));
-  /* Tailwind v4: Force immediate render with GPU compositing */
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  /* Containment: Browser paints this independently */
-  contain: layout style paint;
-  /* Prevent flash: Force GPU layer from first paint */
-  isolation: isolate;
-}
-
-@utility player-button-strong {
-  width: var(--size-player-button);
-  height: var(--size-player-button);
-  backdrop-filter: blur(12px);
-  /* Tailwind v4: Force immediate render with GPU compositing */
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  /* Containment: Browser paints this independently */
-  contain: layout style paint;
-  /* Prevent flash: Force GPU layer from first paint */
-  isolation: isolate;
-}
-
-@utility player-rewind {
-  width: var(--size-player-rewind);
-  height: var(--size-player-rewind);
-  backdrop-filter: blur(var(--blur-player-glass));
-  /* Tailwind v4: Force immediate render with GPU compositing */
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  /* Containment: Browser paints this independently */
-  contain: layout style paint;
-  /* Prevent flash: Force GPU layer from first paint */
-  isolation: isolate;
-}
-
-@utility player-rewind-strong {
-  width: var(--size-player-rewind);
-  height: var(--size-player-rewind);
-  backdrop-filter: blur(12px);
-  /* Tailwind v4: Force immediate render with GPU compositing */
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  /* Containment: Browser paints this independently */
-  contain: layout style paint;
-  /* Prevent flash: Force GPU layer from first paint */
-  isolation: isolate;
-}
-
 @utility player-scrubber {
   height: var(--height-player-scrubber);
-}
-
-@utility blur-player-glass {
-  backdrop-filter: blur(var(--blur-player-glass));
-}
-
-/* YouTube-specific stronger blur - overrides blur-player-glass when both are applied */
-@utility youtube-blur-strong {
-  backdrop-filter: blur(12px) !important;
 }
 
 @utility player-gap {
@@ -902,6 +835,34 @@
   padding-bottom: var(--spacing-player-padding);
 }
 
-@utility player-controls-overlay {
-  background-color: var(--overlay-player-controls);
+/* ─────────────────────────────────────────────────────────────
+   GLASS VIDEO PLAYER UTILITIES
+   ───────────────────────────────────────────────────────────── */
+
+/* Glass Player Target - for liquidGL */
+@utility glass-player-target {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  /* Ensure high z-index for liquidGL refraction */
+  z-index: 3;
+}
+
+/* Glass Controls - white glassmorphism */
+@utility glass-controls {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Glass Progress Bar - blue background, white progress */
+@utility glass-progress {
+  background-color: var(--color-primary);
+  height: var(--height-player-scrubber);
+}
+
+@utility glass-progress-fill {
+  background-color: white;
+  height: 100%;
 }
