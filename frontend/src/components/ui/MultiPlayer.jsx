@@ -68,12 +68,12 @@ export default function MultiPlayer({
         target: '.multi-player-target',
         snapshot: 'body',
         resolution: 2.0,
-        refraction: 0.047,
-        bevelDepth: 0.136,
-        bevelWidth: 0.076,
-        frost: 2,
+        refraction: 0.08,
+        bevelDepth: 0.2,
+        bevelWidth: 0.12,
+        frost: 4,
         shadow: true,
-        specular: false,
+        specular: true,
         tilt: false,
         on: {
           init(instance) {
@@ -86,10 +86,10 @@ export default function MultiPlayer({
                   target: '.multi-player-progress-fill',
                   snapshot: 'body',
                   resolution: 2.0,
-                  refraction: 0.047,
-                  bevelDepth: 0.08,
-                  bevelWidth: 0.05,
-                  frost: 1.5,
+                  refraction: 0.06,
+                  bevelDepth: 0.15,
+                  bevelWidth: 0.08,
+                  frost: 3,
                   shadow: false,
                   specular: true,
                   tilt: false,
@@ -105,10 +105,10 @@ export default function MultiPlayer({
                     target: '.multi-player-volume-slider',
                     snapshot: 'body',
                     resolution: 2.0,
-                    refraction: 0.03,
-                    bevelDepth: 0.06,
-                    bevelWidth: 0.04,
-                    frost: 1,
+                    refraction: 0.05,
+                    bevelDepth: 0.12,
+                    bevelWidth: 0.06,
+                    frost: 2.5,
                     shadow: false,
                     specular: true,
                   })
@@ -224,8 +224,8 @@ export default function MultiPlayer({
         >
           <button
             className="multi-player-play-button relative w-20 h-20 rounded-full flex items-center justify-center
-              bg-white/5 border border-white/10
-              hover:bg-white/10 transition-all duration-200 pointer-events-auto
+              bg-white/[0.03] border border-white/20
+              hover:bg-white/[0.08] transition-all duration-200 pointer-events-auto
               shadow-lg"
             aria-label={playing ? 'Pause' : 'Play'}
           >
@@ -246,7 +246,7 @@ export default function MultiPlayer({
         onClick={handleProgressClick}
       >
         <div
-          className="multi-player-progress-fill h-full bg-white/80 group-hover/progress:bg-white transition-colors"
+          className="multi-player-progress-fill h-full bg-white/60 group-hover/progress:bg-white/80 transition-colors"
           style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
         />
       </div>
