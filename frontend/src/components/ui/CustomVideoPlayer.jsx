@@ -295,7 +295,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
       {/* ── Bottom controls bar ─── */}
       <div
-        className={`absolute bottom-0 left-0 right-0 flex items-center justify-between
+        className={`absolute bottom-[5px] left-0 right-0 flex items-center justify-between
           px-5 py-3 bg-gradient-to-t from-black/70 to-transparent
           transition-opacity duration-300 pointer-events-auto
           ${showControls ? 'opacity-100' : 'opacity-0'}`}
