@@ -830,24 +830,40 @@
   width: var(--size-player-button);
   height: var(--size-player-button);
   backdrop-filter: blur(var(--blur-player-glass));
+  /* Force GPU rendering - eliminates CSS loading delay */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: backdrop-filter;
 }
 
 @utility player-button-strong {
   width: var(--size-player-button);
   height: var(--size-player-button);
   backdrop-filter: blur(12px);
+  /* Force GPU rendering - eliminates CSS loading delay */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: backdrop-filter;
 }
 
 @utility player-rewind {
   width: var(--size-player-rewind);
   height: var(--size-player-rewind);
   backdrop-filter: blur(var(--blur-player-glass));
+  /* Force GPU rendering - eliminates CSS loading delay */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: backdrop-filter;
 }
 
 @utility player-rewind-strong {
   width: var(--size-player-rewind);
   height: var(--size-player-rewind);
   backdrop-filter: blur(12px);
+  /* Force GPU rendering - eliminates CSS loading delay */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: backdrop-filter;
 }
 
 @utility player-scrubber {
