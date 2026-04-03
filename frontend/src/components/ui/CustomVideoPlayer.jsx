@@ -233,23 +233,10 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
 
         {/* Controls row: -15s | Play/Pause */}
         <div className="relative flex items-center justify-center w-full">
-          {/* -15 Seconds Rewind (glass style) - offset from center */}
-          <button
-            onClick={(e) => { e.stopPropagation(); handleRewind15() }}
-            className="absolute left-1/2 -ml-[76px] w-14 h-14 rounded-full
-              bg-white/20 backdrop-blur-md border border-white/40
-              flex items-center justify-center
-              hover:bg-white/30 hover:scale-105
-              transition-all duration-300 shadow-2xl z-10"
-            aria-label="15 seconds back"
-          >
-            <Rewind size={20} className="text-white" fill="white" />
-          </button>
-
-          {/* Play/Pause (glass style) - centered */}
+          {/* Play/Pause (glass style) - centered anchor */}
           <button
             data-testid="glass-play-button"
-            className="w-20 h-20 rounded-full
+            className="relative w-20 h-20 rounded-full
               bg-white/20 backdrop-blur-md border border-white/40
               flex items-center justify-center
               hover:bg-white/30 hover:scale-105
@@ -260,6 +247,19 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
               ? <Pause size={26} className="text-white" fill="white" />
               : <Play  size={26} className="text-white ml-1" fill="white" />
             }
+
+            {/* -15 Seconds Rewind (glass style) - positioned relative to Play button */}
+            <button
+              onClick={(e) => { e.stopPropagation(); handleRewind15() }}
+              className="absolute -left-16 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full
+                bg-white/20 backdrop-blur-md border border-white/40
+                flex items-center justify-center
+                hover:bg-white/30 hover:scale-105
+                transition-all duration-300 shadow-2xl"
+              aria-label="15 seconds back"
+            >
+              <Rewind size={20} className="text-white" fill="white" />
+            </button>
           </button>
         </div>
       </div>
