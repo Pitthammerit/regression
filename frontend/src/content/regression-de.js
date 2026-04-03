@@ -338,7 +338,7 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
       lifeDates: "*1944–heute",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
       portraitFocus: "top",
-      quote: "When you feel better as a result of a past life recall experience... you don't need to question the logical validity of the experience. You know it has empowered you to improve the quality of your life.",
+      quote: "When you feel better as a result of a past life recall experience... you don't need to question the logical validity of the experience.",
       featuredQuote: "The real you, the immortal you, is the you that is present from body to body, from life to life.",
       shortVersion: "'Many Lives Many Masters' (1988) — klinische Falldokumentation über Jahrzehnte. Skeptische Haltung veränderte sich durch eine Patientin, die unter Hypnose frühere Leben beschrieb.",
       longVersion: `Brian Weiss war ein hochangesehener Psychiater und Chefarzt am Mount Sinai Medical Center in Miami, als ihn ein Fall im Jahr 1980 gründlich verändern sollte. Catherine, eine Patientin mit schweren Ängsten und Phobien, sprach unter Hypnose plötzlich von Details aus vergangenen Leben — Informationen, die sich historisch verifizieren ließen.
@@ -360,8 +360,8 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
       lifeDates: "*1944–2011",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
       portraitFocus: "center",
-      quote: "Deep Memory Process combines Jungian active imagination, bodywork, psychodrama with shamanic spirit journeying and integration between lifetimes.",
-      featuredQuote: "Deep Memory Process combines Jungian active imagination, bodywork, psychodrama with shamanic spirit journeying and integration between lifetimes.",
+      quote: "There are more things in heaven and earth than are dreamt of in our philosophy.",
+      featuredQuote: "There are more things in heaven and earth than are dreamt of in our philosophy.",
       shortVersion: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",
       longVersion: `Roger Woolger war ein Jungian Analyst und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
 Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian Western Mysticism und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.
