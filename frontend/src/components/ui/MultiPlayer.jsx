@@ -68,10 +68,10 @@ export default function MultiPlayer({
         target: '.multi-player-target',
         snapshot: 'body',
         resolution: 2.0,
-        refraction: 0.08,
-        bevelDepth: 0.2,
-        bevelWidth: 0.12,
-        frost: 4,
+        refraction: 0.12,
+        bevelDepth: 0.3,
+        bevelWidth: 0.18,
+        frost: 6,
         shadow: true,
         specular: true,
         tilt: false,
@@ -86,10 +86,10 @@ export default function MultiPlayer({
                   target: '.multi-player-progress-fill',
                   snapshot: 'body',
                   resolution: 2.0,
-                  refraction: 0.06,
-                  bevelDepth: 0.15,
-                  bevelWidth: 0.08,
-                  frost: 3,
+                  refraction: 0.1,
+                  bevelDepth: 0.25,
+                  bevelWidth: 0.12,
+                  frost: 5,
                   shadow: false,
                   specular: true,
                   tilt: false,
@@ -105,10 +105,10 @@ export default function MultiPlayer({
                     target: '.multi-player-volume-slider',
                     snapshot: 'body',
                     resolution: 2.0,
-                    refraction: 0.05,
-                    bevelDepth: 0.12,
-                    bevelWidth: 0.06,
-                    frost: 2.5,
+                    refraction: 0.08,
+                    bevelDepth: 0.2,
+                    bevelWidth: 0.1,
+                    frost: 4,
                     shadow: false,
                     specular: true,
                   })
@@ -224,8 +224,8 @@ export default function MultiPlayer({
         >
           <button
             className="multi-player-play-button relative w-20 h-20 rounded-full flex items-center justify-center
-              bg-white/[0.03] border border-white/20
-              hover:bg-white/[0.08] transition-all duration-200 pointer-events-auto
+              bg-white/[0.01] border border-white/30
+              hover:bg-white/[0.05] transition-all duration-200 pointer-events-auto
               shadow-lg"
             aria-label={playing ? 'Pause' : 'Play'}
           >
