@@ -829,11 +829,25 @@
 @utility player-button {
   width: var(--size-player-button);
   height: var(--size-player-button);
+  backdrop-filter: blur(var(--blur-player-glass));
+}
+
+@utility player-button-strong {
+  width: var(--size-player-button);
+  height: var(--size-player-button);
+  backdrop-filter: blur(12px);
 }
 
 @utility player-rewind {
   width: var(--size-player-rewind);
   height: var(--size-player-rewind);
+  backdrop-filter: blur(var(--blur-player-glass));
+}
+
+@utility player-rewind-strong {
+  width: var(--size-player-rewind);
+  height: var(--size-player-rewind);
+  backdrop-filter: blur(12px);
 }
 
 @utility player-scrubber {

@@ -327,12 +327,11 @@ export default function VideoPlayer({
           {/* Play/Pause (glass style) */}
           <button
             data-testid="glass-play-button"
-            className={`relative player-button rounded-full
+            className={`relative ${type === 'youtube' ? 'player-button-strong' : 'player-button'} rounded-full
               bg-white/10 border border-white/20
               flex items-center justify-center
               hover:bg-white/20 hover:scale-105
-              transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto
-              ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
+              transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto`}
             aria-label={playing ? 'Pause' : 'Play'}
           >
             {playing
@@ -344,12 +343,11 @@ export default function VideoPlayer({
             {started && (
               <button
                 onClick={(e) => { e.stopPropagation(); handleRewind15() }}
-                className={`absolute -left-14 top-1/2 -translate-y-1/2 player-rewind rounded-full
+                className={`absolute -left-14 top-1/2 -translate-y-1/2 ${type === 'youtube' ? 'player-rewind-strong' : 'player-rewind'} rounded-full
                   bg-white/10 border border-white/20
                   flex items-center justify-center
                   hover:bg-white/20 hover:scale-105
-                  transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto
-                  ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
+                  transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto`}
                 aria-label="15 seconds back"
               >
                 <RedoDot size={18} className="text-white scale-x-[-1]" />
