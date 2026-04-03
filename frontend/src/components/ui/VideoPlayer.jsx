@@ -26,7 +26,8 @@ export default function VideoPlayer({
   className = '',
   onVideoEnded,
   enterFullscreenOnClick = false,
-  exitFullscreenAtTime = null
+  exitFullscreenAtTime = null,
+  blurStrength = 'default', // 'default' | 'strong'
 }) {
   const playerRef = useRef(null)
   const hasTriggeredScrollRef = useRef(false)
@@ -63,6 +64,11 @@ export default function VideoPlayer({
     document.addEventListener('fullscreenchange', handleFullscreenChange)
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
   }, [])
+
+  // Blur style - inline for immediate application (no CSS loading delay)
+  const blurStyle = {
+    backdropFilter: blurStrength === 'strong' ? 'blur(12px)' : 'blur(2px)',
+  }
 
   // ── Progress tracking ─────────────────────────────────────
   // R2: Uses onTimeUpdate event
@@ -327,12 +333,12 @@ export default function VideoPlayer({
           {/* Play/Pause (glass style) */}
           <button
             data-testid="glass-play-button"
-            className={`relative player-button rounded-full
+            style={blurStyle}
+            className="relative player-button rounded-full
               bg-white/10 border border-white/20
               flex items-center justify-center
               hover:bg-white/20 hover:scale-105
-              transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto
-              ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
+              transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto"
             aria-label={playing ? 'Pause' : 'Play'}
           >
             {playing
@@ -344,12 +350,12 @@ export default function VideoPlayer({
             {started && (
               <button
                 onClick={(e) => { e.stopPropagation(); handleRewind15() }}
-                className={`absolute -left-14 top-1/2 -translate-y-1/2 player-rewind rounded-full
+                style={blurStyle}
+                className="absolute -left-14 top-1/2 -translate-y-1/2 player-rewind rounded-full
                   bg-white/10 border border-white/20
                   flex items-center justify-center
                   hover:bg-white/20 hover:scale-105
-                  transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto
-                  ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
+                  transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto"
                 aria-label="15 seconds back"
               >
                 <RedoDot size={18} className="text-white scale-x-[-1]" />

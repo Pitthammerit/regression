@@ -818,6 +818,33 @@
   scroll-snap-align: none;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   YOUTUBE CHROME HIDING (permanent - !important)
+   ─────────────────────────────────────────────────────────────
+   Hides YouTube's native buttons (Forward, Save, Share, Title, Watermark)
+   that sometimes appear after state changes. These rules override YouTube's
+   inline styles with !important to ensure they stay hidden regardless of player state.
+
+   Usage: Applied globally to all YouTube iframes in the project
+   ───────────────────────────────────────────────────────────── */
+@utility hide-youtube-chrome {
+  /* Hide all YouTube chrome elements permanently */
+  & .ytp-chrome-top,
+  & .ytp-chrome-bottom,
+  & .ytp-chrome-container,
+  & .ytp-title,
+  & .ytp-title-text,
+  & .ytp-watermark,
+  & .ytp-gradient-top,
+  &ytp-gradient-bottom,
+  & .ytp-large-play-button,
+  & .ytp-youtube-button,
+  & .ytp-contextmenu {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
 /* Disable scroll-snap on this section entirely */
 @utility section-no-snap {
   scroll-snap-stop: always;
