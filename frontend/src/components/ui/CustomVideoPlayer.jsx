@@ -275,7 +275,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
                 transition-all duration-300 shadow-2xl pointer-events-auto"
               aria-label="15 seconds back"
             >
-              <RedoDot size={18} className="text-white" />
+              <RedoDot size={18} className="text-white scale-x-[-1]" />
             </button>
           </button>
         </div>
