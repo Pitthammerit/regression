@@ -265,9 +265,13 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       </div>
 
       {/* ── Progress bar (scrubber) ─── */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-20" onClick={handleSeek}>
+      <div
+        data-testid="scrubber-bar"
+        className="absolute bottom-0 left-0 right-0 h-2 bg-red-500 cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-20"
+        onClick={handleSeek}
+      >
         <div
-          className="h-full bg-white/60 group-hover/progress:bg-white transition-colors"
+          className="h-full bg-white group-hover/progress:bg-white transition-colors"
           style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
         />
       </div>

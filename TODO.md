@@ -1,6 +1,6 @@
 # TODO
 
-Updated: 2026-04-03 07:50
+Updated: 2026-04-03 09:14
 
 ---
 
@@ -17,6 +17,26 @@ Improved video controls: Rewind button (icon only, circular), scrubbing on hover
 - YouTube fullscreen: Custom controls visible (no native YouTube controls)
 
 See: `docs/plans/2026-04-01-media-mutual-exclusion-implementation.md`
+
+---
+
+## 🔴 ACTIVE DEBUGGING — Scrubbing Bar Visibility
+
+**Status:** Testing red diagnostic bar (h-2, bg-red-500) to verify if element renders
+
+**Issue:** Scrubbing bar not visible despite multiple attempts. Hypothesis: YouTube `controls=0` blocks video interaction.
+
+**User Reports:**
+- Scrubbing bar not visible on hover
+- YouTube may block scrubbing when native controls are disabled
+
+---
+
+## 🟡 MEDIUM PRIORITY — Scroll Snap Implementation (Carried Over)
+
+**Status:** Carried over from previous session — see `docs/plans/2026-04-01-scroll-container-wrapper-pattern.md`
+
+Implement CSS scroll-snap with proximity + buffers for smooth section navigation.
 
 ---
 
