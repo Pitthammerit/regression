@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* Import custom theme tokens */
+@import "../tailwind.config.css";
+
+/* ─────────────────────────────────────────────────────────────
+   BASE STYLES
+   ───────────────────────────────────────────────────────────── */
+
+body {
+  background-color: #F0EBE1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3Cfilter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #1A1814;
+}
+
+/* Scroll Snap Container */
+html {
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  scroll-padding-bottom: 5vh;
+}
+
+/* Accordion sections are priority snap points - forces scroll to stop here */
+section[data-testid="researchers-section"],
+section[data-testid="faq-section"],
+section[data-testid="cases-section"],
+section[data-testid="researcher-quotes-section"],
+section[data-testid="forwhom-section"],
+section[data-testid="about-section"] {
+  scroll-snap-stop: always;
+  scroll-margin-bottom: 50vh;
+}
+
+/* Sections after accordion sections get top margin to prevent early snap */
+section[data-testid="podcast-video-section"],
+section[data-testid="process-section"],
+section[data-testid="podcast-section"],
+section[data-testid="booking-section"],
+section[data-testid="cta-section"] {
+  scroll-margin-top: 30vh;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CUSTOM ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes scrollFade {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 65, 96, 0); }
+  50% { transform: scale(1.025); box-shadow: 0 0 0 8px rgba(34, 65, 96, 0.08); }
+}
+
+@keyframes pulseDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: rotateX(-10deg) scale(0.95);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ANIMATION UTILITIES
+   ───────────────────────────────────────────────────────────── */
+
+@utility animate-pulse-soft {
+  animation: pulseSoft 2.8s ease-in-out infinite;
+}
+
+@utility animate-pulse-down {
+  animation: pulseDown 1.5s ease-in-out infinite;
+}
+
+@utility animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   COMPONENT-SPECIFIC STYLES
+   ───────────────────────────────────────────────────────────── */
+
+.process-bg-number {
+  font-size: clamp(21rem, 40vw, 28rem);
+  top: -180px;
+  left: -8px;
+}
+
+@media (max-width: 767px) {
+  .process-bg-number {
+    font-size: 9rem;
+    top: -20px;
+  }
+}

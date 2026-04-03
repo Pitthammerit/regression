@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
 import { useContent } from '../../contexts/ContentContext'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
-import SectionWrapper from '../ui/SectionWrapper'
+import ScrollableSection from '../ui/ScrollableSection'
 import SectionLabel from '../ui/SectionLabel'
 import LazyImage from '../ui/LazyImage'
 import DebugLabel from '../ui/DebugLabel'
@@ -58,7 +58,7 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
   const hasMore = authorsWithPortraits.length > 3
 
   return (
-    <SectionWrapper className="bg-color-primary text-primary-on-dark" data-testid="researcher-quotes-section">
+    <ScrollableSection hasAccordion={true} className="bg-color-primary text-primary-on-dark" data-testid="researcher-quotes-section">
       {/* Header group with controlled spacing */}
       <div className="margin-top-md">
         <DebugLabel type="typography-label" debugMode={debugMode}>
@@ -181,6 +181,6 @@ export default function ResearcherQuotesSection({ debugMode = false }) {
           )}
         </>
       )}
-    </SectionWrapper>
+    </ScrollableSection>
   )
 }

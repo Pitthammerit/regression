@@ -6,6 +6,7 @@ import LazyImage from '../ui/LazyImage'
 import ExpandToggleButton from '../ui/ExpandToggleButton'
 import AccordionWrap from '../ui/AccordionWrap'
 import AnimatedAspectRatio from '../ui/AnimatedAspectRatio'
+import ScrollableSection from '../ui/ScrollableSection'
 import { useAccordionScroll } from '../../hooks/useAccordionScroll'
 
 export default function ResearchersSection({ debugMode = false }) {
@@ -32,10 +33,12 @@ export default function ResearchersSection({ debugMode = false }) {
   }
 
   return (
-    <section
+    <ScrollableSection
       id="science"
-      data-testid="science-section"
+      hasAccordion={true}
+      dark={false}
       className="section-padding bg-color-primary text-primary-on-dark relative overflow-hidden"
+      data-testid="science-section"
     >
       {/* Subtle paper texture overlay */}
       <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none" />
@@ -232,6 +235,6 @@ export default function ResearchersSection({ debugMode = false }) {
           </div>
         ))}
       </div>
-    </section>
+    </ScrollableSection>
   )
 }

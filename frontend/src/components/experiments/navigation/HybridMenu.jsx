@@ -1,7 +1,7 @@
 // Variante 2: Hybrid (Desktop Inline + Mobile Vollbild)
 import React, { useState, useRef, useEffect } from 'react'
 import { X, ChevronDown, ChevronRight, Menu } from 'lucide-react'
-import { menu } from '../../content/menu'
+import { menu } from '../../content'
 
 export default function HybridMenu({ isOpen, onClose }) {
   const [expandedCategory, setExpandedCategory] = useState(null)

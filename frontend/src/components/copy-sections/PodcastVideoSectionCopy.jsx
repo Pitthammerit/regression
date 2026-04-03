@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { podcasts, podcastVideo } from "../../content"
 import SectionWrapper from "../ui/SectionWrapper"
 import SectionLabel from "../ui/SectionLabel"
-import CustomVideoPlayer from "../ui/CustomVideoPlayer"
+import VideoPlayer from "../ui/VideoPlayer"
 import CtaButton from "../ui/CtaButton"
 import DebugLabel from "../ui/DebugLabel"
 import { X, Send } from "lucide-react"
@@ -60,7 +60,7 @@ export default function PodcastVideoSectionCopy({ debugMode = false }) {
 
         {/* YouTube Video — centered */}
         <div className="max-w-4xl mx-auto w-full" data-testid="podcast-video-embed">
-          <CustomVideoPlayer type="youtube" src={podcast.youtubeEmbedUrl} />
+          <VideoPlayer type="youtube" src={podcast.youtubeEmbedUrl} />
         </div>
 
         {/* Transcript download button — centered */}

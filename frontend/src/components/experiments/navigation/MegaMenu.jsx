@@ -1,7 +1,7 @@
 // Variante 3: Mega Menu (Hover Dropdown)
 import React, { useState, useRef, useEffect } from 'react'
 import { X, ChevronDown, Menu } from 'lucide-react'
-import { menu } from '../../content/menu'
+import { menu } from '../../content'
 
 export default function MegaMenu({ isOpen, onClose }) {
   const [activeDropdown, setActiveDropdown] = useState(null)

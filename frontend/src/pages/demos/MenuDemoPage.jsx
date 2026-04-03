@@ -21,7 +21,7 @@ import TestimonialCarousel from '../../components/hardcoded-sections/Testimonial
 import BookingSection from '../../components/sections/BookingSection'
 import { header, footer, testimonials } from '../../content'
 import { SECTIONS_ORDER } from '../../config/sections.config'
-import { menu } from '../../content/menu'
+import { menu } from '../../content'
 import { r2, logos } from '../../utils/media'
 import CtaButton from '../../components/ui/CtaButton'
 import { Menu, X, ChevronRight } from 'lucide-react'

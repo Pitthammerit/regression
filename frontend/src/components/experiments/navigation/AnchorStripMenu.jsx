@@ -1,7 +1,7 @@
 // Variante 4: Anchor Strip (Slim Nav + Scroll Indicator)
 import React from 'react'
 import { X, Menu } from 'lucide-react'
-import { menu } from '../../content/menu'
+import { menu } from '../../content'
 
 export default function AnchorStripMenu({ isOpen, onClose, activeSection }) {
   const handleNavClick = (anchor) => {

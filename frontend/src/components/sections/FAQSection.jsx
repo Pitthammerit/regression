@@ -4,6 +4,7 @@ import DebugLabel from '../ui/DebugLabel'
 import AccordionWrap from '../ui/AccordionWrap'
 import { ChevronDown } from 'lucide-react'
 import { useNavigation } from '../../contexts/NavigationContext'
+import ScrollableSection from '../ui/ScrollableSection'
 import { useFAQScroll } from '../../hooks/useFAQScroll'
 
 /**
@@ -32,10 +33,11 @@ export default function FAQSection({ debugMode = false }) {
   const toggleExpand = useFAQScroll(expandedFAQIndex, setExpandedFAQIndex)
 
   return (
-    <section
+    <ScrollableSection
       id="faq"
+      hasAccordion={true}
+      className="bg-color-bg-light"
       data-testid="faq-section"
-      className="py-20 md:py-28 bg-color-bg-light"
     >
       <div className="max-w-content mx-auto px-6">
         <DebugLabel type="typography-label" debugMode={debugMode}>
@@ -85,6 +87,6 @@ export default function FAQSection({ debugMode = false }) {
           ))}
         </div>
       </div>
-    </section>
+    </ScrollableSection>
   )
 }

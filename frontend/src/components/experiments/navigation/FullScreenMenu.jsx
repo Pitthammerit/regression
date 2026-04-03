@@ -1,7 +1,7 @@
 // Variante 1: Vollflächiger Burger
 import React, { useState } from 'react'
 import { X, ChevronRight, Menu } from 'lucide-react'
-import { menu } from '../../content/menu'
+import { menu } from '../../content'
 
 export default function FullScreenMenu({ isOpen, onClose }) {
   const [expandedCategory, setExpandedCategory] = useState(null)

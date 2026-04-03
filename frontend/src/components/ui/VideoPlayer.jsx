@@ -1,18 +1,37 @@
 import React, { useRef, useState, useEffect } from 'react'
+import YouTube from 'react-youtube'
 import { Play, Pause, Volume2, VolumeX, Maximize, RedoDot } from 'lucide-react'
 import { useMedia } from '../../contexts/MediaContext'
 
 /**
- * CustomVideoPlayer — R2/Native video player with custom controls
- * src: MP4 video URL
- * poster: optional thumbnail URL
- * exitFullscreenAtTime: optional time in seconds to auto-exit fullscreen
+ * VideoPlayer — Unified player for R2/native video and YouTube
+ *
+ * Props:
+ * - type: 'r2' | 'youtube'
+ * - src: MP4 URL (for R2) or YouTube URL (for YouTube)
+ * - videoId: YouTube video ID (alternative to src for YouTube)
+ * - poster: thumbnail URL (R2 only)
+ * - onVideoEnded: callback when video ends
+ * - enterFullscreenOnClick: auto-fullscreen on first click
+ * - exitFullscreenAtTime: auto-exit fullscreen at specific time (R2 only)
+ * - className: additional CSS classes
  */
-export default function CustomVideoPlayer({ src, poster, className = '', onVideoEnded, enterFullscreenOnClick = false, exitFullscreenAtTime = null }) {
-  const videoRef = useRef(null)
+export default function VideoPlayer({
+  type = 'r2',
+  src,
+  videoId,
+  poster,
+  className = '',
+  onVideoEnded,
+  enterFullscreenOnClick = false,
+  exitFullscreenAtTime = null
+}) {
+  const playerRef = useRef(null)
   const hasTriggeredScrollRef = useRef(false)
+  const progressInterval = useRef(null)
   const playerId = useRef(`media-${Math.random().toString(36).slice(2)}`)
   const { registerPlayer, unregisterPlayer, requestPlay } = useMedia()
+
   const [playing, setPlaying] = useState(false)
   const [started, setStarted] = useState(false)
   const [volume, setVolumeState] = useState(80)
@@ -21,12 +40,46 @@ export default function CustomVideoPlayer({ src, poster, className = '', onVideo
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
 
-  // Register with MediaContext for mutual exclusion
+  // Extract YouTube ID from URL if needed
+  const getYouTubeId = (url) => {
+    const m = url?.match(/(?:embed\/|watch\?v=|youtu\.be\/)([^?&]+)/)
+    return m ? m[1] : url
+  }
+  const ytId = type === 'youtube' ? (videoId || getYouTubeId(src)) : null
+
+  // ── Progress tracking ─────────────────────────────────────
+  // R2: Uses onTimeUpdate event
+  // YouTube: Uses polling interval
+  useEffect(() => {
+    if (type === 'youtube' && playing && playerRef.current) {
+      progressInterval.current = setInterval(() => {
+        if (playerRef.current) {
+          setCurrentTime(playerRef.current.getCurrentTime())
+        }
+      }, 250)
+    } else {
+      if (progressInterval.current) {
+        clearInterval(progressInterval.current)
+        progressInterval.current = null
+      }
+    }
+    return () => {
+      if (progressInterval.current) {
+        clearInterval(progressInterval.current)
+      }
+    }
+  }, [type, playing])
+
+  // ── MediaContext mutual exclusion ───────────────────────────
   useEffect(() => {
     const onPause = () => {
       setPlaying(false)
-      if (videoRef.current) {
-        videoRef.current.pause()
+      if (playerRef.current) {
+        if (type === 'youtube') {
+          playerRef.current.pauseVideo()
+        } else {
+          playerRef.current.pause()
+        }
       }
     }
 
@@ -35,41 +88,90 @@ export default function CustomVideoPlayer({ src, poster, className = '', onVideo
     return () => {
       unregisterPlayer(playerId.current)
     }
-  }, [registerPlayer, unregisterPlayer])
+  }, [type, registerPlayer, unregisterPlayer])
 
-  // ── Playback ──────────────────────────────────────────
+  // ── YouTube specific events ─────────────────────────────────
+  const opts = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      rel: 0,
+      modestbranding: 1,
+      iv_load_policy: 3,
+      fs: 0,
+      playsinline: 1,
+      enablejsapi: 1,
+    },
+  }
+
+  const onReady = (event) => {
+    playerRef.current = event.target
+    const dur = event.target.getDuration()
+    setDuration(dur)
+  }
+
+  const onStateChange = (event) => {
+    const playerState = event.data
+    if (playerState === 1) { // PLAYING
+      setPlaying(true)
+      setStarted(true)
+    } else if (playerState === 2) { // PAUSED
+      setPlaying(false)
+    } else if (playerState === 0) { // ENDED
+      setPlaying(false)
+      setStarted(false)
+    }
+  }
+
+  // ── Playback controls ─────────────────────────────────────
   const handlePlay = () => {
     requestPlay(playerId.current)
-    videoRef.current?.play()
+    if (type === 'youtube') {
+      playerRef.current?.playVideo()
+    } else {
+      playerRef.current?.play()
+    }
     setPlaying(true)
     setStarted(true)
   }
 
   const handlePause = () => {
-    videoRef.current?.pause()
+    if (type === 'youtube') {
+      playerRef.current?.pauseVideo()
+    } else {
+      playerRef.current?.pause()
+    }
     setPlaying(false)
   }
 
   const handleRewind15 = () => {
     const newTime = Math.max(0, currentTime - 15)
-    if (videoRef.current) {
-      videoRef.current.currentTime = newTime
+    if (type === 'youtube') {
+      playerRef.current?.seekTo(newTime, true)
+    } else if (playerRef.current) {
+      playerRef.current.currentTime = newTime
     }
+    setCurrentTime(newTime)
   }
 
   const handleSeek = (e) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const percent = (e.clientX - rect.left) / rect.width
     const newTime = percent * duration
-    if (videoRef.current) {
-      videoRef.current.currentTime = newTime
+    if (type === 'youtube') {
+      playerRef.current?.seekTo(newTime, true)
+    } else if (playerRef.current) {
+      playerRef.current.currentTime = newTime
     }
+    setCurrentTime(newTime)
   }
 
-  const handleToggle = (e) => {
+  const handleToggle = () => {
     // Request fullscreen BEFORE any state changes (direct user activation)
-    if (enterFullscreenOnClick && !playing) {
-      const el = videoRef.current
+    if (enterFullscreenOnClick && !playing && type === 'r2') {
+      const el = playerRef.current
       if (el) {
         if (el.requestFullscreen) el.requestFullscreen()
         else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
@@ -78,25 +180,40 @@ export default function CustomVideoPlayer({ src, poster, className = '', onVideo
     playing ? handlePause() : handlePlay()
   }
 
-  // ── Volume ───────────────────────────────────────────
+  // ── Volume controls ───────────────────────────────────────
   const handleVolume = (val) => {
     const v = Number(val)
     setVolumeState(v)
     setMuted(v === 0)
-    if (videoRef.current) videoRef.current.volume = v / 100
+    if (type === 'youtube') {
+      playerRef.current?.setVolume(v)
+    } else if (playerRef.current) {
+      playerRef.current.volume = v / 100
+    }
   }
 
   const handleMuteToggle = () => {
     if (muted) {
       handleVolume(volume || 80)
+      if (type === 'youtube') {
+        playerRef.current?.unMute()
+      }
     } else {
       handleVolume(0)
+      if (type === 'youtube') {
+        playerRef.current?.mute()
+      }
     }
   }
 
-  // ── Fullscreen ────────────────────────────────────────
+  // ── Fullscreen ────────────────────────────────────────────
   const handleFullscreen = () => {
-    const el = videoRef.current
+    let el
+    if (type === 'youtube') {
+      el = playerRef.current?.getIframe()?.parentElement
+    } else {
+      el = playerRef.current
+    }
     if (!el) return
     if (el.requestFullscreen) el.requestFullscreen()
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
@@ -115,35 +232,40 @@ export default function CustomVideoPlayer({ src, poster, className = '', onVideo
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
-      {/* ── Video ─── */}
-      <div className="aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto">
-        <video
-          ref={videoRef}
-          src={src}
-          poster={poster}
-          className="w-full h-full object-cover"
-          onEnded={() => { setPlaying(false); setStarted(false); onVideoEnded?.() }}
-          onTimeUpdate={(e) => {
-            setCurrentTime(e.currentTarget.currentTime)
-            setDuration(e.currentTarget.duration)
-            if (exitFullscreenAtTime && !hasTriggeredScrollRef.current && videoRef.current) {
-              const currentTime = videoRef.current.currentTime
-              // Only trigger if we're in fullscreen and reached the target time
-              if (currentTime >= exitFullscreenAtTime && document.fullscreenElement) {
-                hasTriggeredScrollRef.current = true
-                // Exit fullscreen first
-                document.exitFullscreen().catch(() => {
-                  // Ignore errors if already exited
-                })
-                // Then trigger scroll after a short delay
-                setTimeout(() => {
-                  onVideoEnded?.()
-                }, 100)
+      {/* ── Media element ─── */}
+      <div className="aspect-video [&_iframe]:w-full [&_iframe]:h-full [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto">
+        {type === 'youtube' ? (
+          <YouTube
+            videoId={ytId}
+            opts={opts}
+            onReady={onReady}
+            onStateChange={onStateChange}
+            className="w-full h-full"
+          />
+        ) : (
+          <video
+            ref={playerRef}
+            src={src}
+            poster={poster}
+            className="w-full h-full object-cover"
+            onEnded={() => { setPlaying(false); setStarted(false); onVideoEnded?.() }}
+            onTimeUpdate={(e) => {
+              setCurrentTime(e.currentTarget.currentTime)
+              setDuration(e.currentTarget.duration)
+              if (exitFullscreenAtTime && !hasTriggeredScrollRef.current && playerRef.current) {
+                const currentTime = playerRef.current.currentTime
+                if (currentTime >= exitFullscreenAtTime && document.fullscreenElement) {
+                  hasTriggeredScrollRef.current = true
+                  document.exitFullscreen().catch(() => {})
+                  setTimeout(() => {
+                    onVideoEnded?.()
+                  }, 100)
+                }
               }
-            }
-          }}
-          onClick={handleToggle}
-        />
+            }}
+            onClick={handleToggle}
+          />
+        )}
       </div>
 
       {/* ── Glass overlay with -15s, Play/Pause ─── */}
@@ -152,14 +274,14 @@ export default function CustomVideoPlayer({ src, poster, className = '', onVideo
           ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         onClick={handleToggle}
       >
-        {/* Gradient vignette so button is always readable */}
+        {/* Gradient vignette */}
         {!started && (
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
         )}
 
         {/* Controls row: -15s | Play/Pause */}
         <div className="relative flex items-center justify-center w-full">
-          {/* Play/Pause (glass style) - centered anchor */}
+          {/* Play/Pause (glass style) */}
           <button
             data-testid="glass-play-button"
             className="relative w-20 h-20 rounded-full
@@ -174,7 +296,7 @@ export default function CustomVideoPlayer({ src, poster, className = '', onVideo
               : <Play  size={26} className="text-white ml-1" fill="white" />
             }
 
-            {/* -15 Seconds Rewind (positioned relative to Play button) */}
+            {/* -15 Seconds Rewind */}
             {started && (
               <button
                 onClick={(e) => { e.stopPropagation(); handleRewind15() }}

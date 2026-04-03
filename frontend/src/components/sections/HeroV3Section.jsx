@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContent } from '../../contexts/ContentContext'
-import CustomVideoPlayer from '../ui/CustomVideoPlayer'
+import VideoPlayer from '../ui/VideoPlayer'
 import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 import { scrollPresets } from '../../utils/scrollAnimations'
@@ -36,7 +36,7 @@ export default function HeroV3Section({ debugMode = false }) {
       {/* VIDEO — 20% smaller (783px instead of 979px) */}
       <div className="px-8 md:px-14 lg:px-20 w-full">
         <div className="max-w-[783px] mx-auto">
-          <CustomVideoPlayer
+          <VideoPlayer
             type="r2"
             src={hero.videoUrl}
             poster={hero.posterUrl}

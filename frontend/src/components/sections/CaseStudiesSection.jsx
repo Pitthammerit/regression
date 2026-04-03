@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useContent } from '../../contexts/ContentContext'
 import { useCaseStudiesScroll } from '../../hooks/useCaseStudiesScroll'
-import SectionWrapper from '../ui/SectionWrapper'
+import ScrollableSection from '../ui/ScrollableSection'
 import SectionLabel from '../ui/SectionLabel'
 import DebugLabel from '../ui/DebugLabel'
 import LazyImage from '../ui/LazyImage'
@@ -15,7 +15,7 @@ export default function CaseStudiesSection({ debugMode = false }) {
   const toggleWithScroll = useCaseStudiesScroll(openIndex, setOpenIndex)
 
   return (
-    <SectionWrapper id="cases" data-testid="cases-section">
+    <ScrollableSection id="cases" hasAccordion={true} data-testid="cases-section">
       <div className="max-w-centered-header text-center mx-auto section-padding-sm">
         <DebugLabel type="typography-label" debugMode={debugMode}>
           <SectionLabel text={cases.label} />
@@ -141,6 +141,6 @@ export default function CaseStudiesSection({ debugMode = false }) {
           </div>
         ))}
       </div>
-    </SectionWrapper>
+    </ScrollableSection>
   )
 }
