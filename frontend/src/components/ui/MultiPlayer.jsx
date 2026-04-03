@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import YouTube from 'react-youtube'
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 import useGlassPlayer from '../../hooks/useGlassPlayer'
-import { liquidGL } from '../../lib/liquidGL'
+// Load liquidGL IIFE module to set window.liquidGL
+import '../../lib/liquidGL/liquidGL.js'
 import { formatTime } from '../../utils/timeFormat'
 
 /**
@@ -57,14 +58,14 @@ export default function MultiPlayer({
     if (!containerRef.current || liquidGLInstance.current) return
 
     // Check if liquidGL is available
-    if (typeof liquidGL === 'undefined') {
+    if (typeof window.liquidGL === 'undefined') {
       console.warn('[MultiPlayer] liquidGL not available - falling back to CSS-only glass')
       return
     }
 
     try {
       // Initialize liquidGL with multiple targets for different glass elements
-      liquidGLInstance.current = liquidGL({
+      liquidGLInstance.current = window.liquidGL({
         target: '.multi-player-target',
         snapshot: 'body',
         resolution: 2.0,
@@ -80,9 +81,9 @@ export default function MultiPlayer({
             console.log('[MultiPlayer] liquidGL ready!', instance)
 
             // After main target is ready, initialize glass for progress fill
-            if (typeof liquidGL !== 'undefined') {
+            if (typeof window.liquidGL !== 'undefined') {
               try {
-                liquidGL({
+                window.liquidGL({
                   target: '.multi-player-progress-fill',
                   snapshot: 'body',
                   resolution: 2.0,
@@ -99,9 +100,9 @@ export default function MultiPlayer({
               }
 
               // Initialize glass for volume slider
-              if (typeof liquidGL !== 'undefined') {
+              if (typeof window.liquidGL !== 'undefined') {
                 try {
-                  liquidGL({
+                  window.liquidGL({
                     target: '.multi-player-volume-slider',
                     snapshot: 'body',
                     resolution: 2.0,
@@ -164,7 +165,7 @@ export default function MultiPlayer({
   return (
     <div
       ref={containerRef}
-      className={`multi-player-target relative rounded-2xl overflow-hidden bg-color-bg-dark group cursor-pointer ${className}`}
+      className={`multi-player-target relative rounded-2xl overflow-hidden bg-black/40 group cursor-pointer ${className}`}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
@@ -224,8 +225,8 @@ export default function MultiPlayer({
         >
           <button
             className="multi-player-play-button relative w-20 h-20 rounded-full flex items-center justify-center
-              bg-white/[0.01] border border-white/30
-              hover:bg-white/[0.05] transition-all duration-200 pointer-events-auto
+              bg-white/15 border border-white/35
+              hover:bg-white/20 transition-all duration-200 pointer-events-auto
               shadow-lg"
             aria-label={playing ? 'Pause' : 'Play'}
           >
@@ -246,7 +247,7 @@ export default function MultiPlayer({
         onClick={handleProgressClick}
       >
         <div
-          className="multi-player-progress-fill h-full bg-white/60 group-hover/progress:bg-white/80 transition-colors"
+          className="multi-player-progress-fill h-full bg-white/70 group-hover/progress:bg-white/90 transition-colors"
           style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
         />
       </div>
