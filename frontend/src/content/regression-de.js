@@ -288,17 +288,17 @@ export const researchers = {
 // —————————————————————————————————————————————————————————
     {
       id: "ian-stevenson",
-      name: "Ian Stevenson MD",
+      name: "Ian Stevenson M.D.",
       role: "University of Virginia, DOPS",
       lifeDates: "*1918–2007",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg",
       portraitFocus: "center",
-      quote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
-      featuredQuote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
-      shortVersion: "Über 2.500 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. 290+ peer-reviewed Publikationen.",
-      longVersion: `Ian Stevenson gilt als Begründer der wissenschaftlichen Reinkarnationsforschung. Über vier Jahrzehnte hinweg untersuchte er systematisch über 2.500 Fälle von Kindern, die spontane Erinnerungen an vergangene Leben berichteten. Seine Arbeit zeichnet sich durch strenge wissenschaftliche Methodik aus: Jeder Fall wurde vor Ort dokumentiert, Erinnerungen mit historischen Fakten verglichen und alternative Erklärungen ausgeschlossen.
+      quote: "I have attempted to document these cases as carefully as possible and at times in exhaustive detail.",
+      featuredQuote: "I have attempted to document these cases as carefully as possible and at times in exhaustive detail.",
+      shortVersion: "Ca. 3.000 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. Ca. 300 peer-reviewed Publikationen.",
+      longVersion: `Ian Stevenson gilt als Begründer der wissenschaftlichen Reinkarnationsforschung. Über vier Jahrzehnte hinweg untersuchte er systematisch ca. 3.000 Fälle von Kindern, die spontane Erinnerungen an vergangene Leben berichteten. Seine Arbeit zeichnet sich durch strenge wissenschaftliche Methodik aus: Jeder Fall wurde vor Ort dokumentiert, Erinnerungen mit historischen Fakten verglichen und alternative Erklärungen ausgeschlossen.
 
-Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen über Familien, Orte und Todesumstände von Personen berichten, die Jahre vor ihrer Geburt verstorben waren. Viele dieser Details ließen sich später verifizieren. Stevensons Arbeit umfasst über 290 peer-reviewed Publikationen und wurde in führenden wissenschaftlichen Journalen veröffentlicht.
+Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen über Familien, Orte und Todesumstände von Personen berichte, die Jahre vor ihrer Geburt verstorben waren. Viele dieser Details ließen sich später verifizieren. Stevensons Arbeit umfasst ca. 300 peer-reviewed Publikationen und wurde in führenden wissenschaftlichen Journalen veröffentlicht.
 
 Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Division of Perceptual Studies fort, wo die Forschung bis heute weitergeführt wird.`,
 
@@ -310,13 +310,13 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
 // —————————————————————————————————————————————————————————
     {
       id: "jim-tucker",
-      name: "Jim Tucker MD",
+      name: "Jim Tucker M.D.",
       role: "Nachfolger Stevensons, UVA",
-      lifeDates: "*1950–heute",
+      lifeDates: "–heute",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Jim_Tucker.jpg",
       portraitFocus: "center",
-      quote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
-      featuredQuote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
+      quote: "Researchers have now studied over 2500 cases in a project that is still ongoing.",
+      featuredQuote: "Researchers have now studied over 2500 cases in a project that is still ongoing.",
       shortVersion: "Quantitative Auswertung von 799 Fällen. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen WWII-Piloten — gilt als einer der bestdokumentierten weltweit.",
       longVersion: `Jim Tucker ist Stevensons direkter Nachfolger am University of Virginia's Division of Perceptual Studies (DOPS). Seine Arbeit konzentriert sich auf amerikanische Fälle von Kindern mit reincarnation memories. In seinem Buch "Life Before Life" präsentiert er eine quantitative Analyse von 799 Fällen, die starke Muster aufzeigen: Die meisten Kinder beginnen im Alter von zwei bis drei Jahren über frühere Leben zu sprechen und hören meist zwischen fünf und sieben Jahren auf.
 
@@ -333,13 +333,13 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
     {
       id: "brian-weiss",
       featured: true,
-      name: "Brian Weiss MD",
+      name: "Brian Weiss M.D.",
       role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
-      lifeDates: "*1944–2024",
+      lifeDates: "*1944–heute",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
       portraitFocus: "top",
-      quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
-      featuredQuote: "Through past-life regression, it's possible to heal — and grow — your mind, body and soul, as well as strengthen your present-day relationships.",
+      quote: "When you feel better as a result of a past life recall experience... you don't need to question the logical validity of the experience. You know it has empowered you to improve the quality of your life.",
+      featuredQuote: "The real you, the immortal you, is the you that is present from body to body, from life to life.",
       shortVersion: "'Many Lives Many Masters' (1988) — klinische Falldokumentation über Jahrzehnte. Skeptische Haltung veränderte sich durch eine Patientin, die unter Hypnose frühere Leben beschrieb.",
       longVersion: `Brian Weiss war ein hochangesehener Psychiater und Chefarzt am Mount Sinai Medical Center in Miami, als ihn ein Fall im Jahr 1980 gründlich verändern sollte. Catherine, eine Patientin mit schweren Ängsten und Phobien, sprach unter Hypnose plötzlich von Details aus vergangenen Leben — Informationen, die sich historisch verifizieren ließen.
 
@@ -355,13 +355,13 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
 // —————————————————————————————————————————————————————————
     {
       id: "roger-woolger",
-      name: "Roger Woolger PhD",
+      name: "Roger Woolger Ph.D.",
       role: "Jungian Analytiker, Regressionstherapeut, Lehrer",
       lifeDates: "*1944–2011",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
       portraitFocus: "center",
-      quote: "The body never lies about what the soul has carried across lifetimes.",
-      featuredQuote: "The body never lies about what the soul has carried across lifetimes.",
+      quote: "Deep Memory Process combines Jungian active imagination, bodywork, psychodrama with shamanic spirit journeying and integration between lifetimes.",
+      featuredQuote: "Deep Memory Process combines Jungian active imagination, bodywork, psychodrama with shamanic spirit journeying and integration between lifetimes.",
       shortVersion: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",
       longVersion: `Roger Woolger war ein Jungian Analyst und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
 Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian Western Mysticism und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.
@@ -397,7 +397,7 @@ Seit 2021 hat die Editorialbeschlossen, den Zugang zu allen Artikeln zu gewähre
       type: "book",
       name: "Many Lives, Many Masters",
       dates: "1988",
-      authors: "Brian L. Weiss",
+      authors: "Brian L. Weiss M.D.",
       url: "https://brianweiss.com/books/many-lives-many-masters",
       role: "BRIAN L. WEISS M.D.",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors//manylivesmanymasters.jpeg",
@@ -410,7 +410,7 @@ Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen kl
     {
       type: "book",
       name: "Other Lives, Other Selves",
-      dates: "1988",
+      dates: "1987",
       authors: "Roger J. Woolger Ph.D.",
       url: "https://www.amazon.com/Other-Lives-Selves-Psychotherapist-Discovers/dp/0553345958",
       role: "Roger J. Woolger Ph.D.",
@@ -424,7 +424,7 @@ Das Buch zeigt, wie Regressionstherapie als Werkzeug dienen kann, um aktuelle Le
     {
       type: "book",
       name: "Life Before Life",
-      dates: "2008",
+      dates: "2005",
       authors: "Jim B. Tucker M.D.",
       url: "https://www.amazon.com/Life-Before-Childrens-Memories-Previous/dp/031237674X",
       role: "Jim B. Tucker M.D.",
@@ -563,7 +563,7 @@ Die meisten Klienten beschreiben es als: "Ich weiß nicht, ob das echt ist — a
       question: "Gibt es wissenschaftliche Belege?",
       answer: `Die Forschung steht am Anfang — aber es gibt mehr als viele denken:
 
-• **University of Virginia (DOPS)**: Über 2.500 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. 290+ peer-reviewed Publikationen.
+• **University of Virginia (DOPS)**: Ca. 3.000 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. Ca. 300 peer-reviewed Publikationen.
 • **Journal of Regression Therapy**: Seit 1986, alle Artikel frei zugänglich, dokumentiert therapeutische Ergebnisse.
 • **Neuroimaging-Studien**: Zeigen dass Zustände wie Meditation Regression keine "pathologischen" Zustände sind — sondern non-ordinäre, aber voll funktionale Bewusstseinszustände.
 
