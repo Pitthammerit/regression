@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-import { Play, Pause, Volume2, VolumeX, Maximize, RefreshCw } from 'lucide-react'
+import { Play, Pause, Volume2, VolumeX, Maximize, RedoDot } from 'lucide-react'
 import { useMedia } from '../../contexts/MediaContext'
 
 /**
@@ -34,9 +34,11 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     : null
 
   const ytCmd = (func, args = []) => {
-    iframeRef.current?.contentWindow.postMessage(
-      JSON.stringify({ event: 'command', func, args }), '*'
-    )
+    if (type === 'youtube' && iframeRef.current) {
+      const message = JSON.stringify({ event: 'command', func, args })
+      console.log('[YouTube] Sending command:', func, args, '→', message)
+      iframeRef.current.contentWindow.postMessage(message, '*')
+    }
   }
 
   // YouTube time tracking - start immediately to get duration, continue when playing
@@ -63,12 +65,14 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
         if (data.event === 'infoDelivery') {
           console.log('[YouTube] Info delivery:', data.info)
           if (data.info?.currentTime !== undefined) {
-            console.log('[YouTube] Current time:', data.info.currentTime)
+            console.log('[YouTube] Current time:', data.info.currentTime, '→ Setting state')
             setCurrentTime(data.info.currentTime)
+            console.log('[YouTube] State after setCurrentTime:', data.info.currentTime)
           }
           if (data.info?.duration !== undefined) {
-            console.log('[YouTube] Duration:', data.info.duration)
+            console.log('[YouTube] Duration:', data.info.duration, '→ Setting state')
             setDuration(data.info.duration)
+            console.log('[YouTube] State after setDuration:', data.info.duration)
           }
         }
       } catch (e) {
@@ -271,7 +275,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
                 transition-all duration-300 shadow-2xl pointer-events-auto"
               aria-label="15 seconds back"
             >
-              <RefreshCw size={18} className="text-white" />
+              <RedoDot size={18} className="text-white" />
             </button>
           </button>
         </div>
@@ -280,7 +284,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
       {/* ── Progress bar (scrubber) ─── */}
       <div
         data-testid="scrubber-bar"
-        className="absolute bottom-0 left-0 right-0 h-2 bg-red-500 cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-20"
+        className="absolute bottom-0 left-0 right-0 h-2 bg-red-500 cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-30"
         onClick={handleSeek}
       >
         <div
@@ -299,6 +303,8 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
         {/* Time display */}
         <div className="text-white/80 text-xs font-medium">
           {formatTime(currentTime)} / {formatTime(duration)}
+          {/* Debug: show raw values */}
+          <span className="opacity-50 text-[10px] ml-2">({Math.round(currentTime)}s / {Math.round(duration)}s)</span>
         </div>
 
         {/* Controls row */}
