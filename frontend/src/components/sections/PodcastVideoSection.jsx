@@ -68,7 +68,7 @@ export default function PodcastVideoSection({ debugMode = false }) {
 
           {/* YouTube Video — centered with custom controls */}
           <div className="max-w-4xl mx-auto w-full" data-testid="podcast-video-embed">
-            {ytId && <VideoPlayer type="youtube" videoId={ytId} blurStrength="strong" />}
+            {ytId && <VideoPlayer type="youtube" videoId={ytId} />}
           </div>
 
           {/* Transcript download button — centered */}
