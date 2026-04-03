@@ -254,7 +254,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
           <button
             data-testid="glass-play-button"
             className="relative w-20 h-20 rounded-full
-              bg-white/10 backdrop-blur-sm border border-white/20
+              bg-white/10 backdrop-blur-none border border-white/20
               flex items-center justify-center
               hover:bg-white/20 hover:scale-105
               transition-all duration-300 shadow-2xl pointer-events-auto"
@@ -270,7 +270,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
               <button
                 onClick={(e) => { e.stopPropagation(); handleRewind15() }}
                 className="absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
-                  bg-white/10 backdrop-blur-sm border border-white/20
+                  bg-white/10 backdrop-blur-none border border-white/20
                   flex items-center justify-center
                   hover:bg-white/20 hover:scale-105
                   transition-all duration-300 shadow-2xl pointer-events-auto"
