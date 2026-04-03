@@ -63,6 +63,7 @@ export default function MultiPlayer({
     }
 
     try {
+      // Initialize liquidGL with multiple targets for different glass elements
       liquidGLInstance.current = liquidGL({
         target: '.multi-player-target',
         snapshot: 'body',
@@ -77,6 +78,45 @@ export default function MultiPlayer({
         on: {
           init(instance) {
             console.log('[MultiPlayer] liquidGL ready!', instance)
+
+            // After main target is ready, initialize glass for progress fill
+            if (typeof liquidGL !== 'undefined') {
+              try {
+                liquidGL({
+                  target: '.multi-player-progress-fill',
+                  snapshot: 'body',
+                  resolution: 2.0,
+                  refraction: 0.047,
+                  bevelDepth: 0.08,
+                  bevelWidth: 0.05,
+                  frost: 1.5,
+                  shadow: false,
+                  specular: true,
+                  tilt: false,
+                })
+              } catch (e) {
+                console.warn('[MultiPlayer] Progress fill glass init failed:', e)
+              }
+
+              // Initialize glass for volume slider
+              if (typeof liquidGL !== 'undefined') {
+                try {
+                  liquidGL({
+                    target: '.multi-player-volume-slider',
+                    snapshot: 'body',
+                    resolution: 2.0,
+                    refraction: 0.03,
+                    bevelDepth: 0.06,
+                    bevelWidth: 0.04,
+                    frost: 1,
+                    shadow: false,
+                    specular: true,
+                  })
+                } catch (e) {
+                  console.warn('[MultiPlayer] Volume glass init failed:', e)
+                }
+              }
+            }
           },
         },
       })
@@ -183,8 +223,9 @@ export default function MultiPlayer({
           onClick={playing ? handlePause : handlePlay}
         >
           <button
-            className="relative w-20 h-20 rounded-full bg-color-primary flex items-center justify-center
-              hover:bg-color-secondary transition-colors duration-200 pointer-events-auto
+            className="multi-player-play-button relative w-20 h-20 rounded-full flex items-center justify-center
+              bg-white/5 border border-white/10
+              hover:bg-white/10 transition-all duration-200 pointer-events-auto
               shadow-lg"
             aria-label={playing ? 'Pause' : 'Play'}
           >
@@ -197,7 +238,7 @@ export default function MultiPlayer({
         </div>
       </div>
 
-      {/* Progress Bar - Blue with white progress */}
+      {/* Progress Bar - Blue background, white glass progress fill */}
       <div
         className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
           group/progress transition-opacity duration-300 pointer-events-auto z-30"
@@ -205,26 +246,27 @@ export default function MultiPlayer({
         onClick={handleProgressClick}
       >
         <div
-          className="h-full bg-white group-hover/progress:bg-white transition-colors"
+          className="multi-player-progress-fill h-full bg-white/80 group-hover/progress:bg-white transition-colors"
           style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
         />
       </div>
 
-      {/* Controls Bar - White Glass Design */}
+      {/* Controls Bar - Dark gradient for contrast, NO glass */}
       <div
         className={`absolute bottom-[11px] left-0 right-0 flex items-center justify-between
-          px-5 py-3 bg-white/10 backdrop-blur-md border-t border-white/20
-          transition-opacity duration-300 pointer-events-auto`}
+          px-5 py-3 pointer-events-auto
+          bg-gradient-to-t from-black/60 via-black/40 to-transparent
+          transition-opacity duration-300`}
         style={{ opacity: showControls ? 1 : 0 }}
       >
-        {/* Time Display - Left Aligned */}
+        {/* Time Display - NO glass, white text */}
         <div className="text-white text-xs font-medium">
           {formatTime(currentTime)} / {formatTime(duration)}
         </div>
 
         {/* Volume + Fullscreen - Right Aligned */}
         <div className="flex items-center gap-3">
-          {/* Volume */}
+          {/* Volume - WITH glass effect */}
           <div className="flex items-center gap-2">
             <button
               onClick={handleMuteToggle}
@@ -233,18 +275,24 @@ export default function MultiPlayer({
             >
               {muted || volume === 0 ? <VolumeX size={16} /> : <Volume2 size={16} />}
             </button>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={muted ? 0 : volume}
-              onChange={(e) => handleVolume(e.target.value)}
-              className="w-20 h-0.5 accent-white cursor-pointer"
-              onClick={(e) => e.stopPropagation()}
-            />
+            <div className="multi-player-volume-slider relative">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={muted ? 0 : volume}
+                onChange={(e) => handleVolume(e.target.value)}
+                className="w-20 h-1 bg-white/30 rounded-full appearance-none cursor-pointer
+                  [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3
+                  [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full
+                  [&::-webkit-slider-thumb]:bg-white/80 [&::-webkit-slider-thumb]:cursor-pointer
+                  [&::-webkit-slider-thumb]:transition-all"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
           </div>
 
-          {/* Fullscreen */}
+          {/* Fullscreen - NO glass, white icon */}
           <button
             onClick={(e) => {
               e.stopPropagation()

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContent } from '../../contexts/ContentContext'
 import VideoPlayer from '../ui/VideoPlayer'
+import MultiPlayer from '../ui/MultiPlayer'
 import DebugLabel from '../ui/DebugLabel'
 import { ChevronDown } from 'lucide-react'
 import { scrollPresets } from '../../utils/scrollAnimations'
@@ -36,14 +37,11 @@ export default function HeroV3Section({ debugMode = false }) {
       {/* VIDEO — 20% smaller (783px instead of 979px) */}
       <div className="px-8 md:px-14 lg:px-20 w-full">
         <div className="max-w-[783px] mx-auto">
-          <VideoPlayer
+          <MultiPlayer
             type="r2"
             src={hero.videoUrl}
             poster={hero.posterUrl}
-            className="h-full"
             onVideoEnded={handleScrollDown}
-            enterFullscreenOnClick
-            exitFullscreenAtTime={86}
           />
         </div>
       </div>
