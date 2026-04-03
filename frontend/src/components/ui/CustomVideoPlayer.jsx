@@ -41,52 +41,76 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
     }
   }
 
-  // YouTube time tracking - start immediately to get duration, continue when playing
+  // YouTube time tracking - wait for ready, then track time
   useEffect(() => {
     if (type !== 'youtube') return
 
-    console.log('[YouTube] Time tracking started')
+    console.log('[YouTube] Setting up time tracking...')
 
-    const interval = setInterval(() => {
-      ytCmd('getCurrentTime', [])
-      ytCmd('getDuration', [])
-      console.log('[YouTube] Polling time/duration...')
-    }, 500)
+    let pollingInterval = null
+    let isReady = false
+
+    // Start polling for time updates (only after ready)
+    const startPolling = () => {
+      if (pollingInterval) clearInterval(pollingInterval)
+      pollingInterval = setInterval(() => {
+        ytCmd('getCurrentTime', [])
+      }, 250)
+      console.log('[YouTube] Time polling started')
+    }
 
     // Listen for YouTube API responses
     const handleMessage = (event) => {
       if (event.origin !== 'https://www.youtube.com') {
-        console.log('[YouTube] Message from wrong origin:', event.origin)
         return
       }
       try {
         const data = JSON.parse(event.data)
-        console.log('[YouTube] Got message:', data)
+        console.log('[YouTube] Event:', data.event, data)
+
+        // YouTube is ready - get duration and start polling
+        if (data.event === 'onReady' && !isReady) {
+          isReady = true
+          console.log('[YouTube] API ready - getting duration')
+          ytCmd('getDuration', [])
+          startPolling()
+        }
+
+        // Time/duration updates
         if (data.event === 'infoDelivery') {
-          console.log('[YouTube] Info delivery:', data.info)
           if (data.info?.currentTime !== undefined) {
-            console.log('[YouTube] Current time:', data.info.currentTime, '→ Setting state')
             setCurrentTime(data.info.currentTime)
-            console.log('[YouTube] State after setCurrentTime:', data.info.currentTime)
           }
           if (data.info?.duration !== undefined) {
-            console.log('[YouTube] Duration:', data.info.duration, '→ Setting state')
             setDuration(data.info.duration)
-            console.log('[YouTube] State after setDuration:', data.info.duration)
+            console.log('[YouTube] Duration:', data.info.duration)
+          }
+        }
+
+        // Track playback state for time display updates
+        if (data.event === 'onStateChange') {
+          const playerState = data.info?.playerState
+          // 1=playing, 2=paused
+          if (playerState === 1 && !pollingInterval) {
+            startPolling()
+          } else if (playerState === 2 && pollingInterval) {
+            clearInterval(pollingInterval)
+            pollingInterval = null
           }
         }
       } catch (e) {
-        console.error('[YouTube] Failed to parse message:', e)
+        console.error('[YouTube] Failed to parse message:', e, event.data)
       }
     }
 
     window.addEventListener('message', handleMessage)
+
     return () => {
-      clearInterval(interval)
+      if (pollingInterval) clearInterval(pollingInterval)
       window.removeEventListener('message', handleMessage)
       console.log('[YouTube] Time tracking cleaned up')
     }
-  }, [type, playing])
+  }, [type])
 
   // Register with MediaContext for mutual exclusion
   useEffect(() => {
