@@ -52,6 +52,18 @@ export default function VideoPlayer({
   }
   const ytId = type === 'youtube' ? (videoId || getYouTubeId(src)) : null
 
+  // Track fullscreen state for controls visibility
+  const [isFullscreen, setIsFullscreen] = useState(false)
+
+  // Detect fullscreen changes
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement)
+    }
+    document.addEventListener('fullscreenchange', handleFullscreenChange)
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
+  }, [])
+
   // ── Progress tracking ─────────────────────────────────────
   // R2: Uses onTimeUpdate event
   // YouTube: Uses polling interval
@@ -73,6 +85,24 @@ export default function VideoPlayer({
       }
     }
   }, [type, playing, ytPlayer.ready, ytPlayer.getCurrentTime])
+
+  // ── Force YouTube options to hide UI elements ─────────────────
+  // YouTube sometimes shows buttons after state changes (play, fullscreen, etc.)
+  // This effect ensures options are re-applied to keep UI hidden
+  useEffect(() => {
+    if (type === 'youtube' && ytPlayer.ready && ytPlayer.playerRef.current) {
+      try {
+        // Re-apply critical options to ensure YouTube UI stays hidden
+        const iframe = ytPlayer.playerRef.current.getIframe()
+        if (iframe && iframe.contentWindow) {
+          // Force hide YouTube chrome via direct DOM manipulation
+          iframe.style.pointerEvents = 'none' // Prevent YouTube UI interaction
+        }
+      } catch (e) {
+        // Silently fail - YouTube might not be ready yet
+      }
+    }
+  }, [type, playing, ytPlayer.ready])
 
   // ── MediaContext mutual exclusion ───────────────────────────
   useEffect(() => {
@@ -222,8 +252,15 @@ export default function VideoPlayer({
       el = playerRef.current
     }
     if (!el) return
-    if (el.requestFullscreen) el.requestFullscreen()
-    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
+
+    // Exit fullscreen if already in fullscreen
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch(() => {})
+    } else {
+      // Enter fullscreen
+      if (el.requestFullscreen) el.requestFullscreen()
+      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
+    }
   }
 
   return (
@@ -233,7 +270,7 @@ export default function VideoPlayer({
       onMouseLeave={() => setShowControls(false)}
     >
       {/* ── Media element ─── */}
-      <div className="aspect-video [&_iframe]:w-full [&_iframe]:h-full [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto">
+      <div className={`aspect-video [&_iframe]:w-full [&_iframe]:h-full [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto [&:fullscreen_&]:flex [&:fullscreen_&]:items-center [&:fullscreen_&]:justify-center ${type === 'youtube' ? 'hide-youtube-chrome' : ''}`}>
         {type === 'youtube' ? (
           ytId ? (
             <YouTube
@@ -277,7 +314,7 @@ export default function VideoPlayer({
       {/* ── Glass overlay with -15s, Play/Pause ─── */}
       <div
         className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
-          ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          ${playing && !showControls && !isFullscreen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         onClick={handleToggle}
       >
         {/* Gradient vignette */}
@@ -291,11 +328,11 @@ export default function VideoPlayer({
           <button
             data-testid="glass-play-button"
             className={`relative player-button rounded-full
-              bg-white/10 backdrop-blur-[2px] border border-white/20
+              bg-white/10 border border-white/20
               flex items-center justify-center
               hover:bg-white/20 hover:scale-105
-              transition-all duration-300 shadow-2xl pointer-events-auto
-              ${type === 'youtube' ? 'backdrop-blur-md' : ''}`}
+              transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto
+              ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
             aria-label={playing ? 'Pause' : 'Play'}
           >
             {playing
@@ -308,11 +345,11 @@ export default function VideoPlayer({
               <button
                 onClick={(e) => { e.stopPropagation(); handleRewind15() }}
                 className={`absolute -left-14 top-1/2 -translate-y-1/2 player-rewind rounded-full
-                  bg-white/10 backdrop-blur-[2px] border border-white/20
+                  bg-white/10 border border-white/20
                   flex items-center justify-center
                   hover:bg-white/20 hover:scale-105
-                  transition-all duration-300 shadow-2xl pointer-events-auto
-                  ${type === 'youtube' ? 'backdrop-blur-md' : ''}`}
+                  transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto
+                  ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
                 aria-label="15 seconds back"
               >
                 <RedoDot size={18} className="text-white scale-x-[-1]" />
@@ -325,7 +362,7 @@ export default function VideoPlayer({
       {/* ── Progress bar (scrubber) ─── */}
       <div
         data-testid="scrubber-bar"
-        className="absolute bottom-0 left-0 right-0 player-scrubber bg-color-primary cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-30 opacity-0 group-hover:opacity-100"
+        className={`absolute bottom-0 left-0 right-0 player-scrubber bg-color-primary cursor-pointer group/progress transition-opacity duration-300 pointer-events-auto z-30 ${showControls || isFullscreen ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
         onClick={handleSeek}
       >
         <div
@@ -339,7 +376,7 @@ export default function VideoPlayer({
         className={`absolute bottom-[5px] left-0 right-0 flex items-center justify-between
           px-5 py-3 bg-gradient-to-t from-black/70 to-transparent
           transition-opacity duration-300 pointer-events-auto
-          ${showControls ? 'opacity-100' : 'opacity-0'}`}
+          ${showControls || isFullscreen ? 'opacity-100' : 'opacity-0'}`}
       >
         {/* Time display */}
         <div className="text-white/80 text-xs font-medium">
