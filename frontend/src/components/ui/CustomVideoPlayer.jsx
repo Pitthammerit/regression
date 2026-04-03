@@ -336,7 +336,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
             aria-label="Vollbild"
             data-testid="fullscreen-button"
           >
-            <Maximize size={16} />
+            <Maximize size={20} />
           </button>
         </div>
       </div>
