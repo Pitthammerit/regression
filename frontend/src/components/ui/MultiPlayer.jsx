@@ -89,6 +89,7 @@ export default function MultiPlayer({
         shadow: true,
         specular: true,
         tilt: false,
+        reveal: 'instant',
         on: {
           init(instance) {
             console.log('[MultiPlayer] liquidGL ready!', instance)
@@ -107,6 +108,7 @@ export default function MultiPlayer({
                   shadow: false,
                   specular: true,
                   tilt: false,
+                  reveal: 'instant',
                 })
               } catch (e) {
                 console.warn('[MultiPlayer] Progress fill glass init failed:', e)
@@ -124,6 +126,7 @@ export default function MultiPlayer({
                   frost: 4,
                   shadow: false,
                   specular: true,
+                  reveal: 'instant',
                 })
               } catch (e) {
                 console.warn('[MultiPlayer] Volume glass init failed:', e)

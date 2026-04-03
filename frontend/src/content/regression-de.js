@@ -106,6 +106,7 @@ export const podcasts = [
       "Benjamin im ausführlichen Podcast-Gespräch über Seelenrückführung, Reinkarnation und was wirklich in einer Session passiert.",
     youtubeEmbedUrl: "https://www.youtube.com/watch?v=U5L07PmViis",
     youtubeTitle: "Reinkarnation: Was, wenn der Tod nicht das Ende ist?",
+    thumbnailUrl: "https://img.youtube.com/vi/U5L07PmViis/maxresdefault.jpg",
     ctaBelow: "Intro-Call buchen",
     listenLabel: "Podcast-Gespräch anhören",
     episodeLabel: "Episode 52",
