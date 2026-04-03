@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react'
+import { createContext, useState, useContext, useCallback } from 'react'
 
 const MediaContext = createContext(null)
 
@@ -12,26 +12,29 @@ const MediaContext = createContext(null)
 export function MediaProvider({ children }) {
   const [players, setPlayers] = useState(new Map())
 
-  const registerPlayer = (id, onPause) => {
+  const registerPlayer = useCallback((id, onPause) => {
     setPlayers(prev => new Map(prev).set(id, onPause))
-  }
+  }, [])
 
-  const unregisterPlayer = (id) => {
+  const unregisterPlayer = useCallback((id) => {
     setPlayers(prev => {
       const next = new Map(prev)
       next.delete(id)
       return next
     })
-  }
+  }, [])
 
-  const requestPlay = (id) => {
-    // Pause all other players
-    players.forEach((onPause, playerId) => {
-      if (playerId !== id) {
-        onPause()
-      }
+  const requestPlay = useCallback((id) => {
+    setPlayers(prev => {
+      // Pause all other players
+      prev.forEach((onPause, playerId) => {
+        if (playerId !== id) {
+          onPause()
+        }
+      })
+      return prev // No actual state change, just side effect
     })
-  }
+  }, [])
 
   return (
     <MediaContext.Provider value={{ registerPlayer, unregisterPlayer, requestPlay }}>
