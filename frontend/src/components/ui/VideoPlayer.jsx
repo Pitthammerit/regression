@@ -98,11 +98,14 @@ export default function VideoPlayer({
     width: '100%',
     playerVars: {
       autoplay: 0,
-      controls: 0,
-      rel: 0,
-      modestbranding: 1,
-      playsinline: 1,
-      start: 115, // Start from 1:55
+      controls: 0,          // Hide YouTube controls
+      rel: 0,              // Show related videos from same channel only
+      modestbranding: 1,    // Minimize YouTube logo
+      iv_load_policy: 3,    // Hide annotations (Forward, Save, Share buttons)
+      fs: 0,               // Disable YouTube's fullscreen button
+      playsinline: 1,       // Prevent auto-fullscreen on iOS
+      enablejsapi: 1,       // Enable JavaScript API for programmatic control
+      start: 115,           // Start from 1:55
     },
   }
 
@@ -288,11 +291,11 @@ export default function VideoPlayer({
           <button
             data-testid="glass-play-button"
             className={`relative player-button rounded-full
-              bg-color-overlay-dark border border-color-light
+              bg-white/10 backdrop-blur-[2px] border border-white/20
               flex items-center justify-center
               hover:bg-white/20 hover:scale-105
               transition-all duration-300 shadow-2xl pointer-events-auto
-              blur-player-glass`}
+              ${type === 'youtube' ? 'backdrop-blur-md' : ''}`}
             aria-label={playing ? 'Pause' : 'Play'}
           >
             {playing
@@ -305,11 +308,11 @@ export default function VideoPlayer({
               <button
                 onClick={(e) => { e.stopPropagation(); handleRewind15() }}
                 className={`absolute -left-14 top-1/2 -translate-y-1/2 player-rewind rounded-full
-                  bg-color-overlay-dark border border-color-light
+                  bg-white/10 backdrop-blur-[2px] border border-white/20
                   flex items-center justify-center
                   hover:bg-white/20 hover:scale-105
                   transition-all duration-300 shadow-2xl pointer-events-auto
-                  blur-player-glass`}
+                  ${type === 'youtube' ? 'backdrop-blur-md' : ''}`}
                 aria-label="15 seconds back"
               >
                 <RedoDot size={18} className="text-white scale-x-[-1]" />
@@ -334,7 +337,7 @@ export default function VideoPlayer({
       {/* ── Bottom controls bar ─── */}
       <div
         className={`absolute bottom-[5px] left-0 right-0 flex items-center justify-between
-          player-padding player-controls-overlay
+          px-5 py-3 bg-gradient-to-t from-black/70 to-transparent
           transition-opacity duration-300 pointer-events-auto
           ${showControls ? 'opacity-100' : 'opacity-0'}`}
       >
