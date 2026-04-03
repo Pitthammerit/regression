@@ -844,6 +844,11 @@
   backdrop-filter: blur(var(--blur-player-glass));
 }
 
+/* YouTube-specific stronger blur (12px vs 2px default) */
+@utility youtube-blur-strong {
+  backdrop-filter: blur(12px);
+}
+
 @utility player-gap {
   gap: var(--spacing-player-gap);
 }

@@ -332,7 +332,7 @@ export default function VideoPlayer({
               flex items-center justify-center
               hover:bg-white/20 hover:scale-105
               transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto
-              ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
+              ${type === 'youtube' ? 'youtube-blur-strong' : 'blur-player-glass'}`}
             aria-label={playing ? 'Pause' : 'Play'}
           >
             {playing
@@ -349,7 +349,7 @@ export default function VideoPlayer({
                   flex items-center justify-center
                   hover:bg-white/20 hover:scale-105
                   transition-[background-color,transform,opacity] duration-300 shadow-2xl pointer-events-auto
-                  ${type === 'youtube' ? 'backdrop-blur-md' : 'backdrop-blur-[2px]'}`}
+                  ${type === 'youtube' ? 'youtube-blur-strong' : 'blur-player-glass'}`}
                 aria-label="15 seconds back"
               >
                 <RedoDot size={18} className="text-white scale-x-[-1]" />
