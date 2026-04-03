@@ -34,6 +34,7 @@ export default function VideoPlayer({
 
   const [playing, setPlaying] = useState(false)
   const [started, setStarted] = useState(false)
+  const [playerReady, setPlayerReady] = useState(false)
   const [volume, setVolumeState] = useState(80)
   const [muted, setMuted] = useState(false)
   const [showControls, setShowControls] = useState(false)
@@ -76,7 +77,14 @@ export default function VideoPlayer({
       setPlaying(false)
       if (playerRef.current) {
         if (type === 'youtube') {
-          playerRef.current.pauseVideo()
+          // Only call YouTube API if player is ready
+          if (playerReady) {
+            try {
+              playerRef.current.pauseVideo()
+            } catch (e) {
+              console.error('[VideoPlayer] YouTube pauseVideo error:', e)
+            }
+          }
         } else {
           playerRef.current.pause()
         }
@@ -88,7 +96,7 @@ export default function VideoPlayer({
     return () => {
       unregisterPlayer(playerId.current)
     }
-  }, [type, registerPlayer, unregisterPlayer])
+  }, [type, playerReady, registerPlayer, unregisterPlayer])
 
   // ── YouTube specific events ─────────────────────────────────
   const opts = {
@@ -109,6 +117,7 @@ export default function VideoPlayer({
     try {
       const dur = event.target.getDuration()
       setDuration(dur)
+      setPlayerReady(true) // Mark player as ready for API calls
     } catch (e) {
       console.error('[VideoPlayer] Failed to get duration:', e)
     }
@@ -132,7 +141,13 @@ export default function VideoPlayer({
   const handlePlay = () => {
     requestPlay(playerId.current)
     if (type === 'youtube') {
-      playerRef.current?.playVideo()
+      if (playerRef.current && playerReady) {
+        try {
+          playerRef.current.playVideo()
+        } catch (e) {
+          console.error('[VideoPlayer] YouTube playVideo error:', e)
+        }
+      }
     } else {
       playerRef.current?.play()
     }
@@ -142,7 +157,13 @@ export default function VideoPlayer({
 
   const handlePause = () => {
     if (type === 'youtube') {
-      playerRef.current?.pauseVideo()
+      if (playerRef.current && playerReady) {
+        try {
+          playerRef.current.pauseVideo()
+        } catch (e) {
+          console.error('[VideoPlayer] YouTube pauseVideo error:', e)
+        }
+      }
     } else {
       playerRef.current?.pause()
     }
@@ -152,11 +173,18 @@ export default function VideoPlayer({
   const handleRewind15 = () => {
     const newTime = Math.max(0, currentTime - 15)
     if (type === 'youtube') {
-      playerRef.current?.seekTo(newTime, true)
+      if (playerRef.current && playerReady) {
+        try {
+          playerRef.current.seekTo(newTime, true)
+          setCurrentTime(newTime)
+        } catch (e) {
+          console.error('[VideoPlayer] YouTube seekTo error:', e)
+        }
+      }
     } else if (playerRef.current) {
       playerRef.current.currentTime = newTime
+      setCurrentTime(newTime)
     }
-    setCurrentTime(newTime)
   }
 
   const handleSeek = (e) => {
@@ -164,11 +192,18 @@ export default function VideoPlayer({
     const percent = (e.clientX - rect.left) / rect.width
     const newTime = percent * duration
     if (type === 'youtube') {
-      playerRef.current?.seekTo(newTime, true)
+      if (playerRef.current && playerReady) {
+        try {
+          playerRef.current.seekTo(newTime, true)
+          setCurrentTime(newTime)
+        } catch (e) {
+          console.error('[VideoPlayer] YouTube seekTo error:', e)
+        }
+      }
     } else if (playerRef.current) {
       playerRef.current.currentTime = newTime
+      setCurrentTime(newTime)
     }
-    setCurrentTime(newTime)
   }
 
   const handleToggle = () => {
@@ -189,7 +224,13 @@ export default function VideoPlayer({
     setVolumeState(v)
     setMuted(v === 0)
     if (type === 'youtube') {
-      playerRef.current?.setVolume(v)
+      if (playerRef.current && playerReady) {
+        try {
+          playerRef.current.setVolume(v)
+        } catch (e) {
+          console.error('[VideoPlayer] YouTube setVolume error:', e)
+        }
+      }
     } else if (playerRef.current) {
       playerRef.current.volume = v / 100
     }
@@ -199,12 +240,24 @@ export default function VideoPlayer({
     if (muted) {
       handleVolume(volume || 80)
       if (type === 'youtube') {
-        playerRef.current?.unMute()
+        if (playerRef.current && playerReady) {
+          try {
+            playerRef.current.unMute()
+          } catch (e) {
+            console.error('[VideoPlayer] YouTube unMute error:', e)
+          }
+        }
       }
     } else {
       handleVolume(0)
       if (type === 'youtube') {
-        playerRef.current?.mute()
+        if (playerRef.current && playerReady) {
+          try {
+            playerRef.current.mute()
+          } catch (e) {
+            console.error('[VideoPlayer] YouTube mute error:', e)
+          }
+        }
       }
     }
   }
