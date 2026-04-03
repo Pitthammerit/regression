@@ -19,7 +19,7 @@ export default function CustomVideoPlayer({ type = 'r2', src, poster, className 
   const [started,      setStarted]      = useState(false)
   const [volume,       setVolumeState]  = useState(80)
   const [muted,        setMuted]        = useState(false)
-  const [showControls, setShowControls] = useState(false)
+  const [showControls, setShowControls] = useState(type === 'youtube')
   const [currentTime,  setCurrentTime]  = useState(0)
   const [duration,    setDuration]     = useState(0)
 
