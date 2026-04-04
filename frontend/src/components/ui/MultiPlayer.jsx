@@ -32,6 +32,10 @@ export default function MultiPlayer({
 
   const [isFullscreen, setIsFullscreen] = useState(false)
 
+  // Inactivity timer for auto-hiding controls
+  const [controlsVisible, setControlsVisible] = useState(false)
+  const [lastMouseMove, setLastMouseMove] = useState(0)
+
   const {
     playerRef,
     ytPlayerRef,
@@ -64,6 +68,25 @@ export default function MultiPlayer({
     document.addEventListener('fullscreenchange', handleFullscreenChange)
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
   }, [])
+
+  // Auto-hide controls after 2s of inactivity when playing
+  useEffect(() => {
+    if (!playing) {
+      // Always show controls when paused
+      setControlsVisible(true)
+      return
+    }
+
+    // When playing, show controls initially
+    setControlsVisible(true)
+
+    // Hide after 2 seconds of inactivity
+    const timer = setTimeout(() => {
+      setControlsVisible(false)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [playing, lastMouseMove])
 
   // Initialize liquidGL on mount
   useEffect(() => {
@@ -165,8 +188,14 @@ export default function MultiPlayer({
       id={playerId}
       className={`relative rounded-2xl overflow-hidden bg-black/40 group cursor-pointer ${className}`}
       style={{ opacity: 1 }}
-      onMouseEnter={() => setShowControls(true)}
-      onMouseLeave={() => setShowControls(false)}
+      onMouseMove={() => {
+        setLastMouseMove(Date.now())
+        setShowControls(true)
+      }}
+      onMouseLeave={() => {
+        setShowControls(false)
+        setControlsVisible(false)
+      }}
     >
       {/* Video Container */}
       <div className="relative aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto [&:fullscreen_&]:flex [&:fullscreen_&]:items-center [&:fullscreen_&]:justify-center">
@@ -224,7 +253,7 @@ export default function MultiPlayer({
         {/* Play Button Overlay */}
         <div
           className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
-            ${playing && !showControls && !isFullscreen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+            ${playing && !controlsVisible && !isFullscreen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           onClick={playing ? handlePause : handlePlay}
         >
           <button
@@ -247,7 +276,7 @@ export default function MultiPlayer({
       <div
         className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
           group/progress transition-opacity duration-300 pointer-events-auto z-30"
-        style={{ opacity: showControls || isFullscreen ? 1 : 0 }}
+        style={{ opacity: controlsVisible ? 1 : 0 }}
         onClick={handleProgressClick}
       >
         <div
@@ -262,7 +291,7 @@ export default function MultiPlayer({
           px-5 py-3 pointer-events-auto
           bg-gradient-to-t from-black/60 via-black/40 to-transparent
           transition-opacity duration-300`}
-        style={{ opacity: showControls || isFullscreen ? 1 : 0 }}
+        style={{ opacity: controlsVisible ? 1 : 0 }}
       >
         {/* Time Display - NO glass, white text */}
         <div className="text-white text-xs font-medium">
