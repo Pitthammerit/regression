@@ -276,29 +276,28 @@ export default function MultiPlayer({
             )}
           </button>
         </div>
-      </div>
 
-      {/* Progress Bar - Blue background, white glass progress fill */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
-          group/progress transition-opacity duration-300 pointer-events-auto z-30"
-        style={{ opacity: controlsVisible ? 1 : 0 }}
-        onClick={handleProgressClick}
-      >
+        {/* Progress Bar - Blue background, white glass progress fill */}
         <div
-          className="multi-player-progress-fill h-full backdrop-blur-sm bg-white/70 group-hover/progress:bg-white/90 transition-colors"
-          style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
-        />
-      </div>
+          className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
+            group/progress transition-opacity duration-300 pointer-events-auto z-30"
+          style={{ opacity: controlsVisible ? 1 : 0 }}
+          onClick={handleProgressClick}
+        >
+          <div
+            className="multi-player-progress-fill h-full backdrop-blur-sm bg-white/70 group-hover/progress:bg-white/90 transition-colors"
+            style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
+          />
+        </div>
 
-      {/* Controls Bar - Dark gradient for contrast, NO glass */}
-      <div
-        className={`absolute bottom-[11px] left-0 right-0 flex items-center justify-between
-          px-5 py-3 pointer-events-auto
-          bg-gradient-to-t from-black/60 via-black/40 to-transparent
-          transition-opacity duration-300`}
-        style={{ opacity: controlsVisible ? 1 : 0 }}
-      >
+        {/* Controls Bar - Dark gradient for contrast, NO glass */}
+        <div
+          className={`absolute bottom-[11px] left-0 right-0 flex items-center justify-between
+            px-5 py-3 pointer-events-auto
+            bg-gradient-to-t from-black/60 via-black/40 to-transparent
+            transition-opacity duration-300`}
+          style={{ opacity: controlsVisible ? 1 : 0 }}
+        >
         {/* Time Display - NO glass, white text */}
         <div className="text-white text-xs font-medium">
           {formatTime(currentTime)} / {formatTime(duration)}
@@ -346,5 +345,6 @@ export default function MultiPlayer({
         </div>
       </div>
     </div>
+  </div>
   )
 }
