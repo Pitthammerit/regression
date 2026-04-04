@@ -66,7 +66,7 @@ return p;
 class liquidGLRenderer {
 constructor(snapshotSelector, snapshotResolution = 1.0) {
 this.canvas = document.createElement("canvas");
-this.canvas.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:50;`;
+this.canvas.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;`;
 this.canvas.setAttribute("data-liquid-ignore", "");
 document.body.appendChild(this.canvas);
 const ctxAttribs = {
@@ -1204,8 +1204,7 @@ this.originalShadow = this.el.style.boxShadow;
 this.originalOpacity = this.el.style.opacity;
 this.originalTransition = this.el.style.transition;
 this.el.style.transition = "none";
-// Don't hide the target - let the canvas overlay render the glass effect on top
-			// this.el.style.opacity = 0;  // DISABLED - was causing player to disappear
+this.el.style.opacity = 0;
 this.el.style.position =
 this.el.style.position === "static"
 ? "relative"

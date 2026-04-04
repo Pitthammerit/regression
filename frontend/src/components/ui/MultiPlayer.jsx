@@ -90,29 +90,21 @@ export default function MultiPlayer({
 
   // Initialize liquidGL on mount
   useEffect(() => {
-    // DEBUG: Log liquidGL availability
-    console.log('[MultiPlayer] DEBUG: html2canvas available?', typeof window.html2canvas !== 'undefined')
-    console.log('[MultiPlayer] DEBUG: liquidGL available?', typeof window.liquidGL !== 'undefined')
-    console.log('[MultiPlayer] DEBUG: containerRef.current?', !!containerRef.current)
-    console.log('[MultiPlayer] DEBUG: playerId?', playerId)
+    // 🔴 TEMPORARILY DISABLED: liquidGL causing player to disappear
+    console.warn('[MultiPlayer] liquidGL DISABLED for testing - player should work without glass effect')
+    return
 
-    if (!containerRef.current || liquidGLInstance.current) {
-      console.warn('[MultiPlayer] Skipping liquidGL - no container or already initialized')
-      return
-    }
+    if (!containerRef.current || liquidGLInstance.current) return
 
     // Check if html2canvas is loaded (required by liquidGL)
     if (typeof window.html2canvas === 'undefined') {
       console.warn('[MultiPlayer] html2canvas not loaded yet - waiting...')
       // Retry after a short delay
       const timer = setTimeout(() => {
-        console.log('[MultiPlayer] DEBUG: Retrying liquidGL initialization...')
         if (typeof window.html2canvas !== 'undefined' && typeof window.liquidGL !== 'undefined') {
           initLiquidGL()
-        } else {
-          console.error('[MultiPlayer] Still no html2canvas or liquidGL available')
         }
-      }, 500)
+      }, 100)
       return () => clearTimeout(timer)
     }
 
@@ -122,13 +114,10 @@ export default function MultiPlayer({
       return
     }
 
-    console.log('[MultiPlayer] Initializing liquidGL...')
     initLiquidGL()
 
     function initLiquidGL() {
       try {
-        console.log('[MultiPlayer] DEBUG: Calling window.liquidGL with target:', `#${playerId}`)
-
         // Initialize liquidGL with unique ID selector
         liquidGLInstance.current = window.liquidGL({
           target: `#${playerId}`,
@@ -144,25 +133,15 @@ export default function MultiPlayer({
           reveal: 'instant',
           on: {
             init(instance) {
-              console.log('[MultiPlayer] ✅ liquidGL ready!', instance)
-              // Check if the canvas was created
-              const canvas = document.querySelector('canvas[data-liquid-ignore]')
-              console.log('[MultiPlayer] DEBUG: liquidGL canvas created?', !!canvas)
-              if (canvas) {
-                console.log('[MultiPlayer] DEBUG: canvas z-index:', canvas.style.zIndex)
-                console.log('[MultiPlayer] DEBUG: canvas position:', canvas.style.position)
-              }
+              console.log('[MultiPlayer] liquidGL ready!', instance)
             },
             error(err) {
-              console.error('[MultiPlayer] ❌ liquidGL error:', err)
+              console.error('[MultiPlayer] liquidGL error:', err)
             },
           },
         })
-
-        console.log('[MultiPlayer] DEBUG: liquidGL instance created:', liquidGLInstance.current)
       } catch (error) {
-        console.error('[MultiPlayer] ❌ liquidGL initialization failed:', error)
-        console.error('[MultiPlayer] Error stack:', error.stack)
+        console.warn('[MultiPlayer] liquidGL initialization failed:', error)
       }
     }
 
