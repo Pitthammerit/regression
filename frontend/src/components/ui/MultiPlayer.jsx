@@ -14,7 +14,7 @@ import { formatTime } from '../../utils/timeFormat'
  * @param {string} [props.videoId] - Explicit video ID (for YouTube)
  * @param {string} [props.poster] - Thumbnail image URL
  * @param {string} [props.className] - Additional CSS classes
- * @param {Function} [props.onVideoEnded] - Callback when video ends
+ * @param {Function} [props.onVideoEnded] - Callback when video end
  */
 export default function MultiPlayer({
   type = 'r2',
@@ -31,7 +31,6 @@ export default function MultiPlayer({
   const playerId = useMemo(() => `multi-player-${Math.random().toString(36).substr(2, 9)}`, [])
 
   const [isFullscreen, setIsFullscreen] = useState(false)
-  const [controlsVisible, setControlsVisible] = useState(false)
 
   const {
     playerRef,
@@ -65,23 +64,6 @@ export default function MultiPlayer({
     document.addEventListener('fullscreenchange', handleFullscreenChange)
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
   }, [])
-
-  // Auto-hide controls after 2s when playing, always show when paused
-  useEffect(() => {
-    if (!playing) {
-      // Always show controls when paused
-      setControlsVisible(true)
-      return
-    }
-
-    // When playing, show controls initially then hide after 2s
-    setControlsVisible(true)
-    const timer = setTimeout(() => {
-      setControlsVisible(false)
-    }, 2000)
-
-    return () => clearTimeout(timer)
-  }, [playing, showControls])
 
   // Initialize liquidGL on mount
   useEffect(() => {
@@ -242,7 +224,7 @@ export default function MultiPlayer({
         {/* Play Button Overlay */}
         <div
           className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
-            ${playing && !controlsVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+            ${playing && !showControls && !isFullscreen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           onClick={playing ? handlePause : handlePlay}
         >
           <button
@@ -265,7 +247,7 @@ export default function MultiPlayer({
       <div
         className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
           group/progress transition-opacity duration-300 pointer-events-auto z-30"
-        style={{ opacity: !playing ? 1 : (controlsVisible ? 1 : 0) }}
+        style={{ opacity: showControls || isFullscreen ? 1 : 0 }}
         onClick={handleProgressClick}
       >
         <div
@@ -280,7 +262,7 @@ export default function MultiPlayer({
           px-5 py-3 pointer-events-auto
           bg-gradient-to-t from-black/60 via-black/40 to-transparent
           transition-opacity duration-300`}
-        style={{ opacity: !playing ? 1 : (controlsVisible ? 1 : 0) }}
+        style={{ opacity: showControls || isFullscreen ? 1 : 0 }}
       >
         {/* Time Display - NO glass, white text */}
         <div className="text-white text-xs font-medium">
