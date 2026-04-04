@@ -31,6 +31,7 @@ export default function MultiPlayer({
   const playerId = useMemo(() => `multi-player-${Math.random().toString(36).substr(2, 9)}`, [])
 
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const [controlsVisible, setControlsVisible] = useState(false)
 
   const {
     playerRef,
@@ -64,6 +65,23 @@ export default function MultiPlayer({
     document.addEventListener('fullscreenchange', handleFullscreenChange)
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
   }, [])
+
+  // Auto-hide controls after 2s when playing, always show when paused
+  useEffect(() => {
+    if (!playing) {
+      // Always show controls when paused
+      setControlsVisible(true)
+      return
+    }
+
+    // When playing, show controls initially then hide after 2s
+    setControlsVisible(true)
+    const timer = setTimeout(() => {
+      setControlsVisible(false)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [playing, showControls])
 
   // Initialize liquidGL on mount
   useEffect(() => {
