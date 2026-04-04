@@ -289,21 +289,23 @@ export const researchers = {
     {
       id: "ian-stevenson",
       name: "Ian Stevenson M.D.",
-      role: "University of Virginia, DOPS",
+      role: "University of Virginia, DOPS Gründer",
       lifeDates: "*1918–2007",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg",
       portraitFocus: "center",
       quote: "I have attempted to document these cases as carefully as possible and at times in exhaustive detail.",
       featuredQuote: "I have attempted to document these cases as carefully as possible and at times in exhaustive detail.",
-      shortVersion: "Ca. 3.000 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. Ca. 300 peer-reviewed Publikationen.",
-      longVersion: `Ian Stevenson gilt als Begründer der wissenschaftlichen Reinkarnationsforschung. Über vier Jahrzehnte hinweg untersuchte er systematisch ca. 3.000 Fälle von Kindern, die spontane Erinnerungen an vergangene Leben berichteten. Seine Arbeit zeichnet sich durch strenge wissenschaftliche Methodik aus: Jeder Fall wurde vor Ort dokumentiert, Erinnerungen mit historischen Fakten verglichen und alternative Erklärungen ausgeschlossen.
+      shortVersion: "Über 2.500 untersuchte Fälle weltweit. Begründer der wissenschaftlichen Reinkarnationsforschung und der Division of Perceptual Studies (1967) an der University of Virginia.",
+      longVersion: `Ian Stevenson gilt als Begründer der wissenschaftlichen Reinkarnationsforschung. 1961 begann er mit systematischen Untersuchungen von Kindern, die spontane Erinnerungen an vergangene Leben berichteten. Seine erste Reise nach Indien im Jahr 1961 war wegweisend: In vier Wochen fand er 25 Fälle, und er realisierte, dass diese Phänomene viel häufiger vorkommen als angenommen.
 
-Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen über Familien, Orte und Todesumstände von Personen berichten, die Jahre vor ihrer Geburt verstorben waren. Viele dieser Details ließen sich später verifizieren. Stevensons Arbeit umfasst ca. 300 peer-reviewed Publikationen und wurde in führenden wissenschaftlichen Journalen veröffentlicht.
+Über vier Jahrzehnte hinweg wurden über 2.500 Fälle weltweit dokumentiert. Seine Arbeit zeichnet sich durch strenge wissenschaftliche Methodik aus: Jeder Fall wurde vor Ort dokumentiert, Erinnerungen mit historischen Fakten verglichen und alternative Erklärungen ausgeschlossen. 1966 veröffentlichte er sein erstes Buch "Twenty Cases Suggestive of Reincarnation", gefolgt von der vierteiligen Reihe "Cases of the Reincarnation Type" (1975-1983) mit Fällen aus Indien, Sri Lanka, Libanon, Türkei, Thailand und Burma.
+
+Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen über Familien, Orte und Todesumstände von Personen berichten, die Jahre vor ihrer Geburt verstorben waren. Viele dieser Details ließen sich später verifizieren. Stevenson entdeckte auch, dass über 70% der Fälle unnatürliche Todesfälle betrafen, und viele Kinder wiesen Verhaltensweisen auf, die mit dem vorherigen Leben verbunden schienen.
 
 Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Division of Perceptual Studies fort, wo die Forschung bis heute weitergeführt wird.`,
 
       sourceLabel: "Quelle",
-      sourceUrl: "https://med.virginia.edu/perceptual-studies/our-research/children-who-report-memories-of-previous-lives/",
+      sourceUrl: "https://med.virginia.edu/perceptual-studies/wp-content/uploads/sites/360/2015/11/REI26tucker-1.pdf",
     },
 // —————————————————————————————————————————————————————————
 // Author: Jim Tucker //
