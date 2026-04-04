@@ -242,7 +242,7 @@ export default function MultiPlayer({
         {/* Play Button Overlay */}
         <div
           className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
-            ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+            ${playing && !controlsVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           onClick={playing ? handlePause : handlePlay}
         >
           <button
