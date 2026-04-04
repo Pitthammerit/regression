@@ -314,7 +314,7 @@ export default function MultiPlayer({
             >
               {muted || volume === 0 ? <VolumeX size={16} /> : <Volume2 size={16} />}
             </button>
-            <div className="multi-player-volume-slider relative">
+            <div className="multi-player-volume-slider relative flex items-center">
               <input
                 type="range"
                 min="0"
