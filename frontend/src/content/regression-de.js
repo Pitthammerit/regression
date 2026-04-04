@@ -305,7 +305,7 @@ Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen üb
 Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Division of Perceptual Studies fort, wo die Forschung bis heute weitergeführt wird.`,
 
       sourceLabel: "Quelle",
-      sourceUrl: "https://med.virginia.edu/perceptual-studies/wp-content/uploads/sites/360/2015/11/REI26tucker-1.pdf",
+      sourceUrl: "https://med.virginia.edu/perceptual-studies/wp-content/uploads/sites/360/2015/11/REI35.pdf",
     },
 // —————————————————————————————————————————————————————————
 // Author: Jim Tucker //
