@@ -265,7 +265,7 @@ export default function MultiPlayer({
       <div
         className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
           group/progress transition-opacity duration-300 pointer-events-auto z-30"
-        style={{ opacity: !playing ? 1 : (controlsVisible || isFullscreen ? 1 : 0) }}
+        style={{ opacity: !playing ? 1 : (controlsVisible ? 1 : 0) }}
         onClick={handleProgressClick}
       >
         <div
@@ -280,7 +280,7 @@ export default function MultiPlayer({
           px-5 py-3 pointer-events-auto
           bg-gradient-to-t from-black/60 via-black/40 to-transparent
           transition-opacity duration-300`}
-        style={{ opacity: showControls || isFullscreen ? 1 : 0 }}
+        style={{ opacity: showControls ? 1 : 0 }}
       >
         {/* Time Display - NO glass, white text */}
         <div className="text-white text-xs font-medium">
