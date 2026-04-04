@@ -298,7 +298,7 @@ export const researchers = {
       shortVersion: "Ca. 3.000 dokumentierte Kinderfälle mit verifizierbaren Erinnerungen an frühere Leben. Ca. 300 peer-reviewed Publikationen.",
       longVersion: `Ian Stevenson gilt als Begründer der wissenschaftlichen Reinkarnationsforschung. Über vier Jahrzehnte hinweg untersuchte er systematisch ca. 3.000 Fälle von Kindern, die spontane Erinnerungen an vergangene Leben berichteten. Seine Arbeit zeichnet sich durch strenge wissenschaftliche Methodik aus: Jeder Fall wurde vor Ort dokumentiert, Erinnerungen mit historischen Fakten verglichen und alternative Erklärungen ausgeschlossen.
 
-Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen über Familien, Orte und Todesumstände von Personen berichte, die Jahre vor ihrer Geburt verstorben waren. Viele dieser Details ließen sich später verifizieren. Stevensons Arbeit umfasst ca. 300 peer-reviewed Publikationen und wurde in führenden wissenschaftlichen Journalen veröffentlicht.
+Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen über Familien, Orte und Todesumstände von Personen berichten, die Jahre vor ihrer Geburt verstorben waren. Viele dieser Details ließen sich später verifizieren. Stevensons Arbeit umfasst ca. 300 peer-reviewed Publikationen und wurde in führenden wissenschaftlichen Journalen veröffentlicht.
 
 Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Division of Perceptual Studies fort, wo die Forschung bis heute weitergeführt wird.`,
 
@@ -310,19 +310,19 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
 // —————————————————————————————————————————————————————————
     {
       id: "jim-tucker",
-      name: "Jim Tucker M.D.",
-      role: "Nachfolger Stevensons, UVA",
+      name: "Jim B. Tucker M.D.",
+      role: "Bonner-Lowry Professor of Psychiatry and Neurobehavioral Sciences (Emeritus), UVA",
       lifeDates: "–heute",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Jim_Tucker.jpg",
       portraitFocus: "center",
       quote: "Researchers have now studied over 2500 cases in a project that is still ongoing.",
       featuredQuote: "Researchers have now studied over 2500 cases in a project that is still ongoing.",
-      shortVersion: "Quantitative Auswertung von 799 Fällen. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen WWII-Piloten — gilt als einer der bestdokumentierten weltweit.",
-      longVersion: `Jim Tucker ist Stevensons direkter Nachfolger am University of Virginia's Division of Perceptual Studies (DOPS). Seine Arbeit konzentriert sich auf amerikanische Fälle von Kindern mit reincarnation memories. In seinem Buch "Life Before Life" präsentiert er eine quantitative Analyse von 799 Fällen, die starke Muster aufzeigen: Die meisten Kinder beginnen im Alter von zwei bis drei Jahren über frühere Leben zu sprechen und hören meist zwischen fünf und sieben Jahren auf.
+      shortVersion: "Quantitative Auswertung von 799 Fällen. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen Piloten im Zweiten Weltkrieg — gilt als einer der am besten dokumentierten weltweit.",
+      longVersion: `Jim B. Tucker ist Stevensons direkter Nachfolger an der University of Virginia's Division of Perceptual Studies (DOPS). Seine Arbeit konzentriert sich auf amerikanische Fälle von Kindern mit Erinnerungen an frühere Leben. In seinem Buch "Life Before Life" präsentiert er eine quantitative Analyse von 799 Fällen, die starke Muster aufzeigen: Die meisten Kinder beginnen im Alter von zwei bis drei Jahren über frühere Leben zu sprechen und hören meist zwischen fünf und sieben Jahren auf.
 
-Einer seiner bekanntesten Fälle ist James Leininger: Ein Zweijähriger aus Louisiana, der detaillierte Erinnerungen an ein Leben als WWII-Pilot beschrieb. Das Kind konnte spezifische Details nennen: Namen des Piloten (James Huston), Staffelzugehörigkeit (VF-38), Typ des Flugzeugs (F4U Corsair), Todesumstände (abgeschossen vor Iwo Jima), und sogar Namen von Kameraden. Später verifizierten seine Eltern alle diese Details historisch akkurat.
+Einer seiner bekanntesten Fälle ist James Leininger: Ein Zweijähriger aus Louisiana, der detaillierte Erinnerungen an ein Leben als Pilot im Zweiten Weltkrieg beschrieb. Das Kind konnte spezifische Details nennen: den Namen des Piloten (James Huston), die Staffelzugehörigkeit (VF-38), den Flugzeugtyp (F4U Corsair), die Todesumstände (abgeschossen vor Iwo Jima) und sogar Namen von Kameraden. Später verifizierten seine Eltern alle diese Details als historisch akkurat.
 
-Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie finden weltweit, unabhängig von religiösem Hintergrund oder Elternhaus statt.`,
+Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie finden weltweit statt, unabhängig von religiösem Hintergrund oder elterlicher Erziehung.`,
 
       sourceLabel: "Quelle",
       sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
@@ -333,7 +333,7 @@ Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie fi
     {
       id: "brian-weiss",
       featured: true,
-      name: "Brian Weiss M.D.",
+      name: "Brian L. Weiss M.D.",
       role: "Ehem. Chefarzt Psychiatrie, Mount Sinai",
       lifeDates: "*1944–heute",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
@@ -356,16 +356,19 @@ Weiss betont, dass er anfangs skeptisch war — seine psychiatrische Ausbildung 
     {
       id: "roger-woolger",
       name: "Roger Woolger Ph.D.",
-      role: "Jungian Analytiker, Regressionstherapeut, Lehrer",
+      role: "Jungianischer Analytiker, Regressionstherapeut, Autor und Begründer des Deep Memory Process",
       lifeDates: "*1944–2011",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
       portraitFocus: "center",
       quote: "There are more things in heaven and earth than are dreamt of in our philosophy.",
       featuredQuote: "There are more things in heaven and earth than are dreamt of in our philosophy.",
-      shortVersion: "Jungianischer Analytiker, Regressionstherapeut und Lehrer. Autor von 'Other Lives, Other Selves' (1987) — einem der einflussreichsten Werke der Regressionstherapie. Begründer des Deep Memory Process (DMP).",
-      longVersion: `Roger Woolger war ein Jungian Analyst und Regression Therapist mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
-Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian Western Mysticism und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.
-Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie, schamanischen Perspektiven und meditativen Prinzipien, inklusive Übergangs- und Zwischenzuständen aus tibetischen Lehren. Spätere, zugänglichere Vertiefungen seiner Arbeit erschienen u.a. als Healing Your Past Lives sowie weitere Lehrformate.
+      shortVersion: "Jungianischer Analytiker, Regressionstherapeut und Autor. Schrieb 'Other Lives, Other Selves' (1987) — eines der einflussreichsten Werke der Regressionstherapie. Entwickelte den Deep Memory Process (DMP).",
+      longVersion: `Roger Woolger war ein jungianischer Analytiker und Regressionstherapeut mit akademischem Hintergrund in Psychologie, Religion und Philosophie (Oxford, London) und Ausbildung am C.G. Jung Institute Zürich. Er galt als hochbegabt in der therapeutischen Führung und brachte Menschen mit tiefer Präsenz durch stark transformative Erfahrungen, klar gehalten, sicher und zugleich menschlich.
+
+Seine besondere Gabe war, innere Prozesse nicht nur psychologisch, sondern spirituell lesbar zu machen: von Traum- und Symbolarbeit bis zu Sufismus, Sophian-Traditionen und westlicher Mystik, verwoben mit Poesie, Musik, Story, Meditation und Humor. Genau dadurch wurde Regression für viele zu mehr als Technik: zu gelebter Erfahrung, Verkörperung und Seelenarbeit.
+
+Other Lives, Other Selves (1987) zählt zu den einflussreichsten Werken der Regressionstherapie: eine Synthese aus Jung'scher Tiefenpsychologie, Bodywork, Psychodrama, Yoga-Psychologie, schamanischen Perspektiven und meditativen Prinzipien, inklusive Übergangs- und Zwischenzuständen aus tibetischen Lehren. Spätere, zugänglichere Vertiefungen seiner Arbeit erschienen u.a. als Healing Your Past Lives (2004) sowie weitere Lehrformate.
+
 Aus seiner jahrzehntelangen Praxis entwickelte er das Deep Memory Process (DMP): ein Ansatz für Deep Memory Access, der Regression, Embodiment, Dreamwork, Meditation und Regression Shamanism verbindet. Er bildete Therapeuten international aus und prägte Spiritual Healing Conferences, in denen Themen wie Regression & Shamanism, Soul Loss, Exile/Longing to Return und die sakrale Verbindung von Körper und Geist im Zentrum standen.`,
       sourceLabel: "Quelle",
       sourceUrl: "https://rogerwoolger.org/roger-woolger/",
@@ -403,7 +406,7 @@ Seit 2021 hat die Editorialbeschlossen, den Zugang zu allen Artikeln zu gewähre
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors//manylivesmanymasters.jpeg",
       description: `Der internationale Bestseller, der Regressionstherapie der Welt öffnete. Brian Weiss dokumentiert seine transformative Arbeit mit Catherine, einer Patientin die unter Hypnose plötzlich von Details aus vergangenen Leben berichtete – Informationen, die sich historisch verifizieren ließen.
 
-Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen klinischen Arbeit mit tausenden Patienten. Viele Lives, Many Masters wurde zu einem der einflussreichsten Bücher der spirituellen Psychologie und machte Regressionstherapie einem breiten Publikum zugänglich.`,
+Was als therapeutische Intervention begann, führte zu einer jahrzehntelangen klinischen Arbeit mit tausenden Patienten. Many Lives, Many Masters wurde zu einem der einflussreichsten Bücher der spirituellen Psychologie und machte Regressionstherapie einem breiten Publikum zugänglich.`,
       sourceLabel: "Zum Buch",
       sourceUrl: "https://brianweiss.com/books/many-lives-many-masters",
     },
