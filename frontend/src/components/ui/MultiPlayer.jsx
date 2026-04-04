@@ -198,7 +198,13 @@ export default function MultiPlayer({
       }}
     >
       {/* Video Container */}
-      <div className="relative aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto [&:fullscreen_&]:flex [&:fullscreen_&]:items-center [&:fullscreen_&]:justify-center">
+      <div
+        className="relative aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto [&:fullscreen_&]:flex [&:fullscreen_&]:items-center [&:fullscreen_&]:justify-center"
+        onMouseMove={() => {
+          setLastMouseMove(Date.now())
+          setShowControls(true)
+        }}
+      >
         {/* Default gradient background when no poster */}
         {!started && !poster && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black" />
