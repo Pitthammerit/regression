@@ -194,58 +194,78 @@ export const researchers = {
   authors: [
     {
       id: "ian-stevenson",
-      name: "Ian Stevenson MD",
-      role: "University of Virginia, DOPS",
+      name: "Ian Stevenson M.D.",
+      role: "Founder of DOPS, University of Virginia (1967)",
       lifeDates: "*1918–2007",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Ian_Stevenson_3_beige.jpg",
       portraitFocus: "center",
-      quote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
-      featuredQuote: "The evidence suggesting reincarnation is real is so strong that it is difficult to understand why it is not more widely accepted.",
-      shortVersion: "Placeholder: Over 2,500 documented children's cases with verifiable memories of previous lives. 290+ peer-reviewed publications.",
-      longVersion: "Placeholder: Ian Stevenson is considered the founder of scientific reincarnation research. Over four decades, he systematically investigated over 2,500 cases of children who reported spontaneous memories of past lives.",
+      quote: "I have attempted to document these cases as carefully as possible and at times in exhaustive detail.",
+      featuredQuote: "I have attempted to document these cases as carefully as possible and at times in exhaustive detail.",
+      shortVersion: "Over 2,500 cases studied worldwide. Founder of scientific reincarnation research and the Division of Perceptual Studies (1967) at the University of Virginia.",
+      longVersion: `Ian Stevenson is considered the founder of scientific reincarnation research. In 1961, he began systematic investigations of children who reported spontaneous memories of past lives. His first trip to India in 1961 was groundbreaking: in four weeks, he found 25 cases, and he realized these phenomena were much more common than assumed.
+
+Over four decades, over 2,500 cases were documented worldwide. His work is characterized by rigorous scientific methodology: each case was documented on site, memories compared with historical facts, and alternative explanations excluded. In 1966, he published his first book "Twenty Cases Suggestive of Reincarnation," followed by the four-volume series "Cases of the Reincarnation Type" (1975-1983) with cases from India, Sri Lanka, Lebanon, Turkey, Thailand, and Burma.
+
+The results are remarkable: children could provide detailed information about families, locations, and circumstances of people who had died years before their birth. Many of these details were later verified. Stevenson also discovered that over 70% of cases involved unnatural deaths, and many children exhibited behaviors that appeared connected to the previous life.
+
+His successor Jim Tucker continues this work at the University of Virginia's Division of Perceptual Studies, where the research continues to this day.`,
       sourceLabel: "Source",
-      sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
+      sourceUrl: "https://med.virginia.edu/perceptual-studies/wp-content/uploads/sites/360/2015/11/REI35.pdf",
     },
     {
       id: "jim-tucker",
-      name: "Jim Tucker MD",
-      role: "Stevenson's successor, UVA",
-      lifeDates: "*1950–present",
+      name: "Jim B. Tucker M.D.",
+      role: "Bonner-Lowry Professor of Psychiatry and Neurobehavioral Sciences (Emeritus)",
+      lifeDates: "–present",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/Jim_Tucker.jpg",
       portraitFocus: "center",
-      quote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
-      featuredQuote: "The cases that have been investigated provide strong evidence that some children can remember details of a previous life.",
-      shortVersion: "Placeholder: Quantitative analysis of 799 cases. The case of James Leininger — a two-year-old's memories of a WWII pilot — is considered one of the best documented worldwide.",
-      longVersion: "Placeholder: Jim Tucker is Stevenson's direct successor at the University of Virginia's Division of Perceptual Studies (DOPS).",
+      quote: "Researchers have now studied over 2500 cases in a project that is still ongoing.",
+      featuredQuote: "Researchers have now studied over 2500 cases in a project that is still ongoing.",
+      shortVersion: "Quantitative analysis of 799 cases. The case of James Leininger — a two-year-old's memories of a WWII pilot — is considered one of the best documented worldwide.",
+      longVersion: `Jim B. Tucker, M.D. is Stevenson's direct successor at the University of Virginia's Division of Perceptual Studies (DOPS). His work focuses on American cases of children with reincarnation memories. In his book "Life Before Life," he presents a quantitative analysis of 799 cases showing strong patterns: most children begin speaking about a past life between ages two and three, and typically stop between five and seven.
+
+One of his most famous cases is James Leininger: a two-year-old from Louisiana who described detailed memories of a life as a WWII pilot. The child could name specific details: the pilot's name (James Huston), squadron (VF-38), plane type (F4U Corsair), circumstances of death (shot down near Iwo Jima), and even names of comrades. His parents later verified all these details as historically accurate.
+
+Tucker's work demonstrates that these cases are not culturally limited — they occur worldwide, independent of religious background or parental beliefs.`,
       sourceLabel: "Source",
-      sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
+      sourceUrl: "https://med.virginia.edu/perceptual-studies/our-research/children-who-report-memories-of-previous-lives/",
     },
     {
       id: "brian-weiss",
       featured: true,
-      name: "Brian Weiss MD",
-      role: "Former Chief of Psychiatry, Mount Sinai",
-      lifeDates: "*1944–2024",
+      name: "Brian L. Weiss M.D.",
+      role: "Chairman Emeritus of Psychiatry, Mount Sinai Medical Center",
+      lifeDates: "*1944–present",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/brian-weiss_350.jpg",
       portraitFocus: "top",
-      quote: "I had not spent years in training learning to facilitate past-life regressions. The evidence simply made it impossible to ignore.",
-      featuredQuote: "Through past-life regression, it's possible to heal — and grow — your mind, body and soul, as well as strengthen your present-day relationships.",
-      shortVersion: "Placeholder: 'Many Lives Many Masters' (1988) — clinical case documentation over decades. Skeptical attitude changed through a patient who, under hypnosis, described past lives.",
-      longVersion: "Placeholder: Brian Weiss was a highly respected psychiatrist and chief of staff at Mount Sinai Medical Center in Miami when a case in 1980 would fundamentally change him.",
+      quote: "When you feel better as a result of a past life recall experience... you don't need to question the logical validity of the experience.",
+      featuredQuote: "The real you, the immortal you, is the you that is present from body to body, from life to life.",
+      shortVersion: "'Many Lives, Many Masters' (1988) — international bestseller that opened regression therapy to the world. A skeptic's attitude transformed through a patient who, under hypnosis, described past lives.",
+      longVersion: `Brian Weiss was a highly respected psychiatrist and Chief of Staff at Mount Sinai Medical Center in Miami when a case in 1980 would fundamentally change him. Catherine, a patient with severe anxiety and phobias, spoke under hypnosis of detailed memories from past lives — information that could be historically verified.
+
+What began as a therapeutic intervention led to decades of clinical work with thousands of patients. Weiss systematically documented past-life regression sessions and their long-term healing effects. His book "Many Lives, Many Masters" (1988) became an international bestseller and made regression therapy accessible to a broad audience.
+
+Weiss emphasizes that he was initially skeptical — his psychiatric education had taught him that everything could be explained in the current life. Yet the consistent results with different patients could not be ignored. His work has opened the path to regression-based methods for thousands of therapists worldwide.`,
       sourceLabel: "Source",
       sourceUrl: "https://brianweiss.com/",
     },
     {
       id: "roger-woolger",
-      name: "Roger Woolger PhD",
+      name: "Roger J. Woolger Ph.D.",
       role: "Jungian Analyst, Regression Therapist, Teacher",
       lifeDates: "*1944–2011",
       portrait: "https://pub-d53492a253b841429ca6f2f9281daf17.r2.dev/authors/roger_woolger.jpg",
       portraitFocus: "center",
-      quote: "The body never lies about what the soul has carried across lifetimes.",
-      featuredQuote: "The body never lies about what the soul has carried across lifetimes.",
-      shortVersion: "Placeholder: Jungian analyst, regression therapist and teacher. Author of 'Other Lives, Other Selves' (1987) — one of the most influential works in regression therapy.",
-      longVersion: "Placeholder: Roger Woolger was a Jungian analyst and regression therapist with academic background in psychology, religion, and philosophy (Oxford, London).",
+      quote: "There are more things in heaven and earth than are dreamt of in our philosophy.",
+      featuredQuote: "There are more things in heaven and earth than are dreamt of in our philosophy.",
+      shortVersion: "Jungian analyst, regression therapist and teacher. Author of 'Other Lives, Other Selves' (1987) — one of the most influential works in regression therapy. Founder of Deep Memory Process (DMP).",
+      longVersion: `Roger Woolger was a Jungian analyst and regression therapist with academic background in psychology, religion, and philosophy (Oxford, London) and training at the C.G. Jung Institute Zürich. He was gifted in therapeutic guidance, bringing people through deeply transformative experiences with deep compassion, creating an atmosphere that was safe, contained, and deeply human.
+
+His special gift was making inner processes not just psychologically but spiritually readable: from dream and symbol work to Sufism, Western mysticism, and poetry, woven with music, story, meditation, and humor. This made regression for many more than technique: a lived experience of embodiment and soul work.
+
+"Other Lives, Other Selves" (1987) is one of the most influential works in regression therapy: a synthesis of Jungian depth psychology, bodywork, psychodrama, yoga psychology, shamanic perspectives, and meditative principles, including transitional and intermediate states from Tibetan teachings. Later, more accessible explorations of his work appeared as "Healing Your Past Lives" and other teaching formats.
+
+From his decades-long practice, he developed Deep Memory Process (DMP): an approach for deep memory access that combines regression, embodiment, dreamwork, meditation, and regression shamanism. He trained therapists internationally and shaped Spiritual Healing Conferences where themes like regression & shamanism, soul loss, exile/longing to return, and the sacred connection of body and spirit took center stage.`,
       sourceLabel: "Source",
       sourceUrl: "https://rogerwoolger.org/roger-woolger/",
     },
