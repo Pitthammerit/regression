@@ -303,7 +303,7 @@ Die Ergebnisse sind bemerkenswert: Kinder konnten detaillierte Informationen üb
 Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Division of Perceptual Studies fort, wo die Forschung bis heute weitergeführt wird.`,
 
       sourceLabel: "Quelle",
-      sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
+      sourceUrl: "https://med.virginia.edu/perceptual-studies/our-research/children-who-report-memories-of-previous-lives/",
     },
 // —————————————————————————————————————————————————————————
 // Author: Jim Tucker //
@@ -317,15 +317,15 @@ Sein Nachfolger Jim Tucker setzt diese Arbeit am University of Virginia's Divisi
       portraitFocus: "center",
       quote: "Researchers have now studied over 2500 cases in a project that is still ongoing.",
       featuredQuote: "Researchers have now studied over 2500 cases in a project that is still ongoing.",
-      shortVersion: "Quantitative Auswertung von 799 Fällen. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen Piloten im Zweiten Weltkrieg — gilt als einer der am besten dokumentierten weltweit.",
-      longVersion: `Jim B. Tucker ist Stevensons direkter Nachfolger an der University of Virginia's Division of Perceptual Studies (DOPS). Seine Arbeit konzentriert sich auf amerikanische Fälle von Kindern mit Erinnerungen an frühere Leben. In seinem Buch "Life Before Life" präsentiert er eine quantitative Analyse von 799 Fällen, die starke Muster aufzeigen: Die meisten Kinder beginnen im Alter von zwei bis drei Jahren über frühere Leben zu sprechen und hören meist zwischen fünf und sieben Jahren auf.
+      shortVersion: "Über 2.500 untersuchte Fälle weltweit. Der Fall James Leininger — Erinnerungen eines Zweijährigen an einen Piloten im Zweiten Weltkrieg — gilt als einer der am besten dokumentierten weltweit.",
+      longVersion: `Jim B. Tucker ist Stevensons direkter Nachfolger an der University of Virginia's Division of Perceptual Studies (DOPS). Seine Arbeit konzentriert sich auf amerikanische Fälle von Kindern mit Erinnerungen an frühere Leben. Die Forschung hat über 50 Jahre hinweg über 2.500 Fälle weltweit untersucht. Die Muster sind konsistent: Die meisten Kinder beginnen im Alter von zwei bis drei Jahren über frühere Leben zu sprechen und hören meist zwischen fünf und sieben Jahren auf.
 
 Einer seiner bekanntesten Fälle ist James Leininger: Ein Zweijähriger aus Louisiana, der detaillierte Erinnerungen an ein Leben als Pilot im Zweiten Weltkrieg beschrieb. Das Kind konnte spezifische Details nennen: den Namen des Piloten (James Huston), die Staffelzugehörigkeit (VF-38), den Flugzeugtyp (F4U Corsair), die Todesumstände (abgeschossen vor Iwo Jima) und sogar Namen von Kameraden. Später verifizierten seine Eltern alle diese Details als historisch akkurat.
 
-Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie finden weltweit statt, unabhängig von religiösem Hintergrund oder elterlicher Erziehung.`,
+Tuckers Arbeit zeigt, dass diese Fälle nicht kulturell begrenzt sind — sie finden weltweit statt, unabhängig von religiösem Hintergrund oder elterlicher Erziehung oder Glaube an Wiedergeburt.`,
 
       sourceLabel: "Quelle",
-      sourceUrl: "https://medicine.virginia.edu/developmental-psychiatry/",
+      sourceUrl: "https://med.virginia.edu/perceptual-studies/",
     },
 // —————————————————————————————————————————————————————————
 // Author: Brian Weiss //
