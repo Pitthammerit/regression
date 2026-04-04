@@ -280,7 +280,7 @@ export default function MultiPlayer({
           px-5 py-3 pointer-events-auto
           bg-gradient-to-t from-black/60 via-black/40 to-transparent
           transition-opacity duration-300`}
-        style={{ opacity: showControls ? 1 : 0 }}
+        style={{ opacity: !playing ? 1 : (controlsVisible ? 1 : 0) }}
       >
         {/* Time Display - NO glass, white text */}
         <div className="text-white text-xs font-medium">
