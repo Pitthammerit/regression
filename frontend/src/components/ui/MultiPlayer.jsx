@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo, useState } from 'react'
+import React, { useEffect, useRef, useMemo } from 'react'
 import YouTube from 'react-youtube'
 import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
 import useGlassPlayer from '../../hooks/useGlassPlayer'
@@ -14,7 +14,7 @@ import { formatTime } from '../../utils/timeFormat'
  * @param {string} [props.videoId] - Explicit video ID (for YouTube)
  * @param {string} [props.poster] - Thumbnail image URL
  * @param {string} [props.className] - Additional CSS classes
- * @param {Function} [props.onVideoEnded] - Callback when video end
+ * @param {Function} [props.onVideoEnded] - Callback when video ends
  */
 export default function MultiPlayer({
   type = 'r2',
@@ -29,12 +29,6 @@ export default function MultiPlayer({
 
   // Generate unique ID for this player instance
   const playerId = useMemo(() => `multi-player-${Math.random().toString(36).substr(2, 9)}`, [])
-
-  const [isFullscreen, setIsFullscreen] = useState(false)
-
-  // Inactivity timer for auto-hiding controls
-  const [controlsVisible, setControlsVisible] = useState(false)
-  const [lastMouseMove, setLastMouseMove] = useState(0)
 
   const {
     playerRef,
@@ -59,34 +53,6 @@ export default function MultiPlayer({
     onYouTubeReady,
     onYouTubeStateChange,
   } = useGlassPlayer({ type, src, videoId, onEnded: onVideoEnded })
-
-  // Track fullscreen state changes
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement)
-    }
-    document.addEventListener('fullscreenchange', handleFullscreenChange)
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
-  }, [])
-
-  // Auto-hide controls after 2s of inactivity when playing
-  useEffect(() => {
-    if (!playing) {
-      // Always show controls when paused
-      setControlsVisible(true)
-      return
-    }
-
-    // When playing, show controls initially
-    setControlsVisible(true)
-
-    // Hide after 2 seconds of inactivity
-    const timer = setTimeout(() => {
-      setControlsVisible(false)
-    }, 2000)
-
-    return () => clearTimeout(timer)
-  }, [playing, lastMouseMove])
 
   // Initialize liquidGL on mount
   useEffect(() => {
@@ -188,23 +154,11 @@ export default function MultiPlayer({
       id={playerId}
       className={`relative rounded-2xl overflow-hidden bg-black/40 group cursor-pointer ${className}`}
       style={{ opacity: 1 }}
-      onMouseMove={() => {
-        setLastMouseMove(Date.now())
-        setShowControls(true)
-      }}
-      onMouseLeave={() => {
-        setShowControls(false)
-        setControlsVisible(false)
-      }}
+      onMouseEnter={() => setShowControls(true)}
+      onMouseLeave={() => setShowControls(false)}
     >
       {/* Video Container */}
-      <div
-        className="relative aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto [&:fullscreen_&]:flex [&:fullscreen_&]:items-center [&:fullscreen_&]:justify-center"
-        onMouseMove={() => {
-          setLastMouseMove(Date.now())
-          setShowControls(true)
-        }}
-      >
+      <div className="relative aspect-video [&:fullscreen]:w-screen [&:fullscreen]:h-screen [&:fullscreen]:aspect-auto [&:fullscreen_&]:flex [&:fullscreen_&]:items-center [&:fullscreen_&]:justify-center">
         {/* Default gradient background when no poster */}
         {!started && !poster && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black" />
@@ -259,7 +213,7 @@ export default function MultiPlayer({
         {/* Play Button Overlay */}
         <div
           className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300
-            ${playing && !controlsVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+            ${playing && !showControls ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           onClick={playing ? handlePause : handlePlay}
         >
           <button
@@ -276,28 +230,29 @@ export default function MultiPlayer({
             )}
           </button>
         </div>
+      </div>
 
-        {/* Progress Bar - Blue background, white glass progress fill */}
+      {/* Progress Bar - Blue background, white glass progress fill */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
+          group/progress transition-opacity duration-300 pointer-events-auto z-30"
+        style={{ opacity: showControls ? 1 : 0 }}
+        onClick={handleProgressClick}
+      >
         <div
-          className="absolute bottom-0 left-0 right-0 h-[11px] bg-color-primary cursor-pointer
-            group/progress transition-opacity duration-300 pointer-events-auto z-30"
-          style={{ opacity: controlsVisible ? 1 : 0 }}
-          onClick={handleProgressClick}
-        >
-          <div
-            className="multi-player-progress-fill h-full backdrop-blur-sm bg-white/70 group-hover/progress:bg-white/90 transition-colors"
-            style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
-          />
-        </div>
+          className="multi-player-progress-fill h-full backdrop-blur-sm bg-white/70 group-hover/progress:bg-white/90 transition-colors"
+          style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
+        />
+      </div>
 
-        {/* Controls Bar - Dark gradient for contrast, NO glass */}
-        <div
-          className={`absolute bottom-[11px] left-0 right-0 flex items-center justify-between
-            px-5 py-3 pointer-events-auto
-            bg-gradient-to-t from-black/60 via-black/40 to-transparent
-            transition-opacity duration-300`}
-          style={{ opacity: controlsVisible ? 1 : 0 }}
-        >
+      {/* Controls Bar - Dark gradient for contrast, NO glass */}
+      <div
+        className={`absolute bottom-[11px] left-0 right-0 flex items-center justify-between
+          px-5 py-3 pointer-events-auto
+          bg-gradient-to-t from-black/60 via-black/40 to-transparent
+          transition-opacity duration-300`}
+        style={{ opacity: showControls ? 1 : 0 }}
+      >
         {/* Time Display - NO glass, white text */}
         <div className="text-white text-xs font-medium">
           {formatTime(currentTime)} / {formatTime(duration)}
@@ -314,7 +269,7 @@ export default function MultiPlayer({
             >
               {muted || volume === 0 ? <VolumeX size={16} /> : <Volume2 size={16} />}
             </button>
-            <div className="multi-player-volume-slider relative flex items-center">
+            <div className="multi-player-volume-slider relative">
               <input
                 type="range"
                 min="0"
@@ -345,6 +300,5 @@ export default function MultiPlayer({
         </div>
       </div>
     </div>
-  </div>
   )
 }
