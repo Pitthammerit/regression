@@ -82,7 +82,7 @@ This is a React app for "Regression" (Past Life Regression sessions by Benjamin 
 - Lokal: `http://localhost:3000` mit `npm --prefix frontend run dev`
 
 ### GitHub Direct Edit Workflow
-User sometimes edits `frontend/src/content/plr-de.js` directly on GitHub. When local changes conflict:
+User sometimes edits `frontend/src/content/regression-de.js` directly on GitHub. When local changes conflict:
 ```bash
 git stash push -m "WIP: description"
 git pull origin main
@@ -121,7 +121,7 @@ Common syntax error: missing commas in array literals (check line endings in `wh
 | **Large refactorings** (component changes, new features, architectural updates) | Create branch → push → open PR → test on Cloudflare preview → merge | High risk, needs testing before production |
 
 **Examples:**
-- ✅ **Small:** Fixing a typo in `plr-de.js`, changing a color class, updating testimonial text
+- ✅ **Small:** Fixing a typo in `regression-de.js`, changing a color class, updating testimonial text
 - ❌ **Large:** Refactoring EvidenceSection, adding new component, changing routing logic
 
 **Standard workflow for all changes:**
@@ -222,9 +222,9 @@ React Router is configured in `frontend/src/App.js`. Current routes:
 **Known issue:** No catch-all route (`path="*"`), so invalid URLs render blank. This should show a NotFound component.
 
 ### Content Layer
-Content lives in `frontend/src/content/plr-de.js` (German only). Components import content directly:
+Content lives in `frontend/src/content/regression-de.js` (German only). Components import content directly:
 ```js
-import { header, footer } from './content/plr-de'
+import { header, footer } from './content/regression-de'
 ```
 
 **Content management patterns:**
@@ -358,7 +358,7 @@ export const TESTIMONIALS_LIST = [
 4. Cloudflare deploys automatically
 
 ### Dynamic Authorities (Phase 2 Complete)
-File: `frontend/src/content/plr-de.js` — `evidence.authors` array
+File: `frontend/src/content/regression-de.js` — `evidence.authors` array
 
 Users can add, remove, or reorder scientific authorities:
 ```javascript
@@ -394,7 +394,7 @@ export const evidence = {
 - `sourceLabel` + `sourceUrl` — for attribution links
 
 ### Dynamic Resources (NEW — Phase 3)
-File: `frontend/src/content/plr-de.js` — `evidence.resources` array
+File: `frontend/src/content/regression-de.js` — `evidence.resources` array
 
 Users can add journals, books, audiobooks:
 ```javascript
@@ -434,7 +434,7 @@ export const evidence = {
 - Supports: `type: "journal" | "book" | "audiobook"` (extensible)
 
 ### Dynamic Podcasts (NEW — Phase 3)
-File: `frontend/src/content/plr-de.js` — `podcasts` array
+File: `frontend/src/content/regression-de.js` — `podcasts` array
 
 Users can add podcast episodes:
 ```javascript
@@ -454,7 +454,7 @@ export const podcasts = [
 - Future: `.map()` over array to show multiple episodes
 
 ### Dynamic Authorities (NEW — Phase 2)
-File: `frontend/src/content/plr-de.js` — `evidence.authorities` array
+File: `frontend/src/content/regression-de.js` — `evidence.authorities` array
 
 Users can add, remove, or reorder scientific authorities:
 ```javascript
@@ -487,7 +487,7 @@ export const evidence = {
 
 ## Known Issues
 
-1. **No i18n system yet**: Currently all content is German-only (`plr-de.js`).
+1. **No i18n system yet**: Currently all content is German-only (`regression-de.js`).
    - **Planned:** Multi-site architecture with i18n support (Regression, Reiki, Podcast sites)
    - See: `docs/plans/2026-03-30-multi-site-tailwind-v4-migration.md`
    - No catch-all route — invalid URLs render blank (should show NotFound)
@@ -541,7 +541,7 @@ Separate responsibilities in the code. Each component or function should handle 
 ### Project-Specific Principles
 
 #### 7. Single Source of Truth (CRITICAL)
-All user-facing content (text, images, links) must be stored in the content layer (`plr-de.js`).
+All user-facing content (text, images, links) must be stored in the content layer (`regression-de.js`).
 - Avoid hardcoding content in components
 - Use imports from content layer
 - When in doubt: if it's user-facing text, it belongs in content layer
@@ -573,8 +573,8 @@ Ensure all animations are consistent across the app.
 Prepare the content layer for future bilingual support.
 - **Keep content layer structure i18n-ready** - all strings in content files
 - **Don't mix languages in components** - no hardcoded German or English text
-- **Future implementation:** Create `plr-en.js` and implement language switching mechanism
-- **Current pattern:** All user-facing text in `plr-de.js` (content layer)
+- **Future implementation:** Create `regression-en.js` and implement language switching mechanism
+- **Current pattern:** All user-facing text in `regression-de.js` (content layer)
 
 ### Language & Communication
 - **Ask the user in German** — default to German for questions and explanations
